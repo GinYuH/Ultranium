@@ -36,6 +36,7 @@ namespace Ultranium
     }
     public class DepthsBiome : ModBiome
     {
+        public override ModWaterStyle WaterStyle => ModContent.GetInstance<DepthWater>();
         public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
 
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DarkDepths");

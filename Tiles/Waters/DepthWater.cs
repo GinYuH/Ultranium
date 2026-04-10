@@ -6,15 +6,11 @@ namespace Ultranium.Tiles.Waters;
 
 public class DepthWater : ModWaterStyle
 {
-	public override bool ChooseWaterStyle()
-	{
-		return Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneDepth;
-	}
 
 	public override int ChooseWaterfallStyle()
     {
-        return ModContent.Find<ModWaterfallStyle>("CalRemix/DepthWaterfall").Slot;
-	}
+        return ModContent.GetInstance<DepthWaterfall>().Slot;
+    }
 
 	public override int GetSplashDust()
 	{
