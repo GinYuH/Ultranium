@@ -13,17 +13,17 @@ internal class ShadowLamp : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileWaterDeath[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileWaterDeath[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.WaterDeath = true;
 		TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
 		TileObjectData.newTile.LavaPlacement = LiquidPlacement.NotAllowed;
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		((ModTile)this).AddMapEntry(new Color(31, 34, 40), Language.GetText("MapObject.FloorLamp"));
+		TileObjectData.addTile((int)Type);
+		AddMapEntry(new Color(31, 34, 40), Language.GetText("MapObject.FloorLamp"));
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -115,7 +115,7 @@ internal class ShadowLamp : ModTile
 		int num2 = 0;
 		int height = 16;
 		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
-		Texture2D texture = ((ModTile)this).Mod.GetTexture("Tiles/Furniture/ShadowLamp_Flame");
+		Texture2D texture = Mod.GetTexture("Tiles/Furniture/ShadowLamp_Flame");
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{

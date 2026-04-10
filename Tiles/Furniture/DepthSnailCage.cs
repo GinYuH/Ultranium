@@ -10,20 +10,20 @@ public class DepthSnailCage : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleSmallCage);
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.AnimationFrameHeight = 36;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Depth Snail Cage");
-		((ModTile)this).AddMapEntry(new Color(122, 217, 232), val);
+		AddMapEntry(new Color(122, 217, 232), val);
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 48, 32, ((ModTile)this).Mod.Find<ModItem>("DepthSnailCageItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DepthSnailCageItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -10,17 +11,17 @@ public class DreadTrophy : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.DustType = 7;
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		TileID.Sets.DisableSmartCursor[Type] = true;
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");
-		((ModTile)this).AddMapEntry(new Color(120, 85, 60), val);
+		AddMapEntry(new Color(120, 85, 60), val);
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -28,7 +29,7 @@ public class DreadTrophy : ModTile
 		int num = 0;
 		if (frameX / 54 == 0)
 		{
-			num = ((ModTile)this).Mod.Find<ModItem>("DreadTrophyItem").Type;
+			num = Mod.Find<ModItem>("DreadTrophyItem").Type;
 		}
 		if (num > 0)
 		{

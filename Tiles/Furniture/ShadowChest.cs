@@ -15,13 +15,13 @@ public class ShadowChest : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileSpelunker[((ModTile)this).Type] = true;
-		Main.tileContainer[((ModTile)this).Type] = true;
-		Main.tileShine2[((ModTile)this).Type] = true;
-		Main.tileShine[((ModTile)this).Type] = 1200;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileOreFinderPriority[((ModTile)this).Type] = 500;
+		Main.tileSpelunker[Type] = true;
+		Main.tileContainer[Type] = true;
+		Main.tileShine2[Type] = true;
+		Main.tileShine[Type] = 1200;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileOreFinderPriority[Type] = 500;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 		TileObjectData.newTile.Origin = new Point16(0, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
@@ -31,14 +31,14 @@ public class ShadowChest : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		TileObjectData.addTile((int)Type);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Eldritch Chest");
-		((ModTile)this).AddMapEntry(new Color(119, 0, 131), val, (Func<string, int, int, string>)MapChestName);
+		AddMapEntry(new Color(119, 0, 131), val, (Func<string, int, int, string>)MapChestName);
 		base.DustType = 0;
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		base.AdjTiles = new int[1] { 21 };
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowChestItem").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShadowChestItem").Type;
 		base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Shade Chest";
 	}
 
@@ -172,7 +172,7 @@ public class ShadowChest : ModTile
 			localPlayer.cursorItemIconText = ((Main.chest[num3].name.Length > 0) ? Main.chest[num3].name : "Shade Chest");
 			if (localPlayer.cursorItemIconText == "Shade Chest")
 			{
-				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowChestItem").Type;
+				localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowChestItem").Type;
 				localPlayer.cursorItemIconText = "";
 			}
 		}
@@ -182,7 +182,7 @@ public class ShadowChest : ModTile
 
 	public override void MouseOverFar(int i, int j)
 	{
-		((ModTile)this).MouseOver(i, j);
+		MouseOver(i, j);
 		Player localPlayer = Main.LocalPlayer;
 		if (localPlayer.cursorItemIconText == "")
 		{

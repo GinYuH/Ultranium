@@ -12,16 +12,16 @@ public class MoorhsumTile : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileCut[((ModTile)this).Type] = true;
-		Main.tileNoFail[((ModTile)this).Type] = true;
-		((ModTile)this).AddMapEntry(new Color(51, 49, 95), (LocalizedText)null);
+		Main.tileBlockLight[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileCut[Type] = true;
+		Main.tileNoFail[Type] = true;
+		AddMapEntry(new Color(51, 49, 95), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 		TileObjectData.newTile.AnchorValidTiles = new int[1] { 70 };
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		RegisterItemDrop(ModContent.ItemType<Moorhsum>());
     }
 

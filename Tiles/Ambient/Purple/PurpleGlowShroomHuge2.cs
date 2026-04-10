@@ -11,19 +11,19 @@ public class PurpleGlowShroomHuge2 : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileSolidTop[((ModTile)this).Type] = false;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileTable[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileBlockLight[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileSolidTop[Type] = false;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileTable[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x4);
 		TileObjectData.newTile.CoordinateHeights = new int[4] { 16, 16, 16, 16 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
-		((ModTile)this).AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+		TileObjectData.addTile((int)Type);
+		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
+		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
+		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -14,9 +14,9 @@ public class ShadowTreeSapling : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.Width = 1;
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.Origin = new Point16(0, 1);
@@ -31,12 +31,12 @@ public class ShadowTreeSapling : ModTile
 		TileObjectData.newTile.WaterPlacement = LiquidPlacement.NotAllowed;
 		TileObjectData.newTile.LavaDeath = true;
 		TileObjectData.newTile.RandomStyleRange = 3;
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		TileID.Sets.CommonSapling[(int)((ModTile)this).Type] = true;
-		TileID.Sets.TreeSapling[(int)((ModTile)this).Type] = true;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName();
+		TileObjectData.addTile((int)Type);
+		TileID.Sets.CommonSapling[(int)Type] = true;
+		TileID.Sets.TreeSapling[(int)Type] = true;
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Sapling");
-		((ModTile)this).AddMapEntry(new Color(200, 200, 200), val);
+		AddMapEntry(new Color(200, 200, 200), val);
 		base.DustType = 1;
 		base.AdjTiles = new int[1] { 20 };
 	}

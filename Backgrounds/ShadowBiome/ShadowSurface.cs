@@ -10,15 +10,6 @@ namespace Ultranium.Backgrounds.ShadowBiome;
 
 public class ShadowSurface : ModSurfaceBackgroundStyle
 {
-	public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
-	{
-		if (!Main.gameMenu)
-		{
-			return Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().ZoneShadow;
-		}
-		return false;
-	}
-
 	public override void ModifyFarFades(float[] fades, float transitionSpeed)
 	{
 		for (int i = 0; i < fades.Length; i++)

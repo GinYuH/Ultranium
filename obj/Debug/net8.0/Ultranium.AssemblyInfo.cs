@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ultranium")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c0b19c8cf7ef0a5de6a9c8f397f8ab7dd82ccc2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcef387356a3ad1c44a35fd32d84dc407a8764c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ultranium")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ultranium")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

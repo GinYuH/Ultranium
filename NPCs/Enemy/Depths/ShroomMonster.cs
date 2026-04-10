@@ -54,9 +54,9 @@ public class ShroomMonster : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/ShroomGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/ShroomGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/ShroomGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore3"));
 		}
 	}
 

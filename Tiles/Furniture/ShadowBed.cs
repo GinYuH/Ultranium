@@ -12,14 +12,14 @@ public class ShadowBed : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
-		TileID.Sets.HasOutlines[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileLavaDeath[Type] = true;
+		TileID.Sets.HasOutlines[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
-		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
+		TileObjectData.addTile((int)Type);
+		LocalizedText val = CreateMapEntryName();
+		AddMapEntry(new Color(31, 34, 40), val);
 		// val.SetDefault("Bed");
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		base.AdjTiles = new int[1] { 79 };

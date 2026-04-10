@@ -11,15 +11,15 @@ public class DepthVines : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileCut[((ModTile)this).Type] = true;
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
-		Main.tileNoFail[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
+		Main.tileCut[Type] = true;
+		Main.tileBlockLight[Type] = true;
+		Main.tileLavaDeath[Type] = true;
+		Main.tileNoFail[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileLighted[Type] = true;
 		base.HitSound = 6;
 		base.DustType = 89;
-		((ModTile)this).AddMapEntry(new Color(21, 90, 48), (LocalizedText)null);
+		AddMapEntry(new Color(21, 90, 48), (LocalizedText)null);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
@@ -32,7 +32,7 @@ public class DepthVines : ModTile
 	public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 1);
-		if (tileSafely.HasTile && tileSafely.TileType == ((ModTile)this).Type)
+		if (tileSafely.HasTile && tileSafely.TileType == Type)
 		{
 			WorldGen.KillTile(i, j + 1);
 		}
@@ -46,7 +46,7 @@ public class DepthVines : ModTile
 		{
 			num = tileSafely.TileType;
 		}
-		if (num == ModContent.TileType<DarkStone>() || num == ((ModTile)this).Type)
+		if (num == ModContent.TileType<DarkStone>() || num == Type)
 		{
 			return true;
 		}
@@ -80,7 +80,7 @@ public class DepthVines : ModTile
 		}
 		if (flag)
 		{
-			tileSafely.TileType = ((ModTile)this).Type;
+			tileSafely.TileType = Type;
 			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)

@@ -12,19 +12,19 @@ public class ShadowLantern : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileSolidTop[((ModTile)this).Type] = false;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = false;
-		Main.tileLighted[((ModTile)this).Type] = true;
+		Main.tileSolidTop[Type] = false;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileLavaDeath[Type] = false;
+		Main.tileLighted[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
-		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTorch);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Lantern");
-		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
+		AddMapEntry(new Color(31, 34, 40), val);
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
 	}
 
@@ -53,7 +53,7 @@ public class ShadowLantern : ModTile
 		int num2 = 0;
 		int height = 8;
 		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
-		Texture2D texture = ((ModTile)this).Mod.GetTexture("Tiles/Furniture/ShadowLantern_Flame");
+		Texture2D texture = Mod.GetTexture("Tiles/Furniture/ShadowLantern_Flame");
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{
@@ -65,7 +65,7 @@ public class ShadowLantern : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 16, 32, ((ModTile)this).Mod.Find<ModItem>("ShadowLanternItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 16, 32, Mod.Find<ModItem>("ShadowLanternItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

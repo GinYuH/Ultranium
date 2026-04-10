@@ -11,17 +11,17 @@ public class PurpleGlowShroom : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileCut[((ModTile)this).Type] = true;
-		Main.tileNoFail[((ModTile)this).Type] = true;
-		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
-		((ModTile)this).AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+		Main.tileBlockLight[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileCut[Type] = true;
+		Main.tileNoFail[Type] = true;
+		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
+		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
-		TileObjectData.newTile.AnchorValidTiles = new int[1] { ((ModTile)this).Mod.Find<ModTile>("PurpleShadowGrass").Type };
+		TileObjectData.newTile.AnchorValidTiles = new int[1] { Mod.Find<ModTile>("PurpleShadowGrass").Type };
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		RegisterItemDrop(ModContent.ItemType<GlowShroomItem>());
     }
 

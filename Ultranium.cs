@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.GameContent.Shaders;
 using Terraria.GameContent.UI;
@@ -406,8 +407,8 @@ internal class Ultranium : Mod
 			SkyManager.Instance["Ultranium:Aldin"] = new AldinSky();
 			if (Main.netMode != 2)
 			{
-				Ref<Effect> @ref = new Ref<Effect>(((Mod)this).GetEffect("Effects/ShockwaveEffect"));
-				Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(@ref, "Shockwave"), EffectPriority.VeryHigh);
+				Asset<Effect> @ref = mod.Assets.Request<Effect>("Effects/ShockwaveEffect");
+                Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(@ref, "Shockwave"), EffectPriority.VeryHigh);
 				Filters.Scene["Shockwave"].Load();
 			}
 			SpecialKey = KeybindLoader.RegisterKeybind(((Mod)this), "Special Ability", "E");

@@ -9,19 +9,19 @@ public class DepthGlowstone : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowGrass>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DarkStone>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DepthGlowstone>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<AbyssRock>()] = true;
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileMergeDirt[((ModTile)this).Type] = true;
-		Main.tileSolid[((ModTile)this).Type] = true;
-		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
+		Main.tileMerge[Type][ModContent.TileType<ShadowGrass>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<DarkStone>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<DepthGlowstone>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<AbyssRock>()] = true;
+		Main.tileBlockLight[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileMergeDirt[Type] = true;
+		Main.tileSolid[Type] = true;
+		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
 		base.DustType = 89;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("DepthGlowstoneItem").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DepthGlowstoneItem").Type;
 		base.HitSound = 21;
-		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
+		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 		base.MineResist = 5f;
 		base.MinPick = 200;
 	}

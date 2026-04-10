@@ -36,9 +36,9 @@ public class ShadeBat : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/DepthsBatGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/DepthsBatGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/DepthsBatGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore3"));
 		}
 	}
 

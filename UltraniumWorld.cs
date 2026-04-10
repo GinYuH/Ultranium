@@ -334,7 +334,7 @@ public class UltraniumWorld : ModSystem
 		ShadowTiles = tileCounts[Mod.Find<ModTile>("ShadowGrass").Type] + tileCounts[Mod.Find<ModTile>("ShadowStoneTile").Type];
 	}
 
-	private void GenGuardianShrine(GenerationProgress progress)
+	private static void GenGuardianShrine()
 	{
 		bool flag = false;
 		while (!flag)
@@ -360,9 +360,9 @@ public class UltraniumWorld : ModSystem
 		}
 	}
 
-	private void GenShadow(GenerationProgress progress)
+	private static void GenShadow()
 	{
-		progress.Message = "Spreading the shadows...";
+		Mod Mod = ModLoader.GetMod("Ultranium");
 		int num = (int)((float)Main.maxTilesX * 0f);
 		int num2 = (int)((float)Main.maxTilesY * 0f);
 		int num3 = 0;
@@ -453,7 +453,7 @@ public class UltraniumWorld : ModSystem
 		}
 	}
 
-	private void GenDepths(GenerationProgress progress)
+	private static void GenDepths()
 	{
 		int x = (int)((float)Main.maxTilesX * 0f);
 		int y = (int)((float)Main.maxTilesY * 0f);
@@ -475,7 +475,7 @@ public class UltraniumWorld : ModSystem
 		Depths.Generate(x, y);
 	}
 
-	private void GenDepthsClear(GenerationProgress progress)
+	private static void GenDepthsClear()
 	{
 		int x = (int)((float)Main.maxTilesX * 0f);
 		int y = (int)((float)Main.maxTilesY * 0f);
@@ -497,19 +497,19 @@ public class UltraniumWorld : ModSystem
 		DepthsClear.Generate(x, y);
 	}
 
-	public unsafe override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
+	public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
 	{
 		int num = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Slush"));
 		if (num != -1)
 		{
-			tasks.Insert(num + 1, (GenPass)(object)new PassLegacy("ShadowBiome", new WorldGenLegacyMethod(this, (nint)__ldftn(UltraniumWorld.GenShadow))));
-			tasks.Insert(num + 1, (GenPass)(object)new PassLegacy("Depths", new WorldGenLegacyMethod(this, (nint)__ldftn(UltraniumWorld.GenDepthsClear))));
-			int num2 = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Micro Biomes"));
+			tasks.Insert(num + 1, (GenPass)(object)new PassLegacy("ShadowBiome", (progress, config) => { GenShadow(); progress.Message = "Spreading the shadows..."; }));
+            tasks.Insert(num + 1, (GenPass)(object)new PassLegacy("Depths", (progress, config) => GenDepthsClear()));
+            int num2 = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Micro Biomes"));
 			if (num2 != -1)
 			{
-				tasks.Insert(num2 + 1, (GenPass)(object)new PassLegacy("Depths", new WorldGenLegacyMethod(this, (nint)__ldftn(UltraniumWorld.GenDepths))));
-				tasks.Insert(num2 + 1, (GenPass)(object)new PassLegacy("Shrine", new WorldGenLegacyMethod(this, (nint)__ldftn(UltraniumWorld.GenGuardianShrine))));
-			}
+				tasks.Insert(num2 + 1, (GenPass)(object)new PassLegacy("Depths", (progress, config) => GenDepths()));
+				tasks.Insert(num2 + 1, (GenPass)(object)new PassLegacy("Shrine", (progress, config) => GenGuardianShrine()));
+            }
 		}
 	}
 

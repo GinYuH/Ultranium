@@ -14,10 +14,10 @@ public class ShadowDoorOpen : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileSolid[((ModTile)this).Type] = false;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
-		Main.tileNoSunLight[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileSolid[Type] = false;
+		Main.tileLavaDeath[Type] = true;
+		Main.tileNoSunLight[Type] = true;
 		TileObjectData.newTile.Width = 2;
 		TileObjectData.newTile.Height = 3;
 		TileObjectData.newTile.Origin = new Point16(0, 0);
@@ -56,16 +56,16 @@ public class ShadowDoorOpen : ModTile
 		TileObjectData.newAlternate.AnchorBottom = new AnchorData(AnchorType.SolidTile, 1, 1);
 		TileObjectData.newAlternate.Direction = TileObjectDirection.PlaceLeft;
 		TileObjectData.addAlternate(1);
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
-		TileID.Sets.HousingWalls[((ModTile)this).Type] = true;
-		TileID.Sets.HasOutlines[((ModTile)this).Type] = true;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		TileObjectData.addTile((int)Type);
+		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
+		TileID.Sets.HousingWalls[Type] = true;
+		TileID.Sets.HasOutlines[Type] = true;
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Door");
-		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
+		AddMapEntry(new Color(31, 34, 40), val);
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		base.AdjTiles = new int[1] { 11 };
-		base.closeDoorID = ((ModTile)this).Mod.Find<ModTile>("ShadowDoorClosed").Type;
+		base.closeDoorID = Mod.Find<ModTile>("ShadowDoorClosed").Type;
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -80,7 +80,7 @@ public class ShadowDoorOpen : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 32, 48, ((ModTile)this).Mod.Find<ModItem>("ShadowDoorItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 32, 48, Mod.Find<ModItem>("ShadowDoorItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void MouseOver(int i, int j)
@@ -88,6 +88,6 @@ public class ShadowDoorOpen : ModTile
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
 		localPlayer.cursorItemIconEnabled = true;
-		localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDoorItem").Type;
+		localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowDoorItem").Type;
 	}
 }

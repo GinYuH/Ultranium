@@ -11,16 +11,16 @@ public class DarkStone : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowGrass>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<AbyssRock>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DepthGlowstone>()] = true;
-		Main.tileSolid[((ModTile)this).Type] = true;
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		((ModTile)this).AddMapEntry(new Color(31, 29, 49), (LocalizedText)null);
-		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustBlack").Type;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("DarkStoneItem").Type;
+		Main.tileMerge[Type][ModContent.TileType<ShadowGrass>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<AbyssRock>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<DepthGlowstone>()] = true;
+		Main.tileSolid[Type] = true;
+		Main.tileBlockLight[Type] = true;
+		AddMapEntry(new Color(31, 29, 49), (LocalizedText)null);
+		base.DustType = Mod.Find<ModDust>("ShadowDustBlack").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkStoneItem").Type;
 		base.HitSound = 21;
-		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
+		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 		base.MineResist = 7f;
 		base.MinPick = 200;
 	}

@@ -146,28 +146,6 @@ public class UltraniumPlayer : ModPlayer
 
 	public bool EldritchSummonEye;
 
-	public override void UpdateBiomeVisuals()
-	{
-		bool flag = NPC.AnyNPCs(ModContent.NPCType<IceDragon>()) && IceDragon.BlizzardEffect;
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Blizzard", flag, default(Vector2));
-		bool flag2 = NPC.AnyNPCs(ModContent.NPCType<DreadBoss>());
-		bool flag3 = NPC.AnyNPCs(ModContent.NPCType<DreadBossP2>());
-		bool flag4 = NPC.AnyNPCs(ModContent.NPCType<FakeDread>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:DreadBoss", flag2 || flag3 || flag4, default(Vector2));
-		bool flag5 = NPC.AnyNPCs(ModContent.NPCType<Xenanis>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:EtherealBoss", flag5, default(Vector2));
-		bool flag6 = NPC.AnyNPCs(ModContent.NPCType<Ultrum>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Ultrum", flag6, default(Vector2));
-		bool flag7 = NPC.AnyNPCs(ModContent.NPCType<TrueDread>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:TrueDread", flag7, default(Vector2));
-		bool flag8 = NPC.AnyNPCs(ModContent.NPCType<Ignodium>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Ignodium", flag8, default(Vector2));
-		bool flag11 = NPC.AnyNPCs(ModContent.NPCType<ErebusHead>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Erebus", flag11, default(Vector2));
-		bool flag12 = NPC.AnyNPCs(ModContent.NPCType<Aldin>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Aldin", flag12, default(Vector2));
-	}
-
 	public override void PostUpdateEquips()
 	{
 		if (EldritchSummonEye)

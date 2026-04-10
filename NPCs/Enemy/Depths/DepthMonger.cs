@@ -35,9 +35,9 @@ public class DepthMonger : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/MongerGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/MongerGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/MongerGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore3"));
 		}
 	}
 

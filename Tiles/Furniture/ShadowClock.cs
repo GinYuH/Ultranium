@@ -11,18 +11,18 @@ public class ShadowClock : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		TileID.Sets.HasOutlines[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		TileID.Sets.HasOutlines[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
 		TileObjectData.newTile.Height = 5;
 		TileObjectData.newTile.CoordinateHeights = new int[5] { 16, 16, 16, 16, 16 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		TileObjectData.addTile((int)Type);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Clock");
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
-		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
+		AddMapEntry(new Color(31, 34, 40), val);
 		base.AdjTiles = new int[1] { 104 };
 		base.AnimationFrameHeight = 88;
 	}
@@ -93,6 +93,6 @@ public class ShadowClock : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 48, 32, ((ModTile)this).Mod.Find<ModItem>("ShadowClockItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 48, 32, Mod.Find<ModItem>("ShadowClockItem").Type, 1, false, 0, false, false);
 	}
 }

@@ -11,20 +11,20 @@ public class MiscBanners : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1x2Top);
 		TileObjectData.newTile.Height = 3;
 		TileObjectData.newTile.CoordinateHeights = new int[3] { 16, 16, 16 };
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 111;
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.DustType = -1;
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Banner");
-		((ModTile)this).AddMapEntry(new Color(13, 88, 130), val);
+		AddMapEntry(new Color(13, 88, 130), val);
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -50,7 +50,7 @@ public class MiscBanners : ModTile
 			text = "OrcaBanner";
 			break;
 		}
-		Item.NewItem(null, i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 16, 48, Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
 	}
 
 	public override void NearbyEffects(int i, int j, bool closer)
@@ -79,7 +79,7 @@ public class MiscBanners : ModTile
 				text = "Orca";
 				break;
 			}
-			localPlayer.NPCBannerBuff[((ModTile)this).Mod.Find<ModNPC>(text).Type] = true;
+			localPlayer.NPCBannerBuff[Mod.Find<ModNPC>(text).Type] = true;
 			localPlayer.hasBanner = true;
 		}
 	}

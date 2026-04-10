@@ -37,10 +37,10 @@ public class DepthCrawler : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore3"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore4"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore4"));
 		}
 	}
 

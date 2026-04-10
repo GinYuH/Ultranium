@@ -15,12 +15,12 @@ public class ShadowDresser : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileSolidTop[((ModTile)this).Type] = true;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileTable[((ModTile)this).Type] = true;
-		Main.tileContainer[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileSolidTop[Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoAttach[Type] = true;
+		Main.tileTable[Type] = true;
+		Main.tileContainer[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 		TileObjectData.newTile.Origin = new Point16(1, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
@@ -30,13 +30,13 @@ public class ShadowDresser : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-		((ModTile)this).AddMapEntry(new Color(121, 14, 203), (LocalizedText)null);
+		TileObjectData.addTile((int)Type);
+		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
+		AddMapEntry(new Color(121, 14, 203), (LocalizedText)null);
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		base.AdjTiles = new int[1] { 88 };
 		base.dresser/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Dresser";
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShadowDresserItem").Type;
 	}
 
 	public override bool RightClick(int i, int j)
@@ -157,7 +157,7 @@ public class ShadowDresser : ModTile
 			}
 			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 			{
-				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
+				localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowDresserItem").Type;
 				localPlayer.cursorItemIconText = "";
 			}
 		}
@@ -199,7 +199,7 @@ public class ShadowDresser : ModTile
 			}
 			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 			{
-				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
+				localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowDresserItem").Type;
 				localPlayer.cursorItemIconText = "";
 			}
 		}

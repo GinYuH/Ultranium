@@ -11,18 +11,18 @@ internal class ShadowFlora : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileSolid[((ModTile)this).Type] = false;
-		Main.tileSolidTop[((ModTile)this).Type] = false;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileCut[((ModTile)this).Type] = true;
+		Main.tileSolid[Type] = false;
+		Main.tileSolidTop[Type] = false;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileCut[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1x1);
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.StyleHorizontal = true;
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.DustType = 89;
-		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
+		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
 		base.HitSound = 6;
-		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
+		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 	}
 
 	public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)

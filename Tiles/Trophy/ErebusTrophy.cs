@@ -10,17 +10,17 @@ public class ErebusTrophy : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileLavaDeath[Type] = true;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x3Wall);
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
-		TileObjectData.addTile((int)((ModTile)this).Type);
+		TileObjectData.addTile((int)Type);
 		base.DustType = 7;
 		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
-		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");
-		((ModTile)this).AddMapEntry(new Color(120, 85, 60), val);
+		AddMapEntry(new Color(120, 85, 60), val);
 	}
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
@@ -28,7 +28,7 @@ public class ErebusTrophy : ModTile
 		int num = 0;
 		if (frameX / 54 == 0)
 		{
-			num = ((ModTile)this).Mod.Find<ModItem>("ErebusTrophyItem").Type;
+			num = Mod.Find<ModItem>("ErebusTrophyItem").Type;
 		}
 		if (num > 0)
 		{

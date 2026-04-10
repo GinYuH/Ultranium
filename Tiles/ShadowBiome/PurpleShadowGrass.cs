@@ -13,18 +13,18 @@ public class PurpleShadowGrass : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileMergeDirt[((ModTile)this).Type] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowOreTile>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DarkStone>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DepthGlowstone>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<AbyssRock>()] = true;
-		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowStoneTile>()] = true;
-		Main.tileSolid[((ModTile)this).Type] = true;
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		((ModTile)this).AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
-		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
-		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowSoilDust").Type;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("PurpleShadowGrassItem").Type;
+		Main.tileMergeDirt[Type] = true;
+		Main.tileMerge[Type][ModContent.TileType<ShadowOreTile>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<DarkStone>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<DepthGlowstone>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<AbyssRock>()] = true;
+		Main.tileMerge[Type][ModContent.TileType<ShadowStoneTile>()] = true;
+		Main.tileSolid[Type] = true;
+		Main.tileBlockLight[Type] = true;
+		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
+		SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
+		base.DustType = Mod.Find<ModDust>("ShadowSoilDust").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("PurpleShadowGrassItem").Type;
 		base.MineResist = 1f;
 		base.MinPick = 1;
 	}

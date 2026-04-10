@@ -10,18 +10,18 @@ public class PurpleGlowShroomTall : ModTile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.tileBlockLight[((ModTile)this).Type] = true;
-		Main.tileLighted[((ModTile)this).Type] = true;
-		Main.tileFrameImportant[((ModTile)this).Type] = true;
-		Main.tileNoFail[((ModTile)this).Type] = true;
-		Main.tileMergeDirt[((ModTile)this).Type] = true;
-		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
+		Main.tileBlockLight[Type] = true;
+		Main.tileLighted[Type] = true;
+		Main.tileFrameImportant[Type] = true;
+		Main.tileNoFail[Type] = true;
+		Main.tileMergeDirt[Type] = true;
+		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
 		base.HitSound = 6;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
-		TileObjectData.addTile((int)((ModTile)this).Type);
-		((ModTile)this).AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+		TileObjectData.addTile((int)Type);
+		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
