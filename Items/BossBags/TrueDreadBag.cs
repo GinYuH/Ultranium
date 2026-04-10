@@ -1,26 +1,28 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Dread.TrueDread;
 
 namespace Ultranium.Items.BossBags;
 
 public class TrueDreadBag : ModItem
 {
-	public override int BossBagNPC => ((ModItem)this).Mod.Find<ModNPC>("TrueDread").Type;
-
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Treasure Bag");
-		// ((ModItem)this).Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-	}
+		// DisplayName.SetDefault("Treasure Bag");
+		// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		ItemID.Sets.BossBag[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.consumable = true;
-		((Entity)(object)((ModItem)this).Item).width = 36;
-		((Entity)(object)((ModItem)this).Item).height = 34;
-		((ModItem)this).Item.rare = -12;
-		((ModItem)this).Item.expert = true;
+		Item.maxStack = 999;
+		Item.consumable = true;
+		Item.width = 36;
+		Item.height = 34;
+		Item.rare = -12;
+		Item.expert = true;
 	}
 
 	public override bool CanRightClick()
@@ -28,39 +30,10 @@ public class TrueDreadBag : ModItem
 		return true;
 	}
 
-	public override void OpenBossBag(Player player)
-	{
-		player.TryGettingDevArmor();
-		int num = Main.rand.Next(7);
-		if (num == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadSpear").Type, 1);
-		}
-		if (num == 1)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadYoyo").Type, 1);
-		}
-		if (num == 2)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadDisc").Type, 1);
-		}
-		if (num == 3)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadFlameBlaster").Type, 1);
-		}
-		if (num == 4)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("FearStaff").Type, 1);
-		}
-		if (num == 5)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadTome").Type, 1);
-		}
-		if (num == 6)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DreadScepter").Type, 1);
-		}
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("NightmareFuel").Type, Main.rand.Next(30, 45));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("TrueDreadHeart").Type, 1);
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("NightmareFuel").Type, 1, 30, 44));
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("TrueDreadHeart").Type));
+		itemLoot.Add(ItemDropRule.OneFromOptions(1, new int[] { ModContent.ItemType<DreadSpear>(), ModContent.ItemType<DreadYoyo>(), ModContent.ItemType<DreadDisc>(), ModContent.ItemType<DreadFlameBlaster>(), ModContent.ItemType<FearStaff>(), ModContent.ItemType<DreadTome>(), ModContent.ItemType<DreadScepter>() }));
+    }
 }

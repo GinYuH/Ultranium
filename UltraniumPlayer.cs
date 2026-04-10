@@ -1,15 +1,17 @@
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Default;
 using Ultranium.Items.BossSummon;
 using Ultranium.Items.Fishing;
+using Ultranium.Items.Pets.Console;
 using Ultranium.NPCs.Aldin;
 using Ultranium.NPCs.Dread;
 using Ultranium.NPCs.Enemy.Critter;
@@ -176,10 +178,10 @@ public class UltraniumPlayer : ModPlayer
 	{
 		if (EldritchSummonEye)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("AbyssEyeBuff").Type, 3600, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("AbyssEyeBuff").Type, 3600, quiet: false);
 			if (((ModPlayer)this).Player.ownedProjectileCounts[((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type] <= 0)
 			{
-				Projectile.NewProjectile(((ModPlayer)this).Player.position, Vector2.Zero, ((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type, 135, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModPlayer)this).Player.position, Vector2.Zero, ((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type, 135, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
 			}
 		}
 		if (MushroomSet)
@@ -217,21 +219,17 @@ public class UltraniumPlayer : ModPlayer
 		if (EldritchFlower && proj.minion)
 		{
 			target.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("DarkDebuff").Type, 180);
-		}
-	}
-
-	public override void ModifyHitNPCWithProj(Projectile proj, NPC target, ref NPC.HitModifiers modifiers)/* tModPorter If you don't need the Projectile, consider using ModifyHitNPC instead */
-	{
-		if ((TrueDreadHeart & crit) && proj.type != 632 && Utils.NextBool(Main.rand, 5) && Main.myPlayer == ((ModPlayer)this).Player.whoAmI)
-		{
-			Vector2 spinningpoint = new Vector2(5f, 0f).RotatedByRandom(Math.PI * 2.0);
-			for (int i = 0; i < 3; i++)
-			{
-				Vector2 vector = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)i + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(target.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			}
-		}
-	}
+        }
+        if ((TrueDreadHeart & hit.Crit) && proj.type != 632 && Utils.NextBool(Main.rand, 5) && Main.myPlayer == ((ModPlayer)this).Player.whoAmI)
+        {
+            Vector2 spinningpoint = new Vector2(5f, 0f).RotatedByRandom(Math.PI * 2.0);
+            for (int i = 0; i < 3; i++)
+            {
+                Vector2 vector = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)i + Main.rand.NextDouble() - 0.5));
+                Projectile.NewProjectile(null, target.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+            }
+        }
+    }
 
 	public override void ProcessTriggers(TriggersSet triggersSet)
 	{
@@ -241,8 +239,8 @@ public class UltraniumPlayer : ModPlayer
 		}
 		if (EldritchSummonSet && ((ModPlayer)this).Player.FindBuffIndex(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type) < 0)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchSummonBuff").Type, 360, fromNetPvP: true);
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchSummonBuff").Type, 360, quiet: false);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, quiet: false);
 			SoundEngine.PlaySound(SoundID.DD2_EtherianPortalSpawnEnemy, ((ModPlayer)this).Player.Center);
 			int num = 35;
 			for (int i = 0; i < num; i++)
@@ -256,8 +254,8 @@ public class UltraniumPlayer : ModPlayer
 		}
 		if (EldritchMagicSet && ((ModPlayer)this).Player.FindBuffIndex(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type) < 0)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchMagicBuff").Type, 360, fromNetPvP: true);
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchMagicBuff").Type, 360, quiet: false);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, quiet: false);
 			SoundEngine.PlaySound(SoundID.DD2_EtherianPortalSpawnEnemy, ((ModPlayer)this).Player.Center);
 			int num2 = 35;
 			for (int j = 0; j < num2; j++)
@@ -271,8 +269,8 @@ public class UltraniumPlayer : ModPlayer
 		}
 		if (EldritchMeleeSet && ((ModPlayer)this).Player.FindBuffIndex(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type) < 0)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchMeleeBuff").Type, 360, fromNetPvP: true);
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchMeleeBuff").Type, 360, quiet: false);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, quiet: false);
 			SoundEngine.PlaySound(SoundID.DD2_EtherianPortalSpawnEnemy, ((ModPlayer)this).Player.Center);
 			int num3 = 35;
 			for (int k = 0; k < num3; k++)
@@ -286,8 +284,8 @@ public class UltraniumPlayer : ModPlayer
 		}
 		if (EldritchRangedSet && ((ModPlayer)this).Player.FindBuffIndex(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type) < 0)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchRangedBuff").Type, 360, fromNetPvP: true);
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchRangedBuff").Type, 360, quiet: false);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EldritchCooldown").Type, 2400, quiet: false);
 			SoundEngine.PlaySound(SoundID.DD2_EtherianPortalSpawnEnemy, ((ModPlayer)this).Player.Center);
 			int num4 = 35;
 			for (int l = 0; l < num4; l++)
@@ -301,13 +299,13 @@ public class UltraniumPlayer : ModPlayer
 		}
 		if (XenanisCore && ((ModPlayer)this).Player.FindBuffIndex(((ModPlayer)this).Mod.Find<ModBuff>("EtherealCooldown").Type) < 0)
 		{
-			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EtherealCooldown").Type, 900, fromNetPvP: true);
+			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("EtherealCooldown").Type, 900, quiet: false);
 			for (int m = 0; m < 7; m++)
 			{
 				Vector2 vector9 = (0.8975979f * (float)m).ToRotationVector2();
 				vector9.Normalize();
 				vector9 *= 7f;
-				Projectile.NewProjectile(((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector9.X, vector9.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("EtherealCoreBolt").Type, 75, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector9.X, vector9.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("EtherealCoreBolt").Type, 75, 1f, Main.myPlayer, 0f, 0f);
 			}
 			int num5 = 35;
 			for (int n = 0; n < num5; n++)
@@ -325,17 +323,16 @@ public class UltraniumPlayer : ModPlayer
 
 	public override void ModifyHurt(ref Player.HurtModifiers modifiers)
 	{
-		damage = (int)((float)damage * damageTaken);
-		return ((ModPlayer)this).ModifyHurt(pvp, quiet, ref damage, ref hitDirection, ref crit, ref customDamage, ref playSound, ref genGore, ref damageSource);
+		modifiers.SourceDamage.Base = (int)((float)modifiers.SourceDamage.Base * damageTaken);
 	}
 
 	public override void OnHurt(Player.HurtInfo info)
 	{
 		if (MushroomSet && Main.rand.Next(2) == 0)
 		{
-			Projectile.NewProjectile(((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
 		}
 		if (DreadHeart && Main.rand.Next(3) == 0)
 		{
@@ -343,7 +340,7 @@ public class UltraniumPlayer : ModPlayer
 			for (int i = 0; i < 3; i++)
 			{
 				Vector2 vector = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)i + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(((ModPlayer)this).Player.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBall").Type, 75, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBall").Type, 75, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (TrueDreadHeart && Main.rand.Next(2) == 0)
@@ -352,7 +349,7 @@ public class UltraniumPlayer : ModPlayer
 			for (int j = 0; j < 5; j++)
 			{
 				Vector2 vector2 = spinningpoint2.RotatedBy(Math.PI * 2.0 / 5.0 * ((double)j + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(((ModPlayer)this).Player.Center, vector2, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center, vector2, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (StellarSet && Main.rand.Next(3) == 0)
@@ -362,7 +359,7 @@ public class UltraniumPlayer : ModPlayer
 				Vector2 vector3 = ((float)Math.PI / 4f * (float)k).ToRotationVector2();
 				vector3.Normalize();
 				vector3 *= 14f;
-				Projectile.NewProjectile(((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector3.X, vector3.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("StellarComet").Type, 70, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector3.X, vector3.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("StellarComet").Type, 70, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 	}
@@ -431,31 +428,35 @@ public class UltraniumPlayer : ModPlayer
 		ZoneTemple = bitsByte[2];
 	}
 
-	public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)/* tModPorter Suggestion: Return an Item array to add to the players starting items. Use ModifyStartingInventory for modifying them if needed */
-	{
-		Item item = new Item();
-		item.SetDefaults(((ModPlayer)this).Mod.Find<ModItem>("Cabbage").Type, false);
-		items.Add(item);
-	}
+    public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)
+    {
+        static Item createItem(int type)
+        {
+            Item i = new Item();
+            i.SetDefaults(type);
+            return i;
+        }
 
-	public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
+        if (!mediumCoreDeath)
+            yield return createItem(ModContent.ItemType<Cabbage>());
+    }
+
+    public override void CatchFish(FishingAttempt attempt, ref int itemDrop, ref int npcSpawn, ref AdvancedPopupRequest sonar, ref Vector2 sonarPosition)
 	{
-		if (junk)
-		{
-			return;
-		}
-		UltraniumPlayer modPlayer = ((ModPlayer)this).Player.GetModPlayer<UltraniumPlayer>();
+        if (itemDrop == ItemID.OldShoe || itemDrop == ItemID.FishingSeaweed || itemDrop == ItemID.TinCan || itemDrop == ItemID.JojaCola)
+            return;
+        UltraniumPlayer modPlayer = ((ModPlayer)this).Player.GetModPlayer<UltraniumPlayer>();
 		if (modPlayer.ZoneShadow && Utils.NextBool(Main.rand, 5))
 		{
-			caughtType = ModContent.ItemType<SpectreFishItem>();
+            attempt.rolledEnemySpawn = ModContent.ItemType<SpectreFishItem>();
 		}
 		if (modPlayer.ZoneDepth && Utils.NextBool(Main.rand, 10))
 		{
-			caughtType = ModContent.ItemType<DepthCrate>();
+            attempt.rolledEnemySpawn = ModContent.ItemType<DepthCrate>();
 		}
 		if (modPlayer.ZoneDepth && Utils.NextBool(Main.rand, 10))
 		{
-			caughtType = ModContent.ItemType<ShroomFish>();
+            attempt.rolledEnemySpawn = ModContent.ItemType<ShroomFish>();
 		}
 		if (!((ModPlayer)this).Player.HasItem(ModContent.ItemType<CoralBait>()))
 		{
@@ -465,7 +466,7 @@ public class UltraniumPlayer : ModPlayer
 		for (int i = 0; i < inventory.Length; i++)
 		{
 			int num = -1;
-			if (inventory[i].type != ModContent.ItemType<CoralBait>() || NPC.AnyNPCs(ModContent.NPCType<ZephyrSquid>()) || !((ModPlayer)this).Player.ZoneBeach || liquidType != 0)
+			if (inventory[i].type != ModContent.ItemType<CoralBait>() || NPC.AnyNPCs(ModContent.NPCType<ZephyrSquid>()) || !((ModPlayer)this).Player.ZoneBeach || attempt.inLava || attempt.inHoney)
 			{
 				continue;
 			}
@@ -480,7 +481,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				inventory[i].stack--;
 				Vector2 center = Main.projectile[num].Center;
-				caughtType = NPC.NewNPC((int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
+				attempt.rolledEnemySpawn = NPC.NewNPC(null, (int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
 				((Entity)Main.projectile[num]).active = false;
 				if (Main.netMode == 1)
 				{

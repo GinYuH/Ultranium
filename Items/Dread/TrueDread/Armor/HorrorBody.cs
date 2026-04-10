@@ -10,17 +10,17 @@ public class HorrorBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Horror Breastplate");
-		// ((ModItem)this).Tooltip.SetDefault("7% increased damage and critical strike chance\n+20 max life and +1 max minions\n5% increased damage reduction");
+		// DisplayName.SetDefault("Horror Breastplate");
+		// Tooltip.SetDefault("7% increased damage and critical strike chance\n+20 max life and +1 max minions\n5% increased damage reduction");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.defense = 38;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.defense = 38;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

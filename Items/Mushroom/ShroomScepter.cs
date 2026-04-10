@@ -10,26 +10,26 @@ public class ShroomScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Fungal Bulb Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a stationary fungus bulb that shoots spores at enemies\nOnly one bulb can be active at once");
+		// DisplayName.SetDefault("Fungal Bulb Scepter");
+		// Tooltip.SetDefault("Summons a stationary fungus bulb that shoots spores at enemies\nOnly one bulb can be active at once");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 28;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 12;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.UseSound = SoundID.Item117;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShroomBulb").Type;
-		((ModItem)this).Item.shootSpeed = 0f;
+		Item.width = 26;
+		Item.height = 28;
+		Item.rare = 1;
+		Item.mana = 20;
+		Item.damage = 12;
+		Item.knockBack = 1f;
+		Item.useStyle = 1;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.DamageType = DamageClass.Summon;
+		Item.noMelee = true;
+		Item.UseSound = SoundID.Item117;
+		Item.shoot = Mod.Find<ModProjectile>("ShroomBulb").Type;
+		Item.shootSpeed = 0f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -37,7 +37,7 @@ public class ShroomScepter : ModItem
 		for (int i = 0; i < Main.projectile.Length; i++)
 		{
 			Projectile projectile = Main.projectile[i];
-			if (((Entity)projectile).active && projectile.type == ((ModItem)this).Item.shoot && projectile.owner == player.whoAmI)
+			if (((Entity)projectile).active && projectile.type == Item.shoot && projectile.owner == player.whoAmI)
 			{
 				((Entity)projectile).active = false;
 			}

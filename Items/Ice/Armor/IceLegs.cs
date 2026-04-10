@@ -8,17 +8,17 @@ public class IceLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ice Walker's Legs");
-		// ((ModItem)this).Tooltip.SetDefault("3% increased movement speed");
+		// DisplayName.SetDefault("Ice Walker's Legs");
+		// Tooltip.SetDefault("3% increased movement speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.defense = 4;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 3;
+		Item.defense = 4;
 	}
 
 	public override void UpdateEquip(Player player)

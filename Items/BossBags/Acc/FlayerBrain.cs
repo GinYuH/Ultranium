@@ -7,18 +7,18 @@ public class FlayerBrain : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Mind of the Mindflayer");
-		// ((ModItem)this).Tooltip.SetDefault("10% increased damage and critical strike chance chance\nYou have a chance to dodge enemy attacks and gain longer invincibility when hit\nCreates an eldritch aura around the player that damages nearby enemies\nDisabling the visibility will disable the aura\nhowever the other bonuses will become buffed");
+		// DisplayName.SetDefault("Mind of the Mindflayer");
+		// Tooltip.SetDefault("10% increased damage and critical strike chance chance\nYou have a chance to dodge enemy attacks and gain longer invincibility when hit\nCreates an eldritch aura around the player that damages nearby enemies\nDisabling the visibility will disable the aura\nhowever the other bonuses will become buffed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 32;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.accessory = true;
-		((ModItem)this).Item.expert = true;
+		Item.width = 32;
+		Item.height = 32;
+		Item.rare = 4;
+		Item.value = Item.buyPrice(0, 45);
+		Item.accessory = true;
+		Item.expert = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)
@@ -34,9 +34,9 @@ public class FlayerBrain : ModItem
 			player.GetCritChance(DamageClass.Magic) += 10;
 			player.GetCritChance(DamageClass.Melee) += 10;
 			player.GetCritChance(DamageClass.Ranged) += 10;
-			if (player.ownedProjectileCounts[((ModItem)this).Mod.Find<ModProjectile>("EldritchAuraBase").Type] < 1)
+			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EldritchAuraBase").Type] < 1)
 			{
-				Projectile.NewProjectile(player.position.X, player.position.Y, 0f, 0f, ((ModItem)this).Mod.Find<ModProjectile>("EldritchAuraBase").Type, 150, 10f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, player.position.X, player.position.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchAuraBase").Type, 150, 10f, player.whoAmI, 0f, 0f);
 			}
 		}
 		if (hideVisual)

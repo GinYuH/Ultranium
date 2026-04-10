@@ -10,28 +10,28 @@ public class EldritchPumpkinStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Item.staff[((ModItem)this).Item.type] = true;
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Pumpkin Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Casts a spread of pumpkin fire");
+		Item.staff[Item.type] = true;
+		// DisplayName.SetDefault("Eldritch Pumpkin Staff");
+		// Tooltip.SetDefault("Casts a spread of pumpkin fire");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 40;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 15;
-		((Entity)(object)((ModItem)this).Item).width = 80;
-		((Entity)(object)((ModItem)this).Item).height = 80;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10, 50);
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.UseSound = SoundID.DD2_BetsysWrathShot;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchPumpkinFire").Type;
-		((ModItem)this).Item.shootSpeed = 8f;
+		Item.damage = 40;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 15;
+		Item.width = 80;
+		Item.height = 80;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 5;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 10, 50);
+		Item.rare = 4;
+		Item.UseSound = SoundID.DD2_BetsysWrathShot;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchPumpkinFire").Type;
+		Item.shootSpeed = 8f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -42,7 +42,7 @@ public class EldritchPumpkinStaff : ModItem
 			Vector2 vector = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20f));
 			float num2 = 1f - Main.rand.NextFloat() * 0.3f;
 			vector *= num2;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

@@ -8,26 +8,26 @@ public class SolSpear : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Throws a fast moving sol spear\nThe spear will explode into short lived sparks when it touches an enemy or tile");
-		// ((ModItem)this).DisplayName.SetDefault("Spear of the Sol");
+		// Tooltip.SetDefault("Throws a fast moving sol spear\nThe spear will explode into short lived sparks when it touches an enemy or tile");
+		// DisplayName.SetDefault("Spear of the Sol");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 60;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 56;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.value = Item.buyPrice(0, 50);
-		((ModItem)this).Item.rare = 8;
-		((ModItem)this).Item.UseSound = SoundID.Item60;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("SolSpear").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.damage = 60;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 56;
+		((Entity)(object)Item).height = 56;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.value = Item.buyPrice(0, 50);
+		Item.rare = 8;
+		Item.UseSound = SoundID.Item60;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("SolSpear").Type;
+		Item.shootSpeed = 15f;
 	}
 }

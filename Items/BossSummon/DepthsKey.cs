@@ -7,21 +7,21 @@ public class DepthsKey : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Depths Key");
-		// ((ModItem)this).Tooltip.SetDefault("'Charged with the power of darkness'");
+		// DisplayName.SetDefault("Depths Key");
+		// Tooltip.SetDefault("'Charged with the power of darkness'");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 16;
-		((ModItem)this).Item.useTime = 19;
-		((ModItem)this).Item.useAnimation = 19;
-		((ModItem)this).Item.rare = 0;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.value = 100;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.noMelee = true;
+		Item.width = 16;
+		Item.height = 16;
+		Item.useTime = 19;
+		Item.useAnimation = 19;
+		Item.rare = 0;
+		Item.maxStack = 99;
+		Item.value = 100;
+		Item.useStyle = 4;
+		Item.noMelee = true;
 	}
 
 	public override void AddRecipes()

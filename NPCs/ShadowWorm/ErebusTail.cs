@@ -24,57 +24,57 @@ public class ErebusTail : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Erebus");
+		// DisplayName.SetDefault("Erebus");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 100;
-		((ModNPC)this).NPC.height = 100;
-		((ModNPC)this).NPC.damage = 60;
-		((ModNPC)this).NPC.defense = 75;
-		((ModNPC)this).NPC.lifeMax = 385000;
-		((ModNPC)this).NPC.knockBackResist = 0f;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit52?.WithVolume(5f);
-		((ModNPC)this).NPC.behindTiles = true;
-		((ModNPC)this).NPC.noTileCollide = true;
-		((ModNPC)this).NPC.netAlways = true;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.dontCountMe = true;
+		NPC.width = 100;
+		NPC.height = 100;
+		NPC.damage = 60;
+		NPC.defense = 75;
+		NPC.lifeMax = 385000;
+		NPC.knockBackResist = 0f;
+		NPC.HitSound = SoundID.NPCHit52?.WithVolume(5f);
+		NPC.behindTiles = true;
+		NPC.noTileCollide = true;
+		NPC.netAlways = true;
+		NPC.noGravity = true;
+		NPC.dontCountMe = true;
 		players = 1;
 		for (int i = 0; i < 206; i++)
 		{
-			((ModNPC)this).NPC.buffImmune[i] = true;
+			NPC.buffImmune[i] = true;
 		}
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
 		players = numPlayers;
-		((ModNPC)this).NPC.lifeMax = 450000 + numPlayers * 45000;
-		((ModNPC)this).NPC.damage = 155;
-		((ModNPC)this).NPC.defense = 90;
+		NPC.lifeMax = 450000 + numPlayers * 45000;
+		NPC.damage = 155;
+		NPC.defense = 90;
 	}
 
 	public override void BossHeadRotation(ref float rotation)
 	{
-		rotation = ((ModNPC)this).NPC.rotation;
+		rotation = NPC.rotation;
 	}
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture = ((ModNPC)this).Mod.GetTexture("NPCs/ShadowWorm/Glow/ErebusTailGlow");
-		Rectangle rectangle = new Rectangle(0, texture.Height * ((ModNPC)this).NPC.frame.Y, texture.Width, texture.Height);
+		Texture2D texture = Mod.GetTexture("NPCs/ShadowWorm/Glow/ErebusTailGlow");
+		Rectangle rectangle = new Rectangle(0, texture.Height * NPC.frame.Y, texture.Width, texture.Height);
 		Vector2 origin = rectangle.Size() * 0.5f;
 		SpriteEffects effects = SpriteEffects.None;
-		spriteBatch.Draw(texture, ((ModNPC)this).NPC.Center - Main.screenPosition + new Vector2(0f, ((ModNPC)this).NPC.gfxOffY), rectangle, new Color(255, 255, 255, 0), ((ModNPC)this).NPC.rotation, origin, ((ModNPC)this).NPC.scale, effects, 0f);
+		spriteBatch.Draw(texture, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), rectangle, new Color(255, 255, 255, 0), NPC.rotation, origin, NPC.scale, effects, 0f);
 	}
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture2D = TextureAssets.Npc[((ModNPC)this).NPC.type].Value;
+		Texture2D texture2D = TextureAssets.Npc[NPC.type].Value;
 		Vector2 origin = new Vector2((float)texture2D.Width * 0.5f, (float)texture2D.Height * 0.5f);
-		Main.spriteBatch.Draw(texture2D, ((ModNPC)this).NPC.Center - Main.screenPosition, null, drawColor, ((ModNPC)this).NPC.rotation, origin, ((ModNPC)this).NPC.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture2D, NPC.Center - Main.screenPosition, null, drawColor, NPC.rotation, origin, NPC.scale, SpriteEffects.None, 0f);
 		return false;
 	}
 
@@ -100,13 +100,13 @@ public class ErebusTail : ModNPC
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (!((ModNPC)this).NPC.immortal)
+		if (!NPC.immortal)
 		{
 			damageDealt += (int)damage;
 		}
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ErebusTailGore"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusTailGore"));
 		}
 	}
 
@@ -135,64 +135,64 @@ public class ErebusTail : ModNPC
 		}
 		if (noDamageTime != 0)
 		{
-			((ModNPC)this).NPC.defense = 100000;
+			NPC.defense = 100000;
 		}
 		else
 		{
-			((ModNPC)this).NPC.defense = 90;
+			NPC.defense = 90;
 		}
-		_ = Main.player[((ModNPC)this).NPC.target];
-		if (NPC.AnyNPCs(((ModNPC)this).Mod.Find<ModNPC>("RestlessSoul").Type) || ErebusHead.TeleportVortex)
+		_ = Main.player[NPC.target];
+		if (NPC.AnyNPCs(Mod.Find<ModNPC>("RestlessSoul").Type) || ErebusHead.TeleportVortex)
 		{
-			((ModNPC)this).NPC.immortal = true;
-			((ModNPC)this).NPC.dontTakeDamage = true;
+			NPC.immortal = true;
+			NPC.dontTakeDamage = true;
 		}
 		else
 		{
-			((ModNPC)this).NPC.immortal = false;
-			((ModNPC)this).NPC.dontTakeDamage = false;
+			NPC.immortal = false;
+			NPC.dontTakeDamage = false;
 		}
 		if (ErebusHead.TeleportVortex)
 		{
 			if (ExpandingVortex.Timer < 500)
 			{
-				((ModNPC)this).NPC.scale = 0.0001f;
+				NPC.scale = 0.0001f;
 			}
 			else
 			{
-				((ModNPC)this).NPC.scale = 1f;
+				NPC.scale = 1f;
 			}
 		}
 		else
 		{
-			((ModNPC)this).NPC.scale = 1f;
+			NPC.scale = 1f;
 		}
 		if (ErebusHead.CircleTimer < 580 && ErebusHead.Circling)
 		{
-			Vector2 center = Main.npc[(int)((ModNPC)this).NPC.ai[3]].Center;
-			center += Vector2.Normalize(Main.npc[(int)((ModNPC)this).NPC.ai[3]].velocity.RotatedBy(Math.PI / 2.0)) * 900f;
-			if (((ModNPC)this).NPC.Distance(center) < 900f)
+			Vector2 center = Main.npc[(int)NPC.ai[3]].Center;
+			center += Vector2.Normalize(Main.npc[(int)NPC.ai[3]].velocity.RotatedBy(Math.PI / 2.0)) * 900f;
+			if (NPC.Distance(center) < 900f)
 			{
-				((ModNPC)this).NPC.Center = center + ((ModNPC)this).NPC.DirectionFrom(center) * 900f;
+				NPC.Center = center + NPC.DirectionFrom(center) * 900f;
 			}
 		}
-		if ((double)((ModNPC)this).NPC.ai[1] < (double)Main.npc.Length)
+		if ((double)NPC.ai[1] < (double)Main.npc.Length)
 		{
-			Vector2 vector = new Vector2(((ModNPC)this).NPC.position.X + (float)((ModNPC)this).NPC.width * 0.5f, ((ModNPC)this).NPC.position.Y + (float)((ModNPC)this).NPC.height * 0.5f);
-			float num = Main.npc[(int)((ModNPC)this).NPC.ai[1]].position.X + (float)(Main.npc[(int)((ModNPC)this).NPC.ai[1]].width / 2) - vector.X;
-			float num2 = Main.npc[(int)((ModNPC)this).NPC.ai[1]].position.Y + (float)(Main.npc[(int)((ModNPC)this).NPC.ai[1]].height / 2) - vector.Y;
-			((ModNPC)this).NPC.rotation = (float)Math.Atan2(num2, num) + 1.57f;
+			Vector2 vector = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
+			float num = Main.npc[(int)NPC.ai[1]].position.X + (float)(Main.npc[(int)NPC.ai[1]].width / 2) - vector.X;
+			float num2 = Main.npc[(int)NPC.ai[1]].position.Y + (float)(Main.npc[(int)NPC.ai[1]].height / 2) - vector.Y;
+			NPC.rotation = (float)Math.Atan2(num2, num) + 1.57f;
 			float num3 = (float)Math.Sqrt(num * num + num2 * num2);
-			float num4 = (num3 - (float)((ModNPC)this).NPC.width) / num3;
+			float num4 = (num3 - (float)NPC.width) / num3;
 			float num5 = num * num4;
 			float num6 = num2 * num4;
-			((ModNPC)this).NPC.velocity = Vector2.Zero;
-			((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X + num5;
-			((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y + num6;
+			NPC.velocity = Vector2.Zero;
+			NPC.position.X = NPC.position.X + num5;
+			NPC.position.Y = NPC.position.Y + num6;
 		}
-		if (NPC.CountNPCS(((ModNPC)this).Mod.Find<ModNPC>("ErebusHead").Type) == 0)
+		if (NPC.CountNPCS(Mod.Find<ModNPC>("ErebusHead").Type) == 0)
 		{
-			((Entity)((ModNPC)this).NPC).active = false;
+			((Entity)NPC).active = false;
 		}
 		return false;
 	}

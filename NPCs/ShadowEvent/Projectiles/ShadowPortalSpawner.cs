@@ -160,19 +160,19 @@ public class ShadowPortalSpawner : ModProjectile
 			int num2 = Main.rand.Next(4);
 			if (num2 == 0)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 1)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Phantom").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Phantom").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 2)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Scp2521").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Scp2521").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 3)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeSpirit").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeSpirit").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
 		if (ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
@@ -180,15 +180,15 @@ public class ShadowPortalSpawner : ModProjectile
 			int num3 = Main.rand.Next(3);
 			if (num3 == 0)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalCultist").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalCultist").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num3 == 1)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("FlayerWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("FlayerWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num3 == 2)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeMass").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeMass").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
 	}

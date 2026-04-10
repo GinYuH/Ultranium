@@ -11,29 +11,29 @@ public class Nihil : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Nihil");
-		// ((ModItem)this).Tooltip.SetDefault("Creates lingering abyss flames around your cursor\nThe abyss flames will slowly chase nearby enemies");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Nihil");
+		// Tooltip.SetDefault("Creates lingering abyss flames around your cursor\nThe abyss flames will slowly chase nearby enemies");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 220;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 8;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 8;
-		((ModItem)this).Item.useAnimation = 8;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("NihilFlame").Type;
-		((ModItem)this).Item.shootSpeed = 1f;
+		Item.damage = 220;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 8;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 8;
+		Item.useAnimation = 8;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("NihilFlame").Type;
+		Item.shootSpeed = 1f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -44,7 +44,7 @@ public class Nihil : ModItem
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		Vector2 vector = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
-		Projectile.NewProjectile(vector.X + (float)Main.rand.Next(-100, 100), vector.Y + (float)Main.rand.Next(-100, 100), 0f, 0f, type, damage, knockBack, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(null, vector.X + (float)Main.rand.Next(-100, 100), vector.Y + (float)Main.rand.Next(-100, 100), 0f, 0f, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		return false;
 	}
 

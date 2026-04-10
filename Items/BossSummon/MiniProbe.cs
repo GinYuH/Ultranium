@@ -11,21 +11,21 @@ public class MiniProbe : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Miniature Martian Probe");
-		// ((ModItem)this).Tooltip.SetDefault("Calls upon the martians");
+		// DisplayName.SetDefault("Miniature Martian Probe");
+		// Tooltip.SetDefault("Calls upon the martians");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.maxStack = 20;
-		((ModItem)this).Item.value = 100;
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.consumable = true;
+		Item.width = 34;
+		Item.height = 30;
+		Item.maxStack = 20;
+		Item.value = 100;
+		Item.rare = 3;
+		Item.useAnimation = 30;
+		Item.useTime = 30;
+		Item.useStyle = 4;
+		Item.consumable = true;
 	}
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */

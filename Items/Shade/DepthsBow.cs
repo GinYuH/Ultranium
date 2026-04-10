@@ -10,28 +10,28 @@ public class DepthsBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Cxaxukluth");
-		// ((ModItem)this).Tooltip.SetDefault("Has an uncommon chance to create an eldritch tentacle\nThe eldritch tentacle will deal twice the bow's damage");
+		// DisplayName.SetDefault("Cxaxukluth");
+		// Tooltip.SetDefault("Has an uncommon chance to create an eldritch tentacle\nThe eldritch tentacle will deal twice the bow's damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 65;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 18;
-		((ModItem)this).Item.useAnimation = 18;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 68);
-		((ModItem)this).Item.rare = 7;
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = 11;
-		((ModItem)this).Item.useAmmo = AmmoID.Arrow;
-		((ModItem)this).Item.shootSpeed = 18f;
+		Item.damage = 65;
+		Item.width = 20;
+		Item.height = 40;
+		Item.useTime = 18;
+		Item.useAnimation = 18;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Ranged;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 68);
+		Item.rare = 7;
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shoot = 11;
+		Item.useAmmo = AmmoID.Arrow;
+		Item.shootSpeed = 18f;
 	}
 
 	public override Vector2? HoldoutOffset()
@@ -45,7 +45,7 @@ public class DepthsBow : ModItem
 		{
 			Vector2 vector = new Vector2(speedX, speedY).SafeNormalize(-Vector2.UnitY);
 			Vector2 vector2 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)).SafeNormalize(-Vector2.UnitY);
-			vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * ((ModItem)this).Item.shootSpeed;
+			vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * Item.shootSpeed;
 			float num = (float)Main.rand.Next(10, 80) * 0.001f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -56,7 +56,7 @@ public class DepthsBow : ModItem
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(position, vector, ((ModItem)this).Mod.Find<ModProjectile>("ShadeTentacle").Type, ((ModItem)this).Item.damage * 2, knockBack, player.whoAmI, num, num2);
+			Projectile.NewProjectile(null, position, vector, Mod.Find<ModProjectile>("ShadeTentacle").Type, Item.damage * 2, knockBack, player.whoAmI, num, num2);
 			return false;
 		}
 		return true;

@@ -7,17 +7,17 @@ public class StellarBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Bar");
-		// ((ModItem)this).Tooltip.SetDefault("It emnates cold, spacial energy");
+		// DisplayName.SetDefault("Stellar Bar");
+		// Tooltip.SetDefault("It emnates cold, spacial energy");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.maxStack = 99;
+		Item.width = 24;
+		Item.height = 24;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 5;
+		Item.maxStack = 99;
 	}
 
 	public override void AddRecipes()

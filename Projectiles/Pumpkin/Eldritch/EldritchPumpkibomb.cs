@@ -50,7 +50,7 @@ public class EldritchPumpkibomb : ModProjectile
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class EldritchPumpkibomb : ModProjectile
 			vector.Normalize();
 			vector.X *= 3f;
 			vector.Y *= 3f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 402, ((ModProjectile)this).Projectile.damage, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 402, ((ModProjectile)this).Projectile.damage, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 		}
 		for (int j = 0; j < 20; j++)
 		{
@@ -81,25 +81,25 @@ public class EldritchPumpkibomb : ModProjectile
 			num5 = Dust.NewDust(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
 			Main.dust[num5].velocity *= 3f;
 		}
-		int num6 = Gore.NewGore(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
+		int num6 = Gore.NewGore(null, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
 		Main.gore[num6].velocity *= 0.4f;
 		Gore gore = Main.gore[num6];
 		gore.velocity.X = gore.velocity.X + 1f;
 		Gore gore2 = Main.gore[num6];
 		gore2.velocity.Y = gore2.velocity.Y + 1f;
-		num6 = Gore.NewGore(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
+		num6 = Gore.NewGore(null, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
 		Main.gore[num6].velocity *= 0.4f;
 		Gore gore3 = Main.gore[num6];
 		gore3.velocity.X = gore3.velocity.X - 1f;
 		Gore gore4 = Main.gore[num6];
 		gore4.velocity.Y = gore4.velocity.Y + 1f;
-		num6 = Gore.NewGore(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
+		num6 = Gore.NewGore(null, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
 		Main.gore[num6].velocity *= 0.4f;
 		Gore gore5 = Main.gore[num6];
 		gore5.velocity.X = gore5.velocity.X + 1f;
 		Gore gore6 = Main.gore[num6];
 		gore6.velocity.Y = gore6.velocity.Y - 1f;
-		num6 = Gore.NewGore(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
+		num6 = Gore.NewGore(null, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));
 		Main.gore[num6].velocity *= 0.4f;
 		Gore gore7 = Main.gore[num6];
 		gore7.velocity.X = gore7.velocity.X - 1f;

@@ -7,24 +7,24 @@ public class EldritchShingleItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Shingle");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Eldritch Shingle");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 12;
-		((Entity)(object)((ModItem)this).Item).height = 12;
-		((ModItem)this).Item.useTime = 8;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.value = 50;
-		((ModItem)this).Item.rare = 0;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("EldritchShingles").Type;
-		((ModItem)this).Item.maxStack = 999;
+		Item.width = 12;
+		Item.height = 12;
+		Item.useTime = 8;
+		Item.useAnimation = 15;
+		Item.useStyle = 1;
+		Item.value = 50;
+		Item.rare = 0;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.consumable = true;
+		Item.createTile = Mod.Find<ModTile>("EldritchShingles").Type;
+		Item.maxStack = 999;
 	}
 
 	public override void AddRecipes()

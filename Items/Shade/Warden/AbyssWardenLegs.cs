@@ -8,17 +8,17 @@ public class AbyssWardenLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abyssal Greaves");
-		// ((ModItem)this).Tooltip.SetDefault("10% increased movement speed");
+		// DisplayName.SetDefault("Abyssal Greaves");
+		// Tooltip.SetDefault("10% increased movement speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 7;
-		((ModItem)this).Item.defense = 12;
+		((Entity)(object)Item).width = 34;
+		((Entity)(object)Item).height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 7;
+		Item.defense = 12;
 	}
 
 	public override void UpdateEquip(Player player)

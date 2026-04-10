@@ -12,29 +12,29 @@ public class UltraniumStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultranium Energy Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a barrage of Ultranium blasts");
+		// DisplayName.SetDefault("Ultranium Energy Scepter");
+		// Tooltip.SetDefault("Fires a barrage of Ultranium blasts");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 140;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 12;
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.useTime = 12;
-		((ModItem)this).Item.useAnimation = 12;
-		((ModItem)this).Item.useStyle = 5;
-		Item.staff[((ModItem)this).Item.type] = true;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.DD2_BetsysWrathShot;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("UltraniumEnergyBolt").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 140;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 12;
+		Item.width = 16;
+		Item.height = 14;
+		Item.useTime = 12;
+		Item.useAnimation = 12;
+		Item.useStyle = 5;
+		Item.staff[Item.type] = true;
+		Item.noMelee = true;
+		Item.knockBack = 2f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.DD2_BetsysWrathShot;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("UltraniumEnergyBolt").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -48,7 +48,7 @@ public class UltraniumStaff : ModItem
 		{
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			int myPlayer = Main.myPlayer;
-			float shootSpeed = ((ModItem)this).Item.shootSpeed;
+			float shootSpeed = Item.shootSpeed;
 			int num = damage;
 			float num2 = knockBack;
 			float x = (float)Main.mouseX + Main.screenPosition.X - vector.X;
@@ -70,7 +70,7 @@ public class UltraniumStaff : ModItem
 			Vector2 vector3 = new Vector2(x, y).SafeNormalize(Vector2.UnitY) * shootSpeed;
 			v = v.SafeNormalize(vector3) * shootSpeed;
 			v = Vector2.Lerp(v, vector3, 0.25f);
-			Projectile.NewProjectile(vector2, v, ((ModItem)this).Mod.Find<ModProjectile>("UltraniumEnergyBolt").Type, num, num2, myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, vector2, v, Mod.Find<ModProjectile>("UltraniumEnergyBolt").Type, num, num2, myPlayer, 0f, 0f);
 		}
 		return false;
 	}

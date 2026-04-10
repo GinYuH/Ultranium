@@ -10,21 +10,21 @@ public class BloodMoonSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Blood Moon Idol");
-		// ((ModItem)this).Tooltip.SetDefault("Summons the Blood moon if used at night");
+		// DisplayName.SetDefault("Blood Moon Idol");
+		// Tooltip.SetDefault("Summons the Blood moon if used at night");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 20;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.consumable = true;
+		Item.width = 20;
+		Item.height = 20;
+		Item.maxStack = 20;
+		Item.rare = 4;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.consumable = true;
 	}
 
 	public override bool CanUseItem(Player player)

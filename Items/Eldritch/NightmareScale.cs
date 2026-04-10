@@ -9,17 +9,17 @@ public class NightmareScale : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Erebus Scale");
-		// ((ModItem)this).Tooltip.SetDefault("'It's slimey'");
+		// DisplayName.SetDefault("Erebus Scale");
+		// Tooltip.SetDefault("'It's slimey'");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.maxStack = 999;
+		Item.width = 24;
+		Item.height = 24;
+		Item.value = Item.buyPrice(0, 10);
+		Item.rare = 11;
+		Item.maxStack = 999;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

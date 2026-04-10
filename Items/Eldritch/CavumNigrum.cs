@@ -10,28 +10,28 @@ public class CavumNigrum : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Cavum Nigrum");
-		// ((ModItem)this).Tooltip.SetDefault("Throws out eldritch discs\nHas a chance to create lingering images of the disc on enemy hits");
+		// DisplayName.SetDefault("Cavum Nigrum");
+		// Tooltip.SetDefault("Throws out eldritch discs\nHas a chance to create lingering images of the disc on enemy hits");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 260;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((ModItem)this).Item.crit = 10;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.UseSound = SoundID.Item60;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("CavumNigrum").Type;
-		((ModItem)this).Item.shootSpeed = 3f;
+		Item.damage = 260;
+		Item.DamageType = DamageClass.Ranged;
+		Item.crit = 10;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.UseSound = SoundID.Item60;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("CavumNigrum").Type;
+		Item.shootSpeed = 3f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

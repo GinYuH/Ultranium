@@ -7,23 +7,23 @@ public class ShadowBedItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Bed");
+		// DisplayName.SetDefault("Eldritch Bed");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.rare = 0;
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.value = 2000;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("ShadowBed").Type;
+		Item.rare = 0;
+		Item.width = 28;
+		Item.height = 20;
+		Item.maxStack = 99;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.useStyle = 1;
+		Item.consumable = true;
+		Item.value = 2000;
+		Item.createTile = Mod.Find<ModTile>("ShadowBed").Type;
 	}
 
 	public override void AddRecipes()

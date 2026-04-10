@@ -49,7 +49,7 @@ public class DeathBolt : ModProjectile
 			for (int i = 0; i < num; i++)
 			{
 				int num2 = 8;
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("DeathBoltSwirl").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)(i * num2), (float)((ModProjectile)this).Projectile.whoAmI);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("DeathBoltSwirl").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)(i * num2), (float)((ModProjectile)this).Projectile.whoAmI);
 			}
 			((ModProjectile)this).Projectile.ai[0] = 1f;
 		}

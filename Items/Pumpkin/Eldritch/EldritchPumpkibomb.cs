@@ -7,27 +7,27 @@ public class EldritchPumpkibomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Pumpki-Bomb");
-		// ((ModItem)this).Tooltip.SetDefault("Throws an eldritch pumpkin bomb that explodes into lingering fire\nThe pumpkin will also explode into tentacles when it hits an enemy");
+		// DisplayName.SetDefault("Eldritch Pumpki-Bomb");
+		// Tooltip.SetDefault("Throws an eldritch pumpkin bomb that explodes into lingering fire\nThe pumpkin will also explode into tentacles when it hits an enemy");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 45;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.useTime = 38;
-		((ModItem)this).Item.useAnimation = 38;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10, 50);
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchPumpkibomb").Type;
-		((ModItem)this).Item.shootSpeed = 6.5f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 45;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 20;
+		((Entity)(object)Item).height = 20;
+		Item.useTime = 38;
+		Item.useAnimation = 38;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 10, 50);
+		Item.rare = 4;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchPumpkibomb").Type;
+		Item.shootSpeed = 6.5f;
+		Item.useTurn = true;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

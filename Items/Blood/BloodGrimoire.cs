@@ -10,29 +10,29 @@ public class BloodGrimoire : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Bloody Grimoire");
-		// ((ModItem)this).Tooltip.SetDefault("Conjures a blood dripper minion to fight with you");
+		// DisplayName.SetDefault("Bloody Grimoire");
+		// Tooltip.SetDefault("Conjures a blood dripper minion to fight with you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 20;
-		((ModItem)this).Item.mana = 20;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BloodMinion").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("BloodBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.damage = 20;
+		Item.mana = 20;
+		Item.width = 26;
+		Item.height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Summon;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("BloodMinion").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("BloodBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class BloodGrimoire : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

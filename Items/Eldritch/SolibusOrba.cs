@@ -10,28 +10,28 @@ public class SolibusOrba : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Solibus Orba");
-		// ((ModItem)this).Tooltip.SetDefault("Throws dark spears that chase down enemies");
+		// DisplayName.SetDefault("Solibus Orba");
+		// Tooltip.SetDefault("Throws dark spears that chase down enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 64;
-		((Entity)(object)((ModItem)this).Item).height = 64;
-		((ModItem)this).Item.damage = 250;
-		((ModItem)this).Item.knockBack = 9f;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useTime = 17;
-		((ModItem)this).Item.useAnimation = 17;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("SolibusOrba").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
-		((ModItem)this).Item.UseSound = SoundID.Item7;
+		Item.width = 64;
+		Item.height = 64;
+		Item.damage = 250;
+		Item.knockBack = 9f;
+		Item.useStyle = 1;
+		Item.useTime = 17;
+		Item.useAnimation = 17;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.noMelee = true;
+		Item.autoReuse = true;
+		Item.noUseGraphic = true;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.shoot = Mod.Find<ModProjectile>("SolibusOrba").Type;
+		Item.shootSpeed = 15f;
+		Item.UseSound = SoundID.Item7;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

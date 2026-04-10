@@ -10,28 +10,28 @@ public class Umbra : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Umbra");
-		// ((ModItem)this).Tooltip.SetDefault("Casts eldritch blasts");
+		// DisplayName.SetDefault("Umbra");
+		// Tooltip.SetDefault("Casts eldritch blasts");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 220;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 13;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 17;
-		((ModItem)this).Item.useAnimation = 17;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("NoctisBlast").Type;
-		((ModItem)this).Item.shootSpeed = 11f;
+		Item.damage = 220;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 13;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 17;
+		Item.useAnimation = 17;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("NoctisBlast").Type;
+		Item.shootSpeed = 11f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

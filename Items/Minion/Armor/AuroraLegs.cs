@@ -8,17 +8,17 @@ public class AuroraLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Greaves");
-		// ((ModItem)this).Tooltip.SetDefault("2% increased movement speed");
+		// DisplayName.SetDefault("Aurora Crystal Greaves");
+		// Tooltip.SetDefault("2% increased movement speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 22;
-		((Entity)(object)((ModItem)this).Item).height = 16;
-		((ModItem)this).Item.value = 10000;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 2;
+		Item.width = 22;
+		Item.height = 16;
+		Item.value = 10000;
+		Item.rare = 1;
+		Item.defense = 2;
 	}
 
 	public override void UpdateEquip(Player player)

@@ -10,25 +10,25 @@ public class ZephyrBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Fires zephyr bubbles on swing\nHas a chance to shoot an ink bubble that inflicts slowness on enemies");
+		// Tooltip.SetDefault("Fires zephyr bubbles on swing\nHas a chance to shoot an ink bubble that inflicts slowness on enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 20;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 54;
-		((Entity)(object)((ModItem)this).Item).height = 54;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ZephyrBubble").Type;
-		((ModItem)this).Item.shootSpeed = 3.5f;
+		Item.damage = 20;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 54;
+		Item.height = 54;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 2;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("ZephyrBubble").Type;
+		Item.shootSpeed = 3.5f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -36,7 +36,7 @@ public class ZephyrBlade : ModItem
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("ZephyrInkBubble").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ZephyrInkBubble").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;

@@ -10,43 +10,43 @@ public class DepthsMimic : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Depths Mimic");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[473];
+		// DisplayName.SetDefault("Depths Mimic");
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[473];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.npcSlots = 1f;
-		((ModNPC)this).NPC.width = 42;
-		((ModNPC)this).NPC.height = 52;
-		((ModNPC)this).NPC.damage = 90;
-		((ModNPC)this).NPC.defense = 34;
-		((ModNPC)this).NPC.lifeMax = 3500;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.aiStyle = 87;
+		NPC.npcSlots = 1f;
+		NPC.width = 42;
+		NPC.height = 52;
+		NPC.damage = 90;
+		NPC.defense = 34;
+		NPC.lifeMax = 3500;
+		NPC.knockBackResist = 0.1f;
+		NPC.aiStyle = 87;
 		base.AIType = 473;
 		base.AnimationType = 473;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit4;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath6;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("DepthsMimicBanner").Type;
+		NPC.HitSound = SoundID.NPCHit4;
+		NPC.DeathSound = SoundID.NPCDeath6;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("DepthsMimicBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life > 0)
+		if (NPC.life > 0)
 		{
 			return;
 		}
-		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X + (float)(((ModNPC)this).NPC.width / 2);
-		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y + (float)(((ModNPC)this).NPC.height / 2);
-		((ModNPC)this).NPC.width = 30;
-		((ModNPC)this).NPC.height = 30;
-		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X - (float)(((ModNPC)this).NPC.width / 2);
-		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y - (float)(((ModNPC)this).NPC.height / 2);
+		NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
+		NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+		NPC.width = 30;
+		NPC.height = 30;
+		NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
+		NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y), ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModDust>("ShadowDustBlack").Type, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("ShadowDustBlack").Type, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -79,21 +79,21 @@ public class DepthsMimic : ModNPC
 		int num = Main.rand.Next(4);
 		if (num == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DepthsFlail").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsFlail").Type, 1, false, 0, false, false);
 		}
 		if (num == 1)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DepthsBow").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsBow").Type, 1, false, 0, false, false);
 		}
 		if (num == 2)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DepthsTome").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsTome").Type, 1, false, 0, false, false);
 		}
 		if (num == 3)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DepthsStaff").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsStaff").Type, 1, false, 0, false, false);
 		}
-		Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 499, Main.rand.Next(5, 10), false, 0, false, false);
-		Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 500, Main.rand.Next(5, 15), false, 0, false, false);
+		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 499, Main.rand.Next(5, 10), false, 0, false, false);
+		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 500, Main.rand.Next(5, 15), false, 0, false, false);
 	}
 }

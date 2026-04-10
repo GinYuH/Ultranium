@@ -44,7 +44,7 @@ public class EtherealLaserRift2 : ModProjectile
 			Vector2 vector = ((ModProjectile)this).Projectile.Center + spinningpoint.RotatedBy(num2);
 			float num4 = (float)Math.Atan2(((ModProjectile)this).Projectile.Center.Y - vector.Y, ((ModProjectile)this).Projectile.Center.X - vector.X);
 			Vector2 vector2 = new Vector2((float)(Math.Cos(num4) * (double)num3 * -1.0), (float)(Math.Sin(num4) * (double)num3 * -1.0));
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center + vector2 * 30f, vector2, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealDeathray").Type, 55, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center + vector2 * 30f, vector2, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealDeathray").Type, 55, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (NPC.AnyNPCs(((ModProjectile)this).Mod.Find<ModNPC>("XenanisClone").Type) || !NPC.AnyNPCs(((ModProjectile)this).Mod.Find<ModNPC>("Xenanis").Type))
 		{

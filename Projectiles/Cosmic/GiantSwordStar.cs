@@ -64,7 +64,7 @@ public class GiantSwordStar : ModProjectile
 
 	public override void OnKill(int timeLeft)
 	{
-		SoundEngine.PlaySound(((ModProjectile)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
+		SoundEngine.PlaySound(((ModProjectile)this).new SoundStyle("Ultranium/Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
 		for (int i = 0; i < 50; i++)
 		{
 			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
@@ -81,7 +81,7 @@ public class GiantSwordStar : ModProjectile
 			Vector2 vector = ((float)Math.PI / 4f * (float)j).ToRotationVector2();
 			vector.Normalize();
 			vector *= 10f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicSwordStar").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicSwordStar").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

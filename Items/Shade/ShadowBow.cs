@@ -8,26 +8,26 @@ public class ShadowBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadow Bow");
+		// DisplayName.SetDefault("Shadow Bow");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 20;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.value = Item.buyPrice(0, 8);
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = 10;
-		((ModItem)this).Item.shootSpeed = 6.5f;
-		((ModItem)this).Item.useAmmo = AmmoID.Arrow;
+		Item.damage = 20;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 40;
+		((Entity)(object)Item).height = 40;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 1;
+		Item.value = Item.buyPrice(0, 8);
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shoot = 10;
+		Item.shootSpeed = 6.5f;
+		Item.useAmmo = AmmoID.Arrow;
 	}
 
 	public override void AddRecipes()

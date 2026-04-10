@@ -8,17 +8,17 @@ public class TenebrisLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Tenebris Greaves");
-		// ((ModItem)this).Tooltip.SetDefault("2% increased damage\n5% increased movement speed");
+		// DisplayName.SetDefault("Tenebris Greaves");
+		// Tooltip.SetDefault("2% increased damage\n5% increased movement speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 22;
-		((Entity)(object)((ModItem)this).Item).height = 16;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 4;
+		((Entity)(object)Item).width = 22;
+		((Entity)(object)Item).height = 16;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 1;
+		Item.defense = 4;
 	}
 
 	public override void UpdateEquip(Player player)

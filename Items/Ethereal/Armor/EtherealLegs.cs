@@ -8,17 +8,17 @@ public class EtherealLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Occultist Leggings");
-		// ((ModItem)this).Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
+		// DisplayName.SetDefault("Occultist Leggings");
+		// Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.defense = 14;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 9;
+		Item.defense = 14;
 	}
 
 	public override void UpdateEquip(Player player)

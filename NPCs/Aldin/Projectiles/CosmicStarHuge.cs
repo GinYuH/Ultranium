@@ -63,7 +63,7 @@ public class CosmicStarHuge : ModProjectile
 
 	public override void OnKill(int timeLeft)
 	{
-		SoundEngine.PlaySound(((ModProjectile)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicExplosion")?.WithVolume(1f), -1, -1);
+		SoundEngine.PlaySound(((ModProjectile)this).new SoundStyle("Ultranium/Sounds/CosmicExplosion")?.WithVolume(1f), -1, -1);
 		Ultranium.seizureAmount = 15f;
 		for (int i = 0; i < 50; i++)
 		{
@@ -81,7 +81,7 @@ public class CosmicStarHuge : ModProjectile
 			Vector2 vector = ((float)Math.PI * 2f / 35f * (float)j).ToRotationVector2();
 			vector.Normalize();
 			vector *= 12f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicStarSmall").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicStarSmall").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

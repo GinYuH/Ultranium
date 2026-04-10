@@ -238,7 +238,7 @@ public class BloodMinion : ModProjectile
 			}
 			vector4.Normalize();
 			vector4 *= 8.5f;
-			int num9 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector4.X, vector4.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("BloodBall").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, Main.myPlayer, 0f, 0f);
+			int num9 = Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector4.X, vector4.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("BloodBall").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, Main.myPlayer, 0f, 0f);
 			Main.projectile[num9].timeLeft = 300;
 			Main.projectile[num9].penetrate = 1;
 			Main.projectile[num9].netUpdate = true;

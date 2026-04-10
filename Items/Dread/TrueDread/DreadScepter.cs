@@ -11,26 +11,26 @@ public class DreadScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Dread Energy Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Summons stationary dread orbs to shoot bolts at nearby enemies\nEach orb will last for 30 seconds, and will then explode into a giant circle of bolts upon death\nEach existing orb takes up 1 minion slot");
+		// DisplayName.SetDefault("Dread Energy Scepter");
+		// Tooltip.SetDefault("Summons stationary dread orbs to shoot bolts at nearby enemies\nEach orb will last for 30 seconds, and will then explode into a giant circle of bolts upon death\nEach existing orb takes up 1 minion slot");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 28;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.mana = 30;
-		((ModItem)this).Item.damage = 200;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.UseSound = SoundID.Item117;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadSummonOrb").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.width = 26;
+		Item.height = 28;
+		Item.rare = 11;
+		Item.mana = 30;
+		Item.damage = 200;
+		Item.knockBack = 1f;
+		Item.useStyle = 1;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.DamageType = DamageClass.Summon;
+		Item.noMelee = true;
+		Item.UseSound = SoundID.Item117;
+		Item.shoot = Mod.Find<ModProjectile>("DreadSummonOrb").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

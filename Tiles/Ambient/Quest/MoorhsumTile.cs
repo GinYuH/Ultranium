@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Ultranium.NPCs.Town.Shrooms;
 
 namespace Ultranium.Tiles.Ambient.Quest;
 
@@ -21,7 +22,8 @@ public class MoorhsumTile : ModTile
 		TileObjectData.newTile.AnchorValidTiles = new int[1] { 70 };
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
-	}
+		RegisterItemDrop(ModContent.ItemType<Moorhsum>());
+    }
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
@@ -30,20 +32,18 @@ public class MoorhsumTile : ModTile
 		b = 0.85f;
 	}
 
-	public override bool Drop(int i, int j)/* tModPorter Note: Removed. Use CanDrop to decide if an item should drop. Use GetItemDrops to decide which item drops. Item drops based on placeStyle are handled automatically now, so this method might be able to be removed altogether. */
-	{
-		Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).Mod.Find<ModItem>("Moorhsum").Type, 1, false, 0, false, false);
-		if (!UltraniumWorld.Moorhsum)
-		{
-			UltraniumWorld.Moorhsum = true;
-			UltraniumWorld.StrangeUndergrowth = true;
-			if (Main.netMode == 2)
-			{
-				NetMessage.SendData(7);
-			}
-		}
-		return false;
-	}
+    public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
+    {
+        if (!UltraniumWorld.Moorhsum)
+        {
+            UltraniumWorld.Moorhsum = true;
+            UltraniumWorld.StrangeUndergrowth = true;
+            if (Main.netMode == 2)
+            {
+                NetMessage.SendData(7);
+            }
+        }
+    }
 
 	public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
 	{

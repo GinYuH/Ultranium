@@ -10,33 +10,33 @@ public class ShroomBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glowing Mushroom Sword");
-		// ((ModItem)this).Tooltip.SetDefault("Has a chance to fire out a mushroom bolt");
+		// DisplayName.SetDefault("Glowing Mushroom Sword");
+		// Tooltip.SetDefault("Has a chance to fire out a mushroom bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 10;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 54;
-		((Entity)(object)((ModItem)this).Item).height = 54;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shootSpeed = 2f;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("MushroomBolt").Type;
+		Item.damage = 10;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 54;
+		Item.height = 54;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shootSpeed = 2f;
+		Item.shoot = Mod.Find<ModProjectile>("MushroomBolt").Type;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		if (Main.rand.Next(3) == 0)
 		{
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ((ModItem)this).Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

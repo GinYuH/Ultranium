@@ -13,37 +13,37 @@ public class ZephyrTrident : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		Item.staff[((ModItem)this).Item.type] = true;
-		// ((ModItem)this).DisplayName.SetDefault("Zephyr Trident");
-		// ((ModItem)this).Tooltip.SetDefault("A magical spear that works like a normal melee spear\nHitting an enemy with the spear itself restores small amounts of mana");
+		Item.staff[Item.type] = true;
+		// DisplayName.SetDefault("Zephyr Trident");
+		// Tooltip.SetDefault("A magical spear that works like a normal melee spear\nHitting an enemy with the spear itself restores small amounts of mana");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 18;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 13;
-		((Entity)(object)((ModItem)this).Item).width = 80;
-		((Entity)(object)((ModItem)this).Item).height = 80;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.UseSound = SoundID.Item45;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ZephyrTrident").Type;
-		((ModItem)this).Item.shootSpeed = 8f;
+		Item.damage = 18;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 13;
+		Item.width = 80;
+		Item.height = 80;
+		Item.autoReuse = true;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 2;
+		Item.noMelee = true;
+		Item.autoReuse = true;
+		Item.noUseGraphic = true;
+		Item.UseSound = SoundID.Item45;
+		Item.shoot = Mod.Find<ModProjectile>("ZephyrTrident").Type;
+		Item.shootSpeed = 8f;
 		currentHit = 0;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		if (player.ownedProjectileCounts[((ModItem)this).Item.shoot] > 0)
+		if (player.ownedProjectileCounts[Item.shoot] > 0)
 		{
 			return false;
 		}

@@ -15,28 +15,28 @@ public class ShadowFlute : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Despairides");
-		// ((ModItem)this).Tooltip.SetDefault("When played, the flute will create a phantom claw that will home in on enemies\n~Developer Item~");
+		// DisplayName.SetDefault("Despairides");
+		// Tooltip.SetDefault("When played, the flute will create a phantom claw that will home in on enemies\n~Developer Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 250;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 58;
-		((ModItem)this).Item.useTime = 21;
-		((ModItem)this).Item.useAnimation = 21;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(2);
-		((ModItem)this).Item.UseSound = ((ModItem)this).Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/Flute");
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("PhantomClaw").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.damage = 250;
+		Item.mana = 20;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Magic;
+		Item.width = 42;
+		Item.height = 58;
+		Item.useTime = 21;
+		Item.useAnimation = 21;
+		Item.useStyle = 5;
+		Item.knockBack = 1f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(2);
+		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/Flute");
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("PhantomClaw").Type;
+		Item.shootSpeed = 15f;
 	}
 
 	public override Vector2? HoldoutOffset()

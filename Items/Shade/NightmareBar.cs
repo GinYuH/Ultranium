@@ -8,20 +8,20 @@ public class NightmareBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Tenebris Alloy");
-		// ((ModItem)this).Tooltip.SetDefault("'A dark metal from a nightmarish world'");
-		Main.RegisterItemAnimation(((ModItem)this).Item.type, new DrawAnimationVertical(5, 5));
+		// DisplayName.SetDefault("Tenebris Alloy");
+		// Tooltip.SetDefault("'A dark metal from a nightmarish world'");
+		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
 	}
 
 	public override void SetDefaults()
 	{
 		Item item = new Item();
-		((ModItem)this).Item.value = Item.buyPrice(0, 10);
-		((Entity)(object)((ModItem)this).Item).width = ((Entity)(object)item).width;
-		((Entity)(object)((ModItem)this).Item).height = ((Entity)(object)item).height;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.value = 1000;
-		((ModItem)this).Item.rare = 1;
+		Item.value = Item.buyPrice(0, 10);
+		Item.width = Item.width;
+		Item.height = Item.height;
+		Item.maxStack = 99;
+		Item.value = 1000;
+		Item.rare = 1;
 	}
 
 	public override void AddRecipes()

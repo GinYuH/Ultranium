@@ -7,18 +7,18 @@ public class AuroraBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Bar");
-		// ((ModItem)this).Tooltip.SetDefault("Its glow is almost blinding to look at");
+		// DisplayName.SetDefault("Aurora Crystal Bar");
+		// Tooltip.SetDefault("Its glow is almost blinding to look at");
 	}
 
 	public override void SetDefaults()
 	{
 		Item item = new Item();
-		((Entity)(object)((ModItem)this).Item).width = ((Entity)(object)item).width;
-		((Entity)(object)((ModItem)this).Item).height = ((Entity)(object)item).height;
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.value = 1000;
-		((ModItem)this).Item.rare = 2;
+		Item.width = Item.width;
+		Item.height = Item.height;
+		Item.maxStack = 999;
+		Item.value = 1000;
+		Item.rare = 2;
 	}
 
 	public override void AddRecipes()

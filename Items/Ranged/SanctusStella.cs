@@ -8,23 +8,23 @@ public class SanctusStella : ModItem
 {
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 53;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 28;
-		((ModItem)this).Item.useTime = 23;
-		((ModItem)this).Item.useAnimation = 23;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("SkyStar").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 53;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 28;
+		((Entity)(object)Item).height = 28;
+		Item.useTime = 23;
+		Item.useAnimation = 23;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 5;
+		Item.autoReuse = true;
+		Item.UseSound = SoundID.Item1;
+		Item.shoot = Mod.Find<ModProjectile>("SkyStar").Type;
+		Item.shootSpeed = 16f;
+		Item.useTurn = true;
+		Item.maxStack = 1;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

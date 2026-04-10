@@ -11,26 +11,26 @@ public class EldritchGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Fires out eldritch tentacles\nDoes not require ammo to use");
-		// ((ModItem)this).DisplayName.SetDefault("Death's Raze");
+		// Tooltip.SetDefault("Fires out eldritch tentacles\nDoes not require ammo to use");
+		// DisplayName.SetDefault("Death's Raze");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.damage = 280;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 6;
-		((ModItem)this).Item.useAnimation = 6;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item34;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShadeTentacle").Type;
-		((ModItem)this).Item.shootSpeed = 32f;
+		Item.value = Item.buyPrice(1, 50);
+		Item.damage = 280;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 20;
+		Item.height = 40;
+		Item.useTime = 6;
+		Item.useAnimation = 6;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item34;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("ShadeTentacle").Type;
+		Item.shootSpeed = 32f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -47,7 +47,7 @@ public class EldritchGun : ModItem
 	{
 		Vector2 vector = new Vector2(speedX, speedY).SafeNormalize(-Vector2.UnitY);
 		Vector2 vector2 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)).SafeNormalize(-Vector2.UnitY);
-		vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * ((ModItem)this).Item.shootSpeed;
+		vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * Item.shootSpeed;
 		float num = (float)Main.rand.Next(10, 80) * 0.001f;
 		if (Main.rand.Next(2) == 0)
 		{
@@ -58,7 +58,7 @@ public class EldritchGun : ModItem
 		{
 			num2 *= -1f;
 		}
-		Projectile.NewProjectile(position, vector, type, damage, knockBack, player.whoAmI, num, num2);
+		Projectile.NewProjectile(null, position, vector, type, damage, knockBack, player.whoAmI, num, num2);
 		return false;
 	}
 

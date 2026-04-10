@@ -8,16 +8,16 @@ public class FutabaHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Futaba Head");
-		// ((ModItem)this).Tooltip.SetDefault("~Developer item~");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("Futaba Head");
+		// Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.vanity = true;
-		((ModItem)this).Item.rare = 9;
+		Item.width = 18;
+		Item.height = 18;
+		Item.vanity = true;
+		Item.rare = 9;
 	}
 }

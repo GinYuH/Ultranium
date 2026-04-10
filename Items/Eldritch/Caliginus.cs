@@ -12,29 +12,29 @@ public class Caliginus : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Caliginus");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a mini Erebus to fight with you");
+		// DisplayName.SetDefault("Caliginus");
+		// Tooltip.SetDefault("Summons a mini Erebus to fight with you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 270;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.mana = 25;
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 3f;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusHead").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("ErebusBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.damage = 270;
+		Item.DamageType = DamageClass.Summon;
+		Item.mana = 25;
+		Item.width = 16;
+		Item.height = 14;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.knockBack = 3f;
+		Item.value = Item.buyPrice(1, 50);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("SmolErebusHead").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("ErebusBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -79,10 +79,10 @@ public class Caliginus : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		damage = ((ModItem)this).Item.damage;
+		damage = Item.damage;
 		int whoAmI = player.whoAmI;
-		float shootSpeed = ((ModItem)this).Item.shootSpeed;
-		player.itemTime = ((ModItem)this).Item.useTime;
+		float shootSpeed = Item.shootSpeed;
+		player.itemTime = Item.useTime;
 		Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 		Vector2 value = Vector2.UnitX.RotatedBy(player.fullRotation);
 		Vector2 value2 = Main.MouseWorld - vector;
@@ -107,8 +107,8 @@ public class Caliginus : ModItem
 		num2 *= num3;
 		int num4 = -1;
 		int num5 = -1;
-		int num6 = ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusHead").Type;
-		int num7 = ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusTail").Type;
+		int num6 = Mod.Find<ModProjectile>("SmolErebusHead").Type;
+		int num7 = Mod.Find<ModProjectile>("SmolErebusTail").Type;
 		for (int i = 0; i < 1000; i++)
 		{
 			if (((Entity)Main.projectile[i]).active && Main.projectile[i].owner == whoAmI)
@@ -141,21 +141,21 @@ public class Caliginus : ModItem
 			num2 = 0f;
 			vector.X = (float)Main.mouseX + Main.screenPosition.X;
 			vector.Y = (float)Main.mouseY + Main.screenPosition.Y;
-			int num8 = Projectile.NewProjectile(vector.X, vector.Y, num, num2, ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusHead").Type, damage, knockBack, whoAmI, 0f, 0f);
+			int num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusHead").Type, damage, knockBack, whoAmI, 0f, 0f);
 			int num9 = num8;
 			num9 = num8;
-			num8 = Projectile.NewProjectile(vector.X, vector.Y, num, num2, ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, (float)num9, 0f);
+			num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, (float)num9, 0f);
 			Main.projectile[num9].localAI[1] = num8;
 			Main.projectile[num9].netUpdate = true;
 			num9 = num8;
-			num8 = Projectile.NewProjectile(vector.X, vector.Y, num, num2, ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusTail").Type, damage, knockBack, whoAmI, (float)num9, 0f);
+			num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusTail").Type, damage, knockBack, whoAmI, (float)num9, 0f);
 			Main.projectile[num9].localAI[1] = num8;
 			Main.projectile[num9].netUpdate = true;
 		}
 		else if (num4 != -1 && num5 != -1)
 		{
-			int num10 = Projectile.NewProjectile(vector.X, vector.Y, num, num2, ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, Main.projectile[num5].ai[0], 0f);
-			int num11 = Projectile.NewProjectile(vector.X, vector.Y, num, num2, ((ModItem)this).Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, (float)num10, 0f);
+			int num10 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, Main.projectile[num5].ai[0], 0f);
+			int num11 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockBack, whoAmI, (float)num10, 0f);
 			Main.projectile[num10].localAI[1] = num11;
 			Main.projectile[num10].ai[1] = 1f;
 			Main.projectile[num10].netUpdate = true;
@@ -172,6 +172,6 @@ public class Caliginus : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 }

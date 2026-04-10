@@ -10,23 +10,23 @@ public class WolfFang : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Wolf Fang");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a pet werewolf");
+		// DisplayName.SetDefault("Wolf Fang");
+		// Tooltip.SetDefault("Summons a pet werewolf");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.CloneDefaults(669);
-		((ModItem)this).Item.shoot = ModContent.ProjectileType<WerewolfPet>();
-		((ModItem)this).Item.buffType = ModContent.BuffType<WerewolfBuff>();
+		Item.rare = 3;
+		Item.CloneDefaults(669);
+		Item.shoot = ModContent.ProjectileType<WerewolfPet>();
+		Item.buffType = ModContent.BuffType<WerewolfBuff>();
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

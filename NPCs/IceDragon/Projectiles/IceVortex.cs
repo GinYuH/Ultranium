@@ -55,6 +55,6 @@ public class IceVortex : ModProjectile
 
 	public override void OnKill(int timeLeft)
 	{
-		Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y - 100f, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("IceTwisterLarge").Type, 30, 1f, Main.myPlayer, 0f, 0f);
+		Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y - 100f, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("IceTwisterLarge").Type, 30, 1f, Main.myPlayer, 0f, 0f);
 	}
 }

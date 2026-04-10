@@ -8,29 +8,29 @@ public class StellarStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Wand");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a Stellar swirl bolt");
+		// DisplayName.SetDefault("Stellar Wand");
+		// Tooltip.SetDefault("Fires a Stellar swirl bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 40;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 5;
-		Item.staff[((ModItem)this).Item.type] = true;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.mana = 12;
-		((ModItem)this).Item.UseSound = SoundID.DD2_BetsysWrathShot;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarBolt").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 40;
+		Item.DamageType = DamageClass.Magic;
+		Item.width = 16;
+		Item.height = 14;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 5;
+		Item.staff[Item.type] = true;
+		Item.noMelee = true;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 5;
+		Item.mana = 12;
+		Item.UseSound = SoundID.DD2_BetsysWrathShot;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("StellarBolt").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override void AddRecipes()

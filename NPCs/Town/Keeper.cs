@@ -24,41 +24,41 @@ public class Keeper : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Keeper");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 25;
+		// DisplayName.SetDefault("Keeper");
+		Main.npcFrameCount[NPC.type] = 25;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.townNPC = true;
-		((ModNPC)this).NPC.friendly = true;
-		((ModNPC)this).NPC.width = 18;
-		((ModNPC)this).NPC.height = 40;
-		((ModNPC)this).NPC.aiStyle = 7;
-		((ModNPC)this).NPC.damage = 10;
-		((ModNPC)this).NPC.defense = 30;
-		((ModNPC)this).NPC.lifeMax = 500;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.knockBackResist = 0.5f;
-		NPCID.Sets.AttackFrameCount[((ModNPC)this).NPC.type] = 4;
-		NPCID.Sets.DangerDetectRange[((ModNPC)this).NPC.type] = 700;
-		NPCID.Sets.AttackType[((ModNPC)this).NPC.type] = 0;
-		NPCID.Sets.AttackTime[((ModNPC)this).NPC.type] = 90;
-		NPCID.Sets.AttackAverageChance[((ModNPC)this).NPC.type] = 30;
+		NPC.townNPC = true;
+		NPC.friendly = true;
+		NPC.width = 18;
+		NPC.height = 40;
+		NPC.aiStyle = 7;
+		NPC.damage = 10;
+		NPC.defense = 30;
+		NPC.lifeMax = 500;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.knockBackResist = 0.5f;
+		NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+		NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+		NPCID.Sets.AttackType[NPC.type] = 0;
+		NPCID.Sets.AttackTime[NPC.type] = 90;
+		NPCID.Sets.AttackAverageChance[NPC.type] = 30;
 		base.AnimationType = 17;
 	}
 
 	public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
 	{
-		return Main.player.Any((Player x) => ((Entity)x).active && x.inventory.Any((Item y) => y.type == 73) && NPC.CountNPCS(((ModNPC)this).Mod.Find<ModNPC>("Aldin").Type) < 1);
+		return Main.player.Any((Player x) => ((Entity)x).active && x.inventory.Any((Item y) => y.type == 73) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1);
 	}
 
 	public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
 	{
 		string[] array = new string[1] { "Aldin" };
-		return Utils.Next<string>(Main.rand, array);
-	}
+		return new List<string>(array);
+    }
 
 	public override string GetChat()
 	{
@@ -73,11 +73,11 @@ public class Keeper : ModNPC
 	public override void SetChatButtons(ref string button, ref string button2)
 	{
 		button = Language.GetTextValue("LegacyInterface.28");
-		if (Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
+		if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
 			button2 = "Mushrooms";
 		}
-		if (Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("RealityBendingShroom").Type) && UltraniumWorld.downedErebus && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
+		if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("RealityBendingShroom").Type) && UltraniumWorld.downedErebus && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
 			button2 = "???";
 		}
@@ -89,16 +89,16 @@ public class Keeper : ModNPC
 		{
 			shop = true;
 		}
-		else if (Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
+		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
 			Main.npcChatText = "djswfsdegerdshtr what?? How did you even find these? I literally had to search across multiple dimensions to find them and you find all of them. phenomenal.";
-			int num = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("StrangeUndergrowth").Type);
-			int num2 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("SoulCrushingDisappointment").Type);
-			int num3 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("TruffleShroom").Type);
-			int num4 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("ExistentialDread").Type);
-			int num5 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("TheFart").Type);
-			int num6 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("Moorhsum").Type);
-			int num7 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("SolarShroom").Type);
+			int num = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("StrangeUndergrowth").Type);
+			int num2 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type);
+			int num3 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("TruffleShroom").Type);
+			int num4 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("ExistentialDread").Type);
+			int num5 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("TheFart").Type);
+			int num6 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("Moorhsum").Type);
+			int num7 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("SolarShroom").Type);
 			Main.LocalPlayer.inventory[num].TurnToAir();
 			Main.LocalPlayer.inventory[num2].TurnToAir();
 			Main.LocalPlayer.inventory[num3].TurnToAir();
@@ -106,12 +106,12 @@ public class Keeper : ModNPC
 			Main.LocalPlayer.inventory[num5].TurnToAir();
 			Main.LocalPlayer.inventory[num6].TurnToAir();
 			Main.LocalPlayer.inventory[num7].TurnToAir();
-			Main.LocalPlayer.QuickSpawnItem(((ModNPC)this).Mod.Find<ModItem>("RealityBendingShroom").Type, 1);
+			Main.LocalPlayer.QuickSpawnItem(Mod.Find<ModItem>("RealityBendingShroom").Type, 1);
 		}
-		else if (Main.LocalPlayer.HasItem(((ModNPC)this).Mod.Find<ModItem>("RealityBendingShroom").Type) && NPC.CountNPCS(((ModNPC)this).Mod.Find<ModNPC>("Aldin").Type) < 1 && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
+		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("RealityBendingShroom").Type) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1 && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
 			Main.npcChatText = "Y E S";
-			int num8 = Main.LocalPlayer.FindItem(((ModNPC)this).Mod.Find<ModItem>("RealityBendingShroom").Type);
+			int num8 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("RealityBendingShroom").Type);
 			Main.LocalPlayer.inventory[num8].TurnToAir();
 			CanSpawnAldin = true;
 			ShouldSpawnAldin = true;
@@ -120,7 +120,7 @@ public class Keeper : ModNPC
 
 	public override void AI()
 	{
-		if (!CanSpawnAldin || !ShouldSpawnAldin || !((Entity)((ModNPC)this).NPC).active)
+		if (!CanSpawnAldin || !ShouldSpawnAldin || !((Entity)NPC).active)
 		{
 			return;
 		}
@@ -130,9 +130,9 @@ public class Keeper : ModNPC
 			int num = 15;
 			for (int i = 0; i < num; i++)
 			{
-				Vector2 vector = (Vector2.One * new Vector2((float)((ModNPC)this).NPC.width / 5f, ((ModNPC)this).NPC.height) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + ((ModNPC)this).NPC.Center;
-				Vector2 vector2 = vector - ((ModNPC)this).NPC.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, ((ModNPC)this).Mod.Find<ModDust>("StellarDust").Type, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
+				Vector2 vector = (Vector2.One * new Vector2((float)NPC.width / 5f, NPC.height) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + NPC.Center;
+				Vector2 vector2 = vector - NPC.Center;
+				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, Mod.Find<ModDust>("StellarDust").Type, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector2) * 2f;
@@ -141,12 +141,12 @@ public class Keeper : ModNPC
 		}
 		if (SpawnTimer == 180)
 		{
-			NPC.NewNPC((int)((ModNPC)this).NPC.Center.X, (int)((ModNPC)this).NPC.Center.Y, ((ModNPC)this).Mod.Find<ModNPC>("Aldin").Type, 0, 0f, 0f, 0f, 0f, 255);
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
+			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Aldin").Type, 0, 0f, 0f, 0f, 0f, 255);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 			Ultranium.seizureAmount = 20f;
-			Main.NewText("Aldin's true form has been unleashed!", (byte)175, (byte)75, byte.MaxValue, false);
+			Main.NewText("Aldin's true form has been unleashed!", (byte)175, (byte)75, byte.MaxValue);
 			SpawnTimer = 0;
-			((Entity)((ModNPC)this).NPC).active = false;
+			((Entity)NPC).active = false;
 			ShouldSpawnAldin = false;
 			SellFinalShroom = true;
 		}
@@ -325,7 +325,7 @@ public class Keeper : ModNPC
 
 	public override void TownNPCAttackProj(ref int projType, ref int attackDelay)
 	{
-		projType = ((ModNPC)this).Mod.Find<ModProjectile>("CosmicBolt").Type;
+		projType = Mod.Find<ModProjectile>("CosmicBolt").Type;
 		attackDelay = 1;
 	}
 

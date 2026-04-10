@@ -14,27 +14,27 @@ public class HellGun : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Turns bullets into flaming blasts\nShoots a giant flame blast every 30 shots\nThe giant blast will deal double the weapon's damage\n50% chance to not consume ammo");
-		// ((ModItem)this).DisplayName.SetDefault("Nether Blaster");
+		// Tooltip.SetDefault("Turns bullets into flaming blasts\nShoots a giant flame blast every 30 shots\nThe giant blast will deal double the weapon's damage\n50% chance to not consume ammo");
+		// DisplayName.SetDefault("Nether Blaster");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 140;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 8;
-		((ModItem)this).Item.useAnimation = 8;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item40;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = 242;
-		((ModItem)this).Item.shootSpeed = 12f;
-		((ModItem)this).Item.useAmmo = AmmoID.Bullet;
+		Item.damage = 140;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 58;
+		Item.height = 26;
+		Item.useTime = 8;
+		Item.useAnimation = 8;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item40;
+		Item.value = Item.buyPrice(1);
+		Item.autoReuse = true;
+		Item.shoot = 242;
+		Item.shootSpeed = 12f;
+		Item.useAmmo = AmmoID.Bullet;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -42,12 +42,12 @@ public class HellGun : ModItem
 		Vector2 vector = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(4f));
 		speedX = vector.X;
 		speedY = vector.Y;
-		type = ((ModItem)this).Mod.Find<ModProjectile>("FlamingBulletBlast").Type;
+		type = Mod.Find<ModProjectile>("FlamingBulletBlast").Type;
 		Use++;
 		if (Use >= 30)
 		{
 			Vector2 vector2 = new Vector2(speedX, speedY).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-			Projectile.NewProjectile(position.X, position.Y, vector2.X, vector2.Y, ((ModItem)this).Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, ((ModItem)this).Item.damage * 2, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, Item.damage * 2, knockBack, player.whoAmI, 0f, 0f);
 			Use = 0;
 			return false;
 		}

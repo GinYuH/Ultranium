@@ -9,35 +9,35 @@ public class ShadeGhoul : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Shade Ghoul");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[524];
+		// DisplayName.SetDefault("Shade Ghoul");
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[524];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.npcSlots = 1f;
-		((ModNPC)this).NPC.width = 42;
-		((ModNPC)this).NPC.height = 52;
-		((ModNPC)this).NPC.damage = 18;
-		((ModNPC)this).NPC.defense = 15;
-		((ModNPC)this).NPC.lifeMax = 60;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.aiStyle = 3;
+		NPC.npcSlots = 1f;
+		NPC.width = 42;
+		NPC.height = 52;
+		NPC.damage = 18;
+		NPC.defense = 15;
+		NPC.lifeMax = 60;
+		NPC.knockBackResist = 0.1f;
+		NPC.aiStyle = 3;
 		base.AIType = 524;
 		base.AnimationType = 524;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit6;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath8;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("ShadeGhoulBanner").Type;
+		NPC.HitSound = SoundID.NPCHit6;
+		NPC.DeathSound = SoundID.NPCDeath8;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("ShadeGhoulBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore3"));
 		}
 	}
 
@@ -63,7 +63,7 @@ public class ShadeGhoul : ModNPC
 	{
 		if (Main.rand.Next(2) == 1)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

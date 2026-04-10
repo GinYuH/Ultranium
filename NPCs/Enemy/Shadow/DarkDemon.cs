@@ -12,65 +12,65 @@ public class DarkDemon : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Dark Demon");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 4;
+		// DisplayName.SetDefault("Dark Demon");
+		Main.npcFrameCount[NPC.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 30;
-		((ModNPC)this).NPC.height = 30;
-		((ModNPC)this).NPC.damage = 18;
-		((ModNPC)this).NPC.defense = 10;
-		((ModNPC)this).NPC.lifeMax = 55;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit21;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath24;
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 0, 1);
-		((ModNPC)this).NPC.knockBackResist = 0.5f;
-		((ModNPC)this).NPC.aiStyle = 14;
-		((ModNPC)this).NPC.noGravity = true;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("DarkDemonBanner").Type;
+		NPC.width = 30;
+		NPC.height = 30;
+		NPC.damage = 18;
+		NPC.defense = 10;
+		NPC.lifeMax = 55;
+		NPC.HitSound = SoundID.NPCHit21;
+		NPC.DeathSound = SoundID.NPCDeath24;
+		NPC.value = Item.buyPrice(0, 0, 1);
+		NPC.knockBackResist = 0.5f;
+		NPC.aiStyle = 14;
+		NPC.noGravity = true;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("DarkDemonBanner").Type;
 	}
 
 	public override void AI()
 	{
-		((ModNPC)this).NPC.TargetClosest();
-		Player player = Main.player[((ModNPC)this).NPC.target];
-		((ModNPC)this).NPC.rotation = ((ModNPC)this).NPC.velocity.X * 0.03f;
-		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
+		NPC.TargetClosest();
+		Player player = Main.player[NPC.target];
+		NPC.rotation = NPC.velocity.X * 0.03f;
+		NPC.spriteDirection = NPC.direction;
 		Timer++;
 		if (Timer > 600)
 		{
-			((ModNPC)this).NPC.velocity *= 0f;
+			NPC.velocity *= 0f;
 		}
 		if (Timer == 650)
 		{
 			float num = 6f;
-			float num2 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - player.Center.Y, ((ModNPC)this).NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("DarkDemonScythe").Type, 20, 0f, 0, 0f, 0f);
+			float num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("DarkDemonScythe").Type, 20, 0f, 0, 0f, 0f);
 			Timer = 0;
 		}
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore3"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore4"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore4"));
 		}
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).NPC.frameCounter += 1.0;
-		if (((ModNPC)this).NPC.frameCounter >= 8.0)
+		NPC.frameCounter += 1.0;
+		if (NPC.frameCounter >= 8.0)
 		{
-			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
-			((ModNPC)this).NPC.frameCounter = 1.0;
+			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
+			NPC.frameCounter = 1.0;
 		}
 	}
 
@@ -78,7 +78,7 @@ public class DarkDemon : ModNPC
 	{
 		if (Utils.NextBool(Main.rand, 2))
 		{
-			Item.NewItem(((ModNPC)this).NPC.getRect(), ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, Main.rand.Next(1, 4), false, 0, false, false);
+			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("ShadowEssence").Type, Main.rand.Next(1, 4), false, 0, false, false);
 		}
 	}
 

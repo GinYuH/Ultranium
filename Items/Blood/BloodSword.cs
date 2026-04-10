@@ -10,27 +10,27 @@ public class BloodSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Bloodthorn Blade");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots a random spread of blood thorns");
+		// DisplayName.SetDefault("Bloodthorn Blade");
+		// Tooltip.SetDefault("Shoots a random spread of blood thorns");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.scale = 1.2f;
-		((ModItem)this).Item.damage = 12;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.UseSound = SoundID.Item7;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BloodThorn").Type;
-		((ModItem)this).Item.shootSpeed = 5f;
+		Item.scale = 1.2f;
+		Item.damage = 12;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.UseSound = SoundID.Item7;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("BloodThorn").Type;
+		Item.shootSpeed = 5f;
 	}
 
 	public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -49,7 +49,7 @@ public class BloodSword : ModItem
 			Vector2 vector = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20f));
 			float num2 = 1f - Main.rand.NextFloat() * 0.3f;
 			vector *= num2;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

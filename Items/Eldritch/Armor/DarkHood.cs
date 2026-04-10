@@ -10,17 +10,17 @@ public class DarkHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Darkmatter Hood");
-		// ((ModItem)this).Tooltip.SetDefault("12% increased magic damage\n+5 max life and +10 max mana");
+		// DisplayName.SetDefault("Darkmatter Hood");
+		// Tooltip.SetDefault("12% increased magic damage\n+5 max life and +10 max mana");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.defense = 25;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 80);
+		Item.rare = 11;
+		Item.defense = 25;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -30,9 +30,9 @@ public class DarkHood : ModItem
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("DarkBody").Type)
+		if (body.type == Mod.Find<ModItem>("DarkBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("DarkLegs").Type;
+			return legs.type == Mod.Find<ModItem>("DarkLegs").Type;
 		}
 		return false;
 	}

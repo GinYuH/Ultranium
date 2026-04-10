@@ -8,34 +8,34 @@ public class Orca : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Orca");
+		// DisplayName.SetDefault("Orca");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.damage = 40;
-		((ModNPC)this).NPC.lifeMax = 250;
-		((ModNPC)this).NPC.defense = 20;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.width = 120;
-		((ModNPC)this).NPC.height = 50;
-		((ModNPC)this).NPC.scale = 1.1f;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 0, 20);
-		((ModNPC)this).NPC.aiStyle = 16;
+		NPC.damage = 40;
+		NPC.lifeMax = 250;
+		NPC.defense = 20;
+		NPC.knockBackResist = 0.1f;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.width = 120;
+		NPC.height = 50;
+		NPC.scale = 1.1f;
+		NPC.noGravity = true;
+		NPC.value = Item.buyPrice(0, 0, 20);
+		NPC.aiStyle = 16;
 		base.AIType = 65;
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[65];
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
 		base.AnimationType = 65;
-		((ModNPC)this).NPC.buffImmune[31] = true;
+		NPC.buffImmune[31] = true;
 	}
 
 	public override void OnKill()
 	{
 		if (Main.rand.Next(20) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 268, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 268, 1, false, 0, false, false);
 		}
 	}
 

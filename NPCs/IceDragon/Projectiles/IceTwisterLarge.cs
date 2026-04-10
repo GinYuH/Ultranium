@@ -131,7 +131,7 @@ public class IceTwisterLarge : ModProjectile
 			((ModProjectile)this).Projectile.soundDelay = -1;
 			float[] localAI = ((ModProjectile)this).Projectile.localAI;
 			SlotId val = SoundEngine.PlaySound((SoundStyle)SoundID.DD2_BookStaffTwisterLoop, ((ModProjectile)this).Projectile.Center);
-			localAI[1] = ((SlotId)(ref val)).ToFloat();
+			localAI[1] = ((SlotId)(val)).ToFloat();
 		}
 		SoundEngine.TryGetActiveSound(SlotId.FromFloat(((ModProjectile)this).Projectile.localAI[1]), out ActiveSound activeSound);
 		if (activeSound != null)
@@ -144,7 +144,7 @@ public class IceTwisterLarge : ModProjectile
 			float[] localAI2 = ((ModProjectile)this).Projectile.localAI;
 			int num2 = 1;
 			SlotId invalid = SlotId.Invalid;
-			localAI2[num2] = ((SlotId)(ref invalid)).ToFloat();
+			localAI2[num2] = ((SlotId)(invalid)).ToFloat();
 		}
 		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
 		{

@@ -10,28 +10,28 @@ public class HellFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Hell's Fury");
-		// ((ModItem)this).Tooltip.SetDefault("Creates a barrage of flame blasts");
+		// DisplayName.SetDefault("Hell's Fury");
+		// Tooltip.SetDefault("Creates a barrage of flame blasts");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 155;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.useAnimation = 24;
-		((ModItem)this).Item.useTime = 24;
-		((ModItem)this).Item.knockBack = 15f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.UseSound = SoundID.Item10;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("HellFlail").Type;
-		((ModItem)this).Item.shootSpeed = 14f;
+		Item.damage = 155;
+		Item.width = 20;
+		Item.height = 20;
+		Item.useAnimation = 24;
+		Item.useTime = 24;
+		Item.knockBack = 15f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.noMelee = true;
+		Item.noUseGraphic = true;
+		Item.UseSound = SoundID.Item10;
+		Item.autoReuse = true;
+		Item.useStyle = 5;
+		Item.shoot = Mod.Find<ModProjectile>("HellFlail").Type;
+		Item.shootSpeed = 14f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

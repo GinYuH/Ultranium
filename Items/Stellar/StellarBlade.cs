@@ -9,26 +9,26 @@ public class StellarBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Blade");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots Stellar Stars");
+		// DisplayName.SetDefault("Stellar Blade");
+		// Tooltip.SetDefault("Shoots Stellar Stars");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 52;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 48;
-		((Entity)(object)((ModItem)this).Item).height = 48;
-		((ModItem)this).Item.useTime = 22;
-		((ModItem)this).Item.useAnimation = 22;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.UseSound = SoundID.Item71;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarStar").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.damage = 52;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((Entity)(object)Item).width = 48;
+		((Entity)(object)Item).height = 48;
+		Item.useTime = 22;
+		Item.useAnimation = 22;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 5;
+		Item.UseSound = SoundID.Item71;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("StellarStar").Type;
+		Item.shootSpeed = 15f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

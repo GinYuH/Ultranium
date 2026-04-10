@@ -30,7 +30,7 @@ public class ZephyrTrident : ModProjectile
 		if (timer == 0)
 		{
 			SoundEngine.PlaySound(SoundID.Item8, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.velocity, ((ModProjectile)this).Mod.Find<ModProjectile>("ZephyrTridentBolt").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.velocity, ((ModProjectile)this).Mod.Find<ModProjectile>("ZephyrTridentBolt").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			timer = 25;
 		}
 	}

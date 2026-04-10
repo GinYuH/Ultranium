@@ -8,28 +8,28 @@ public class LunaticIceStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ice Mist Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots a giant ice ball that explodes into a circle of ice shards");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Ice Mist Staff");
+		// Tooltip.SetDefault("Shoots a giant ice ball that explodes into a circle of ice shards");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 100;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 22;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 8;
-		((ModItem)this).Item.UseSound = SoundID.Item120;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("IceBall").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 100;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 22;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 8;
+		Item.UseSound = SoundID.Item120;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("IceBall").Type;
+		Item.shootSpeed = 10f;
 	}
 }

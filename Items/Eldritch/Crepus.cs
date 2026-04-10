@@ -11,29 +11,29 @@ public class Crepus : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Crepus");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots a spread of green and purple shade arrows\nGreen shade arrows will accelerate quickly\nPurple arrows move slowly but deal rapid damage");
+		// DisplayName.SetDefault("Crepus");
+		// Tooltip.SetDefault("Shoots a spread of green and purple shade arrows\nGreen shade arrows will accelerate quickly\nPurple arrows move slowly but deal rapid damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 270;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 18;
-		((ModItem)this).Item.useAnimation = 18;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.useAmmo = AmmoID.Arrow;
-		((ModItem)this).Item.shoot = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shootSpeed = 8f;
+		Item.damage = 270;
+		Item.width = 20;
+		Item.height = 40;
+		Item.useTime = 18;
+		Item.useAnimation = 18;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Ranged;
+		Item.autoReuse = true;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.useAmmo = AmmoID.Arrow;
+		Item.shoot = 11;
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shootSpeed = 8f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -53,13 +53,13 @@ public class Crepus : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.4f;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("ShadeArrowGreen").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ShadeArrowGreen").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		float num3 = MathHelper.ToRadians(1f);
 		for (int j = 0; (float)j < num; j++)
 		{
 			Vector2 vector2 = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num3, num3, (float)j / (num - 1f))) * 0.4f;
-			Projectile.NewProjectile(position.X, position.Y, vector2.X, vector2.Y, ((ModItem)this).Mod.Find<ModProjectile>("ShadeArrow").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ShadeArrow").Type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

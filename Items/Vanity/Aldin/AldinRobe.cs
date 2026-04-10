@@ -8,16 +8,16 @@ public class AldinRobe : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Cosmic Mage's Robe");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("Cosmic Mage's Robe");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.vanity = true;
-		((ModItem)this).Item.rare = 9;
+		((Entity)(object)Item).width = 18;
+		((Entity)(object)Item).height = 18;
+		Item.vanity = true;
+		Item.rare = 9;
 	}
 }

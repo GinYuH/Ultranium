@@ -11,34 +11,34 @@ public class HellStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Purgatory Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Conjures spreads of flaming bolts");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Purgatory Staff");
+		// Tooltip.SetDefault("Conjures spreads of flaming bolts");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 130;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 22;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 12;
-		((ModItem)this).Item.useAnimation = 12;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("HellBeam").Type;
-		((ModItem)this).Item.shootSpeed = 0.5f;
+		Item.damage = 130;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 22;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 12;
+		Item.useAnimation = 12;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("HellBeam").Type;
+		Item.shootSpeed = 0.5f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Projectile.NewProjectile(Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), ((ModItem)this).Mod.Find<ModProjectile>("HellBeam").Type, ((ModItem)this).Item.damage, knockBack, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(null, Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), Mod.Find<ModProjectile>("HellBeam").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
 		return false;
 	}
 

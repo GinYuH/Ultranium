@@ -16,29 +16,29 @@ public class CosmicStaff : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Protostar Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Casts protostars that explode into bolts");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Protostar Scepter");
+		// Tooltip.SetDefault("Casts protostars that explode into bolts");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 380;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 10;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 16;
-		((ModItem)this).Item.useAnimation = 16;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(2);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("Protostar").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 380;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 10;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 16;
+		Item.useAnimation = 16;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(2);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("Protostar").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -10,28 +10,28 @@ public class HellTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Shoots a molten glob that explodes into bolts when it hits enemies");
-		// ((ModItem)this).DisplayName.SetDefault("Molten Purge");
+		// Tooltip.SetDefault("Shoots a molten glob that explodes into bolts when it hits enemies");
+		// DisplayName.SetDefault("Molten Purge");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 200;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 25;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 26;
-		((ModItem)this).Item.useAnimation = 26;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("FlameGlob").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
+		Item.damage = 200;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 25;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 26;
+		Item.useAnimation = 26;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("FlameGlob").Type;
+		Item.shootSpeed = 16f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

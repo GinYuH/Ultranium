@@ -42,7 +42,7 @@ public class NatureBlastBase : ModProjectile
 			Vector2 vector2 = ((ModProjectile)this).Projectile.Center - vector;
 			vector2.Normalize();
 			vector2 *= 2f;
-			_ = Main.projectile[Projectile.NewProjectile(vector.X, vector.Y, vector2.X, vector2.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("NatureBlast").Type, ((ModProjectile)this).Projectile.damage, 6f, 0, 0f, 0f)];
+			_ = Main.projectile[Projectile.NewProjectile(null, vector.X, vector.Y, vector2.X, vector2.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("NatureBlast").Type, ((ModProjectile)this).Projectile.damage, 6f, 0, 0f, 0f)];
 		}
 	}
 }

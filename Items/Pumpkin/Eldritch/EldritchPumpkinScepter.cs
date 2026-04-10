@@ -10,26 +10,26 @@ public class EldritchPumpkinScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Pumpkin Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
+		// DisplayName.SetDefault("Eldritch Pumpkin Scepter");
+		// Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 28;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 45;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.UseSound = SoundID.Item117;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchPumpkinSentry").Type;
-		((ModItem)this).Item.shootSpeed = 0f;
+		((Entity)(object)Item).width = 26;
+		((Entity)(object)Item).height = 28;
+		Item.rare = 4;
+		Item.mana = 20;
+		Item.damage = 45;
+		Item.knockBack = 1f;
+		Item.useStyle = 1;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.DamageType = DamageClass.Summon;
+		Item.noMelee = true;
+		Item.UseSound = SoundID.Item117;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchPumpkinSentry").Type;
+		Item.shootSpeed = 0f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -37,7 +37,7 @@ public class EldritchPumpkinScepter : ModItem
 		for (int i = 0; i < Main.projectile.Length; i++)
 		{
 			Projectile projectile = Main.projectile[i];
-			if (((Entity)projectile).active && projectile.type == ((ModItem)this).Item.shoot && projectile.owner == player.whoAmI)
+			if (((Entity)projectile).active && projectile.type == Item.shoot && projectile.owner == player.whoAmI)
 			{
 				((Entity)projectile).active = false;
 			}

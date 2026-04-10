@@ -41,7 +41,7 @@ public class IgnodiumBeamTelegraph : ModProjectile
 		}
 		else if (((ModProjectile)this).Projectile.ai[0] == 22f)
 		{
-			Projectile obj = Main.projectile[Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, -4f, ((ModProjectile)this).Mod.Find<ModProjectile>("IgnodiumBeam").Type, 55, 0f, Main.myPlayer, 0f, 40f)];
+			Projectile obj = Main.projectile[Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, -4f, ((ModProjectile)this).Mod.Find<ModProjectile>("IgnodiumBeam").Type, 55, 0f, Main.myPlayer, 0f, 40f)];
 			obj.localAI[1] = 125f;
 			obj.Center = ((ModProjectile)this).Projectile.Center;
 		}

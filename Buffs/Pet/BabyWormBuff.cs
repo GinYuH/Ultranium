@@ -18,7 +18,7 @@ public class BabyWormBuff : ModBuff
 		player.GetModPlayer<UltraniumPlayer>().BabyWorm = true;
 		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("BabyWorm").Type] <= 0 && player.whoAmI == Main.myPlayer)
 		{
-			Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).Mod.Find<ModProjectile>("BabyWorm").Type, 0, 0f, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).Mod.Find<ModProjectile>("BabyWorm").Type, 0, 0f, player.whoAmI, 0f, 0f);
 		}
 	}
 }

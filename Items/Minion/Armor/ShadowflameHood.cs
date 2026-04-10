@@ -8,24 +8,24 @@ public class ShadowflameHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadowflame Cowl");
-		// ((ModItem)this).Tooltip.SetDefault("5% increased summon damage and +1 max minions");
+		// DisplayName.SetDefault("Shadowflame Cowl");
+		// Tooltip.SetDefault("5% increased summon damage and +1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.defense = 7;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 5;
+		Item.defense = 7;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("ShadowflameBody").Type)
+		if (body.type == Mod.Find<ModItem>("ShadowflameBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("ShadowflameLegs").Type;
+			return legs.type == Mod.Find<ModItem>("ShadowflameLegs").Type;
 		}
 		return false;
 	}

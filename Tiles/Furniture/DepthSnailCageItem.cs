@@ -7,13 +7,13 @@ internal class DepthSnailCageItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Depth Snail Cage");
+		// DisplayName.SetDefault("Depth Snail Cage");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.CloneDefaults(2175);
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("DepthSnailCage").Type;
+		Item.CloneDefaults(2175);
+		Item.createTile = Mod.Find<ModTile>("DepthSnailCage").Type;
 	}
 
 	public override void AddRecipes()

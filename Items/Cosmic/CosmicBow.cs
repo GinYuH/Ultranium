@@ -17,27 +17,27 @@ public class CosmicBow : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Cosmic Annahilation");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a tight spread of homing cosmic bolts\nDoes not require ammo to use");
+		// DisplayName.SetDefault("Cosmic Annahilation");
+		// Tooltip.SetDefault("Fires a tight spread of homing cosmic bolts\nDoes not require ammo to use");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 400;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 48;
-		((Entity)(object)((ModItem)this).Item).height = 74;
-		((ModItem)this).Item.useTime = 23;
-		((ModItem)this).Item.useAnimation = 23;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(2);
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("CosmicBowBolt").Type;
-		((ModItem)this).Item.shootSpeed = 13.5f;
+		Item.damage = 400;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 48;
+		Item.height = 74;
+		Item.useTime = 23;
+		Item.useAnimation = 23;
+		Item.useStyle = 5;
+		Item.knockBack = 1f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(2);
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("CosmicBowBolt").Type;
+		Item.shootSpeed = 13.5f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -61,7 +61,7 @@ public class CosmicBow : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("CosmicBowBolt").Type, ((ModItem)this).Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmicBowBolt").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

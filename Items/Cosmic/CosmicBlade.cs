@@ -20,27 +20,27 @@ public class CosmicBlade : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Wrath of the Cosmos");
-		// ((ModItem)this).Tooltip.SetDefault("Fires down a stream of cosmic stars\nEvery 30 swings will send down a bigger cosmic star that explodes into smaller stars");
+		// DisplayName.SetDefault("Wrath of the Cosmos");
+		// Tooltip.SetDefault("Fires down a stream of cosmic stars\nEvery 30 swings will send down a bigger cosmic star that explodes into smaller stars");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.scale = 1.2f;
-		((ModItem)this).Item.damage = 360;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.useTime = 17;
-		((ModItem)this).Item.useAnimation = 17;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(2);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item9;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("CosmicSwordStar").Type;
-		((ModItem)this).Item.shootSpeed = 30f;
+		Item.scale = 1.2f;
+		Item.damage = 360;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 28;
+		Item.height = 32;
+		Item.useTime = 17;
+		Item.useAnimation = 17;
+		Item.useStyle = 1;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(2);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item9;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("CosmicSwordStar").Type;
+		Item.shootSpeed = 30f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -78,12 +78,12 @@ public class CosmicBlade : ModItem
 					num3 = 20f;
 				}
 				float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
-				float num5 = ((ModItem)this).Item.shootSpeed / num4;
+				float num5 = Item.shootSpeed / num4;
 				float num6 = num2 * num5;
 				float num7 = num3 * num5;
 				float num8 = num6 + (float)Main.rand.Next(-40, 41) * 0.02f;
 				float num9 = num7 + (float)Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(vector.X, vector.Y, num8, num9, type, damage, knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(5));
+				Projectile.NewProjectile(null, vector.X, vector.Y, num8, num9, type, damage, knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(5));
 			}
 		}
 		if (Use >= 30)
@@ -105,12 +105,12 @@ public class CosmicBlade : ModItem
 					num12 = 20f;
 				}
 				float num13 = (float)Math.Sqrt((double)num11 * (double)num11 + (double)num12 * (double)num12);
-				float num14 = ((ModItem)this).Item.shootSpeed / num13;
+				float num14 = Item.shootSpeed / num13;
 				float num15 = num11 * num14;
 				float num16 = num12 * num14;
 				float num17 = num15 + (float)Main.rand.Next(-40, 41) * 0.02f;
 				float num18 = num16 + (float)Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(vector2.X, vector2.Y, num17, num18, ((ModItem)this).Mod.Find<ModProjectile>("GiantSwordStar").Type, damage, knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(5));
+				Projectile.NewProjectile(null, vector2.X, vector2.Y, num17, num18, Mod.Find<ModProjectile>("GiantSwordStar").Type, damage, knockBack, Main.myPlayer, 0f, (float)Main.rand.Next(5));
 			}
 			Use = 0;
 		}

@@ -9,26 +9,26 @@ public class Hallow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Chaos Blade");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots out a chaos star");
+		// DisplayName.SetDefault("Chaos Blade");
+		// Tooltip.SetDefault("Shoots out a chaos star");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 42;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 54;
-		((Entity)(object)((ModItem)this).Item).height = 54;
-		((ModItem)this).Item.useTime = 24;
-		((ModItem)this).Item.useAnimation = 24;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.UseSound = SoundID.Item60;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BlueStar").Type;
-		((ModItem)this).Item.shootSpeed = 8f;
+		Item.damage = 42;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 54;
+		Item.height = 54;
+		Item.useTime = 24;
+		Item.useAnimation = 24;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 5;
+		Item.UseSound = SoundID.Item60;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("BlueStar").Type;
+		Item.shootSpeed = 8f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

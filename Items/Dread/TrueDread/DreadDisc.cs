@@ -10,33 +10,33 @@ public class DreadDisc : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Disc of Dismay");
-		// ((ModItem)this).Tooltip.SetDefault("Throws out discs that scatter dread bolts in random directions\nOnly up to 3 discs can be active at once");
+		// DisplayName.SetDefault("Disc of Dismay");
+		// Tooltip.SetDefault("Throws out discs that scatter dread bolts in random directions\nOnly up to 3 discs can be active at once");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 260;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((ModItem)this).Item.crit = 10;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item60;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadDisc").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.damage = 260;
+		Item.DamageType = DamageClass.Ranged;
+		Item.crit = 10;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item60;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadDisc").Type;
+		Item.shootSpeed = 15f;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		return player.ownedProjectileCounts[((ModItem)this).Item.shoot] < 3;
+		return player.ownedProjectileCounts[Item.shoot] < 3;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

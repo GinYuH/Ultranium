@@ -8,28 +8,28 @@ public class ShadowStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Casts a shadow bolt");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// Tooltip.SetDefault("Casts a shadow bolt");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 22;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 5;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShadowStaffBolt").Type;
-		((ModItem)this).Item.shootSpeed = 5.5f;
+		Item.damage = 22;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 5;
+		((Entity)(object)Item).width = 40;
+		((Entity)(object)Item).height = 40;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 1;
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("ShadowStaffBolt").Type;
+		Item.shootSpeed = 5.5f;
 	}
 
 	public override void AddRecipes()

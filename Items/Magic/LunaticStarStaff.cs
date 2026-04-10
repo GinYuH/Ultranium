@@ -8,28 +8,28 @@ public class LunaticStarStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ancient Light Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Casts a fast moving ancient light");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Ancient Light Staff");
+		// Tooltip.SetDefault("Casts a fast moving ancient light");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 100;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 22;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 8;
-		((ModItem)this).Item.UseSound = SoundID.Item8;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("LunaticStar").Type;
-		((ModItem)this).Item.shootSpeed = 20f;
+		Item.damage = 100;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 22;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 8;
+		Item.UseSound = SoundID.Item8;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("LunaticStar").Type;
+		Item.shootSpeed = 20f;
 	}
 }

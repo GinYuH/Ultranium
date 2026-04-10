@@ -7,22 +7,22 @@ public class ShadowEventBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Music Box (Abyssmal Armageddon Wave 1)");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Music Box (Abyssmal Armageddon Wave 1)");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("ShadowEventBoxTile").Type;
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.accessory = true;
+		Item.useStyle = 1;
+		Item.useTurn = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.autoReuse = true;
+		Item.consumable = true;
+		Item.createTile = Mod.Find<ModTile>("ShadowEventBoxTile").Type;
+		Item.width = 24;
+		Item.height = 24;
+		Item.rare = 4;
+		Item.accessory = true;
 	}
 }

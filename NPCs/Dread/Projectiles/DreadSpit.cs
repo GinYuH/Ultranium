@@ -52,7 +52,7 @@ public class DreadSpit : ModProjectile
 			vector.Normalize();
 			vector.X *= 8f;
 			vector.Y *= 8f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadSpitHoming").Type, num4, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadSpitHoming").Type, num4, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 		}
 	}
 

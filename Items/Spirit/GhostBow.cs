@@ -11,30 +11,30 @@ public class GhostBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Phantom Shot");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots a spread of phantom arrows that can phase through walls");
+		// DisplayName.SetDefault("Phantom Shot");
+		// Tooltip.SetDefault("Shoots a spread of phantom arrows that can phase through walls");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 50;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 44;
-		((Entity)(object)((ModItem)this).Item).height = 58;
-		((ModItem)this).Item.useTime = 21;
-		((ModItem)this).Item.useAnimation = 21;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 1f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 55, 50);
-		((ModItem)this).Item.rare = 8;
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shootSpeed = 15f;
-		((ModItem)this).Item.shoot = 1;
-		((ModItem)this).Item.useAmmo = AmmoID.Arrow;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.alpha = 60;
+		Item.damage = 50;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 44;
+		Item.height = 58;
+		Item.useTime = 21;
+		Item.useAnimation = 21;
+		Item.useStyle = 5;
+		Item.knockBack = 1f;
+		Item.value = Item.buyPrice(0, 55, 50);
+		Item.rare = 8;
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shootSpeed = 15f;
+		Item.shoot = 1;
+		Item.useAmmo = AmmoID.Arrow;
+		Item.shootSpeed = 10f;
+		Item.alpha = 60;
 	}
 
 	public override Vector2? HoldoutOffset()
@@ -61,7 +61,7 @@ public class GhostBow : ModItem
 		Vector2[] array = randomSpread(speedX, speedY, 8, 3);
 		for (int i = 0; i < 3; i++)
 		{
-			Projectile.NewProjectile(position.X, position.Y, array[i].X, array[i].Y, ((ModItem)this).Mod.Find<ModProjectile>("GhostArrow").Type, 50, 1f, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, array[i].X, array[i].Y, Mod.Find<ModProjectile>("GhostArrow").Type, 50, 1f, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

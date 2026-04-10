@@ -26,7 +26,7 @@ public class ShadowEventBoxTile2 : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>("ShadowEventBox2").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>("ShadowEventBox2").Type, 1, false, 0, false, false);
 	}
 
 	public override void MouseOver(int i, int j)

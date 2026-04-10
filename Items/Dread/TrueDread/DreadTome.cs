@@ -11,28 +11,28 @@ public class DreadTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Paranoia");
-		// ((ModItem)this).Tooltip.SetDefault("Casts dread scythes");
+		// DisplayName.SetDefault("Paranoia");
+		// Tooltip.SetDefault("Casts dread scythes");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 240;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 13;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadSickle").Type;
-		((ModItem)this).Item.shootSpeed = 11f;
+		Item.damage = 240;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 13;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 25;
+		Item.useAnimation = 25;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadSickle").Type;
+		Item.shootSpeed = 11f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -48,7 +48,7 @@ public class DreadTome : ModItem
 			Vector2 vector = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(20f));
 			float num2 = 1f - Main.rand.NextFloat() * 0.3f;
 			vector *= num2;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

@@ -9,36 +9,36 @@ public class AbyssShark : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Abyssal Goblin Shark");
+		// DisplayName.SetDefault("Abyssal Goblin Shark");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.lifeMax = 400;
-		((ModNPC)this).NPC.damage = 60;
-		((ModNPC)this).NPC.defense = 65;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.width = 156;
-		((ModNPC)this).NPC.height = 44;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.aiStyle = 16;
+		NPC.lifeMax = 400;
+		NPC.damage = 60;
+		NPC.defense = 65;
+		NPC.knockBackResist = 0.1f;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.width = 156;
+		NPC.height = 44;
+		NPC.noGravity = true;
+		NPC.aiStyle = 16;
 		base.AIType = 65;
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[65];
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
 		base.AnimationType = 65;
-		((ModNPC)this).NPC.buffImmune[31] = true;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("AbyssSharkBanner").Type;
+		NPC.buffImmune[31] = true;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("AbyssSharkBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/SharkGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/SharkGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/SharkGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/SharkGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/SharkGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/SharkGore3"));
 		}
 	}
 
@@ -65,7 +65,7 @@ public class AbyssShark : ModNPC
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

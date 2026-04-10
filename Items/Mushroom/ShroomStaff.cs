@@ -8,29 +8,29 @@ public class ShroomStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Fungus Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Fires mushroom spores");
+		// DisplayName.SetDefault("Fungus Staff");
+		// Tooltip.SetDefault("Fires mushroom spores");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 10;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useStyle = 5;
-		Item.staff[((ModItem)this).Item.type] = true;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.mana = 5;
-		((ModItem)this).Item.UseSound = SoundID.Item8;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShroomSpore").Type;
-		((ModItem)this).Item.shootSpeed = 2.5f;
+		Item.damage = 10;
+		Item.DamageType = DamageClass.Magic;
+		Item.width = 16;
+		Item.height = 14;
+		Item.useTime = 25;
+		Item.useAnimation = 25;
+		Item.useStyle = 5;
+		Item.staff[Item.type] = true;
+		Item.noMelee = true;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.mana = 5;
+		Item.UseSound = SoundID.Item8;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("ShroomSpore").Type;
+		Item.shootSpeed = 2.5f;
 	}
 
 	public override void AddRecipes()

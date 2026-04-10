@@ -10,28 +10,28 @@ public class EldritchTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Yawning Abyss");
-		// ((ModItem)this).Tooltip.SetDefault("Casts abyssal vortexes");
+		// DisplayName.SetDefault("Yawning Abyss");
+		// Tooltip.SetDefault("Casts abyssal vortexes");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 200;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 13;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 22;
-		((ModItem)this).Item.useAnimation = 22;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item84;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchVortex").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
+		Item.damage = 200;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 13;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 22;
+		Item.useAnimation = 22;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(1, 50);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item84;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchVortex").Type;
+		Item.shootSpeed = 16f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

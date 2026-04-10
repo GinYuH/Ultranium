@@ -8,32 +8,32 @@ public class StellarDisc : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Throws Returning Stellar Discs");
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Disc");
+		// Tooltip.SetDefault("Throws Returning Stellar Discs");
+		// DisplayName.SetDefault("Stellar Disc");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 40;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarDisc").Type;
-		((ModItem)this).Item.shootSpeed = 17f;
+		Item.damage = 40;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 42;
+		((Entity)(object)Item).height = 42;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 5;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("StellarDisc").Type;
+		Item.shootSpeed = 17f;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		return player.ownedProjectileCounts[((ModItem)this).Item.shoot] < 6;
+		return player.ownedProjectileCounts[Item.shoot] < 6;
 	}
 
 	public override void AddRecipes()

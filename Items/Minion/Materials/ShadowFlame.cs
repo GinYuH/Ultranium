@@ -10,10 +10,10 @@ public class ShadowFlame : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadowflame");
-		// ((ModItem)this).Tooltip.SetDefault("");
-		ItemID.Sets.ItemNoGravity[((ModItem)this).Item.type] = true;
-		Main.RegisterItemAnimation(((ModItem)this).Item.type, new DrawAnimationVertical(6, 6));
+		// DisplayName.SetDefault("Shadowflame");
+		// Tooltip.SetDefault("");
+		ItemID.Sets.ItemNoGravity[Item.type] = true;
+		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -24,10 +24,10 @@ public class ShadowFlame : ModItem
 	public override void SetDefaults()
 	{
 		Item item = new Item();
-		((Entity)(object)((ModItem)this).Item).width = ((Entity)(object)item).width;
-		((Entity)(object)((ModItem)this).Item).height = ((Entity)(object)item).height;
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.value = 1000;
-		((ModItem)this).Item.rare = 5;
+		Item.width = Item.width;
+		Item.height = Item.height;
+		Item.maxStack = 999;
+		Item.value = 1000;
+		Item.rare = 5;
 	}
 }

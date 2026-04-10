@@ -7,13 +7,13 @@ public class EtherealDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ethereal Hades Dye");
+		// DisplayName.SetDefault("Ethereal Hades Dye");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.rare = 3;
+		Item.maxStack = 99;
+		Item.rare = 3;
 	}
 
 	public override void AddRecipes()

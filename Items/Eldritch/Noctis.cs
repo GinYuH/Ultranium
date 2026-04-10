@@ -11,29 +11,29 @@ public class Noctis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Noctis");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a spread of eldritch knives");
+		// DisplayName.SetDefault("Noctis");
+		// Tooltip.SetDefault("Fires a spread of eldritch knives");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.scale = 1f;
-		((ModItem)this).Item.damage = 210;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 80;
-		((Entity)(object)((ModItem)this).Item).height = 80;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchKnife").Type;
-		((ModItem)this).Item.shootSpeed = 22f;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
+		Item.scale = 1f;
+		Item.damage = 210;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 80;
+		Item.height = 80;
+		Item.useTime = 25;
+		Item.useAnimation = 25;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.noUseGraphic = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchKnife").Type;
+		Item.shootSpeed = 22f;
+		Item.value = Item.buyPrice(1, 50);
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -49,7 +49,7 @@ public class Noctis : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

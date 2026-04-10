@@ -14,29 +14,29 @@ public class DreadSpear : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Inquietude Impaler");
-		// ((ModItem)this).Tooltip.SetDefault("Fires slightly inaccurate dread scythes");
+		// DisplayName.SetDefault("Inquietude Impaler");
+		// Tooltip.SetDefault("Fires slightly inaccurate dread scythes");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 200;
-		((Entity)(object)((ModItem)this).Item).width = 64;
-		((Entity)(object)((ModItem)this).Item).height = 64;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.knockBack = 9f;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.useTime = 17;
-		((ModItem)this).Item.useAnimation = 17;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadSpear").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
+		Item.damage = 200;
+		Item.width = 64;
+		Item.height = 64;
+		Item.rare = 11;
+		Item.knockBack = 9f;
+		Item.useStyle = 5;
+		Item.useTime = 17;
+		Item.useAnimation = 17;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.noMelee = true;
+		Item.autoReuse = true;
+		Item.noUseGraphic = true;
+		Item.useStyle = 5;
+		Item.value = Item.buyPrice(1);
+		Item.shoot = Mod.Find<ModProjectile>("DreadSpear").Type;
+		Item.shootSpeed = 15f;
+		Item.UseSound = SoundID.Item1;
 		currentHit = 0;
 	}
 
@@ -47,7 +47,7 @@ public class DreadSpear : ModItem
 
 	public override bool CanUseItem(Player player)
 	{
-		if (player.ownedProjectileCounts[((ModItem)this).Item.shoot] > 0)
+		if (player.ownedProjectileCounts[Item.shoot] > 0)
 		{
 			return false;
 		}

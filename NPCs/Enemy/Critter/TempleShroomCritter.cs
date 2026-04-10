@@ -9,24 +9,24 @@ public class TempleShroomCritter : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Temple Shroom");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 5;
+		// DisplayName.SetDefault("Temple Shroom");
+		Main.npcFrameCount[NPC.type] = 5;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 16;
-		((ModNPC)this).NPC.height = 12;
-		((ModNPC)this).NPC.damage = 0;
-		((ModNPC)this).NPC.defense = 0;
-		((ModNPC)this).NPC.lifeMax = 5;
-		((ModNPC)this).NPC.dontCountMe = true;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.knockBackResist = 0.45f;
-		((ModNPC)this).NPC.aiStyle = 7;
-		((ModNPC)this).NPC.npcSlots = 0f;
-		((ModNPC)this).NPC.noGravity = false;
+		NPC.width = 16;
+		NPC.height = 12;
+		NPC.damage = 0;
+		NPC.defense = 0;
+		NPC.lifeMax = 5;
+		NPC.dontCountMe = true;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.knockBackResist = 0.45f;
+		NPC.aiStyle = 7;
+		NPC.npcSlots = 0f;
+		NPC.noGravity = false;
 		base.AIType = 46;
 	}
 
@@ -42,30 +42,30 @@ public class TempleShroomCritter : ModNPC
 
 	public override void AI()
 	{
-		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
+		NPC.spriteDirection = NPC.direction;
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		if (((ModNPC)this).NPC.velocity != Vector2.Zero)
+		if (NPC.velocity != Vector2.Zero)
 		{
-			((ModNPC)this).NPC.frameCounter += 1.0;
-			if (((ModNPC)this).NPC.frameCounter >= 8.0)
+			NPC.frameCounter += 1.0;
+			if (NPC.frameCounter >= 8.0)
 			{
-				((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
-				((ModNPC)this).NPC.frameCounter = 1.0;
+				NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
+				NPC.frameCounter = 1.0;
 			}
 		}
 		else
 		{
-			_ = ((ModNPC)this).NPC.frameCounter;
-			((ModNPC)this).NPC.frame.Y = 0;
+			_ = NPC.frameCounter;
+			NPC.frame.Y = 0;
 		}
 	}
 
 	public override void OnKill()
 	{
-		Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("TempleShroom").Type, 1, false, 0, false, false);
+		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("TempleShroom").Type, 1, false, 0, false, false);
 		if (!UltraniumWorld.SolarShroom)
 		{
 			UltraniumWorld.SolarShroom = true;

@@ -7,23 +7,23 @@ public class ShadowBookcaseItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Bookcase");
+		// DisplayName.SetDefault("Eldritch Bookcase");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.rare = 0;
-		((Entity)(object)((ModItem)this).Item).width = 12;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.value = 150;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("ShadowBookcase").Type;
+		Item.rare = 0;
+		Item.width = 12;
+		Item.height = 30;
+		Item.maxStack = 99;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.useStyle = 1;
+		Item.consumable = true;
+		Item.value = 150;
+		Item.createTile = Mod.Find<ModTile>("ShadowBookcase").Type;
 	}
 
 	public override void AddRecipes()

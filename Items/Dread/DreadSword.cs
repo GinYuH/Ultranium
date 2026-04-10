@@ -8,27 +8,27 @@ public class DreadSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Blade of Terror");
-		// ((ModItem)this).Tooltip.SetDefault("Fires dread bolts on swing");
+		// DisplayName.SetDefault("Blade of Terror");
+		// Tooltip.SetDefault("Fires dread bolts on swing");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 48;
-		((ModItem)this).Item.scale = 1f;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 80;
-		((Entity)(object)((ModItem)this).Item).height = 80;
-		((ModItem)this).Item.useTime = 26;
-		((ModItem)this).Item.useAnimation = 26;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 12);
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadFire").Type;
-		((ModItem)this).Item.shootSpeed = 5f;
+		Item.damage = 48;
+		Item.scale = 1f;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 80;
+		Item.height = 80;
+		Item.useTime = 26;
+		Item.useAnimation = 26;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 12);
+		Item.rare = 4;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadFire").Type;
+		Item.shootSpeed = 5f;
 	}
 
 	public override void AddRecipes()

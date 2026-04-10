@@ -13,17 +13,17 @@ public class DepthWater : ModWaterStyle
 
 	public override int ChooseWaterfallStyle()
 	{
-		return ((ModWaterStyle)this).Mod.GetWaterfallStyleSlot("DepthWaterfall");
+		return Mod.GetWaterfallStyleSlot("DepthWaterfall");
 	}
 
 	public override int GetSplashDust()
 	{
-		return ((ModWaterStyle)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
+		return Mod.Find<ModDust>("ShadowDustPurple").Type;
 	}
 
 	public override int GetDropletGore()
 	{
-		return ((ModWaterStyle)this).Mod.GetGoreSlot("Tiles/Waters/DepthWaterDroplet");
+		return Mod.Find<ModGore>("DepthWaterDroplet").Type;
 	}
 
 	public override void LightColorMultiplier(ref float r, ref float g, ref float b)

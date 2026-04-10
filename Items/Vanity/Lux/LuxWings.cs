@@ -8,17 +8,17 @@ public class LuxWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Lux's Wings");
-		// ((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
+		// DisplayName.SetDefault("Lux's Wings");
+		// Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.value = Item.buyPrice(1, 20);
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.accessory = true;
+		Item.width = 34;
+		Item.height = 26;
+		Item.value = Item.buyPrice(1, 20);
+		Item.rare = 9;
+		Item.accessory = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)

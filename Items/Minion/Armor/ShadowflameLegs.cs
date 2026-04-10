@@ -8,17 +8,17 @@ public class ShadowflameLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadowflame Pants");
-		// ((ModItem)this).Tooltip.SetDefault("3% increased summon damage and +1 max minions");
+		// DisplayName.SetDefault("Shadowflame Pants");
+		// Tooltip.SetDefault("3% increased summon damage and +1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.defense = 12;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 5;
+		Item.defense = 12;
 	}
 
 	public override void UpdateEquip(Player player)

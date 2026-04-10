@@ -50,7 +50,7 @@ public class MiscBanners : ModTile
 			text = "OrcaBanner";
 			break;
 		}
-		Item.NewItem(i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
 	}
 
 	public override void NearbyEffects(int i, int j, bool closer)

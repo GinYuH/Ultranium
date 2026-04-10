@@ -10,22 +10,22 @@ public class DreadBreadItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Suspicious Looking Bread");
-		// ((ModItem)this).Tooltip.SetDefault("Summons... Dread?");
+		// DisplayName.SetDefault("Suspicious Looking Bread");
+		// Tooltip.SetDefault("Summons... Dread?");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.CloneDefaults(669);
-		((ModItem)this).Item.shoot = ModContent.ProjectileType<DreadBread>();
-		((ModItem)this).Item.buffType = ModContent.BuffType<DreadBreadBuff>();
+		Item.CloneDefaults(669);
+		Item.shoot = ModContent.ProjectileType<DreadBread>();
+		Item.buffType = ModContent.BuffType<DreadBreadBuff>();
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

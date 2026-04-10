@@ -59,7 +59,7 @@ public class HellThrow : ModProjectile
 	{
 		if (!hasRing)
 		{
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("HellThrowAura").Type, ((ModProjectile)this).Projectile.damage, 0.5f, 0, 0f, (float)((ModProjectile)this).Projectile.whoAmI);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("HellThrowAura").Type, ((ModProjectile)this).Projectile.damage, 0.5f, 0, 0f, (float)((ModProjectile)this).Projectile.whoAmI);
 			hasRing = true;
 		}
 	}

@@ -10,29 +10,29 @@ public class EtherealTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ethereal Spell");
-		// ((ModItem)this).Tooltip.SetDefault("Casts a spread of ethereal blasts");
+		// DisplayName.SetDefault("Ethereal Spell");
+		// Tooltip.SetDefault("Casts a spread of ethereal blasts");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.value = Item.buyPrice(0, 65);
-		((ModItem)this).Item.damage = 55;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 13;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BigEtherealBlast").Type;
-		((ModItem)this).Item.shootSpeed = 36f;
+		Item.value = Item.buyPrice(0, 65);
+		Item.damage = 55;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 13;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 25;
+		Item.useAnimation = 25;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 9;
+		Item.value = Item.buyPrice(0, 30);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("BigEtherealBlast").Type;
+		Item.shootSpeed = 36f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -43,7 +43,7 @@ public class EtherealTome : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

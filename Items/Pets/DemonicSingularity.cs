@@ -18,31 +18,31 @@ public class DemonicSingularity : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Demonic Singularity");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
+		// DisplayName.SetDefault("Demonic Singularity");
+		// Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.damage = 0;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.UseSound = SoundID.Item2;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.sellPrice(0, 20);
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.shoot = ModContent.ProjectileType<Cacodemon>();
-		((ModItem)this).Item.buffType = ModContent.BuffType<CacodemonBuff>();
+		Item.width = 16;
+		Item.height = 30;
+		Item.damage = 0;
+		Item.useStyle = 1;
+		Item.useAnimation = 20;
+		Item.useTime = 20;
+		Item.UseSound = SoundID.Item2;
+		Item.rare = 11;
+		Item.value = Item.sellPrice(0, 20);
+		Item.noMelee = true;
+		Item.shoot = ModContent.ProjectileType<Cacodemon>();
+		Item.buffType = ModContent.BuffType<CacodemonBuff>();
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

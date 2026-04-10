@@ -8,17 +8,17 @@ public class AbyssWardenBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abyssal Chestmail");
-		// ((ModItem)this).Tooltip.SetDefault("10% increased critical strike chance and +1 max minions");
+		// DisplayName.SetDefault("Abyssal Chestmail");
+		// Tooltip.SetDefault("10% increased critical strike chance and +1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 7;
-		((ModItem)this).Item.defense = 22;
+		((Entity)(object)Item).width = 34;
+		((Entity)(object)Item).height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 7;
+		Item.defense = 22;
 	}
 
 	public override void UpdateEquip(Player player)

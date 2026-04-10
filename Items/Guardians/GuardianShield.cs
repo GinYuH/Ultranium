@@ -10,19 +10,19 @@ public class GuardianShield : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Shield of the Deities");
-		// ((ModItem)this).Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("Shield of the Deities");
+		// Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.accessory = true;
-		((ModItem)this).Item.defense = 5;
+		Item.width = 42;
+		Item.height = 42;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.accessory = true;
+		Item.defense = 5;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

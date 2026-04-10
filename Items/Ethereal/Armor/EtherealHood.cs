@@ -8,24 +8,24 @@ public class EtherealHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Occultist Hood");
-		// ((ModItem)this).Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
+		// DisplayName.SetDefault("Occultist Hood");
+		// Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.defense = 11;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 9;
+		Item.defense = 11;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("EtherealBody").Type)
+		if (body.type == Mod.Find<ModItem>("EtherealBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("EtherealLegs").Type;
+			return legs.type == Mod.Find<ModItem>("EtherealLegs").Type;
 		}
 		return false;
 	}

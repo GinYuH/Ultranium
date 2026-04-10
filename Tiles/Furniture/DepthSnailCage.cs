@@ -23,7 +23,7 @@ public class DepthSnailCage : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 48, 32, ((ModTile)this).Mod.Find<ModItem>("DepthSnailCageItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 48, 32, ((ModTile)this).Mod.Find<ModItem>("DepthSnailCageItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)

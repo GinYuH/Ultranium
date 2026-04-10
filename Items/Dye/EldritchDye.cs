@@ -7,13 +7,13 @@ public class EldritchDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Hades Dye");
+		// DisplayName.SetDefault("Eldritch Hades Dye");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.rare = 3;
+		Item.maxStack = 99;
+		Item.rare = 3;
 	}
 
 	public override void AddRecipes()

@@ -57,7 +57,7 @@ public class CavumNigrum : ModProjectile
 		target.immune[((ModProjectile)this).Projectile.owner] = 6;
 		if (Main.rand.Next(4) == 0)
 		{
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, new Vector2(0f, 0f), ((ModProjectile)this).Mod.Find<ModProjectile>("CavumNigrumPortal").Type, ((ModProjectile)this).Projectile.damage, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, new Vector2(0f, 0f), ((ModProjectile)this).Mod.Find<ModProjectile>("CavumNigrumPortal").Type, ((ModProjectile)this).Projectile.damage, 0.4f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

@@ -11,22 +11,22 @@ public class UltrumSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultranium Sigil");
-		// ((ModItem)this).Tooltip.SetDefault("Summons the guardian deity of nature\nCan only be used on the surface\nNot Consumable");
+		// DisplayName.SetDefault("Ultranium Sigil");
+		// Tooltip.SetDefault("Summons the guardian deity of nature\nCan only be used on the surface\nNot Consumable");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10);
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.consumable = false;
+		Item.width = 20;
+		Item.height = 20;
+		Item.maxStack = 1;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(0, 10);
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.consumable = false;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -36,7 +36,7 @@ public class UltrumSummon : ModItem
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("Ultrum").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("Ultrum").Type))
 		{
 			return player.ZoneOverworldHeight;
 		}
@@ -45,7 +45,7 @@ public class UltrumSummon : ModItem
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
-		NPC.NewNPC((int)player.Center.X, (int)player.Center.Y - 150, ((ModItem)this).Mod.Find<ModNPC>("Ultrum").Type, 0, 0f, 0f, 0f, 0f, 255);
+		NPC.NewNPC(null, (int)player.Center.X, (int)player.Center.Y - 150, Mod.Find<ModNPC>("Ultrum").Type, 0, 0f, 0f, 0f, 0f, 255);
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}

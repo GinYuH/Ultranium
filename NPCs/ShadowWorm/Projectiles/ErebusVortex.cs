@@ -206,7 +206,7 @@ public class ErebusVortex : ModProjectile
 			Vector2 vector = ((float)Math.PI / 5f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 15f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("VortexBolt").Type, 40, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("VortexBolt").Type, 40, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

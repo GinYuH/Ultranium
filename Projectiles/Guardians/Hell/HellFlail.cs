@@ -87,7 +87,7 @@ public class HellFlail : ModProjectile
 			spinningpoint.Normalize();
 			spinningpoint *= (float)Main.rand.Next(25, 45) * 0.1f;
 			spinningpoint = spinningpoint.RotatedBy((Main.rand.NextDouble() - 0.5) * 1.5707963705062866);
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, spinningpoint.X, spinningpoint.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("FlareBlast").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, -10f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, spinningpoint.X, spinningpoint.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("FlareBlast").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, -10f, 0f);
 		}
 	}
 

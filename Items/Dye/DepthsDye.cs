@@ -7,13 +7,13 @@ public class DepthsDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Depths Fog Dye");
+		// DisplayName.SetDefault("Depths Fog Dye");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.rare = 3;
+		Item.maxStack = 99;
+		Item.rare = 3;
 	}
 
 	public override void AddRecipes()

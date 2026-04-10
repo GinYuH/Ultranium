@@ -8,24 +8,24 @@ public class AuroraHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Mask");
-		// ((ModItem)this).Tooltip.SetDefault("5% increased summon damage");
+		// DisplayName.SetDefault("Aurora Crystal Mask");
+		// Tooltip.SetDefault("5% increased summon damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.value = 10000;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 2;
+		Item.width = 24;
+		Item.height = 20;
+		Item.value = 10000;
+		Item.rare = 1;
+		Item.defense = 2;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("AuroraBody").Type)
+		if (body.type == Mod.Find<ModItem>("AuroraBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("AuroraLegs").Type;
+			return legs.type == Mod.Find<ModItem>("AuroraLegs").Type;
 		}
 		return false;
 	}

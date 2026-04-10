@@ -70,7 +70,7 @@ public class ShrineChest : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 32, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 32, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
 		Chest.DestroyChest(i, j);
 	}
 

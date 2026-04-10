@@ -7,16 +7,16 @@ public class StellarDust : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Dust");
-		// ((ModItem)this).Tooltip.SetDefault("'It Sparkles like the stars in the night'");
+		// DisplayName.SetDefault("Stellar Dust");
+		// Tooltip.SetDefault("'It Sparkles like the stars in the night'");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.value = 50;
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.maxStack = 99;
+		((Entity)(object)Item).width = 24;
+		((Entity)(object)Item).height = 24;
+		Item.value = 50;
+		Item.rare = 5;
+		Item.maxStack = 99;
 	}
 }

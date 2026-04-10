@@ -8,17 +8,17 @@ public class AbyssSpectralHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Spectral Abyss Hood");
-		// ((ModItem)this).Tooltip.SetDefault("Increases maximum mana by 80\n10% increased magic damage and critical strike chance");
+		// DisplayName.SetDefault("Spectral Abyss Hood");
+		// Tooltip.SetDefault("Increases maximum mana by 80\n10% increased magic damage and critical strike chance");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 7;
-		((ModItem)this).Item.defense = 13;
+		((Entity)(object)Item).width = 34;
+		((Entity)(object)Item).height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 7;
+		Item.defense = 13;
 	}
 
 	public override void UpdateEquip(Player player)
@@ -30,9 +30,9 @@ public class AbyssSpectralHead : ModItem
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("AbyssWardenBody").Type)
+		if (body.type == Mod.Find<ModItem>("AbyssWardenBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("AbyssWardenLegs").Type;
+			return legs.type == Mod.Find<ModItem>("AbyssWardenLegs").Type;
 		}
 		return false;
 	}

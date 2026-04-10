@@ -10,28 +10,28 @@ public class EldritchScythe : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Soul Harvester");
-		// ((ModItem)this).Tooltip.SetDefault("Throws fast moving tentacle scythe blades\nThese scythe blades will create a circle of tentacles upon death");
+		// DisplayName.SetDefault("Soul Harvester");
+		// Tooltip.SetDefault("Throws fast moving tentacle scythe blades\nThese scythe blades will create a circle of tentacles upon death");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.damage = 230;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.crit = 15;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchScythe").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.value = Item.buyPrice(1, 50);
+		Item.damage = 230;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.crit = 15;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchScythe").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

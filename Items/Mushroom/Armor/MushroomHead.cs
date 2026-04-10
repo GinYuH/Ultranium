@@ -8,23 +8,23 @@ public class MushroomHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glowing Mushroom Helmet");
+		// DisplayName.SetDefault("Glowing Mushroom Helmet");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 2;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.defense = 2;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("MushroomBody").Type)
+		if (body.type == Mod.Find<ModItem>("MushroomBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("MushroomLegs").Type;
+			return legs.type == Mod.Find<ModItem>("MushroomLegs").Type;
 		}
 		return false;
 	}

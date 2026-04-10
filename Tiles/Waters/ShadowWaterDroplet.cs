@@ -50,7 +50,7 @@ public class ShadowWaterDroplet : ModGore
 				gore.frame++;
 				if (gore.frame == 5)
 				{
-					int num4 = Gore.NewGore(gore.position, gore.velocity, gore.type);
+					int num4 = Gore.NewGore(null, gore.position, gore.velocity, gore.type);
 					Main.gore[num4].frame = 9;
 					Main.gore[num4].velocity *= 0f;
 				}

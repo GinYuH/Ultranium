@@ -10,27 +10,27 @@ public class UltraniumKunai : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Throws homing Ultranium kunai blades");
-		// ((ModItem)this).DisplayName.SetDefault("Ultranium Kunai");
+		// Tooltip.SetDefault("Throws homing Ultranium kunai blades");
+		// DisplayName.SetDefault("Ultranium Kunai");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 230;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 15;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 8f;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item60;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("UltraniumKunai").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.damage = 230;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 15;
+		Item.useAnimation = 15;
+		Item.useStyle = 1;
+		Item.knockBack = 8f;
+		Item.noUseGraphic = true;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item60;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("UltraniumKunai").Type;
+		Item.shootSpeed = 15f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

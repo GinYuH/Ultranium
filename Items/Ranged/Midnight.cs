@@ -10,27 +10,27 @@ public class Midnight : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Turns normal bullets into midnight blasts");
-		// ((ModItem)this).DisplayName.SetDefault("Midnight");
+		// Tooltip.SetDefault("Turns normal bullets into midnight blasts");
+		// DisplayName.SetDefault("Midnight");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.value = Item.buyPrice(0, 1);
-		((ModItem)this).Item.damage = 13;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 12;
-		((ModItem)this).Item.useAnimation = 12;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.UseSound = SoundID.Item40;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = 242;
-		((ModItem)this).Item.shootSpeed = 2f;
-		((ModItem)this).Item.useAmmo = AmmoID.Bullet;
+		Item.value = Item.buyPrice(0, 1);
+		Item.damage = 13;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 58;
+		((Entity)(object)Item).height = 26;
+		Item.useTime = 12;
+		Item.useAnimation = 12;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 3;
+		Item.UseSound = SoundID.Item40;
+		Item.autoReuse = true;
+		Item.shoot = 242;
+		Item.shootSpeed = 2f;
+		Item.useAmmo = AmmoID.Bullet;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -40,7 +40,7 @@ public class Midnight : ModItem
 		speedY = vector.Y;
 		if (type == 14)
 		{
-			type = ((ModItem)this).Mod.Find<ModProjectile>("MidnightPro").Type;
+			type = Mod.Find<ModProjectile>("MidnightPro").Type;
 		}
 		return true;
 	}

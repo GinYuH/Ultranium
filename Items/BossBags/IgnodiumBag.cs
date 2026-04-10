@@ -1,26 +1,28 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Guardians.Hell;
 
 namespace Ultranium.Items.BossBags;
 
 public class IgnodiumBag : ModItem
 {
-	public override int BossBagNPC => ((ModItem)this).Mod.Find<ModNPC>("Ignodium").Type;
-
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Treasure Bag");
-		// ((ModItem)this).Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-	}
+		// DisplayName.SetDefault("Treasure Bag");
+		// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		ItemID.Sets.BossBag[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.consumable = true;
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.rare = -12;
-		((ModItem)this).Item.expert = true;
+		Item.maxStack = 999;
+		Item.consumable = true;
+		Item.width = 24;
+		Item.height = 24;
+		Item.rare = -12;
+		Item.expert = true;
 	}
 
 	public override bool CanRightClick()
@@ -28,39 +30,10 @@ public class IgnodiumBag : ModItem
 		return true;
 	}
 
-	public override void OpenBossBag(Player player)
-	{
-		player.TryGettingDevArmor();
-		int num = Main.rand.Next(7);
-		if (num == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellFlail").Type, 1);
-		}
-		if (num == 1)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellThrow").Type, 1);
-		}
-		if (num == 2)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellGun").Type, 1);
-		}
-		if (num == 3)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellJavelin").Type, 1);
-		}
-		if (num == 4)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellStaff").Type, 1);
-		}
-		if (num == 5)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellTome").Type, 1);
-		}
-		if (num == 6)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellScepter").Type, 1);
-		}
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("HellShard").Type, Main.rand.Next(30, 40));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("IgnodiumRelic").Type, 1);
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("HellShard").Type, 1, 30, 39));
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumRelic").Type));
+		itemLoot.Add(ItemDropRule.OneFromOptions(1, new int[] { ModContent.ItemType<HellFlail>(), ModContent.ItemType<HellThrow>(), ModContent.ItemType<HellGun>(), ModContent.ItemType<HellJavelin>(), ModContent.ItemType<HellStaff>(), ModContent.ItemType<HellTome>(), ModContent.ItemType<HellScepter>() }));
+    }
 }

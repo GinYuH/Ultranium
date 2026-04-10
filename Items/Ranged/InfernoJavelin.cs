@@ -7,28 +7,28 @@ public class InfernoJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Lance of Inferno");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Lance of Inferno");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 22;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 64;
-		((Entity)(object)((ModItem)this).Item).height = 66;
-		((ModItem)this).Item.useTime = 28;
-		((ModItem)this).Item.useAnimation = 28;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 20);
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("InfernoJavelin").Type;
-		((ModItem)this).Item.shootSpeed = 9f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 22;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 64;
+		((Entity)(object)Item).height = 66;
+		Item.useTime = 28;
+		Item.useAnimation = 28;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 20);
+		Item.rare = 3;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("InfernoJavelin").Type;
+		Item.shootSpeed = 9f;
+		Item.useTurn = true;
+		Item.maxStack = 1;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

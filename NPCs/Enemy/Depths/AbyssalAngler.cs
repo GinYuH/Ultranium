@@ -9,36 +9,36 @@ public class AbyssalAngler : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Abyssal Angler");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[65];
+		// DisplayName.SetDefault("Abyssal Angler");
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.lifeMax = 200;
-		((ModNPC)this).NPC.damage = 75;
-		((ModNPC)this).NPC.defense = 45;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.width = 54;
-		((ModNPC)this).NPC.height = 58;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.aiStyle = 16;
+		NPC.lifeMax = 200;
+		NPC.damage = 75;
+		NPC.defense = 45;
+		NPC.knockBackResist = 0.1f;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.width = 54;
+		NPC.height = 58;
+		NPC.noGravity = true;
+		NPC.aiStyle = 16;
 		base.AIType = 102;
 		base.AnimationType = 65;
-		((ModNPC)this).NPC.buffImmune[31] = true;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("AbyssalAnglerBanner").Type;
+		NPC.buffImmune[31] = true;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("AbyssalAnglerBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/AnglerGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/AnglerGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/AnglerGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/AnglerGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/AnglerGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/AnglerGore3"));
 		}
 	}
 
@@ -65,7 +65,7 @@ public class AbyssalAngler : ModNPC
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

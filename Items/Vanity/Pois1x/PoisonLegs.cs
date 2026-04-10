@@ -1,28 +1,24 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Pois1x;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Legs)]
 public class PoisonLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Pois1x's Leggings");
-		// ((ModItem)this).Tooltip.SetDefault("~Developer item~");
-	}
+		// DisplayName.SetDefault("Pois1x's Leggings");
+		// Tooltip.SetDefault("~Developer item~");
+		ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true;
+    }
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.vanity = true;
-		((ModItem)this).Item.rare = 9;
-	}
-
-	public override bool DrawLegs()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true if you returned false for an accessory of EquipType.Legs, and ArmorIDs.Shoe.Sets.OverridesLegs[Item.shoeSlot] = true if you returned false for an accessory of EquipType.Shoes */
-	{
-		return false;
+		Item.width = 18;
+		Item.height = 18;
+		Item.vanity = true;
+		Item.rare = 9;
 	}
 }

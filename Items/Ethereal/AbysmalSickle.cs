@@ -10,29 +10,29 @@ public class AbysmalSickle : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abysmal Sickle");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a circle of abyssal scythes");
+		// DisplayName.SetDefault("Abysmal Sickle");
+		// Tooltip.SetDefault("Fires a circle of abyssal scythes");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 65;
-		((ModItem)this).Item.scale = 0.8f;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 12;
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.UseSound = SoundID.Item9;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("AbyssSickleInvisible").Type;
-		((ModItem)this).Item.shootSpeed = 5f;
+		Item.damage = 65;
+		Item.scale = 0.8f;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 12;
+		Item.width = 28;
+		Item.height = 32;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 9;
+		Item.value = Item.buyPrice(0, 30);
+		Item.UseSound = SoundID.Item9;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("AbyssSickleInvisible").Type;
+		Item.shootSpeed = 5f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -44,7 +44,7 @@ public class AbysmalSickle : ModItem
 		for (int i = 0; (float)i < num2; i++)
 		{
 			Vector2 vector = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num3, num3, (float)i / (num2 - 1f))) * num;
-			Projectile.NewProjectile(player.Center.X, player.Center.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("AbyssSickle").Type, 55, 2f, Main.myPlayer, (float)num4, 0f);
+			Projectile.NewProjectile(null, player.Center.X, player.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("AbyssSickle").Type, 55, 2f, Main.myPlayer, (float)num4, 0f);
 		}
 		return true;
 	}

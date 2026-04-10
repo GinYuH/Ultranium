@@ -16,11 +16,11 @@ public class EldritchCaster : ModNPC
 	{
 		get
 		{
-			return ((ModNPC)this).NPC.ai[0];
+			return NPC.ai[0];
 		}
 		set
 		{
-			((ModNPC)this).NPC.ai[0] = value;
+			NPC.ai[0] = value;
 		}
 	}
 
@@ -28,11 +28,11 @@ public class EldritchCaster : ModNPC
 	{
 		get
 		{
-			return ((ModNPC)this).NPC.ai[1];
+			return NPC.ai[1];
 		}
 		set
 		{
-			((ModNPC)this).NPC.ai[1] = value;
+			NPC.ai[1] = value;
 		}
 	}
 
@@ -40,11 +40,11 @@ public class EldritchCaster : ModNPC
 	{
 		get
 		{
-			return ((ModNPC)this).NPC.ai[2];
+			return NPC.ai[2];
 		}
 		set
 		{
-			((ModNPC)this).NPC.ai[2] = value;
+			NPC.ai[2] = value;
 		}
 	}
 
@@ -52,42 +52,42 @@ public class EldritchCaster : ModNPC
 	{
 		get
 		{
-			return ((ModNPC)this).NPC.ai[3];
+			return NPC.ai[3];
 		}
 		set
 		{
-			((ModNPC)this).NPC.ai[3] = value;
+			NPC.ai[3] = value;
 		}
 	}
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Eldritch Caster");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 2;
+		// DisplayName.SetDefault("Eldritch Caster");
+		Main.npcFrameCount[NPC.type] = 2;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 30;
-		((ModNPC)this).NPC.height = 48;
-		((ModNPC)this).NPC.damage = 45;
-		((ModNPC)this).NPC.defense = 25;
-		((ModNPC)this).NPC.lifeMax = 50;
-		((ModNPC)this).NPC.knockBackResist = 0f;
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 0, 1);
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit2;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath2;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("EldritchCasterBanner").Type;
+		NPC.width = 30;
+		NPC.height = 48;
+		NPC.damage = 45;
+		NPC.defense = 25;
+		NPC.lifeMax = 50;
+		NPC.knockBackResist = 0f;
+		NPC.value = Item.buyPrice(0, 0, 1);
+		NPC.HitSound = SoundID.NPCHit2;
+		NPC.DeathSound = SoundID.NPCDeath2;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("EldritchCasterBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore3"));
 		}
 	}
 
@@ -111,11 +111,11 @@ public class EldritchCaster : ModNPC
 
 	public override void AI()
 	{
-		((ModNPC)this).NPC.TargetClosest();
-		Player player = Main.player[((ModNPC)this).NPC.target];
-		Vector2 vector = player.Center - ((ModNPC)this).NPC.Center;
-		((ModNPC)this).NPC.spriteDirection = Math.Sign(vector.X);
-		((ModNPC)this).NPC.velocity.X = 0f;
+		NPC.TargetClosest();
+		Player player = Main.player[NPC.target];
+		Vector2 vector = player.Center - NPC.Center;
+		NPC.spriteDirection = Math.Sign(vector.X);
+		NPC.velocity.X = 0f;
 		if (Timer > 0f)
 		{
 			Timer -= 1f;
@@ -123,10 +123,10 @@ public class EldritchCaster : ModNPC
 		Shooting = Timer <= 30f;
 		if (Timer <= 0f)
 		{
-			SoundEngine.PlaySound(SoundID.Item20, new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y));
+			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num = 3f;
-			float num2 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - player.Center.Y, ((ModNPC)this).NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("CasterBolt").Type, 20, 0f, 0, 0f, 0f);
+			float num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("CasterBolt").Type, 20, 0f, 0, 0f, 0f);
 			Timer = 120f;
 		}
 		TeleportTimer--;
@@ -141,8 +141,8 @@ public class EldritchCaster : ModNPC
 	{
 		int num = (int)player.position.X / 16;
 		int num2 = (int)player.position.Y / 16;
-		int num3 = (int)((ModNPC)this).NPC.position.X / 16;
-		int num4 = (int)((ModNPC)this).NPC.position.Y / 16;
+		int num3 = (int)NPC.position.X / 16;
+		int num4 = (int)NPC.position.Y / 16;
 		int num5 = 20;
 		bool flag = false;
 		int num6 = Main.rand.Next(num - num5, num + num5);
@@ -164,15 +164,15 @@ public class EldritchCaster : ModNPC
 				}
 			}
 		}
-		SoundEngine.PlaySound(SoundID.Item8, ((ModNPC)this).NPC.position);
+		SoundEngine.PlaySound(SoundID.Item8, NPC.position);
 		if (TeleportX != 0f && TeleportY != 0f && flag)
 		{
-			((ModNPC)this).NPC.position.X = (float)((double)TeleportX * 16.0 - (double)(((ModNPC)this).NPC.width / 2) + 8.0);
-			((ModNPC)this).NPC.position.Y = TeleportY * 16f - (float)((ModNPC)this).NPC.height;
-			((ModNPC)this).NPC.netUpdate = true;
+			NPC.position.X = (float)((double)TeleportX * 16.0 - (double)(NPC.width / 2) + 8.0);
+			NPC.position.Y = TeleportY * 16f - (float)NPC.height;
+			NPC.netUpdate = true;
 			for (int j = 0; j < 20; j++)
 			{
-				Dust obj = Main.dust[Dust.NewDust(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 89)];
+				Dust obj = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 89)];
 				obj.noGravity = true;
 				obj.scale = 1f;
 				obj.velocity *= 0.1f;
@@ -188,11 +188,11 @@ public class EldritchCaster : ModNPC
 	{
 		if (!Shooting)
 		{
-			((ModNPC)this).NPC.frame.Y = 0;
+			NPC.frame.Y = 0;
 		}
 		if (Shooting)
 		{
-			((ModNPC)this).NPC.frame.Y = frameHeight;
+			NPC.frame.Y = frameHeight;
 		}
 	}
 
@@ -200,7 +200,7 @@ public class EldritchCaster : ModNPC
 	{
 		if (Main.rand.Next(3) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

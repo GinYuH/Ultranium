@@ -10,17 +10,17 @@ public class DarkBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Darkmatter Chestmail");
-		// ((ModItem)this).Tooltip.SetDefault("12% increased critical strike chance\n+10 max life and mana, and +2 max minions\n5% increased damage reduction\nEnemies are more likely to target you");
+		// DisplayName.SetDefault("Darkmatter Chestmail");
+		// Tooltip.SetDefault("12% increased critical strike chance\n+10 max life and mana, and +2 max minions\n5% increased damage reduction\nEnemies are more likely to target you");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.defense = 42;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 80);
+		Item.rare = 11;
+		Item.defense = 42;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

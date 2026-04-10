@@ -10,27 +10,27 @@ public class GlacialGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Has a chance to shoot ice bolts");
-		// ((ModItem)this).DisplayName.SetDefault("Glacial Pistol");
+		// Tooltip.SetDefault("Has a chance to shoot ice bolts");
+		// DisplayName.SetDefault("Glacial Pistol");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 20;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.value = Item.buyPrice(0, 20);
-		((ModItem)this).Item.UseSound = SoundID.Item40;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = 242;
-		((ModItem)this).Item.shootSpeed = 12f;
-		((ModItem)this).Item.useAmmo = AmmoID.Bullet;
+		Item.damage = 20;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 58;
+		Item.height = 26;
+		Item.useTime = 20;
+		Item.useAnimation = 20;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 3;
+		Item.value = Item.buyPrice(0, 20);
+		Item.UseSound = SoundID.Item40;
+		Item.autoReuse = true;
+		Item.shoot = 242;
+		Item.shootSpeed = 12f;
+		Item.useAmmo = AmmoID.Bullet;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)

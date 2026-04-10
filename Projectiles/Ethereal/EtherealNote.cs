@@ -59,7 +59,7 @@ public class EtherealNote : ModProjectile
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
 		}
 	}
 }

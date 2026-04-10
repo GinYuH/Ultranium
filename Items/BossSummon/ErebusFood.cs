@@ -12,21 +12,21 @@ public class ErebusFood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Worm Food");
-		// ((ModItem)this).Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
+		// DisplayName.SetDefault("Eldritch Worm Food");
+		// Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 44;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = ((ModItem)this).Mod.GetLegacySoundSlot((SoundType)2, "Sounds/ShadowAwakening");
-		((ModItem)this).Item.consumable = false;
+		Item.width = 44;
+		Item.height = 40;
+		Item.maxStack = 1;
+		Item.rare = 11;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/ShadowAwakening");
+		Item.consumable = false;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -36,7 +36,7 @@ public class ErebusFood : ModItem
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("ErebusHead").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type))
 		{
 			return ShadowEventWorld.ShadowEventActive;
 		}
@@ -45,7 +45,7 @@ public class ErebusFood : ModItem
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
-		NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("ErebusHead").Type);
+		NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("ErebusHead").Type);
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}

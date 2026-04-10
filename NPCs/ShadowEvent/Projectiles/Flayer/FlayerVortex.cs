@@ -158,7 +158,7 @@ public class FlayerVortex : ModProjectile
 				Vector2 vector5 = ((float)Math.PI / 5f * (float)j).ToRotationVector2();
 				vector5.Normalize();
 				vector5 *= 6f;
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector5.X, vector5.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchBlast").Type, 50, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector5.X, vector5.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchBlast").Type, 50, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 	}

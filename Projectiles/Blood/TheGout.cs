@@ -38,7 +38,7 @@ public class TheGout : ModProjectile
 			((ModProjectile)this).Projectile.frameCounter = 0;
 			float num = (float)((double)Main.rand.Next(0, 361) * (Math.PI / 180.0));
 			Vector2 vector = new Vector2((float)Math.Cos(num), (float)Math.Sin(num));
-			int num2 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("BloodSwirl").Type, ((ModProjectile)this).Projectile.damage, (float)((ModProjectile)this).Projectile.owner, 0, 0f, 0f);
+			int num2 = Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("BloodSwirl").Type, ((ModProjectile)this).Projectile.damage, (float)((ModProjectile)this).Projectile.owner, 0, 0f, 0f);
 			Main.projectile[num2].friendly = true;
 			Main.projectile[num2].hostile = false;
 			Main.projectile[num2].velocity *= 7f;

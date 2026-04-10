@@ -18,80 +18,80 @@ public class StellarChaser : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Stellar Chaser");
+		// DisplayName.SetDefault("Stellar Chaser");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 38;
-		((ModNPC)this).NPC.height = 38;
-		((ModNPC)this).NPC.damage = 22;
-		((ModNPC)this).NPC.defense = 11;
-		((ModNPC)this).NPC.noTileCollide = true;
-		((ModNPC)this).NPC.lifeMax = 230;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit3;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath43;
-		((ModNPC)this).NPC.value = 360f;
-		((ModNPC)this).NPC.knockBackResist = 0.16f;
-		((ModNPC)this).NPC.noGravity = true;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("StellarChaserBanner").Type;
+		NPC.width = 38;
+		NPC.height = 38;
+		NPC.damage = 22;
+		NPC.defense = 11;
+		NPC.noTileCollide = true;
+		NPC.lifeMax = 230;
+		NPC.HitSound = SoundID.NPCHit3;
+		NPC.DeathSound = SoundID.NPCDeath43;
+		NPC.value = 360f;
+		NPC.knockBackResist = 0.16f;
+		NPC.noGravity = true;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("StellarChaserBanner").Type;
 	}
 
 	public override void AI()
 	{
-		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
-		Player player = Main.player[((ModNPC)this).NPC.target];
-		if (((ModNPC)this).NPC.Center.X >= player.Center.X && moveSpeed >= -45)
+		NPC.spriteDirection = NPC.direction;
+		Player player = Main.player[NPC.target];
+		if (NPC.Center.X >= player.Center.X && moveSpeed >= -45)
 		{
 			moveSpeed--;
 		}
-		if (((ModNPC)this).NPC.Center.X <= player.Center.X && moveSpeed <= 45)
+		if (NPC.Center.X <= player.Center.X && moveSpeed <= 45)
 		{
 			moveSpeed++;
 		}
-		((ModNPC)this).NPC.velocity.X = (float)moveSpeed * 0.1f;
-		if (((ModNPC)this).NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -27)
+		NPC.velocity.X = (float)moveSpeed * 0.1f;
+		if (NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -27)
 		{
 			moveSpeedY--;
 			HomeY = 150f;
 		}
-		if (((ModNPC)this).NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 27)
+		if (NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 27)
 		{
 			moveSpeedY++;
 		}
-		((ModNPC)this).NPC.velocity.Y = (float)moveSpeedY * 0.12f;
+		NPC.velocity.Y = (float)moveSpeedY * 0.12f;
 		if (Main.rand.Next(220) == 6)
 		{
 			HomeY = -35f;
 		}
-		((ModNPC)this).NPC.rotation += 0.1f;
+		NPC.rotation += 0.1f;
 		ShootTimer++;
 		if (ShootTimer == 300)
 		{
-			Vector2 vector = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
+			Vector2 vector = Main.player[NPC.target].Center - NPC.Center;
 			vector.Normalize();
 			vector.X *= 6f;
 			vector.Y *= 6f;
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector.X, vector.Y, ((ModNPC)this).Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life > 0)
+		if (NPC.life > 0)
 		{
 			return;
 		}
-		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X + (float)(((ModNPC)this).NPC.width / 2);
-		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y + (float)(((ModNPC)this).NPC.height / 2);
-		((ModNPC)this).NPC.width = 30;
-		((ModNPC)this).NPC.height = 30;
-		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X - (float)(((ModNPC)this).NPC.width / 2);
-		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y - (float)(((ModNPC)this).NPC.height / 2);
+		NPC.position.X = NPC.position.X + (float)(NPC.width / 2);
+		NPC.position.Y = NPC.position.Y + (float)(NPC.height / 2);
+		NPC.width = 30;
+		NPC.height = 30;
+		NPC.position.X = NPC.position.X - (float)(NPC.width / 2);
+		NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y), ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModDust>("StellarDust").Type, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, Mod.Find<ModDust>("StellarDust").Type, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -99,8 +99,8 @@ public class StellarChaser : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/StellarChaserGore1"));
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/StellarChaserGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarChaserGore1"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarChaserGore2"));
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -125,7 +125,7 @@ public class StellarChaser : ModNPC
 	{
 		if (Main.rand.Next(2) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("StellarDust").Type, Main.rand.Next(1, 3), false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StellarDust").Type, Main.rand.Next(1, 3), false, 0, false, false);
 		}
 	}
 }

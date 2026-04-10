@@ -11,27 +11,27 @@ public class Inanis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("Turns bullets into Void Bolts\nHas a 20% chance to fire out an eldritch blast\n35% chance not to consume ammo");
-		// ((ModItem)this).DisplayName.SetDefault("Inanis");
+		// Tooltip.SetDefault("Turns bullets into Void Bolts\nHas a 20% chance to fire out an eldritch blast\n35% chance not to consume ammo");
+		// DisplayName.SetDefault("Inanis");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 260;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 8;
-		((ModItem)this).Item.useAnimation = 8;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.UseSound = SoundID.Item11;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("VoidBolt").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
-		((ModItem)this).Item.useAmmo = AmmoID.Bullet;
+		Item.damage = 260;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 20;
+		Item.height = 40;
+		Item.useTime = 8;
+		Item.useAnimation = 8;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1, 50);
+		Item.UseSound = SoundID.Item11;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("VoidBolt").Type;
+		Item.shootSpeed = 16f;
+		Item.useAmmo = AmmoID.Bullet;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -48,12 +48,12 @@ public class Inanis : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ((ModItem)this).Mod.Find<ModProjectile>("VoidBolt").Type, ((ModItem)this).Item.damage, knockBack, ((ModItem)this).Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("VoidBolt").Type, Item.damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("NoctisBlast").Type, ((ModItem)this).Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NoctisBlast").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return false;

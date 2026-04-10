@@ -8,23 +8,23 @@ public class BloodHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Sanguine Face Mask");
+		// DisplayName.SetDefault("Sanguine Face Mask");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.defense = 3;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.defense = 3;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("BloodBody").Type)
+		if (body.type == Mod.Find<ModItem>("BloodBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("BloodLegs").Type;
+			return legs.type == Mod.Find<ModItem>("BloodLegs").Type;
 		}
 		return false;
 	}

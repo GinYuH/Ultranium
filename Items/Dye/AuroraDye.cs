@@ -7,13 +7,13 @@ public class AuroraDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Dye");
+		// DisplayName.SetDefault("Aurora Crystal Dye");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.rare = 3;
+		Item.maxStack = 99;
+		Item.rare = 3;
 	}
 
 	public override void AddRecipes()

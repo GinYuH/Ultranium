@@ -12,27 +12,27 @@ public class DreadFlameBlaster : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).Tooltip.SetDefault("'Why melt enemies when you can scorch them with fear?'\nSpews out a stream of dread fire\nWill also randomly fire out dread fire balls\n80% chance to not consume gel");
-		// ((ModItem)this).DisplayName.SetDefault("Foreboding Flame");
+		// Tooltip.SetDefault("'Why melt enemies when you can scorch them with fear?'\nSpews out a stream of dread fire\nWill also randomly fire out dread fire balls\n80% chance to not consume gel");
+		// DisplayName.SetDefault("Foreboding Flame");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 170;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 5;
-		((ModItem)this).Item.useAnimation = 5;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item34;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadParticleBolt").Type;
-		((ModItem)this).Item.shootSpeed = 8f;
-		((ModItem)this).Item.useAmmo = AmmoID.Gel;
+		Item.damage = 170;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 58;
+		Item.height = 26;
+		Item.useTime = 5;
+		Item.useAnimation = 5;
+		Item.useStyle = 5;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item34;
+		Item.value = Item.buyPrice(1);
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadParticleBolt").Type;
+		Item.shootSpeed = 8f;
+		Item.useAmmo = AmmoID.Gel;
 	}
 
 	public override bool CanConsumeAmmo(Item ammo, Player player)
@@ -50,7 +50,7 @@ public class DreadFlameBlaster : ModItem
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-			Projectile.NewProjectile(position.X, position.Y, vector.X, vector.Y, ((ModItem)this).Mod.Find<ModProjectile>("DreadFlameBall").Type, ((ModItem)this).Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DreadFlameBall").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;

@@ -9,26 +9,26 @@ public class EtherealLantern : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ethereal Lantern");
-		// ((ModItem)this).Tooltip.SetDefault("Calls forth the ethereal demon\nCan only be used at night");
+		// DisplayName.SetDefault("Ethereal Lantern");
+		// Tooltip.SetDefault("Calls forth the ethereal demon\nCan only be used at night");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 20;
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.consumable = true;
+		Item.width = 20;
+		Item.height = 20;
+		Item.maxStack = 20;
+		Item.rare = 5;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.consumable = true;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("Xenanis").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("Xenanis").Type))
 		{
 			return !Main.dayTime;
 		}
@@ -37,7 +37,7 @@ public class EtherealLantern : ModItem
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
-		NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("Xenanis").Type);
+		NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("Xenanis").Type);
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}

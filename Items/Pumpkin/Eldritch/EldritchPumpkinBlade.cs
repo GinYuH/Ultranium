@@ -10,26 +10,26 @@ public class EldritchPumpkinBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Pumpkin Buster");
-		// ((ModItem)this).Tooltip.SetDefault("Fires flaming eldritch seeds\nHas a chance to shoot out a spread of eldritch bolts that deal twice the sword's damage");
+		// DisplayName.SetDefault("Eldritch Pumpkin Buster");
+		// Tooltip.SetDefault("Fires flaming eldritch seeds\nHas a chance to shoot out a spread of eldritch bolts that deal twice the sword's damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 55;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10, 50);
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchSeed").Type;
-		((ModItem)this).Item.shootSpeed = 6.5f;
+		Item.damage = 55;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 10, 50);
+		Item.rare = 4;
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("EldritchSeed").Type;
+		Item.shootSpeed = 6.5f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -42,7 +42,7 @@ public class EldritchPumpkinBlade : ModItem
 			for (int i = 0; (float)i < num; i++)
 			{
 				Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-				Projectile.NewProjectile(position.X, position.Y, vector.X * 10f, vector.Y * 10f, ((ModItem)this).Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, damage * 2, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, position.X, position.Y, vector.X * 10f, vector.Y * 10f, Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, damage * 2, knockBack, player.whoAmI, 0f, 0f);
 			}
 			return false;
 		}

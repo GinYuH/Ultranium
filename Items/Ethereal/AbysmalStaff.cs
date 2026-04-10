@@ -8,29 +8,29 @@ public class AbysmalStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abysmal Trident");
-		// ((ModItem)this).Tooltip.SetDefault("Conjures abysmal trident bolts");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Abysmal Trident");
+		// Tooltip.SetDefault("Conjures abysmal trident bolts");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 75;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 22;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("AbyssBolt").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 75;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 22;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 9;
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("AbyssBolt").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override void AddRecipes()

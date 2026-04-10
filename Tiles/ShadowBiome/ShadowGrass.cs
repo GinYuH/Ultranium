@@ -22,11 +22,10 @@ public class ShadowGrass : ModTile
 		Main.tileSolid[((ModTile)this).Type] = true;
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
 		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowSoilDust").Type;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowGrassItem").Type;
 		base.MineResist = 1f;
-		base.MinPick = 1;
+		// = ((ModTile)this).Mod.Find<ModTile>("ShadowTreeSapling").Type;
+        base.MinPick = 1;
 	}
 
 	public override void RandomUpdate(int i, int j)
@@ -69,11 +68,5 @@ public class ShadowGrass : ModTile
 				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);
 			}
 		}
-	}
-
-	public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
-	{
-		style = 0;
-		return ((ModTile)this).Mod.Find<ModTile>("ShadowTreeSapling").Type;
 	}
 }

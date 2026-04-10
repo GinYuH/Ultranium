@@ -25,6 +25,6 @@ public class ShadowBookcase : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 32, 16, ((ModTile)this).Mod.Find<ModItem>("ShadowBookcaseItem").Type, 1, false, 0, false, false);
+		Item.NewItem(null, i * 16, j * 16, 32, 16, ((ModTile)this).Mod.Find<ModItem>("ShadowBookcaseItem").Type, 1, false, 0, false, false);
 	}
 }

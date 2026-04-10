@@ -22,7 +22,8 @@ public class PurpleGlowShroom : ModTile
 		TileObjectData.newTile.AnchorValidTiles = new int[1] { ((ModTile)this).Mod.Find<ModTile>("PurpleShadowGrass").Type };
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
-	}
+		RegisterItemDrop(ModContent.ItemType<GlowShroomItem>());
+    }
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
@@ -31,14 +32,10 @@ public class PurpleGlowShroom : ModTile
 		b = 0.6f;
 	}
 
-	public override bool Drop(int i, int j)/* tModPorter Note: Removed. Use CanDrop to decide if an item should drop. Use GetItemDrops to decide which item drops. Item drops based on placeStyle are handled automatically now, so this method might be able to be removed altogether. */
-	{
-		if (Main.rand.Next(3) == 1)
-		{
-			Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).Mod.Find<ModItem>("GlowShroomItem").Type, 1, false, 0, false, false);
-		}
-		return false;
-	}
+    public override bool CanDrop(int i, int j)
+    {
+		return Main.rand.Next(3) == 1;
+    }
 
 	public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
 	{

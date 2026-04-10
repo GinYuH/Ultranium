@@ -10,29 +10,29 @@ public class StaffOfCthulhu : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Staff of Cthulhu");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
+		// DisplayName.SetDefault("Staff of Cthulhu");
+		// Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 7;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EyeMinion").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("EyeBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.DamageType = DamageClass.Summon;
+		Item.mana = 20;
+		Item.damage = 7;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("EyeMinion").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("EyeBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,6 +51,6 @@ public class StaffOfCthulhu : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 }

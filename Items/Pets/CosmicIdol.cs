@@ -10,23 +10,23 @@ public class CosmicIdol : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Cosmic Insignia");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a pet cosmic djinn");
+		// DisplayName.SetDefault("Cosmic Insignia");
+		// Tooltip.SetDefault("Summons a pet cosmic djinn");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.CloneDefaults(669);
-		((ModItem)this).Item.shoot = ModContent.ProjectileType<CosmicDjinn>();
-		((ModItem)this).Item.buffType = ModContent.BuffType<CosmicDjinnBuff>();
+		Item.rare = 11;
+		Item.CloneDefaults(669);
+		Item.shoot = ModContent.ProjectileType<CosmicDjinn>();
+		Item.buffType = ModContent.BuffType<CosmicDjinnBuff>();
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

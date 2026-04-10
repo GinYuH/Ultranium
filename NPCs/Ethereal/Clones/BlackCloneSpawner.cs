@@ -156,7 +156,7 @@ public class BlackCloneSpawner : ModProjectile
 		}
 		if (ScaleTimer == 280)
 		{
-			NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("XenanisClone2").Type, 0, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("XenanisClone2").Type, 0, 0f, 0f, 0f, 0f, 255);
 		}
 	}
 }

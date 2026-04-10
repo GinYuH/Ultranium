@@ -1,26 +1,29 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Ocean;
 
 namespace Ultranium.Items.BossBags;
 
 public class SquidBag : ModItem
 {
-	public override int BossBagNPC => ((ModItem)this).Mod.Find<ModNPC>("ZephyrSquid").Type;
-
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Treasure Bag");
-		// ((ModItem)this).Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		// DisplayName.SetDefault("Treasure Bag");
+		// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		ItemID.Sets.BossBag[Type] = true;
+		ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.consumable = true;
-		((Entity)(object)((ModItem)this).Item).width = 46;
-		((Entity)(object)((ModItem)this).Item).height = 36;
-		((ModItem)this).Item.rare = -12;
-		((ModItem)this).Item.expert = true;
+		Item.maxStack = 999;
+		Item.consumable = true;
+		Item.width = 46;
+		Item.height = 36;
+		Item.rare = -12;
+		Item.expert = true;
 	}
 
 	public override bool CanRightClick()
@@ -28,26 +31,11 @@ public class SquidBag : ModItem
 		return true;
 	}
 
-	public override void OpenBossBag(Player player)
-	{
-		int num = Main.rand.Next(3);
-		if (num == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("ZephyrBlade").Type, 1);
-		}
-		if (num == 1)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("ZephyrTrident").Type, 1);
-		}
-		if (num == 2)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("ZephyrKnife").Type, 1);
-		}
-		if (Main.rand.Next(20) == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("WormPet").Type, 1);
-		}
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("OceanScale").Type, Main.rand.Next(12, 16));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("MysticTentacle").Type, 1);
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("OceanScale").Type, 1, 12, 15));
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("MysticTentacle").Type, 1));
+		itemLoot.Add(ItemDropRule.OneFromOptions(1, new int[] { ModContent.ItemType<ZephyrBlade>(), ModContent.ItemType<ZephyrTrident>(), ModContent.ItemType<ZephyrKnife>() }));
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("WormPet").Type, 20));
+    }
 }

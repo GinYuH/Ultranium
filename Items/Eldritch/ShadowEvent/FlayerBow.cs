@@ -11,28 +11,28 @@ public class FlayerBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Life's Diminish");
-		// ((ModItem)this).Tooltip.SetDefault("Converts all arrows into dark matter arrow bolts");
+		// DisplayName.SetDefault("Life's Diminish");
+		// Tooltip.SetDefault("Converts all arrows into dark matter arrow bolts");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 170;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 46;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.useTime = 14;
-		((ModItem)this).Item.useAnimation = 14;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 4f;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
-		((ModItem)this).Item.useAmmo = AmmoID.Arrow;
+		Item.damage = 170;
+		Item.DamageType = DamageClass.Ranged;
+		Item.width = 46;
+		Item.height = 18;
+		Item.useTime = 14;
+		Item.useAnimation = 14;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 4f;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item5;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type;
+		Item.shootSpeed = 16f;
+		Item.useAmmo = AmmoID.Arrow;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -49,7 +49,7 @@ public class FlayerBow : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(position.X, position.Y, speedX, speedY, ((ModItem)this).Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, ((ModItem)this).Item.damage, knockBack, ((ModItem)this).Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, Item.damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		return false;
 	}

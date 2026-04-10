@@ -7,22 +7,22 @@ public class ShadowLanternItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Lantern");
+		// DisplayName.SetDefault("Eldritch Lantern");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 11;
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.rare = 0;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("ShadowLantern").Type;
+		Item.width = 20;
+		Item.height = 11;
+		Item.maxStack = 999;
+		Item.rare = 0;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.useStyle = 1;
+		Item.consumable = true;
+		Item.createTile = Mod.Find<ModTile>("ShadowLantern").Type;
 	}
 
 	public override void AddRecipes()

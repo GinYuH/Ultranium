@@ -52,7 +52,7 @@ public class FlayerTentacleBody : ModProjectile
 					num = ((ModProjectile)this).Mod.Find<ModProjectile>("FlayerTentacleTop").Type;
 					num2 = 1.4f;
 				}
-				int num3 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X + ((ModProjectile)this).Projectile.velocity.X * num2, ((ModProjectile)this).Projectile.Center.Y + ((ModProjectile)this).Projectile.velocity.Y * num2, ((ModProjectile)this).Projectile.velocity.X, ((ModProjectile)this).Projectile.velocity.Y, num, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, ((ModProjectile)this).Projectile.ai[1] + 1f);
+				int num3 = Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X + ((ModProjectile)this).Projectile.velocity.X * num2, ((ModProjectile)this).Projectile.Center.Y + ((ModProjectile)this).Projectile.velocity.Y * num2, ((ModProjectile)this).Projectile.velocity.X, ((ModProjectile)this).Projectile.velocity.Y, num, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, ((ModProjectile)this).Projectile.ai[1] + 1f);
 				NetMessage.SendData(27, -1, -1, null, num3);
 				Main.projectile[num3].localAI[1] = ((ModProjectile)this).Projectile.localAI[1];
 			}

@@ -7,16 +7,16 @@ public class SolarShroom : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Piltzintecuhtli");
-		// ((ModItem)this).Tooltip.SetDefault("The god of the sun that the lizhard's worshiped was a mushroom all along. how dreadful.");
+		// DisplayName.SetDefault("Piltzintecuhtli");
+		// Tooltip.SetDefault("The god of the sun that the lizhard's worshiped was a mushroom all along. how dreadful.");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.rare = -11;
-		((ModItem)this).Item.maxStack = 1;
+		Item.width = 20;
+		Item.height = 30;
+		Item.rare = -11;
+		Item.maxStack = 1;
 	}
 
 	public override void AddRecipes()

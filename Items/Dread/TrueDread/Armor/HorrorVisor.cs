@@ -10,17 +10,17 @@ public class HorrorVisor : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Horror Visor");
-		// ((ModItem)this).Tooltip.SetDefault("12% increased ranged critical strike chance");
+		// DisplayName.SetDefault("Horror Visor");
+		// Tooltip.SetDefault("12% increased ranged critical strike chance");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.defense = 22;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.defense = 22;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -30,9 +30,9 @@ public class HorrorVisor : ModItem
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("HorrorBody").Type)
+		if (body.type == Mod.Find<ModItem>("HorrorBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("HorrorLegs").Type;
+			return legs.type == Mod.Find<ModItem>("HorrorLegs").Type;
 		}
 		return false;
 	}

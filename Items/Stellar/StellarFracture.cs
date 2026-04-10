@@ -11,29 +11,29 @@ public class StellarFracture : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Fracture");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a spread of stellar beams");
+		// DisplayName.SetDefault("Stellar Fracture");
+		// Tooltip.SetDefault("Fires a spread of stellar beams");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 40;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 5;
-		Item.staff[((ModItem)this).Item.type] = true;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.mana = 12;
-		((ModItem)this).Item.UseSound = SoundID.DD2_BetsysWrathShot;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarFracture").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 40;
+		Item.DamageType = DamageClass.Magic;
+		Item.width = 16;
+		Item.height = 14;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 5;
+		Item.staff[Item.type] = true;
+		Item.noMelee = true;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 35, 45);
+		Item.rare = 5;
+		Item.mana = 12;
+		Item.UseSound = SoundID.DD2_BetsysWrathShot;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("StellarFracture").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -42,7 +42,7 @@ public class StellarFracture : ModItem
 		{
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			int myPlayer = Main.myPlayer;
-			float shootSpeed = ((ModItem)this).Item.shootSpeed;
+			float shootSpeed = Item.shootSpeed;
 			int num = damage;
 			float num2 = knockBack;
 			float x = (float)Main.mouseX + Main.screenPosition.X - vector.X;
@@ -64,7 +64,7 @@ public class StellarFracture : ModItem
 			Vector2 vector3 = new Vector2(x, y).SafeNormalize(Vector2.UnitY) * shootSpeed;
 			v = v.SafeNormalize(vector3) * shootSpeed;
 			v = Vector2.Lerp(v, vector3, 0.25f);
-			Projectile.NewProjectile(vector2, v, ((ModItem)this).Mod.Find<ModProjectile>("StellarFracture").Type, num, num2, myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, vector2, v, Mod.Find<ModProjectile>("StellarFracture").Type, num, num2, myPlayer, 0f, 0f);
 		}
 		return false;
 	}

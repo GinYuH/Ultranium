@@ -85,7 +85,7 @@ public class DepthsMimicSpawn : ModPlayer
 				NetMessage.SendTileSquare(-1, x, y, 3);
 			}
 			int num5 = mod.Find<ModNPC>("DepthsMimic").Type;
-			int num6 = NPC.NewNPC(x * 16 + 16, y * 16 + 32, num5, 0, 0f, 0f, 0f, 0f, 255);
+			int num6 = NPC.NewNPC(null, x * 16 + 16, y * 16 + 32, num5, 0, 0f, 0f, 0f, 0f, 255);
 			Main.npc[num6].whoAmI = num6;
 			NetMessage.SendData(23, -1, -1, null, num6);
 			Main.npc[num6].BigMimicSpawnSmoke();

@@ -11,29 +11,29 @@ public class UltraniumScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Nature Scepter");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a miniature ultrum to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
+		// DisplayName.SetDefault("Nature Scepter");
+		// Tooltip.SetDefault("Summons a miniature ultrum to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.mana = 35;
-		((ModItem)this).Item.damage = 200;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("Ultrum").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("UltrumBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.mana = 35;
+		Item.damage = 200;
+		Item.width = 26;
+		Item.height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Summon;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("Ultrum").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("UltrumBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -48,7 +48,7 @@ public class UltraniumScepter : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		if (player.ownedProjectileCounts[((ModItem)this).Mod.Find<ModProjectile>("Ultrum").Type] > 0)
+		if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Ultrum").Type] > 0)
 		{
 			return false;
 		}
@@ -61,7 +61,7 @@ public class UltraniumScepter : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

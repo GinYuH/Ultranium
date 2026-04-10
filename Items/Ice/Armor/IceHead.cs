@@ -8,17 +8,17 @@ public class IceHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ice Walker's Helmet");
-		// ((ModItem)this).Tooltip.SetDefault("3% increased damage");
+		// DisplayName.SetDefault("Ice Walker's Helmet");
+		// Tooltip.SetDefault("3% increased damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.defense = 5;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 3;
+		Item.defense = 5;
 	}
 
 	public override void UpdateEquip(Player player)
@@ -31,9 +31,9 @@ public class IceHead : ModItem
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("IceBody").Type)
+		if (body.type == Mod.Find<ModItem>("IceBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("IceLegs").Type;
+			return legs.type == Mod.Find<ModItem>("IceLegs").Type;
 		}
 		return false;
 	}

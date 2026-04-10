@@ -32,7 +32,7 @@ public class UltrumTrophy : ModTile
 		}
 		if (num > 0)
 		{
-			Item.NewItem(i * 16, j * 16, 48, 48, num, 1, false, 0, false, false);
+			Item.NewItem(null, i * 16, j * 16, 48, 48, num, 1, false, 0, false, false);
 		}
 	}
 }

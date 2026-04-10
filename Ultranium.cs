@@ -54,106 +54,8 @@ internal class Ultranium : Mod
 
 	private Mod mod => ModLoader.GetMod("Ultranium");
 
-	public Ultranium()
-	{
-		//IL_0009: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
-		((Mod)this).Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */ = new ModProperties
-		{
-			Autoload = true,
-			AutoloadGores = true,
-			AutoloadSounds = true,
-			AutoloadBackgrounds = true
-		};
-	}
-
 	public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
 	{
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0043: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0073: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0085: Unknown result type (might be due to invalid IL or missing references)
-		//IL_008a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0093: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00bc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00da: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00fa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0107: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0121: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0126: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0132: Unknown result type (might be due to invalid IL or missing references)
-		//IL_013f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0147: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0159: Unknown result type (might be due to invalid IL or missing references)
-		//IL_015e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_016b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0179: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0181: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0190: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0195: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01ad: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01bf: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01c4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01d1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01dc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01ee: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0200: Unknown result type (might be due to invalid IL or missing references)
-		//IL_020b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_021d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0222: Unknown result type (might be due to invalid IL or missing references)
-		//IL_022f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_023a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_024c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0251: Unknown result type (might be due to invalid IL or missing references)
-		//IL_025e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0269: Unknown result type (might be due to invalid IL or missing references)
-		//IL_027b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0280: Unknown result type (might be due to invalid IL or missing references)
-		//IL_028d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0298: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02aa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02af: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02bc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02c7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02d9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02de: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02eb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0308: Unknown result type (might be due to invalid IL or missing references)
-		//IL_030d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_031a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0325: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0337: Unknown result type (might be due to invalid IL or missing references)
-		//IL_033c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0349: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0354: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0366: Unknown result type (might be due to invalid IL or missing references)
-		//IL_036b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0378: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0383: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0395: Unknown result type (might be due to invalid IL or missing references)
-		//IL_039a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03a7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03b2: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = Recipe.Create(285, 1);
 		val.AddRecipeGroup("Ultranium:Iron/Lead", 5);
 		val.AddTile(16);
@@ -259,7 +161,8 @@ internal class Ultranium : Mod
 
 	public override void PostSetupContent()
 	{
-		Mod val = ModLoader.GetMod("FKBossHealthBar");
+		// PORTING NOTE: Boss Bar is no longer real
+		/*Mod val = ModLoader.GetMod("FKBossHealthBar");
 		if (val != null)
 		{
 			val.Call(new object[1] { "hbStart" });
@@ -279,7 +182,7 @@ internal class Ultranium : Mod
 				"hbFinishSingle",
 				((Mod)this).Find<ModNPC>("ErebusHead").Type
 			});
-		}
+		}*/
 		Mod val2 = ModLoader.GetMod("BossChecklist");
 		if (val2 != null)
 		{
@@ -565,20 +468,20 @@ internal class Ultranium : Mod
 		GameShaders.Armor.BindShader(mod.Find<ModItem>("IgnodiumDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorFlow")).UseColor(2.55f, 1.61f, 0f).UseSecondaryColor(1f, 1.3f, 1.5f);
 		if (!Main.dedServ)
 		{
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowBiome"), ((Mod)this).Find<ModItem>("ShadowMusicBox").Type, ((Mod)this).Find<ModTile>("ShadowMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/DarkDepths"), ((Mod)this).Find<ModItem>("DepthMusicBox").Type, ((Mod)this).Find<ModTile>("DepthMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid"), ((Mod)this).Find<ModItem>("ZephyrMusicBox").Type, ((Mod)this).Find<ModTile>("ZephyrMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/IceDragon"), ((Mod)this).Find<ModItem>("IceMusicBox").Type, ((Mod)this).Find<ModTile>("IceMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Dread"), ((Mod)this).Find<ModItem>("DreadMusicBox").Type, ((Mod)this).Find<ModTile>("DreadMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Xenanis"), ((Mod)this).Find<ModItem>("EtherealMusicBox").Type, ((Mod)this).Find<ModTile>("EtherealMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase1"), ((Mod)this).Find<ModItem>("GuardianPhase1Box").Type, ((Mod)this).Find<ModTile>("GuardianPhase1BoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase2"), ((Mod)this).Find<ModItem>("GuardianPhase2Box").Type, ((Mod)this).Find<ModTile>("GuardianPhase2BoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave1"), ((Mod)this).Find<ModItem>("ShadowEventBox").Type, ((Mod)this).Find<ModTile>("ShadowEventBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave2"), ((Mod)this).Find<ModItem>("ShadowEventBox2").Type, ((Mod)this).Find<ModTile>("ShadowEventBoxTile2").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/RealDread"), ((Mod)this).Find<ModItem>("TrueDreadBox").Type, ((Mod)this).Find<ModTile>("TrueDreadBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/MindFlayer"), ((Mod)this).Find<ModItem>("FlayerMusicBox").Type, ((Mod)this).Find<ModTile>("FlayerMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ErebusTheme"), ((Mod)this).Find<ModItem>("ErebusMusicBox").Type, ((Mod)this).Find<ModTile>("ErebusMusicBoxTile").Type, 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Aldin"), ((Mod)this).Find<ModItem>("AldinMusicBox").Type, ((Mod)this).Find<ModTile>("AldinMusicBoxTile").Type, 0);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowBiome"), mod.Find<ModItem>("ShadowMusicBox").Type, mod.Find<ModTile>("ShadowMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/DarkDepths"), mod.Find<ModItem>("DepthMusicBox").Type, mod.Find<ModTile>("DepthMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/ZephyrSquid"), mod.Find<ModItem>("ZephyrMusicBox").Type, mod.Find<ModTile>("ZephyrMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/IceDragon"), mod.Find<ModItem>("IceMusicBox").Type, mod.Find<ModTile>("IceMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/Dread"), mod.Find<ModItem>("DreadMusicBox").Type, mod.Find<ModTile>("DreadMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/Xenanis"), mod.Find<ModItem>("EtherealMusicBox").Type, mod.Find<ModTile>("EtherealMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/GuardiansPhase1"), mod.Find<ModItem>("GuardianPhase1Box").Type, mod.Find<ModTile>("GuardianPhase1BoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/GuardiansPhase2"), mod.Find<ModItem>("GuardianPhase2Box").Type, mod.Find<ModTile>("GuardianPhase2BoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave1"), mod.Find<ModItem>("ShadowEventBox").Type, mod.Find<ModTile>("ShadowEventBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave2"), mod.Find<ModItem>("ShadowEventBox2").Type, mod.Find<ModTile>("ShadowEventBoxTile2").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/RealDread"), mod.Find<ModItem>("TrueDreadBox").Type, mod.Find<ModTile>("TrueDreadBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/MindFlayer"), mod.Find<ModItem>("FlayerMusicBox").Type, mod.Find<ModTile>("FlayerMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/ErebusTheme"), mod.Find<ModItem>("ErebusMusicBox").Type, mod.Find<ModTile>("ErebusMusicBoxTile").Type);
+			MusicLoader.AddMusicBox(mod, MusicLoader.GetMusicSlot(mod, "Sounds/Music/Aldin"), mod.Find<ModItem>("AldinMusicBox").Type, mod.Find<ModTile>("AldinMusicBoxTile").Type);
 			Filters.Scene["Ultranium:ShadowBiome"] = new Filter(new ShadowBiomeScreenShaderData("FilterMiniTower").UseColor(0f, 0.2f, 0.05f).UseOpacity(0.5f), EffectPriority.VeryHigh);
 			SkyManager.Instance["Ultranium:ShadowBiome"] = new ShadowBiomeSky();
 			Filters.Scene["Blizzard"] = new Filter(new BlizzardShaderData("FilterBlizzardForeground").UseColor(1f, 1f, 1.5f).UseSecondaryColor(0.7f, 0.7f, 1f).UseImage("Images/Misc/noise")
@@ -664,22 +567,22 @@ internal class Ultranium : Mod
 		{
 			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneShadow)
 			{
-				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowBiome");
-				priority = (SceneEffectPriority)4;
+				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowBiome");
+                priority = (SceneEffectPriority)4;
 			}
 			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneDepth)
 			{
-				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/DarkDepths");
+				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/DarkDepths");
 				priority = (SceneEffectPriority)4;
 			}
 			if (ShadowEventWorld.ShadowEventActive && !ShadowEventWorld.Phase2)
 			{
-				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave1");
+				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave1");
 				priority = (SceneEffectPriority)4;
 			}
 			if (ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
 			{
-				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave2");
+				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave2");
 				priority = (SceneEffectPriority)4;
 			}
 		}

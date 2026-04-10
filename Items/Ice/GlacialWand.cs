@@ -8,26 +8,26 @@ public class GlacialWand : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glacial Wand");
-		// ((ModItem)this).Tooltip.SetDefault("Casts a slow moving ice twister");
+		// DisplayName.SetDefault("Glacial Wand");
+		// Tooltip.SetDefault("Casts a slow moving ice twister");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 25;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 20;
-		((Entity)(object)((ModItem)this).Item).width = 32;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 20);
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("SnowTwister").Type;
-		((ModItem)this).Item.shootSpeed = 6.5f;
+		Item.damage = 25;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 20;
+		Item.width = 32;
+		Item.height = 32;
+		Item.useTime = 45;
+		Item.useAnimation = 45;
+		Item.useStyle = 1;
+		Item.knockBack = 2f;
+		Item.value = Item.buyPrice(0, 20);
+		Item.rare = 3;
+		Item.UseSound = SoundID.Item20;
+		Item.shoot = Mod.Find<ModProjectile>("SnowTwister").Type;
+		Item.shootSpeed = 6.5f;
 	}
 
 	public override void AddRecipes()

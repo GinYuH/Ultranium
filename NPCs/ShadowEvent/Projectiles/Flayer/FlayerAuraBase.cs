@@ -37,7 +37,7 @@ public class FlayerAuraBase : ModProjectile
 		{
 			if (Main.player[((ModProjectile)this).Projectile.owner].ownedProjectileCounts[((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type] < num)
 			{
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)i, (float)((ModProjectile)this).Projectile.whoAmI);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)i, (float)((ModProjectile)this).Projectile.whoAmI);
 			}
 		}
 	}

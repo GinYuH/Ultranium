@@ -63,7 +63,7 @@ public class DreadDisc : ModProjectile
 				vector.Normalize();
 				vector.X *= 3f;
 				vector.Y *= 3f;
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadParticleBolt").Type, ((ModProjectile)this).Projectile.damage, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadParticleBolt").Type, ((ModProjectile)this).Projectile.damage, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			}
 			ProjectileTimer = 0;
 		}

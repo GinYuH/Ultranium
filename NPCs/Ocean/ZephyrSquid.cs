@@ -25,57 +25,57 @@ public class ZephyrSquid : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Zephyr Squid");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 5;
-		NPCID.Sets.TrailCacheLength[((ModNPC)this).NPC.type] = 3;
-		NPCID.Sets.TrailingMode[((ModNPC)this).NPC.type] = 0;
+		// DisplayName.SetDefault("Zephyr Squid");
+		Main.npcFrameCount[NPC.type] = 5;
+		NPCID.Sets.TrailCacheLength[NPC.type] = 3;
+		NPCID.Sets.TrailingMode[NPC.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 98;
-		((ModNPC)this).NPC.height = 256;
-		((ModNPC)this).NPC.damage = 20;
-		((ModNPC)this).NPC.lifeMax = 3800;
-		((ModNPC)this).NPC.defense = 20;
-		((ModNPC)this).NPC.knockBackResist = 0f;
-		((ModNPC)this).NPC.boss = true;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.noTileCollide = true;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit7;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 5);
-		((ModNPC)this).NPC.npcSlots = 1f;
-		((ModNPC)this).NPC.boss = true;
-		((ModNPC)this).NPC.lavaImmune = true;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.noTileCollide = true;
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ((ModNPC)this).Mod.Find<ModItem>("SquidBag").Type;
-		((ModNPC)this).NPC.buffImmune[24] = true;
-		base.Music = ((ModNPC)this).Mod.GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid");
-		((ModNPC)this).NPC.netAlways = true;
-		((ModNPC)this).NPC.aiStyle = -1;
+		NPC.width = 98;
+		NPC.height = 256;
+		NPC.damage = 20;
+		NPC.lifeMax = 3800;
+		NPC.defense = 20;
+		NPC.knockBackResist = 0f;
+		NPC.boss = true;
+		NPC.noGravity = true;
+		NPC.noTileCollide = true;
+		NPC.HitSound = SoundID.NPCHit7;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.value = Item.buyPrice(0, 5);
+		NPC.npcSlots = 1f;
+		NPC.boss = true;
+		NPC.lavaImmune = true;
+		NPC.noGravity = true;
+		NPC.noTileCollide = true;
+		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SquidBag").Type;
+		NPC.buffImmune[24] = true;
+		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid");
+		NPC.netAlways = true;
+		NPC.aiStyle = -1;
 		players = 1;
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
 		players = numPlayers;
-		((ModNPC)this).NPC.lifeMax = 4300 + numPlayers * 430;
-		((ModNPC)this).NPC.damage = 35;
-		((ModNPC)this).NPC.defense = 30;
+		NPC.lifeMax = 4300 + numPlayers * 430;
+		NPC.damage = 35;
+		NPC.defense = 30;
 	}
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		if (((ModNPC)this).NPC.velocity != Vector2.Zero)
+		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail").Width * 0.2f, (float)((ModNPC)this).NPC.height * 0.2f);
-			for (int i = 0; i < ((ModNPC)this).NPC.oldPos.Length; i++)
+			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail").Width * 0.2f, (float)NPC.height * 0.2f);
+			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
-				Vector2 position = ((ModNPC)this).NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModNPC)this).NPC.gfxOffY);
-				Color color = ((ModNPC)this).NPC.GetAlpha(drawColor) * ((float)(((ModNPC)this).NPC.oldPos.Length - i) / (float)((ModNPC)this).NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail"), position, ((ModNPC)this).NPC.frame, color, ((ModNPC)this).NPC.rotation, vector, ((ModNPC)this).NPC.scale, SpriteEffects.None, 0f);
+				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
+				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
+				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 			}
 		}
 		return true;
@@ -83,83 +83,83 @@ public class ZephyrSquid : ModNPC
 
 	public override bool PreAI()
 	{
-		((ModNPC)this).NPC.rotation = ((ModNPC)this).NPC.velocity.X * 0.02f;
-		Player player = Main.player[((ModNPC)this).NPC.target];
+		NPC.rotation = NPC.velocity.X * 0.02f;
+		Player player = Main.player[NPC.target];
 		int num = (Main.expertMode ? 14 : 20);
 		if (!((Entity)player).active || player.dead)
 		{
-			((ModNPC)this).NPC.TargetClosest(faceTarget: false);
-			((ModNPC)this).NPC.velocity.Y = -100f;
+			NPC.TargetClosest(faceTarget: false);
+			NPC.velocity.Y = -100f;
 		}
-		((ModNPC)this).NPC.netUpdate = true;
-		((ModNPC)this).NPC.TargetClosest();
-		if (Main.player[((ModNPC)this).NPC.target].dead || Main.player[((ModNPC)this).NPC.target].dead)
+		NPC.netUpdate = true;
+		NPC.TargetClosest();
+		if (Main.player[NPC.target].dead || Main.player[NPC.target].dead)
 		{
-			((ModNPC)this).NPC.velocity.Y = 30f;
-			((ModNPC)this).NPC.ai[0] += 1f;
-			if (((ModNPC)this).NPC.ai[0] >= 120f)
+			NPC.velocity.Y = 30f;
+			NPC.ai[0] += 1f;
+			if (NPC.ai[0] >= 120f)
 			{
-				((Entity)((ModNPC)this).NPC).active = false;
+				((Entity)NPC).active = false;
 			}
 		}
-		if (((ModNPC)this).NPC.ai[0] == 0f)
+		if (NPC.ai[0] == 0f)
 		{
-			if (((ModNPC)this).NPC.Center.X >= player.Center.X && moveSpeed >= -53)
+			if (NPC.Center.X >= player.Center.X && moveSpeed >= -53)
 			{
 				moveSpeed--;
 			}
-			else if (((ModNPC)this).NPC.Center.X <= player.Center.X && moveSpeed <= 53)
+			else if (NPC.Center.X <= player.Center.X && moveSpeed <= 53)
 			{
 				moveSpeed++;
 			}
-			((ModNPC)this).NPC.velocity.X = (float)moveSpeed * 0.09f;
-			if (((ModNPC)this).NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30)
+			NPC.velocity.X = (float)moveSpeed * 0.09f;
+			if (NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30)
 			{
 				moveSpeedY--;
 				HomeY = 150f;
 			}
-			else if (((ModNPC)this).NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
+			else if (NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
 			{
 				moveSpeedY++;
 			}
-			((ModNPC)this).NPC.velocity.Y = (float)moveSpeedY * 0.1f;
+			NPC.velocity.Y = (float)moveSpeedY * 0.1f;
 		}
-		if (((ModNPC)this).NPC.ai[0] == 1f)
+		if (NPC.ai[0] == 1f)
 		{
-			if (((ModNPC)this).NPC.Center.X >= player.Center.X && moveSpeed >= -100)
+			if (NPC.Center.X >= player.Center.X && moveSpeed >= -100)
 			{
 				moveSpeed--;
 			}
-			else if (((ModNPC)this).NPC.Center.X <= player.Center.X && moveSpeed <= 100)
+			else if (NPC.Center.X <= player.Center.X && moveSpeed <= 100)
 			{
 				moveSpeed++;
 			}
-			((ModNPC)this).NPC.velocity.X = (float)moveSpeed * 0.09f;
-			if (((ModNPC)this).NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30)
+			NPC.velocity.X = (float)moveSpeed * 0.09f;
+			if (NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -30)
 			{
 				moveSpeedY--;
 				HomeY = 150f;
 			}
-			else if (((ModNPC)this).NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
+			else if (NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 30)
 			{
 				moveSpeedY++;
 			}
-			((ModNPC)this).NPC.velocity.Y = (float)moveSpeedY * 0.1f;
+			NPC.velocity.Y = (float)moveSpeedY * 0.1f;
 		}
-		if (((ModNPC)this).NPC.ai[0] == 2f)
+		if (NPC.ai[0] == 2f)
 		{
-			((ModNPC)this).NPC.velocity.X *= 0f;
-			((ModNPC)this).NPC.velocity.Y = -13f;
+			NPC.velocity.X *= 0f;
+			NPC.velocity.Y = -13f;
 		}
-		if (((ModNPC)this).NPC.ai[0] == 3f)
+		if (NPC.ai[0] == 3f)
 		{
-			((ModNPC)this).NPC.velocity *= 0f;
+			NPC.velocity *= 0f;
 		}
 		timer++;
 		if (timer == 100 || timer == 200 || timer == 300 || timer == 400 || timer == 500)
 		{
-			SoundEngine.PlaySound(SoundID.Item112, ((ModNPC)this).NPC.position);
-			Vector2 vector = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
+			SoundEngine.PlaySound(SoundID.Item112, NPC.position);
+			Vector2 vector = Main.player[NPC.target].Center - NPC.Center;
 			vector.Normalize();
 			vector.X *= 5f;
 			vector.Y *= 5f;
@@ -167,26 +167,26 @@ public class ZephyrSquid : ModNPC
 			for (int i = 0; i < num2; i++)
 			{
 				float num3 = (float)Main.rand.Next(-100, 100) * 0.01f;
-				Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector.X + num3, vector.Y + num3, ((ModNPC)this).Mod.Find<ModProjectile>("Bubble").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X + num3, vector.Y + num3, Mod.Find<ModProjectile>("Bubble").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer == 600)
 		{
-			((ModNPC)this).NPC.ai[0] = 1f;
+			NPC.ai[0] = 1f;
 		}
 		if (timer == 630 || timer == 660 || timer == 690 || timer == 720 || timer == 750 || timer == 780 || timer == 810 || timer == 840)
 		{
-			SoundEngine.PlaySound(SoundID.Item111, ((ModNPC)this).NPC.position);
+			SoundEngine.PlaySound(SoundID.Item111, NPC.position);
 			float num4 = 6f;
-			int num5 = ((ModNPC)this).Mod.Find<ModProjectile>("InkGlob").Type;
-			float num6 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - player.Center.Y, ((ModNPC)this).NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
+			int num5 = Mod.Find<ModProjectile>("InkGlob").Type;
+			float num6 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 960)
 		{
 			for (int j = 0; j < 60; j++)
 			{
-				int num7 = Dust.NewDust(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 191);
+				int num7 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 191);
 				Main.dust[num7].scale = 1.5f;
 			}
 			Vector2 spinningpoint = new Vector2(8f, 0f).RotatedByRandom(Math.PI * 2.0);
@@ -194,54 +194,54 @@ public class ZephyrSquid : ModNPC
 			for (int k = 0; k < 10; k++)
 			{
 				Vector2 vector2 = spinningpoint.RotatedBy(Math.PI * ((double)k + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(((ModNPC)this).NPC.Center, vector2, ((ModNPC)this).Mod.Find<ModProjectile>("InkCloud").Type, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, NPC.Center, vector2, Mod.Find<ModProjectile>("InkCloud").Type, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			for (int l = 0; l < 10; l++)
 			{
 				Vector2 vector3 = spinningpoint2.RotatedBy(Math.PI * ((double)l + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(((ModNPC)this).NPC.Center, vector3, ((ModNPC)this).Mod.Find<ModProjectile>("InkBubble").Type, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, NPC.Center, vector3, Mod.Find<ModProjectile>("InkBubble").Type, num, 0f, Main.myPlayer, 0f, 0f);
 			}
-			((ModNPC)this).NPC.position.X = player.position.X - 100f;
-			((ModNPC)this).NPC.position.Y = player.position.Y + 300f;
+			NPC.position.X = player.position.X - 100f;
+			NPC.position.Y = player.position.Y + 300f;
 		}
 		if (timer > 960 && timer < 1000)
 		{
-			((ModNPC)this).NPC.velocity *= 0f;
+			NPC.velocity *= 0f;
 		}
 		if (timer == 980)
 		{
-			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("SquidChargeTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("SquidChargeTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 1000)
 		{
-			((ModNPC)this).NPC.ai[0] = 2f;
+			NPC.ai[0] = 2f;
 		}
 		if (timer == 1060)
 		{
-			((ModNPC)this).NPC.ai[0] = 3f;
+			NPC.ai[0] = 3f;
 		}
 		if (timer == 1100)
 		{
-			Projectile.NewProjectile(((ModNPC)this).NPC.position.X + 55f, ((ModNPC)this).NPC.position.Y, -4f, -6f, ((ModNPC)this).Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(((ModNPC)this).NPC.position.X + 55f, ((ModNPC)this).NPC.position.Y, -2f, -6f, ((ModNPC)this).Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(((ModNPC)this).NPC.position.X + 55f, ((ModNPC)this).NPC.position.Y, 0f, -6f, ((ModNPC)this).Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(((ModNPC)this).NPC.position.X + 55f, ((ModNPC)this).NPC.position.Y, 2f, -6f, ((ModNPC)this).Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(((ModNPC)this).NPC.position.X + 55f, ((ModNPC)this).NPC.position.Y, 4f, -6f, ((ModNPC)this).Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, -4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, -2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 0f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer >= 1150)
 		{
 			timer = 0;
-			((ModNPC)this).NPC.ai[0] = 0f;
+			NPC.ai[0] = 0f;
 		}
-		if (((ModNPC)this).NPC.life < ((ModNPC)this).NPC.lifeMax / 2 && ((ModNPC)this).NPC.ai[0] < 2f)
+		if (NPC.life < NPC.lifeMax / 2 && NPC.ai[0] < 2f)
 		{
 			BoltTimer++;
 			if (BoltTimer == 300)
 			{
 				float num8 = 11f;
-				float num9 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - player.Center.Y, ((ModNPC)this).NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("WaterHelix1").Type, num, 0f, 0, 0f, 0f);
-				Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("WaterHelix2").Type, num, 0f, 0, 0f, 0f);
+				float num9 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
+				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix1").Type, num, 0f, 0, 0f, 0f);
+				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix2").Type, num, 0f, 0, 0f, 0f);
 				BoltTimer = 0;
 			}
 		}
@@ -250,20 +250,20 @@ public class ZephyrSquid : ModNPC
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).NPC.frameCounter += 1.0;
-		if (((ModNPC)this).NPC.frameCounter >= 8.0)
+		NPC.frameCounter += 1.0;
+		if (NPC.frameCounter >= 8.0)
 		{
-			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
-			((ModNPC)this).NPC.frameCounter = 1.0;
+			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
+			NPC.frameCounter = 1.0;
 		}
 	}
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/SquidGore1"));
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/SquidGore2"));
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/SquidGore3"));
-		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/SquidGore4"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore1"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore3"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore4"));
 		return true;
 	}
 
@@ -271,36 +271,36 @@ public class ZephyrSquid : ModNPC
 	{
 		if (Main.expertMode)
 		{
-			((ModNPC)this).NPC.DropBossBags();
+			NPC.DropBossBags();
 		}
 		else
 		{
 			int num = Main.rand.Next(3);
 			if (num == 0)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ZephyrBlade").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrBlade").Type, 1, false, 0, false, false);
 			}
 			if (num == 1)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ZephyrKnife").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrKnife").Type, 1, false, 0, false, false);
 			}
 			if (num == 2)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ZephyrTrident").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrTrident").Type, 1, false, 0, false, false);
 			}
 			if (Main.rand.Next(20) == 0)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("WormPet").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("WormPet").Type, 1, false, 0, false, false);
 			}
-			Item.NewItem(((ModNPC)this).NPC.getRect(), ((ModNPC)this).Mod.Find<ModItem>("OceanScale").Type, Main.rand.Next(8, 12), false, 0, false, false);
+			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("OceanScale").Type, Main.rand.Next(8, 12), false, 0, false, false);
 		}
 		if (Main.rand.Next(7) == 0)
 		{
-			Item.NewItem(((ModNPC)this).NPC.getRect(), ((ModNPC)this).Mod.Find<ModItem>("SquidMask").Type, 1, false, 0, false, false);
+			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("SquidMask").Type, 1, false, 0, false, false);
 		}
 		if (Main.rand.Next(10) == 0)
 		{
-			Item.NewItem(((ModNPC)this).NPC.getRect(), ((ModNPC)this).Mod.Find<ModItem>("SquidTrophyItem").Type, 1, false, 0, false, false);
+			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("SquidTrophyItem").Type, 1, false, 0, false, false);
 		}
 		if (!UltraniumWorld.downedSquid)
 		{

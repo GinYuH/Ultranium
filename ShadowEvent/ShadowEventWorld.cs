@@ -71,12 +71,12 @@ public class ShadowEventWorld : ModSystem
 		if (EventTimer == 6300)
 		{
 			ErebusWarnings();
-			SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(0.7f), -1, -1);
+			SoundEngine.PlaySound(((ModSystem)this).new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(0.7f), -1, -1);
 		}
 		if (EventTimer == 18900)
 		{
 			ErebusWarnings();
-			SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+			SoundEngine.PlaySound(((ModSystem)this).new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
 		}
 		for (int i = 0; i < Main.player.Length; i++)
 		{
@@ -85,7 +85,7 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
@@ -97,7 +97,7 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
@@ -107,7 +107,7 @@ public class ShadowEventWorld : ModSystem
 			}
 			if (Main.netMode == 0 && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
 			{
-				Projectile.NewProjectile(player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModSystem)this).Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModSystem)this).Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
 			if (((Entity)player).active)
 			{

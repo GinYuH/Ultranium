@@ -9,18 +9,18 @@ public class VoidPouch : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Dimensional Ammo Pouch");
-		// ((ModItem)this).Tooltip.SetDefault("15% increased ranged damage\n50% chance to not consume ammo\nRanged projectiles inflict the eldritch decay debuff");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("Dimensional Ammo Pouch");
+		// Tooltip.SetDefault("15% increased ranged damage\n50% chance to not consume ammo\nRanged projectiles inflict the eldritch decay debuff");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 38;
-		((Entity)(object)((ModItem)this).Item).height = 46;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.accessory = true;
+		Item.width = 38;
+		Item.height = 46;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(0, 80);
+		Item.accessory = true;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -8,29 +8,29 @@ public class DreadStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Fear's Flame");
-		// ((ModItem)this).Tooltip.SetDefault("Casts dread fire balls");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Fear's Flame");
+		// Tooltip.SetDefault("Casts dread fire balls");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 50;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 12;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 16;
-		((ModItem)this).Item.useAnimation = 16;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.value = Item.buyPrice(0, 12);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadFlameBall").Type;
-		((ModItem)this).Item.shootSpeed = 6f;
+		Item.damage = 50;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 12;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 16;
+		Item.useAnimation = 16;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 4;
+		Item.value = Item.buyPrice(0, 12);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadFlameBall").Type;
+		Item.shootSpeed = 6f;
 	}
 
 	public override void AddRecipes()

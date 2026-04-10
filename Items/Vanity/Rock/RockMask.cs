@@ -1,28 +1,25 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Rock;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Head)]
 public class RockMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("RockWizard5's Mask");
-		// ((ModItem)this).Tooltip.SetDefault("~Developer item~");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("RockWizard5's Mask");
+		// Tooltip.SetDefault("~Developer item~");
+		ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = false;
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.vanity = true;
-		((ModItem)this).Item.rare = 9;
-	}
-
-	public override bool DrawHead()/* tModPorter Note: Removed. In SetStaticDefaults, use ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false if you returned false */
-	{
-		return false;
+		Item.width = 18;
+		Item.height = 18;
+		Item.vanity = true;
+		Item.rare = 9;
 	}
 }

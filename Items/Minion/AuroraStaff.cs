@@ -10,29 +10,29 @@ public class AuroraStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a spacial star to float above you\nThe star will shoot blasts at the cursor when enemies are near");
+		// DisplayName.SetDefault("Aurora Crystal Staff");
+		// Tooltip.SetDefault("Summons a spacial star to float above you\nThe star will shoot blasts at the cursor when enemies are near");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 25;
-		((Entity)(object)((ModItem)this).Item).width = 42;
-		((Entity)(object)((ModItem)this).Item).height = 42;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StarMinion").Type;
-		((ModItem)this).Item.shootSpeed = 0f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("StarMinionBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.mana = 20;
+		Item.damage = 25;
+		Item.width = 42;
+		Item.height = 42;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Summon;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("StarMinion").Type;
+		Item.shootSpeed = 0f;
+		Item.buffType = Mod.Find<ModBuff>("StarMinionBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class AuroraStaff : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

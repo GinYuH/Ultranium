@@ -10,29 +10,29 @@ public class ShadeWispStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadow Wisp Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a Shade Wisp to fight with you");
+		// DisplayName.SetDefault("Shadow Wisp Staff");
+		// Tooltip.SetDefault("Summons a Shade Wisp to fight with you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 20;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShadeWisp").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("ShadeWispBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.DamageType = DamageClass.Summon;
+		Item.mana = 20;
+		Item.damage = 20;
+		((Entity)(object)Item).width = 26;
+		((Entity)(object)Item).height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 1;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("ShadeWisp").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("ShadeWispBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class ShadeWispStaff : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

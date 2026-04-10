@@ -12,64 +12,64 @@ public class DepthCrawler : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Depth Crawler");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 4;
+		// DisplayName.SetDefault("Depth Crawler");
+		Main.npcFrameCount[NPC.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.npcSlots = 1f;
-		((ModNPC)this).NPC.width = 62;
-		((ModNPC)this).NPC.height = 34;
-		((ModNPC)this).NPC.damage = 50;
-		((ModNPC)this).NPC.defense = 15;
-		((ModNPC)this).NPC.lifeMax = 165;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.aiStyle = 3;
+		NPC.npcSlots = 1f;
+		NPC.width = 62;
+		NPC.height = 34;
+		NPC.damage = 50;
+		NPC.defense = 15;
+		NPC.lifeMax = 165;
+		NPC.knockBackResist = 0.1f;
+		NPC.aiStyle = 3;
 		base.AIType = 257;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit29;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath31;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("DepthCrawlerBanner").Type;
+		NPC.HitSound = SoundID.NPCHit29;
+		NPC.DeathSound = SoundID.NPCDeath31;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("DepthCrawlerBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/CrawlerGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/CrawlerGore2"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/CrawlerGore3"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/CrawlerGore4"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/CrawlerGore4"));
 		}
 	}
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModNPC)this).NPC.target];
-		((ModNPC)this).NPC.TargetClosest();
+		Player player = Main.player[NPC.target];
+		NPC.TargetClosest();
 		jumpCooldown++;
 		float num = 10.5f;
-		if (Math.Abs(((ModNPC)this).NPC.Center.X - player.Center.X) <= 100f && ((ModNPC)this).NPC.Bottom.Y > player.Bottom.Y && ((ModNPC)this).NPC.velocity.Y == 0f && jumpCooldown <= 0)
+		if (Math.Abs(NPC.Center.X - player.Center.X) <= 100f && NPC.Bottom.Y > player.Bottom.Y && NPC.velocity.Y == 0f && jumpCooldown <= 0)
 		{
-			((ModNPC)this).NPC.velocity.Y -= num;
+			NPC.velocity.Y -= num;
 			jumpCooldown = 15;
 		}
 	}
 
 	public override bool PreAI()
 	{
-		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
+		NPC.spriteDirection = NPC.direction;
 		return true;
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).NPC.frameCounter += 1.0;
-		if (((ModNPC)this).NPC.frameCounter >= 6.0)
+		NPC.frameCounter += 1.0;
+		if (NPC.frameCounter >= 6.0)
 		{
-			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
-			((ModNPC)this).NPC.frameCounter = 1.0;
+			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
+			NPC.frameCounter = 1.0;
 		}
 	}
 
@@ -95,7 +95,7 @@ public class DepthCrawler : ModNPC
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

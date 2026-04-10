@@ -11,47 +11,47 @@ public class DreadHook : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Dread Hook");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 2;
+		// DisplayName.SetDefault("Dread Hook");
+		Main.npcFrameCount[NPC.type] = 2;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.lifeMax = 2500;
-		((ModNPC)this).NPC.damage = 45;
-		((ModNPC)this).NPC.defense = 20;
-		((ModNPC)this).NPC.knockBackResist = 0f;
-		((ModNPC)this).NPC.scale = 1.5f;
-		((ModNPC)this).NPC.width = 40;
-		((ModNPC)this).NPC.height = 38;
-		((ModNPC)this).NPC.lavaImmune = true;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.noTileCollide = true;
-		((ModNPC)this).NPC.netAlways = true;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit7;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.value = Item.buyPrice();
-		((ModNPC)this).NPC.npcSlots = 1f;
-		((ModNPC)this).NPC.immortal = false;
-		((ModNPC)this).NPC.dontTakeDamage = false;
+		NPC.lifeMax = 2500;
+		NPC.damage = 45;
+		NPC.defense = 20;
+		NPC.knockBackResist = 0f;
+		NPC.scale = 1.5f;
+		NPC.width = 40;
+		NPC.height = 38;
+		NPC.lavaImmune = true;
+		NPC.noGravity = true;
+		NPC.noTileCollide = true;
+		NPC.netAlways = true;
+		NPC.HitSound = SoundID.NPCHit7;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.value = Item.buyPrice();
+		NPC.npcSlots = 1f;
+		NPC.immortal = false;
+		NPC.dontTakeDamage = false;
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
-		((ModNPC)this).NPC.lifeMax = 4500;
-		((ModNPC)this).NPC.damage = 55;
-		((ModNPC)this).NPC.defense = 50;
+		NPC.lifeMax = 4500;
+		NPC.damage = 55;
+		NPC.defense = 50;
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		if (((ModNPC)this).NPC.velocity.X == 0f || ((ModNPC)this).NPC.velocity.Y == 0f)
+		if (NPC.velocity.X == 0f || NPC.velocity.Y == 0f)
 		{
-			((ModNPC)this).NPC.frame.Y = frameHeight;
+			NPC.frame.Y = frameHeight;
 		}
-		if (((ModNPC)this).NPC.velocity.X > 0f || ((ModNPC)this).NPC.velocity.Y > 0f || ((ModNPC)this).NPC.velocity.X < 0f || ((ModNPC)this).NPC.velocity.Y < 0f)
+		if (NPC.velocity.X > 0f || NPC.velocity.Y > 0f || NPC.velocity.X < 0f || NPC.velocity.Y < 0f)
 		{
-			((ModNPC)this).NPC.frame.Y = 0;
+			NPC.frame.Y = 0;
 		}
 	}
 
@@ -62,15 +62,15 @@ public class DreadHook : ModNPC
 		NPC nPC = Main.npc[0];
 		for (int i = 0; i < Main.npc.Length; i++)
 		{
-			if (Main.npc[i].type == ((ModNPC)this).Mod.Find<ModNPC>("DreadBoss").Type)
+			if (Main.npc[i].type == Mod.Find<ModNPC>("DreadBoss").Type)
 			{
 				nPC = Main.npc[i];
 				break;
 			}
 		}
-		if (!NPC.AnyNPCs(((ModNPC)this).Mod.Find<ModNPC>("DreadBoss").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("DreadBoss").Type))
 		{
-			((Entity)((ModNPC)this).NPC).active = false;
+			((Entity)NPC).active = false;
 		}
 		if (Main.player[nPC.target].dead)
 		{
@@ -78,47 +78,47 @@ public class DreadHook : ModNPC
 		}
 		if (Main.netMode == 1)
 		{
-			if (((ModNPC)this).NPC.ai[0] == 0f)
+			if (NPC.ai[0] == 0f)
 			{
-				((ModNPC)this).NPC.ai[0] = (int)(((ModNPC)this).NPC.Center.X / 16f);
+				NPC.ai[0] = (int)(NPC.Center.X / 16f);
 			}
-			if (((ModNPC)this).NPC.ai[1] == 0f)
+			if (NPC.ai[1] == 0f)
 			{
-				((ModNPC)this).NPC.ai[1] = (int)(((ModNPC)this).NPC.Center.X / 16f);
+				NPC.ai[1] = (int)(NPC.Center.X / 16f);
 			}
 		}
 		if (Main.netMode != 1)
 		{
-			if (((ModNPC)this).NPC.ai[0] == 0f || ((ModNPC)this).NPC.ai[1] == 0f)
+			if (NPC.ai[0] == 0f || NPC.ai[1] == 0f)
 			{
-				((ModNPC)this).NPC.localAI[0] = 0f;
+				NPC.localAI[0] = 0f;
 			}
-			((ModNPC)this).NPC.localAI[0] -= 1f;
+			NPC.localAI[0] -= 1f;
 			if (nPC.life < nPC.lifeMax / 2)
 			{
-				((ModNPC)this).NPC.localAI[0] -= 2f;
+				NPC.localAI[0] -= 2f;
 			}
 			if (nPC.life < nPC.lifeMax / 4)
 			{
-				((ModNPC)this).NPC.localAI[0] -= 2f;
+				NPC.localAI[0] -= 2f;
 			}
 			if (flag)
 			{
-				((ModNPC)this).NPC.localAI[0] -= 6f;
+				NPC.localAI[0] -= 6f;
 			}
-			if (!flag2 && ((ModNPC)this).NPC.localAI[0] <= 0f && ((ModNPC)this).NPC.ai[0] != 0f)
+			if (!flag2 && NPC.localAI[0] <= 0f && NPC.ai[0] != 0f)
 			{
 				for (int j = 0; j < Main.npc.Length; j++)
 				{
-					if (j != ((ModNPC)this).NPC.whoAmI && ((Entity)Main.npc[j]).active && Main.npc[j].type == ((ModNPC)this).NPC.type && (Main.npc[j].velocity.X != 0f || Main.npc[j].velocity.Y != 0f))
+					if (j != NPC.whoAmI && ((Entity)Main.npc[j]).active && Main.npc[j].type == NPC.type && (Main.npc[j].velocity.X != 0f || Main.npc[j].velocity.Y != 0f))
 					{
-						((ModNPC)this).NPC.localAI[0] = Main.rand.Next(60, 300);
+						NPC.localAI[0] = Main.rand.Next(60, 300);
 					}
 				}
 			}
-			if (((ModNPC)this).NPC.localAI[0] <= 0f)
+			if (NPC.localAI[0] <= 0f)
 			{
-				((ModNPC)this).NPC.localAI[0] = Main.rand.Next(100, 300);
+				NPC.localAI[0] = Main.rand.Next(100, 300);
 				bool flag3 = false;
 				int num = 0;
 				while (!flag3 && num <= 1000)
@@ -126,7 +126,7 @@ public class DreadHook : ModNPC
 					num++;
 					int num2 = (int)(Main.player[nPC.target].Center.X / 16f);
 					int num3 = (int)(Main.player[nPC.target].Center.Y / 16f);
-					if (((ModNPC)this).NPC.ai[0] == 0f)
+					if (NPC.ai[0] == 0f)
 					{
 						num2 = (int)((Main.player[nPC.target].Center.X + nPC.Center.X) / 32f);
 						num3 = (int)((Main.player[nPC.target].Center.Y + nPC.Center.Y) / 32f);
@@ -142,9 +142,9 @@ public class DreadHook : ModNPC
 					int num6 = num3 + Main.rand.Next(-num4, num4 + 1);
 					if (nPC.life < nPC.lifeMax / 2 && Main.rand.Next(6) == 0)
 					{
-						((ModNPC)this).NPC.TargetClosest();
-						int num7 = (int)(Main.player[((ModNPC)this).NPC.target].Center.X / 16f);
-						int num8 = (int)(Main.player[((ModNPC)this).NPC.target].Center.Y / 16f);
+						NPC.TargetClosest();
+						int num7 = (int)(Main.player[NPC.target].Center.X / 16f);
+						int num8 = (int)(Main.player[NPC.target].Center.Y / 16f);
 						if (Main.tile[num7, num8].WallType > 0)
 						{
 							num5 = num7;
@@ -156,9 +156,9 @@ public class DreadHook : ModNPC
 						if (WorldGen.SolidTile(num5, num6) || Main.tileSolidTop[Main.tile[num5, num6].TileType] || (Main.tile[num5, num6].WallType > 0 && (num > 500 || nPC.life < nPC.lifeMax / 2)))
 						{
 							flag3 = true;
-							((ModNPC)this).NPC.ai[0] = num5;
-							((ModNPC)this).NPC.ai[1] = num6;
-							((ModNPC)this).NPC.netUpdate = true;
+							NPC.ai[0] = num5;
+							NPC.ai[1] = num6;
+							NPC.netUpdate = true;
 						}
 					}
 					catch
@@ -167,7 +167,7 @@ public class DreadHook : ModNPC
 				}
 			}
 		}
-		if (((ModNPC)this).NPC.ai[0] > 0f && ((ModNPC)this).NPC.ai[1] > 0f)
+		if (NPC.ai[0] > 0f && NPC.ai[1] > 0f)
 		{
 			float num9 = 10f;
 			if (nPC.life < nPC.lifeMax / 2)
@@ -194,25 +194,25 @@ public class DreadHook : ModNPC
 			{
 				num9 *= 2f;
 			}
-			Vector2 vector = new Vector2(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y);
-			float num10 = ((ModNPC)this).NPC.ai[0] * 16f - 8f - vector.X;
-			float num11 = ((ModNPC)this).NPC.ai[1] * 16f - 8f - vector.Y;
+			Vector2 vector = new Vector2(NPC.Center.X, NPC.Center.Y);
+			float num10 = NPC.ai[0] * 16f - 8f - vector.X;
+			float num11 = NPC.ai[1] * 16f - 8f - vector.Y;
 			float num12 = (float)Math.Sqrt(num10 * num10 + num11 * num11);
 			if (num12 < 12f + num9)
 			{
-				((ModNPC)this).NPC.velocity.X = num10;
-				((ModNPC)this).NPC.velocity.Y = num11;
+				NPC.velocity.X = num10;
+				NPC.velocity.Y = num11;
 			}
 			else
 			{
 				num12 = num9 / num12;
-				((ModNPC)this).NPC.velocity.X = num10 * num12;
-				((ModNPC)this).NPC.velocity.Y = num11 * num12;
+				NPC.velocity.X = num10 * num12;
+				NPC.velocity.Y = num11 * num12;
 			}
-			Vector2 vector2 = new Vector2(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y);
+			Vector2 vector2 = new Vector2(NPC.Center.X, NPC.Center.Y);
 			float num13 = nPC.Center.X - vector2.X;
 			float num14 = nPC.Center.Y - vector2.Y;
-			((ModNPC)this).NPC.rotation = (float)Math.Atan2(num14, num13) - 1.57f;
+			NPC.rotation = (float)Math.Atan2(num14, num13) - 1.57f;
 		}
 	}
 
@@ -222,13 +222,13 @@ public class DreadHook : ModNPC
 		NPC nPC = Main.npc[0];
 		for (int i = 0; i < Main.npc.Length; i++)
 		{
-			if (Main.npc[i].type == ((ModNPC)this).Mod.Find<ModNPC>("DreadBoss").Type)
+			if (Main.npc[i].type == Mod.Find<ModNPC>("DreadBoss").Type)
 			{
 				nPC = Main.npc[i];
 				break;
 			}
 		}
-		Vector2 center = ((ModNPC)this).NPC.Center;
+		Vector2 center = NPC.Center;
 		Vector2 center2 = nPC.Center;
 		Rectangle? sourceRectangle = null;
 		Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
@@ -256,7 +256,7 @@ public class DreadHook : ModNPC
 			center += vector2 * num;
 			vector = center2 - center;
 			Color color = Lighting.GetColor((int)center.X / 16, (int)((double)center.Y / 16.0));
-			color = ((ModNPC)this).NPC.GetAlpha(color);
+			color = NPC.GetAlpha(color);
 			Main.spriteBatch.Draw(texture, center - Main.screenPosition, sourceRectangle, color, rotation, origin, 1f, SpriteEffects.None, 0f);
 		}
 		return true;
@@ -264,19 +264,19 @@ public class DreadHook : ModNPC
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life > 0)
+		if (NPC.life > 0)
 		{
 			return;
 		}
 		for (int i = 0; i < 80; i++)
 		{
-			int num = Dust.NewDust(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModNPC)this).NPC.Center)
+			if (Main.dust[num].position != NPC.Center)
 			{
-				Main.dust[num].velocity = ((ModNPC)this).NPC.DirectionTo(Main.dust[num].position) * 10f;
+				Main.dust[num].velocity = NPC.DirectionTo(Main.dust[num].position) * 10f;
 			}
 		}
 	}

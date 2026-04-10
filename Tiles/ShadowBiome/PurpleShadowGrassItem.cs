@@ -7,23 +7,23 @@ public class PurpleShadowGrassItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glowshroom Grass");
-		// ((ModItem)this).Tooltip.SetDefault("Will grow various glowshroom plants and vines");
+		// DisplayName.SetDefault("Glowshroom Grass");
+		// Tooltip.SetDefault("Will grow various glowshroom plants and vines");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 12;
-		((Entity)(object)((ModItem)this).Item).height = 12;
-		((ModItem)this).Item.useTime = 8;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.value = 50;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("PurpleShadowGrass").Type;
-		((ModItem)this).Item.maxStack = 999;
+		Item.width = 12;
+		Item.height = 12;
+		Item.useTime = 8;
+		Item.useAnimation = 15;
+		Item.useStyle = 1;
+		Item.value = 50;
+		Item.rare = 1;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.consumable = true;
+		Item.createTile = Mod.Find<ModTile>("PurpleShadowGrass").Type;
+		Item.maxStack = 999;
 	}
 }

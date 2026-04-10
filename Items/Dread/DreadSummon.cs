@@ -10,29 +10,29 @@ public class DreadSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Dread Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a dread minion");
+		// DisplayName.SetDefault("Dread Staff");
+		// Tooltip.SetDefault("Summons a dread minion");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 36;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 12);
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadMinion").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("DreadMinionBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.DamageType = DamageClass.Summon;
+		Item.mana = 20;
+		Item.damage = 36;
+		Item.width = 26;
+		Item.height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 12);
+		Item.rare = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("DreadMinion").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("DreadMinionBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class DreadSummon : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

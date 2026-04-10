@@ -7,28 +7,28 @@ public class CrimsonJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Crimtane Pike");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Crimtane Pike");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 18;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 66;
-		((Entity)(object)((ModItem)this).Item).height = 60;
-		((ModItem)this).Item.useTime = 23;
-		((ModItem)this).Item.useAnimation = 23;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 12);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("CrimsonJavelin").Type;
-		((ModItem)this).Item.shootSpeed = 8f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 18;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 66;
+		((Entity)(object)Item).height = 60;
+		Item.useTime = 23;
+		Item.useAnimation = 23;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 12);
+		Item.rare = 1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("CrimsonJavelin").Type;
+		Item.shootSpeed = 8f;
+		Item.useTurn = true;
+		Item.maxStack = 1;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

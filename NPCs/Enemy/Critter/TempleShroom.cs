@@ -7,15 +7,15 @@ public class TempleShroom : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Temple Shroom");
-		// ((ModItem)this).Tooltip.SetDefault("A strange mushroom that seems to have uprooted itself and begun to walk\nVery susceptible to heat");
+		// DisplayName.SetDefault("Temple Shroom");
+		// Tooltip.SetDefault("A strange mushroom that seems to have uprooted itself and begun to walk\nVery susceptible to heat");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.rare = 8;
-		((ModItem)this).Item.maxStack = 1;
+		Item.width = 20;
+		Item.height = 30;
+		Item.rare = 8;
+		Item.maxStack = 1;
 	}
 }

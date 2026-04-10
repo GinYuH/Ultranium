@@ -8,17 +8,17 @@ public class StellarLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Stone Leggings");
-		// ((ModItem)this).Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
+		// DisplayName.SetDefault("Stellar Stone Leggings");
+		// Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(1, 50);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.defense = 15;
+		((Entity)(object)Item).width = 18;
+		((Entity)(object)Item).height = 18;
+		Item.value = Item.buyPrice(1, 50);
+		Item.rare = 5;
+		Item.defense = 15;
 	}
 
 	public override void UpdateEquip(Player player)

@@ -10,17 +10,17 @@ public class DarkLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Darkmatter Leggings");
-		// ((ModItem)this).Tooltip.SetDefault("+10 max mana and +1 max minions\n8% increased melee speed and 12% increased movement speed");
+		// DisplayName.SetDefault("Darkmatter Leggings");
+		// Tooltip.SetDefault("+10 max mana and +1 max minions\n8% increased melee speed and 12% increased movement speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.defense = 33;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 80);
+		Item.rare = 11;
+		Item.defense = 33;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

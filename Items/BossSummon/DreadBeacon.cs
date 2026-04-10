@@ -9,26 +9,26 @@ public class DreadBeacon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Beacon of Fear");
-		// ((ModItem)this).Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
+		// DisplayName.SetDefault("Beacon of Fear");
+		// Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 20;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.consumable = true;
+		Item.width = 20;
+		Item.height = 20;
+		Item.maxStack = 20;
+		Item.rare = 4;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.consumable = true;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("DreadBoss").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("DreadBossP2").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("FakeDread").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("TrueDread").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("DreadBoss").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("DreadBossP2").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("FakeDread").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("TrueDread").Type))
 		{
 			return !Main.dayTime;
 		}
@@ -39,15 +39,15 @@ public class DreadBeacon : ModItem
 	{
 		if (UltraniumWorld.downedUltrum && UltraniumWorld.downedIgnodium && !UltraniumWorld.downedTrueDread)
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("FakeDread").Type);
+			NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("FakeDread").Type);
 		}
 		else if (UltraniumWorld.downedUltrum && UltraniumWorld.downedIgnodium && UltraniumWorld.downedTrueDread)
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("TrueDread").Type);
+			NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("TrueDread").Type);
 		}
 		else
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("DreadBoss").Type);
+			NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("DreadBoss").Type);
 		}
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;

@@ -11,20 +11,20 @@ public class DarkResonator : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Dark Resonator");
-		// ((ModItem)this).Tooltip.SetDefault("A long lost relic, it's said it can open the rift to the nightmare world...\nStarts the abyssal armageddon event on use\nCan only be used during the night");
+		// DisplayName.SetDefault("Dark Resonator");
+		// Tooltip.SetDefault("A long lost relic, it's said it can open the rift to the nightmare world...\nStarts the abyssal armageddon event on use\nCan only be used during the night");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.consumable = false;
+		Item.width = 28;
+		Item.height = 18;
+		Item.maxStack = 1;
+		Item.rare = 11;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.consumable = false;
 	}
 
 	public override Vector2? HoldoutOffset()
@@ -41,20 +41,20 @@ public class DarkResonator : ModItem
 	{
 		if (ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
-			SoundEngine.PlaySound(((ModItem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
 			Main.NewText("Theres no stopping the darkness now...", (byte)61, byte.MaxValue, (byte)142, false);
 			return true;
 		}
 		if (!ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
-			SoundEngine.PlaySound(((ModItem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
 			Main.NewText("The Abyssal Armageddon has begun", (byte)61, byte.MaxValue, (byte)142, false);
 			ShadowEventWorld.ShadowEventActive = true;
 			return true;
 		}
 		if (Main.dayTime)
 		{
-			SoundEngine.PlaySound(((ModItem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
 			Main.NewText("You can only use the artifact under the darkness of the moon", (byte)61, byte.MaxValue, (byte)142, false);
 			ShadowEventWorld.StartShadowEvent = false;
 			return true;

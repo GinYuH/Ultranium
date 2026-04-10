@@ -10,20 +10,20 @@ public class DarkResonatorDisabler : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abyssal Spawn Disabler");
-		// ((ModItem)this).Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
+		// DisplayName.SetDefault("Abyssal Spawn Disabler");
+		// Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.consumable = false;
+		Item.width = 28;
+		Item.height = 18;
+		Item.maxStack = 1;
+		Item.rare = 11;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.consumable = false;
 	}
 
 	public override Vector2? HoldoutOffset()

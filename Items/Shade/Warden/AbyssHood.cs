@@ -8,17 +8,17 @@ public class AbyssHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Abyss Warden Hood");
-		// ((ModItem)this).Tooltip.SetDefault("5% increased summon damage");
+		// DisplayName.SetDefault("Abyss Warden Hood");
+		// Tooltip.SetDefault("5% increased summon damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 7;
-		((ModItem)this).Item.defense = 15;
+		((Entity)(object)Item).width = 34;
+		((Entity)(object)Item).height = 22;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 7;
+		Item.defense = 15;
 	}
 
 	public override void UpdateEquip(Player player)
@@ -28,9 +28,9 @@ public class AbyssHood : ModItem
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("AbyssWardenBody").Type)
+		if (body.type == Mod.Find<ModItem>("AbyssWardenBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("AbyssWardenLegs").Type;
+			return legs.type == Mod.Find<ModItem>("AbyssWardenLegs").Type;
 		}
 		return false;
 	}

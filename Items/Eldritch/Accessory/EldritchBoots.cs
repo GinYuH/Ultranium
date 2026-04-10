@@ -10,17 +10,17 @@ public class EldritchBoots : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Tracers");
-		// ((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
+		// DisplayName.SetDefault("Eldritch Tracers");
+		// Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.accessory = true;
+		Item.width = 34;
+		Item.height = 26;
+		Item.value = Item.buyPrice(0, 80);
+		Item.rare = 11;
+		Item.accessory = true;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

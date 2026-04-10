@@ -12,29 +12,29 @@ public class UltraFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Nature Power Flail");
-		// ((ModItem)this).Tooltip.SetDefault("Has a chance to create lingering ultranium energy bolts upon striking an enemy");
+		// DisplayName.SetDefault("Nature Power Flail");
+		// Tooltip.SetDefault("Has a chance to create lingering ultranium energy bolts upon striking an enemy");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 38;
-		((Entity)(object)((ModItem)this).Item).height = 54;
-		((ModItem)this).Item.damage = 220;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.channel = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.useAnimation = 10;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.knockBack = 2f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item116;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("UltraFlail").Type;
-		((ModItem)this).Item.shootSpeed = 22f;
+		Item.width = 38;
+		Item.height = 54;
+		Item.damage = 220;
+		Item.noMelee = true;
+		Item.noUseGraphic = true;
+		Item.channel = true;
+		Item.autoReuse = true;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.useAnimation = 10;
+		Item.useTime = 10;
+		Item.useStyle = 5;
+		Item.knockBack = 2f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item116;
+		Item.shoot = Mod.Find<ModProjectile>("UltraFlail").Type;
+		Item.shootSpeed = 22f;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
@@ -45,7 +45,7 @@ public class UltraFlail : ModItem
 		double num4 = Math.Atan2(speedX, speedY) - 0.1;
 		double num5 = num2 / 6f;
 		double num6 = num4 + num5 * 1.0;
-		Projectile.NewProjectile(position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), ((ModItem)this).Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockBack, player.whoAmI, 0f, num);
+		Projectile.NewProjectile(null, position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockBack, player.whoAmI, 0f, num);
 		return false;
 	}
 

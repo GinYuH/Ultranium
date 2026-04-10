@@ -10,29 +10,29 @@ public class EtherealSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ethereal Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Summons ethereal wisps that shoots ethereal blasts at enemies");
+		// DisplayName.SetDefault("Ethereal Staff");
+		// Tooltip.SetDefault("Summons ethereal wisps that shoots ethereal blasts at enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.mana = 30;
-		((ModItem)this).Item.damage = 75;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.rare = 9;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EtherealWisp").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("WispBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.DamageType = DamageClass.Summon;
+		Item.mana = 30;
+		Item.damage = 75;
+		Item.width = 26;
+		Item.height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.knockBack = 0f;
+		Item.rare = 9;
+		Item.value = Item.buyPrice(0, 30);
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("EtherealWisp").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("WispBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class EtherealSummon : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

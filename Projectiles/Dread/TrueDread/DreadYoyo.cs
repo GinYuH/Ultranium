@@ -66,8 +66,8 @@ public class DreadYoyo : ModProjectile
 			for (int i = 0; i < num; i++)
 			{
 				double num5 = num3 + num4 * (double)(i + i * i) / 2.0 + (double)(32f * (float)i);
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, (float)(Math.Sin(num5) * 3.0) * 2f, (float)(Math.Cos(num5) * 3.0) * 2f, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadYoyoTooth").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, (float)((0.0 - Math.Sin(num5)) * 3.0) * 2f, (float)((0.0 - Math.Cos(num5)) * 3.0) * 2f, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadYoyoTooth").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, (float)(Math.Sin(num5) * 3.0) * 2f, (float)(Math.Cos(num5) * 3.0) * 2f, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadYoyoTooth").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, (float)((0.0 - Math.Sin(num5)) * 3.0) * 2f, (float)((0.0 - Math.Cos(num5)) * 3.0) * 2f, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadYoyoTooth").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			}
 		}
 	}

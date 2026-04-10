@@ -10,29 +10,29 @@ public class ShadowflameStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadowflame Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a Shadowflame Apparition to fight for you");
+		// DisplayName.SetDefault("Shadowflame Staff");
+		// Tooltip.SetDefault("Summons a Shadowflame Apparition to fight for you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.mana = 20;
-		((ModItem)this).Item.damage = 44;
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.DamageType = DamageClass.Summon;
-		((ModItem)this).Item.knockBack = 0f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 10);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("ShadowApparition").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
-		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("ShadowApparitionBuff").Type;
-		((ModItem)this).Item.buffTime = 3600;
+		Item.mana = 20;
+		Item.damage = 44;
+		Item.width = 26;
+		Item.height = 26;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.useStyle = 1;
+		Item.noMelee = true;
+		Item.DamageType = DamageClass.Summon;
+		Item.knockBack = 0f;
+		Item.value = Item.buyPrice(0, 10);
+		Item.rare = 5;
+		Item.UseSound = SoundID.Item44;
+		Item.shoot = Mod.Find<ModProjectile>("ShadowApparition").Type;
+		Item.shootSpeed = 10f;
+		Item.buffType = Mod.Find<ModBuff>("ShadowApparitionBuff").Type;
+		Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -51,7 +51,7 @@ public class ShadowflameStaff : ModItem
 		{
 			player.MinionNPCTargetAim();
 		}
-		return ((ModItem)this).UseItem(player);
+		return UseItem(player);
 	}
 
 	public override void AddRecipes()

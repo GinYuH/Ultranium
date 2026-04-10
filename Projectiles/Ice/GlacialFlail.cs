@@ -52,7 +52,7 @@ public class GlacialFlail : ModProjectile
 				num5 = num4 / num5;
 			}
 			vector *= num5;
-			int num6 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 119, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack / 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+			int num6 = Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 119, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack / 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			Main.projectile[num6].friendly = true;
 			Main.projectile[num6].hostile = false;
 		}

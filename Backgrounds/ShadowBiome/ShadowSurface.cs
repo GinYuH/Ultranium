@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 
@@ -84,7 +85,7 @@ public class ShadowSurface : ModSurfaceBackgroundStyle
 			{
 				for (int j = 0; j < num10; j++)
 				{
-					Main.spriteBatch.Draw(Main.backgroundTexture[num5], new Vector2(num8 + num7 * j, num9), new Rectangle(0, 0, Main.backgroundWidth[num5], Main.backgroundHeight[num5]), fieldValue3, 0f, default(Vector2), num6, SpriteEffects.None, 0f);
+					Main.spriteBatch.Draw(TextureAssets.Background[num5].Value, new Vector2(num8 + num7 * j, num9), new Rectangle(0, 0, Main.backgroundWidth[num5], Main.backgroundHeight[num5]), fieldValue3, 0f, default(Vector2), num6, SpriteEffects.None, 0f);
 				}
 			}
 		}

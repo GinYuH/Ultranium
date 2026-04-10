@@ -18,31 +18,31 @@ public class Necromicon : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Necromicon");
-		// ((ModItem)this).Tooltip.SetDefault("Summons a horrifying demon\n~Dedicated Item~");
+		// DisplayName.SetDefault("Necromicon");
+		// Tooltip.SetDefault("Summons a horrifying demon\n~Dedicated Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.damage = 0;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.useAnimation = 20;
-		((ModItem)this).Item.useTime = 20;
-		((ModItem)this).Item.UseSound = SoundID.Item2;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.sellPrice(2);
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.shoot = ModContent.ProjectileType<TacoDemon>();
-		((ModItem)this).Item.buffType = ModContent.BuffType<TacoBuff>();
+		Item.width = 16;
+		Item.height = 30;
+		Item.damage = 0;
+		Item.useStyle = 1;
+		Item.useAnimation = 20;
+		Item.useTime = 20;
+		Item.UseSound = SoundID.Item2;
+		Item.rare = 11;
+		Item.value = Item.sellPrice(2);
+		Item.noMelee = true;
+		Item.shoot = ModContent.ProjectileType<TacoDemon>();
+		Item.buffType = ModContent.BuffType<TacoBuff>();
 	}
 
 	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

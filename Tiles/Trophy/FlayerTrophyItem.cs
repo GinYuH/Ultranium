@@ -9,23 +9,23 @@ public class FlayerTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Mind Flayer Trophy");
+		// DisplayName.SetDefault("Mind Flayer Trophy");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 30;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.value = 0;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("FlayerTrophy").Type;
-		((ModItem)this).Item.placeStyle = 0;
+		Item.width = 30;
+		Item.height = 30;
+		Item.maxStack = 99;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.useStyle = 1;
+		Item.consumable = true;
+		Item.value = 0;
+		Item.rare = 1;
+		Item.createTile = Mod.Find<ModTile>("FlayerTrophy").Type;
+		Item.placeStyle = 0;
 	}
 }

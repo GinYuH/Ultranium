@@ -8,29 +8,29 @@ public class BloodStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aortic Staff");
-		// ((ModItem)this).Tooltip.SetDefault("Casts balls of blood");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Aortic Staff");
+		// Tooltip.SetDefault("Casts balls of blood");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 15;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 6;
-		((Entity)(object)((ModItem)this).Item).width = 40;
-		((Entity)(object)((ModItem)this).Item).height = 40;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.UseSound = SoundID.Item21;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BloodBall").Type;
-		((ModItem)this).Item.shootSpeed = 9f;
+		Item.damage = 15;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 6;
+		Item.width = 40;
+		Item.height = 40;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.autoReuse = true;
+		Item.UseSound = SoundID.Item21;
+		Item.shoot = Mod.Find<ModProjectile>("BloodBall").Type;
+		Item.shootSpeed = 9f;
 	}
 
 	public override void AddRecipes()

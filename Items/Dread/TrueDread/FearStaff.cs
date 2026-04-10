@@ -10,29 +10,29 @@ public class FearStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Staff of Horror");
-		// ((ModItem)this).Tooltip.SetDefault("Casts dread energy bolts");
-		Item.staff[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Staff of Horror");
+		// Tooltip.SetDefault("Casts dread energy bolts");
+		Item.staff[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 230;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 12;
-		((Entity)(object)((ModItem)this).Item).width = 58;
-		((Entity)(object)((ModItem)this).Item).height = 56;
-		((ModItem)this).Item.useTime = 13;
-		((ModItem)this).Item.useAnimation = 13;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadWaveBolt").Type;
-		((ModItem)this).Item.shootSpeed = 12f;
+		Item.damage = 230;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 12;
+		Item.width = 58;
+		Item.height = 56;
+		Item.useTime = 13;
+		Item.useAnimation = 13;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.rare = 4;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DreadWaveBolt").Type;
+		Item.shootSpeed = 12f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

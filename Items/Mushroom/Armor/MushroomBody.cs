@@ -8,16 +8,16 @@ public class MushroomBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glowing Mushroom Chestplate");
+		// DisplayName.SetDefault("Glowing Mushroom Chestplate");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 3;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 0, 80);
+		Item.rare = 1;
+		Item.defense = 3;
 	}
 
 	public override void AddRecipes()

@@ -38,7 +38,7 @@ public class CosmicWrathBolt2 : ModProjectile
 				{
 					Vector2 center = ((ModProjectile)this).Projectile.Center;
 					center.X += 160f * ((ModProjectile)this).Projectile.ai[1] * (float)i;
-					Projectile.NewProjectile(center, Vector2.UnitY * -18f, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmosBolt").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, 210f, 0f);
+					Projectile.NewProjectile(null, center, Vector2.UnitY * -18f, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmosBolt").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, 210f, 0f);
 				}
 			}
 		}

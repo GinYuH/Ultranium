@@ -10,26 +10,26 @@ public class FlayerBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Flayer's Lament");
-		// ((ModItem)this).Tooltip.SetDefault("Creates piercing tentacles");
+		// DisplayName.SetDefault("Flayer's Lament");
+		// Tooltip.SetDefault("Creates piercing tentacles");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 140;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 80;
-		((Entity)(object)((ModItem)this).Item).height = 80;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DarkTentacle").Type;
-		((ModItem)this).Item.shootSpeed = 24f;
-		((ModItem)this).Item.autoReuse = true;
+		Item.damage = 140;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 80;
+		Item.height = 80;
+		Item.useTime = 25;
+		Item.useAnimation = 25;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(1);
+		Item.rare = 11;
+		Item.UseSound = SoundID.Item1;
+		Item.shoot = Mod.Find<ModProjectile>("DarkTentacle").Type;
+		Item.shootSpeed = 24f;
+		Item.autoReuse = true;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

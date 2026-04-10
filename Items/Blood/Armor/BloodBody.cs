@@ -8,16 +8,16 @@ public class BloodBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Sanguine Chestplate");
+		// DisplayName.SetDefault("Sanguine Chestplate");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.defense = 5;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.defense = 5;
 	}
 
 	public override void AddRecipes()

@@ -10,28 +10,28 @@ public class DreadYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("The Toothball");
-		// ((ModItem)this).Tooltip.SetDefault("Has a chance to shoot circles of dread teeth on enemy hits");
+		// DisplayName.SetDefault("The Toothball");
+		// Tooltip.SetDefault("Has a chance to shoot circles of dread teeth on enemy hits");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 230;
-		((ModItem)this).Item.rare = 11;
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.channel = true;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadYoyo").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
-		((ModItem)this).Item.knockBack = 2.5f;
+		Item.damage = 230;
+		Item.rare = 11;
+		Item.width = 24;
+		Item.height = 24;
+		Item.useStyle = 5;
+		Item.useAnimation = 25;
+		Item.useTime = 25;
+		Item.UseSound = SoundID.Item1;
+		Item.noUseGraphic = true;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.noMelee = true;
+		Item.channel = true;
+		Item.value = Item.buyPrice(1);
+		Item.shoot = Mod.Find<ModProjectile>("DreadYoyo").Type;
+		Item.shootSpeed = 16f;
+		Item.knockBack = 2.5f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

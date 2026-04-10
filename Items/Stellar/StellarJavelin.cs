@@ -7,28 +7,28 @@ public class StellarJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Stellar Javelin");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Stellar Javelin");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 45;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.useTime = 28;
-		((ModItem)this).Item.useAnimation = 28;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 45);
-		((ModItem)this).Item.rare = 5;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarJavelin").Type;
-		((ModItem)this).Item.shootSpeed = 11.5f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 45;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 20;
+		((Entity)(object)Item).height = 20;
+		Item.useTime = 28;
+		Item.useAnimation = 28;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 45);
+		Item.rare = 5;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("StellarJavelin").Type;
+		Item.shootSpeed = 11.5f;
+		Item.useTurn = true;
+		Item.maxStack = 1;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

@@ -151,7 +151,7 @@ public class MindFlayerSpawner : ModProjectile
 		SpawnTimer++;
 		if (SpawnTimer == 280)
 		{
-			NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 100, ((ModProjectile)this).Mod.Find<ModNPC>("MindFlayer").Type, 0, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 100, ((ModProjectile)this).Mod.Find<ModNPC>("MindFlayer").Type, 0, 0f, 0f, 0f, 0f, 255);
 		}
 	}
 }

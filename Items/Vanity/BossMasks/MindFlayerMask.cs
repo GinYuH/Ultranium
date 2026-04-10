@@ -8,16 +8,16 @@ public class MindFlayerMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Mind Flayer Mask");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Mind Flayer Mask");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.value = Item.sellPrice();
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.vanity = true;
+		Item.width = 28;
+		Item.height = 26;
+		Item.value = Item.sellPrice();
+		Item.rare = 1;
+		Item.vanity = true;
 	}
 }

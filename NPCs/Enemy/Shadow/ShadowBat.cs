@@ -9,39 +9,39 @@ public class ShadowBat : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Shadow Bat");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 4;
+		// DisplayName.SetDefault("Shadow Bat");
+		Main.npcFrameCount[NPC.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 18;
-		((ModNPC)this).NPC.height = 40;
-		((ModNPC)this).NPC.damage = 12;
-		((ModNPC)this).NPC.defense = 10;
-		((ModNPC)this).NPC.lifeMax = 45;
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 0, 1);
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath4;
-		((ModNPC)this).NPC.value = 60f;
-		((ModNPC)this).NPC.knockBackResist = 0.5f;
-		((ModNPC)this).NPC.aiStyle = 14;
+		NPC.width = 18;
+		NPC.height = 40;
+		NPC.damage = 12;
+		NPC.defense = 10;
+		NPC.lifeMax = 45;
+		NPC.value = Item.buyPrice(0, 0, 1);
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath4;
+		NPC.value = 60f;
+		NPC.knockBackResist = 0.5f;
+		NPC.aiStyle = 14;
 		base.AIType = 49;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("ShadowBatBanner").Type;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("ShadowBatBanner").Type;
 	}
 
 	public override void AI()
 	{
-		((ModNPC)this).NPC.rotation = ((ModNPC)this).NPC.velocity.X * 0.03f;
-		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
+		NPC.rotation = NPC.velocity.X * 0.03f;
+		NPC.spriteDirection = NPC.direction;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowBiome/ShadowBatGore"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/ShadowBatGore"));
 		}
 	}
 
@@ -49,17 +49,17 @@ public class ShadowBat : ModNPC
 	{
 		if (Utils.NextBool(Main.rand, 2))
 		{
-			Item.NewItem(((ModNPC)this).NPC.getRect(), ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).NPC.frameCounter += 1.0;
-		if (((ModNPC)this).NPC.frameCounter >= 8.0)
+		NPC.frameCounter += 1.0;
+		if (NPC.frameCounter >= 8.0)
 		{
-			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
-			((ModNPC)this).NPC.frameCounter = 1.0;
+			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
+			NPC.frameCounter = 1.0;
 		}
 	}
 

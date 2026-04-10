@@ -8,24 +8,24 @@ public class TenebrisHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Tenebris Hood");
-		// ((ModItem)this).Tooltip.SetDefault("2% increased magic critical strike chance");
+		// DisplayName.SetDefault("Tenebris Hood");
+		// Tooltip.SetDefault("2% increased magic critical strike chance");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 5;
+		((Entity)(object)Item).width = 24;
+		((Entity)(object)Item).height = 20;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 1;
+		Item.defense = 5;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).Mod.Find<ModItem>("TenebrisBody").Type)
+		if (body.type == Mod.Find<ModItem>("TenebrisBody").Type)
 		{
-			return legs.type == ((ModItem)this).Mod.Find<ModItem>("TenebrisLegs").Type;
+			return legs.type == Mod.Find<ModItem>("TenebrisLegs").Type;
 		}
 		return false;
 	}

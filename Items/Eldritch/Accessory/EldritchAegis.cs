@@ -10,19 +10,19 @@ public class EldritchAegis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).SetStaticDefaults();
-		// ((ModItem)this).DisplayName.SetDefault("Erebus Bulwark");
-		// ((ModItem)this).Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
+		SetStaticDefaults();
+		// DisplayName.SetDefault("Erebus Bulwark");
+		// Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 38;
-		((Entity)(object)((ModItem)this).Item).height = 46;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(0, 80);
-		((ModItem)this).Item.accessory = true;
-		((ModItem)this).Item.defense = 7;
+		Item.width = 38;
+		Item.height = 46;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(0, 80);
+		Item.accessory = true;
+		Item.defense = 7;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -8,17 +8,17 @@ public class IceBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ice Walker's Chestplate");
-		// ((ModItem)this).Tooltip.SetDefault("5% increased damage");
+		// DisplayName.SetDefault("Ice Walker's Chestplate");
+		// Tooltip.SetDefault("5% increased damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.defense = 7;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 3;
+		Item.defense = 7;
 	}
 
 	public override void UpdateEquip(Player player)

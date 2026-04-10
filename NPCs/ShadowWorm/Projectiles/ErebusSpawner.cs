@@ -169,8 +169,8 @@ public class ErebusSpawner : ModProjectile
 		}
 		if (SpawnTimer == 300)
 		{
-			NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("ErebusHead").Type, 0, 0f, 0f, 0f, 0f, 255);
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
+			NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("ErebusHead").Type, 0, 0f, 0f, 0f, 0f, 255);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 			Main.NewText("The Eldritch Beast has been awoken!", (byte)175, (byte)75, byte.MaxValue, false);
 		}
 	}

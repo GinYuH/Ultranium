@@ -48,7 +48,7 @@ public class DarkTentacle : ModProjectile
 				{
 					num = ((ModProjectile)this).Mod.Find<ModProjectile>("DarkTentacleTip").Type;
 				}
-				int number = Projectile.NewProjectile(((ModProjectile)this).Projectile.position.X + ((ModProjectile)this).Projectile.velocity.X + (float)(((ModProjectile)this).Projectile.width / 2), ((ModProjectile)this).Projectile.position.Y + ((ModProjectile)this).Projectile.velocity.Y + (float)(((ModProjectile)this).Projectile.height / 2), ((ModProjectile)this).Projectile.velocity.X, ((ModProjectile)this).Projectile.velocity.Y, num, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, ((ModProjectile)this).Projectile.ai[1] + 1f);
+				int number = Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.position.X + ((ModProjectile)this).Projectile.velocity.X + (float)(((ModProjectile)this).Projectile.width / 2), ((ModProjectile)this).Projectile.position.Y + ((ModProjectile)this).Projectile.velocity.Y + (float)(((ModProjectile)this).Projectile.height / 2), ((ModProjectile)this).Projectile.velocity.X, ((ModProjectile)this).Projectile.velocity.Y, num, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, ((ModProjectile)this).Projectile.ai[1] + 1f);
 				NetMessage.SendData(27, -1, -1, null, number);
 			}
 		}

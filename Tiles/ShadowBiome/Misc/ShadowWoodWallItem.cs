@@ -7,24 +7,24 @@ public class ShadowWoodWallItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Eldritch Wood Wall");
-		// ((ModItem)this).Tooltip.SetDefault("");
+		// DisplayName.SetDefault("Eldritch Wood Wall");
+		// Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 11;
-		((Entity)(object)((ModItem)this).Item).height = 11;
-		((ModItem)this).Item.useTime = 6;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.value = 50;
-		((ModItem)this).Item.rare = 0;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.createWall = ((ModItem)this).Mod.Find<ModWall>("ShadowWoodWall").Type;
-		((ModItem)this).Item.maxStack = 999;
+		Item.width = 11;
+		Item.height = 11;
+		Item.useTime = 6;
+		Item.useAnimation = 15;
+		Item.useStyle = 1;
+		Item.value = 50;
+		Item.rare = 0;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.consumable = true;
+		Item.createWall = Mod.Find<ModWall>("ShadowWoodWall").Type;
+		Item.maxStack = 999;
 	}
 
 	public override void AddRecipes()

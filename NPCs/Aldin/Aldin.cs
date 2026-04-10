@@ -37,57 +37,57 @@ public class Aldin : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("???");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = 7;
-		NPCID.Sets.TrailCacheLength[((ModNPC)this).NPC.type] = 10;
-		NPCID.Sets.TrailingMode[((ModNPC)this).NPC.type] = 0;
+		// DisplayName.SetDefault("???");
+		Main.npcFrameCount[NPC.type] = 7;
+		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
+		NPCID.Sets.TrailingMode[NPC.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.width = 354;
-		((ModNPC)this).NPC.height = 320;
-		((ModNPC)this).NPC.lifeMax = 520000;
-		((ModNPC)this).NPC.damage = 0;
-		((ModNPC)this).NPC.defense = 300;
-		((ModNPC)this).NPC.knockBackResist = 0f;
-		((ModNPC)this).NPC.boss = true;
-		((ModNPC)this).NPC.lavaImmune = true;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.noTileCollide = true;
-		((ModNPC)this).NPC.netAlways = true;
-		((ModNPC)this).NPC.HitSound = ((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/GodHit");
-		((ModNPC)this).NPC.DeathSound = ((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/GodDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
-		((ModNPC)this).NPC.value = Item.buyPrice(0, 50);
-		((ModNPC)this).NPC.npcSlots = 1000f;
-		base.Music = ((ModNPC)this).Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Aldin");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = ((ModNPC)this).Mod.Find<ModItem>("AldinBag").Type;
-		((ModNPC)this).NPC.aiStyle = -1;
+		NPC.width = 354;
+		NPC.height = 320;
+		NPC.lifeMax = 520000;
+		NPC.damage = 0;
+		NPC.defense = 300;
+		NPC.knockBackResist = 0f;
+		NPC.boss = true;
+		NPC.lavaImmune = true;
+		NPC.noGravity = true;
+		NPC.noTileCollide = true;
+		NPC.netAlways = true;
+		NPC.HitSound = new SoundStyle("Ultranium/Sounds/GodHit");
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		NPC.value = Item.buyPrice(0, 50);
+		NPC.npcSlots = 1000f;
+		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Aldin");
+		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AldinBag").Type;
+		NPC.aiStyle = -1;
 		players = 1;
 		for (int i = 0; i < 206; i++)
 		{
-			((ModNPC)this).NPC.buffImmune[i] = true;
+			NPC.buffImmune[i] = true;
 		}
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
 		players = numPlayers;
-		((ModNPC)this).NPC.lifeMax = 600000 + numPlayers * 60000;
-		((ModNPC)this).NPC.damage = 0;
+		NPC.lifeMax = 600000 + numPlayers * 60000;
+		NPC.damage = 0;
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).NPC.frameCounter += 1.0;
-		if (((ModNPC)this).NPC.frameCounter > 6.0)
+		NPC.frameCounter += 1.0;
+		if (NPC.frameCounter > 6.0)
 		{
-			((ModNPC)this).NPC.frame.Y = ((ModNPC)this).NPC.frame.Y + frameHeight;
-			((ModNPC)this).NPC.frameCounter = 0.0;
+			NPC.frame.Y = NPC.frame.Y + frameHeight;
+			NPC.frameCounter = 0.0;
 		}
-		if (((ModNPC)this).NPC.frame.Y >= frameHeight * 7)
+		if (NPC.frame.Y >= frameHeight * 7)
 		{
-			((ModNPC)this).NPC.frame.Y = frameHeight;
+			NPC.frame.Y = frameHeight;
 		}
 	}
 
@@ -101,14 +101,14 @@ public class Aldin : ModNPC
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		if (((ModNPC)this).NPC.velocity != Vector2.Zero)
+		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail").Width * 0.5f, (float)((ModNPC)this).NPC.height * 0.5f);
-			for (int i = 0; i < ((ModNPC)this).NPC.oldPos.Length; i++)
+			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
-				Vector2 position = ((ModNPC)this).NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModNPC)this).NPC.gfxOffY);
-				Color color = ((ModNPC)this).NPC.GetAlpha(drawColor) * ((float)(((ModNPC)this).NPC.oldPos.Length - i) / (float)((ModNPC)this).NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail"), position, ((ModNPC)this).NPC.frame, color, ((ModNPC)this).NPC.rotation, vector, ((ModNPC)this).NPC.scale, SpriteEffects.None, 0f);
+				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
+				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
+				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 			}
 		}
 		return true;
@@ -116,7 +116,7 @@ public class Aldin : ModNPC
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Main.spriteBatch.Draw(((ModNPC)this).Mod.GetTexture("NPCs/Aldin/AldinGlow"), ((ModNPC)this).NPC.Center - Main.screenPosition + new Vector2(0f, ((ModNPC)this).NPC.gfxOffY), ((ModNPC)this).NPC.frame, Color.White, ((ModNPC)this).NPC.rotation, ((ModNPC)this).NPC.frame.Size() / 2f, ((ModNPC)this).NPC.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(Mod.GetTexture("NPCs/Aldin/AldinGlow"), NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
 		Color[] array = new Color[5]
 		{
 			new Color(153, 255, 178),
@@ -127,40 +127,40 @@ public class Aldin : ModNPC
 		};
 		float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 		int num = (int)(Main.GameUpdateCount / 60 % 5);
-		Main.spriteBatch.Draw(((ModNPC)this).Mod.GetTexture("NPCs/Aldin/AldinWingsGlow"), ((ModNPC)this).NPC.Center - Main.screenPosition + new Vector2(0f, ((ModNPC)this).NPC.gfxOffY), ((ModNPC)this).NPC.frame, Color.Lerp(array[num], array[(num + 1) % 5], amount), ((ModNPC)this).NPC.rotation, ((ModNPC)this).NPC.frame.Size() / 2f, ((ModNPC)this).NPC.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(Mod.GetTexture("NPCs/Aldin/AldinWingsGlow"), NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.Lerp(array[num], array[(num + 1) % 5], amount), NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
 	}
 
 	public override void AI()
 	{
-		this.player = Main.player[((ModNPC)this).NPC.target];
+		this.player = Main.player[NPC.target];
 		int num = (Main.expertMode ? 75 : 90);
 		if (!((Entity)this.player).active || this.player.dead || Main.dayTime)
 		{
-			((ModNPC)this).NPC.TargetClosest(faceTarget: false);
-			this.player = Main.player[((ModNPC)this).NPC.target];
+			NPC.TargetClosest(faceTarget: false);
+			this.player = Main.player[NPC.target];
 			if (!((Entity)this.player).active || this.player.dead)
 			{
-				((Entity)((ModNPC)this).NPC).active = false;
+				((Entity)NPC).active = false;
 				Keeper.CanSpawnAldin = false;
-				NPC.NewNPC((int)((ModNPC)this).NPC.Center.X, (int)((ModNPC)this).NPC.Center.Y, ((ModNPC)this).Mod.Find<ModNPC>("Keeper").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Keeper").Type, 0, 0f, 0f, 0f, 0f, 255);
 				return;
 			}
 		}
 		timer++;
 		if (timer > 175)
 		{
-			((ModNPC)this).NPC.velocity *= 0f;
+			NPC.velocity *= 0f;
 		}
 		else if (timer < 175 && timer > 75)
 		{
 			Move(new Vector2(0f, -300f));
 		}
-		if (Vector2.Distance(((ModNPC)this).NPC.Center, this.player.Center) > 2000f)
+		if (Vector2.Distance(NPC.Center, this.player.Center) > 2000f)
 		{
-			((ModNPC)this).NPC.position.X = this.player.position.X - 170f;
-			((ModNPC)this).NPC.position.Y = this.player.position.Y - 400f;
+			NPC.position.X = this.player.position.X - 170f;
+			NPC.position.Y = this.player.position.Y - 400f;
 		}
-		if (((ModNPC)this).NPC.life > ((ModNPC)this).NPC.lifeMax / 2 && !Transition)
+		if (NPC.life > NPC.lifeMax / 2 && !Transition)
 		{
 			if (AttackType == 0)
 			{
@@ -180,8 +180,8 @@ public class Aldin : ModNPC
 					float num5 = num3 / (float)num2;
 					for (int i = 0; i < num2; i++)
 					{
-						Vector2 vector = new Vector2(((ModNPC)this).NPC.Center.X - num3 / num4 + num5 * (float)i, ((ModNPC)this).NPC.Center.Y - 950f);
-						_ = Main.projectile[Projectile.NewProjectile(vector.X, vector.Y, 0f, 14f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStar").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						Vector2 vector = new Vector2(NPC.Center.X - num3 / num4 + num5 * (float)i, NPC.Center.Y - 950f);
+						_ = Main.projectile[Projectile.NewProjectile(null, vector.X, vector.Y, 0f, 14f, Mod.Find<ModProjectile>("CosmicStar").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 				}
 				if (timer >= 400)
@@ -199,7 +199,7 @@ public class Aldin : ModNPC
 						Vector2 vector2 = ((float)Math.PI / 8f * (float)j).ToRotationVector2();
 						vector2.Normalize();
 						vector2 *= 2f;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector2.X, vector2.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBoltHome").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("CosmosBoltHome").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 250)
@@ -212,10 +212,10 @@ public class Aldin : ModNPC
 			{
 				if (timer == 210 || timer == 240 || timer == 270 || timer == 300 || timer == 330 || timer == 360 || timer == 390)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
 					float num6 = 10f;
-					float num7 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - this.player.Center.Y, ((ModNPC)this).NPC.Center.X - this.player.Center.X);
-					_ = Main.projectile[Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num7) * (double)num6 * -1.0), (float)(Math.Sin(num7) * (double)num6 * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRay").Type, num + 10, 0f, 0, 0f, 0f)];
+					float num7 = (float)Math.Atan2(NPC.Center.Y - this.player.Center.Y, NPC.Center.X - this.player.Center.X);
+					_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num7) * (double)num6 * -1.0), (float)(Math.Sin(num7) * (double)num6 * -1.0), Mod.Find<ModProjectile>("CosmicRay").Type, num + 10, 0f, 0, 0f, 0f)];
 				}
 				if (timer >= 410)
 				{
@@ -227,8 +227,8 @@ public class Aldin : ModNPC
 			{
 				if (timer > 180 && timer < 360 && Main.rand.Next(20) == 0)
 				{
-					Projectile.NewProjectile(this.player.Center.X + 500f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(this.player.Center.X - 500f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X + 500f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X - 500f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 360)
 				{
@@ -244,13 +244,13 @@ public class Aldin : ModNPC
 					for (int k = 0; k < 3; k++)
 					{
 						Vector2 vector3 = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)k + Main.rand.NextDouble() - 0.5));
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center, vector3, 465, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(null, NPC.Center, vector3, 465, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 360)
 				{
 					timer = 120;
-					if ((double)((ModNPC)this).NPC.life > (double)((ModNPC)this).NPC.lifeMax / 1.4)
+					if ((double)NPC.life > (double)NPC.lifeMax / 1.4)
 					{
 						AttackType = 0;
 					}
@@ -260,7 +260,7 @@ public class Aldin : ModNPC
 					}
 				}
 			}
-			if ((double)((ModNPC)this).NPC.life <= (double)((ModNPC)this).NPC.lifeMax / 1.4)
+			if ((double)NPC.life <= (double)NPC.lifeMax / 1.4)
 			{
 				if (AttackType == 5)
 				{
@@ -268,7 +268,7 @@ public class Aldin : ModNPC
 					float num9 = 0f;
 					if (timer == 240 || timer == 280 || timer == 320)
 					{
-						SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
 					}
 					if (timer == 240)
 					{
@@ -287,7 +287,7 @@ public class Aldin : ModNPC
 					for (int l = 0; (float)l < num9; l++)
 					{
 						Vector2 vector4 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num10, num10, (float)l / num9)) * num8;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector4.X, vector4.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRay").Type, num, 2f, Main.myPlayer, (float)num11, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector4.X, vector4.Y, Mod.Find<ModProjectile>("CosmicRay").Type, num, 2f, Main.myPlayer, (float)num11, 0f);
 					}
 					if (timer >= 400)
 					{
@@ -299,13 +299,13 @@ public class Aldin : ModNPC
 				{
 					if (timer == 220)
 					{
-						SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
 						for (int m = 0; m < 10; m++)
 						{
 							Vector2 vector5 = ((float)Math.PI / 5f * (float)m).ToRotationVector2();
 							vector5.Normalize();
 							vector5 *= 14f;
-							Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector5.X, vector5.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
+							Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector5.X, vector5.Y, Mod.Find<ModProjectile>("CosmicStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
 						}
 					}
 					if (timer >= 320)
@@ -342,7 +342,7 @@ public class Aldin : ModNPC
 							Vector2 vector7 = this.player.Center - vector6;
 							vector7.Normalize();
 							vector7 *= 6f;
-							_ = Main.projectile[Projectile.NewProjectile(vector6.X, vector6.Y, vector7.X, vector7.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicBlast").Type, num, 6f, 0, 0f, 0f)];
+							_ = Main.projectile[Projectile.NewProjectile(null, vector6.X, vector6.Y, vector7.X, vector7.Y, Mod.Find<ModProjectile>("CosmicBlast").Type, num, 6f, 0, 0f, 0f)];
 						}
 					}
 					if (timer >= 460)
@@ -353,18 +353,18 @@ public class Aldin : ModNPC
 				}
 			}
 		}
-		if (((ModNPC)this).NPC.life <= ((ModNPC)this).NPC.lifeMax / 2 && !Phase2)
+		if (NPC.life <= NPC.lifeMax / 2 && !Phase2)
 		{
 			Transition = true;
 			Phase2 = true;
 		}
-		if (Transition && ((ModNPC)this).NPC.life <= ((ModNPC)this).NPC.lifeMax / 2 && !Phase3)
+		if (Transition && NPC.life <= NPC.lifeMax / 2 && !Phase3)
 		{
 			TransitionTimer++;
-			((ModNPC)this).NPC.position.X = this.player.position.X - 170f;
-			((ModNPC)this).NPC.position.Y = this.player.position.Y - 400f;
-			((ModNPC)this).NPC.immortal = true;
-			((ModNPC)this).NPC.dontTakeDamage = true;
+			NPC.position.X = this.player.position.X - 170f;
+			NPC.position.Y = this.player.position.Y - 400f;
+			NPC.immortal = true;
+			NPC.dontTakeDamage = true;
 			if (TransitionTimer == 120)
 			{
 				Ultranium.seizureAmount = 20f;
@@ -377,28 +377,28 @@ public class Aldin : ModNPC
 				Transition = false;
 			}
 		}
-		if (((ModNPC)this).NPC.life <= ((ModNPC)this).NPC.lifeMax / 2 && Phase2 && !Phase3 && !Transition)
+		if (NPC.life <= NPC.lifeMax / 2 && Phase2 && !Phase3 && !Transition)
 		{
-			((ModNPC)this).NPC.immortal = false;
-			((ModNPC)this).NPC.dontTakeDamage = false;
+			NPC.immortal = false;
+			NPC.dontTakeDamage = false;
 			if (AttackType == 0)
 			{
 				if (timer == 180 || timer == 240 || timer == 300 || timer == 360 || timer == 420)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
-					Projectile.NewProjectile(this.player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRitual").Type, 0, 6f, this.player.whoAmI, 0f, 0f);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
+					Projectile.NewProjectile(null, this.player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("CosmicRitual").Type, 0, 6f, this.player.whoAmI, 0f, 0f);
 				}
 				if (timer == 190 || timer == 250 || timer == 310 || timer == 370 || timer == 430)
 				{
 					float num15 = 18f;
-					int num16 = ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStar").Type;
-					SoundEngine.PlaySound(SoundID.Item20, new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y));
-					float num17 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - this.player.Center.Y, ((ModNPC)this).NPC.Center.X - this.player.Center.X);
-					Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num17) * (double)num15 * -1.0), (float)(Math.Sin(num17) * (double)num15 * -1.0), num16, num, 0f, Main.myPlayer, 0f, 0f);
+					int num16 = Mod.Find<ModProjectile>("CosmicStar").Type;
+					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
+					float num17 = (float)Math.Atan2(NPC.Center.Y - this.player.Center.Y, NPC.Center.X - this.player.Center.X);
+					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num17) * (double)num15 * -1.0), (float)(Math.Sin(num17) * (double)num15 * -1.0), num16, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 490)
 				{
-					Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStarHuge").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicStarHuge").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 700)
 				{
@@ -410,7 +410,7 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(this.player.Center.X - 650f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X - 650f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240 || timer == 280 || timer == 320 || timer == 360)
 				{
@@ -436,7 +436,7 @@ public class Aldin : ModNPC
 					for (int n = 0; n < num18; n++)
 					{
 						Vector2 vector8 = new Vector2(this.player.Center.X - 1500f, this.player.Center.Y - num19 / 2f + num20 * (float)n);
-						_ = Main.projectile[Projectile.NewProjectile(vector8.X, vector8.Y, 15f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						_ = Main.projectile[Projectile.NewProjectile(null, vector8.X, vector8.Y, 15f, 0f, Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 				}
 				if (timer >= 450)
@@ -449,12 +449,12 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180 || timer == 240 || timer == 300)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
 					float num21 = 10f;
-					int num22 = ((ModNPC)this).Mod.Find<ModProjectile>("HomingStar").Type;
-					SoundEngine.PlaySound(SoundID.Item20, new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y));
-					float num23 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - this.player.Center.Y, ((ModNPC)this).NPC.Center.X - this.player.Center.X);
-					Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num23) * (double)num21 * -1.0), (float)(Math.Sin(num23) * (double)num21 * -1.0), num22, num, 0f, Main.myPlayer, 0f, 0f);
+					int num22 = Mod.Find<ModProjectile>("HomingStar").Type;
+					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
+					float num23 = (float)Math.Atan2(NPC.Center.Y - this.player.Center.Y, NPC.Center.X - this.player.Center.X);
+					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num23) * (double)num21 * -1.0), (float)(Math.Sin(num23) * (double)num21 * -1.0), num22, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 600)
 				{
@@ -472,15 +472,15 @@ public class Aldin : ModNPC
 						double num25 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector9.X += (float)(Math.Sin(num25) * 1200.0);
 						vector9.Y += (float)(Math.Cos(num25) * 1200.0);
-						Dust obj = Main.dust[Dust.NewDust(((ModNPC)this).NPC.Center + vector9 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj = Main.dust[Dust.NewDust(NPC.Center + vector9 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
 						obj.velocity *= 0f;
 						obj.noGravity = true;
 						obj.scale = 2.5f;
 					}
-					Player player = Main.player[((ModNPC)this).NPC.target];
-					if (((Entity)player).active && !player.dead && player.Distance(((ModNPC)this).NPC.Center) > 1200f)
+					Player player = Main.player[NPC.target];
+					if (((Entity)player).active && !player.dead && player.Distance(NPC.Center) > 1200f)
 					{
-						Vector2 vector10 = ((ModNPC)this).NPC.Center - player.Center;
+						Vector2 vector10 = NPC.Center - player.Center;
 						float num26 = vector10.Length() - 600f;
 						vector10.Normalize();
 						vector10 *= ((num26 < 25f) ? num26 : 25f);
@@ -489,7 +489,7 @@ public class Aldin : ModNPC
 				}
 				if (timer == 200)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
 					float num27 = 2f;
 					float num28 = 8f;
 					float num29 = MathHelper.ToRadians(360f);
@@ -497,7 +497,7 @@ public class Aldin : ModNPC
 					for (int num31 = 0; (float)num31 <= num28; num31++)
 					{
 						Vector2 vector11 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num29, num29, (float)num31 / num28)) * num27;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector11.X, vector11.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRayArena").Type, num + 30, 2f, Main.myPlayer, (float)num30, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector11.X, vector11.Y, Mod.Find<ModProjectile>("CosmicRayArena").Type, num + 30, 2f, Main.myPlayer, (float)num30, 0f);
 					}
 				}
 				if (timer == 300 || timer == 420 || timer == 540)
@@ -509,7 +509,7 @@ public class Aldin : ModNPC
 					for (int num36 = 0; (float)num36 <= num33; num36++)
 					{
 						Vector2 vector12 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num34, num34, (float)num36 / num33)) * num32;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector12.X, vector12.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num35, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num35, 0f);
 					}
 				}
 				if (timer == 360 || timer == 480 || timer == 600)
@@ -521,7 +521,7 @@ public class Aldin : ModNPC
 					for (int num41 = 0; (float)num41 <= num38; num41++)
 					{
 						Vector2 vector13 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num39, num39, (float)num41 / num38)) * num37;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector13.X, vector13.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num40, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector13.X, vector13.Y, Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num40, 0f);
 					}
 				}
 				if (timer == 700)
@@ -534,7 +534,7 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(this.player.Center.X + 650f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X + 650f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240 || timer == 280 || timer == 320 || timer == 360)
 				{
@@ -560,7 +560,7 @@ public class Aldin : ModNPC
 					for (int num45 = 0; num45 < num42; num45++)
 					{
 						Vector2 vector14 = new Vector2(this.player.Center.X + 1500f, this.player.Center.Y - num43 / 2f + num44 * (float)num45);
-						_ = Main.projectile[Projectile.NewProjectile(vector14.X, vector14.Y, -15f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						_ = Main.projectile[Projectile.NewProjectile(null, vector14.X, vector14.Y, -15f, 0f, Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 				}
 				if (timer >= 450)
@@ -573,12 +573,12 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y - 250f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 250f, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240 || timer == 280 || timer == 320 || timer == 360)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 450)
 				{
@@ -587,20 +587,20 @@ public class Aldin : ModNPC
 				}
 			}
 		}
-		if ((double)((ModNPC)this).NPC.life < (double)((ModNPC)this).NPC.lifeMax / 3.5 && !Phase3)
+		if ((double)NPC.life < (double)NPC.lifeMax / 3.5 && !Phase3)
 		{
 			Transition = true;
 			Phase3 = true;
 		}
-		if (Transition && (double)((ModNPC)this).NPC.life < (double)((ModNPC)this).NPC.lifeMax / 3.5)
+		if (Transition && (double)NPC.life < (double)NPC.lifeMax / 3.5)
 		{
 			TransitionTimer2++;
 			timer = 120;
-			((ModNPC)this).NPC.immortal = true;
-			((ModNPC)this).NPC.dontTakeDamage = true;
+			NPC.immortal = true;
+			NPC.dontTakeDamage = true;
 			if (TransitionTimer < 180)
 			{
-				((ModNPC)this).NPC.velocity *= 0f;
+				NPC.velocity *= 0f;
 			}
 			if (TransitionTimer2 == 180)
 			{
@@ -608,18 +608,18 @@ public class Aldin : ModNPC
 			}
 			if (TransitionTimer2 < 780 && TransitionTimer2 > 180)
 			{
-				((ModNPC)this).NPC.position.X = this.player.position.X - 170f;
-				((ModNPC)this).NPC.position.Y = this.player.position.Y - 400f;
+				NPC.position.X = this.player.position.X - 170f;
+				NPC.position.Y = this.player.position.Y - 400f;
 				if (Main.rand.Next(10) == 0)
 				{
 					int num46 = Main.rand.Next(-200, 200) * 6;
 					int num47 = -1200;
-					Projectile.NewProjectile(this.player.Center.X + (float)num46, this.player.Center.Y + (float)num47, 0f, 17f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X + (float)num46, this.player.Center.Y + (float)num47, 0f, 17f, Mod.Find<ModProjectile>("CosmicStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (TransitionTimer2 == 800 || TransitionTimer2 == 820 || TransitionTimer2 == 840)
 			{
-				Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y - 1200f, 0f, 17f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStarHuge").Type, num + 20, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 1200f, 0f, 17f, Mod.Find<ModProjectile>("CosmicStarHuge").Type, num + 20, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (TransitionTimer2 == 1020)
 			{
@@ -629,10 +629,10 @@ public class Aldin : ModNPC
 				Transition = false;
 			}
 		}
-		if ((double)((ModNPC)this).NPC.life < (double)((ModNPC)this).NPC.lifeMax / 3.5 && Phase3 && !Transition)
+		if ((double)NPC.life < (double)NPC.lifeMax / 3.5 && Phase3 && !Transition)
 		{
-			((ModNPC)this).NPC.immortal = false;
-			((ModNPC)this).NPC.dontTakeDamage = false;
+			NPC.immortal = false;
+			NPC.dontTakeDamage = false;
 			if (AttackType == 0)
 			{
 				if (timer == 180)
@@ -642,7 +642,7 @@ public class Aldin : ModNPC
 						Vector2 vector15 = ((float)Math.PI / 3f * (float)num48).ToRotationVector2();
 						vector15.Normalize();
 						vector15 *= 3f;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector15.X, vector15.Y, ((ModNPC)this).Mod.Find<ModProjectile>("StationaryStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector15.X, vector15.Y, Mod.Find<ModProjectile>("StationaryStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 360)
@@ -661,21 +661,21 @@ public class Aldin : ModNPC
 						double num50 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector16.X += (float)(Math.Sin(num50) * 1200.0);
 						vector16.Y += (float)(Math.Cos(num50) * 1200.0);
-						Dust obj2 = Main.dust[Dust.NewDust(((ModNPC)this).NPC.Center + vector16 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj2 = Main.dust[Dust.NewDust(NPC.Center + vector16 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
 						obj2.velocity *= 0f;
 						obj2.noGravity = true;
 						obj2.scale = 2.5f;
 					}
-					Player player2 = Main.player[((ModNPC)this).NPC.target];
-					if (((Entity)player2).active && !player2.dead && player2.Distance(((ModNPC)this).NPC.Center) > 1200f)
+					Player player2 = Main.player[NPC.target];
+					if (((Entity)player2).active && !player2.dead && player2.Distance(NPC.Center) > 1200f)
 					{
-						Vector2 vector17 = ((ModNPC)this).NPC.Center - player2.Center;
+						Vector2 vector17 = NPC.Center - player2.Center;
 						float num51 = vector17.Length() - 600f;
 						vector17.Normalize();
 						vector17 *= ((num51 < 25f) ? num51 : 25f);
 						player2.position += vector17;
 					}
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
 					Vector2 spinningpoint2 = new Vector2(400f, 0f);
 					if (timer < 240 && timer > 180)
 					{
@@ -689,9 +689,9 @@ public class Aldin : ModNPC
 					for (int num53 = 0; num53 < num52; num53++)
 					{
 						float num54 = 360 / num52;
-						Vector2 vector18 = ((ModNPC)this).NPC.Center + spinningpoint2.RotatedBy((double)Spin + (double)(num54 * (float)num53) * (Math.PI / 2.0));
-						float num55 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - vector18.Y, ((ModNPC)this).NPC.Center.X - vector18.X);
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num55) * 2.0 * -1.0), (float)(Math.Sin(num55) * 2.0 * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRayQuick").Type, num, 0f, Main.myPlayer, 0f, (float)num53);
+						Vector2 vector18 = NPC.Center + spinningpoint2.RotatedBy((double)Spin + (double)(num54 * (float)num53) * (Math.PI / 2.0));
+						float num55 = (float)Math.Atan2(NPC.Center.Y - vector18.Y, NPC.Center.X - vector18.X);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num55) * 2.0 * -1.0), (float)(Math.Sin(num55) * 2.0 * -1.0), Mod.Find<ModProjectile>("CosmicRayQuick").Type, num, 0f, Main.myPlayer, 0f, (float)num53);
 					}
 				}
 				if (timer >= 510)
@@ -704,8 +704,8 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(this.player.Center.X - 650f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(this.player.Center.X + 650f, this.player.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X - 650f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X + 650f, this.player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240 || timer == 280 || timer == 320 || timer == 360)
 				{
@@ -731,12 +731,12 @@ public class Aldin : ModNPC
 					for (int num59 = 0; num59 < num56; num59++)
 					{
 						Vector2 vector19 = new Vector2(this.player.Center.X - 1500f, this.player.Center.Y - num57 / 2f + num58 * (float)num59);
-						_ = Main.projectile[Projectile.NewProjectile(vector19.X, vector19.Y, 17f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						_ = Main.projectile[Projectile.NewProjectile(null, vector19.X, vector19.Y, 17f, 0f, Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 					for (int num60 = 0; num60 < num56; num60++)
 					{
 						Vector2 vector20 = new Vector2(this.player.Center.X + 1500f, this.player.Center.Y - num57 / 2f + num58 * (float)num60);
-						_ = Main.projectile[Projectile.NewProjectile(vector20.X, vector20.Y, -17f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						_ = Main.projectile[Projectile.NewProjectile(null, vector20.X, vector20.Y, -17f, 0f, Mod.Find<ModProjectile>("CosmosBolt").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 				}
 				if (timer >= 450)
@@ -749,18 +749,18 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y - 250f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y + 250f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 250f, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y + 250f, 0f, 0f, Mod.Find<ModProjectile>("AldinTelegraph").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240 || timer == 330 || timer == 420)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 285 || timer == 375 || timer == 465)
 				{
-					SoundEngine.PlaySound(((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
-					Projectile.NewProjectile(this.player.Center.X, this.player.Center.Y + 900f, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicWrathBolt2").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y + 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt2").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 510)
 				{
@@ -782,8 +782,8 @@ public class Aldin : ModNPC
 					float num64 = num62 / (float)num61;
 					for (int num65 = 0; num65 < num61; num65++)
 					{
-						Vector2 vector21 = new Vector2(((ModNPC)this).NPC.Center.X - num62 / num63 + num64 * (float)num65, ((ModNPC)this).NPC.Center.Y - 950f);
-						_ = Main.projectile[Projectile.NewProjectile(vector21.X, vector21.Y, 0f, 14f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicStarHuge").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+						Vector2 vector21 = new Vector2(NPC.Center.X - num62 / num63 + num64 * (float)num65, NPC.Center.Y - 950f);
+						_ = Main.projectile[Projectile.NewProjectile(null, vector21.X, vector21.Y, 0f, 14f, Mod.Find<ModProjectile>("CosmicStarHuge").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 					}
 				}
 				if (timer >= 360)
@@ -801,7 +801,7 @@ public class Aldin : ModNPC
 						Vector2 vector22 = ((float)Math.PI / 2f * (float)num66).ToRotationVector2();
 						vector22.Normalize();
 						vector22 *= 7f;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector22.X, vector22.Y, ((ModNPC)this).Mod.Find<ModProjectile>("HomingStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector22.X, vector22.Y, Mod.Find<ModProjectile>("HomingStar").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 385)
@@ -819,7 +819,7 @@ public class Aldin : ModNPC
 						Vector2 vector23 = ((float)Math.PI * 2f / 15f * (float)num67).ToRotationVector2();
 						vector23.Normalize();
 						vector23 *= 2f;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector23.X, vector23.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmosBoltHome").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector23.X, vector23.Y, Mod.Find<ModProjectile>("CosmosBoltHome").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 360)
@@ -838,15 +838,15 @@ public class Aldin : ModNPC
 						double num69 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector24.X += (float)(Math.Sin(num69) * 1200.0);
 						vector24.Y += (float)(Math.Cos(num69) * 1200.0);
-						Dust obj3 = Main.dust[Dust.NewDust(((ModNPC)this).NPC.Center + vector24 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj3 = Main.dust[Dust.NewDust(NPC.Center + vector24 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
 						obj3.velocity *= 0f;
 						obj3.noGravity = true;
 						obj3.scale = 2.5f;
 					}
-					Player player3 = Main.player[((ModNPC)this).NPC.target];
-					if (((Entity)player3).active && !player3.dead && player3.Distance(((ModNPC)this).NPC.Center) > 1200f)
+					Player player3 = Main.player[NPC.target];
+					if (((Entity)player3).active && !player3.dead && player3.Distance(NPC.Center) > 1200f)
 					{
-						Vector2 vector25 = ((ModNPC)this).NPC.Center - player3.Center;
+						Vector2 vector25 = NPC.Center - player3.Center;
 						float num70 = vector25.Length() - 600f;
 						vector25.Normalize();
 						vector25 *= ((num70 < 25f) ? num70 : 25f);
@@ -855,7 +855,7 @@ public class Aldin : ModNPC
 				}
 				if (timer == 180)
 				{
-					Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, 0f, 0f, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRitualHuge").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicRitualHuge").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 240)
 				{
@@ -866,27 +866,27 @@ public class Aldin : ModNPC
 					for (int num75 = 0; (float)num75 <= num72; num75++)
 					{
 						Vector2 vector26 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num73, num73, (float)num75 / num72)) * num71;
-						Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector26.X, vector26.Y, ((ModNPC)this).Mod.Find<ModProjectile>("CosmicRayArena").Type, num + 30, 2f, Main.myPlayer, (float)num74, 0f);
+						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector26.X, vector26.Y, Mod.Find<ModProjectile>("CosmicRayArena").Type, num + 30, 2f, Main.myPlayer, (float)num74, 0f);
 					}
 				}
 				if (timer > 240 && timer < 720)
 				{
-					((ModNPC)this).NPC.ai[1] += 1f;
-					if (((ModNPC)this).NPC.ai[2] > 2f)
+					NPC.ai[1] += 1f;
+					if (NPC.ai[2] > 2f)
 					{
-						SoundEngine.PlaySound(SoundID.Item9, ((ModNPC)this).NPC.Center);
-						((ModNPC)this).NPC.ai[1] = 0f;
-						((ModNPC)this).NPC.ai[2] += (float)Math.PI * 15f / 128f;
-						if (((ModNPC)this).NPC.ai[1] > (float)Math.PI)
+						SoundEngine.PlaySound(SoundID.Item9, NPC.Center);
+						NPC.ai[1] = 0f;
+						NPC.ai[2] += (float)Math.PI * 15f / 128f;
+						if (NPC.ai[1] > (float)Math.PI)
 						{
-							((ModNPC)this).NPC.ai[2] -= (float)Math.PI * 5f;
+							NPC.ai[2] -= (float)Math.PI * 5f;
 						}
 						if (Main.netMode != 1)
 						{
 							int num76 = 3;
 							for (int num77 = 0; num77 < num76; num77++)
 							{
-								Projectile.NewProjectile(((ModNPC)this).NPC.Center, new Vector2(10f, 0f).RotatedBy((double)((ModNPC)this).NPC.ai[2] - Math.PI * 2.0 / (double)num76 * (double)num77), ((ModNPC)this).Mod.Find<ModProjectile>("CosmicBlast").Type, num - 20, 0f, Main.myPlayer, 0f, 0f);
+								Projectile.NewProjectile(null, NPC.Center, new Vector2(10f, 0f).RotatedBy((double)NPC.ai[2] - Math.PI * 2.0 / (double)num76 * (double)num77), Mod.Find<ModProjectile>("CosmicBlast").Type, num - 20, 0f, Main.myPlayer, 0f, 0f);
 							}
 						}
 					}
@@ -900,27 +900,27 @@ public class Aldin : ModNPC
 		}
 		if (!Keeper.CanSpawnAldin)
 		{
-			((Entity)((ModNPC)this).NPC).active = false;
+			((Entity)NPC).active = false;
 		}
 	}
 
 	private void Move(Vector2 offset)
 	{
 		speed = 35f;
-		Vector2 vector = player.Center + offset - ((ModNPC)this).NPC.Center;
+		Vector2 vector = player.Center + offset - NPC.Center;
 		float num = Magnitude(vector);
 		if (num > speed)
 		{
 			vector *= speed / num;
 		}
 		float num2 = 10f;
-		vector = (((ModNPC)this).NPC.velocity * num2 + vector) / (num2 + 1f);
+		vector = (NPC.velocity * num2 + vector) / (num2 + 1f);
 		num = Magnitude(vector);
 		if (num > speed)
 		{
 			vector *= speed / num;
 		}
-		((ModNPC)this).NPC.velocity = vector;
+		NPC.velocity = vector;
 	}
 
 	private float Magnitude(Vector2 mag)
@@ -937,43 +937,43 @@ public class Aldin : ModNPC
 	{
 		if (Main.expertMode)
 		{
-			((ModNPC)this).NPC.DropBossBags();
+			NPC.DropBossBags();
 		}
 		else
 		{
 			int num = Main.rand.Next(3);
 			if (num == 0)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("CosmicBlade").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicBlade").Type, 1, false, 0, false, false);
 			}
 			if (num == 1)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("CosmicBow").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicBow").Type, 1, false, 0, false, false);
 			}
 			if (num == 2)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("CosmicStaff").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicStaff").Type, 1, false, 0, false, false);
 			}
 			int num2 = Main.rand.Next(3);
 			if (num2 == 0)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("AldinHood").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinHood").Type, 1, false, 0, false, false);
 			}
 			if (num2 == 1)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("AldinBody").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinBody").Type, 1, false, 0, false, false);
 			}
 			if (num2 == 2)
 			{
-				Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("AldinRobe").Type, 1, false, 0, false, false);
+				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinRobe").Type, 1, false, 0, false, false);
 			}
 		}
 		if (Main.rand.Next(10) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("AldinTrophyItem").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinTrophyItem").Type, 1, false, 0, false, false);
 		}
 		Keeper.CanSpawnAldin = false;
-		NPC.NewNPC((int)((ModNPC)this).NPC.Center.X, (int)((ModNPC)this).NPC.Center.Y, ((ModNPC)this).Mod.Find<ModNPC>("Keeper").Type, 0, 0f, 0f, 0f, 0f, 255);
+		NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Keeper").Type, 0, 0f, 0f, 0f, 0f, 255);
 		if (!UltraniumWorld.downedAldin)
 		{
 			UltraniumWorld.downedAldin = true;

@@ -8,28 +8,28 @@ public class SpazBomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Spazma-Bomb");
-		// ((ModItem)this).Tooltip.SetDefault("Explodes on death, and inflicts the \"Cursed Inferno\" debuff");
+		// DisplayName.SetDefault("Spazma-Bomb");
+		// Tooltip.SetDefault("Explodes on death, and inflicts the \"Cursed Inferno\" debuff");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.useStyle = 1;
-		((Entity)(object)((ModItem)this).Item).width = 30;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("C4Pro").Type;
-		((ModItem)this).Item.shootSpeed = 7f;
-		((ModItem)this).Item.knockBack = 2.5f;
-		((ModItem)this).Item.damage = 43;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 5;
+		Item.useStyle = 1;
+		((Entity)(object)Item).width = 30;
+		((Entity)(object)Item).height = 26;
+		Item.noUseGraphic = true;
+		Item.DamageType = DamageClass.Ranged;
+		Item.noMelee = true;
+		Item.autoReuse = true;
+		Item.UseSound = SoundID.Item1;
+		Item.useAnimation = 30;
+		Item.useTime = 30;
+		Item.shoot = Mod.Find<ModProjectile>("C4Pro").Type;
+		Item.shootSpeed = 7f;
+		Item.knockBack = 2.5f;
+		Item.damage = 43;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 5;
 	}
 
 	public override void AddRecipes()

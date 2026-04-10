@@ -1,26 +1,27 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
+using Ultranium.Items.Guardians.Nature;
 
 namespace Ultranium.Items.BossBags;
 
 public class UltrumBag : ModItem
 {
-	public override int BossBagNPC => ((ModItem)this).Mod.Find<ModNPC>("Ultrum").Type;
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Treasure Bag");
-		// ((ModItem)this).Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		// DisplayName.SetDefault("Treasure Bag");
+		// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.consumable = true;
-		((Entity)(object)((ModItem)this).Item).width = 46;
-		((Entity)(object)((ModItem)this).Item).height = 36;
-		((ModItem)this).Item.rare = -12;
-		((ModItem)this).Item.expert = true;
+		Item.maxStack = 999;
+		Item.consumable = true;
+		Item.width = 46;
+		Item.height = 36;
+		Item.rare = -12;
+		Item.expert = true;
 	}
 
 	public override bool CanRightClick()
@@ -28,39 +29,10 @@ public class UltrumBag : ModItem
 		return true;
 	}
 
-	public override void OpenBossBag(Player player)
-	{
-		player.TryGettingDevArmor();
-		int num = Main.rand.Next(7);
-		if (num == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraFlail").Type, 1);
-		}
-		if (num == 1)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraniumBow").Type, 1);
-		}
-		if (num == 2)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraniumKunai").Type, 1);
-		}
-		if (num == 3)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraniumStaff").Type, 1);
-		}
-		if (num == 4)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraniumSword").Type, 1);
-		}
-		if (num == 5)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraTome").Type, 1);
-		}
-		if (num == 6)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltraniumScepter").Type, 1);
-		}
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltrumShard").Type, Main.rand.Next(30, 40));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("UltrumRelic").Type, 1);
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("UltrumShard").Type, 1, 30, 39));
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("UltrumRelic").Type));
+		itemLoot.Add(ItemDropRule.OneFromOptions(1, new int[] { ModContent.ItemType<UltraFlail>(), ModContent.ItemType<UltraniumBow>(), ModContent.ItemType<UltraniumKunai>(), ModContent.ItemType<UltraniumStaff>(), ModContent.ItemType<UltraniumSword>(), ModContent.ItemType<UltraTome>(), ModContent.ItemType<UltraniumScepter>() }));
+    }
 }

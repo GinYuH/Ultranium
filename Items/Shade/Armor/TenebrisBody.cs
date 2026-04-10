@@ -8,17 +8,17 @@ public class TenebrisBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Tenebris Chestmail");
-		// ((ModItem)this).Tooltip.SetDefault("3% increased damage");
+		// DisplayName.SetDefault("Tenebris Chestmail");
+		// Tooltip.SetDefault("3% increased damage");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 7;
+		((Entity)(object)Item).width = 34;
+		((Entity)(object)Item).height = 22;
+		Item.value = Item.buyPrice(0, 2, 50);
+		Item.rare = 1;
+		Item.defense = 7;
 	}
 
 	public override void UpdateEquip(Player player)

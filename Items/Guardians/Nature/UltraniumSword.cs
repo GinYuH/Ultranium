@@ -11,26 +11,26 @@ public class UltraniumSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultranium Blade");
-		// ((ModItem)this).Tooltip.SetDefault("Fires a spread of nature energy orbs");
+		// DisplayName.SetDefault("Ultranium Blade");
+		// Tooltip.SetDefault("Fires a spread of nature energy orbs");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 195;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 48;
-		((Entity)(object)((ModItem)this).Item).height = 48;
-		((ModItem)this).Item.useTime = 18;
-		((ModItem)this).Item.useAnimation = 18;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("UltraniumOrb").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
+		Item.damage = 195;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 48;
+		Item.height = 48;
+		Item.useTime = 18;
+		Item.useAnimation = 18;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("UltraniumOrb").Type;
+		Item.shootSpeed = 16f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -48,7 +48,7 @@ public class UltraniumSword : ModItem
 		int num = Main.rand.Next(3, 4);
 		for (int i = 0; i < num; i++)
 		{
-			Projectile.NewProjectile(position, new Vector2(speedX, speedY).RotatedByRandom(0.19634954631328583), type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position, new Vector2(speedX, speedY).RotatedByRandom(0.19634954631328583), type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

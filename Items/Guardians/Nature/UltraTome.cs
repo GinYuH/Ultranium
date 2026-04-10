@@ -11,30 +11,30 @@ public class UltraTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultranium Grimoire");
-		// ((ModItem)this).Tooltip.SetDefault("Creates a circle of nature blasts that close in on the cursor");
+		// DisplayName.SetDefault("Ultranium Grimoire");
+		// Tooltip.SetDefault("Creates a circle of nature blasts that close in on the cursor");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 210;
-		((ModItem)this).Item.DamageType = DamageClass.Magic;
-		((ModItem)this).Item.mana = 18;
-		((Entity)(object)((ModItem)this).Item).width = 28;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.useTime = 60;
-		((ModItem)this).Item.useAnimation = 60;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.knockBack = 5f;
-		((ModItem)this).Item.value = 10000;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(1);
-		((ModItem)this).Item.UseSound = SoundID.Item20;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.scale = 0.8f;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("NatureBlastBase").Type;
-		((ModItem)this).Item.shootSpeed = 0f;
+		Item.damage = 210;
+		Item.DamageType = DamageClass.Magic;
+		Item.mana = 18;
+		Item.width = 28;
+		Item.height = 32;
+		Item.useTime = 60;
+		Item.useAnimation = 60;
+		Item.useStyle = 5;
+		Item.noMelee = true;
+		Item.knockBack = 5f;
+		Item.value = 10000;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(1);
+		Item.UseSound = SoundID.Item20;
+		Item.autoReuse = true;
+		Item.scale = 0.8f;
+		Item.shoot = Mod.Find<ModProjectile>("NatureBlastBase").Type;
+		Item.shootSpeed = 0f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -45,7 +45,7 @@ public class UltraTome : ModItem
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		Vector2 vector = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
-		Projectile.NewProjectile(vector.X, vector.Y, 0f, 0f, type, damage, knockBack, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(null, vector.X, vector.Y, 0f, 0f, type, damage, knockBack, player.whoAmI, 0f, 0f);
 		return false;
 	}
 

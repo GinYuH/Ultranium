@@ -1,26 +1,29 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Cosmic;
+using Ultranium.Items.Eldritch;
 
 namespace Ultranium.Items.BossBags;
 
 public class ErebusBag : ModItem
 {
-	public override int BossBagNPC => ((ModItem)this).Mod.Find<ModNPC>("ErebusHead").Type;
-
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Treasure Bag");
-		// ((ModItem)this).Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
-	}
+		// DisplayName.SetDefault("Treasure Bag");
+		// Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+		ItemID.Sets.BossBag[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.consumable = true;
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.rare = -12;
-		((ModItem)this).Item.expert = true;
+		Item.maxStack = 999;
+		Item.consumable = true;
+		Item.width = 24;
+		Item.height = 24;
+		Item.rare = -12;
+		Item.expert = true;
 	}
 
 	public override bool CanRightClick()
@@ -28,52 +31,12 @@ public class ErebusBag : ModItem
 		return true;
 	}
 
-	public override void OpenBossBag(Player player)
-	{
-		player.TryGettingDevArmor();
-		int num = Main.rand.Next(9);
-		if (num == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Noctis").Type, 1);
-		}
-		if (num == 1)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("SolibusOrba").Type, 1);
-		}
-		if (num == 2)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Exitium").Type, 1);
-		}
-		if (num == 3)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Crepus").Type, 1);
-		}
-		if (num == 4)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Inanis").Type, 1);
-		}
-		if (num == 5)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("CavumNigrum").Type, 1);
-		}
-		if (num == 6)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Umbra").Type, 1);
-		}
-		if (num == 7)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Nihil").Type, 1);
-		}
-		if (num == 8)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("Caliginus").Type, 1);
-		}
-		if (Main.rand.Next(20) == 0)
-		{
-			player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("ErebusGuitar").Type, 1);
-		}
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("NightmareScale").Type, Main.rand.Next(30, 50));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(20, 30));
-		player.QuickSpawnItem(((ModItem)this).Mod.Find<ModItem>("ShadowHeart").Type, 1);
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("NightmareScale").Type, 1, 30, 49));
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DarkMatter").Type, 1, 20, 29));
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ShadowHeart").Type));
+        itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusGuitar").Type, 20));
+        itemLoot.Add(ItemDropRule.OneFromOptions(1, new int[] { ModContent.ItemType<Noctis>(), ModContent.ItemType<SolibusOrba>(), ModContent.ItemType<Exitium>(), ModContent.ItemType<Crepus>(), ModContent.ItemType<Inanis>(), ModContent.ItemType<CavumNigrum>(), ModContent.ItemType<Umbra>(), ModContent.ItemType<Nihil>(), ModContent.ItemType<Caliginus>() }));
+    }
 }

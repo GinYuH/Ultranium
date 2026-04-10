@@ -9,34 +9,34 @@ public class AbyssJelly : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModNPC)this).DisplayName.SetDefault("Abyssal Jelly");
-		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[242];
+		// DisplayName.SetDefault("Abyssal Jelly");
+		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[242];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).NPC.damage = 60;
-		((ModNPC)this).NPC.lifeMax = 260;
-		((ModNPC)this).NPC.defense = 20;
-		((ModNPC)this).NPC.knockBackResist = 0.1f;
-		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).NPC.width = 50;
-		((ModNPC)this).NPC.height = 50;
-		((ModNPC)this).NPC.noGravity = true;
-		((ModNPC)this).NPC.aiStyle = 18;
+		NPC.damage = 60;
+		NPC.lifeMax = 260;
+		NPC.defense = 20;
+		NPC.knockBackResist = 0.1f;
+		NPC.HitSound = SoundID.NPCHit1;
+		NPC.DeathSound = SoundID.NPCDeath1;
+		NPC.width = 50;
+		NPC.height = 50;
+		NPC.noGravity = true;
+		NPC.aiStyle = 18;
 		base.AIType = 242;
 		base.AnimationType = 242;
-		base.Banner = ((ModNPC)this).NPC.type;
-		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("AbyssJellyBanner").Type;
+		base.Banner = NPC.type;
+		base.BannerItem = Mod.Find<ModItem>("AbyssJellyBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).NPC.life <= 0)
+		if (NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/AbyssJellyGore1"));
-			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/AbyssJellyGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/AbyssJellyGore1"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/Depths/AbyssJellyGore2"));
 		}
 	}
 
@@ -63,7 +63,7 @@ public class AbyssJelly : ModNPC
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

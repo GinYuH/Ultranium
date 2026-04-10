@@ -125,11 +125,8 @@ public class UltraniumWorld : ModSystem
 		MessageTimer2 = 0;
 	}
 
-	public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
+	public override void SaveWorldData(TagCompound tag)
 	{
-		//IL_014a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_014f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_015c: Expected O, but got Unknown
 		List<string> list = new List<string>();
 		if (downedSquid)
 		{
@@ -203,7 +200,7 @@ public class UltraniumWorld : ModSystem
 		{
 			list.Add("ExistentialDread");
 		}
-		return new TagCompound { ["downed"] = list };
+		tag["downed"] = list;
 	}
 
 	public override void LoadWorldData(TagCompound tag)
@@ -227,39 +224,6 @@ public class UltraniumWorld : ModSystem
 		TruffleShroom = list.Contains("TruffleShroom");
 		SolarShroom = list.Contains("SolarShroom");
 		ExistentialDread = list.Contains("ExistentialDread");
-	}
-
-	public override void LoadLegacy(BinaryReader reader)
-	{
-		int num = reader.ReadInt32();
-		if (num == 0)
-		{
-			BitsByte bitsByte = reader.ReadByte();
-			downedSquid = bitsByte[0];
-			downedDragon = bitsByte[1];
-			downedDread = bitsByte[2];
-			downedXenanis = bitsByte[3];
-			downedUltrum = bitsByte[4];
-			downedIgnodium = bitsByte[5];
-			downedTrueDread = bitsByte[6];
-			BitsByte bitsByte2 = reader.ReadByte();
-			downedShadowEvent = bitsByte2[0];
-			downedErebus = bitsByte2[1];
-			ShadowEventWorld.ShadowEventActive = bitsByte2[2];
-			downedAldin = bitsByte2[3];
-			BitsByte bitsByte3 = reader.ReadByte();
-			Moorhsum = bitsByte3[0];
-			StrangeUndergrowth = bitsByte3[1];
-			SoulCrushingDisappointment = bitsByte3[2];
-			TheFart = bitsByte3[3];
-			TruffleShroom = bitsByte3[4];
-			SolarShroom = bitsByte3[5];
-			ExistentialDread = bitsByte3[6];
-		}
-		else
-		{
-			((ModSystem)this).Mod.Logger.WarnFormat("Ultranium: Unknown loadVersion: {0}", (object)num);
-		}
 	}
 
 	public override void NetSend(BinaryWriter writer)
@@ -327,13 +291,13 @@ public class UltraniumWorld : ModSystem
 		}
 		if (Main.hardMode && !HardmodeMessage)
 		{
-			Main.NewText("Something dreadful wanders through out the lands...", (byte)160, (byte)0, (byte)0, false);
-			Main.NewText("Spacial creatures wander in the sky", (byte)66, (byte)197, byte.MaxValue, false);
+			Main.NewText("Something dreadful wanders through out the lands...", (byte)160, (byte)0, (byte)0);
+			Main.NewText("Spacial creatures wander in the sky", (byte)66, (byte)197, byte.MaxValue);
 			HardmodeMessage = true;
 		}
 		if (NPC.downedPlantBoss && !EtherealMessage)
 		{
-			Main.NewText("An ethereal aura draws near...", (byte)137, (byte)131, byte.MaxValue, false);
+			Main.NewText("An ethereal aura draws near...", (byte)137, (byte)131, byte.MaxValue);
 			EtherealMessage = true;
 		}
 		if (downedUltrum && downedIgnodium && !downedTrueDread && !DreadMessage)
@@ -341,8 +305,8 @@ public class UltraniumWorld : ModSystem
 			MessageTimer++;
 			if (MessageTimer == 600)
 			{
-				SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/DreadRoar"), -1, -1);
-				Main.NewText("Fear flows through your veins...", (byte)200, (byte)0, (byte)0, false);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
+				Main.NewText("Fear flows through your veins...", (byte)200, (byte)0, (byte)0);
 				DreadMessage = true;
 			}
 		}
@@ -350,9 +314,9 @@ public class UltraniumWorld : ModSystem
 		{
 			MessageTimer2++;
 			if (MessageTimer2 == 600)
-			{
-				SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar"), -1, -1);
-				Main.NewText("An otherworldy roar echoes through out the world...", (byte)90, (byte)72, (byte)169, false);
+            {
+                SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
+				Main.NewText("An otherworldy roar echoes through out the world...", (byte)90, (byte)72, (byte)169);
 				ErebusMessage = true;
 			}
 		}

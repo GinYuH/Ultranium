@@ -79,7 +79,7 @@ public class FlameGigaBlast : ModProjectile
 			Vector2 vector = ((float)Math.PI / 5f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 6f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("FlameBolt").Type, 45, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("FlameBolt").Type, 45, 1f, Main.myPlayer, 0f, 0f);
 		}
 		for (int j = 0; j < 40; j++)
 		{

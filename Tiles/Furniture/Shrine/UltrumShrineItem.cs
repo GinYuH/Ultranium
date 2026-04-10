@@ -7,22 +7,22 @@ public class UltrumShrineItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultrum Shrine");
+		// DisplayName.SetDefault("Ultrum Shrine");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.rare = 0;
-		((Entity)(object)((ModItem)this).Item).width = 12;
-		((Entity)(object)((ModItem)this).Item).height = 30;
-		((ModItem)this).Item.maxStack = 99;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.useAnimation = 15;
-		((ModItem)this).Item.useTime = 10;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.consumable = true;
-		((ModItem)this).Item.value = 150;
-		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("UltrumShrine").Type;
+		Item.rare = 0;
+		Item.width = 12;
+		Item.height = 30;
+		Item.maxStack = 99;
+		Item.useTurn = true;
+		Item.autoReuse = true;
+		Item.useAnimation = 15;
+		Item.useTime = 10;
+		Item.useStyle = 1;
+		Item.consumable = true;
+		Item.value = 150;
+		Item.createTile = Mod.Find<ModTile>("UltrumShrine").Type;
 	}
 }

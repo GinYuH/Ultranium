@@ -139,7 +139,7 @@ public class HomingStar : ModProjectile
 		for (int j = 0; (float)j < num3; j++)
 		{
 			Vector2 vector = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num4, num4, (float)j / (num3 - 1f))) * num2;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, ((ModProjectile)this).Projectile.damage, 2f, Main.myPlayer, (float)num5, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, ((ModProjectile)this).Projectile.damage, 2f, Main.myPlayer, (float)num5, 0f);
 		}
 	}
 }

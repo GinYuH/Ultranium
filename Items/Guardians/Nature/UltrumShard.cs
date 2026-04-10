@@ -9,18 +9,18 @@ public class UltrumShard : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Ultrum Essence Shard");
-		// ((ModItem)this).Tooltip.SetDefault("\"An ancient energy of nature resides within this fragment\"");
+		// DisplayName.SetDefault("Ultrum Essence Shard");
+		// Tooltip.SetDefault("\"An ancient energy of nature resides within this fragment\"");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.value = Item.buyPrice(0, 10);
-		((Entity)(object)((ModItem)this).Item).width = 24;
-		((Entity)(object)((ModItem)this).Item).height = 24;
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.value = 100;
-		((ModItem)this).Item.rare = 11;
+		Item.value = Item.buyPrice(0, 10);
+		Item.width = 24;
+		Item.height = 24;
+		Item.maxStack = 999;
+		Item.value = 100;
+		Item.rare = 11;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

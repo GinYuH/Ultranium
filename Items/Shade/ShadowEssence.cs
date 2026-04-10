@@ -18,19 +18,19 @@ public class ShadowEssence : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Shadow Mana");
-		// ((ModItem)this).Tooltip.SetDefault("'The Essence of shadow magic'");
-		Main.RegisterItemAnimation(((ModItem)this).Item.type, new DrawAnimationVertical(5, 4));
-		ItemID.Sets.ItemNoGravity[((ModItem)this).Item.type] = true;
+		// DisplayName.SetDefault("Shadow Mana");
+		// Tooltip.SetDefault("'The Essence of shadow magic'");
+		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
+		ItemID.Sets.ItemNoGravity[Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 26;
-		((Entity)(object)((ModItem)this).Item).height = 34;
-		((ModItem)this).Item.maxStack = 999;
-		((ModItem)this).Item.value = 1000;
-		((ModItem)this).Item.rare = 1;
+		((Entity)(object)Item).width = 26;
+		((Entity)(object)Item).height = 34;
+		Item.maxStack = 999;
+		Item.value = 1000;
+		Item.rare = 1;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

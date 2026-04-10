@@ -9,26 +9,26 @@ public class IceFood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Frozen Food");
-		// ((ModItem)this).Tooltip.SetDefault("Attracts the ice dragon\nCan only be used in the snow biome");
+		// DisplayName.SetDefault("Frozen Food");
+		// Tooltip.SetDefault("Attracts the ice dragon\nCan only be used in the snow biome");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.maxStack = 20;
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.useAnimation = 45;
-		((ModItem)this).Item.useTime = 45;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.UseSound = SoundID.Item44;
-		((ModItem)this).Item.consumable = true;
+		Item.width = 20;
+		Item.height = 20;
+		Item.maxStack = 20;
+		Item.rare = 3;
+		Item.useAnimation = 45;
+		Item.useTime = 45;
+		Item.useStyle = 4;
+		Item.UseSound = SoundID.Item44;
+		Item.consumable = true;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("IceDragon").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("IceDragon").Type))
 		{
 			return player.ZoneSnow;
 		}
@@ -37,7 +37,7 @@ public class IceFood : ModItem
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
-		NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("IceDragon").Type);
+		NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("IceDragon").Type);
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}

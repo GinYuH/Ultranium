@@ -8,17 +8,17 @@ public class AuroraBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Aurora Crystal Breastplate");
-		// ((ModItem)this).Tooltip.SetDefault("4% increased summon damage and +1 max minions");
+		// DisplayName.SetDefault("Aurora Crystal Breastplate");
+		// Tooltip.SetDefault("4% increased summon damage and +1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 34;
-		((Entity)(object)((ModItem)this).Item).height = 22;
-		((ModItem)this).Item.value = 10000;
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.defense = 3;
+		Item.width = 34;
+		Item.height = 22;
+		Item.value = 10000;
+		Item.rare = 1;
+		Item.defense = 3;
 	}
 
 	public override void UpdateEquip(Player player)

@@ -8,28 +8,28 @@ public class RetiYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Retina Throw");
-		// ((ModItem)this).Tooltip.SetDefault("Fires Lasers at nearby enemies");
+		// DisplayName.SetDefault("Retina Throw");
+		// Tooltip.SetDefault("Fires Lasers at nearby enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.useStyle = 5;
-		((Entity)(object)((ModItem)this).Item).width = 30;
-		((Entity)(object)((ModItem)this).Item).height = 26;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.channel = true;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.useAnimation = 25;
-		((ModItem)this).Item.useTime = 25;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("RetiYoyo").Type;
-		((ModItem)this).Item.shootSpeed = 16f;
-		((ModItem)this).Item.knockBack = 2.5f;
-		((ModItem)this).Item.damage = 49;
-		((ModItem)this).Item.value = Item.buyPrice(0, 30);
-		((ModItem)this).Item.rare = 5;
+		Item.useStyle = 5;
+		Item.width = 30;
+		Item.height = 26;
+		Item.noUseGraphic = true;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.noMelee = true;
+		Item.channel = true;
+		Item.UseSound = SoundID.Item1;
+		Item.useAnimation = 25;
+		Item.useTime = 25;
+		Item.shoot = Mod.Find<ModProjectile>("RetiYoyo").Type;
+		Item.shootSpeed = 16f;
+		Item.knockBack = 2.5f;
+		Item.damage = 49;
+		Item.value = Item.buyPrice(0, 30);
+		Item.rare = 5;
 	}
 
 	public override void AddRecipes()

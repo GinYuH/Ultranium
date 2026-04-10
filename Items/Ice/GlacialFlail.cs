@@ -8,28 +8,28 @@ public class GlacialFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Glacial Flail");
-		// ((ModItem)this).Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
+		// DisplayName.SetDefault("Glacial Flail");
+		// Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 30;
-		((Entity)(object)((ModItem)this).Item).height = 10;
-		((ModItem)this).Item.rare = 3;
-		((ModItem)this).Item.noMelee = true;
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.useStyle = 5;
-		((ModItem)this).Item.useAnimation = 40;
-		((ModItem)this).Item.useTime = 40;
-		((ModItem)this).Item.knockBack = 7.5f;
-		((ModItem)this).Item.damage = 35;
-		((ModItem)this).Item.noUseGraphic = true;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((ModItem)this).Item.channel = true;
-		((ModItem)this).Item.value = Item.buyPrice(0, 20);
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("GlacialFlail").Type;
-		((ModItem)this).Item.shootSpeed = 15f;
+		Item.width = 30;
+		Item.height = 10;
+		Item.rare = 3;
+		Item.noMelee = true;
+		Item.UseSound = SoundID.Item1;
+		Item.useStyle = 5;
+		Item.useAnimation = 40;
+		Item.useTime = 40;
+		Item.knockBack = 7.5f;
+		Item.damage = 35;
+		Item.noUseGraphic = true;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.channel = true;
+		Item.value = Item.buyPrice(0, 20);
+		Item.shoot = Mod.Find<ModProjectile>("GlacialFlail").Type;
+		Item.shootSpeed = 15f;
 	}
 
 	public override void AddRecipes()

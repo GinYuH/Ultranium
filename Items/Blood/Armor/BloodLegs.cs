@@ -8,16 +8,16 @@ public class BloodLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Sanguine Leggings");
+		// DisplayName.SetDefault("Sanguine Leggings");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 18;
-		((Entity)(object)((ModItem)this).Item).height = 18;
-		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.defense = 4;
+		Item.width = 18;
+		Item.height = 18;
+		Item.value = Item.buyPrice(0, 1, 35);
+		Item.rare = 2;
+		Item.defense = 4;
 	}
 
 	public override void AddRecipes()

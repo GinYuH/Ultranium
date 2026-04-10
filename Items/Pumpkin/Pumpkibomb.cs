@@ -7,27 +7,27 @@ public class Pumpkibomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Pumpki-Bomb");
-		// ((ModItem)this).Tooltip.SetDefault("A throwable, explosive pumpkin");
+		// DisplayName.SetDefault("Pumpki-Bomb");
+		// Tooltip.SetDefault("A throwable, explosive pumpkin");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 12;
-		((ModItem)this).Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)((ModItem)this).Item).width = 20;
-		((Entity)(object)((ModItem)this).Item).height = 20;
-		((ModItem)this).Item.useTime = 35;
-		((ModItem)this).Item.useAnimation = 35;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.value = Item.buyPrice(0, 0, 50);
-		((ModItem)this).Item.rare = 1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("Pumpkibomb").Type;
-		((ModItem)this).Item.shootSpeed = 5f;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.noUseGraphic = true;
+		Item.damage = 12;
+		Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)Item).width = 20;
+		((Entity)(object)Item).height = 20;
+		Item.useTime = 35;
+		Item.useAnimation = 35;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.value = Item.buyPrice(0, 0, 50);
+		Item.rare = 1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("Pumpkibomb").Type;
+		Item.shootSpeed = 5f;
+		Item.useTurn = true;
+		Item.noUseGraphic = true;
 	}
 
 	public override void AddRecipes()

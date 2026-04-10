@@ -61,7 +61,7 @@ public class IceBall : ModProjectile
 			Vector2 vector = ((float)Math.PI / 3f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 10f;
-			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 337, 70, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 337, 70, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

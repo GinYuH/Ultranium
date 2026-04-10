@@ -8,30 +8,30 @@ public class FakeWhoopieCushion : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Whoopie Cushion?");
-		// ((ModItem)this).Tooltip.SetDefault("'May annoy others'\nLegends say that it's farts can be harvested...");
-		ItemID.Sets.ExtractinatorMode[((ModItem)this).Item.type] = ((ModItem)this).Item.type;
+		// DisplayName.SetDefault("Whoopie Cushion?");
+		// Tooltip.SetDefault("'May annoy others'\nLegends say that it's farts can be harvested...");
+		ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 16;
-		((Entity)(object)((ModItem)this).Item).height = 14;
-		((ModItem)this).Item.maxStack = 1;
-		((ModItem)this).Item.useStyle = 4;
-		((ModItem)this).Item.useTime = 30;
-		((ModItem)this).Item.useAnimation = 30;
-		((ModItem)this).Item.UseSound = SoundID.Item16;
-		((ModItem)this).Item.rare = 2;
-		((ModItem)this).Item.useTurn = true;
-		((ModItem)this).Item.autoReuse = false;
+		Item.width = 16;
+		Item.height = 14;
+		Item.maxStack = 1;
+		Item.useStyle = 4;
+		Item.useTime = 30;
+		Item.useAnimation = 30;
+		Item.UseSound = SoundID.Item16;
+		Item.rare = 2;
+		Item.useTurn = true;
+		Item.autoReuse = false;
 	}
 
 	public override void ExtractinatorUse(int extractinatorBlockType, ref int resultType, ref int resultStack)
 	{
 		string[] array = new string[1] { "TheFart" };
 		int num = Main.rand.Next(array.Length);
-		resultType = ((ModItem)this).Mod.Find<ModItem>(array[num]).Type;
+		resultType = Mod.Find<ModItem>(array[num]).Type;
 		resultStack = 1;
 		if (!UltraniumWorld.TheFart)
 		{
@@ -41,7 +41,7 @@ public class FakeWhoopieCushion : ModItem
 				NetMessage.SendData(7);
 			}
 		}
-		int num2 = Main.LocalPlayer.FindItem(((ModItem)this).Mod.Find<ModItem>("FakeWhoopieCushion").Type);
+		int num2 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("FakeWhoopieCushion").Type);
 		Main.LocalPlayer.inventory[num2].TurnToAir();
 	}
 }

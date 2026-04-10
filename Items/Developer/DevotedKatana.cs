@@ -17,26 +17,26 @@ public class DevotedKatana : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Devoted Katana");
-		// ((ModItem)this).Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
+		// DisplayName.SetDefault("Devoted Katana");
+		// Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).Item.damage = 200;
-		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)((ModItem)this).Item).width = 60;
-		((Entity)(object)((ModItem)this).Item).height = 78;
-		((ModItem)this).Item.useTime = 16;
-		((ModItem)this).Item.useAnimation = 16;
-		((ModItem)this).Item.useStyle = 1;
-		((ModItem)this).Item.knockBack = 6f;
-		((ModItem)this).Item.rare = 11;
-		((ModItem)this).Item.value = Item.buyPrice(2);
-		((ModItem)this).Item.UseSound = SoundID.Item1;
-		((ModItem)this).Item.autoReuse = true;
-		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DStar").Type;
-		((ModItem)this).Item.shootSpeed = 10f;
+		Item.damage = 200;
+		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		Item.width = 60;
+		Item.height = 78;
+		Item.useTime = 16;
+		Item.useAnimation = 16;
+		Item.useStyle = 1;
+		Item.knockBack = 6f;
+		Item.rare = 11;
+		Item.value = Item.buyPrice(2);
+		Item.UseSound = SoundID.Item1;
+		Item.autoReuse = true;
+		Item.shoot = Mod.Find<ModProjectile>("DStar").Type;
+		Item.shootSpeed = 10f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -54,7 +54,7 @@ public class DevotedKatana : ModItem
 		int num = Main.rand.Next(3, 4);
 		for (int i = 0; i < num; i++)
 		{
-			Projectile.NewProjectile(position, new Vector2(speedX, speedY).RotatedByRandom(0.19634954631328583), type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position, new Vector2(speedX, speedY).RotatedByRandom(0.19634954631328583), type, damage, knockBack, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

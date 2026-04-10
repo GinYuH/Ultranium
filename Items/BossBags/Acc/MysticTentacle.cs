@@ -7,18 +7,18 @@ public class MysticTentacle : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModItem)this).DisplayName.SetDefault("Zephyr Squid's Tentacle");
-		// ((ModItem)this).Tooltip.SetDefault("10% increased critical strike chance");
+		// DisplayName.SetDefault("Zephyr Squid's Tentacle");
+		// Tooltip.SetDefault("10% increased critical strike chance");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).Item).width = 32;
-		((Entity)(object)((ModItem)this).Item).height = 32;
-		((ModItem)this).Item.rare = 4;
-		((ModItem)this).Item.value = Item.buyPrice(0, 2);
-		((ModItem)this).Item.accessory = true;
-		((ModItem)this).Item.expert = true;
+		Item.width = 32;
+		Item.height = 32;
+		Item.rare = 4;
+		Item.value = Item.buyPrice(0, 2);
+		Item.accessory = true;
+		Item.expert = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)
