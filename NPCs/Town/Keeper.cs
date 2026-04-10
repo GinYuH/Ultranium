@@ -1,11 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Items.BossSummon;
+using Ultranium.NPCs.Town.Shrooms;
 
 namespace Ultranium.NPCs.Town;
 
@@ -87,7 +90,7 @@ public class Keeper : ModNPC
 	{
 		if (firstButton)
 		{
-			shop = true;
+			shopName = "Shop";
 		}
 		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
@@ -106,7 +109,7 @@ public class Keeper : ModNPC
 			Main.LocalPlayer.inventory[num5].TurnToAir();
 			Main.LocalPlayer.inventory[num6].TurnToAir();
 			Main.LocalPlayer.inventory[num7].TurnToAir();
-			Main.LocalPlayer.QuickSpawnItem(Mod.Find<ModItem>("RealityBendingShroom").Type, 1);
+			Main.LocalPlayer.QuickSpawnItem(NPC.GetSource_FromThis(), Mod.Find<ModItem>("RealityBendingShroom").Type, 1);
 		}
 		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("RealityBendingShroom").Type) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1 && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
@@ -152,164 +155,37 @@ public class Keeper : ModNPC
 		}
 	}
 
-	public override void ModifyActiveShop(string shopName, Item[] items)
-	{
-		if (NPC.downedSlimeKing)
-		{
-			shop.item[nextSlot].SetDefaults(560, false);
-			shop.item[nextSlot].shopCustomPrice = 6;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedBoss1)
-		{
-			shop.item[nextSlot].SetDefaults(43, false);
-			shop.item[nextSlot].shopCustomPrice = 8;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("BloodMoonSummon").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 8;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedBoss2)
-		{
-			shop.item[nextSlot].SetDefaults(70, false);
-			shop.item[nextSlot].shopCustomPrice = 10;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(1331, false);
-			shop.item[nextSlot].shopCustomPrice = 10;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(361, false);
-			shop.item[nextSlot].shopCustomPrice = 10;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (UltraniumWorld.downedSquid)
-		{
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("CoralBait").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 11;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedQueenBee)
-		{
-			shop.item[nextSlot].SetDefaults(1133, false);
-			shop.item[nextSlot].shopCustomPrice = 12;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedBoss3)
-		{
-			shop.item[nextSlot].SetDefaults(1307, false);
-			shop.item[nextSlot].shopCustomPrice = 13;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (UltraniumWorld.downedDragon)
-		{
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("IceFood").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 14;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (Main.hardMode)
-		{
-			shop.item[nextSlot].SetDefaults(267, false);
-			shop.item[nextSlot].shopCustomPrice = 14;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(1315, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (UltraniumWorld.downedDread)
-		{
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("DreadBeacon").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedMechBoss1)
-		{
-			shop.item[nextSlot].SetDefaults(602, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedMechBoss1 && NPC.downedMechBoss2 && NPC.downedMechBoss3)
-		{
-			shop.item[nextSlot].SetDefaults(544, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(556, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(557, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedPlantBoss)
-		{
-			shop.item[nextSlot].SetDefaults(2767, false);
-			shop.item[nextSlot].shopCustomPrice = 15;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(1844, false);
-			shop.item[nextSlot].shopCustomPrice = 20;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(1958, false);
-			shop.item[nextSlot].shopCustomPrice = 20;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (UltraniumWorld.downedXenanis)
-		{
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("EtherealLantern").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 22;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedGolemBoss)
-		{
-			shop.item[nextSlot].SetDefaults(1293, false);
-			shop.item[nextSlot].shopCustomPrice = 25;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("MiniProbe").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 25;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedFishron)
-		{
-			shop.item[nextSlot].SetDefaults(2673, false);
-			shop.item[nextSlot].shopCustomPrice = 30;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (NPC.downedMoonlord)
-		{
-			shop.item[nextSlot].SetDefaults(3601, false);
-			shop.item[nextSlot].shopCustomPrice = 45;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-		if (SellFinalShroom)
-		{
-			shop.item[nextSlot].SetDefaults(ModLoader.GetMod("Ultranium").Find<ModItem>("RealityBendingShroom").Type, false);
-			shop.item[nextSlot].shopCustomPrice = 99;
-			shop.item[nextSlot].shopSpecialCurrency = Ultranium.GlowShroomCurrencyID;
-			nextSlot++;
-		}
-	}
+    public override void AddShops()
+    {
+		NPCShop shop = new NPCShop(Type);
+		shop.Add(new Item(500) { shopCustomPrice = 6, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID });
+		shop.Add(new Item(43) { shopCustomPrice = 8, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEyeOfCthulhu);
+		shop.Add(new Item(ModContent.ItemType<BloodMoonSummon>()) { shopCustomPrice = 8, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEyeOfCthulhu);
+		shop.Add(new Item(70) { shopCustomPrice = 10, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEowOrBoc);
+		shop.Add(new Item(1331) { shopCustomPrice = 10, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEowOrBoc);
+		shop.Add(new Item(361) { shopCustomPrice = 10, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEowOrBoc);
+		shop.Add(new Item(ModContent.ItemType<CoralBait>()) { shopCustomPrice = 11, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Zephyr", () => UltraniumWorld.downedSquid));
+		shop.Add(new Item(1133) { shopCustomPrice = 12, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedQueenBee);
+		shop.Add(new Item(1307) { shopCustomPrice = 13, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedSkeletron);
+		shop.Add(new Item(ModContent.ItemType<IceFood>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dragon", () => UltraniumWorld.downedDragon));
+        shop.Add(new Item(267) { shopCustomPrice = 14, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.Hardmode);
+		shop.Add(new Item(1315) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.Hardmode);
+		shop.Add(new Item(ModContent.ItemType<DreadBeacon>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dread", () => UltraniumWorld.downedDread));
+        shop.Add(new Item(602) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDestroyer);
+		shop.Add(new Item(544) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMechBossAll);
+		shop.Add(new Item(556) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMechBossAll);
+		shop.Add(new Item(557) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMechBossAll);
+		shop.Add(new Item(2767) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedPlantera);
+		shop.Add(new Item(1844) { shopCustomPrice = 20, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedPlantera);
+		shop.Add(new Item(1958) { shopCustomPrice = 20, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedPlantera);
+		shop.Add(new Item(ModContent.ItemType<EtherealLantern>() ) { shopCustomPrice = 22, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Xenanis", () => UltraniumWorld.downedXenanis));
+        shop.Add(new Item(1293) { shopCustomPrice = 25, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedGolem);
+		shop.Add(new Item(ModContent.ItemType<MiniProbe>() ) { shopCustomPrice = 25, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedGolem);
+		shop.Add(new Item(2673) { shopCustomPrice = 30, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDukeFishron);
+		shop.Add(new Item(3601) { shopCustomPrice = 45, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMoonLord);
+		shop.Add(new Item(ModContent.ItemType<RealityBendingShroom>() ) { shopCustomPrice = 99, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Sell Final Shroom", () => SellFinalShroom));
+		shop.Register();
+    }
 
 	public override void TownNPCAttackStrength(ref int damage, ref float knockback)
 	{
