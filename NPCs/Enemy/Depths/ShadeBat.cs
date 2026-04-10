@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace Ultranium.NPCs.Enemy.Depths;
 
@@ -8,36 +9,36 @@ public class ShadeBat : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		((ModNPC)this).DisplayName.SetDefault("Shade Bat");
-		Main.npcFrameCount[((ModNPC)this).npc.type] = Main.npcFrameCount[152];
+		// ((ModNPC)this).DisplayName.SetDefault("Shade Bat");
+		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[152];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).npc.npcSlots = 1f;
-		((ModNPC)this).npc.width = 42;
-		((ModNPC)this).npc.height = 52;
-		((ModNPC)this).npc.damage = 40;
-		((ModNPC)this).npc.defense = 60;
-		((ModNPC)this).npc.lifeMax = 150;
-		((ModNPC)this).npc.knockBackResist = 0.1f;
-		((ModNPC)this).npc.aiStyle = 14;
-		base.aiType = 152;
-		base.animationType = 152;
-		((ModNPC)this).npc.HitSound = SoundID.NPCHit6;
-		((ModNPC)this).npc.DeathSound = SoundID.NPCDeath8;
-		((ModNPC)this).npc.knockBackResist = 0.5f;
-		base.banner = ((ModNPC)this).npc.type;
-		base.bannerItem = ((ModNPC)this).mod.ItemType("ShadeBatBanner");
+		((ModNPC)this).NPC.npcSlots = 1f;
+		((ModNPC)this).NPC.width = 42;
+		((ModNPC)this).NPC.height = 52;
+		((ModNPC)this).NPC.damage = 40;
+		((ModNPC)this).NPC.defense = 60;
+		((ModNPC)this).NPC.lifeMax = 150;
+		((ModNPC)this).NPC.knockBackResist = 0.1f;
+		((ModNPC)this).NPC.aiStyle = 14;
+		base.AIType = 152;
+		base.AnimationType = 152;
+		((ModNPC)this).NPC.HitSound = SoundID.NPCHit6;
+		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath8;
+		((ModNPC)this).NPC.knockBackResist = 0.5f;
+		base.Banner = ((ModNPC)this).NPC.type;
+		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("ShadeBatBanner").Type;
 	}
 
-	public override void HitEffect(int hitDirection, double damage)
+	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).npc.life <= 0)
+		if (((ModNPC)this).NPC.life <= 0)
 		{
-			Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/Depths/DepthsBatGore1"));
-			Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/Depths/DepthsBatGore2"));
-			Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/Depths/DepthsBatGore3"));
+			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/DepthsBatGore1"));
+			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/DepthsBatGore2"));
+			Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/Depths/DepthsBatGore3"));
 		}
 	}
 
@@ -47,10 +48,10 @@ public class ShadeBat : ModNPC
 		//IL_0038: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0054: Unknown result type (might be due to invalid IL or missing references)
 		//IL_007a: Unknown result type (might be due to invalid IL or missing references)
-		Player player = spawnInfo.player;
-		if (!player.ZoneTowerSolar && !player.ZoneTowerVortex && !player.ZoneTowerNebula && !player.ZoneTowerStardust && ((!Main.pumpkinMoon && !Main.snowMoon) || (double)spawnInfo.spawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || (double)spawnInfo.spawnTileY > Main.worldSurface || !Main.dayTime) && SpawnCondition.GoblinArmy.Chance == 0f)
+		Player player = spawnInfo.Player;
+		if (!player.ZoneTowerSolar && !player.ZoneTowerVortex && !player.ZoneTowerNebula && !player.ZoneTowerStardust && ((!Main.pumpkinMoon && !Main.snowMoon) || (double)spawnInfo.SpawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || (double)spawnInfo.SpawnTileY > Main.worldSurface || !Main.dayTime) && SpawnCondition.GoblinArmy.Chance == 0f)
 		{
-			if (!spawnInfo.player.GetModPlayer<UltraniumPlayer>().ZoneDepth)
+			if (!spawnInfo.Player.GetModPlayer<UltraniumPlayer>().ZoneDepth)
 			{
 				return 0f;
 			}
@@ -59,11 +60,11 @@ public class ShadeBat : ModNPC
 		return 0f;
 	}
 
-	public override void NPCLoot()
+	public override void OnKill()
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).npc.position.X, (int)((ModNPC)this).npc.position.Y, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.ItemType("ShadowEssence"), 1, false, 0, false, false);
+			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
 		}
 	}
 }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ModLoader.Utilities;
 
 namespace Ultranium.NPCs.Enemy.Stellar;
 
@@ -9,52 +10,52 @@ public class StellarSlime : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		((ModNPC)this).DisplayName.SetDefault("Stellar Slime");
-		Main.npcFrameCount[((ModNPC)this).npc.type] = 2;
+		// ((ModNPC)this).DisplayName.SetDefault("Stellar Slime");
+		Main.npcFrameCount[((ModNPC)this).NPC.type] = 2;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).npc.width = 40;
-		((ModNPC)this).npc.height = 28;
-		((ModNPC)this).npc.damage = 35;
-		((ModNPC)this).npc.defense = 20;
-		((ModNPC)this).npc.lifeMax = 220;
-		((ModNPC)this).npc.HitSound = SoundID.NPCHit1;
-		((ModNPC)this).npc.DeathSound = SoundID.NPCDeath1;
-		((ModNPC)this).npc.value = 60f;
-		((ModNPC)this).npc.value = Item.buyPrice(0, 0, 5);
-		((ModNPC)this).npc.knockBackResist = 0.5f;
-		((ModNPC)this).npc.aiStyle = 1;
-		base.banner = ((ModNPC)this).npc.type;
-		base.bannerItem = ((ModNPC)this).mod.ItemType("StellarSlimeBanner");
+		((ModNPC)this).NPC.width = 40;
+		((ModNPC)this).NPC.height = 28;
+		((ModNPC)this).NPC.damage = 35;
+		((ModNPC)this).NPC.defense = 20;
+		((ModNPC)this).NPC.lifeMax = 220;
+		((ModNPC)this).NPC.HitSound = SoundID.NPCHit1;
+		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath1;
+		((ModNPC)this).NPC.value = 60f;
+		((ModNPC)this).NPC.value = Item.buyPrice(0, 0, 5);
+		((ModNPC)this).NPC.knockBackResist = 0.5f;
+		((ModNPC)this).NPC.aiStyle = 1;
+		base.Banner = ((ModNPC)this).NPC.type;
+		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("StellarSlimeBanner").Type;
 	}
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).npc.frameCounter += 1.0;
-		if (((ModNPC)this).npc.frameCounter >= 6.0)
+		((ModNPC)this).NPC.frameCounter += 1.0;
+		if (((ModNPC)this).NPC.frameCounter >= 6.0)
 		{
-			((ModNPC)this).npc.frame.Y = (((ModNPC)this).npc.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).npc.type] * frameHeight);
-			((ModNPC)this).npc.frameCounter = 1.0;
+			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
+			((ModNPC)this).NPC.frameCounter = 1.0;
 		}
 	}
 
-	public override void HitEffect(int hitDirection, double damage)
+	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).npc.life > 0)
+		if (((ModNPC)this).NPC.life > 0)
 		{
 			return;
 		}
-		((ModNPC)this).npc.position.X = ((ModNPC)this).npc.position.X + (float)(((ModNPC)this).npc.width / 2);
-		((ModNPC)this).npc.position.Y = ((ModNPC)this).npc.position.Y + (float)(((ModNPC)this).npc.height / 2);
-		((ModNPC)this).npc.width = 30;
-		((ModNPC)this).npc.height = 30;
-		((ModNPC)this).npc.position.X = ((ModNPC)this).npc.position.X - (float)(((ModNPC)this).npc.width / 2);
-		((ModNPC)this).npc.position.Y = ((ModNPC)this).npc.position.Y - (float)(((ModNPC)this).npc.height / 2);
+		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X + (float)(((ModNPC)this).NPC.width / 2);
+		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y + (float)(((ModNPC)this).NPC.height / 2);
+		((ModNPC)this).NPC.width = 30;
+		((ModNPC)this).NPC.height = 30;
+		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X - (float)(((ModNPC)this).NPC.width / 2);
+		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y - (float)(((ModNPC)this).NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(((ModNPC)this).npc.position.X, ((ModNPC)this).npc.position.Y), ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.DustType("StellarDust"), 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y), ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModDust>("StellarDust").Type, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -62,8 +63,8 @@ public class StellarSlime : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/StellarSlimeGore1"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/StellarSlimeGore2"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/StellarSlimeGore1"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/StellarSlimeGore2"));
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -72,10 +73,10 @@ public class StellarSlime : ModNPC
 		//IL_003b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0057: Unknown result type (might be due to invalid IL or missing references)
 		//IL_007d: Unknown result type (might be due to invalid IL or missing references)
-		Player player = spawnInfo.player;
-		if (!player.ZoneTowerSolar && !player.ZoneTowerVortex && !player.ZoneTowerNebula && !player.ZoneTowerStardust && ((!Main.pumpkinMoon && !Main.snowMoon) || (double)spawnInfo.spawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || (double)spawnInfo.spawnTileY > Main.worldSurface || !Main.dayTime) && SpawnCondition.GoblinArmy.Chance == 0f)
+		Player player = spawnInfo.Player;
+		if (!player.ZoneTowerSolar && !player.ZoneTowerVortex && !player.ZoneTowerNebula && !player.ZoneTowerStardust && ((!Main.pumpkinMoon && !Main.snowMoon) || (double)spawnInfo.SpawnTileY > Main.worldSurface || Main.dayTime) && (!Main.eclipse || (double)spawnInfo.SpawnTileY > Main.worldSurface || !Main.dayTime) && SpawnCondition.GoblinArmy.Chance == 0f)
 		{
-			if (!spawnInfo.player.ZoneSkyHeight || !Main.hardMode)
+			if (!spawnInfo.Player.ZoneSkyHeight || !Main.hardMode)
 			{
 				return 0f;
 			}
@@ -84,11 +85,11 @@ public class StellarSlime : ModNPC
 		return 0f;
 	}
 
-	public override void NPCLoot()
+	public override void OnKill()
 	{
 		if (Main.rand.Next(2) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).npc.position.X, (int)((ModNPC)this).npc.position.Y, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.ItemType("StellarDust"), Main.rand.Next(1, 3), false, 0, false, false);
+			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("StellarDust").Type, Main.rand.Next(1, 3), false, 0, false, false);
 		}
 	}
 }

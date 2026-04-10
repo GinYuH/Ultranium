@@ -8,17 +8,17 @@ public class XenanisWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Ethereal Wings");
-		((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall");
+		// ((ModItem)this).DisplayName.SetDefault("Ethereal Wings");
+		// ((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 34;
-		((Entity)(object)((ModItem)this).item).height = 26;
-		((ModItem)this).item.value = Item.buyPrice(0, 25);
-		((ModItem)this).item.rare = 9;
-		((ModItem)this).item.accessory = true;
+		((Entity)(object)((ModItem)this).Item).width = 34;
+		((Entity)(object)((ModItem)this).Item).height = 26;
+		((ModItem)this).Item.value = Item.buyPrice(0, 25);
+		((ModItem)this).Item.rare = 9;
+		((ModItem)this).Item.accessory = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)

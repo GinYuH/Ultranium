@@ -8,28 +8,28 @@ public class GlacialFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Glacial Flail");
-		((ModItem)this).Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
+		// ((ModItem)this).DisplayName.SetDefault("Glacial Flail");
+		// ((ModItem)this).Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 30;
-		((Entity)(object)((ModItem)this).item).height = 10;
-		((ModItem)this).item.rare = 3;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.UseSound = SoundID.Item1;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.useAnimation = 40;
-		((ModItem)this).item.useTime = 40;
-		((ModItem)this).item.knockBack = 7.5f;
-		((ModItem)this).item.damage = 35;
-		((ModItem)this).item.noUseGraphic = true;
-		((ModItem)this).item.melee = true;
-		((ModItem)this).item.channel = true;
-		((ModItem)this).item.value = Item.buyPrice(0, 20);
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("GlacialFlail");
-		((ModItem)this).item.shootSpeed = 15f;
+		((Entity)(object)((ModItem)this).Item).width = 30;
+		((Entity)(object)((ModItem)this).Item).height = 10;
+		((ModItem)this).Item.rare = 3;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.UseSound = SoundID.Item1;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.useAnimation = 40;
+		((ModItem)this).Item.useTime = 40;
+		((ModItem)this).Item.knockBack = 7.5f;
+		((ModItem)this).Item.damage = 35;
+		((ModItem)this).Item.noUseGraphic = true;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((ModItem)this).Item.channel = true;
+		((ModItem)this).Item.value = Item.buyPrice(0, 20);
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("GlacialFlail").Type;
+		((ModItem)this).Item.shootSpeed = 15f;
 	}
 
 	public override void AddRecipes()
@@ -39,11 +39,10 @@ public class GlacialFlail : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient(664, 10);
 		val.AddIngredient((Mod)null, "IcePelt", 7);
 		val.AddTile(16);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

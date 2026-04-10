@@ -10,29 +10,29 @@ public class DarkHelm : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Darkmatter Helmet");
-		((ModItem)this).Tooltip.SetDefault("12% increased melee damage\n+5 max life");
+		// ((ModItem)this).DisplayName.SetDefault("Darkmatter Helmet");
+		// ((ModItem)this).Tooltip.SetDefault("12% increased melee damage\n+5 max life");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 18;
-		((Entity)(object)((ModItem)this).item).height = 18;
-		((ModItem)this).item.value = Item.buyPrice(0, 80);
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.defense = 27;
+		((Entity)(object)((ModItem)this).Item).width = 18;
+		((Entity)(object)((ModItem)this).Item).height = 18;
+		((ModItem)this).Item.value = Item.buyPrice(0, 80);
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.defense = 27;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(34, 166, 118);
+		tooltips[0].OverrideColor = new Color(34, 166, 118);
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).mod.ItemType("DarkBody"))
+		if (body.type == ((ModItem)this).Mod.Find<ModItem>("DarkBody").Type)
 		{
-			return legs.type == ((ModItem)this).mod.ItemType("DarkLegs");
+			return legs.type == ((ModItem)this).Mod.Find<ModItem>("DarkLegs").Type;
 		}
 		return false;
 	}
@@ -41,9 +41,9 @@ public class DarkHelm : ModItem
 	{
 		player.setBonus = "\n10% increased melee damage and melee speed\n+10 max health\nPressing the Special Ability hotkey will grant you the eldritch melee empowerment buff\nThis buff will cause all melee weapons to deal 1.5x damage\nHowever, you will also take 1.3x damage\nThis ability has a 40 second cool down";
 		player.GetModPlayer<UltraniumPlayer>().EldritchMeleeSet = true;
-		player.meleeDamage += 0.05f;
+		player.GetDamage(DamageClass.Melee) += 0.05f;
 		player.statLifeMax2 += 10;
-		player.meleeSpeed *= 1.1f;
+		player.GetAttackSpeed(DamageClass.Melee) *= 1.1f;
 	}
 
 	public override void ArmorSetShadows(Player player)
@@ -54,7 +54,7 @@ public class DarkHelm : ModItem
 	public override void UpdateEquip(Player player)
 	{
 		player.statLifeMax2 += 5;
-		player.meleeDamage += 0.12f;
+		player.GetDamage(DamageClass.Melee) += 0.12f;
 	}
 
 	public override void AddRecipes()
@@ -65,12 +65,11 @@ public class DarkHelm : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0034: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 10);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

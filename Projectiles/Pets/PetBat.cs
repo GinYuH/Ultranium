@@ -8,22 +8,22 @@ public class PetBat : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Bat");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 4;
+		// ((ModProjectile)this).DisplayName.SetDefault("Bat");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(198);
-		base.aiType = 198;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.width = 42;
-		((ModProjectile)this).projectile.height = 36;
+		((ModProjectile)this).Projectile.CloneDefaults(198);
+		base.AIType = 198;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.width = 42;
+		((ModProjectile)this).Projectile.height = 36;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -31,20 +31,20 @@ public class PetBat : ModProjectile
 		}
 		if (modPlayer.PetBat)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
-		((ModProjectile)this).projectile.frameCounter++;
-		if (((ModProjectile)this).projectile.frameCounter > 2)
+		((ModProjectile)this).Projectile.frameCounter++;
+		if (((ModProjectile)this).Projectile.frameCounter > 2)
 		{
-			((ModProjectile)this).projectile.frameCounter = 0;
+			((ModProjectile)this).Projectile.frameCounter = 0;
 		}
-		if (((ModProjectile)this).projectile.frame >= 4)
+		if (((ModProjectile)this).Projectile.frame >= 4)
 		{
-			((ModProjectile)this).projectile.frame = 0;
+			((ModProjectile)this).Projectile.frame = 0;
 		}
 	}
 
-	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
 	{
 		fallThrough = false;
 		return true;

@@ -7,23 +7,23 @@ public class BabyWorm : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Zephyr Serpent");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 4;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
+		// ((ModProjectile)this).DisplayName.SetDefault("Zephyr Serpent");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(380);
-		base.aiType = 380;
-		((ModProjectile)this).projectile.timeLeft = 999999999;
-		((ModProjectile)this).projectile.timeLeft *= 999999999;
-		((ModProjectile)this).projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.CloneDefaults(380);
+		base.AIType = 380;
+		((ModProjectile)this).Projectile.timeLeft = 999999999;
+		((ModProjectile)this).Projectile.timeLeft *= 999999999;
+		((ModProjectile)this).Projectile.penetrate = -1;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -31,7 +31,7 @@ public class BabyWorm : ModProjectile
 		}
 		if (modPlayer.BabyWorm)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 	}
 }

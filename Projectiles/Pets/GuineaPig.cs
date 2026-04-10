@@ -8,24 +8,24 @@ public class GuineaPig : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Guinea Pig");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 8;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
+		// ((ModProjectile)this).DisplayName.SetDefault("Guinea Pig");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 8;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(111);
-		base.aiType = 111;
-		((ModProjectile)this).projectile.height = 36;
-		((ModProjectile)this).projectile.width = 30;
-		((ModProjectile)this).projectile.timeLeft = 999999999;
-		((ModProjectile)this).projectile.timeLeft *= 999999999;
+		((ModProjectile)this).Projectile.CloneDefaults(111);
+		base.AIType = 111;
+		((ModProjectile)this).Projectile.height = 36;
+		((ModProjectile)this).Projectile.width = 30;
+		((ModProjectile)this).Projectile.timeLeft = 999999999;
+		((ModProjectile)this).Projectile.timeLeft *= 999999999;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -33,11 +33,11 @@ public class GuineaPig : ModProjectile
 		}
 		if (modPlayer.GuineaPig)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 	}
 
-	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
 	{
 		fallThrough = false;
 		return true;

@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,50 +12,50 @@ public class SkyStar : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 6;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Sanctus Stella");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 6;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Sanctus Stella");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 28;
-		((ModProjectile)this).projectile.height = 28;
-		((ModProjectile)this).projectile.aiStyle = 18;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ranged = true;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.timeLeft = 100;
-		((ModProjectile)this).projectile.CloneDefaults(3);
-		base.aiType = 3;
+		((ModProjectile)this).Projectile.width = 28;
+		((ModProjectile)this).Projectile.height = 28;
+		((ModProjectile)this).Projectile.aiStyle = 18;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.timeLeft = 100;
+		((ModProjectile)this).Projectile.CloneDefaults(3);
+		base.AIType = 3;
 	}
 
 	public override void AI()
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 228);
+			Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 228);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
-	public override void Kill(int timeleft)
+	public override void OnKill(int timeleft)
 	{
-		Projectile.NewProjectile(((ModProjectile)this).projectile.Center, Vector2.Zero, ((ModProjectile)this).mod.ProjectileType("SkyStarExplosion"), ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack, ((ModProjectile)this).projectile.owner, 0f, 0f);
-		Main.PlaySound(SoundID.Item74, ((ModProjectile)this).projectile.position);
+		Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, Vector2.Zero, ((ModProjectile)this).Mod.Find<ModProjectile>("SkyStarExplosion").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
+		SoundEngine.PlaySound(SoundID.Item74, ((ModProjectile)this).Projectile.position);
 	}
 }

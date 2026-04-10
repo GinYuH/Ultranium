@@ -1,4 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Ocean;
@@ -9,16 +12,16 @@ public class ZephyrTrident : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Zephyr Trident");
+		// ((ModProjectile)this).DisplayName.SetDefault("Zephyr Trident");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(47);
-		((ModProjectile)this).projectile.height = 122;
-		((ModProjectile)this).projectile.width = 122;
-		base.aiType = 47;
-		((ModProjectile)this).projectile.magic = true;
+		((ModProjectile)this).Projectile.CloneDefaults(47);
+		((ModProjectile)this).Projectile.height = 122;
+		((ModProjectile)this).Projectile.width = 122;
+		base.AIType = 47;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
 	}
 
 	public override void AI()
@@ -26,14 +29,14 @@ public class ZephyrTrident : ModProjectile
 		timer--;
 		if (timer == 0)
 		{
-			Main.PlaySound(2, (int)((ModProjectile)this).projectile.position.X, (int)((ModProjectile)this).projectile.position.Y, 8, 1f, 0f);
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center, ((ModProjectile)this).projectile.velocity, ((ModProjectile)this).mod.ProjectileType("ZephyrTridentBolt"), ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack, ((ModProjectile)this).projectile.owner, 0f, 0f);
+			SoundEngine.PlaySound(SoundID.Item8, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.velocity, ((ModProjectile)this).Mod.Find<ModProjectile>("ZephyrTridentBolt").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			timer = 25;
 		}
 	}
 
-	public override void OnHitNPC(NPC target, int damage, float knockBack, bool crit)
+	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		Main.player[((ModProjectile)this).projectile.owner].statMana += 5;
+		Main.player[((ModProjectile)this).Projectile.owner].statMana += 5;
 	}
 }

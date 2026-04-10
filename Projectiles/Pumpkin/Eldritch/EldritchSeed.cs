@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,44 +12,44 @@ public class EldritchSeed : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 2;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Eldritch Seed");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 2;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Eldritch Seed");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 14;
-		((ModProjectile)this).projectile.height = 14;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ranged = true;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.timeLeft = 600;
-		((ModProjectile)this).projectile.extraUpdates = 1;
-		((ModProjectile)this).projectile.ignoreWater = false;
+		((ModProjectile)this).Projectile.width = 14;
+		((ModProjectile)this).Projectile.height = 14;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.timeLeft = 600;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.ignoreWater = false;
 	}
 
-	public override bool PreDraw(SpriteBatch sb, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
-		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type] * ((ModProjectile)this).projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type]);
-			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type] * ((ModProjectile)this).Projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type]);
+			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).projectile.rotation += 0f * (float)((ModProjectile)this).projectile.direction;
-		int num = Dust.NewDust(((ModProjectile)this).projectile.Center, 0, 0, 6, ((ModProjectile)this).projectile.velocity.X * 0.4f, ((ModProjectile)this).projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
+		int num = Dust.NewDust(((ModProjectile)this).Projectile.Center, 0, 0, 6, ((ModProjectile)this).Projectile.velocity.X * 0.4f, ((ModProjectile)this).Projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
 		Main.dust[num].velocity *= 0.3f;
 		Main.dust[num].scale *= 0.3f;
 		Main.dust[num].noGravity = false;

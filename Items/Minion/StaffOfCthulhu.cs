@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,29 +10,29 @@ public class StaffOfCthulhu : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Staff of Cthulhu");
-		((ModItem)this).Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
+		// ((ModItem)this).DisplayName.SetDefault("Staff of Cthulhu");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.summon = true;
-		((ModItem)this).item.mana = 20;
-		((ModItem)this).item.damage = 7;
-		((Entity)(object)((ModItem)this).item).width = 42;
-		((Entity)(object)((ModItem)this).item).height = 42;
-		((ModItem)this).item.useTime = 30;
-		((ModItem)this).item.useAnimation = 30;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.knockBack = 0f;
-		((ModItem)this).item.value = Item.buyPrice(0, 0, 80);
-		((ModItem)this).item.rare = 1;
-		((ModItem)this).item.UseSound = SoundID.Item44;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("EyeMinion");
-		((ModItem)this).item.shootSpeed = 10f;
-		((ModItem)this).item.buffType = ((ModItem)this).mod.BuffType("EyeBuff");
-		((ModItem)this).item.buffTime = 3600;
+		((ModItem)this).Item.DamageType = DamageClass.Summon;
+		((ModItem)this).Item.mana = 20;
+		((ModItem)this).Item.damage = 7;
+		((Entity)(object)((ModItem)this).Item).width = 42;
+		((Entity)(object)((ModItem)this).Item).height = 42;
+		((ModItem)this).Item.useTime = 30;
+		((ModItem)this).Item.useAnimation = 30;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.knockBack = 0f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 0, 80);
+		((ModItem)this).Item.rare = 1;
+		((ModItem)this).Item.UseSound = SoundID.Item44;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EyeMinion").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
+		((ModItem)this).Item.buffType = ((ModItem)this).Mod.Find<ModBuff>("EyeBuff").Type;
+		((ModItem)this).Item.buffTime = 3600;
 	}
 
 	public override bool AltFunctionUse(Player player)
@@ -39,12 +40,12 @@ public class StaffOfCthulhu : ModItem
 		return true;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		return player.altFunctionUse != 2;
 	}
 
-	public override bool UseItem(Player player)
+	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
 		if (player.altFunctionUse == 2)
 		{

@@ -7,9 +7,9 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Backgrounds.ShadowBiome;
 
-public class ShadowSurface : ModSurfaceBgStyle
+public class ShadowSurface : ModSurfaceBackgroundStyle
 {
-	public override bool ChooseBgStyle()
+	public override bool ChooseBgStyle()/* tModPorter Note: Removed. Create a ModBiome (or ModSceneEffect) class and override SurfaceBackgroundStyle property to return this object through Mod/ModContent.Find, then move this code into IsBiomeActive (or IsSceneEffectActive) */
 	{
 		if (!Main.gameMenu)
 		{
@@ -22,7 +22,7 @@ public class ShadowSurface : ModSurfaceBgStyle
 	{
 		for (int i = 0; i < fades.Length; i++)
 		{
-			if (i == ((ModSurfaceBgStyle)this).Slot)
+			if (i == ((ModSurfaceBackgroundStyle)this).Slot)
 			{
 				fades[i] += transitionSpeed;
 				if (fades[i] > 1f)
@@ -43,12 +43,12 @@ public class ShadowSurface : ModSurfaceBgStyle
 
 	public override int ChooseFarTexture()
 	{
-		return ((ModSurfaceBgStyle)this).mod.GetBackgroundSlot("Backgrounds/ShadowBiome/ShadowMountain");
+		return BackgroundTextureLoader.GetBackgroundSlot(((ModSurfaceBackgroundStyle)this).Mod, "Backgrounds/ShadowBiome/ShadowMountain");
 	}
 
 	public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
 	{
-		return ((ModSurfaceBgStyle)this).mod.GetBackgroundSlot("Backgrounds/ShadowBiome/ShadowClose");
+		return BackgroundTextureLoader.GetBackgroundSlot(((ModSurfaceBackgroundStyle)this).Mod, "Backgrounds/ShadowBiome/ShadowClose");
 	}
 
 	public override bool PreDrawCloseBackground(SpriteBatch spriteBatch)
@@ -57,9 +57,9 @@ public class ShadowSurface : ModSurfaceBgStyle
 		float num2 = 1750f;
 		int[] array = new int[3]
 		{
-			((ModSurfaceBgStyle)this).mod.GetBackgroundSlot("Backgrounds/ShadowBiome/ShadowFar"),
-			((ModSurfaceBgStyle)this).mod.GetBackgroundSlot("Backgrounds/ShadowBiome/ShadowMiddle"),
-			((ModSurfaceBgStyle)this).mod.GetBackgroundSlot("Backgrounds/ShadowBiome/ShadowClose")
+			BackgroundTextureLoader.GetBackgroundSlot(((ModSurfaceBackgroundStyle)this).Mod, "Backgrounds/ShadowBiome/ShadowFar"),
+			BackgroundTextureLoader.GetBackgroundSlot(((ModSurfaceBackgroundStyle)this).Mod, "Backgrounds/ShadowBiome/ShadowMiddle"),
+			BackgroundTextureLoader.GetBackgroundSlot(((ModSurfaceBackgroundStyle)this).Mod, "Backgrounds/ShadowBiome/ShadowClose")
 		};
 		int num3 = array.Length;
 		for (int i = 0; i < array.Length; i++)

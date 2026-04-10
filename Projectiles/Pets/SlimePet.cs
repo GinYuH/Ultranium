@@ -8,23 +8,23 @@ public class SlimePet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Slime");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 2;
+		// ((ModProjectile)this).DisplayName.SetDefault("Slime");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 2;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(334);
-		base.aiType = 334;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.width = 32;
-		((ModProjectile)this).projectile.height = 22;
-		((ModProjectile)this).projectile.alpha = 50;
+		((ModProjectile)this).Projectile.CloneDefaults(334);
+		base.AIType = 334;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.width = 32;
+		((ModProjectile)this).Projectile.height = 22;
+		((ModProjectile)this).Projectile.alpha = 50;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -32,25 +32,25 @@ public class SlimePet : ModProjectile
 		}
 		if (modPlayer.SlimePet)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 	}
 
 	public override void PostAI()
 	{
-		((ModProjectile)this).projectile.frameCounter++;
-		if (((ModProjectile)this).projectile.frameCounter > 200)
+		((ModProjectile)this).Projectile.frameCounter++;
+		if (((ModProjectile)this).Projectile.frameCounter > 200)
 		{
-			((ModProjectile)this).projectile.frame++;
-			((ModProjectile)this).projectile.frameCounter = 0;
+			((ModProjectile)this).Projectile.frame++;
+			((ModProjectile)this).Projectile.frameCounter = 0;
 		}
-		if (((ModProjectile)this).projectile.frame >= 2)
+		if (((ModProjectile)this).Projectile.frame >= 2)
 		{
-			((ModProjectile)this).projectile.frame = 0;
+			((ModProjectile)this).Projectile.frame = 0;
 		}
 	}
 
-	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough)
+	public override bool TileCollideStyle(ref int width, ref int height, ref bool fallThrough, ref Vector2 hitboxCenterFrac)
 	{
 		fallThrough = false;
 		return true;

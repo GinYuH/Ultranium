@@ -1,19 +1,21 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.GameContent.Generation;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using Terraria.World.Generation;
+using Terraria.WorldBuilding;
 using Ultranium.Generation;
 using Ultranium.Generation.Shrine;
 using Ultranium.ShadowEvent;
 
 namespace Ultranium;
 
-public class UltraniumWorld : ModWorld
+public class UltraniumWorld : ModSystem
 {
 	public int MessageTimer;
 
@@ -67,7 +69,7 @@ public class UltraniumWorld : ModWorld
 
 	public static bool DreadMessage;
 
-	public override void Initialize()
+	public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
 	{
 		SavedTruffle = false;
 		Moorhsum = false;
@@ -123,7 +125,7 @@ public class UltraniumWorld : ModWorld
 		MessageTimer2 = 0;
 	}
 
-	public override TagCompound Save()
+	public override void SaveWorldData(TagCompound tag)/* tModPorter Suggestion: Edit tag parameter instead of returning new TagCompound */
 	{
 		//IL_014a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_014f: Unknown result type (might be due to invalid IL or missing references)
@@ -204,7 +206,7 @@ public class UltraniumWorld : ModWorld
 		return new TagCompound { ["downed"] = list };
 	}
 
-	public override void Load(TagCompound tag)
+	public override void LoadWorldData(TagCompound tag)
 	{
 		IList<string> list = tag.GetList<string>("downed");
 		downedSquid = list.Contains("Squid");
@@ -256,7 +258,7 @@ public class UltraniumWorld : ModWorld
 		}
 		else
 		{
-			((ModWorld)this).mod.Logger.WarnFormat("Ultranium: Unknown loadVersion: {0}", (object)num);
+			((ModSystem)this).Mod.Logger.WarnFormat("Ultranium: Unknown loadVersion: {0}", (object)num);
 		}
 	}
 
@@ -313,9 +315,9 @@ public class UltraniumWorld : ModWorld
 		ExistentialDread = bitsByte3[6];
 	}
 
-	public override void PostUpdate()
+	public override void PostUpdateWorld()
 	{
-		if (NPC.AnyNPCs(((ModWorld)this).mod.NPCType("ErebusHead")))
+		if (NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type))
 		{
 			MoonlordShake(0.8f);
 		}
@@ -339,7 +341,7 @@ public class UltraniumWorld : ModWorld
 			MessageTimer++;
 			if (MessageTimer == 600)
 			{
-				Main.PlaySound(((ModWorld)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/DreadRoar"), -1, -1);
+				SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/DreadRoar"), -1, -1);
 				Main.NewText("Fear flows through your veins...", (byte)200, (byte)0, (byte)0, false);
 				DreadMessage = true;
 			}
@@ -349,7 +351,7 @@ public class UltraniumWorld : ModWorld
 			MessageTimer2++;
 			if (MessageTimer2 == 600)
 			{
-				Main.PlaySound(((ModWorld)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar"), -1, -1);
+				SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar"), -1, -1);
 				Main.NewText("An otherworldy roar echoes through out the world...", (byte)90, (byte)72, (byte)169, false);
 				ErebusMessage = true;
 			}
@@ -362,9 +364,9 @@ public class UltraniumWorld : ModWorld
 		ShadowTiles = 0;
 	}
 
-	public override void TileCountsAvailable(int[] tileCounts)
+	public override void TileCountsAvailable(ReadOnlySpan<int> tileCounts)
 	{
-		ShadowTiles = tileCounts[((ModWorld)this).mod.TileType("ShadowGrass")] + tileCounts[((ModWorld)this).mod.TileType("ShadowStoneTile")];
+		ShadowTiles = tileCounts[((ModSystem)this).Mod.Find<ModTile>("ShadowGrass").Type] + tileCounts[((ModSystem)this).Mod.Find<ModTile>("ShadowStoneTile").Type];
 	}
 
 	private void GenGuardianShrine(GenerationProgress progress)
@@ -384,7 +386,7 @@ public class UltraniumWorld : ModWorld
 			if (!((double)i > Main.worldSurface))
 			{
 				Tile tile = Main.tile[num, i];
-				if (tile.type == 0 || tile.type == 2 || tile.type == 1)
+				if (tile.TileType == 0 || tile.TileType == 2 || tile.TileType == 1)
 				{
 					GuardianShrine.Generate(num, i - 22);
 					flag = true;
@@ -434,31 +436,31 @@ public class UltraniumWorld : ModWorld
 			{
 				if (Vector2.Distance(new Vector2(num4, num5), new Vector2(i, j)) <= (float)num3)
 				{
-					if (Main.tile[i, j].wall == 15 || Main.tile[i, j].wall == 59 || Main.tile[i, j].wall == 2)
+					if (Main.tile[i, j].WallType == 15 || Main.tile[i, j].WallType == 59 || Main.tile[i, j].WallType == 2)
 					{
-						Main.tile[i, j].wall = (ushort)((ModWorld)this).mod.WallType("ShadowWall");
+						Main.tile[i, j].WallType = (ushort)((ModSystem)this).Mod.Find<ModWall>("ShadowWall").Type;
 					}
-					if (Main.tile[i, j].wall == 64 || Main.tile[i, j].wall == 67 || Main.tile[i, j].wall == 63 || Main.tile[i, j].wall == 66 || Main.tile[i, j].wall == 65 || Main.tile[i, j].wall == 68 || Main.tile[i, j].wall == 69 || Main.tile[i, j].wall == 81)
+					if (Main.tile[i, j].WallType == 64 || Main.tile[i, j].WallType == 67 || Main.tile[i, j].WallType == 63 || Main.tile[i, j].WallType == 66 || Main.tile[i, j].WallType == 65 || Main.tile[i, j].WallType == 68 || Main.tile[i, j].WallType == 69 || Main.tile[i, j].WallType == 81)
 					{
-						Main.tile[i, j].wall = (ushort)((ModWorld)this).mod.WallType("ShadowGrassWall");
+						Main.tile[i, j].WallType = (ushort)((ModSystem)this).Mod.Find<ModWall>("ShadowGrassWall").Type;
 					}
-					if (Main.tile[i, j].wall == 83 || Main.tile[i, j].wall == 3 || Main.tile[i, j].wall == 40 || Main.tile[i, j].wall == 1)
+					if (Main.tile[i, j].WallType == 83 || Main.tile[i, j].WallType == 3 || Main.tile[i, j].WallType == 40 || Main.tile[i, j].WallType == 1)
 					{
-						Main.tile[i, j].wall = (ushort)((ModWorld)this).mod.WallType("ShadowStoneWall");
+						Main.tile[i, j].WallType = (ushort)((ModSystem)this).Mod.Find<ModWall>("ShadowStoneWall").Type;
 					}
-					if (Main.tile[i, j].type == 60 || Main.tile[i, j].type == 59 || Main.tile[i, j].type == 147 || Main.tile[i, j].type == 53 || Main.tile[i, j].type == 112 || Main.tile[i, j].type == 234 || Main.tile[i, j].type == 199 || Main.tile[i, j].type == 59 || Main.tile[i, j].type == 23 || Main.tile[i, j].type == 0 || Main.tile[i, j].type == 2)
+					if (Main.tile[i, j].TileType == 60 || Main.tile[i, j].TileType == 59 || Main.tile[i, j].TileType == 147 || Main.tile[i, j].TileType == 53 || Main.tile[i, j].TileType == 112 || Main.tile[i, j].TileType == 234 || Main.tile[i, j].TileType == 199 || Main.tile[i, j].TileType == 59 || Main.tile[i, j].TileType == 23 || Main.tile[i, j].TileType == 0 || Main.tile[i, j].TileType == 2)
 					{
-						Main.tile[i, j].type = (ushort)((ModWorld)this).mod.TileType("ShadowGrass");
+						Main.tile[i, j].TileType = (ushort)((ModSystem)this).Mod.Find<ModTile>("ShadowGrass").Type;
 					}
-					if (Main.tile[i, j].type == 1 || Main.tile[i, j].type == 25 || Main.tile[i, j].type == 203 || Main.tile[i, j].type == 163 || Main.tile[i, j].type == 200 || Main.tile[i, j].type == 161)
+					if (Main.tile[i, j].TileType == 1 || Main.tile[i, j].TileType == 25 || Main.tile[i, j].TileType == 203 || Main.tile[i, j].TileType == 163 || Main.tile[i, j].TileType == 200 || Main.tile[i, j].TileType == 161)
 					{
-						Main.tile[i, j].type = (ushort)((ModWorld)this).mod.TileType("ShadowStoneTile");
+						Main.tile[i, j].TileType = (ushort)((ModSystem)this).Mod.Find<ModTile>("ShadowStoneTile").Type;
 					}
-					if (Main.tile[i, j].type == 6 || Main.tile[i, j].type == 7 || Main.tile[i, j].type == 8 || Main.tile[i, j].type == 9 || Main.tile[i, j].type == 221 || Main.tile[i, j].type == 222 || Main.tile[i, j].type == 223 || Main.tile[i, j].type == 204 || Main.tile[i, j].type == 166 || Main.tile[i, j].type == 167 || Main.tile[i, j].type == 168 || Main.tile[i, j].type == 169 || Main.tile[i, j].type == 221 || Main.tile[i, j].type == 107 || Main.tile[i, j].type == 108 || Main.tile[i, j].type == 22 || Main.tile[i, j].type == 111 || Main.tile[i, j].type == 123 || Main.tile[i, j].type == 224 || Main.tile[i, j].type == 40 || Main.tile[i, j].type == 59)
+					if (Main.tile[i, j].TileType == 6 || Main.tile[i, j].TileType == 7 || Main.tile[i, j].TileType == 8 || Main.tile[i, j].TileType == 9 || Main.tile[i, j].TileType == 221 || Main.tile[i, j].TileType == 222 || Main.tile[i, j].TileType == 223 || Main.tile[i, j].TileType == 204 || Main.tile[i, j].TileType == 166 || Main.tile[i, j].TileType == 167 || Main.tile[i, j].TileType == 168 || Main.tile[i, j].TileType == 169 || Main.tile[i, j].TileType == 221 || Main.tile[i, j].TileType == 107 || Main.tile[i, j].TileType == 108 || Main.tile[i, j].TileType == 22 || Main.tile[i, j].TileType == 111 || Main.tile[i, j].TileType == 123 || Main.tile[i, j].TileType == 224 || Main.tile[i, j].TileType == 40 || Main.tile[i, j].TileType == 59)
 					{
-						Main.tile[i, j].type = (ushort)((ModWorld)this).mod.TileType("ShadowOreTile");
+						Main.tile[i, j].TileType = (ushort)((ModSystem)this).Mod.Find<ModTile>("ShadowOreTile").Type;
 					}
-					if (Main.tile[i, j].liquid == 3)
+					if (Main.tile[i, j].LiquidAmount == 3)
 					{
 						WorldGen.PlaceTile(i, j, 162);
 					}
@@ -469,18 +471,18 @@ public class UltraniumWorld : ModWorld
 		{
 			int num6 = WorldGen.genRand.Next(0, Main.maxTilesX);
 			int num7 = WorldGen.genRand.Next(0, Main.maxTilesY);
-			if (Main.tile[num6, num7].type == ((ModWorld)this).mod.TileType("ShadowGrass") || Main.tile[num6, num7].type == ((ModWorld)this).mod.TileType("ShadowStoneTile"))
+			if (Main.tile[num6, num7].TileType == ((ModSystem)this).Mod.Find<ModTile>("ShadowGrass").Type || Main.tile[num6, num7].TileType == ((ModSystem)this).Mod.Find<ModTile>("ShadowStoneTile").Type)
 			{
-				WorldGen.TileRunner(num6, num7, (double)WorldGen.genRand.Next(15, 15), WorldGen.genRand.Next(12, 15), (int)(ushort)((ModWorld)this).mod.TileType("ShadowOreTile"), false, 0f, 0f, false, true);
+				WorldGen.TileRunner(num6, num7, (double)WorldGen.genRand.Next(15, 15), WorldGen.genRand.Next(12, 15), (int)(ushort)((ModSystem)this).Mod.Find<ModTile>("ShadowOreTile").Type, false, 0f, 0f, false, true);
 			}
 		}
 		for (int l = 0; l < Main.maxTilesX; l++)
 		{
 			for (int m = 0; m < Main.maxTilesY; m++)
 			{
-				if (Main.tile[l, m].type == ((ModWorld)this).mod.TileType("ShadowGrass") && (!Main.tile[l + 1, m].active() || !Main.tile[l, m - 1].active() || !Main.tile[l - 1, m].active() || !Main.tile[l, m + 1].active()))
+				if (Main.tile[l, m].TileType == ((ModSystem)this).Mod.Find<ModTile>("ShadowGrass").Type && (!Main.tile[l + 1, m].HasTile || !Main.tile[l, m - 1].HasTile || !Main.tile[l - 1, m].HasTile || !Main.tile[l, m + 1].HasTile))
 				{
-					Main.tile[l, m].type = (ushort)((ModWorld)this).mod.TileType("ShadowGrass");
+					Main.tile[l, m].TileType = (ushort)((ModSystem)this).Mod.Find<ModTile>("ShadowGrass").Type;
 				}
 			}
 		}
@@ -530,7 +532,7 @@ public class UltraniumWorld : ModWorld
 		DepthsClear.Generate(x, y);
 	}
 
-	public unsafe override void ModifyWorldGenTasks(List<GenPass> tasks, ref float totalWeight)
+	public unsafe override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
 	{
 		int num = tasks.FindIndex((GenPass genpass) => genpass.Name.Equals("Slush"));
 		if (num != -1)
@@ -548,14 +550,14 @@ public class UltraniumWorld : ModWorld
 
 	public override void PostWorldGen()
 	{
-		int[] array = new int[1] { ((ModWorld)this).mod.ItemType("BrokenUltrumSummon") };
-		int[] array2 = new int[1] { ((ModWorld)this).mod.ItemType("BrokenIgnodiumSummon") };
+		int[] array = new int[1] { ((ModSystem)this).Mod.Find<ModItem>("BrokenUltrumSummon").Type };
+		int[] array2 = new int[1] { ((ModSystem)this).Mod.Find<ModItem>("BrokenIgnodiumSummon").Type };
 		int num = 0;
 		int num2 = 0;
 		for (int i = 0; i < 1000; i++)
 		{
 			Chest chest = Main.chest[i];
-			if (chest != null && Main.tile[chest.x, chest.y].type == ((ModWorld)this).mod.TileType("ShrineChest"))
+			if (chest != null && Main.tile[chest.x, chest.y].TileType == ((ModSystem)this).Mod.Find<ModTile>("ShrineChest").Type)
 			{
 				num = Main.rand.Next(array.Length);
 				num2 = Main.rand.Next(array2.Length);
@@ -564,12 +566,12 @@ public class UltraniumWorld : ModWorld
 				break;
 			}
 		}
-		int[] array3 = new int[1] { ((ModWorld)this).mod.ItemType("DarkResonatorBroken") };
+		int[] array3 = new int[1] { ((ModSystem)this).Mod.Find<ModItem>("DarkResonatorBroken").Type };
 		int num3 = 0;
 		for (int j = 0; j < 1000; j++)
 		{
 			Chest chest2 = Main.chest[j];
-			if (chest2 != null && Main.tile[chest2.x, chest2.y].type == ((ModWorld)this).mod.TileType("ShadowChest"))
+			if (chest2 != null && Main.tile[chest2.x, chest2.y].TileType == ((ModSystem)this).Mod.Find<ModTile>("ShadowChest").Type)
 			{
 				num3 = Main.rand.Next(array3.Length);
 				chest2.item[0].SetDefaults(array3[num3], false);
@@ -580,9 +582,9 @@ public class UltraniumWorld : ModWorld
 		{
 			int num4 = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
 			int num5 = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 300);
-			if (Main.tile[num4, num5] != null && Main.tile[num4, num5].active() && Main.tile[num4, num5].type == 161)
+			if (Main.tile[num4, num5] != null && Main.tile[num4, num5].HasTile && Main.tile[num4, num5].TileType == 161)
 			{
-				WorldGen.OreRunner(num4, num5, (double)WorldGen.genRand.Next(5, 12), WorldGen.genRand.Next(5, 12), (ushort)((ModWorld)this).mod.TileType("AuroraOre"));
+				WorldGen.OreRunner(num4, num5, (double)WorldGen.genRand.Next(5, 12), WorldGen.genRand.Next(5, 12), (ushort)((ModSystem)this).Mod.Find<ModTile>("AuroraOre").Type);
 			}
 		}
 	}

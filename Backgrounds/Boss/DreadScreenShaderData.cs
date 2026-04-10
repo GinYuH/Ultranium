@@ -15,7 +15,7 @@ public class DreadScreenShaderData : ScreenShaderData
 
 	private void UpdateDreadIndex()
 	{
-		int num = ModLoader.GetMod("Ultranium").NPCType("DreadBoss");
+		int num = ModLoader.GetMod("Ultranium").Find<ModNPC>("DreadBoss").Type;
 		if (DreadIndex >= 0 && ((Entity)Main.npc[DreadIndex]).active && Main.npc[DreadIndex].type == num)
 		{
 			return;

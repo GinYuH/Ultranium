@@ -15,7 +15,7 @@ public class UltrumScreenShaderData : ScreenShaderData
 
 	private void UpdateUltrumIndex()
 	{
-		int num = ModLoader.GetMod("Ultranium").NPCType("Ultrum");
+		int num = ModLoader.GetMod("Ultranium").Find<ModNPC>("Ultrum").Type;
 		if (UltrumIndex >= 0 && ((Entity)Main.npc[UltrumIndex]).active && Main.npc[UltrumIndex].type == num)
 		{
 			return;

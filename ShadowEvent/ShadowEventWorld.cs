@@ -1,10 +1,11 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace Ultranium.ShadowEvent;
 
-public class ShadowEventWorld : ModWorld
+public class ShadowEventWorld : ModSystem
 {
 	public static bool ShadowEventActive;
 
@@ -20,7 +21,7 @@ public class ShadowEventWorld : ModWorld
 
 	public static int EventTimer;
 
-	public override void Initialize()
+	public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
 	{
 		Main.invasionSize = 0;
 		ShadowEventActive = false;
@@ -55,7 +56,7 @@ public class ShadowEventWorld : ModWorld
 		}
 	}
 
-	public override void PostUpdate()
+	public override void PostUpdateWorld()
 	{
 		if (!ShadowEventActive)
 		{
@@ -63,19 +64,19 @@ public class ShadowEventWorld : ModWorld
 		}
 		ShadowEvent.UpdateInvasion();
 		Main.time = 0.0;
-		if (!NPC.AnyNPCs(((ModWorld)this).mod.NPCType("ErebusHead")) && !NPC.AnyNPCs(((ModWorld)this).mod.NPCType("MindFlayer")))
+		if (!NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type))
 		{
 			EventTimer++;
 		}
 		if (EventTimer == 6300)
 		{
 			ErebusWarnings();
-			Main.PlaySound(((ModWorld)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(0.7f), -1, -1);
+			SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(0.7f), -1, -1);
 		}
 		if (EventTimer == 18900)
 		{
 			ErebusWarnings();
-			Main.PlaySound(((ModWorld)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+			SoundEngine.PlaySound(((ModSystem)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
 		}
 		for (int i = 0; i < Main.player.Length; i++)
 		{
@@ -84,11 +85,11 @@ public class ShadowEventWorld : ModWorld
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModWorld)this).mod.ProjectileType("MindFlayerSpawner"), 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
-					NPC.SpawnOnPlayer(player.whoAmI, ((ModWorld)this).mod.NPCType("MindFlayer"));
+					NPC.SpawnOnPlayer(player.whoAmI, ((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type);
 				}
 				MindFlayer = true;
 			}
@@ -96,17 +97,17 @@ public class ShadowEventWorld : ModWorld
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModWorld)this).mod.ProjectileType("ErebusSpawner"), 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
-					NPC.SpawnOnPlayer(player.whoAmI, ((ModWorld)this).mod.NPCType("ErebusHead"));
+					NPC.SpawnOnPlayer(player.whoAmI, ((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type);
 				}
 				Erebus = true;
 			}
-			if (Main.netMode == 0 && !NPC.AnyNPCs(((ModWorld)this).mod.NPCType("ErebusHead")) && !NPC.AnyNPCs(((ModWorld)this).mod.NPCType("MindFlayer")) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
+			if (Main.netMode == 0 && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
 			{
-				Projectile.NewProjectile(player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModWorld)this).mod.ProjectileType("ShadowPortalSpawner"), 0, 6f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModSystem)this).Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
 			if (((Entity)player).active)
 			{

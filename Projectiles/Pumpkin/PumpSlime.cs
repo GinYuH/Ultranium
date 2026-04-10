@@ -9,44 +9,44 @@ public class PumpSlime : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Pumpkin Minion");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 1;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.Homing[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).projectile.type] = true;
+		// ((ModProjectile)this).DisplayName.SetDefault("Pumpkin Minion");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 1;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).projectile.type] = 6;
-		((ModProjectile)this).projectile.CloneDefaults(266);
-		((ModProjectile)this).projectile.width = 26;
-		((ModProjectile)this).projectile.height = 26;
-		((ModProjectile)this).projectile.minion = true;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.netImportant = true;
-		base.aiType = 266;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.timeLeft = 18000;
-		((ModProjectile)this).projectile.minionSlots = 1f;
-		((ModProjectile)this).projectile.alpha = 0;
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 6;
+		((ModProjectile)this).Projectile.CloneDefaults(266);
+		((ModProjectile)this).Projectile.width = 26;
+		((ModProjectile)this).Projectile.height = 26;
+		((ModProjectile)this).Projectile.minion = true;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.netImportant = true;
+		base.AIType = 266;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.timeLeft = 18000;
+		((ModProjectile)this).Projectile.minionSlots = 1f;
+		((ModProjectile)this).Projectile.alpha = 0;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{
-		if (((ModProjectile)this).projectile.penetrate == 0)
+		if (((ModProjectile)this).Projectile.penetrate == 0)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
 		return false;
 	}
 
 	public override void AI()
 	{
-		bool num = ((ModProjectile)this).projectile.type == ((ModProjectile)this).mod.ProjectileType("PumpSlime");
-		Player player = Main.player[((ModProjectile)this).projectile.owner];
+		bool num = ((ModProjectile)this).Projectile.type == ((ModProjectile)this).Mod.Find<ModProjectile>("PumpSlime").Type;
+		Player player = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (num)
 		{
@@ -56,7 +56,7 @@ public class PumpSlime : ModProjectile
 			}
 			if (modPlayer.PumpSlime)
 			{
-				((ModProjectile)this).projectile.timeLeft = 2;
+				((ModProjectile)this).Projectile.timeLeft = 2;
 			}
 		}
 	}

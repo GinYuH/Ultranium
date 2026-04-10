@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 using Ultranium.ShadowEvent;
 
@@ -15,18 +16,18 @@ public class ShadowPortalSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Shadow Rift");
+		// ((ModProjectile)this).DisplayName.SetDefault("Shadow Rift");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 100;
-		((ModProjectile)this).projectile.height = 50;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.width = 100;
+		((ModProjectile)this).Projectile.height = 50;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.timeLeft = 300;
 	}
 
 	public override bool? CanCutTiles()
@@ -34,28 +35,28 @@ public class ShadowPortalSpawner : ModProjectile
 		return false;
 	}
 
-	public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 300f;
-		float num2 = ((ModProjectile)this).projectile.ai[0];
+		float num2 = ((ModProjectile)this).Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
 		float num4 = 0.2f;
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y * num4;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).projectile.velocity.X > 0f;
+		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -70,11 +71,11 @@ public class ShadowPortalSpawner : ModProjectile
 		float num8 = num2 % 60f;
 		if (num8 < 30f)
 		{
-			color *= Utils.InverseLerp(22f, 30f, num8, true);
+			color *= Utils.GetLerpValue(22f, 30f, num8, true);
 		}
 		else
 		{
-			color *= Utils.InverseLerp(38f, 30f, num8, true);
+			color *= Utils.GetLerpValue(38f, 30f, num8, true);
 		}
 		bool flag2 = color != Color.Transparent;
 		for (float num9 = (int)bottom.Y; num9 > (float)(int)top.Y; num9 -= num7)
@@ -121,20 +122,20 @@ public class ShadowPortalSpawner : ModProjectile
 	public override void AI()
 	{
 		float num = 300f;
-		if (((ModProjectile)this).projectile.localAI[0] >= 16f && ((ModProjectile)this).projectile.ai[0] < num - 15f)
+		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).projectile.ai[0] = num - 15f;
+			((ModProjectile)this).Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= num)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).projectile.ai[0] < num - 30f)
+		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -148,7 +149,7 @@ public class ShadowPortalSpawner : ModProjectile
 				_ = vector + vector2 * vector3 * 0.5f + vector4;
 			}
 		}
-		((ModProjectile)this).projectile.velocity *= 0f;
+		((ModProjectile)this).Projectile.velocity *= 0f;
 		SpawnTimer++;
 		if (SpawnTimer != 180)
 		{
@@ -159,19 +160,19 @@ public class ShadowPortalSpawner : ModProjectile
 			int num2 = Main.rand.Next(4);
 			if (num2 == 0)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("AbyssalWraith"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 1)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("Phantom"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Phantom").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 2)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("Scp2521"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("Scp2521").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num2 == 3)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("ShadeSpirit"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeSpirit").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
 		if (ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
@@ -179,15 +180,15 @@ public class ShadowPortalSpawner : ModProjectile
 			int num3 = Main.rand.Next(3);
 			if (num3 == 0)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("AbyssalCultist"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("AbyssalCultist").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num3 == 1)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("FlayerWraith"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("FlayerWraith").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			if (num3 == 2)
 			{
-				NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y + 75, ((ModProjectile)this).mod.NPCType("ShadeMass"), 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y + 75, ((ModProjectile)this).Mod.Find<ModNPC>("ShadeMass").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 		}
 	}

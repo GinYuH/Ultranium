@@ -9,32 +9,32 @@ public class DreadTooth : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Dread Tooth");
+		// ((ModProjectile)this).DisplayName.SetDefault("Dread Tooth");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.scale = 1f;
-		((ModProjectile)this).projectile.width = 14;
-		((ModProjectile)this).projectile.height = 38;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.aiStyle = 0;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.extraUpdates = 1;
-		((ModProjectile)this).projectile.timeLeft = 18000;
-		((ModProjectile)this).projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.scale = 1f;
+		((ModProjectile)this).Projectile.width = 14;
+		((ModProjectile)this).Projectile.height = 38;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.aiStyle = 0;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.timeLeft = 18000;
+		((ModProjectile)this).Projectile.tileCollide = true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).projectile.rotation += 0f * (float)((ModProjectile)this).projectile.direction;
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= 180f)
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= 180f)
 		{
-			((ModProjectile)this).projectile.velocity.Y = ((ModProjectile)this).projectile.velocity.Y + 0.1f;
-			((ModProjectile)this).projectile.velocity.X = ((ModProjectile)this).projectile.velocity.X * 0.99f;
+			((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.1f;
+			((ModProjectile)this).Projectile.velocity.X = ((ModProjectile)this).Projectile.velocity.X * 0.99f;
 		}
 	}
 

@@ -15,7 +15,7 @@ public class FlameScreenShaderData : ScreenShaderData
 
 	private void UpdateFlameIndex()
 	{
-		int num = ModLoader.GetMod("Ultranium").NPCType("Ignodium");
+		int num = ModLoader.GetMod("Ultranium").Find<ModNPC>("Ignodium").Type;
 		if (FlameIndex >= 0 && ((Entity)Main.npc[FlameIndex]).active && Main.npc[FlameIndex].type == num)
 		{
 			return;

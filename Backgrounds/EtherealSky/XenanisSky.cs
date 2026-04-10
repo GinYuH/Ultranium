@@ -96,7 +96,7 @@ public class XenanisSky : CustomSky
 				int num5 = 0;
 				for (float num6 = 0f; num6 <= 1f; num6 += 0.03f)
 				{
-					float num7 = 1f - (num6 + Main.GlobalTime * 0.02f + (float)Math.Sin((float)k)) % 1f;
+					float num7 = 1f - (num6 + Main.GlobalTimeWrappedHourly * 0.02f + (float)Math.Sin((float)k)) % 1f;
 					spriteBatch.Draw(array[num5], position + new Vector2((float)Math.Sin(num6 * 1582f) * (num4 * 0.5f) + num4 * 0.5f, num7 * 2000f), null, Color.White * num7 * num3 * Intensity, num7 * 20f, new Vector2(array[num5].Width >> 1, array[num5].Height >> 1), 0.9f, SpriteEffects.None, 0f);
 					num5 = (num5 + 1) % array.Length;
 				}

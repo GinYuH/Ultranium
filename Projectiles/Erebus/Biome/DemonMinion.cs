@@ -12,27 +12,27 @@ public class DemonMinion : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Shade Demon");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 4;
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 7;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Shade Demon");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 7;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 30;
-		((ModProjectile)this).projectile.height = 30;
-		((ModProjectile)this).projectile.netImportant = true;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.timeLeft = 18000;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.minion = true;
-		((ModProjectile)this).projectile.minionSlots = 1f;
-		((ModProjectile)this).projectile.aiStyle = 62;
+		((ModProjectile)this).Projectile.width = 30;
+		((ModProjectile)this).Projectile.height = 30;
+		((ModProjectile)this).Projectile.netImportant = true;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.timeLeft = 18000;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.minion = true;
+		((ModProjectile)this).Projectile.minionSlots = 1f;
+		((ModProjectile)this).Projectile.aiStyle = 62;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -42,40 +42,40 @@ public class DemonMinion : ModProjectile
 
 	public override void AI()
 	{
-		if (++((ModProjectile)this).projectile.frameCounter >= 16)
+		if (++((ModProjectile)this).Projectile.frameCounter >= 16)
 		{
-			((ModProjectile)this).projectile.frameCounter = 0;
-			if (++((ModProjectile)this).projectile.frame >= 4)
+			((ModProjectile)this).Projectile.frameCounter = 0;
+			if (++((ModProjectile)this).Projectile.frame >= 4)
 			{
-				((ModProjectile)this).projectile.frame = 0;
+				((ModProjectile)this).Projectile.frame = 0;
 			}
 		}
-		_ = ((ModProjectile)this).projectile.type;
-		((ModProjectile)this).mod.ProjectileType("DemonMinion");
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
-		UltraniumPlayer ultraniumPlayer = (UltraniumPlayer)(object)obj.GetModPlayer(((ModProjectile)this).mod, "UltraniumPlayer");
-		obj.AddBuff(((ModProjectile)this).mod.BuffType("DemonBuff"), 3600, fromNetPvP: true);
+		_ = ((ModProjectile)this).Projectile.type;
+		((ModProjectile)this).Mod.Find<ModProjectile>("DemonMinion").Type;
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
+		UltraniumPlayer ultraniumPlayer = (UltraniumPlayer)(object)obj.GetModPlayer(((ModProjectile)this).Mod, "UltraniumPlayer");
+		obj.AddBuff(((ModProjectile)this).Mod.Find<ModBuff>("DemonBuff").Type, 3600, fromNetPvP: true);
 		if (obj.dead)
 		{
 			ultraniumPlayer.DemonMinion = false;
 		}
 		if (ultraniumPlayer.DemonMinion)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 		shootTimer--;
 		float num = 400f;
-		((ModProjectile)this).projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(((ModProjectile)this).projectile.Center, nPC.Center) <= num))
+			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(((ModProjectile)this).Projectile.Center, nPC.Center) <= num))
 			{
 				continue;
 			}
 			int num2 = 1;
-			Vector2 vector = new Vector2(((ModProjectile)this).projectile.position.X + (float)(((ModProjectile)this).projectile.width / 2), ((ModProjectile)this).projectile.position.Y + (float)(((ModProjectile)this).projectile.height / 2));
-			int num3 = ((ModProjectile)this).mod.ProjectileType("DemonScythe");
+			Vector2 vector = new Vector2(((ModProjectile)this).Projectile.position.X + (float)(((ModProjectile)this).Projectile.width / 2), ((ModProjectile)this).Projectile.position.Y + (float)(((ModProjectile)this).Projectile.height / 2));
+			int num3 = ((ModProjectile)this).Mod.Find<ModProjectile>("DemonScythe").Type;
 			float num4 = 24f;
 			float num5 = (float)Math.Atan2(vector.Y - (nPC.position.Y + (float)nPC.height * 0.5f), vector.X - (nPC.position.X + (float)nPC.width * 0.5f));
 			int num6 = 50;

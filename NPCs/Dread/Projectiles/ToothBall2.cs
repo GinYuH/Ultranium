@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,33 +16,33 @@ public class ToothBall2 : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 5;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Tooth Ball");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 5;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Tooth Ball");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.scale = 1f;
-		((ModProjectile)this).projectile.width = 56;
-		((ModProjectile)this).projectile.height = 60;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.aiStyle = 0;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.extraUpdates = 1;
-		((ModProjectile)this).projectile.timeLeft = 300;
-		((ModProjectile)this).projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.scale = 1f;
+		((ModProjectile)this).Projectile.width = 56;
+		((ModProjectile)this).Projectile.height = 60;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.aiStyle = 0;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.tileCollide = true;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 9; i++)
 		{
 			Vector2 vector = ((float)Math.PI * 2f / 9f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 6f;
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).mod.ProjectileType("DreadTooth"), 30, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadTooth").Type, 30, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 
@@ -50,33 +51,33 @@ public class ToothBall2 : ModProjectile
 		return Color.White;
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.spriteDirection = ((((ModProjectile)this).projectile.velocity.X > 0f) ? 1 : (-1));
-		if (((ModProjectile)this).projectile.spriteDirection == 1)
+		((ModProjectile)this).Projectile.spriteDirection = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? 1 : (-1));
+		if (((ModProjectile)this).Projectile.spriteDirection == 1)
 		{
-			((ModProjectile)this).projectile.rotation += 0.05f;
+			((ModProjectile)this).Projectile.rotation += 0.05f;
 		}
-		if (((ModProjectile)this).projectile.spriteDirection == -1)
+		if (((ModProjectile)this).Projectile.spriteDirection == -1)
 		{
-			((ModProjectile)this).projectile.rotation += -0.05f;
+			((ModProjectile)this).Projectile.rotation += -0.05f;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= 100f)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= 100f)
 		{
-			((ModProjectile)this).projectile.velocity.Y = ((ModProjectile)this).projectile.velocity.Y + 0.15f;
+			((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.15f;
 		}
 	}
 
@@ -85,17 +86,17 @@ public class ToothBall2 : ModProjectile
 		bounceInt--;
 		if (bounceInt <= 0)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
 		else
 		{
-			if (((ModProjectile)this).projectile.velocity.X != oldVelocity.X)
+			if (((ModProjectile)this).Projectile.velocity.X != oldVelocity.X)
 			{
-				((ModProjectile)this).projectile.velocity.X = (0f - oldVelocity.X) * 0.85f;
+				((ModProjectile)this).Projectile.velocity.X = (0f - oldVelocity.X) * 0.85f;
 			}
-			if (((ModProjectile)this).projectile.velocity.Y != oldVelocity.Y)
+			if (((ModProjectile)this).Projectile.velocity.Y != oldVelocity.Y)
 			{
-				((ModProjectile)this).projectile.velocity.Y = (0f - oldVelocity.Y) * 0.85f;
+				((ModProjectile)this).Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.85f;
 			}
 		}
 		return false;

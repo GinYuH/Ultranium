@@ -10,9 +10,9 @@ public class NightmareFuel : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Nightmare Fuel");
-		((ModItem)this).Tooltip.SetDefault("");
-		ItemID.Sets.ItemNoGravity[((ModItem)this).item.type] = true;
+		// ((ModItem)this).DisplayName.SetDefault("Nightmare Fuel");
+		// ((ModItem)this).Tooltip.SetDefault("");
+		ItemID.Sets.ItemNoGravity[((ModItem)this).Item.type] = true;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -22,16 +22,16 @@ public class NightmareFuel : ModItem
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(200, 0, 0);
+		tooltips[0].OverrideColor = new Color(200, 0, 0);
 	}
 
 	public override void SetDefaults()
 	{
 		Item item = new Item();
-		((Entity)(object)((ModItem)this).item).width = ((Entity)(object)item).width;
-		((Entity)(object)((ModItem)this).item).height = ((Entity)(object)item).height;
-		((ModItem)this).item.maxStack = 999;
-		((ModItem)this).item.value = 1000;
-		((ModItem)this).item.rare = 4;
+		((Entity)(object)((ModItem)this).Item).width = ((Entity)(object)item).width;
+		((Entity)(object)((ModItem)this).Item).height = ((Entity)(object)item).height;
+		((ModItem)this).Item.maxStack = 999;
+		((ModItem)this).Item.value = 1000;
+		((ModItem)this).Item.rare = 4;
 	}
 }

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.World.Generation;
+using Terraria.WorldBuilding;
 
 namespace Ultranium;
 
@@ -37,7 +37,7 @@ public class PlaceModWall : GenAction
 		}
 		if (_canReplace == null || (_canReplace != null && _canReplace(x, y, GenBase._tiles[x, y])))
 		{
-			GenBase._tiles[x, y].wall = _type;
+			GenBase._tiles[x, y].WallType = _type;
 			WorldGen.SquareWallFrame(x, y);
 			if (_neighbors)
 			{

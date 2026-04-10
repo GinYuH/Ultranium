@@ -8,18 +8,18 @@ public class CosmicWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Cosmic Wings");
-		((ModItem)this).Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
+		// ((ModItem)this).DisplayName.SetDefault("Cosmic Wings");
+		// ((ModItem)this).Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 34;
-		((Entity)(object)((ModItem)this).item).height = 26;
-		((ModItem)this).item.value = Item.buyPrice(1, 20);
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.accessory = true;
-		((ModItem)this).item.expert = true;
+		((Entity)(object)((ModItem)this).Item).width = 34;
+		((Entity)(object)((ModItem)this).Item).height = 26;
+		((ModItem)this).Item.value = Item.buyPrice(1, 20);
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.accessory = true;
+		((ModItem)this).Item.expert = true;
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)

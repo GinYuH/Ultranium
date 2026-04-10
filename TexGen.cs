@@ -48,7 +48,7 @@ public class TexGen
 					if (tileInfo.objectID != 0)
 					{
 						WorldGen.PlaceObject(num, num2, tileInfo.objectID);
-						NetMessage.SendObjectPlacment(-1, num, num2, tileInfo.objectID, 0, 0, -1, -1);
+						NetMessage.SendObjectPlacement(-1, num, num2, tileInfo.objectID, 0, 0, -1, -1);
 					}
 				}
 			}

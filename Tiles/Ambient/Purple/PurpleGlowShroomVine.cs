@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Ultranium.Tiles.ShadowBiome;
@@ -8,7 +9,7 @@ namespace Ultranium.Tiles.Ambient.Purple;
 
 public class PurpleGlowShroomVine : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileCut[((ModTile)this).Type] = true;
 		Main.tileBlockLight[((ModTile)this).Type] = true;
@@ -16,8 +17,8 @@ public class PurpleGlowShroomVine : ModTile
 		Main.tileNoFail[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
 		Main.tileLighted[((ModTile)this).Type] = true;
-		base.soundType = 6;
-		base.dustType = ((ModTile)this).mod.DustType("ShadowDustPurple");
+		base.HitSound = 6;
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
 		((ModTile)this).AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 
@@ -31,7 +32,7 @@ public class PurpleGlowShroomVine : ModTile
 	public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 1);
-		if (tileSafely.active() && tileSafely.type == ((ModTile)this).Type)
+		if (tileSafely.HasTile && tileSafely.TileType == ((ModTile)this).Type)
 		{
 			WorldGen.KillTile(i, j + 1);
 		}
@@ -41,9 +42,9 @@ public class PurpleGlowShroomVine : ModTile
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j - 1);
 		int num = -1;
-		if (tileSafely.active() && !tileSafely.bottomSlope())
+		if (tileSafely.HasTile && !tileSafely.BottomSlope)
 		{
-			num = tileSafely.type;
+			num = tileSafely.TileType;
 		}
 		if (num == ModContent.TileType<PurpleShadowGrass>() || num == ((ModTile)this).Type)
 		{
@@ -56,7 +57,7 @@ public class PurpleGlowShroomVine : ModTile
 	public override void RandomUpdate(int i, int j)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 1);
-		if (tileSafely.active() || tileSafely.lava())
+		if (tileSafely.HasTile || (tileSafely.LiquidType == LiquidID.Lava))
 		{
 			return;
 		}
@@ -65,11 +66,11 @@ public class PurpleGlowShroomVine : ModTile
 		while (num > j - 10)
 		{
 			Tile tileSafely2 = Framing.GetTileSafely(i, num);
-			if (tileSafely2.bottomSlope())
+			if (tileSafely2.BottomSlope)
 			{
 				break;
 			}
-			if (!tileSafely2.active() || tileSafely2.type != ModContent.TileType<PurpleShadowGrass>())
+			if (!tileSafely2.HasTile || tileSafely2.TileType != ModContent.TileType<PurpleShadowGrass>())
 			{
 				num--;
 				continue;
@@ -79,8 +80,8 @@ public class PurpleGlowShroomVine : ModTile
 		}
 		if (flag)
 		{
-			tileSafely.type = ((ModTile)this).Type;
-			tileSafely.active(active: true);
+			tileSafely.TileType = ((ModTile)this).Type;
+			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)
 			{

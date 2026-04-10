@@ -8,17 +8,17 @@ public class EtherealLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Occultist Leggings");
-		((ModItem)this).Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
+		// ((ModItem)this).DisplayName.SetDefault("Occultist Leggings");
+		// ((ModItem)this).Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 18;
-		((Entity)(object)((ModItem)this).item).height = 18;
-		((ModItem)this).item.value = Item.buyPrice(0, 30);
-		((ModItem)this).item.rare = 9;
-		((ModItem)this).item.defense = 14;
+		((Entity)(object)((ModItem)this).Item).width = 18;
+		((Entity)(object)((ModItem)this).Item).height = 18;
+		((ModItem)this).Item.value = Item.buyPrice(0, 30);
+		((ModItem)this).Item.rare = 9;
+		((ModItem)this).Item.defense = 14;
 	}
 
 	public override void UpdateEquip(Player player)
@@ -26,12 +26,12 @@ public class EtherealLegs : ModItem
 		player.statLifeMax2 += 5;
 		player.statManaMax2 += 5;
 		player.maxMinions++;
-		player.meleeDamage += 0.06f;
-		player.rangedDamage += 0.06f;
-		player.magicDamage += 0.06f;
-		player.minionDamage += 0.06f;
+		player.GetDamage(DamageClass.Melee) += 0.06f;
+		player.GetDamage(DamageClass.Ranged) += 0.06f;
+		player.GetDamage(DamageClass.Magic) += 0.06f;
+		player.GetDamage(DamageClass.Summon) += 0.06f;
 		player.moveSpeed += 15f;
-		player.meleeSpeed *= 1.1f;
+		player.GetAttackSpeed(DamageClass.Melee) *= 1.1f;
 	}
 
 	public override void AddRecipes()
@@ -42,12 +42,11 @@ public class EtherealLegs : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 6);
 		val.AddIngredient((Mod)null, "ShadowFlame", 4);
 		val.AddIngredient(225, 8);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,37 +14,37 @@ public class DreadDisc : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 8;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Disc of Dismay");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 8;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Disc of Dismay");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 48;
-		((ModProjectile)this).projectile.height = 48;
-		((ModProjectile)this).projectile.aiStyle = 3;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ranged = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = 3;
-		((ModProjectile)this).projectile.timeLeft = 700;
-		((ModProjectile)this).projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.width = 48;
+		((ModProjectile)this).Projectile.height = 48;
+		((ModProjectile)this).Projectile.aiStyle = 3;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = 3;
+		((ModProjectile)this).Projectile.timeLeft = 700;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
 	}
 
-	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).projectile.owner] = 2;
+		target.immune[((ModProjectile)this).Projectile.owner] = 2;
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
@@ -58,25 +59,25 @@ public class DreadDisc : ModProjectile
 			for (int i = 0; i < num; i++)
 			{
 				float num3 = MathHelper.ToRadians(360 / num * i + num2);
-				Vector2 vector = new Vector2(((ModProjectile)this).projectile.velocity.X, ((ModProjectile)this).projectile.velocity.Y).RotatedBy(num3);
+				Vector2 vector = new Vector2(((ModProjectile)this).Projectile.velocity.X, ((ModProjectile)this).Projectile.velocity.Y).RotatedBy(num3);
 				vector.Normalize();
 				vector.X *= 3f;
 				vector.Y *= 3f;
-				Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).mod.ProjectileType("DreadParticleBolt"), ((ModProjectile)this).projectile.damage, 2f, ((ModProjectile)this).projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadParticleBolt").Type, ((ModProjectile)this).Projectile.damage, 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			}
 			ProjectileTimer = 0;
 		}
-		Vector2 position = ((ModProjectile)this).projectile.Center + Vector2.Normalize(((ModProjectile)this).projectile.velocity) * 10f;
-		Dust obj = Main.dust[Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 90)];
+		Vector2 position = ((ModProjectile)this).Projectile.Center + Vector2.Normalize(((ModProjectile)this).Projectile.velocity) * 10f;
+		Dust obj = Main.dust[Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 90)];
 		obj.position = position;
-		obj.velocity = ((ModProjectile)this).projectile.velocity.RotatedBy(Math.PI / 2.0) * 0.33f + ((ModProjectile)this).projectile.velocity / 4f;
-		obj.position += ((ModProjectile)this).projectile.velocity.RotatedBy(Math.PI / 2.0);
+		obj.velocity = ((ModProjectile)this).Projectile.velocity.RotatedBy(Math.PI / 2.0) * 0.33f + ((ModProjectile)this).Projectile.velocity / 4f;
+		obj.position += ((ModProjectile)this).Projectile.velocity.RotatedBy(Math.PI / 2.0);
 		obj.fadeIn = 0.5f;
 		obj.noGravity = true;
-		Dust obj2 = Main.dust[Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 90)];
+		Dust obj2 = Main.dust[Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 90)];
 		obj2.position = position;
-		obj2.velocity = ((ModProjectile)this).projectile.velocity.RotatedBy(-Math.PI / 2.0) * 0.33f + ((ModProjectile)this).projectile.velocity / 4f;
-		obj2.position += ((ModProjectile)this).projectile.velocity.RotatedBy(-Math.PI / 2.0);
+		obj2.velocity = ((ModProjectile)this).Projectile.velocity.RotatedBy(-Math.PI / 2.0) * 0.33f + ((ModProjectile)this).Projectile.velocity / 4f;
+		obj2.position += ((ModProjectile)this).Projectile.velocity.RotatedBy(-Math.PI / 2.0);
 		obj2.fadeIn = 0.5f;
 		obj2.noGravity = true;
 	}

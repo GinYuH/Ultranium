@@ -13,7 +13,7 @@ public class ShadowWater : ModWaterStyle
 
 	public override int ChooseWaterfallStyle()
 	{
-		return ((ModWaterStyle)this).mod.GetWaterfallStyleSlot("ShadowWaterfall");
+		return ((ModWaterStyle)this).Mod.GetWaterfallStyleSlot("ShadowWaterfall");
 	}
 
 	public override int GetSplashDust()
@@ -23,7 +23,7 @@ public class ShadowWater : ModWaterStyle
 
 	public override int GetDropletGore()
 	{
-		return ((ModWaterStyle)this).mod.GetGoreSlot("Tiles/Waters/ShadowWaterDroplet");
+		return ((ModWaterStyle)this).Mod.GetGoreSlot("Tiles/Waters/ShadowWaterDroplet");
 	}
 
 	public override void LightColorMultiplier(ref float r, ref float g, ref float b)

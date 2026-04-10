@@ -7,37 +7,37 @@ public class FlayerAuraBase : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Flayer Aura");
+		// ((ModProjectile)this).DisplayName.SetDefault("Flayer Aura");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 4;
-		((ModProjectile)this).projectile.height = 4;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 255;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.timeLeft = 480;
+		((ModProjectile)this).Projectile.width = 4;
+		((ModProjectile)this).Projectile.height = 4;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 255;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.timeLeft = 480;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.velocity *= 0f;
-		if (((ModProjectile)this).projectile.ai[0] != 0f)
+		((ModProjectile)this).Projectile.velocity *= 0f;
+		if (((ModProjectile)this).Projectile.ai[0] != 0f)
 		{
 			return;
 		}
 		int num = 35;
-		_ = ((ModProjectile)this).projectile.whoAmI;
-		((ModProjectile)this).projectile.ai[1] = ((ModProjectile)this).projectile.whoAmI;
+		_ = ((ModProjectile)this).Projectile.whoAmI;
+		((ModProjectile)this).Projectile.ai[1] = ((ModProjectile)this).Projectile.whoAmI;
 		for (int i = 0; i < num; i++)
 		{
-			if (Main.player[((ModProjectile)this).projectile.owner].ownedProjectileCounts[((ModProjectile)this).mod.ProjectileType("FlayerAura")] < num)
+			if (Main.player[((ModProjectile)this).Projectile.owner].ownedProjectileCounts[((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type] < num)
 			{
-				Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("FlayerAura"), ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack, ((ModProjectile)this).projectile.owner, (float)i, (float)((ModProjectile)this).projectile.whoAmI);
+				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)i, (float)((ModProjectile)this).Projectile.whoAmI);
 			}
 		}
 	}

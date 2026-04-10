@@ -1,6 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +10,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowBed : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileLavaDeath[((ModTile)this).Type] = true;
@@ -16,15 +18,15 @@ public class ShadowBed : ModTile
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style4x2);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
 		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
-		val.SetDefault("Bed");
-		base.disableSmartCursor = true;
-		base.adjTiles = new int[1] { 79 };
-		base.bed = true;
+		// val.SetDefault("Bed");
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		base.AdjTiles = new int[1] { 79 };
+		base.bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
 	}
 
-	public override bool HasSmartInteract()
+	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{
 		return true;
 	}
@@ -39,14 +41,14 @@ public class ShadowBed : ModTile
 		Item.NewItem(i * 16, j * 16, 64, 32, ModContent.ItemType<ShadowBedItem>(), 1, false, 0, false, false);
 	}
 
-	public override bool NewRightClick(int i, int j)
+	public override bool RightClick(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;
 		Tile tile = Main.tile[i, j];
-		int num = i - tile.frameX / 18;
+		int num = i - tile.TileFrameX / 18;
 		int num2 = j + 2;
-		num += ((tile.frameX >= 72) ? 5 : 2);
-		if (tile.frameY % 38 != 0)
+		num += ((tile.TileFrameX >= 72) ? 5 : 2);
+		if (tile.TileFrameY % 38 != 0)
 		{
 			num2--;
 		}
@@ -68,7 +70,7 @@ public class ShadowBed : ModTile
 	{
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
-		localPlayer.showItemIcon = true;
-		localPlayer.showItemIcon2 = ModContent.ItemType<ShadowBedItem>();
+		localPlayer.cursorItemIconEnabled = true;
+		localPlayer.cursorItemIconID = ModContent.ItemType<ShadowBedItem>();
 	}
 }

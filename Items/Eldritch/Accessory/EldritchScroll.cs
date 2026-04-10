@@ -10,29 +10,29 @@ public class EldritchScroll : ModItem
 	public override void SetStaticDefaults()
 	{
 		((ModItem)this).SetStaticDefaults();
-		((ModItem)this).DisplayName.SetDefault("Scroll of the Abyss");
-		((ModItem)this).Tooltip.SetDefault("15% increased summon damage and minion knockback\n+2 max minions\nMinions inflict the eldritch decay debuff");
+		// ((ModItem)this).DisplayName.SetDefault("Scroll of the Abyss");
+		// ((ModItem)this).Tooltip.SetDefault("15% increased summon damage and minion knockback\n+2 max minions\nMinions inflict the eldritch decay debuff");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 38;
-		((Entity)(object)((ModItem)this).item).height = 46;
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.value = Item.buyPrice(0, 80);
-		((ModItem)this).item.accessory = true;
+		((Entity)(object)((ModItem)this).Item).width = 38;
+		((Entity)(object)((ModItem)this).Item).height = 46;
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.value = Item.buyPrice(0, 80);
+		((ModItem)this).Item.accessory = true;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(34, 166, 118);
+		tooltips[0].OverrideColor = new Color(34, 166, 118);
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)
 	{
 		player.GetModPlayer<UltraniumPlayer>().EldritchScroll = true;
-		player.minionDamage += 0.15f;
-		player.minionKB *= 1.15f;
+		player.GetDamage(DamageClass.Summon) += 0.15f;
+		player.GetKnockback(DamageClass.Summon).Base *= 1.15f;
 		player.maxMinions += 2;
 	}
 
@@ -44,12 +44,11 @@ public class EldritchScroll : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient(1864, 1);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

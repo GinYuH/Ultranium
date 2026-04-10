@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace Ultranium.Tiles.Banner.Shadow;
 
 public class ShadowBanners : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
@@ -19,10 +20,10 @@ public class ShadowBanners : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 111;
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		base.dustType = -1;
-		base.disableSmartCursor = true;
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Banner");
+		base.DustType = -1;
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Banner");
 		((ModTile)this).AddMapEntry(new Color(13, 88, 130), val);
 	}
 
@@ -49,7 +50,7 @@ public class ShadowBanners : ModTile
 			text = "ShadowBatBanner";
 			break;
 		}
-		Item.NewItem(i * 16, j * 16, 16, 48, ((ModTile)this).mod.ItemType(text), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 16, 48, ((ModTile)this).Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
 	}
 
 	public override void NearbyEffects(int i, int j, bool closer)
@@ -58,7 +59,7 @@ public class ShadowBanners : ModTile
 		{
 			Player localPlayer = Main.LocalPlayer;
 			string text;
-			switch (Main.tile[i, j].frameX / 18)
+			switch (Main.tile[i, j].TileFrameX / 18)
 			{
 			default:
 				return;
@@ -78,7 +79,7 @@ public class ShadowBanners : ModTile
 				text = "ShadowBat";
 				break;
 			}
-			localPlayer.NPCBannerBuff[((ModTile)this).mod.NPCType(text)] = true;
+			localPlayer.NPCBannerBuff[((ModTile)this).Mod.Find<ModNPC>(text).Type] = true;
 			localPlayer.hasBanner = true;
 		}
 	}

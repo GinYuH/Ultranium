@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,47 +9,47 @@ public class DreadBeacon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Beacon of Fear");
-		((ModItem)this).Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
+		// ((ModItem)this).DisplayName.SetDefault("Beacon of Fear");
+		// ((ModItem)this).Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 20;
-		((Entity)(object)((ModItem)this).item).height = 20;
-		((ModItem)this).item.maxStack = 20;
-		((ModItem)this).item.rare = 4;
-		((ModItem)this).item.useAnimation = 45;
-		((ModItem)this).item.useTime = 45;
-		((ModItem)this).item.useStyle = 4;
-		((ModItem)this).item.UseSound = SoundID.Item44;
-		((ModItem)this).item.consumable = true;
+		((Entity)(object)((ModItem)this).Item).width = 20;
+		((Entity)(object)((ModItem)this).Item).height = 20;
+		((ModItem)this).Item.maxStack = 20;
+		((ModItem)this).Item.rare = 4;
+		((ModItem)this).Item.useAnimation = 45;
+		((ModItem)this).Item.useTime = 45;
+		((ModItem)this).Item.useStyle = 4;
+		((ModItem)this).Item.UseSound = SoundID.Item44;
+		((ModItem)this).Item.consumable = true;
 	}
 
 	public override bool CanUseItem(Player player)
 	{
-		if (!NPC.AnyNPCs(((ModItem)this).mod.NPCType("DreadBoss")) && !NPC.AnyNPCs(((ModItem)this).mod.NPCType("DreadBossP2")) && !NPC.AnyNPCs(((ModItem)this).mod.NPCType("FakeDread")) && !NPC.AnyNPCs(((ModItem)this).mod.NPCType("TrueDread")))
+		if (!NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("DreadBoss").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("DreadBossP2").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("FakeDread").Type) && !NPC.AnyNPCs(((ModItem)this).Mod.Find<ModNPC>("TrueDread").Type))
 		{
 			return !Main.dayTime;
 		}
 		return false;
 	}
 
-	public override bool UseItem(Player player)
+	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
 		if (UltraniumWorld.downedUltrum && UltraniumWorld.downedIgnodium && !UltraniumWorld.downedTrueDread)
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).mod.NPCType("FakeDread"));
+			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("FakeDread").Type);
 		}
 		else if (UltraniumWorld.downedUltrum && UltraniumWorld.downedIgnodium && UltraniumWorld.downedTrueDread)
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).mod.NPCType("TrueDread"));
+			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("TrueDread").Type);
 		}
 		else
 		{
-			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).mod.NPCType("DreadBoss"));
+			NPC.SpawnOnPlayer(player.whoAmI, ((ModItem)this).Mod.Find<ModNPC>("DreadBoss").Type);
 		}
-		Main.PlaySound(15, player.position, 0);
+		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}
 
@@ -59,11 +60,10 @@ public class DreadBeacon : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0030: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 15);
 		val.AddRecipeGroup("Ultranium:Adamantite/Titanium", 5);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,34 +13,34 @@ public class HellThrow : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Hell Throw");
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 3;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Hell Throw");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 3;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.scale = 1f;
-		((ModProjectile)this).projectile.width = 18;
-		((ModProjectile)this).projectile.height = 18;
-		((ModProjectile)this).projectile.aiStyle = 99;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.melee = true;
-		((ModProjectile)this).projectile.scale = 1f;
-		ProjectileID.Sets.YoyosLifeTimeMultiplier[((ModProjectile)this).projectile.type] = -1f;
-		ProjectileID.Sets.YoyosMaximumRange[((ModProjectile)this).projectile.type] = 370f;
-		ProjectileID.Sets.YoyosTopSpeed[((ModProjectile)this).projectile.type] = 18f;
+		((ModProjectile)this).Projectile.scale = 1f;
+		((ModProjectile)this).Projectile.width = 18;
+		((ModProjectile)this).Projectile.height = 18;
+		((ModProjectile)this).Projectile.aiStyle = 99;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
+		((ModProjectile)this).Projectile.scale = 1f;
+		ProjectileID.Sets.YoyosLifeTimeMultiplier[((ModProjectile)this).Projectile.type] = -1f;
+		ProjectileID.Sets.YoyosMaximumRange[((ModProjectile)this).Projectile.type] = 370f;
+		ProjectileID.Sets.YoyosTopSpeed[((ModProjectile)this).Projectile.type] = 18f;
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
@@ -51,14 +52,14 @@ public class HellThrow : ModProjectile
 
 	public override void PostAI()
 	{
-		((ModProjectile)this).projectile.rotation -= 20f;
+		((ModProjectile)this).Projectile.rotation -= 20f;
 	}
 
 	public override void AI()
 	{
 		if (!hasRing)
 		{
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("HellThrowAura"), ((ModProjectile)this).projectile.damage, 0.5f, 0, 0f, (float)((ModProjectile)this).projectile.whoAmI);
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("HellThrowAura").Type, ((ModProjectile)this).Projectile.damage, 0.5f, 0, 0f, (float)((ModProjectile)this).Projectile.whoAmI);
 			hasRing = true;
 		}
 	}

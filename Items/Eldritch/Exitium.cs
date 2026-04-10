@@ -10,33 +10,33 @@ public class Exitium : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Exitium");
-		((ModItem)this).Tooltip.SetDefault("Fires tentacles when enemies are nearby");
+		// ((ModItem)this).DisplayName.SetDefault("Exitium");
+		// ((ModItem)this).Tooltip.SetDefault("Fires tentacles when enemies are nearby");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 260;
-		((ModItem)this).item.rare = 11;
-		((Entity)(object)((ModItem)this).item).width = 24;
-		((Entity)(object)((ModItem)this).item).height = 24;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.useAnimation = 25;
-		((ModItem)this).item.useTime = 25;
-		((ModItem)this).item.UseSound = SoundID.Item1;
-		((ModItem)this).item.noUseGraphic = true;
-		((ModItem)this).item.melee = true;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.channel = true;
-		((ModItem)this).item.value = Item.buyPrice(1, 50);
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("Exitium");
-		((ModItem)this).item.shootSpeed = 16f;
-		((ModItem)this).item.knockBack = 2.5f;
+		((ModItem)this).Item.damage = 260;
+		((ModItem)this).Item.rare = 11;
+		((Entity)(object)((ModItem)this).Item).width = 24;
+		((Entity)(object)((ModItem)this).Item).height = 24;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.useAnimation = 25;
+		((ModItem)this).Item.useTime = 25;
+		((ModItem)this).Item.UseSound = SoundID.Item1;
+		((ModItem)this).Item.noUseGraphic = true;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.channel = true;
+		((ModItem)this).Item.value = Item.buyPrice(1, 50);
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("Exitium").Type;
+		((ModItem)this).Item.shootSpeed = 16f;
+		((ModItem)this).Item.knockBack = 2.5f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(34, 166, 118);
+		tooltips[0].OverrideColor = new Color(34, 166, 118);
 	}
 
 	public override void AddRecipes()
@@ -47,12 +47,11 @@ public class Exitium : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0034: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

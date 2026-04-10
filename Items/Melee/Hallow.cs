@@ -9,26 +9,26 @@ public class Hallow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Chaos Blade");
-		((ModItem)this).Tooltip.SetDefault("Shoots out a chaos star");
+		// ((ModItem)this).DisplayName.SetDefault("Chaos Blade");
+		// ((ModItem)this).Tooltip.SetDefault("Shoots out a chaos star");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 42;
-		((ModItem)this).item.melee = true;
-		((Entity)(object)((ModItem)this).item).width = 54;
-		((Entity)(object)((ModItem)this).item).height = 54;
-		((ModItem)this).item.useTime = 24;
-		((ModItem)this).item.useAnimation = 24;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.knockBack = 6f;
-		((ModItem)this).item.value = Item.buyPrice(0, 30);
-		((ModItem)this).item.rare = 5;
-		((ModItem)this).item.UseSound = SoundID.Item60;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("BlueStar");
-		((ModItem)this).item.shootSpeed = 8f;
+		((ModItem)this).Item.damage = 42;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((Entity)(object)((ModItem)this).Item).width = 54;
+		((Entity)(object)((ModItem)this).Item).height = 54;
+		((ModItem)this).Item.useTime = 24;
+		((ModItem)this).Item.useAnimation = 24;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.knockBack = 6f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 30);
+		((ModItem)this).Item.rare = 5;
+		((ModItem)this).Item.UseSound = SoundID.Item60;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("BlueStar").Type;
+		((ModItem)this).Item.shootSpeed = 8f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -44,12 +44,11 @@ public class Hallow : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient(65, 1);
 		val.AddIngredient(520, 20);
 		val.AddIngredient(502, 15);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

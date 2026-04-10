@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -21,22 +22,22 @@ public class HomingStar : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Cosmos Star");
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 10;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Cosmos Star");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 10;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 72;
-		((ModProjectile)this).projectile.height = 72;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 0;
-		((ModProjectile)this).projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.width = 72;
+		((ModProjectile)this).Projectile.height = 72;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 0;
+		((ModProjectile)this).Projectile.timeLeft = 300;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -46,37 +47,37 @@ public class HomingStar : ModProjectile
 		return Color.Lerp(ColorCycle[num], ColorCycle[(num + 1) % 2], amount);
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).projectile.rotation += 0f * (float)((ModProjectile)this).projectile.direction;
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
 		timer++;
 		if (timer <= 180)
 		{
-			((ModProjectile)this).projectile.scale += 0.01f;
+			((ModProjectile)this).Projectile.scale += 0.01f;
 		}
 		if (timer >= 180)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 			Ultranium.seizureAmount = 15f;
 		}
 		if (timer <= 60)
 		{
 			return;
 		}
-		if (((ModProjectile)this).projectile.ai[0] == 0f && Main.netMode != 1)
+		if (((ModProjectile)this).Projectile.ai[0] == 0f && Main.netMode != 1)
 		{
 			target = -1;
 			float num = 2000f;
@@ -84,7 +85,7 @@ public class HomingStar : ModProjectile
 			{
 				if (((Entity)Main.player[i]).active && !Main.player[i].dead)
 				{
-					float num2 = Vector2.Distance(Main.player[i].Center, ((ModProjectile)this).projectile.Center);
+					float num2 = Vector2.Distance(Main.player[i].Center, ((ModProjectile)this).Projectile.Center);
 					if (num2 < num || target == -1)
 					{
 						num = num2;
@@ -94,8 +95,8 @@ public class HomingStar : ModProjectile
 			}
 			if (target != -1)
 			{
-				((ModProjectile)this).projectile.ai[0] = 1f;
-				((ModProjectile)this).projectile.netUpdate = true;
+				((ModProjectile)this).Projectile.ai[0] = 1f;
+				((ModProjectile)this).Projectile.netUpdate = true;
 			}
 			return;
 		}
@@ -103,32 +104,32 @@ public class HomingStar : ModProjectile
 		if (!((Entity)player).active || player.dead)
 		{
 			target = -1;
-			((ModProjectile)this).projectile.ai[0] = 0f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[0] = 0f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 			return;
 		}
-		float num3 = ((ModProjectile)this).projectile.velocity.ToRotation();
-		Vector2 vector = player.Center - ((ModProjectile)this).projectile.Center;
+		float num3 = ((ModProjectile)this).Projectile.velocity.ToRotation();
+		Vector2 vector = player.Center - ((ModProjectile)this).Projectile.Center;
 		float targetAngle = vector.ToRotation();
 		if (vector == Vector2.Zero)
 		{
 			targetAngle = num3;
 		}
 		float num4 = num3.AngleLerp(targetAngle, 0.1f);
-		((ModProjectile)this).projectile.velocity = new Vector2(((ModProjectile)this).projectile.velocity.Length(), 0f).RotatedBy(num4);
+		((ModProjectile)this).Projectile.velocity = new Vector2(((ModProjectile)this).Projectile.velocity.Length(), 0f).RotatedBy(num4);
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).projectile.Center)
+			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 		float num2 = 9f;
@@ -138,7 +139,7 @@ public class HomingStar : ModProjectile
 		for (int j = 0; (float)j < num3; j++)
 		{
 			Vector2 vector = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num4, num4, (float)j / (num3 - 1f))) * num2;
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).mod.ProjectileType("CosmicBlastSpiral"), ((ModProjectile)this).projectile.damage, 2f, Main.myPlayer, (float)num5, 0f);
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicBlastSpiral").Type, ((ModProjectile)this).Projectile.damage, 2f, Main.myPlayer, (float)num5, 0f);
 		}
 	}
 }

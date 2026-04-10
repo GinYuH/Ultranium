@@ -1,12 +1,15 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Waters;
 
 public class DepthWaterDroplet : ModGore
 {
-	public override void OnSpawn(Gore gore)
+	public override void OnSpawn(Gore gore, IEntitySource source)
 	{
 		gore.numFrames = 15;
 		gore.behindTiles = true;
@@ -29,7 +32,7 @@ public class DepthWaterDroplet : ModGore
 		{
 			int num2 = (int)(gore.position.X / 16f);
 			int num3 = (int)(gore.position.Y / 16f) - 1;
-			if (WorldGen.InWorld(num2, num3) && !Main.tile[num2, num3].active())
+			if (WorldGen.InWorld(num2, num3) && !Main.tile[num2, num3].HasTile)
 			{
 				gore.active = false;
 			}
@@ -110,7 +113,7 @@ public class DepthWaterDroplet : ModGore
 			{
 				gore.frame = 10;
 				gore.frameCounter = 0;
-				Main.PlaySound(39, (int)gore.position.X + 8, (int)gore.position.Y + 8, Main.rand.Next(2), 1f, 0f);
+				SoundEngine.PlaySound(39, (int)gore.position.X + 8, (int)gore.position.Y + 8, Main.rand.Next(2), 1f, 0f);
 			}
 		}
 		else if (Collision.WetCollision(gore.position + gore.velocity, 16, 14))
@@ -119,14 +122,14 @@ public class DepthWaterDroplet : ModGore
 			{
 				gore.frame = 10;
 				gore.frameCounter = 0;
-				Main.PlaySound(39, (int)gore.position.X + 8, (int)gore.position.Y + 8, 2, 1f, 0f);
+				SoundEngine.PlaySound(SoundID.Drip, new Vector2((int)gore.position.X + 8, (int)gore.position.Y + 8));
 			}
 			int num5 = (int)(gore.position.X + 8f) / 16;
 			int num6 = (int)(gore.position.Y + 14f) / 16;
-			if (Main.tile[num5, num6] != null && Main.tile[num5, num6].liquid > 0)
+			if (Main.tile[num5, num6] != null && Main.tile[num5, num6].LiquidAmount > 0)
 			{
 				gore.velocity *= 0f;
-				gore.position.Y = num6 * 16 - Main.tile[num5, num6].liquid / 16;
+				gore.position.Y = num6 * 16 - Main.tile[num5, num6].LiquidAmount / 16;
 			}
 		}
 		gore.position += gore.velocity;

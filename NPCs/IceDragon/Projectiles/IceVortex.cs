@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,22 +11,22 @@ public class IceVortex : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 11;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Ice Vortex");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 11;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Ice Vortex");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 58;
-		((ModProjectile)this).projectile.height = 58;
-		((ModProjectile)this).projectile.aiStyle = 0;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.timeLeft = 180;
-		((ModProjectile)this).projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.width = 58;
+		((ModProjectile)this).Projectile.height = 58;
+		((ModProjectile)this).Projectile.aiStyle = 0;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.timeLeft = 180;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -33,27 +34,27 @@ public class IceVortex : ModProjectile
 		return Color.White;
 	}
 
-	public override bool PreDraw(SpriteBatch sb, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
-		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type] * ((ModProjectile)this).projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type]);
-			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type] * ((ModProjectile)this).Projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type]);
+			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation += 0.2f;
+		((ModProjectile)this).Projectile.rotation += 0.2f;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
-		Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y - 100f, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("IceTwisterLarge"), 30, 1f, Main.myPlayer, 0f, 0f);
+		Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y - 100f, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("IceTwisterLarge").Type, 30, 1f, Main.myPlayer, 0f, 0f);
 	}
 }

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -9,7 +10,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowChair : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
@@ -25,11 +26,11 @@ public class ShadowChair : ModTile
 		TileObjectData.addAlternate(1);
 		TileObjectData.addTile((int)((ModTile)this).Type);
 		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsChair);
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Chair");
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Chair");
 		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
-		base.disableSmartCursor = true;
-		base.adjTiles = new int[1] { 15 };
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		base.AdjTiles = new int[1] { 15 };
 	}
 
 	public override void NumDust(int i, int j, bool fail, ref int num)
@@ -39,6 +40,6 @@ public class ShadowChair : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 16, 32, ((ModTile)this).mod.ItemType("ShadowChairItem"), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 16, 32, ((ModTile)this).Mod.Find<ModItem>("ShadowChairItem").Type, 1, false, 0, false, false);
 	}
 }

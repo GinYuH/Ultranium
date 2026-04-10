@@ -7,7 +7,7 @@ namespace Ultranium.Tiles.ShadowBiome.Depths;
 
 public class PurpleDarkstoneWall : ModWall
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.wallHouse[((ModWall)this).Type] = false;
 		((ModWall)this).AddMapEntry(new Color(26, 0, 10), (LocalizedText)null);

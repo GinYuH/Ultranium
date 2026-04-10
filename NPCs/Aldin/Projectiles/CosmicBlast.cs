@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,32 +17,32 @@ public class CosmicBlast : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Cosmic Blast Bolt");
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 10;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Blast Bolt");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 10;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 54;
-		((ModProjectile)this).projectile.height = 54;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 0;
-		((ModProjectile)this).projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.width = 54;
+		((ModProjectile)this).Projectile.height = 54;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 0;
+		((ModProjectile)this).Projectile.timeLeft = 300;
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)Main.projectileTexture[((ModProjectile)this).projectile.type].Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(Main.projectileTexture[((ModProjectile)this).projectile.type], position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
@@ -55,20 +56,20 @@ public class CosmicBlast : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation += 0.2f;
+		((ModProjectile)this).Projectile.rotation += 0.2f;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).projectile.Center)
+			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}

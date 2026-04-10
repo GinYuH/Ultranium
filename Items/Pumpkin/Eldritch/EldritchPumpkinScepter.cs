@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,34 +10,34 @@ public class EldritchPumpkinScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Eldritch Pumpkin Scepter");
-		((ModItem)this).Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
+		// ((ModItem)this).DisplayName.SetDefault("Eldritch Pumpkin Scepter");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 26;
-		((Entity)(object)((ModItem)this).item).height = 28;
-		((ModItem)this).item.rare = 4;
-		((ModItem)this).item.mana = 20;
-		((ModItem)this).item.damage = 45;
-		((ModItem)this).item.knockBack = 1f;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.useTime = 30;
-		((ModItem)this).item.useAnimation = 30;
-		((ModItem)this).item.summon = true;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.UseSound = SoundID.Item117;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("EldritchPumpkinSentry");
-		((ModItem)this).item.shootSpeed = 0f;
+		((Entity)(object)((ModItem)this).Item).width = 26;
+		((Entity)(object)((ModItem)this).Item).height = 28;
+		((ModItem)this).Item.rare = 4;
+		((ModItem)this).Item.mana = 20;
+		((ModItem)this).Item.damage = 45;
+		((ModItem)this).Item.knockBack = 1f;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.useTime = 30;
+		((ModItem)this).Item.useAnimation = 30;
+		((ModItem)this).Item.DamageType = DamageClass.Summon;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.UseSound = SoundID.Item117;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchPumpkinSentry").Type;
+		((ModItem)this).Item.shootSpeed = 0f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		for (int i = 0; i < Main.projectile.Length; i++)
 		{
 			Projectile projectile = Main.projectile[i];
-			if (((Entity)projectile).active && projectile.type == ((ModItem)this).item.shoot && projectile.owner == player.whoAmI)
+			if (((Entity)projectile).active && projectile.type == ((ModItem)this).Item.shoot && projectile.owner == player.whoAmI)
 			{
 				((Entity)projectile).active = false;
 			}
@@ -54,12 +55,11 @@ public class EldritchPumpkinScepter : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "PumpkinSummon", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
 		val.AddIngredient(521, 10);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

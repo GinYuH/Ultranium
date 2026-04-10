@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
@@ -9,23 +10,23 @@ public class Brain : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Brain");
-		((ModItem)this).Tooltip.SetDefault("Summons a pet zombie");
+		// ((ModItem)this).DisplayName.SetDefault("Brain");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a pet zombie");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.rare = 3;
-		((ModItem)this).item.CloneDefaults(669);
-		((ModItem)this).item.shoot = ModContent.ProjectileType<ZombiePet>();
-		((ModItem)this).item.buffType = ModContent.BuffType<ZombieBuff>();
+		((ModItem)this).Item.rare = 3;
+		((ModItem)this).Item.CloneDefaults(669);
+		((ModItem)this).Item.shoot = ModContent.ProjectileType<ZombiePet>();
+		((ModItem)this).Item.buffType = ModContent.BuffType<ZombieBuff>();
 	}
 
-	public override void UseStyle(Player player)
+	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

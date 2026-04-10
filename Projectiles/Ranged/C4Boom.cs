@@ -8,41 +8,41 @@ public class C4Boom : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("C4 Explosion");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 4;
+		// ((ModProjectile)this).DisplayName.SetDefault("C4 Explosion");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 70;
-		((ModProjectile)this).projectile.height = 70;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.timeLeft = 600;
-		((ModProjectile)this).projectile.ranged = true;
-		((ModProjectile)this).projectile.usesLocalNPCImmunity = true;
-		((ModProjectile)this).projectile.localNPCHitCooldown = 60;
-		((ModProjectile)this).projectile.alpha = 100;
+		((ModProjectile)this).Projectile.width = 70;
+		((ModProjectile)this).Projectile.height = 70;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.timeLeft = 600;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
+		((ModProjectile)this).Projectile.usesLocalNPCImmunity = true;
+		((ModProjectile)this).Projectile.localNPCHitCooldown = 60;
+		((ModProjectile)this).Projectile.alpha = 100;
 	}
 
 	public override void AI()
 	{
-		Dust dust = Dust.NewDustDirect(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 178);
+		Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 178);
 		dust.noGravity = true;
 		dust.scale = 1.6f;
-		if (++((ModProjectile)this).projectile.frameCounter >= 4)
+		if (++((ModProjectile)this).Projectile.frameCounter >= 4)
 		{
-			((ModProjectile)this).projectile.frameCounter = 0;
-			if (++((ModProjectile)this).projectile.frame >= 4)
+			((ModProjectile)this).Projectile.frameCounter = 0;
+			if (++((ModProjectile)this).Projectile.frame >= 4)
 			{
-				((ModProjectile)this).projectile.Kill();
+				((ModProjectile)this).Projectile.Kill();
 			}
 		}
-		((ModProjectile)this).projectile.velocity.X *= 0f;
-		((ModProjectile)this).projectile.velocity.Y *= 0f;
+		((ModProjectile)this).Projectile.velocity.X *= 0f;
+		((ModProjectile)this).Projectile.velocity.Y *= 0f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -50,8 +50,8 @@ public class C4Boom : ModProjectile
 		return Color.White;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
-		((ModProjectile)this).projectile.timeLeft = 0;
+		((ModProjectile)this).Projectile.timeLeft = 0;
 	}
 }

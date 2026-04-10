@@ -10,34 +10,34 @@ public class FearStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Staff of Horror");
-		((ModItem)this).Tooltip.SetDefault("Casts dread energy bolts");
-		Item.staff[((ModItem)this).item.type] = true;
+		// ((ModItem)this).DisplayName.SetDefault("Staff of Horror");
+		// ((ModItem)this).Tooltip.SetDefault("Casts dread energy bolts");
+		Item.staff[((ModItem)this).Item.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 230;
-		((ModItem)this).item.magic = true;
-		((ModItem)this).item.mana = 12;
-		((Entity)(object)((ModItem)this).item).width = 58;
-		((Entity)(object)((ModItem)this).item).height = 56;
-		((ModItem)this).item.useTime = 13;
-		((ModItem)this).item.useAnimation = 13;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.knockBack = 5f;
-		((ModItem)this).item.rare = 4;
-		((ModItem)this).item.value = Item.buyPrice(1);
-		((ModItem)this).item.UseSound = SoundID.Item20;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("DreadWaveBolt");
-		((ModItem)this).item.shootSpeed = 12f;
+		((ModItem)this).Item.damage = 230;
+		((ModItem)this).Item.DamageType = DamageClass.Magic;
+		((ModItem)this).Item.mana = 12;
+		((Entity)(object)((ModItem)this).Item).width = 58;
+		((Entity)(object)((ModItem)this).Item).height = 56;
+		((ModItem)this).Item.useTime = 13;
+		((ModItem)this).Item.useAnimation = 13;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.knockBack = 5f;
+		((ModItem)this).Item.rare = 4;
+		((ModItem)this).Item.value = Item.buyPrice(1);
+		((ModItem)this).Item.UseSound = SoundID.Item20;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DreadWaveBolt").Type;
+		((ModItem)this).Item.shootSpeed = 12f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(200, 0, 0);
+		tooltips[0].OverrideColor = new Color(200, 0, 0);
 	}
 
 	public override void AddRecipes()
@@ -47,11 +47,10 @@ public class FearStaff : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

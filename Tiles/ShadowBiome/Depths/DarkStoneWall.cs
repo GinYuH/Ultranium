@@ -7,7 +7,7 @@ namespace Ultranium.Tiles.ShadowBiome.Depths;
 
 public class DarkStoneWall : ModWall
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.wallHouse[((ModWall)this).Type] = false;
 		((ModWall)this).AddMapEntry(new Color(17, 3, 17), (LocalizedText)null);

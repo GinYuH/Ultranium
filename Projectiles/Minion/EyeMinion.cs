@@ -8,26 +8,26 @@ public class EyeMinion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Mini Eye");
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.Homing[((ModProjectile)this).projectile.type] = true;
-		Main.projFrames[((ModProjectile)this).projectile.type] = 3;
+		// ((ModProjectile)this).DisplayName.SetDefault("Mini Eye");
+		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.minionSlots = 1f;
-		((ModProjectile)this).projectile.CloneDefaults(388);
-		((ModProjectile)this).projectile.minion = true;
-		base.aiType = 388;
+		((ModProjectile)this).Projectile.minionSlots = 1f;
+		((ModProjectile)this).Projectile.CloneDefaults(388);
+		((ModProjectile)this).Projectile.minion = true;
+		base.AIType = 388;
 	}
 
 	public override void AI()
 	{
-		_ = ((ModProjectile)this).projectile.type;
-		((ModProjectile)this).mod.ProjectileType("EyeMinion");
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		_ = ((ModProjectile)this).Projectile.type;
+		((ModProjectile)this).Mod.Find<ModProjectile>("EyeMinion").Type;
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -35,7 +35,7 @@ public class EyeMinion : ModProjectile
 		}
 		if (modPlayer.EyeMinion)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 	}
 

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,7 +11,7 @@ namespace Ultranium.Tiles.ShadowBiome.Trees;
 
 public class ShadowTreeSapling : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
@@ -30,15 +31,15 @@ public class ShadowTreeSapling : ModTile
 		TileObjectData.newTile.LavaDeath = true;
 		TileObjectData.newTile.RandomStyleRange = 3;
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		base.sapling = true;
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Sapling");
+		base.sapling/* tModPorter Note: Removed. Use TileID.Sets.TreeSapling and TileID.Sets.CommonSapling instead */ = true;
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Sapling");
 		((ModTile)this).AddMapEntry(new Color(200, 200, 200), val);
-		base.dustType = 1;
-		base.adjTiles = new int[1] { 20 };
+		base.DustType = 1;
+		base.AdjTiles = new int[1] { 20 };
 	}
 
-	public override int SaplingGrowthType(ref int style)
+	public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
 	{
 		style = 0;
 		return ModContent.TileType<ShadowTreeSapling>();

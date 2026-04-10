@@ -2,7 +2,9 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.GameContent.ObjectInteractions;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -10,7 +12,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowDoorOpen : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileSolid[((ModTile)this).Type] = false;
@@ -58,15 +60,15 @@ public class ShadowDoorOpen : ModTile
 		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
 		TileID.Sets.HousingWalls[((ModTile)this).Type] = true;
 		TileID.Sets.HasOutlines[((ModTile)this).Type] = true;
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Door");
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Door");
 		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
-		base.disableSmartCursor = true;
-		base.adjTiles = new int[1] { 11 };
-		base.closeDoorID = ((ModTile)this).mod.TileType("ShadowDoorClosed");
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		base.AdjTiles = new int[1] { 11 };
+		base.closeDoorID = ((ModTile)this).Mod.Find<ModTile>("ShadowDoorClosed").Type;
 	}
 
-	public override bool HasSmartInteract()
+	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
 	{
 		return true;
 	}
@@ -78,14 +80,14 @@ public class ShadowDoorOpen : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 32, 48, ((ModTile)this).mod.ItemType("ShadowDoorItem"), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 32, 48, ((ModTile)this).Mod.Find<ModItem>("ShadowDoorItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void MouseOver(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;
 		localPlayer.noThrow = 2;
-		localPlayer.showItemIcon = true;
-		localPlayer.showItemIcon2 = ((ModTile)this).mod.ItemType("ShadowDoorItem");
+		localPlayer.cursorItemIconEnabled = true;
+		localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDoorItem").Type;
 	}
 }

@@ -9,24 +9,24 @@ public class EtherealNote : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Ethereal Note");
+		// ((ModProjectile)this).DisplayName.SetDefault("Ethereal Note");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 18;
-		((ModProjectile)this).projectile.height = 24;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.magic = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.width = 18;
+		((ModProjectile)this).Projectile.height = 24;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.timeLeft = 300;
 	}
 
-	public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).projectile.owner] = 8;
+		target.immune[((ModProjectile)this).Projectile.owner] = 8;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -36,14 +36,14 @@ public class EtherealNote : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= 65f)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= 65f)
 		{
-			((ModProjectile)this).projectile.velocity *= 0.98f;
+			((ModProjectile)this).Projectile.velocity *= 0.98f;
 		}
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
 		Vector2 spinningpoint = new Vector2(6f, 0f).RotatedByRandom(Math.PI * 2.0);
 		for (int i = 0; i < 6; i++)
@@ -59,7 +59,7 @@ public class EtherealNote : ModProjectile
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center, vector, ((ModProjectile)this).mod.ProjectileType("EtherealTentacle"), ((ModProjectile)this).projectile.damage, 0f, Main.myPlayer, num2, num);
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
 		}
 	}
 }

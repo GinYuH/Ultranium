@@ -9,40 +9,40 @@ public class NatureBlastBase : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Ultranium Bolt");
+		// ((ModProjectile)this).DisplayName.SetDefault("Ultranium Bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.scale = 1f;
-		((ModProjectile)this).projectile.width = 4;
-		((ModProjectile)this).projectile.height = 4;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = 10;
-		((ModProjectile)this).projectile.timeLeft = 1;
-		((ModProjectile)this).projectile.extraUpdates = 1;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 255;
+		((ModProjectile)this).Projectile.scale = 1f;
+		((ModProjectile)this).Projectile.width = 4;
+		((ModProjectile)this).Projectile.height = 4;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = 10;
+		((ModProjectile)this).Projectile.timeLeft = 1;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 255;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.velocity *= 0f;
+		((ModProjectile)this).Projectile.velocity *= 0f;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
 		int num = 6;
 		int num2 = 650;
 		for (float num3 = 0f; num3 < (float)num; num3 += 1f)
 		{
-			Vector2 vector = ((ModProjectile)this).projectile.Center + new Vector2(0f, num2).RotatedBy((double)num3 * (Math.PI * 2.0 / (double)num));
-			Vector2 vector2 = ((ModProjectile)this).projectile.Center - vector;
+			Vector2 vector = ((ModProjectile)this).Projectile.Center + new Vector2(0f, num2).RotatedBy((double)num3 * (Math.PI * 2.0 / (double)num));
+			Vector2 vector2 = ((ModProjectile)this).Projectile.Center - vector;
 			vector2.Normalize();
 			vector2 *= 2f;
-			_ = Main.projectile[Projectile.NewProjectile(vector.X, vector.Y, vector2.X, vector2.Y, ((ModProjectile)this).mod.ProjectileType("NatureBlast"), ((ModProjectile)this).projectile.damage, 6f, 0, 0f, 0f)];
+			_ = Main.projectile[Projectile.NewProjectile(vector.X, vector.Y, vector2.X, vector2.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("NatureBlast").Type, ((ModProjectile)this).Projectile.damage, 6f, 0, 0f, 0f)];
 		}
 	}
 }

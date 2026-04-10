@@ -7,24 +7,24 @@ public class AbyssalCultistBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Abyssal Cultist Banner");
-		((ModItem)this).Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Cultist");
+		// ((ModItem)this).DisplayName.SetDefault("Abyssal Cultist Banner");
+		// ((ModItem)this).Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Cultist");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 10;
-		((Entity)(object)((ModItem)this).item).height = 24;
-		((ModItem)this).item.maxStack = 99;
-		((ModItem)this).item.useTurn = true;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.useAnimation = 15;
-		((ModItem)this).item.useTime = 10;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.consumable = true;
-		((ModItem)this).item.rare = 1;
-		((ModItem)this).item.value = Item.buyPrice(0, 0, 10);
-		((ModItem)this).item.createTile = ((ModItem)this).mod.TileType("ShadowEventBanners");
-		((ModItem)this).item.placeStyle = 4;
+		((Entity)(object)((ModItem)this).Item).width = 10;
+		((Entity)(object)((ModItem)this).Item).height = 24;
+		((ModItem)this).Item.maxStack = 99;
+		((ModItem)this).Item.useTurn = true;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.useAnimation = 15;
+		((ModItem)this).Item.useTime = 10;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.consumable = true;
+		((ModItem)this).Item.rare = 1;
+		((ModItem)this).Item.value = Item.buyPrice(0, 0, 10);
+		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("ShadowEventBanners").Type;
+		((ModItem)this).Item.placeStyle = 4;
 	}
 }

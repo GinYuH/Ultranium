@@ -9,7 +9,7 @@ public class ShadowTree : ModTree
 
 	public override int DropWood()
 	{
-		return mod.ItemType("ShadowWood");
+		return mod.Find<ModItem>("ShadowWood").Type;
 	}
 
 	public override Texture2D GetTexture()

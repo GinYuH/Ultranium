@@ -5,14 +5,14 @@ namespace Ultranium.Buffs;
 
 public class GlowShroomed : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Glow Shroom'd");
-		((ModBuff)this).Description.SetDefault("Defense lowered by 3 and you emit a stange glow");
+		// ((ModBuff)this).DisplayName.SetDefault("Glow Shroom'd");
+		// ((ModBuff)this).Description.SetDefault("Defense lowered by 3 and you emit a stange glow");
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.pvpBuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;
-		base.longerExpertDebuff = false;
+		base.longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
 	}
 
 	public override void Update(Player player, ref int buffIndex)

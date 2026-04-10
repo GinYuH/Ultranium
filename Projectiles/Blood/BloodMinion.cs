@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -11,60 +12,60 @@ public class BloodMinion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Blood Dripper");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 4;
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 4;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.Homing[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).projectile.type] = true;
+		// ((ModProjectile)this).DisplayName.SetDefault("Blood Dripper");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 4;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 32;
-		((ModProjectile)this).projectile.height = 32;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.minion = true;
-		((ModProjectile)this).projectile.minionSlots = 1f;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.aiStyle = -1;
-		((ModProjectile)this).projectile.timeLeft = 18000;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.netImportant = true;
+		((ModProjectile)this).Projectile.width = 32;
+		((ModProjectile)this).Projectile.height = 32;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.minion = true;
+		((ModProjectile)this).Projectile.minionSlots = 1f;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.aiStyle = -1;
+		((ModProjectile)this).Projectile.timeLeft = 18000;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.netImportant = true;
 	}
 
-	public override bool PreDraw(SpriteBatch sb, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		((ModProjectile)this).projectile.frameCounter++;
-		if (((ModProjectile)this).projectile.frameCounter >= 5)
+		((ModProjectile)this).Projectile.frameCounter++;
+		if (((ModProjectile)this).Projectile.frameCounter >= 5)
 		{
-			((ModProjectile)this).projectile.frame++;
-			((ModProjectile)this).projectile.frameCounter = 0;
-			if (((ModProjectile)this).projectile.frame >= 4)
+			((ModProjectile)this).Projectile.frame++;
+			((ModProjectile)this).Projectile.frameCounter = 0;
+			if (((ModProjectile)this).Projectile.frame >= 4)
 			{
-				((ModProjectile)this).projectile.frame = 0;
+				((ModProjectile)this).Projectile.frame = 0;
 			}
 		}
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
-		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		SpriteEffects effects = ((((ModProjectile)this).projectile.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		SpriteEffects effects = ((((ModProjectile)this).Projectile.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type] * ((ModProjectile)this).projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).projectile.type]);
-			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, effects, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type] * ((ModProjectile)this).Projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type]);
+			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, effects, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		bool num = ((ModProjectile)this).projectile.type == ((ModProjectile)this).mod.ProjectileType("BloodMinion");
-		Player player = Main.player[((ModProjectile)this).projectile.owner];
+		bool num = ((ModProjectile)this).Projectile.type == ((ModProjectile)this).Mod.Find<ModProjectile>("BloodMinion").Type;
+		Player player = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (num)
 		{
@@ -74,44 +75,44 @@ public class BloodMinion : ModProjectile
 			}
 			if (modPlayer.BloodMinion)
 			{
-				((ModProjectile)this).projectile.timeLeft = 2;
+				((ModProjectile)this).Projectile.timeLeft = 2;
 			}
 		}
-		float num2 = (float)((ModProjectile)this).projectile.width * 1.1f;
+		float num2 = (float)((ModProjectile)this).Projectile.width * 1.1f;
 		for (int i = 0; i < 1000; i++)
 		{
 			Projectile projectile = Main.projectile[i];
-			if (i != projectile.whoAmI && ((Entity)projectile).active && ((ModProjectile)this).projectile.owner == projectile.owner && ((ModProjectile)this).projectile.type == projectile.type && Math.Abs(((ModProjectile)this).projectile.position.X - projectile.position.X) + Math.Abs(((ModProjectile)this).projectile.position.Y - projectile.position.Y) < num2)
+			if (i != projectile.whoAmI && ((Entity)projectile).active && ((ModProjectile)this).Projectile.owner == projectile.owner && ((ModProjectile)this).Projectile.type == projectile.type && Math.Abs(((ModProjectile)this).Projectile.position.X - projectile.position.X) + Math.Abs(((ModProjectile)this).Projectile.position.Y - projectile.position.Y) < num2)
 			{
-				if (((ModProjectile)this).projectile.position.X < Main.projectile[i].position.X)
+				if (((ModProjectile)this).Projectile.position.X < Main.projectile[i].position.X)
 				{
-					((ModProjectile)this).projectile.velocity.X -= 0.08f;
+					((ModProjectile)this).Projectile.velocity.X -= 0.08f;
 				}
 				else
 				{
-					((ModProjectile)this).projectile.velocity.X += 0.08f;
+					((ModProjectile)this).Projectile.velocity.X += 0.08f;
 				}
-				if (((ModProjectile)this).projectile.position.Y < Main.projectile[i].position.Y)
+				if (((ModProjectile)this).Projectile.position.Y < Main.projectile[i].position.Y)
 				{
-					((ModProjectile)this).projectile.velocity.Y -= 0.08f;
+					((ModProjectile)this).Projectile.velocity.Y -= 0.08f;
 				}
 				else
 				{
-					((ModProjectile)this).projectile.velocity.Y += 0.08f;
+					((ModProjectile)this).Projectile.velocity.Y += 0.08f;
 				}
 			}
 		}
-		Vector2 vector = ((ModProjectile)this).projectile.position;
+		Vector2 vector = ((ModProjectile)this).Projectile.position;
 		float num3 = 500f;
 		bool flag = false;
-		((ModProjectile)this).projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.tileCollide = true;
 		for (int j = 0; j < 200; j++)
 		{
 			NPC nPC = Main.npc[j];
 			if (nPC.CanBeChasedBy(this))
 			{
-				float num4 = Vector2.Distance(nPC.Center, ((ModProjectile)this).projectile.Center);
-				if ((num4 < num3 || !flag) && Collision.CanHitLine(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, nPC.position, nPC.width, nPC.height))
+				float num4 = Vector2.Distance(nPC.Center, ((ModProjectile)this).Projectile.Center);
+				if ((num4 < num3 || !flag) && Collision.CanHitLine(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, nPC.position, nPC.width, nPC.height))
 				{
 					num3 = num4;
 					vector = nPC.Center;
@@ -119,47 +120,47 @@ public class BloodMinion : ModProjectile
 				}
 			}
 		}
-		if (Vector2.Distance(player.Center, ((ModProjectile)this).projectile.Center) > (flag ? 1000f : 500f))
+		if (Vector2.Distance(player.Center, ((ModProjectile)this).Projectile.Center) > (flag ? 1000f : 500f))
 		{
-			((ModProjectile)this).projectile.ai[0] = 1f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[0] = 1f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
-		if (((ModProjectile)this).projectile.ai[0] == 1f)
+		if (((ModProjectile)this).Projectile.ai[0] == 1f)
 		{
-			((ModProjectile)this).projectile.tileCollide = false;
+			((ModProjectile)this).Projectile.tileCollide = false;
 		}
-		if (flag && ((ModProjectile)this).projectile.ai[0] == 0f)
+		if (flag && ((ModProjectile)this).Projectile.ai[0] == 0f)
 		{
-			Vector2 vector2 = vector - ((ModProjectile)this).projectile.Center;
+			Vector2 vector2 = vector - ((ModProjectile)this).Projectile.Center;
 			if (vector2.Length() > 200f)
 			{
 				vector2.Normalize();
-				((ModProjectile)this).projectile.velocity = (((ModProjectile)this).projectile.velocity * 20f + vector2 * 6f) / 21f;
+				((ModProjectile)this).Projectile.velocity = (((ModProjectile)this).Projectile.velocity * 20f + vector2 * 6f) / 21f;
 			}
 			else
 			{
-				((ModProjectile)this).projectile.velocity *= (float)Math.Pow(0.97, 2.0);
+				((ModProjectile)this).Projectile.velocity *= (float)Math.Pow(0.97, 2.0);
 			}
 		}
 		else
 		{
-			if (!Collision.CanHitLine(((ModProjectile)this).projectile.Center, 1, 1, player.Center, 1, 1))
+			if (!Collision.CanHitLine(((ModProjectile)this).Projectile.Center, 1, 1, player.Center, 1, 1))
 			{
-				((ModProjectile)this).projectile.ai[0] = 1f;
+				((ModProjectile)this).Projectile.ai[0] = 1f;
 			}
 			float num5 = 6f;
-			if (((ModProjectile)this).projectile.ai[0] == 1f)
+			if (((ModProjectile)this).Projectile.ai[0] == 1f)
 			{
 				num5 = 15f;
 			}
-			Vector2 center = ((ModProjectile)this).projectile.Center;
+			Vector2 center = ((ModProjectile)this).Projectile.Center;
 			Vector2 vector3 = player.Center - center;
-			((ModProjectile)this).projectile.ai[1] = 3600f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[1] = 3600f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 			int num6 = 1;
-			for (int k = 0; k < ((ModProjectile)this).projectile.whoAmI; k++)
+			for (int k = 0; k < ((ModProjectile)this).Projectile.whoAmI; k++)
 			{
-				if (((Entity)Main.projectile[k]).active && Main.projectile[k].owner == ((ModProjectile)this).projectile.owner && Main.projectile[k].type == ((ModProjectile)this).projectile.type)
+				if (((Entity)Main.projectile[k]).active && Main.projectile[k].owner == ((ModProjectile)this).Projectile.owner && Main.projectile[k].type == ((ModProjectile)this).Projectile.type)
 				{
 					num6++;
 				}
@@ -171,78 +172,78 @@ public class BloodMinion : ModProjectile
 			{
 				num5 = 9f;
 			}
-			if (num7 < 100f && ((ModProjectile)this).projectile.ai[0] == 1f && !Collision.SolidCollision(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height))
+			if (num7 < 100f && ((ModProjectile)this).Projectile.ai[0] == 1f && !Collision.SolidCollision(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height))
 			{
-				((ModProjectile)this).projectile.ai[0] = 0f;
-				((ModProjectile)this).projectile.netUpdate = true;
+				((ModProjectile)this).Projectile.ai[0] = 0f;
+				((ModProjectile)this).Projectile.netUpdate = true;
 			}
 			if (num7 > 2000f)
 			{
-				((ModProjectile)this).projectile.Center = player.Center;
+				((ModProjectile)this).Projectile.Center = player.Center;
 			}
 			if (num7 > 48f)
 			{
 				vector3.Normalize();
 				vector3 *= num5;
 				float num8 = 10f;
-				((ModProjectile)this).projectile.velocity = (((ModProjectile)this).projectile.velocity * num8 + vector3) / (num8 + 1f);
+				((ModProjectile)this).Projectile.velocity = (((ModProjectile)this).Projectile.velocity * num8 + vector3) / (num8 + 1f);
 			}
 			else
 			{
-				((ModProjectile)this).projectile.direction = Main.player[((ModProjectile)this).projectile.owner].direction;
-				((ModProjectile)this).projectile.velocity *= (float)Math.Pow(0.9, 2.0);
+				((ModProjectile)this).Projectile.direction = Main.player[((ModProjectile)this).Projectile.owner].direction;
+				((ModProjectile)this).Projectile.velocity *= (float)Math.Pow(0.9, 2.0);
 			}
 		}
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.X * 0.05f;
-		if (((ModProjectile)this).projectile.velocity.X > 0f)
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.X * 0.05f;
+		if (((ModProjectile)this).Projectile.velocity.X > 0f)
 		{
-			((ModProjectile)this).projectile.spriteDirection = (((ModProjectile)this).projectile.direction = -1);
+			((ModProjectile)this).Projectile.spriteDirection = (((ModProjectile)this).Projectile.direction = -1);
 		}
-		else if (((ModProjectile)this).projectile.velocity.X < 0f)
+		else if (((ModProjectile)this).Projectile.velocity.X < 0f)
 		{
-			((ModProjectile)this).projectile.spriteDirection = (((ModProjectile)this).projectile.direction = 1);
+			((ModProjectile)this).Projectile.spriteDirection = (((ModProjectile)this).Projectile.direction = 1);
 		}
-		if (((ModProjectile)this).projectile.ai[1] > 0f)
+		if (((ModProjectile)this).Projectile.ai[1] > 0f)
 		{
-			((ModProjectile)this).projectile.ai[1] += 1f;
+			((ModProjectile)this).Projectile.ai[1] += 1f;
 		}
-		if (((ModProjectile)this).projectile.ai[1] > 140f)
+		if (((ModProjectile)this).Projectile.ai[1] > 140f)
 		{
-			((ModProjectile)this).projectile.ai[1] = 0f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[1] = 0f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
-		if (!(((ModProjectile)this).projectile.ai[0] == 0f && flag))
+		if (!(((ModProjectile)this).Projectile.ai[0] == 0f && flag))
 		{
 			return;
 		}
-		if ((vector - ((ModProjectile)this).projectile.Center).X > 0f)
+		if ((vector - ((ModProjectile)this).Projectile.Center).X > 0f)
 		{
-			((ModProjectile)this).projectile.spriteDirection = (((ModProjectile)this).projectile.direction = -1);
+			((ModProjectile)this).Projectile.spriteDirection = (((ModProjectile)this).Projectile.direction = -1);
 		}
-		else if ((vector - ((ModProjectile)this).projectile.Center).X < 0f)
+		else if ((vector - ((ModProjectile)this).Projectile.Center).X < 0f)
 		{
-			((ModProjectile)this).projectile.spriteDirection = (((ModProjectile)this).projectile.direction = 1);
+			((ModProjectile)this).Projectile.spriteDirection = (((ModProjectile)this).Projectile.direction = 1);
 		}
-		if (((ModProjectile)this).projectile.ai[1] != 0f)
+		if (((ModProjectile)this).Projectile.ai[1] != 0f)
 		{
 			return;
 		}
-		((ModProjectile)this).projectile.ai[1] = 1f;
-		if (Main.myPlayer == ((ModProjectile)this).projectile.owner)
+		((ModProjectile)this).Projectile.ai[1] = 1f;
+		if (Main.myPlayer == ((ModProjectile)this).Projectile.owner)
 		{
-			Vector2 vector4 = vector - ((ModProjectile)this).projectile.Center;
+			Vector2 vector4 = vector - ((ModProjectile)this).Projectile.Center;
 			if (vector4 == Vector2.Zero)
 			{
 				vector4 = new Vector2(0f, 1f);
 			}
 			vector4.Normalize();
 			vector4 *= 8.5f;
-			int num9 = Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, vector4.X, vector4.Y, ((ModProjectile)this).mod.ProjectileType("BloodBall"), ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack, Main.myPlayer, 0f, 0f);
+			int num9 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector4.X, vector4.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("BloodBall").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, Main.myPlayer, 0f, 0f);
 			Main.projectile[num9].timeLeft = 300;
 			Main.projectile[num9].penetrate = 1;
 			Main.projectile[num9].netUpdate = true;
 			Main.projectile[num9].minion = true;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
 	}
 

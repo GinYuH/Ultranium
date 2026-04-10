@@ -9,7 +9,7 @@ namespace Ultranium.Tiles.Ambient;
 
 internal class ShadowFlora : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileSolid[((ModTile)this).Type] = false;
 		Main.tileSolidTop[((ModTile)this).Type] = false;
@@ -19,10 +19,10 @@ internal class ShadowFlora : ModTile
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		base.dustType = 89;
+		base.DustType = 89;
 		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.soundType = 6;
-		base.soundStyle = 1;
+		base.HitSound = 6;
+		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 	}
 
 	public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)

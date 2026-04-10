@@ -5,10 +5,10 @@ namespace Ultranium.Buffs.Minions;
 
 public class DemonBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Shade Demon");
-		((ModBuff)this).Description.SetDefault("The Shade Demon will fight for you");
+		// ((ModBuff)this).DisplayName.SetDefault("Shade Demon");
+		// ((ModBuff)this).Description.SetDefault("The Shade Demon will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}
@@ -16,7 +16,7 @@ public class DemonBuff : ModBuff
 	public override void Update(Player player, ref int buffIndex)
 	{
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (player.ownedProjectileCounts[((ModBuff)this).mod.ProjectileType("DemonMinion")] > 0)
+		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("DemonMinion").Type] > 0)
 		{
 			modPlayer.DemonMinion = true;
 		}

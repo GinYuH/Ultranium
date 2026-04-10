@@ -10,22 +10,22 @@ public class EldritchBoots : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Eldritch Tracers");
-		((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
+		// ((ModItem)this).DisplayName.SetDefault("Eldritch Tracers");
+		// ((ModItem)this).Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 34;
-		((Entity)(object)((ModItem)this).item).height = 26;
-		((ModItem)this).item.value = Item.buyPrice(0, 80);
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.accessory = true;
+		((Entity)(object)((ModItem)this).Item).width = 34;
+		((Entity)(object)((ModItem)this).Item).height = 26;
+		((ModItem)this).Item.value = Item.buyPrice(0, 80);
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.accessory = true;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(34, 166, 118);
+		tooltips[0].OverrideColor = new Color(34, 166, 118);
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)
@@ -64,14 +64,13 @@ public class EldritchBoots : ModItem
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient(1862, 1);
 		val.AddIngredient(908, 1);
 		val.AddIngredient(575, 20);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

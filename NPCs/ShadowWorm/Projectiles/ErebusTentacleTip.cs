@@ -8,17 +8,17 @@ public class ErebusTentacleTip : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Erebus Tentacle");
+		// ((ModProjectile)this).DisplayName.SetDefault("Erebus Tentacle");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 38;
-		((ModProjectile)this).projectile.height = 40;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.alpha = 255;
-		((ModProjectile)this).projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.width = 38;
+		((ModProjectile)this).Projectile.height = 40;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.alpha = 255;
+		((ModProjectile)this).Projectile.penetrate = -1;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -28,34 +28,34 @@ public class ErebusTentacleTip : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.rotation = (float)Math.Atan2(((ModProjectile)this).projectile.velocity.Y, ((ModProjectile)this).projectile.velocity.X) + 1.57f;
-		if (((ModProjectile)this).projectile.localAI[0] != 0f)
+		((ModProjectile)this).Projectile.rotation = (float)Math.Atan2(((ModProjectile)this).Projectile.velocity.Y, ((ModProjectile)this).Projectile.velocity.X) + 1.57f;
+		if (((ModProjectile)this).Projectile.localAI[0] != 0f)
 		{
-			((ModProjectile)this).projectile.position -= ((ModProjectile)this).projectile.velocity * 1f;
+			((ModProjectile)this).Projectile.position -= ((ModProjectile)this).Projectile.velocity * 1f;
 		}
-		((ModProjectile)this).projectile.localAI[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] == 0f)
+		((ModProjectile)this).Projectile.localAI[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] == 0f)
 		{
-			((ModProjectile)this).projectile.alpha -= (int)((ModProjectile)this).projectile.localAI[1];
-			if (((ModProjectile)this).projectile.alpha <= 0)
+			((ModProjectile)this).Projectile.alpha -= (int)((ModProjectile)this).Projectile.localAI[1];
+			if (((ModProjectile)this).Projectile.alpha <= 0)
 			{
-				((ModProjectile)this).projectile.alpha = 0;
-				((ModProjectile)this).projectile.ai[0] = 1f;
-				if (((ModProjectile)this).projectile.ai[1] == 0f)
+				((ModProjectile)this).Projectile.alpha = 0;
+				((ModProjectile)this).Projectile.ai[0] = 1f;
+				if (((ModProjectile)this).Projectile.ai[1] == 0f)
 				{
-					((ModProjectile)this).projectile.ai[1] += 1f;
-					((ModProjectile)this).projectile.position += ((ModProjectile)this).projectile.velocity * 1f;
+					((ModProjectile)this).Projectile.ai[1] += 1f;
+					((ModProjectile)this).Projectile.position += ((ModProjectile)this).Projectile.velocity * 1f;
 				}
 			}
 			return;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] > 40f)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] > 40f)
 		{
-			((ModProjectile)this).projectile.alpha += 15;
-			if (((ModProjectile)this).projectile.alpha >= 255)
+			((ModProjectile)this).Projectile.alpha += 15;
+			if (((ModProjectile)this).Projectile.alpha >= 255)
 			{
-				((ModProjectile)this).projectile.Kill();
+				((ModProjectile)this).Projectile.Kill();
 			}
 		}
 	}

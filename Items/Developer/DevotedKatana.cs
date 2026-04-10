@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -16,26 +17,26 @@ public class DevotedKatana : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Devoted Katana");
-		((ModItem)this).Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
+		// ((ModItem)this).DisplayName.SetDefault("Devoted Katana");
+		// ((ModItem)this).Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 200;
-		((ModItem)this).item.melee = true;
-		((Entity)(object)((ModItem)this).item).width = 60;
-		((Entity)(object)((ModItem)this).item).height = 78;
-		((ModItem)this).item.useTime = 16;
-		((ModItem)this).item.useAnimation = 16;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.knockBack = 6f;
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.value = Item.buyPrice(2);
-		((ModItem)this).item.UseSound = SoundID.Item1;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("DStar");
-		((ModItem)this).item.shootSpeed = 10f;
+		((ModItem)this).Item.damage = 200;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((Entity)(object)((ModItem)this).Item).width = 60;
+		((Entity)(object)((ModItem)this).Item).height = 78;
+		((ModItem)this).Item.useTime = 16;
+		((ModItem)this).Item.useAnimation = 16;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.knockBack = 6f;
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.value = Item.buyPrice(2);
+		((ModItem)this).Item.UseSound = SoundID.Item1;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("DStar").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -43,7 +44,7 @@ public class DevotedKatana : ModItem
 		return Color.White;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		Vector2 vector = Vector2.Normalize(new Vector2(speedX, speedY)) * 100f;
 		if (Collision.CanHit(position, 0, 0, position + vector, 0, 0))
@@ -62,11 +63,11 @@ public class DevotedKatana : ModItem
 	{
 		foreach (TooltipLine tooltip in tooltips)
 		{
-			if (tooltip.mod == "Terraria" && tooltip.Name == "ItemName")
+			if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
 			{
 				float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 				int num = (int)(Main.GameUpdateCount / 60 % 2);
-				tooltip.overrideColor = Color.Lerp(itemNameCycleColors[num], itemNameCycleColors[(num + 1) % 2], amount);
+				tooltip.OverrideColor = Color.Lerp(itemNameCycleColors[num], itemNameCycleColors[(num + 1) % 2], amount);
 			}
 		}
 	}

@@ -8,24 +8,24 @@ public class EtherealHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Occultist Hood");
-		((ModItem)this).Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
+		// ((ModItem)this).DisplayName.SetDefault("Occultist Hood");
+		// ((ModItem)this).Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 18;
-		((Entity)(object)((ModItem)this).item).height = 18;
-		((ModItem)this).item.value = Item.buyPrice(0, 30);
-		((ModItem)this).item.rare = 9;
-		((ModItem)this).item.defense = 11;
+		((Entity)(object)((ModItem)this).Item).width = 18;
+		((Entity)(object)((ModItem)this).Item).height = 18;
+		((ModItem)this).Item.value = Item.buyPrice(0, 30);
+		((ModItem)this).Item.rare = 9;
+		((ModItem)this).Item.defense = 11;
 	}
 
 	public override bool IsArmorSet(Item head, Item body, Item legs)
 	{
-		if (body.type == ((ModItem)this).mod.ItemType("EtherealBody"))
+		if (body.type == ((ModItem)this).Mod.Find<ModItem>("EtherealBody").Type)
 		{
-			return legs.type == ((ModItem)this).mod.ItemType("EtherealLegs");
+			return legs.type == ((ModItem)this).Mod.Find<ModItem>("EtherealLegs").Type;
 		}
 		return false;
 	}
@@ -48,10 +48,10 @@ public class EtherealHood : ModItem
 		player.statLifeMax2 += 5;
 		player.statManaMax2 += 5;
 		player.maxMinions++;
-		player.meleeDamage += 0.08f;
-		player.rangedDamage += 0.08f;
-		player.magicDamage += 0.08f;
-		player.minionDamage += 0.08f;
+		player.GetDamage(DamageClass.Melee) += 0.08f;
+		player.GetDamage(DamageClass.Ranged) += 0.08f;
+		player.GetDamage(DamageClass.Magic) += 0.08f;
+		player.GetDamage(DamageClass.Summon) += 0.08f;
 	}
 
 	public override void AddRecipes()
@@ -62,12 +62,11 @@ public class EtherealHood : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 8);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
 		val.AddIngredient(225, 10);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

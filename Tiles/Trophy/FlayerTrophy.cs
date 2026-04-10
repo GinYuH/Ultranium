@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -7,7 +8,7 @@ namespace Ultranium.Tiles.Trophy;
 
 public class FlayerTrophy : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileLavaDeath[((ModTile)this).Type] = true;
@@ -15,10 +16,10 @@ public class FlayerTrophy : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		base.dustType = 7;
-		base.disableSmartCursor = true;
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Trophy");
+		base.DustType = 7;
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Trophy");
 		((ModTile)this).AddMapEntry(new Color(120, 85, 60), val);
 	}
 
@@ -27,7 +28,7 @@ public class FlayerTrophy : ModTile
 		int num = 0;
 		if (frameX / 54 == 0)
 		{
-			num = ((ModTile)this).mod.ItemType("FlayerTrophyItem");
+			num = ((ModTile)this).Mod.Find<ModItem>("FlayerTrophyItem").Type;
 		}
 		if (num > 0)
 		{

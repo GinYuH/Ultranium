@@ -8,27 +8,27 @@ public class DreadMinion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Mini Dread");
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		ProjectileID.Sets.Homing[((ModProjectile)this).projectile.type] = true;
-		Main.projFrames[((ModProjectile)this).projectile.type] = 3;
+		// ((ModProjectile)this).DisplayName.SetDefault("Mini Dread");
+		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.minionSlots = 1f;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.CloneDefaults(388);
-		((ModProjectile)this).projectile.minion = true;
-		base.aiType = 388;
+		((ModProjectile)this).Projectile.minionSlots = 1f;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.CloneDefaults(388);
+		((ModProjectile)this).Projectile.minion = true;
+		base.AIType = 388;
 	}
 
 	public override void AI()
 	{
-		_ = ((ModProjectile)this).projectile.type;
-		((ModProjectile)this).mod.ProjectileType("DreadMinion");
-		Player obj = Main.player[((ModProjectile)this).projectile.owner];
+		_ = ((ModProjectile)this).Projectile.type;
+		((ModProjectile)this).Mod.Find<ModProjectile>("DreadMinion").Type;
+		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -36,7 +36,7 @@ public class DreadMinion : ModProjectile
 		}
 		if (modPlayer.DreadMinion)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 	}
 

@@ -14,43 +14,43 @@ public class Warden : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		((ModNPC)this).DisplayName.SetDefault("Abyssal Brute");
-		Main.npcFrameCount[((ModNPC)this).npc.type] = 8;
+		// ((ModNPC)this).DisplayName.SetDefault("Abyssal Brute");
+		Main.npcFrameCount[((ModNPC)this).NPC.type] = 8;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).npc.npcSlots = 1f;
-		((ModNPC)this).npc.width = 138;
-		((ModNPC)this).npc.height = 144;
-		((ModNPC)this).npc.damage = 80;
-		((ModNPC)this).npc.defense = 70;
-		((ModNPC)this).npc.lifeMax = 12000;
-		((ModNPC)this).npc.knockBackResist = 0f;
-		((ModNPC)this).npc.HitSound = SoundID.NPCHit49;
-		((ModNPC)this).npc.DeathSound = SoundID.NPCDeath55;
-		base.banner = ((ModNPC)this).npc.type;
-		base.bannerItem = ((ModNPC)this).mod.ItemType("AbyssBruteBanner");
+		((ModNPC)this).NPC.npcSlots = 1f;
+		((ModNPC)this).NPC.width = 138;
+		((ModNPC)this).NPC.height = 144;
+		((ModNPC)this).NPC.damage = 80;
+		((ModNPC)this).NPC.defense = 70;
+		((ModNPC)this).NPC.lifeMax = 12000;
+		((ModNPC)this).NPC.knockBackResist = 0f;
+		((ModNPC)this).NPC.HitSound = SoundID.NPCHit49;
+		((ModNPC)this).NPC.DeathSound = SoundID.NPCDeath55;
+		base.Banner = ((ModNPC)this).NPC.type;
+		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("AbyssBruteBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
-			((ModNPC)this).npc.buffImmune[i] = true;
+			((ModNPC)this).NPC.buffImmune[i] = true;
 		}
 	}
 
-	public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
-		((ModNPC)this).npc.lifeMax = 24000;
-		((ModNPC)this).npc.damage = 130;
-		((ModNPC)this).npc.defense = 70;
+		((ModNPC)this).NPC.lifeMax = 24000;
+		((ModNPC)this).NPC.damage = 130;
+		((ModNPC)this).NPC.defense = 70;
 	}
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/WardenGore1"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/WardenGore2"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/WardenGore3"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/WardenGore4"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/WardenGore5"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/WardenGore1"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/WardenGore2"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/WardenGore3"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/WardenGore4"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/WardenGore5"));
 		return true;
 	}
 
@@ -59,62 +59,62 @@ public class Warden : ModNPC
 		return Color.White;
 	}
 
-	public override void OnHitPlayer(Player player, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(((ModNPC)this).mod.BuffType("DarkDebuff"), 180);
+		player.AddBuff(((ModNPC)this).Mod.Find<ModBuff>("DarkDebuff").Type, 180);
 	}
 
 	public override void AI()
 	{
-		((ModNPC)this).npc.spriteDirection = ((ModNPC)this).npc.direction;
-		_ = Main.player[((ModNPC)this).npc.target];
-		((ModNPC)this).npc.TargetClosest();
+		((ModNPC)this).NPC.spriteDirection = ((ModNPC)this).NPC.direction;
+		_ = Main.player[((ModNPC)this).NPC.target];
+		((ModNPC)this).NPC.TargetClosest();
 		Timer++;
 		if (Timer == 500)
 		{
-			Vector2 vector = Main.player[((ModNPC)this).npc.target].Center - ((ModNPC)this).npc.Center;
+			Vector2 vector = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
 			vector.Normalize();
 			vector.X *= 25f;
 			vector.Y *= 25f;
-			((ModNPC)this).npc.velocity.X = vector.X;
-			((ModNPC)this).npc.velocity.Y = vector.Y;
-			Vector2 vector2 = Main.player[((ModNPC)this).npc.target].Center - ((ModNPC)this).npc.Center;
+			((ModNPC)this).NPC.velocity.X = vector.X;
+			((ModNPC)this).NPC.velocity.Y = vector.Y;
+			Vector2 vector2 = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
 			vector2.Normalize();
 			vector2.X *= 25f;
 			vector2.Y *= 25f;
 		}
 		if (Timer > 500 && Timer < 570)
 		{
-			((ModNPC)this).npc.rotation += 0.5f * (float)((ModNPC)this).npc.direction;
-			Vector2 position = ((ModNPC)this).npc.Center + Vector2.Normalize(((ModNPC)this).npc.velocity) * 10f;
-			Dust obj = Main.dust[Dust.NewDust(((ModNPC)this).npc.position, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, 89)];
+			((ModNPC)this).NPC.rotation += 0.5f * (float)((ModNPC)this).NPC.direction;
+			Vector2 position = ((ModNPC)this).NPC.Center + Vector2.Normalize(((ModNPC)this).NPC.velocity) * 10f;
+			Dust obj = Main.dust[Dust.NewDust(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 89)];
 			obj.position = position;
-			obj.velocity = ((ModNPC)this).npc.velocity.RotatedBy(Math.PI / 2.0) * 0.05f + ((ModNPC)this).npc.velocity / 2f;
-			obj.position += ((ModNPC)this).npc.velocity.RotatedBy(Math.PI / 2.0);
+			obj.velocity = ((ModNPC)this).NPC.velocity.RotatedBy(Math.PI / 2.0) * 0.05f + ((ModNPC)this).NPC.velocity / 2f;
+			obj.position += ((ModNPC)this).NPC.velocity.RotatedBy(Math.PI / 2.0);
 			obj.fadeIn = 0.5f;
 			obj.noGravity = true;
-			Dust obj2 = Main.dust[Dust.NewDust(((ModNPC)this).npc.position, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, 89)];
+			Dust obj2 = Main.dust[Dust.NewDust(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, 89)];
 			obj2.position = position;
-			obj2.velocity = ((ModNPC)this).npc.velocity.RotatedBy(-Math.PI / 2.0) * 0.05f + ((ModNPC)this).npc.velocity / 2f;
-			obj2.position += ((ModNPC)this).npc.velocity.RotatedBy(-Math.PI / 2.0);
+			obj2.velocity = ((ModNPC)this).NPC.velocity.RotatedBy(-Math.PI / 2.0) * 0.05f + ((ModNPC)this).NPC.velocity / 2f;
+			obj2.position += ((ModNPC)this).NPC.velocity.RotatedBy(-Math.PI / 2.0);
 			obj2.fadeIn = 0.5f;
 			obj2.noGravity = true;
 		}
 		else
 		{
-			((ModNPC)this).npc.rotation = 0f;
+			((ModNPC)this).NPC.rotation = 0f;
 		}
 		if (Timer < 840)
 		{
-			((ModNPC)this).npc.aiStyle = 3;
-			base.aiType = 508;
+			((ModNPC)this).NPC.aiStyle = 3;
+			base.AIType = 508;
 		}
 		if (Timer > 840)
 		{
-			((ModNPC)this).npc.velocity.X *= 0f;
+			((ModNPC)this).NPC.velocity.X *= 0f;
 			if (Timer == 880 || Timer == 920 || Timer == 960)
 			{
-				Vector2 vector3 = Main.player[((ModNPC)this).npc.target].Center - ((ModNPC)this).npc.Center;
+				Vector2 vector3 = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
 				vector3.Normalize();
 				vector3.X *= 6f;
 				vector3.Y *= 6f;
@@ -122,7 +122,7 @@ public class Warden : ModNPC
 				for (int i = 0; i < num; i++)
 				{
 					float num2 = (float)Main.rand.Next(-300, 300) * 0.01f;
-					Projectile.NewProjectile(((ModNPC)this).npc.Center.X, ((ModNPC)this).npc.Center.Y, vector3.X + num2, vector3.Y + num2, ((ModNPC)this).mod.ProjectileType("WardenBolt"), 60, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector3.X + num2, vector3.Y + num2, ((ModNPC)this).Mod.Find<ModProjectile>("WardenBolt").Type, 60, 1f, Main.myPlayer, 0f, 0f);
 				}
 			}
 		}
@@ -134,31 +134,31 @@ public class Warden : ModNPC
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).npc.frameCounter += 1.0;
-		if (((ModNPC)this).npc.frameCounter > 6.0)
+		((ModNPC)this).NPC.frameCounter += 1.0;
+		if (((ModNPC)this).NPC.frameCounter > 6.0)
 		{
-			((ModNPC)this).npc.frame.Y = ((ModNPC)this).npc.frame.Y + frameHeight;
-			((ModNPC)this).npc.frameCounter = 0.0;
+			((ModNPC)this).NPC.frame.Y = ((ModNPC)this).NPC.frame.Y + frameHeight;
+			((ModNPC)this).NPC.frameCounter = 0.0;
 		}
-		if (((ModNPC)this).npc.frame.Y >= frameHeight * 6)
+		if (((ModNPC)this).NPC.frame.Y >= frameHeight * 6)
 		{
-			((ModNPC)this).npc.frame.Y = 0;
+			((ModNPC)this).NPC.frame.Y = 0;
 		}
 		if (Timer > 500 && Timer < 570)
 		{
-			((ModNPC)this).npc.frame.Y = 7 * frameHeight;
+			((ModNPC)this).NPC.frame.Y = 7 * frameHeight;
 		}
 		if (Timer > 840)
 		{
-			((ModNPC)this).npc.frame.Y = 6 * frameHeight;
+			((ModNPC)this).NPC.frame.Y = 6 * frameHeight;
 		}
 	}
 
-	public override void NPCLoot()
+	public override void OnKill()
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).npc.position.X, (int)((ModNPC)this).npc.position.Y, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.ItemType("DarkMatter"), 1, false, 0, false, false);
+			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
 		}
 	}
 }

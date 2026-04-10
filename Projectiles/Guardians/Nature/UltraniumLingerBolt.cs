@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Guardians.Nature;
@@ -9,20 +11,20 @@ internal class UltraniumLingerBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).projectile.type] = 5;
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 5;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 40;
-		((ModProjectile)this).projectile.height = 40;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = 2;
-		((ModProjectile)this).projectile.timeLeft = 180;
-		((ModProjectile)this).projectile.melee = true;
+		((ModProjectile)this).Projectile.width = 40;
+		((ModProjectile)this).Projectile.height = 40;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = 2;
+		((ModProjectile)this).Projectile.timeLeft = 180;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -30,34 +32,34 @@ internal class UltraniumLingerBolt : ModProjectile
 		return Color.White;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
-		Main.PlaySound(2, (int)((ModProjectile)this).projectile.position.X, (int)((ModProjectile)this).projectile.position.Y, 14, 1f, 0f);
+		SoundEngine.PlaySound(SoundID.Item14, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, ((ModProjectile)this).mod.DustType("UltraniumDust"), 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, ((ModProjectile)this).Mod.Find<ModDust>("UltraniumDust").Type, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).projectile.Center)
+			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).projectile.DirectionTo(Main.dust[num].position) * 4f;
+				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 4f;
 			}
 		}
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.velocity *= 0.5f;
-		if (++((ModProjectile)this).projectile.frameCounter >= 5)
+		((ModProjectile)this).Projectile.velocity *= 0.5f;
+		if (++((ModProjectile)this).Projectile.frameCounter >= 5)
 		{
-			((ModProjectile)this).projectile.frameCounter = 0;
-			if (++((ModProjectile)this).projectile.frame >= 4)
+			((ModProjectile)this).Projectile.frameCounter = 0;
+			if (++((ModProjectile)this).Projectile.frame >= 4)
 			{
-				((ModProjectile)this).projectile.frame = 0;
+				((ModProjectile)this).Projectile.frame = 0;
 			}
 		}
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).projectile.rotation += 0f * (float)((ModProjectile)this).projectile.direction;
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
 	}
 }

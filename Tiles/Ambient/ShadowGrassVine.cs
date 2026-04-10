@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Ultranium.Tiles.ShadowBiome;
@@ -8,21 +9,21 @@ namespace Ultranium.Tiles.Ambient;
 
 public class ShadowGrassVine : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileCut[((ModTile)this).Type] = true;
 		Main.tileLavaDeath[((ModTile)this).Type] = true;
 		Main.tileNoFail[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
-		base.soundType = 6;
-		base.dustType = 89;
+		base.HitSound = 6;
+		base.DustType = 89;
 		((ModTile)this).AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 	}
 
 	public override void KillTile(int i, int j, ref bool fail, ref bool effectOnly, ref bool noItem)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 1);
-		if (tileSafely.active() && tileSafely.type == ((ModTile)this).Type)
+		if (tileSafely.HasTile && tileSafely.TileType == ((ModTile)this).Type)
 		{
 			WorldGen.KillTile(i, j + 1);
 		}
@@ -32,9 +33,9 @@ public class ShadowGrassVine : ModTile
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j - 1);
 		int num = -1;
-		if (tileSafely.active() && !tileSafely.bottomSlope())
+		if (tileSafely.HasTile && !tileSafely.BottomSlope)
 		{
-			num = tileSafely.type;
+			num = tileSafely.TileType;
 		}
 		if (num == ModContent.TileType<ShadowGrass>() || num == ((ModTile)this).Type)
 		{
@@ -47,7 +48,7 @@ public class ShadowGrassVine : ModTile
 	public override void RandomUpdate(int i, int j)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 1);
-		if (tileSafely.active() || tileSafely.lava())
+		if (tileSafely.HasTile || (tileSafely.LiquidType == LiquidID.Lava))
 		{
 			return;
 		}
@@ -56,11 +57,11 @@ public class ShadowGrassVine : ModTile
 		while (num > j - 10)
 		{
 			Tile tileSafely2 = Framing.GetTileSafely(i, num);
-			if (tileSafely2.bottomSlope())
+			if (tileSafely2.BottomSlope)
 			{
 				break;
 			}
-			if (!tileSafely2.active() || tileSafely2.type != ModContent.TileType<ShadowGrass>())
+			if (!tileSafely2.HasTile || tileSafely2.TileType != ModContent.TileType<ShadowGrass>())
 			{
 				num--;
 				continue;
@@ -70,8 +71,8 @@ public class ShadowGrassVine : ModTile
 		}
 		if (flag)
 		{
-			tileSafely.type = ((ModTile)this).Type;
-			tileSafely.active(active: true);
+			tileSafely.TileType = ((ModTile)this).Type;
+			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)
 			{

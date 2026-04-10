@@ -9,7 +9,7 @@ namespace Ultranium.Tiles.Furniture.Shrine;
 
 public class IgnodiumShrine : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileSolidTop[((ModTile)this).Type] = false;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
@@ -25,6 +25,6 @@ public class IgnodiumShrine : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 32, 16, ((ModTile)this).mod.ItemType("IgnodiumShrineItem"), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 32, 16, ((ModTile)this).Mod.Find<ModItem>("IgnodiumShrineItem").Type, 1, false, 0, false, false);
 	}
 }

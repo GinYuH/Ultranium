@@ -5,10 +5,10 @@ namespace Ultranium.Buffs.Minions;
 
 public class WispBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Ethereal Wisp");
-		((ModBuff)this).Description.SetDefault("The Ethereal Wisp will fight along with you");
+		// ((ModBuff)this).DisplayName.SetDefault("Ethereal Wisp");
+		// ((ModBuff)this).Description.SetDefault("The Ethereal Wisp will fight along with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}
@@ -16,7 +16,7 @@ public class WispBuff : ModBuff
 	public override void Update(Player player, ref int buffIndex)
 	{
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (player.ownedProjectileCounts[((ModBuff)this).mod.ProjectileType("EtherealWisp")] > 0)
+		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("EtherealWisp").Type] > 0)
 		{
 			modPlayer.Wisp = true;
 		}

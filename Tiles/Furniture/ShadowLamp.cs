@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -10,7 +11,7 @@ namespace Ultranium.Tiles.Furniture;
 
 internal class ShadowLamp : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileLighted[((ModTile)this).Type] = true;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
@@ -33,11 +34,11 @@ internal class ShadowLamp : ModTile
 	public override void HitWire(int i, int j)
 	{
 		Tile tile = Main.tile[i, j];
-		int num = j - tile.frameY / 18 % 3;
-		short num2 = (short)((tile.frameX > 0) ? (-18) : 18);
-		Main.tile[i, num].frameX += num2;
-		Main.tile[i, num + 1].frameX += num2;
-		Main.tile[i, num + 2].frameX += num2;
+		int num = j - tile.TileFrameY / 18 % 3;
+		short num2 = (short)((tile.TileFrameX > 0) ? (-18) : 18);
+		Main.tile[i, num].TileFrameX += num2;
+		Main.tile[i, num + 1].TileFrameX += num2;
+		Main.tile[i, num + 2].TileFrameX += num2;
 		Wiring.SkipWire(i, num);
 		Wiring.SkipWire(i, num + 1);
 		Wiring.SkipWire(i, num + 2);
@@ -54,7 +55,7 @@ internal class ShadowLamp : ModTile
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)
 	{
-		if (Main.tile[i, j].frameX == 0)
+		if (Main.tile[i, j].TileFrameX == 0)
 		{
 			r = 0.25f;
 			g = 0f;
@@ -62,15 +63,15 @@ internal class ShadowLamp : ModTile
 		}
 	}
 
-	public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref Color drawColor, ref int nextSpecialDrawIndex)
+	public override void DrawEffects(int i, int j, SpriteBatch spriteBatch, ref TileDrawInfo drawData)
 	{
 		if (Main.gamePaused || !Main.instance.IsActive || (Lighting.UpdateEveryFrame && !Utils.NextBool(Main.rand, 4)))
 		{
 			return;
 		}
 		Tile tile = Main.tile[i, j];
-		short frameX = tile.frameX;
-		short frameY = tile.frameY;
+		short frameX = tile.TileFrameX;
+		short frameY = tile.TileFrameY;
 		if (!Utils.NextBool(Main.rand, 40) || frameX != 0)
 		{
 			return;
@@ -114,13 +115,13 @@ internal class ShadowLamp : ModTile
 		int num2 = 0;
 		int height = 16;
 		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
-		Texture2D texture = ((ModTile)this).mod.GetTexture("Tiles/Furniture/ShadowLamp_Flame");
+		Texture2D texture = ((ModTile)this).Mod.GetTexture("Tiles/Furniture/ShadowLamp_Flame");
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{
 			float num3 = (float)Utils.RandomInt(ref seed, -10, 11) * 0.15f;
 			float num4 = (float)Utils.RandomInt(ref seed, -10, 1) * 0.35f;
-			Main.spriteBatch.Draw(texture, new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - ((float)num - 16f) / 2f + num3, (float)(j * 16 - (int)Main.screenPosition.Y + num2) + num4) + vector, new Rectangle(tile.frameX, tile.frameY, num, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, effects, 0f);
+			Main.spriteBatch.Draw(texture, new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - ((float)num - 16f) / 2f + num3, (float)(j * 16 - (int)Main.screenPosition.Y + num2) + num4) + vector, new Rectangle(tile.TileFrameX, tile.TileFrameY, num, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, effects, 0f);
 		}
 	}
 }

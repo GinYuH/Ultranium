@@ -8,28 +8,28 @@ public class BloodYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("The Gout");
-		((ModItem)this).Tooltip.SetDefault("Randomly fires out lingering blood swirls");
+		// ((ModItem)this).DisplayName.SetDefault("The Gout");
+		// ((ModItem)this).Tooltip.SetDefault("Randomly fires out lingering blood swirls");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 13;
-		((ModItem)this).item.knockBack = 2.5f;
-		((ModItem)this).item.rare = 2;
-		((ModItem)this).item.useStyle = 5;
-		((Entity)(object)((ModItem)this).item).width = 24;
-		((Entity)(object)((ModItem)this).item).height = 22;
-		((ModItem)this).item.noUseGraphic = true;
-		((ModItem)this).item.melee = true;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.channel = true;
-		((ModItem)this).item.value = Item.buyPrice(0, 1, 35);
-		((ModItem)this).item.UseSound = SoundID.Item1;
-		((ModItem)this).item.useAnimation = 25;
-		((ModItem)this).item.useTime = 25;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("TheGout");
-		((ModItem)this).item.shootSpeed = 16f;
+		((ModItem)this).Item.damage = 13;
+		((ModItem)this).Item.knockBack = 2.5f;
+		((ModItem)this).Item.rare = 2;
+		((ModItem)this).Item.useStyle = 5;
+		((Entity)(object)((ModItem)this).Item).width = 24;
+		((Entity)(object)((ModItem)this).Item).height = 22;
+		((ModItem)this).Item.noUseGraphic = true;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.channel = true;
+		((ModItem)this).Item.value = Item.buyPrice(0, 1, 35);
+		((ModItem)this).Item.UseSound = SoundID.Item1;
+		((ModItem)this).Item.useAnimation = 25;
+		((ModItem)this).Item.useTime = 25;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("TheGout").Type;
+		((ModItem)this).Item.shootSpeed = 16f;
 	}
 
 	public override void AddRecipes()
@@ -39,11 +39,10 @@ public class BloodYoyo : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
 		val.AddTile(16);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

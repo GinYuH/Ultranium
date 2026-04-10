@@ -7,37 +7,37 @@ public class EldritchAuraBase : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Eldritch Aura");
+		// ((ModProjectile)this).DisplayName.SetDefault("Eldritch Aura");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 4;
-		((ModProjectile)this).projectile.height = 4;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 60;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.timeLeft = 120;
+		((ModProjectile)this).Projectile.width = 4;
+		((ModProjectile)this).Projectile.height = 4;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 60;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.timeLeft = 120;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.position.X = Main.player[((ModProjectile)this).projectile.owner].Center.X - (float)(((ModProjectile)this).projectile.width / 2);
-		((ModProjectile)this).projectile.position.Y = Main.player[((ModProjectile)this).projectile.owner].Center.Y - (float)(((ModProjectile)this).projectile.height / 2);
-		if (((ModProjectile)this).projectile.ai[0] != 0f)
+		((ModProjectile)this).Projectile.position.X = Main.player[((ModProjectile)this).Projectile.owner].Center.X - (float)(((ModProjectile)this).Projectile.width / 2);
+		((ModProjectile)this).Projectile.position.Y = Main.player[((ModProjectile)this).Projectile.owner].Center.Y - (float)(((ModProjectile)this).Projectile.height / 2);
+		if (((ModProjectile)this).Projectile.ai[0] != 0f)
 		{
 			return;
 		}
 		int num = 15;
-		_ = ((ModProjectile)this).projectile.whoAmI;
-		((ModProjectile)this).projectile.ai[1] = ((ModProjectile)this).projectile.whoAmI;
+		_ = ((ModProjectile)this).Projectile.whoAmI;
+		((ModProjectile)this).Projectile.ai[1] = ((ModProjectile)this).Projectile.whoAmI;
 		for (int i = 0; i < num; i++)
 		{
-			if (Main.player[((ModProjectile)this).projectile.owner].ownedProjectileCounts[((ModProjectile)this).mod.ProjectileType("EldritchAura1")] < num)
+			if (Main.player[((ModProjectile)this).Projectile.owner].ownedProjectileCounts[((ModProjectile)this).Mod.Find<ModProjectile>("EldritchAura1").Type] < num)
 			{
-				Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("EldritchAura1"), ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack, ((ModProjectile)this).projectile.owner, (float)i, (float)((ModProjectile)this).projectile.whoAmI);
+				Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchAura1").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)i, (float)((ModProjectile)this).Projectile.whoAmI);
 			}
 		}
 	}

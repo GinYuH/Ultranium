@@ -7,7 +7,7 @@ namespace Ultranium.Tiles.ShadowBiome;
 
 public class ShadowWall : ModWall
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.wallHouse[((ModWall)this).Type] = false;
 		((ModWall)this).AddMapEntry(new Color(52, 0, 40), (LocalizedText)null);

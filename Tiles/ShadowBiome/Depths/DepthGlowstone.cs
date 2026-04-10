@@ -7,7 +7,7 @@ namespace Ultranium.Tiles.ShadowBiome.Depths;
 
 public class DepthGlowstone : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowGrass>()] = true;
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DarkStone>()] = true;
@@ -18,12 +18,12 @@ public class DepthGlowstone : ModTile
 		Main.tileMergeDirt[((ModTile)this).Type] = true;
 		Main.tileSolid[((ModTile)this).Type] = true;
 		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.dustType = 89;
-		base.drop = ((ModTile)this).mod.ItemType("DepthGlowstoneItem");
-		base.soundType = 21;
-		base.soundStyle = 1;
-		base.mineResist = 5f;
-		base.minPick = 200;
+		base.DustType = 89;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("DepthGlowstoneItem").Type;
+		base.HitSound = 21;
+		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
+		base.MineResist = 5f;
+		base.MinPick = 200;
 	}
 
 	public override bool CanExplode(int i, int j)

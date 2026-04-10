@@ -7,22 +7,22 @@ public class DepthCrate : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Depths Crate");
-		((ModItem)this).Tooltip.SetDefault("Right click to open");
+		// ((ModItem)this).DisplayName.SetDefault("Depths Crate");
+		// ((ModItem)this).Tooltip.SetDefault("Right click to open");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 20;
-		((Entity)(object)((ModItem)this).item).height = 20;
-		((ModItem)this).item.rare = 7;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.createTile = ((ModItem)this).mod.TileType("DepthCrateTile");
-		((ModItem)this).item.maxStack = 999;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.useAnimation = 15;
-		((ModItem)this).item.useTime = 10;
-		((ModItem)this).item.consumable = true;
+		((Entity)(object)((ModItem)this).Item).width = 20;
+		((Entity)(object)((ModItem)this).Item).height = 20;
+		((ModItem)this).Item.rare = 7;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("DepthCrateTile").Type;
+		((ModItem)this).Item.maxStack = 999;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.useAnimation = 15;
+		((ModItem)this).Item.useTime = 10;
+		((ModItem)this).Item.consumable = true;
 	}
 
 	public override bool CanRightClick()
@@ -34,9 +34,9 @@ public class DepthCrate : ModItem
 	{
 		int[] array = new int[3]
 		{
-			((ModItem)this).mod.ItemType("DepthGlowstoneItem"),
-			((ModItem)this).mod.ItemType("NightmareBar"),
-			((ModItem)this).mod.ItemType("ShadowEssence")
+			((ModItem)this).Mod.Find<ModItem>("DepthGlowstoneItem").Type,
+			((ModItem)this).Mod.Find<ModItem>("NightmareBar").Type,
+			((ModItem)this).Mod.Find<ModItem>("ShadowEssence").Type
 		};
 		int num = Main.rand.Next(array.Length);
 		player.QuickSpawnItem(array[num], Main.rand.Next(3, 5));

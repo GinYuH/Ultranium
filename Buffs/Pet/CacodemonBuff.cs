@@ -6,10 +6,10 @@ namespace Ultranium.Buffs.Pet;
 
 public class CacodemonBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Cacodemon");
-		((ModBuff)this).Description.SetDefault("It makes weird noises");
+		// ((ModBuff)this).DisplayName.SetDefault("Cacodemon");
+		// ((ModBuff)this).Description.SetDefault("It makes weird noises");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

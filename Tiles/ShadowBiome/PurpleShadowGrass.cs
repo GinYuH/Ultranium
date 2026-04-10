@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Ultranium.Tiles.Ambient.Purple;
@@ -10,7 +11,7 @@ namespace Ultranium.Tiles.ShadowBiome;
 
 public class PurpleShadowGrass : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileMergeDirt[((ModTile)this).Type] = true;
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowOreTile>()] = true;
@@ -21,11 +22,11 @@ public class PurpleShadowGrass : ModTile
 		Main.tileSolid[((ModTile)this).Type] = true;
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		((ModTile)this).AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
-		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree());
-		base.dustType = ((ModTile)this).mod.DustType("ShadowSoilDust");
-		base.drop = ((ModTile)this).mod.ItemType("PurpleShadowGrassItem");
-		base.mineResist = 1f;
-		base.minPick = 1;
+		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowSoilDust").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("PurpleShadowGrassItem").Type;
+		base.MineResist = 1f;
+		base.MinPick = 1;
 	}
 
 	public override void RandomUpdate(int i, int j)
@@ -33,37 +34,37 @@ public class PurpleShadowGrass : ModTile
 		Tile tileSafely = Framing.GetTileSafely(i, j);
 		Tile tileSafely2 = Framing.GetTileSafely(i, j + 1);
 		Framing.GetTileSafely(i, j - 1);
-		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely2.active() && !tileSafely2.lava() && !tileSafely.bottomSlope())
+		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely2.HasTile && !(tileSafely2.LiquidType == LiquidID.Lava) && !tileSafely.BottomSlope)
 		{
-			tileSafely2.type = (ushort)ModContent.TileType<PurpleGlowShroomVine>();
-			tileSafely2.active(active: true);
+			tileSafely2.TileType = (ushort)ModContent.TileType<PurpleGlowShroomVine>();
+			tileSafely2.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}
 		}
-		if (Framing.GetTileSafely(i, j - 1).type == 0 && Framing.GetTileSafely(i, j - 2).type == 0 && Main.rand.Next(8) == 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0 && Main.rand.Next(8) == 0)
 		{
 			if (Main.rand.Next(5) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge>(), 0, 0, -1, -1);
 			}
 			if (Main.rand.Next(5) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge2>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge2>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomHuge2>(), 0, 0, -1, -1);
 			}
 			if (Main.rand.Next(2) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<PurpleGlowShroomTall>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomTall>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroomTall>(), 0, 0, -1, -1);
 			}
 			if (Main.rand.Next(2) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<PurpleGlowShroom>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroom>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<PurpleGlowShroom>(), 0, 0, -1, -1);
 			}
 		}
 	}

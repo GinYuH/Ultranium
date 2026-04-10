@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
@@ -8,7 +9,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowClock : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
@@ -18,12 +19,12 @@ public class ShadowClock : ModTile
 		TileObjectData.newTile.Height = 5;
 		TileObjectData.newTile.CoordinateHeights = new int[5] { 16, 16, 16, 16, 16 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Clock");
-		base.disableSmartCursor = true;
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Clock");
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
 		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
-		base.adjTiles = new int[1] { 104 };
-		base.animationFrameHeight = 88;
+		base.AdjTiles = new int[1] { 104 };
+		base.AnimationFrameHeight = 88;
 	}
 
 	public override void AnimateTile(ref int frame, ref int frameCounter)
@@ -40,7 +41,7 @@ public class ShadowClock : ModTile
 		}
 	}
 
-	public override bool NewRightClick(int x, int y)
+	public override bool RightClick(int x, int y)
 	{
 		string text = "AM";
 		double num = Main.time;
@@ -81,7 +82,7 @@ public class ShadowClock : ModTile
 	{
 		if (closer)
 		{
-			Main.clock = true;
+			Main.SceneMetrics.HasClock = true;
 		}
 	}
 
@@ -92,6 +93,6 @@ public class ShadowClock : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 48, 32, ((ModTile)this).mod.ItemType("ShadowClockItem"), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 48, 32, ((ModTile)this).Mod.Find<ModItem>("ShadowClockItem").Type, 1, false, 0, false, false);
 	}
 }

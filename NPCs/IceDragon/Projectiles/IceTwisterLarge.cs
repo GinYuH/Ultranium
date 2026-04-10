@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Utilities;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -15,17 +16,17 @@ public class IceTwisterLarge : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Ice Tornado");
+		// ((ModProjectile)this).DisplayName.SetDefault("Ice Tornado");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 120;
-		((ModProjectile)this).projectile.height = 570;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.timeLeft = 660;
+		((ModProjectile)this).Projectile.width = 120;
+		((ModProjectile)this).Projectile.height = 570;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.timeLeft = 660;
 	}
 
 	public override bool? CanCutTiles()
@@ -33,27 +34,27 @@ public class IceTwisterLarge : ModProjectile
 		return false;
 	}
 
-	public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 660f;
-		float num2 = ((ModProjectile)this).projectile.ai[0];
+		float num2 = ((ModProjectile)this).Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).projectile.velocity.X > 0f;
+		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -68,11 +69,11 @@ public class IceTwisterLarge : ModProjectile
 		float num7 = num2 % 60f;
 		if (num7 < 30f)
 		{
-			color *= Utils.InverseLerp(22f, 30f, num7, true);
+			color *= Utils.GetLerpValue(22f, 30f, num7, true);
 		}
 		else
 		{
-			color *= Utils.InverseLerp(38f, 30f, num7, true);
+			color *= Utils.GetLerpValue(38f, 30f, num7, true);
 		}
 		bool flag2 = color != Color.Transparent;
 		for (float num8 = (int)bottom.Y; num8 > (float)(int)top.Y; num8 -= num6)
@@ -123,44 +124,44 @@ public class IceTwisterLarge : ModProjectile
 		//IL_005b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00d2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00d7: Unknown result type (might be due to invalid IL or missing references)
-		((ModProjectile)this).projectile.velocity *= 0f;
+		((ModProjectile)this).Projectile.velocity *= 0f;
 		float num = 660f;
-		if (((ModProjectile)this).projectile.soundDelay == 0)
+		if (((ModProjectile)this).Projectile.soundDelay == 0)
 		{
-			((ModProjectile)this).projectile.soundDelay = -1;
-			float[] localAI = ((ModProjectile)this).projectile.localAI;
-			SlotId val = Main.PlayTrackedSound((SoundStyle)SoundID.DD2_BookStaffTwisterLoop, ((ModProjectile)this).projectile.Center);
+			((ModProjectile)this).Projectile.soundDelay = -1;
+			float[] localAI = ((ModProjectile)this).Projectile.localAI;
+			SlotId val = SoundEngine.PlaySound((SoundStyle)SoundID.DD2_BookStaffTwisterLoop, ((ModProjectile)this).Projectile.Center);
 			localAI[1] = ((SlotId)(ref val)).ToFloat();
 		}
-		ActiveSound activeSound = Main.GetActiveSound(SlotId.FromFloat(((ModProjectile)this).projectile.localAI[1]));
+		SoundEngine.TryGetActiveSound(SlotId.FromFloat(((ModProjectile)this).Projectile.localAI[1]), out ActiveSound activeSound);
 		if (activeSound != null)
 		{
-			activeSound.Position = ((ModProjectile)this).projectile.Center;
-			activeSound.Volume = 1f - Math.Max(((ModProjectile)this).projectile.ai[0] - (num - 15f), 0f) / 15f;
+			activeSound.Position = ((ModProjectile)this).Projectile.Center;
+			activeSound.Volume = 1f - Math.Max(((ModProjectile)this).Projectile.ai[0] - (num - 15f), 0f) / 15f;
 		}
 		else
 		{
-			float[] localAI2 = ((ModProjectile)this).projectile.localAI;
+			float[] localAI2 = ((ModProjectile)this).Projectile.localAI;
 			int num2 = 1;
 			SlotId invalid = SlotId.Invalid;
 			localAI2[num2] = ((SlotId)(ref invalid)).ToFloat();
 		}
-		if (((ModProjectile)this).projectile.localAI[0] >= 16f && ((ModProjectile)this).projectile.ai[0] < num - 15f)
+		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).projectile.ai[0] = num - 15f;
+			((ModProjectile)this).Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= num)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		new Vector2(0f, bottom.Y - top.Y);
 	}
 
-	public override void OnHitPlayer(Player target, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
 		target.AddBuff(44, 120);
 	}

@@ -9,27 +9,27 @@ public class TendrilKnife : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Tendril Piercer");
-		((ModItem)this).Tooltip.SetDefault("Throws tendril blades that can pierce through enemies");
+		// ((ModItem)this).DisplayName.SetDefault("Tendril Piercer");
+		// ((ModItem)this).Tooltip.SetDefault("Throws tendril blades that can pierce through enemies");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 14;
-		((ModItem)this).item.ranged = true;
-		((Entity)(object)((ModItem)this).item).width = 24;
-		((Entity)(object)((ModItem)this).item).height = 24;
-		((ModItem)this).item.useTime = 25;
-		((ModItem)this).item.useAnimation = 25;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.knockBack = 6f;
-		((ModItem)this).item.value = Item.buyPrice(0, 1, 50);
-		((ModItem)this).item.rare = 2;
-		((ModItem)this).item.UseSound = SoundID.Item7;
-		((ModItem)this).item.noUseGraphic = true;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("TendrilKnife");
-		((ModItem)this).item.shootSpeed = 10f;
+		((ModItem)this).Item.damage = 14;
+		((ModItem)this).Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)((ModItem)this).Item).width = 24;
+		((Entity)(object)((ModItem)this).Item).height = 24;
+		((ModItem)this).Item.useTime = 25;
+		((ModItem)this).Item.useAnimation = 25;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.knockBack = 6f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 1, 50);
+		((ModItem)this).Item.rare = 2;
+		((ModItem)this).Item.UseSound = SoundID.Item7;
+		((ModItem)this).Item.noUseGraphic = true;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("TendrilKnife").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
 	}
 
 	public override void MeleeEffects(Player player, Rectangle hitbox)
@@ -47,11 +47,10 @@ public class TendrilKnife : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
 		val.AddTile(16);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

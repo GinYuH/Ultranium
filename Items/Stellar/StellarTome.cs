@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,31 +11,31 @@ public class StellarTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Stellar Tome");
-		((ModItem)this).Tooltip.SetDefault("Casts Stellar Stars from the sky");
+		// ((ModItem)this).DisplayName.SetDefault("Stellar Tome");
+		// ((ModItem)this).Tooltip.SetDefault("Casts Stellar Stars from the sky");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 45;
-		((ModItem)this).item.magic = true;
-		((ModItem)this).item.mana = 8;
-		((Entity)(object)((ModItem)this).item).width = 28;
-		((Entity)(object)((ModItem)this).item).height = 32;
-		((ModItem)this).item.useTime = 25;
-		((ModItem)this).item.useAnimation = 25;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.knockBack = 5f;
-		((ModItem)this).item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).item.rare = 5;
-		((ModItem)this).item.UseSound = SoundID.Item9;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("StellarMagicStar");
-		((ModItem)this).item.shootSpeed = 10f;
+		((ModItem)this).Item.damage = 45;
+		((ModItem)this).Item.DamageType = DamageClass.Magic;
+		((ModItem)this).Item.mana = 8;
+		((Entity)(object)((ModItem)this).Item).width = 28;
+		((Entity)(object)((ModItem)this).Item).height = 32;
+		((ModItem)this).Item.useTime = 25;
+		((ModItem)this).Item.useAnimation = 25;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.knockBack = 5f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
+		((ModItem)this).Item.rare = 5;
+		((ModItem)this).Item.UseSound = SoundID.Item9;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarMagicStar").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		int num = Main.rand.Next(1, 3);
 		for (int i = 0; i < num; i++)
@@ -53,7 +54,7 @@ public class StellarTome : ModItem
 				num3 = 20f;
 			}
 			float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
-			float num5 = ((ModItem)this).item.shootSpeed / num4;
+			float num5 = ((ModItem)this).Item.shootSpeed / num4;
 			float num6 = num2 * num5;
 			float num7 = num3 * num5;
 			float num8 = num6 + (float)Main.rand.Next(-40, 41) * 0.02f;
@@ -69,10 +70,9 @@ public class StellarTome : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

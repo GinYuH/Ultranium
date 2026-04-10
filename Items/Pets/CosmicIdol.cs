@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
@@ -9,23 +10,23 @@ public class CosmicIdol : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Cosmic Insignia");
-		((ModItem)this).Tooltip.SetDefault("Summons a pet cosmic djinn");
+		// ((ModItem)this).DisplayName.SetDefault("Cosmic Insignia");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a pet cosmic djinn");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.CloneDefaults(669);
-		((ModItem)this).item.shoot = ModContent.ProjectileType<CosmicDjinn>();
-		((ModItem)this).item.buffType = ModContent.BuffType<CosmicDjinnBuff>();
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.CloneDefaults(669);
+		((ModItem)this).Item.shoot = ModContent.ProjectileType<CosmicDjinn>();
+		((ModItem)this).Item.buffType = ModContent.BuffType<CosmicDjinnBuff>();
 	}
 
-	public override void UseStyle(Player player)
+	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

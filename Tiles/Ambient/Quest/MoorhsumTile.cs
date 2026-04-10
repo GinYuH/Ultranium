@@ -9,7 +9,7 @@ namespace Ultranium.Tiles.Ambient.Quest;
 
 public class MoorhsumTile : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		Main.tileLighted[((ModTile)this).Type] = true;
@@ -30,9 +30,9 @@ public class MoorhsumTile : ModTile
 		b = 0.85f;
 	}
 
-	public override bool Drop(int i, int j)
+	public override bool Drop(int i, int j)/* tModPorter Note: Removed. Use CanDrop to decide if an item should drop. Use GetItemDrops to decide which item drops. Item drops based on placeStyle are handled automatically now, so this method might be able to be removed altogether. */
 	{
-		Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).mod.ItemType("Moorhsum"), 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).Mod.Find<ModItem>("Moorhsum").Type, 1, false, 0, false, false);
 		if (!UltraniumWorld.Moorhsum)
 		{
 			UltraniumWorld.Moorhsum = true;
@@ -55,13 +55,13 @@ public class MoorhsumTile : ModTile
 
 	public override void RandomUpdate(int i, int j)
 	{
-		if (Main.tile[i, j].frameX == 0)
+		if (Main.tile[i, j].TileFrameX == 0)
 		{
-			Main.tile[i, j].frameX += 18;
+			Main.tile[i, j].TileFrameX += 18;
 		}
-		else if (Main.tile[i, j].frameX == 18)
+		else if (Main.tile[i, j].TileFrameX == 18)
 		{
-			Main.tile[i, j].frameX += 18;
+			Main.tile[i, j].TileFrameX += 18;
 		}
 	}
 }

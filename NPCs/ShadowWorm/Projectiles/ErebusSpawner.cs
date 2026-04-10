@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.ShadowWorm.Projectiles;
@@ -14,18 +15,18 @@ public class ErebusSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Erebus Rift");
+		// ((ModProjectile)this).DisplayName.SetDefault("Erebus Rift");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 100;
-		((ModProjectile)this).projectile.height = 50;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.timeLeft = 420;
+		((ModProjectile)this).Projectile.width = 100;
+		((ModProjectile)this).Projectile.height = 50;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.timeLeft = 420;
 	}
 
 	public override bool? CanCutTiles()
@@ -33,28 +34,28 @@ public class ErebusSpawner : ModProjectile
 		return false;
 	}
 
-	public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 420f;
-		float num2 = ((ModProjectile)this).projectile.ai[0];
+		float num2 = ((ModProjectile)this).Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
 		float num4 = 0.2f;
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y * num4;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).projectile.velocity.X > 0f;
+		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -69,11 +70,11 @@ public class ErebusSpawner : ModProjectile
 		float num8 = num2 % 60f;
 		if (num8 < 30f)
 		{
-			color *= Utils.InverseLerp(22f, 30f, num8, true);
+			color *= Utils.GetLerpValue(22f, 30f, num8, true);
 		}
 		else
 		{
-			color *= Utils.InverseLerp(38f, 30f, num8, true);
+			color *= Utils.GetLerpValue(38f, 30f, num8, true);
 		}
 		bool flag2 = color != Color.Transparent;
 		for (float num9 = (int)bottom.Y; num9 > (float)(int)top.Y; num9 -= num7)
@@ -120,20 +121,20 @@ public class ErebusSpawner : ModProjectile
 	public override void AI()
 	{
 		float num = 420f;
-		if (((ModProjectile)this).projectile.localAI[0] >= 16f && ((ModProjectile)this).projectile.ai[0] < num - 15f)
+		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).projectile.ai[0] = num - 15f;
+			((ModProjectile)this).Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= num)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).projectile.ai[0] < num - 30f)
+		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -159,17 +160,17 @@ public class ErebusSpawner : ModProjectile
 		if (SpawnTimer < 300)
 		{
 			Player localPlayer = Main.LocalPlayer;
-			((ModProjectile)this).projectile.position.X = localPlayer.Center.X - 31f;
-			((ModProjectile)this).projectile.position.Y = localPlayer.Center.Y - 250f;
+			((ModProjectile)this).Projectile.position.X = localPlayer.Center.X - 31f;
+			((ModProjectile)this).Projectile.position.Y = localPlayer.Center.Y - 250f;
 		}
 		else
 		{
-			((ModProjectile)this).projectile.velocity *= 0f;
+			((ModProjectile)this).Projectile.velocity *= 0f;
 		}
 		if (SpawnTimer == 300)
 		{
-			NPC.NewNPC((int)((ModProjectile)this).projectile.Center.X, (int)((ModProjectile)this).projectile.Center.Y, ((ModProjectile)this).mod.NPCType("ErebusHead"), 0, 0f, 0f, 0f, 0f, 255);
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("ShockWave"), 0, 0f, 255, 0f, 0f);
+			NPC.NewNPC((int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("ErebusHead").Type, 0, 0f, 0f, 0f, 0f, 255);
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 			Main.NewText("The Eldritch Beast has been awoken!", (byte)175, (byte)75, byte.MaxValue, false);
 		}
 	}

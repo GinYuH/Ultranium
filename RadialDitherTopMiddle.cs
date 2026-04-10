@@ -1,6 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
-using Terraria.World.Generation;
+using Terraria.WorldBuilding;
 
 namespace Ultranium;
 

@@ -7,16 +7,16 @@ public class ShroomFish : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Shroom Fish");
-		((ModItem)this).Tooltip.SetDefault("'Is it a fish or a squid?'");
+		// ((ModItem)this).DisplayName.SetDefault("Shroom Fish");
+		// ((ModItem)this).Tooltip.SetDefault("'Is it a fish or a squid?'");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.value = Item.buyPrice(0, 0, 10);
-		((Entity)(object)((ModItem)this).item).width = 24;
-		((Entity)(object)((ModItem)this).item).height = 24;
-		((ModItem)this).item.maxStack = 999;
-		((ModItem)this).item.rare = 1;
+		((ModItem)this).Item.value = Item.buyPrice(0, 0, 10);
+		((Entity)(object)((ModItem)this).Item).width = 24;
+		((Entity)(object)((ModItem)this).Item).height = 24;
+		((ModItem)this).Item.maxStack = 999;
+		((ModItem)this).Item.rare = 1;
 	}
 }

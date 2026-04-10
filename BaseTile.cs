@@ -13,9 +13,9 @@ public class BaseTile
 		{
 			return new Vector2(x, y);
 		}
-		TileObjectData tileData = TileObjectData.GetTileData(tile.type, 0);
-		x -= tile.frameX / 18 % tileData.Width;
-		y -= tile.frameY / 18 % tileData.Height;
+		TileObjectData tileData = TileObjectData.GetTileData(tile.TileType, 0);
+		x -= tile.TileFrameX / 18 % tileData.Width;
+		y -= tile.TileFrameY / 18 % tileData.Height;
 		return new Vector2(x, y);
 	}
 }

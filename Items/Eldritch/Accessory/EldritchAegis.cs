@@ -11,23 +11,23 @@ public class EldritchAegis : ModItem
 	public override void SetStaticDefaults()
 	{
 		((ModItem)this).SetStaticDefaults();
-		((ModItem)this).DisplayName.SetDefault("Erebus Bulwark");
-		((ModItem)this).Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
+		// ((ModItem)this).DisplayName.SetDefault("Erebus Bulwark");
+		// ((ModItem)this).Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 38;
-		((Entity)(object)((ModItem)this).item).height = 46;
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.value = Item.buyPrice(0, 80);
-		((ModItem)this).item.accessory = true;
-		((ModItem)this).item.defense = 7;
+		((Entity)(object)((ModItem)this).Item).width = 38;
+		((Entity)(object)((ModItem)this).Item).height = 46;
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.value = Item.buyPrice(0, 80);
+		((ModItem)this).Item.accessory = true;
+		((ModItem)this).Item.defense = 7;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(34, 166, 118);
+		tooltips[0].OverrideColor = new Color(34, 166, 118);
 	}
 
 	public override void UpdateAccessory(Player player, bool hideVisual)
@@ -65,13 +65,12 @@ public class EldritchAegis : ModItem
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "GuardianShield", 1);
 		val.AddIngredient(1253, 1);
 		val.AddTile(412);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

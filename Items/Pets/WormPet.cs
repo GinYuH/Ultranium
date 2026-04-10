@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
@@ -9,22 +10,22 @@ public class WormPet : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Mysterious Scale");
-		((ModItem)this).Tooltip.SetDefault("Summons a long lost serpent");
+		// ((ModItem)this).DisplayName.SetDefault("Mysterious Scale");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a long lost serpent");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.CloneDefaults(2420);
-		((ModItem)this).item.shoot = ModContent.ProjectileType<BabyWorm>();
-		((ModItem)this).item.buffType = ModContent.BuffType<BabyWormBuff>();
+		((ModItem)this).Item.CloneDefaults(2420);
+		((ModItem)this).Item.shoot = ModContent.ProjectileType<BabyWorm>();
+		((ModItem)this).Item.buffType = ModContent.BuffType<BabyWormBuff>();
 	}
 
-	public override void UseStyle(Player player)
+	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 

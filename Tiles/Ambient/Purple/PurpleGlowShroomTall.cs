@@ -8,15 +8,15 @@ namespace Ultranium.Tiles.Ambient.Purple;
 
 public class PurpleGlowShroomTall : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		Main.tileLighted[((ModTile)this).Type] = true;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoFail[((ModTile)this).Type] = true;
 		Main.tileMergeDirt[((ModTile)this).Type] = true;
-		base.dustType = ((ModTile)this).mod.DustType("ShadowDustPurple");
-		base.soundType = 6;
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
+		base.HitSound = 6;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
@@ -36,7 +36,7 @@ public class PurpleGlowShroomTall : ModTile
 		num = 2;
 	}
 
-	public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height)
+	public override void SetDrawPositions(int i, int j, ref int width, ref int offsetY, ref int height, ref short tileFrameX, ref short tileFrameY)
 	{
 		offsetY = 2;
 	}
@@ -44,7 +44,7 @@ public class PurpleGlowShroomTall : ModTile
 	public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
 	{
 		Tile tileSafely = Framing.GetTileSafely(i, j + 2);
-		if (!tileSafely.active() || tileSafely.halfBrick() || tileSafely.topSlope())
+		if (!tileSafely.HasTile || tileSafely.IsHalfBlock || tileSafely.TopSlope)
 		{
 			WorldGen.KillTile(i, j);
 		}

@@ -9,27 +9,27 @@ public class TacoDemon : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Taco Demon");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 1;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
+		// ((ModProjectile)this).DisplayName.SetDefault("Taco Demon");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 1;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 34;
-		((ModProjectile)this).projectile.height = 34;
-		((ModProjectile)this).projectile.netImportant = true;
-		((ModProjectile)this).projectile.friendly = true;
-		Main.projPet[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.timeLeft = 999999999;
-		((ModProjectile)this).projectile.timeLeft *= 999999999;
-		((ModProjectile)this).projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.width = 34;
+		((ModProjectile)this).Projectile.height = 34;
+		((ModProjectile)this).Projectile.netImportant = true;
+		((ModProjectile)this).Projectile.friendly = true;
+		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.timeLeft = 999999999;
+		((ModProjectile)this).Projectile.timeLeft *= 999999999;
+		((ModProjectile)this).Projectile.penetrate = -1;
 	}
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModProjectile)this).projectile.owner];
+		Player player = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (player.dead)
 		{
@@ -37,25 +37,25 @@ public class TacoDemon : ModProjectile
 		}
 		if (modPlayer.TacoDemon)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
-		if (!Collision.CanHitLine(((ModProjectile)this).projectile.Center, 1, 1, player.Center, 1, 1))
+		if (!Collision.CanHitLine(((ModProjectile)this).Projectile.Center, 1, 1, player.Center, 1, 1))
 		{
-			((ModProjectile)this).projectile.ai[0] = 1f;
+			((ModProjectile)this).Projectile.ai[0] = 1f;
 		}
 		float num = 8f;
-		if (((ModProjectile)this).projectile.ai[0] == 1f)
+		if (((ModProjectile)this).Projectile.ai[0] == 1f)
 		{
 			num = 17f;
 		}
-		Vector2 center = ((ModProjectile)this).projectile.Center;
+		Vector2 center = ((ModProjectile)this).Projectile.Center;
 		Vector2 vector = player.Center - center;
-		((ModProjectile)this).projectile.ai[1] = 3600f;
-		((ModProjectile)this).projectile.netUpdate = true;
+		((ModProjectile)this).Projectile.ai[1] = 3600f;
+		((ModProjectile)this).Projectile.netUpdate = true;
 		int num2 = 1;
-		for (int i = 0; i < ((ModProjectile)this).projectile.whoAmI; i++)
+		for (int i = 0; i < ((ModProjectile)this).Projectile.whoAmI; i++)
 		{
-			if (((Entity)Main.projectile[i]).active && Main.projectile[i].owner == ((ModProjectile)this).projectile.owner && Main.projectile[i].type == ((ModProjectile)this).projectile.type)
+			if (((Entity)Main.projectile[i]).active && Main.projectile[i].owner == ((ModProjectile)this).Projectile.owner && Main.projectile[i].type == ((ModProjectile)this).Projectile.type)
 			{
 				num2++;
 			}
@@ -67,39 +67,39 @@ public class TacoDemon : ModProjectile
 		{
 			num = 9f;
 		}
-		if (num3 < 100f && ((ModProjectile)this).projectile.ai[0] == 1f && !Collision.SolidCollision(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height))
+		if (num3 < 100f && ((ModProjectile)this).Projectile.ai[0] == 1f && !Collision.SolidCollision(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height))
 		{
-			((ModProjectile)this).projectile.ai[0] = 0f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[0] = 0f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
 		if (num3 > 2000f)
 		{
-			((ModProjectile)this).projectile.Center = player.Center;
+			((ModProjectile)this).Projectile.Center = player.Center;
 		}
 		if (num3 > 48f)
 		{
 			vector.Normalize();
 			vector *= num;
 			float num4 = 20f;
-			((ModProjectile)this).projectile.velocity = (((ModProjectile)this).projectile.velocity * num4 + vector) / (num4 + 1f);
+			((ModProjectile)this).Projectile.velocity = (((ModProjectile)this).Projectile.velocity * num4 + vector) / (num4 + 1f);
 		}
 		else
 		{
-			((ModProjectile)this).projectile.direction = Main.player[((ModProjectile)this).projectile.owner].direction;
-			((ModProjectile)this).projectile.velocity *= (float)Math.Pow(0.9, 1.0);
+			((ModProjectile)this).Projectile.direction = Main.player[((ModProjectile)this).Projectile.owner].direction;
+			((ModProjectile)this).Projectile.velocity *= (float)Math.Pow(0.9, 1.0);
 		}
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.X * 0.05f;
-		if ((double)Math.Abs(((ModProjectile)this).projectile.velocity.X) > 0.2)
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.X * 0.05f;
+		if ((double)Math.Abs(((ModProjectile)this).Projectile.velocity.X) > 0.2)
 		{
-			((ModProjectile)this).projectile.spriteDirection = -((ModProjectile)this).projectile.direction;
+			((ModProjectile)this).Projectile.spriteDirection = -((ModProjectile)this).Projectile.direction;
 		}
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{
-		if (((ModProjectile)this).projectile.penetrate == 0)
+		if (((ModProjectile)this).Projectile.penetrate == 0)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
 		return false;
 	}

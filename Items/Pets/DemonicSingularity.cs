@@ -18,31 +18,31 @@ public class DemonicSingularity : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Demonic Singularity");
-		((ModItem)this).Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
+		// ((ModItem)this).DisplayName.SetDefault("Demonic Singularity");
+		// ((ModItem)this).Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 16;
-		((Entity)(object)((ModItem)this).item).height = 30;
-		((ModItem)this).item.damage = 0;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.useAnimation = 20;
-		((ModItem)this).item.useTime = 20;
-		((ModItem)this).item.UseSound = SoundID.Item2;
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.value = Item.sellPrice(0, 20);
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.shoot = ModContent.ProjectileType<Cacodemon>();
-		((ModItem)this).item.buffType = ModContent.BuffType<CacodemonBuff>();
+		((Entity)(object)((ModItem)this).Item).width = 16;
+		((Entity)(object)((ModItem)this).Item).height = 30;
+		((ModItem)this).Item.damage = 0;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.useAnimation = 20;
+		((ModItem)this).Item.useTime = 20;
+		((ModItem)this).Item.UseSound = SoundID.Item2;
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.value = Item.sellPrice(0, 20);
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.shoot = ModContent.ProjectileType<Cacodemon>();
+		((ModItem)this).Item.buffType = ModContent.BuffType<CacodemonBuff>();
 	}
 
-	public override void UseStyle(Player player)
+	public override void UseStyle(Player player, Rectangle heldItemFrame)
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(((ModItem)this).item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(((ModItem)this).Item.buffType, 3600, fromNetPvP: true);
 		}
 	}
 
@@ -50,11 +50,11 @@ public class DemonicSingularity : ModItem
 	{
 		foreach (TooltipLine tooltip in tooltips)
 		{
-			if (tooltip.mod == "Terraria" && tooltip.Name == "ItemName")
+			if (tooltip.Mod == "Terraria" && tooltip.Name == "ItemName")
 			{
 				float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 				int num = (int)(Main.GameUpdateCount / 60 % 2);
-				tooltip.overrideColor = Color.Lerp(itemNameCycleColors[num], itemNameCycleColors[(num + 1) % 2], amount);
+				tooltip.OverrideColor = Color.Lerp(itemNameCycleColors[num], itemNameCycleColors[(num + 1) % 2], amount);
 			}
 		}
 	}

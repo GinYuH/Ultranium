@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.IceDragon.Projectiles;
@@ -12,18 +13,18 @@ public class IceTwisterSmall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Ice Twister");
+		// ((ModProjectile)this).DisplayName.SetDefault("Ice Twister");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 80;
-		((ModProjectile)this).projectile.height = 135;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.timeLeft = 360;
+		((ModProjectile)this).Projectile.width = 80;
+		((ModProjectile)this).Projectile.height = 135;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.timeLeft = 360;
 	}
 
 	public override bool? CanCutTiles()
@@ -31,27 +32,27 @@ public class IceTwisterSmall : ModProjectile
 		return false;
 	}
 
-	public override bool PreDraw(SpriteBatch spritebatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 360f;
-		float num2 = ((ModProjectile)this).projectile.ai[0];
+		float num2 = ((ModProjectile)this).Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = Main.projectileTexture[((ModProjectile)this).projectile.type];
+		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).projectile.velocity.X > 0f;
+		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -66,11 +67,11 @@ public class IceTwisterSmall : ModProjectile
 		float num7 = num2 % 60f;
 		if (num7 < 30f)
 		{
-			color *= Utils.InverseLerp(22f, 30f, num7, true);
+			color *= Utils.GetLerpValue(22f, 30f, num7, true);
 		}
 		else
 		{
-			color *= Utils.InverseLerp(38f, 30f, num7, true);
+			color *= Utils.GetLerpValue(38f, 30f, num7, true);
 		}
 		_ = color != Color.Transparent;
 		for (float num8 = (int)bottom.Y; num8 > (float)(int)top.Y; num8 -= num6)
@@ -106,20 +107,20 @@ public class IceTwisterSmall : ModProjectile
 	public override void AI()
 	{
 		float num = 360f;
-		if (((ModProjectile)this).projectile.localAI[0] >= 16f && ((ModProjectile)this).projectile.ai[0] < num - 15f)
+		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).projectile.ai[0] = num - 15f;
+			((ModProjectile)this).Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).projectile.ai[0] += 1f;
-		if (((ModProjectile)this).projectile.ai[0] >= num)
+		((ModProjectile)this).Projectile.ai[0] += 1f;
+		if (((ModProjectile)this).Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).projectile.Bottom;
+		Vector2 top = ((ModProjectile)this).Projectile.Top;
+		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).projectile.ai[0] < num - 30f)
+		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -135,7 +136,7 @@ public class IceTwisterSmall : ModProjectile
 		}
 	}
 
-	public override void OnHitPlayer(Player target, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
 		target.AddBuff(44, 60);
 	}

@@ -10,41 +10,41 @@ public class GlacialFlail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Glacial Flail");
+		// ((ModProjectile)this).DisplayName.SetDefault("Glacial Flail");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 30;
-		((ModProjectile)this).projectile.height = 30;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.melee = true;
-		((ModProjectile)this).projectile.aiStyle = 15;
+		((ModProjectile)this).Projectile.width = 30;
+		((ModProjectile)this).Projectile.height = 30;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
+		((ModProjectile)this).Projectile.aiStyle = 15;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.frameCounter++;
-		if (((ModProjectile)this).projectile.frameCounter < 30)
+		((ModProjectile)this).Projectile.frameCounter++;
+		if (((ModProjectile)this).Projectile.frameCounter < 30)
 		{
 			return;
 		}
-		((ModProjectile)this).projectile.frameCounter = 0;
+		((ModProjectile)this).Projectile.frameCounter = 0;
 		float num = 800f;
 		int num2 = -1;
 		for (int i = 0; i < 200; i++)
 		{
-			float num3 = Vector2.Distance(((ModProjectile)this).projectile.Center, Main.npc[i].Center);
-			if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(((ModProjectile)this).projectile))
+			float num3 = Vector2.Distance(((ModProjectile)this).Projectile.Center, Main.npc[i].Center);
+			if (num3 < num && num3 < 640f && Main.npc[i].CanBeChasedBy(((ModProjectile)this).Projectile))
 			{
 				num2 = i;
 				num = num3;
 			}
 		}
-		if (num2 != -1 && Collision.CanHit(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height))
+		if (num2 != -1 && Collision.CanHit(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, Main.npc[num2].position, Main.npc[num2].width, Main.npc[num2].height))
 		{
-			Vector2 vector = Main.npc[num2].Center - ((ModProjectile)this).projectile.Center;
+			Vector2 vector = Main.npc[num2].Center - ((ModProjectile)this).Projectile.Center;
 			float num4 = 9f;
 			float num5 = (float)Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y);
 			if (num5 > num4)
@@ -52,17 +52,17 @@ public class GlacialFlail : ModProjectile
 				num5 = num4 / num5;
 			}
 			vector *= num5;
-			int num6 = Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, vector.X, vector.Y, 119, ((ModProjectile)this).projectile.damage, ((ModProjectile)this).projectile.knockBack / 2f, ((ModProjectile)this).projectile.owner, 0f, 0f);
+			int num6 = Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, 119, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack / 2f, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			Main.projectile[num6].friendly = true;
 			Main.projectile[num6].hostile = false;
 		}
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
 		Texture2D texture = ModContent.GetTexture("Ultranium/Projectiles/Ice/GlacialFlailChain");
-		Vector2 center = ((ModProjectile)this).projectile.Center;
-		Vector2 mountedCenter = Main.player[((ModProjectile)this).projectile.owner].MountedCenter;
+		Vector2 center = ((ModProjectile)this).Projectile.Center;
+		Vector2 mountedCenter = Main.player[((ModProjectile)this).Projectile.owner].MountedCenter;
 		Rectangle? sourceRectangle = null;
 		Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.5f);
 		float num = texture.Height;
@@ -89,7 +89,7 @@ public class GlacialFlail : ModProjectile
 			center += vector2 * num;
 			vector = mountedCenter - center;
 			Color color = Lighting.GetColor((int)center.X / 16, (int)((double)center.Y / 16.0));
-			color = ((ModProjectile)this).projectile.GetAlpha(color);
+			color = ((ModProjectile)this).Projectile.GetAlpha(color);
 			Main.spriteBatch.Draw(texture, center - Main.screenPosition, sourceRectangle, color, rotation, origin, 1f, SpriteEffects.None, 0f);
 		}
 		return true;

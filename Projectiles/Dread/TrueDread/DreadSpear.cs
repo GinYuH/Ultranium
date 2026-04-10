@@ -1,4 +1,7 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Dread.TrueDread;
@@ -9,16 +12,16 @@ public class DreadSpear : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Spear of Fear");
+		// ((ModProjectile)this).DisplayName.SetDefault("Spear of Fear");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.CloneDefaults(47);
-		((ModProjectile)this).projectile.height = 122;
-		((ModProjectile)this).projectile.width = 122;
-		base.aiType = 47;
-		((ModProjectile)this).projectile.melee = true;
+		((ModProjectile)this).Projectile.CloneDefaults(47);
+		((ModProjectile)this).Projectile.height = 122;
+		((ModProjectile)this).Projectile.width = 122;
+		base.AIType = 47;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
 	}
 
 	public override void AI()
@@ -26,8 +29,8 @@ public class DreadSpear : ModProjectile
 		timer--;
 		if (timer == 0)
 		{
-			Main.PlaySound(2, (int)((ModProjectile)this).projectile.position.X, (int)((ModProjectile)this).projectile.position.Y, 8, 1f, 0f);
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center, ((ModProjectile)this).projectile.velocity, ((ModProjectile)this).mod.ProjectileType("DreadSickle"), (int)((float)((ModProjectile)this).projectile.damage * 1.5f), ((ModProjectile)this).projectile.knockBack, ((ModProjectile)this).projectile.owner, 0f, 0f);
+			SoundEngine.PlaySound(SoundID.Item8, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.velocity, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadSickle").Type, (int)((float)((ModProjectile)this).Projectile.damage * 1.5f), ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
 			timer = 20;
 		}
 	}

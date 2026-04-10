@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Ultranium.Tiles.Ambient;
@@ -10,7 +11,7 @@ namespace Ultranium.Tiles.ShadowBiome;
 
 public class ShadowGrass : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileMergeDirt[((ModTile)this).Type] = true;
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowOreTile>()] = true;
@@ -21,11 +22,11 @@ public class ShadowGrass : ModTile
 		Main.tileSolid[((ModTile)this).Type] = true;
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		((ModTile)this).AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree());
-		base.dustType = ((ModTile)this).mod.DustType("ShadowSoilDust");
-		base.drop = ((ModTile)this).mod.ItemType("ShadowGrassItem");
-		base.mineResist = 1f;
-		base.minPick = 1;
+		((ModTile)this).SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowSoilDust").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowGrassItem").Type;
+		base.MineResist = 1f;
+		base.MinPick = 1;
 	}
 
 	public override void RandomUpdate(int i, int j)
@@ -33,46 +34,46 @@ public class ShadowGrass : ModTile
 		Tile tileSafely = Framing.GetTileSafely(i, j);
 		Tile tileSafely2 = Framing.GetTileSafely(i, j + 1);
 		Tile tileSafely3 = Framing.GetTileSafely(i, j - 1);
-		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely3.active() && !tileSafely2.lava() && !tileSafely.bottomSlope() && !tileSafely.topSlope() && !tileSafely.halfBrick() && !tileSafely.topSlope())
+		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely3.HasTile && !(tileSafely2.LiquidType == LiquidID.Lava) && !tileSafely.BottomSlope && !tileSafely.TopSlope && !tileSafely.IsHalfBlock && !tileSafely.TopSlope)
 		{
-			tileSafely3.type = (ushort)ModContent.TileType<ShadowFlora>();
-			tileSafely3.active(active: true);
-			tileSafely3.frameY = 0;
-			tileSafely3.frameX = (short)(WorldGen.genRand.Next(8) * 18);
+			tileSafely3.TileType = (ushort)ModContent.TileType<ShadowFlora>();
+			tileSafely3.HasTile = true;
+			tileSafely3.TileFrameY = 0;
+			tileSafely3.TileFrameX = (short)(WorldGen.genRand.Next(8) * 18);
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)
 			{
 				NetMessage.SendTileSquare(-1, i, j - 1, 3);
 			}
 		}
-		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely2.active() && !tileSafely2.lava() && !tileSafely.bottomSlope())
+		if (Utils.NextBool(WorldGen.genRand, 12) && !tileSafely2.HasTile && !(tileSafely2.LiquidType == LiquidID.Lava) && !tileSafely.BottomSlope)
 		{
-			tileSafely2.type = (ushort)ModContent.TileType<ShadowGrassVine>();
-			tileSafely2.active(active: true);
+			tileSafely2.TileType = (ushort)ModContent.TileType<ShadowGrassVine>();
+			tileSafely2.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
 			if (Main.netMode == 2)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}
 		}
-		if (Framing.GetTileSafely(i, j - 1).type == 0 && Framing.GetTileSafely(i, j - 2).type == 0 && Main.rand.Next(5) == 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0 && Main.rand.Next(5) == 0)
 		{
 			if (Main.rand.Next(3) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<ShadowFlora>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<ShadowFlora>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<ShadowFlora>(), 0, 0, -1, -1);
 			}
 			if (Main.rand.Next(3) == 0)
 			{
 				WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<GlowShroom>());
-				NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);
+				NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);
 			}
 		}
 	}
 
-	public override int SaplingGrowthType(ref int style)
+	public override int SaplingGrowthType(ref int style)/* tModPorter Note: Removed. Use ModTree.SaplingGrowthType */
 	{
 		style = 0;
-		return ((ModTile)this).mod.TileType("ShadowTreeSapling");
+		return ((ModTile)this).Mod.Find<ModTile>("ShadowTreeSapling").Type;
 	}
 }

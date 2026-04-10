@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ID;
@@ -12,7 +13,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowDresser : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileSolidTop[((ModTile)this).Type] = true;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
@@ -23,7 +24,7 @@ public class ShadowDresser : ModTile
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 		TileObjectData.newTile.Origin = new Point16(1, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
-		TileObjectData.newTile.HookCheck = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
+		TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
 		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook((Func<int, int, int, int, int, int>)Chest.AfterPlacement_Hook, -1, 0, false);
 		TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
 		TileObjectData.newTile.StyleHorizontal = true;
@@ -32,33 +33,33 @@ public class ShadowDresser : ModTile
 		TileObjectData.addTile((int)((ModTile)this).Type);
 		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 		((ModTile)this).AddMapEntry(new Color(121, 14, 203), (LocalizedText)null);
-		base.disableSmartCursor = true;
-		base.adjTiles = new int[1] { 88 };
-		base.dresser = "Dresser";
-		base.dresserDrop = ((ModTile)this).mod.ItemType("ShadowDresserItem");
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		base.AdjTiles = new int[1] { 88 };
+		base.dresser/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Dresser";
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
 	}
 
-	public override bool NewRightClick(int i, int j)
+	public override bool RightClick(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;
-		if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY == 0)
+		if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY == 0)
 		{
 			Main.CancelClothesWindow(quiet: true);
 			Main.mouseRightRelease = false;
-			int num = Main.tile[Player.tileTargetX, Player.tileTargetY].frameX / 18;
+			int num = Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameX / 18;
 			num %= 3;
 			num = Player.tileTargetX - num;
-			int num2 = Player.tileTargetY - Main.tile[Player.tileTargetX, Player.tileTargetY].frameY / 18;
+			int num2 = Player.tileTargetY - Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY / 18;
 			if (localPlayer.sign > -1)
 			{
-				Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+				SoundEngine.PlaySound(SoundID.MenuClose);
 				localPlayer.sign = -1;
 				Main.editSign = false;
 				Main.npcChatText = string.Empty;
 			}
 			if (Main.editChest)
 			{
-				Main.PlaySound(12, -1, -1, 1, 1f, 0f);
+				SoundEngine.PlaySound(SoundID.MenuTick);
 				Main.editChest = false;
 				Main.npcChatText = string.Empty;
 			}
@@ -72,7 +73,7 @@ public class ShadowDresser : ModTile
 				{
 					localPlayer.chest = -1;
 					Recipe.FindRecipes();
-					Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+					SoundEngine.PlaySound(SoundID.MenuClose);
 				}
 				else
 				{
@@ -91,14 +92,14 @@ public class ShadowDresser : ModTile
 					{
 						localPlayer.chest = -1;
 						Recipe.FindRecipes();
-						Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+						SoundEngine.PlaySound(SoundID.MenuClose);
 					}
 					else if (num3 != localPlayer.chest && localPlayer.chest == -1)
 					{
 						localPlayer.chest = num3;
 						Main.playerInventory = true;
 						Main.recBigList = false;
-						Main.PlaySound(10, -1, -1, 1, 1f, 0f);
+						SoundEngine.PlaySound(SoundID.MenuOpen);
 						localPlayer.chestX = num;
 						localPlayer.chestY = num2;
 					}
@@ -107,7 +108,7 @@ public class ShadowDresser : ModTile
 						localPlayer.chest = num3;
 						Main.playerInventory = true;
 						Main.recBigList = false;
-						Main.PlaySound(12, -1, -1, 1, 1f, 0f);
+						SoundEngine.PlaySound(SoundID.MenuTick);
 						localPlayer.chestX = num;
 						localPlayer.chestY = num2;
 					}
@@ -120,8 +121,8 @@ public class ShadowDresser : ModTile
 			Main.playerInventory = false;
 			localPlayer.chest = -1;
 			Recipe.FindRecipes();
-			Main.dresserX = Player.tileTargetX;
-			Main.dresserY = Player.tileTargetY;
+			Main.interactedDresserTopLeftX = Player.tileTargetX;
+			Main.interactedDresserTopLeftY = Player.tileTargetY;
 			Main.OpenClothesWindow();
 		}
 		return true;
@@ -133,39 +134,39 @@ public class ShadowDresser : ModTile
 		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 		int tileTargetX = Player.tileTargetX;
 		int num = Player.tileTargetY;
-		int x = tileTargetX - tile.frameX % 54 / 18;
-		if (tile.frameY % 36 != 0)
+		int x = tileTargetX - tile.TileFrameX % 54 / 18;
+		if (tile.TileFrameY % 36 != 0)
 		{
 			num--;
 		}
 		int num2 = Chest.FindChest(x, num);
-		localPlayer.showItemIcon2 = -1;
+		localPlayer.cursorItemIconID = -1;
 		if (num2 < 0)
 		{
-			localPlayer.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+			localPlayer.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
 		}
 		else
 		{
 			if (Main.chest[num2].name != "")
 			{
-				localPlayer.showItemIconText = Main.chest[num2].name;
+				localPlayer.cursorItemIconText = Main.chest[num2].name;
 			}
 			else
 			{
-				localPlayer.showItemIconText = base.chest;
+				localPlayer.cursorItemIconText = base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 			}
-			if (localPlayer.showItemIconText == base.chest)
+			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 			{
-				localPlayer.showItemIcon2 = ((ModTile)this).mod.ItemType("ShadowDresserItem");
-				localPlayer.showItemIconText = "";
+				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
+				localPlayer.cursorItemIconText = "";
 			}
 		}
 		localPlayer.noThrow = 2;
-		localPlayer.showItemIcon = true;
-		if (localPlayer.showItemIconText == "")
+		localPlayer.cursorItemIconEnabled = true;
+		if (localPlayer.cursorItemIconText == "")
 		{
-			localPlayer.showItemIcon = false;
-			localPlayer.showItemIcon2 = 0;
+			localPlayer.cursorItemIconEnabled = false;
+			localPlayer.cursorItemIconID = 0;
 		}
 	}
 
@@ -175,38 +176,38 @@ public class ShadowDresser : ModTile
 		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
 		int tileTargetX = Player.tileTargetX;
 		int num = Player.tileTargetY;
-		int x = tileTargetX - tile.frameX % 54 / 18;
-		if (tile.frameY % 36 != 0)
+		int x = tileTargetX - tile.TileFrameX % 54 / 18;
+		if (tile.TileFrameY % 36 != 0)
 		{
 			num--;
 		}
 		int num2 = Chest.FindChest(x, num);
-		localPlayer.showItemIcon2 = -1;
+		localPlayer.cursorItemIconID = -1;
 		if (num2 < 0)
 		{
-			localPlayer.showItemIconText = Language.GetTextValue("LegacyDresserType.0");
+			localPlayer.cursorItemIconText = Language.GetTextValue("LegacyDresserType.0");
 		}
 		else
 		{
 			if (Main.chest[num2].name != "")
 			{
-				localPlayer.showItemIconText = Main.chest[num2].name;
+				localPlayer.cursorItemIconText = Main.chest[num2].name;
 			}
 			else
 			{
-				localPlayer.showItemIconText = base.chest;
+				localPlayer.cursorItemIconText = base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
 			}
-			if (localPlayer.showItemIconText == base.chest)
+			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
 			{
-				localPlayer.showItemIcon2 = ((ModTile)this).mod.ItemType("ShadowDresserItem");
-				localPlayer.showItemIconText = "";
+				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowDresserItem").Type;
+				localPlayer.cursorItemIconText = "";
 			}
 		}
 		localPlayer.noThrow = 2;
-		localPlayer.showItemIcon = true;
-		if (Main.tile[Player.tileTargetX, Player.tileTargetY].frameY > 0)
+		localPlayer.cursorItemIconEnabled = true;
+		if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY > 0)
 		{
-			localPlayer.showItemIcon2 = 269;
+			localPlayer.cursorItemIconID = 269;
 		}
 	}
 
@@ -217,7 +218,7 @@ public class ShadowDresser : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 48, 32, base.dresserDrop, 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 48, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
 		Chest.DestroyChest(i, j);
 	}
 }

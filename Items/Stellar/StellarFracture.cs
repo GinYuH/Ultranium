@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,38 +11,38 @@ public class StellarFracture : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Stellar Fracture");
-		((ModItem)this).Tooltip.SetDefault("Fires a spread of stellar beams");
+		// ((ModItem)this).DisplayName.SetDefault("Stellar Fracture");
+		// ((ModItem)this).Tooltip.SetDefault("Fires a spread of stellar beams");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 40;
-		((ModItem)this).item.magic = true;
-		((Entity)(object)((ModItem)this).item).width = 16;
-		((Entity)(object)((ModItem)this).item).height = 14;
-		((ModItem)this).item.useTime = 30;
-		((ModItem)this).item.useAnimation = 30;
-		((ModItem)this).item.useStyle = 5;
-		Item.staff[((ModItem)this).item.type] = true;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.knockBack = 2f;
-		((ModItem)this).item.value = Item.buyPrice(0, 35, 45);
-		((ModItem)this).item.rare = 5;
-		((ModItem)this).item.mana = 12;
-		((ModItem)this).item.UseSound = SoundID.DD2_BetsysWrathShot;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("StellarFracture");
-		((ModItem)this).item.shootSpeed = 10f;
+		((ModItem)this).Item.damage = 40;
+		((ModItem)this).Item.DamageType = DamageClass.Magic;
+		((Entity)(object)((ModItem)this).Item).width = 16;
+		((Entity)(object)((ModItem)this).Item).height = 14;
+		((ModItem)this).Item.useTime = 30;
+		((ModItem)this).Item.useAnimation = 30;
+		((ModItem)this).Item.useStyle = 5;
+		Item.staff[((ModItem)this).Item.type] = true;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.knockBack = 2f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 35, 45);
+		((ModItem)this).Item.rare = 5;
+		((ModItem)this).Item.mana = 12;
+		((ModItem)this).Item.UseSound = SoundID.DD2_BetsysWrathShot;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("StellarFracture").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		for (int i = 0; i < 4; i++)
 		{
 			Vector2 vector = player.RotatedRelativePoint(player.MountedCenter, true);
 			int myPlayer = Main.myPlayer;
-			float shootSpeed = ((ModItem)this).item.shootSpeed;
+			float shootSpeed = ((ModItem)this).Item.shootSpeed;
 			int num = damage;
 			float num2 = knockBack;
 			float x = (float)Main.mouseX + Main.screenPosition.X - vector.X;
@@ -63,7 +64,7 @@ public class StellarFracture : ModItem
 			Vector2 vector3 = new Vector2(x, y).SafeNormalize(Vector2.UnitY) * shootSpeed;
 			v = v.SafeNormalize(vector3) * shootSpeed;
 			v = Vector2.Lerp(v, vector3, 0.25f);
-			Projectile.NewProjectile(vector2, v, ((ModItem)this).mod.ProjectileType("StellarFracture"), num, num2, myPlayer, 0f, 0f);
+			Projectile.NewProjectile(vector2, v, ((ModItem)this).Mod.Find<ModProjectile>("StellarFracture").Type, num, num2, myPlayer, 0f, 0f);
 		}
 		return false;
 	}
@@ -74,10 +75,9 @@ public class StellarFracture : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
 		val.AddTile(134);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

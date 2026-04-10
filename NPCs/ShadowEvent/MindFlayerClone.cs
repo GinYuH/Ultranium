@@ -19,55 +19,55 @@ public class MindFlayerClone : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		((ModNPC)this).DisplayName.SetDefault("Mind Flayer");
-		Main.npcFrameCount[((ModNPC)this).npc.type] = 6;
+		// ((ModNPC)this).DisplayName.SetDefault("Mind Flayer");
+		Main.npcFrameCount[((ModNPC)this).NPC.type] = 6;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).npc.scale = 1f;
-		((ModNPC)this).npc.width = 100;
-		((ModNPC)this).npc.height = 150;
-		((ModNPC)this).npc.damage = 85;
-		((ModNPC)this).npc.lifeMax = 10000;
-		((ModNPC)this).npc.knockBackResist = 0f;
-		((ModNPC)this).npc.noGravity = true;
-		((ModNPC)this).npc.noTileCollide = true;
-		((ModNPC)this).npc.HitSound = SoundID.NPCHit55;
-		((ModNPC)this).npc.DeathSound = ((ModNPC)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/MindFlayerRoar")?.WithVolume(1.2f)?.WithPitchVariance(0.5f);
-		((ModNPC)this).npc.defense = 35;
-		((ModNPC)this).npc.npcSlots = 1f;
-		((ModNPC)this).npc.lavaImmune = true;
-		((ModNPC)this).npc.noGravity = true;
-		((ModNPC)this).npc.aiStyle = 0;
+		((ModNPC)this).NPC.scale = 1f;
+		((ModNPC)this).NPC.width = 100;
+		((ModNPC)this).NPC.height = 150;
+		((ModNPC)this).NPC.damage = 85;
+		((ModNPC)this).NPC.lifeMax = 10000;
+		((ModNPC)this).NPC.knockBackResist = 0f;
+		((ModNPC)this).NPC.noGravity = true;
+		((ModNPC)this).NPC.noTileCollide = true;
+		((ModNPC)this).NPC.HitSound = SoundID.NPCHit55;
+		((ModNPC)this).NPC.DeathSound = ((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/MindFlayerRoar")?.WithVolume(1.2f)?.WithPitchVariance(0.5f);
+		((ModNPC)this).NPC.defense = 35;
+		((ModNPC)this).NPC.npcSlots = 1f;
+		((ModNPC)this).NPC.lavaImmune = true;
+		((ModNPC)this).NPC.noGravity = true;
+		((ModNPC)this).NPC.aiStyle = 0;
 		for (int i = 0; i < 206; i++)
 		{
-			((ModNPC)this).npc.buffImmune[i] = true;
+			((ModNPC)this).NPC.buffImmune[i] = true;
 		}
 	}
 
-	public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
-		((ModNPC)this).npc.lifeMax = 12000;
-		((ModNPC)this).npc.damage = 120;
-		((ModNPC)this).npc.defense = 50;
+		((ModNPC)this).NPC.lifeMax = 12000;
+		((ModNPC)this).NPC.damage = 120;
+		((ModNPC)this).NPC.defense = 50;
 	}
 
-	public override void HitEffect(int hitDirection, double damage)
+	public override void HitEffect(NPC.HitInfo hit)
 	{
-		if (((ModNPC)this).npc.life > 0)
+		if (((ModNPC)this).NPC.life > 0)
 		{
 			return;
 		}
-		((ModNPC)this).npc.position.X = ((ModNPC)this).npc.position.X + (float)(((ModNPC)this).npc.width / 2);
-		((ModNPC)this).npc.position.Y = ((ModNPC)this).npc.position.Y + (float)(((ModNPC)this).npc.height / 2);
-		((ModNPC)this).npc.width = 30;
-		((ModNPC)this).npc.height = 30;
-		((ModNPC)this).npc.position.X = ((ModNPC)this).npc.position.X - (float)(((ModNPC)this).npc.width / 2);
-		((ModNPC)this).npc.position.Y = ((ModNPC)this).npc.position.Y - (float)(((ModNPC)this).npc.height / 2);
+		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X + (float)(((ModNPC)this).NPC.width / 2);
+		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y + (float)(((ModNPC)this).NPC.height / 2);
+		((ModNPC)this).NPC.width = 30;
+		((ModNPC)this).NPC.height = 30;
+		((ModNPC)this).NPC.position.X = ((ModNPC)this).NPC.position.X - (float)(((ModNPC)this).NPC.width / 2);
+		((ModNPC)this).NPC.position.Y = ((ModNPC)this).NPC.position.Y - (float)(((ModNPC)this).NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(((ModNPC)this).npc.position.X, ((ModNPC)this).npc.position.Y), ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.DustType("ShadowDustBlack"), 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(((ModNPC)this).NPC.position.X, ((ModNPC)this).NPC.position.Y), ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModDust>("ShadowDustBlack").Type, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -82,60 +82,60 @@ public class MindFlayerClone : ModNPC
 		return Color.White;
 	}
 
-	public override void OnHitPlayer(Player player, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(((ModNPC)this).mod.BuffType("DarkDebuff"), 300);
+		player.AddBuff(((ModNPC)this).Mod.Find<ModBuff>("DarkDebuff").Type, 300);
 	}
 
 	public override bool PreAI()
 	{
-		if (NPC.CountNPCS(((ModNPC)this).mod.NPCType("MindFlayer")) == 0)
+		if (NPC.CountNPCS(((ModNPC)this).Mod.Find<ModNPC>("MindFlayer").Type) == 0)
 		{
-			((Entity)((ModNPC)this).npc).active = false;
+			((Entity)((ModNPC)this).NPC).active = false;
 		}
-		((ModNPC)this).npc.rotation = ((ModNPC)this).npc.velocity.X * 0.02f;
-		Player player = Main.player[((ModNPC)this).npc.target];
+		((ModNPC)this).NPC.rotation = ((ModNPC)this).NPC.velocity.X * 0.02f;
+		Player player = Main.player[((ModNPC)this).NPC.target];
 		bool expertMode = Main.expertMode;
-		((ModNPC)this).npc.netUpdate = true;
-		((ModNPC)this).npc.TargetClosest();
-		((ModNPC)this).npc.TargetClosest(faceTarget: false);
-		((ModNPC)this).npc.velocity.Y = -100f;
-		if (((ModNPC)this).npc.ai[0] == 0f)
+		((ModNPC)this).NPC.netUpdate = true;
+		((ModNPC)this).NPC.TargetClosest();
+		((ModNPC)this).NPC.TargetClosest(faceTarget: false);
+		((ModNPC)this).NPC.velocity.Y = -100f;
+		if (((ModNPC)this).NPC.ai[0] == 0f)
 		{
-			if (((ModNPC)this).npc.Center.X >= player.Center.X && moveSpeed >= -50)
+			if (((ModNPC)this).NPC.Center.X >= player.Center.X && moveSpeed >= -50)
 			{
 				moveSpeed--;
 			}
-			else if (((ModNPC)this).npc.Center.X <= player.Center.X && moveSpeed <= 50)
+			else if (((ModNPC)this).NPC.Center.X <= player.Center.X && moveSpeed <= 50)
 			{
 				moveSpeed++;
 			}
-			((ModNPC)this).npc.velocity.X = (float)moveSpeed * 0.1f;
-			if (((ModNPC)this).npc.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -50)
+			((ModNPC)this).NPC.velocity.X = (float)moveSpeed * 0.1f;
+			if (((ModNPC)this).NPC.Center.Y >= player.Center.Y - HomeY && moveSpeedY >= -50)
 			{
 				moveSpeedY--;
 				HomeY = 150f;
 			}
-			else if (((ModNPC)this).npc.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 50)
+			else if (((ModNPC)this).NPC.Center.Y <= player.Center.Y - HomeY && moveSpeedY <= 50)
 			{
 				moveSpeedY++;
 			}
-			((ModNPC)this).npc.velocity.Y = (float)moveSpeedY * 0.12f;
+			((ModNPC)this).NPC.velocity.Y = (float)moveSpeedY * 0.12f;
 			if (Main.rand.Next(220) == 6)
 			{
 				HomeY = -33f;
 			}
 		}
-		((ModNPC)this).npc.velocity.Y = (float)moveSpeedY * 0.12f;
+		((ModNPC)this).NPC.velocity.Y = (float)moveSpeedY * 0.12f;
 		timer++;
 		if (timer == 200)
 		{
-			Vector2 vector = Main.player[((ModNPC)this).npc.target].Center - ((ModNPC)this).npc.Center;
+			Vector2 vector = Main.player[((ModNPC)this).NPC.target].Center - ((ModNPC)this).NPC.Center;
 			vector.Normalize();
 			vector.X *= 7f;
 			vector.Y *= 7f;
 			int num = (expertMode ? 40 : 45);
-			Projectile.NewProjectile(((ModNPC)this).npc.Center.X, ((ModNPC)this).npc.Center.Y, vector.X, vector.Y, ((ModNPC)this).mod.ProjectileType("DarkMatter"), num, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, vector.X, vector.Y, ((ModNPC)this).Mod.Find<ModProjectile>("DarkMatter").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			timer = 0;
 		}
 		return true;
@@ -143,11 +143,11 @@ public class MindFlayerClone : ModNPC
 
 	public override void FindFrame(int frameHeight)
 	{
-		((ModNPC)this).npc.frameCounter += 1.0;
-		if (((ModNPC)this).npc.frameCounter >= 11.0)
+		((ModNPC)this).NPC.frameCounter += 1.0;
+		if (((ModNPC)this).NPC.frameCounter >= 11.0)
 		{
-			((ModNPC)this).npc.frame.Y = (((ModNPC)this).npc.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).npc.type] * frameHeight);
-			((ModNPC)this).npc.frameCounter = 1.0;
+			((ModNPC)this).NPC.frame.Y = (((ModNPC)this).NPC.frame.Y + frameHeight) % (Main.npcFrameCount[((ModNPC)this).NPC.type] * frameHeight);
+			((ModNPC)this).NPC.frameCounter = 1.0;
 		}
 	}
 

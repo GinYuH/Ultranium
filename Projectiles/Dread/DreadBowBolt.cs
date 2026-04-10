@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Dread;
@@ -9,62 +11,62 @@ public class DreadBowBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Dread Bolt");
-		Main.projFrames[((ModProjectile)this).projectile.type] = 5;
+		// ((ModProjectile)this).DisplayName.SetDefault("Dread Bolt");
+		Main.projFrames[((ModProjectile)this).Projectile.type] = 5;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.scale = 1f;
-		((ModProjectile)this).projectile.width = 14;
-		((ModProjectile)this).projectile.height = 14;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.ranged = true;
-		((ModProjectile)this).projectile.aiStyle = 0;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.extraUpdates = 1;
-		((ModProjectile)this).projectile.timeLeft = 300;
-		((ModProjectile)this).projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.scale = 1f;
+		((ModProjectile)this).Projectile.width = 14;
+		((ModProjectile)this).Projectile.height = 14;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
+		((ModProjectile)this).Projectile.aiStyle = 0;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.extraUpdates = 1;
+		((ModProjectile)this).Projectile.timeLeft = 300;
+		((ModProjectile)this).Projectile.tileCollide = true;
 	}
 
-	public override void OnHitPlayer(Player player, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(((ModProjectile)this).mod.BuffType("DreadDebuff"), 180, fromNetPvP: true);
+		player.AddBuff(((ModProjectile)this).Mod.Find<ModBuff>("DreadDebuff").Type, 180, fromNetPvP: true);
 	}
 
 	public override void AI()
 	{
-		if (++((ModProjectile)this).projectile.frameCounter >= 16)
+		if (++((ModProjectile)this).Projectile.frameCounter >= 16)
 		{
-			((ModProjectile)this).projectile.frameCounter = 0;
-			if (++((ModProjectile)this).projectile.frame >= 5)
+			((ModProjectile)this).Projectile.frameCounter = 0;
+			if (++((ModProjectile)this).Projectile.frame >= 5)
 			{
-				((ModProjectile)this).projectile.frame = 0;
+				((ModProjectile)this).Projectile.frame = 0;
 			}
 		}
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 90);
+			Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 90);
 			dust.noGravity = true;
 			dust.scale = 1.2f;
 		}
-		((ModProjectile)this).projectile.rotation = ((ModProjectile)this).projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).projectile.rotation += 0f * (float)((ModProjectile)this).projectile.direction;
+		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
 	}
 
-	public override void Kill(int timeLeft)
+	public override void OnKill(int timeLeft)
 	{
-		Main.PlaySound(2, (int)((ModProjectile)this).projectile.position.X, (int)((ModProjectile)this).projectile.position.Y, 14, 1f, 0f);
+		SoundEngine.PlaySound(SoundID.Item14, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).projectile.position, ((ModProjectile)this).projectile.width, ((ModProjectile)this).projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).projectile.Center)
+			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}

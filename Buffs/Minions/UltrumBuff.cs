@@ -5,10 +5,10 @@ namespace Ultranium.Buffs.Minions;
 
 public class UltrumBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Ultrum");
-		((ModBuff)this).Description.SetDefault("The mini ultrum will fight with you");
+		// ((ModBuff)this).DisplayName.SetDefault("Ultrum");
+		// ((ModBuff)this).Description.SetDefault("The mini ultrum will fight with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}
@@ -16,7 +16,7 @@ public class UltrumBuff : ModBuff
 	public override void Update(Player player, ref int buffIndex)
 	{
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (player.ownedProjectileCounts[((ModBuff)this).mod.ProjectileType("Ultrum")] > 0)
+		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("Ultrum").Type] > 0)
 		{
 			modPlayer.UltrumMinion = true;
 		}

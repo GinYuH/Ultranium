@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,31 +11,31 @@ public class DepthsFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Azathoth");
+		// ((ModItem)this).DisplayName.SetDefault("Azathoth");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 30;
-		((Entity)(object)((ModItem)this).item).height = 11;
-		((ModItem)this).item.damage = 70;
-		((ModItem)this).item.knockBack = 4f;
-		((ModItem)this).item.rare = 7;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.useAnimation = 19;
-		((ModItem)this).item.useTime = 19;
-		((ModItem)this).item.UseSound = SoundID.Item1;
-		((ModItem)this).item.value = Item.buyPrice(0, 68);
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.noUseGraphic = true;
-		((ModItem)this).item.melee = true;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("EldritchFlail");
-		((ModItem)this).item.shootSpeed = 15f;
+		((Entity)(object)((ModItem)this).Item).width = 30;
+		((Entity)(object)((ModItem)this).Item).height = 11;
+		((ModItem)this).Item.damage = 70;
+		((ModItem)this).Item.knockBack = 4f;
+		((ModItem)this).Item.rare = 7;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.useAnimation = 19;
+		((ModItem)this).Item.useTime = 19;
+		((ModItem)this).Item.UseSound = SoundID.Item1;
+		((ModItem)this).Item.value = Item.buyPrice(0, 68);
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.noUseGraphic = true;
+		((ModItem)this).Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("EldritchFlail").Type;
+		((ModItem)this).Item.shootSpeed = 15f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		float num = (Main.rand.NextFloat() - 0.75f) * ((float)Math.PI / 4f);
 		Projectile.NewProjectile(position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0f, num);

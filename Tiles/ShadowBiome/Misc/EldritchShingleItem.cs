@@ -7,24 +7,24 @@ public class EldritchShingleItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Eldritch Shingle");
-		((ModItem)this).Tooltip.SetDefault("");
+		// ((ModItem)this).DisplayName.SetDefault("Eldritch Shingle");
+		// ((ModItem)this).Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)((ModItem)this).item).width = 12;
-		((Entity)(object)((ModItem)this).item).height = 12;
-		((ModItem)this).item.useTime = 8;
-		((ModItem)this).item.useAnimation = 15;
-		((ModItem)this).item.useStyle = 1;
-		((ModItem)this).item.value = 50;
-		((ModItem)this).item.rare = 0;
-		((ModItem)this).item.useTurn = true;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.consumable = true;
-		((ModItem)this).item.createTile = ((ModItem)this).mod.TileType("EldritchShingles");
-		((ModItem)this).item.maxStack = 999;
+		((Entity)(object)((ModItem)this).Item).width = 12;
+		((Entity)(object)((ModItem)this).Item).height = 12;
+		((ModItem)this).Item.useTime = 8;
+		((ModItem)this).Item.useAnimation = 15;
+		((ModItem)this).Item.useStyle = 1;
+		((ModItem)this).Item.value = 50;
+		((ModItem)this).Item.rare = 0;
+		((ModItem)this).Item.useTurn = true;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.consumable = true;
+		((ModItem)this).Item.createTile = ((ModItem)this).Mod.Find<ModTile>("EldritchShingles").Type;
+		((ModItem)this).Item.maxStack = 999;
 	}
 
 	public override void AddRecipes()
@@ -33,10 +33,9 @@ public class EldritchShingleItem : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient((Mod)null, "ShadowWood", 1);
 		val.AddTile(18);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

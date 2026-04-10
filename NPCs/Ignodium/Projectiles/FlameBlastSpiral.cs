@@ -13,23 +13,23 @@ public class FlameBlastSpiral : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).projectile.type] = 7;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).projectile.type] = 0;
-		((ModProjectile)this).DisplayName.SetDefault("Flame Blast");
+		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 7;
+		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// ((ModProjectile)this).DisplayName.SetDefault("Flame Blast");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 16;
-		((ModProjectile)this).projectile.height = 16;
-		((ModProjectile)this).projectile.scale = 1.2f;
-		((ModProjectile)this).projectile.penetrate = 1;
-		((ModProjectile)this).projectile.hostile = true;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.alpha = 0;
-		((ModProjectile)this).projectile.timeLeft = 360;
+		((ModProjectile)this).Projectile.width = 16;
+		((ModProjectile)this).Projectile.height = 16;
+		((ModProjectile)this).Projectile.scale = 1.2f;
+		((ModProjectile)this).Projectile.penetrate = 1;
+		((ModProjectile)this).Projectile.hostile = true;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.alpha = 0;
+		((ModProjectile)this).Projectile.timeLeft = 360;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -37,26 +37,26 @@ public class FlameBlastSpiral : ModProjectile
 		return Color.White;
 	}
 
-	public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ignodium/Projectiles/FlameBlastTrail").Width * 0.5f, (float)((ModProjectile)this).projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ignodium/Projectiles/FlameBlastTrail").Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
+		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).projectile.gfxOffY);
-			Color color = ((ModProjectile)this).projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).projectile.oldPos.Length - i) / (float)((ModProjectile)this).projectile.oldPos.Length);
-			spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ignodium/Projectiles/FlameBlastTrail"), position, null, color, ((ModProjectile)this).projectile.rotation, vector, ((ModProjectile)this).projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
+			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
+			spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ignodium/Projectiles/FlameBlastTrail"), position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).projectile.localAI[0] += 1f;
-		if (((ModProjectile)this).projectile.localAI[0] <= 180f)
+		((ModProjectile)this).Projectile.localAI[0] += 1f;
+		if (((ModProjectile)this).Projectile.localAI[0] <= 180f)
 		{
-			((ModProjectile)this).projectile.velocity = ((ModProjectile)this).projectile.velocity.RotatedBy(MathHelper.ToRadians(1.5f * ((ModProjectile)this).projectile.ai[0]));
-			((ModProjectile)this).projectile.velocity *= 1.005f;
+			((ModProjectile)this).Projectile.velocity = ((ModProjectile)this).Projectile.velocity.RotatedBy(MathHelper.ToRadians(1.5f * ((ModProjectile)this).Projectile.ai[0]));
+			((ModProjectile)this).Projectile.velocity *= 1.005f;
 		}
-		((ModProjectile)this).projectile.rotation = (float)Math.Atan2(((ModProjectile)this).projectile.velocity.Y, ((ModProjectile)this).projectile.velocity.X) + 1.57f;
+		((ModProjectile)this).Projectile.rotation = (float)Math.Atan2(((ModProjectile)this).Projectile.velocity.Y, ((ModProjectile)this).Projectile.velocity.X) + 1.57f;
 	}
 }

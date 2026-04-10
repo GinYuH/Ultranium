@@ -10,31 +10,31 @@ public class RayGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).Tooltip.SetDefault("Imagine Pew pew in Terraria, HHHHHHHHHHHHHH im smart as frick.\n~Developer Item~");
-		((ModItem)this).DisplayName.SetDefault("Ray Gun");
+		// ((ModItem)this).Tooltip.SetDefault("Imagine Pew pew in Terraria, HHHHHHHHHHHHHH im smart as frick.\n~Developer Item~");
+		// ((ModItem)this).DisplayName.SetDefault("Ray Gun");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 350;
-		((ModItem)this).item.ranged = true;
-		((Entity)(object)((ModItem)this).item).width = 20;
-		((Entity)(object)((ModItem)this).item).height = 40;
-		((ModItem)this).item.useTime = 12;
-		((ModItem)this).item.useAnimation = 12;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.knockBack = 6f;
-		((ModItem)this).item.rare = 11;
-		((ModItem)this).item.value = Item.buyPrice(2);
-		((ModItem)this).item.UseSound = SoundID.Item11;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("RayGunLaser");
-		((ModItem)this).item.shootSpeed = 20f;
+		((ModItem)this).Item.damage = 350;
+		((ModItem)this).Item.DamageType = DamageClass.Ranged;
+		((Entity)(object)((ModItem)this).Item).width = 20;
+		((Entity)(object)((ModItem)this).Item).height = 40;
+		((ModItem)this).Item.useTime = 12;
+		((ModItem)this).Item.useAnimation = 12;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.knockBack = 6f;
+		((ModItem)this).Item.rare = 11;
+		((ModItem)this).Item.value = Item.buyPrice(2);
+		((ModItem)this).Item.UseSound = SoundID.Item11;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("RayGunLaser").Type;
+		((ModItem)this).Item.shootSpeed = 20f;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)
 	{
-		tooltips[0].overrideColor = new Color(255, 0, 0);
+		tooltips[0].OverrideColor = new Color(255, 0, 0);
 	}
 
 	public override Vector2? HoldoutOffset()

@@ -13,29 +13,29 @@ public class EldritchEyeTelegraph : ModProjectile
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 136;
-		((ModProjectile)this).projectile.height = 136;
-		((ModProjectile)this).projectile.hostile = false;
-		((ModProjectile)this).projectile.friendly = false;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.tileCollide = true;
-		((ModProjectile)this).projectile.penetrate = 2;
-		((ModProjectile)this).projectile.timeLeft = 260;
-		((ModProjectile)this).projectile.alpha = 255;
+		((ModProjectile)this).Projectile.width = 136;
+		((ModProjectile)this).Projectile.height = 136;
+		((ModProjectile)this).Projectile.hostile = false;
+		((ModProjectile)this).Projectile.friendly = false;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.tileCollide = true;
+		((ModProjectile)this).Projectile.penetrate = 2;
+		((ModProjectile)this).Projectile.timeLeft = 260;
+		((ModProjectile)this).Projectile.alpha = 255;
 	}
 
 	public override void AI()
 	{
 		bool expertMode = Main.expertMode;
-		((ModProjectile)this).projectile.velocity *= 0f;
+		((ModProjectile)this).Projectile.velocity *= 0f;
 		Timer++;
 		if (Timer < 120)
 		{
 			int num = 12;
 			for (int i = 0; i < num; i++)
 			{
-				Vector2 vector = (Vector2.One * new Vector2((float)((ModProjectile)this).projectile.width / 5f, ((ModProjectile)this).projectile.height) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + ((ModProjectile)this).projectile.Center;
-				Vector2 vector2 = vector - ((ModProjectile)this).projectile.Center;
+				Vector2 vector = (Vector2.One * new Vector2((float)((ModProjectile)this).Projectile.width / 5f, ((ModProjectile)this).Projectile.height) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + ((ModProjectile)this).Projectile.Center;
+				Vector2 vector2 = vector - ((ModProjectile)this).Projectile.Center;
 				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, 89, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
@@ -46,8 +46,8 @@ public class EldritchEyeTelegraph : ModProjectile
 		if (Timer >= 120)
 		{
 			int num2 = (expertMode ? 35 : 48);
-			Projectile.NewProjectile(((ModProjectile)this).projectile.Center.X, ((ModProjectile)this).projectile.Center.Y, 0f, 0f, ((ModProjectile)this).mod.ProjectileType("EldritchEye"), num2, 1f, Main.myPlayer, 0f, 0f);
-			((Entity)((ModProjectile)this).projectile).active = false;
+			Projectile.NewProjectile(((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchEye").Type, num2, 1f, Main.myPlayer, 0f, 0f);
+			((Entity)((ModProjectile)this).Projectile).active = false;
 		}
 	}
 }

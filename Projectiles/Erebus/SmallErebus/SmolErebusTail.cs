@@ -11,7 +11,7 @@ public class SmolErebusTail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		((ModProjectile)this).DisplayName.SetDefault("Erebus Minion");
+		// ((ModProjectile)this).DisplayName.SetDefault("Erebus Minion");
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -21,37 +21,37 @@ public class SmolErebusTail : ModProjectile
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).projectile.width = 32;
-		((ModProjectile)this).projectile.height = 22;
-		((ModProjectile)this).projectile.friendly = true;
-		((ModProjectile)this).projectile.ignoreWater = true;
-		((ModProjectile)this).projectile.hide = true;
-		((ModProjectile)this).projectile.alpha = 255;
-		((ModProjectile)this).projectile.netImportant = true;
-		((ModProjectile)this).projectile.timeLeft = 18000;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).projectile.type] = true;
-		((ModProjectile)this).projectile.penetrate = -1;
-		((ModProjectile)this).projectile.tileCollide = false;
-		((ModProjectile)this).projectile.timeLeft *= 5;
-		((ModProjectile)this).projectile.minion = true;
+		((ModProjectile)this).Projectile.width = 32;
+		((ModProjectile)this).Projectile.height = 22;
+		((ModProjectile)this).Projectile.friendly = true;
+		((ModProjectile)this).Projectile.ignoreWater = true;
+		((ModProjectile)this).Projectile.hide = true;
+		((ModProjectile)this).Projectile.alpha = 255;
+		((ModProjectile)this).Projectile.netImportant = true;
+		((ModProjectile)this).Projectile.timeLeft = 18000;
+		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
+		((ModProjectile)this).Projectile.penetrate = -1;
+		((ModProjectile)this).Projectile.tileCollide = false;
+		((ModProjectile)this).Projectile.timeLeft *= 5;
+		((ModProjectile)this).Projectile.minion = true;
 	}
 
-	public override void DrawBehind(int index, List<int> drawCacheProjsBehindNPCsAndTiles, List<int> drawCacheProjsBehindNPCs, List<int> drawCacheProjsBehindProjectiles, List<int> drawCacheProjsOverWiresUI)
+	public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
 	{
 		drawCacheProjsBehindProjectiles.Add(index);
 	}
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModProjectile)this).projectile.owner];
+		Player player = Main.player[((ModProjectile)this).Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if ((int)Main.time % 120 == 0)
 		{
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
 		if (!((Entity)player).active)
 		{
-			((Entity)((ModProjectile)this).projectile).active = false;
+			((Entity)((ModProjectile)this).Projectile).active = false;
 			return;
 		}
 		int num = 30;
@@ -61,18 +61,18 @@ public class SmolErebusTail : ModProjectile
 		}
 		if (modPlayer.ErebusMinion)
 		{
-			((ModProjectile)this).projectile.timeLeft = 2;
+			((ModProjectile)this).Projectile.timeLeft = 2;
 		}
 		Vector2 zero = Vector2.Zero;
 		float num2 = 0f;
 		float num3 = 0f;
 		float num4 = 1f;
-		if (((ModProjectile)this).projectile.ai[1] == 1f)
+		if (((ModProjectile)this).Projectile.ai[1] == 1f)
 		{
-			((ModProjectile)this).projectile.ai[1] = 0f;
-			((ModProjectile)this).projectile.netUpdate = true;
+			((ModProjectile)this).Projectile.ai[1] = 0f;
+			((ModProjectile)this).Projectile.netUpdate = true;
 		}
-		int num5 = (int)((ModProjectile)this).projectile.ai[0];
+		int num5 = (int)((ModProjectile)this).Projectile.ai[0];
 		if (num5 >= 0 && ((Entity)Main.projectile[num5]).active)
 		{
 			zero = Main.projectile[num5].Center;
@@ -80,33 +80,33 @@ public class SmolErebusTail : ModProjectile
 			num2 = Main.projectile[num5].rotation;
 			num4 = MathHelper.Clamp(Main.projectile[num5].scale, 0f, 50f);
 			num3 = 16f;
-			Main.projectile[num5].localAI[0] = ((ModProjectile)this).projectile.localAI[0] + 1f;
-			((ModProjectile)this).projectile.alpha -= 42;
-			if (((ModProjectile)this).projectile.alpha < 0)
+			Main.projectile[num5].localAI[0] = ((ModProjectile)this).Projectile.localAI[0] + 1f;
+			((ModProjectile)this).Projectile.alpha -= 42;
+			if (((ModProjectile)this).Projectile.alpha < 0)
 			{
-				((ModProjectile)this).projectile.alpha = 0;
+				((ModProjectile)this).Projectile.alpha = 0;
 			}
-			((ModProjectile)this).projectile.velocity = Vector2.Zero;
-			Vector2 vector = zero - ((ModProjectile)this).projectile.Center;
-			if (num2 != ((ModProjectile)this).projectile.rotation)
+			((ModProjectile)this).Projectile.velocity = Vector2.Zero;
+			Vector2 vector = zero - ((ModProjectile)this).Projectile.Center;
+			if (num2 != ((ModProjectile)this).Projectile.rotation)
 			{
-				float num6 = MathHelper.WrapAngle(num2 - ((ModProjectile)this).projectile.rotation);
+				float num6 = MathHelper.WrapAngle(num2 - ((ModProjectile)this).Projectile.rotation);
 				vector = vector.RotatedBy(num6 * 0.1f);
 			}
-			((ModProjectile)this).projectile.rotation = vector.ToRotation() + (float)Math.PI / 2f;
-			((ModProjectile)this).projectile.position = ((ModProjectile)this).projectile.Center;
-			((ModProjectile)this).projectile.scale = num4;
-			((ModProjectile)this).projectile.width = (((ModProjectile)this).projectile.height = (int)((float)num * ((ModProjectile)this).projectile.scale));
-			((ModProjectile)this).projectile.Center = ((ModProjectile)this).projectile.position;
+			((ModProjectile)this).Projectile.rotation = vector.ToRotation() + (float)Math.PI / 2f;
+			((ModProjectile)this).Projectile.position = ((ModProjectile)this).Projectile.Center;
+			((ModProjectile)this).Projectile.scale = num4;
+			((ModProjectile)this).Projectile.width = (((ModProjectile)this).Projectile.height = (int)((float)num * ((ModProjectile)this).Projectile.scale));
+			((ModProjectile)this).Projectile.Center = ((ModProjectile)this).Projectile.position;
 			if (vector != Vector2.Zero)
 			{
-				((ModProjectile)this).projectile.Center = zero - Vector2.Normalize(vector) * num3 * num4;
+				((ModProjectile)this).Projectile.Center = zero - Vector2.Normalize(vector) * num3 * num4;
 			}
-			((ModProjectile)this).projectile.spriteDirection = ((vector.X > 0f) ? 1 : (-1));
+			((ModProjectile)this).Projectile.spriteDirection = ((vector.X > 0f) ? 1 : (-1));
 		}
 		else
 		{
-			((ModProjectile)this).projectile.Kill();
+			((ModProjectile)this).Projectile.Kill();
 		}
 	}
 }

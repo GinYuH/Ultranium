@@ -9,7 +9,7 @@ public class NPCGlobal : GlobalNPC
 
 	public override bool InstancePerEntity => true;
 
-	public override void ScaleExpertStats(NPC npc, int numPlayers, float bossLifeScale)
+	public override void ApplyDifficultyAndPlayerScaling(NPC npc, int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
 		players = numPlayers;
 	}
@@ -19,11 +19,11 @@ public class NPCGlobal : GlobalNPC
 		players = 0;
 	}
 
-	public override void SetupShop(int type, Chest shop, ref int nextSlot)
+	public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
 	{
 		if (type == 453 && UltraniumWorld.StrangeUndergrowth)
 		{
-			shop.item[nextSlot].SetDefaults(((GlobalNPC)this).mod.ItemType("StrangeUndergrowth"), false);
+			shop.item[nextSlot].SetDefaults(((GlobalNPC)this).Mod.Find<ModItem>("StrangeUndergrowth").Type, false);
 			nextSlot++;
 		}
 	}

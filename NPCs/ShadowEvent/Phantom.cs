@@ -1,6 +1,8 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.ShadowEvent;
@@ -11,41 +13,41 @@ public class Phantom : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		((ModNPC)this).DisplayName.SetDefault("Phantom");
-		Main.npcFrameCount[((ModNPC)this).npc.type] = Main.npcFrameCount[560];
+		// ((ModNPC)this).DisplayName.SetDefault("Phantom");
+		Main.npcFrameCount[((ModNPC)this).NPC.type] = Main.npcFrameCount[560];
 	}
 
 	public override void SetDefaults()
 	{
-		((ModNPC)this).npc.scale = 1.2f;
-		((ModNPC)this).npc.width = 34;
-		((ModNPC)this).npc.height = 34;
-		((ModNPC)this).npc.damage = 80;
-		((ModNPC)this).npc.defense = 60;
-		((ModNPC)this).npc.lifeMax = 2000;
-		((ModNPC)this).npc.HitSound = ((ModNPC)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/PhantomHit");
-		((ModNPC)this).npc.DeathSound = ((ModNPC)this).mod.GetLegacySoundSlot((SoundType)50, "Sounds/PhantomDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
-		((ModNPC)this).npc.knockBackResist = 0.9f;
-		((ModNPC)this).npc.knockBackResist = 0f;
-		((ModNPC)this).npc.noGravity = true;
-		((ModNPC)this).npc.aiStyle = 108;
-		base.animationType = 559;
-		base.aiType = 560;
-		((ModNPC)this).npc.buffImmune[24] = true;
-		((ModNPC)this).npc.noTileCollide = true;
-		base.banner = ((ModNPC)this).npc.type;
-		base.bannerItem = ((ModNPC)this).mod.ItemType("PhantomBanner");
+		((ModNPC)this).NPC.scale = 1.2f;
+		((ModNPC)this).NPC.width = 34;
+		((ModNPC)this).NPC.height = 34;
+		((ModNPC)this).NPC.damage = 80;
+		((ModNPC)this).NPC.defense = 60;
+		((ModNPC)this).NPC.lifeMax = 2000;
+		((ModNPC)this).NPC.HitSound = ((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/PhantomHit");
+		((ModNPC)this).NPC.DeathSound = ((ModNPC)this).Mod.GetLegacySoundSlot((SoundType)50, "Sounds/PhantomDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		((ModNPC)this).NPC.knockBackResist = 0.9f;
+		((ModNPC)this).NPC.knockBackResist = 0f;
+		((ModNPC)this).NPC.noGravity = true;
+		((ModNPC)this).NPC.aiStyle = 108;
+		base.AnimationType = 559;
+		base.AIType = 560;
+		((ModNPC)this).NPC.buffImmune[24] = true;
+		((ModNPC)this).NPC.noTileCollide = true;
+		base.Banner = ((ModNPC)this).NPC.type;
+		base.BannerItem = ((ModNPC)this).Mod.Find<ModItem>("PhantomBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
-			((ModNPC)this).npc.buffImmune[i] = true;
+			((ModNPC)this).NPC.buffImmune[i] = true;
 		}
 	}
 
-	public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
 	{
-		((ModNPC)this).npc.lifeMax = 3200;
-		((ModNPC)this).npc.damage = 115;
-		((ModNPC)this).npc.defense = 75;
+		((ModNPC)this).NPC.lifeMax = 3200;
+		((ModNPC)this).NPC.damage = 115;
+		((ModNPC)this).NPC.defense = 75;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -55,40 +57,40 @@ public class Phantom : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore1"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore2"));
-		Gore.NewGore(((ModNPC)this).npc.position, ((ModNPC)this).npc.velocity, ((ModNPC)this).mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore3"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore1"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore2"));
+		Gore.NewGore(((ModNPC)this).NPC.position, ((ModNPC)this).NPC.velocity, ((ModNPC)this).Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore3"));
 		return true;
 	}
 
-	public override void OnHitPlayer(Player player, int damage, bool crit)
+	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(((ModNPC)this).mod.BuffType("DarkDebuff"), 120);
+		player.AddBuff(((ModNPC)this).Mod.Find<ModBuff>("DarkDebuff").Type, 120);
 	}
 
 	public override void AI()
 	{
-		((ModNPC)this).npc.TargetClosest();
-		Player player = Main.player[((ModNPC)this).npc.target];
+		((ModNPC)this).NPC.TargetClosest();
+		Player player = Main.player[((ModNPC)this).NPC.target];
 		ShootTimer++;
 		if (ShootTimer == 600)
 		{
 			float num = 6f;
-			float num2 = (float)Math.Atan2(((ModNPC)this).npc.Center.Y - player.Center.Y, ((ModNPC)this).npc.Center.X - player.Center.X);
-			Projectile.NewProjectile(((ModNPC)this).npc.Center.X, ((ModNPC)this).npc.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), ((ModNPC)this).mod.ProjectileType("PhantomWave"), 40, 0f, 0, 0f, 0f);
+			float num2 = (float)Math.Atan2(((ModNPC)this).NPC.Center.Y - player.Center.Y, ((ModNPC)this).NPC.Center.X - player.Center.X);
+			Projectile.NewProjectile(((ModNPC)this).NPC.Center.X, ((ModNPC)this).NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), ((ModNPC)this).Mod.Find<ModProjectile>("PhantomWave").Type, 40, 0f, 0, 0f, 0f);
 			ShootTimer = 0;
 		}
 		if (Main.rand.Next(500) == 0)
 		{
-			Main.PlaySound(50, ((ModNPC)this).npc.position, ((ModNPC)this).mod.GetSoundSlot((SoundType)50, "Sounds/PhantomIdle"));
+			SoundEngine.PlaySound(50, ((ModNPC)this).NPC.position, ((ModNPC)this).Mod.GetSoundSlot((SoundType)50, "Sounds/PhantomIdle"));
 		}
 	}
 
-	public override void NPCLoot()
+	public override void OnKill()
 	{
 		if (Main.rand.Next(4) == 0)
 		{
-			Item.NewItem((int)((ModNPC)this).npc.position.X, (int)((ModNPC)this).npc.position.Y, ((ModNPC)this).npc.width, ((ModNPC)this).npc.height, ((ModNPC)this).mod.ItemType("DarkMatter"), 1, false, 0, false, false);
+			Item.NewItem((int)((ModNPC)this).NPC.position.X, (int)((ModNPC)this).NPC.position.Y, ((ModNPC)this).NPC.width, ((ModNPC)this).NPC.height, ((ModNPC)this).Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
 		}
 	}
 }

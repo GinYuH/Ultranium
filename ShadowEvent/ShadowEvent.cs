@@ -10,19 +10,19 @@ public class ShadowEvent
 
 	public static int[] NPCs = new int[13]
 	{
-		mod.NPCType("Scp2521"),
-		mod.NPCType("AbyssalWraith"),
-		mod.NPCType("ShadeSpirit"),
-		mod.NPCType("Phantom"),
-		mod.NPCType("FlayerWraith"),
-		mod.NPCType("ShadeMass"),
-		mod.NPCType("AbyssalCultist"),
-		mod.NPCType("Warden"),
-		mod.NPCType("MindFlayer"),
-		mod.NPCType("MotherPhantom"),
-		mod.NPCType("ErebusHead"),
-		mod.NPCType("ErebusBody"),
-		mod.NPCType("ErebusTail")
+		mod.Find<ModNPC>("Scp2521").Type,
+		mod.Find<ModNPC>("AbyssalWraith").Type,
+		mod.Find<ModNPC>("ShadeSpirit").Type,
+		mod.Find<ModNPC>("Phantom").Type,
+		mod.Find<ModNPC>("FlayerWraith").Type,
+		mod.Find<ModNPC>("ShadeMass").Type,
+		mod.Find<ModNPC>("AbyssalCultist").Type,
+		mod.Find<ModNPC>("Warden").Type,
+		mod.Find<ModNPC>("MindFlayer").Type,
+		mod.Find<ModNPC>("MotherPhantom").Type,
+		mod.Find<ModNPC>("ErebusHead").Type,
+		mod.Find<ModNPC>("ErebusBody").Type,
+		mod.Find<ModNPC>("ErebusTail").Type
 	};
 
 	public static void UpdateInvasion()

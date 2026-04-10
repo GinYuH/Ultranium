@@ -9,21 +9,21 @@ namespace Ultranium.Tiles.Ambient;
 
 public class GlowShroom : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		Main.tileLighted[((ModTile)this).Type] = true;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileCut[((ModTile)this).Type] = true;
 		Main.tileNoFail[((ModTile)this).Type] = true;
-		base.dustType = ((ModTile)this).mod.DustType("ShadowDustPurple");
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
 		((ModTile)this).AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 		TileObjectData.newTile.AnchorValidTiles = new int[3]
 		{
-			((ModTile)this).mod.TileType("ShadowGrass"),
-			((ModTile)this).mod.TileType("ShadowSoil"),
-			((ModTile)this).mod.TileType("DepthRock")
+			((ModTile)this).Mod.Find<ModTile>("ShadowGrass").Type,
+			((ModTile)this).Mod.Find<ModTile>("ShadowSoil").Type,
+			((ModTile)this).Mod.Find<ModTile>("DepthRock").Type
 		};
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
@@ -36,11 +36,11 @@ public class GlowShroom : ModTile
 		b = 0.6f;
 	}
 
-	public override bool Drop(int i, int j)
+	public override bool Drop(int i, int j)/* tModPorter Note: Removed. Use CanDrop to decide if an item should drop. Use GetItemDrops to decide which item drops. Item drops based on placeStyle are handled automatically now, so this method might be able to be removed altogether. */
 	{
 		if (Main.rand.Next(3) == 1)
 		{
-			Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).mod.ItemType("GlowShroomItem"), 1, false, 0, false, false);
+			Item.NewItem(i * 16, j * 16, 64, 32, ((ModTile)this).Mod.Find<ModItem>("GlowShroomItem").Type, 1, false, 0, false, false);
 		}
 		return false;
 	}
@@ -55,13 +55,13 @@ public class GlowShroom : ModTile
 
 	public override void RandomUpdate(int i, int j)
 	{
-		if (Main.tile[i, j].frameX == 0)
+		if (Main.tile[i, j].TileFrameX == 0)
 		{
-			Main.tile[i, j].frameX += 18;
+			Main.tile[i, j].TileFrameX += 18;
 		}
-		else if (Main.tile[i, j].frameX == 18)
+		else if (Main.tile[i, j].TileFrameX == 18)
 		{
-			Main.tile[i, j].frameX += 18;
+			Main.tile[i, j].TileFrameX += 18;
 		}
 	}
 }

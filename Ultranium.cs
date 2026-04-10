@@ -50,7 +50,7 @@ internal class Ultranium : Mod
 
 	private static int seizureTimer;
 
-	public static ModHotKey SpecialKey;
+	public static ModKeybind SpecialKey;
 
 	private Mod mod => ModLoader.GetMod("Ultranium");
 
@@ -58,7 +58,7 @@ internal class Ultranium : Mod
 	{
 		//IL_0009: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
-		((Mod)this).Properties = new ModProperties
+		((Mod)this).Properties/* tModPorter Note: Removed. Instead, assign the properties directly (ContentAutoloadingEnabled, GoreAutoloadingEnabled, MusicAutoloadingEnabled, and BackgroundAutoloadingEnabled) */ = new ModProperties
 		{
 			Autoload = true,
 			AutoloadGores = true,
@@ -67,7 +67,7 @@ internal class Ultranium : Mod
 		};
 	}
 
-	public override void AddRecipes()
+	public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
 	{
 		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
@@ -154,114 +154,94 @@ internal class Ultranium : Mod
 		//IL_039a: Unknown result type (might be due to invalid IL or missing references)
 		//IL_03a7: Unknown result type (might be due to invalid IL or missing references)
 		//IL_03b2: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(mod);
+		Recipe val = Recipe.Create(285, 1);
 		val.AddRecipeGroup("Ultranium:Iron/Lead", 5);
 		val.AddTile(16);
-		val.SetResult(285, 1);
-		val.AddRecipe();
-		ModRecipe val2 = new ModRecipe((Mod)(object)this);
+		val.Register();
+		Recipe val2 = /* (Mod)(object)this */Recipe.Create(54, 1);
 		val2.AddRecipeGroup("Ultranium:Silver/Tungsten", 10);
 		val2.AddTile(16);
-		val2.SetResult(54, 1);
-		val2.AddRecipe();
-		ModRecipe val3 = new ModRecipe((Mod)(object)this);
+		val2.Register();
+		Recipe val3 = /* (Mod)(object)this */Recipe.Create(212, 1);
 		val3.AddIngredient(210, 6);
 		val3.AddTile(16);
-		val3.SetResult(212, 1);
-		val3.AddRecipe();
-		ModRecipe val4 = new ModRecipe((Mod)(object)this);
+		val3.Register();
+		Recipe val4 = /* (Mod)(object)this */Recipe.Create(53, 1);
 		val4.AddIngredient(31, 1);
 		val4.AddIngredient(751, 35);
 		val4.AddTile(16);
-		val4.SetResult(53, 1);
-		val4.AddRecipe();
-		ModRecipe val5 = new ModRecipe((Mod)(object)this);
+		val4.Register();
+		Recipe val5 = /* (Mod)(object)this */Recipe.Create(857, 1);
 		val5.AddIngredient(53, 1);
 		val5.AddIngredient(169, 35);
 		val5.AddTile(16);
-		val5.SetResult(857, 1);
-		val5.AddRecipe();
-		ModRecipe val6 = new ModRecipe((Mod)(object)this);
+		val5.Register();
+		Recipe val6 = /* (Mod)(object)this */Recipe.Create(987, 1);
 		val6.AddIngredient(53, 1);
 		val6.AddIngredient(593, 35);
 		val6.AddTile(16);
-		val6.SetResult(987, 1);
-		val6.AddRecipe();
-		ModRecipe val7 = new ModRecipe((Mod)(object)this);
+		val6.Register();
+		Recipe val7 = /* (Mod)(object)this */Recipe.Create(1291, 1);
 		val7.AddIngredient(331, 5);
 		val7.AddIngredient(947, 20);
 		val7.AddTile(16);
-		val7.SetResult(1291, 1);
-		val7.AddRecipe();
-		ModRecipe val8 = new ModRecipe((Mod)(object)this);
+		val7.Register();
+		Recipe val8 = /* (Mod)(object)this */Recipe.Create(29, 1);
 		val8.AddIngredient(178, 10);
 		val8.AddIngredient((Mod)null, "BloodClot", 10);
 		val8.AddTile(16);
-		val8.SetResult(29, 1);
-		val8.AddRecipe();
-		ModRecipe val9 = new ModRecipe((Mod)(object)this);
+		val8.Register();
+		Recipe val9 = /* (Mod)(object)this */Recipe.Create(3052, 1);
 		val9.AddIngredient((Mod)null, "ShadowFlame", 8);
 		val9.AddTile(134);
-		val9.SetResult(3052, 1);
-		val9.AddRecipe();
-		ModRecipe val10 = new ModRecipe((Mod)(object)this);
+		val9.Register();
+		Recipe val10 = /* (Mod)(object)this */Recipe.Create(3053, 1);
 		val10.AddIngredient((Mod)null, "ShadowFlame", 8);
 		val10.AddTile(134);
-		val10.SetResult(3053, 1);
-		val10.AddRecipe();
-		ModRecipe val11 = new ModRecipe((Mod)(object)this);
+		val10.Register();
+		Recipe val11 = /* (Mod)(object)this */Recipe.Create(3054, 1);
 		val11.AddIngredient((Mod)null, "ShadowFlame", 8);
 		val11.AddTile(134);
-		val11.SetResult(3054, 1);
-		val11.AddRecipe();
-		ModRecipe val12 = new ModRecipe((Mod)(object)this);
+		val11.Register();
+		Recipe val12 = /* (Mod)(object)this */Recipe.Create(3063, 1);
 		val12.AddIngredient(3467, 12);
 		val12.AddTile(412);
-		val12.SetResult(3063, 1);
-		val12.AddRecipe();
-		ModRecipe val13 = new ModRecipe((Mod)(object)this);
+		val12.Register();
+		Recipe val13 = /* (Mod)(object)this */Recipe.Create(3065, 1);
 		val13.AddIngredient(3467, 12);
 		val13.AddTile(412);
-		val13.SetResult(3065, 1);
-		val13.AddRecipe();
-		ModRecipe val14 = new ModRecipe((Mod)(object)this);
+		val13.Register();
+		Recipe val14 = /* (Mod)(object)this */Recipe.Create(3389, 1);
 		val14.AddIngredient(3467, 12);
 		val14.AddTile(412);
-		val14.SetResult(3389, 1);
-		val14.AddRecipe();
-		ModRecipe val15 = new ModRecipe((Mod)(object)this);
+		val14.Register();
+		Recipe val15 = /* (Mod)(object)this */Recipe.Create(1553, 1);
 		val15.AddIngredient(3467, 12);
 		val15.AddTile(412);
-		val15.SetResult(1553, 1);
-		val15.AddRecipe();
-		ModRecipe val16 = new ModRecipe((Mod)(object)this);
+		val15.Register();
+		Recipe val16 = /* (Mod)(object)this */Recipe.Create(3546, 1);
 		val16.AddIngredient(3467, 12);
 		val16.AddTile(412);
-		val16.SetResult(3546, 1);
-		val16.AddRecipe();
-		ModRecipe val17 = new ModRecipe((Mod)(object)this);
+		val16.Register();
+		Recipe val17 = /* (Mod)(object)this */Recipe.Create(3570, 1);
 		val17.AddIngredient(3467, 12);
 		val17.AddTile(412);
-		val17.SetResult(3570, 1);
-		val17.AddRecipe();
-		ModRecipe val18 = new ModRecipe((Mod)(object)this);
+		val17.Register();
+		Recipe val18 = /* (Mod)(object)this */Recipe.Create(3541, 1);
 		val18.AddIngredient(3467, 12);
 		val18.AddTile(412);
-		val18.SetResult(3541, 1);
-		val18.AddRecipe();
-		ModRecipe val19 = new ModRecipe((Mod)(object)this);
+		val18.Register();
+		Recipe val19 = /* (Mod)(object)this */Recipe.Create(3569, 1);
 		val19.AddIngredient(3467, 12);
 		val19.AddTile(412);
-		val19.SetResult(3569, 1);
-		val19.AddRecipe();
-		ModRecipe val20 = new ModRecipe((Mod)(object)this);
+		val19.Register();
+		Recipe val20 = /* (Mod)(object)this */Recipe.Create(3571, 1);
 		val20.AddIngredient(3467, 12);
 		val20.AddTile(412);
-		val20.SetResult(3571, 1);
-		val20.AddRecipe();
+		val20.Register();
 	}
 
-	public override void AddRecipeGroups()
+	public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
 	{
 		RecipeGroup recipeGroup = new RecipeGroup(() => " Iron/Lead Bar", 22, 704);
 		RecipeGroup.RegisterGroup("Ultranium:Iron/Lead", recipeGroup);
@@ -273,7 +253,7 @@ internal class Ultranium : Mod
 		RecipeGroup.RegisterGroup("Ultranium:ShadowScale/TissueSample", recipeGroup);
 		recipeGroup = new RecipeGroup(() => " Rotten Chunk/Vetebrae", 68, 1330);
 		RecipeGroup.RegisterGroup("Ultranium:RottenChunk/Vetebrae", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Demonite Javelin/Crimtane Pike", mod.ItemType("DemoniteJavelin"), mod.ItemType("CrimsonJavelin"));
+		recipeGroup = new RecipeGroup(() => " Demonite Javelin/Crimtane Pike", mod.Find<ModItem>("DemoniteJavelin").Type, mod.Find<ModItem>("CrimsonJavelin").Type);
 		RecipeGroup.RegisterGroup("Ultranium:DemoniteJavelin/CrimtanePike", recipeGroup);
 	}
 
@@ -297,7 +277,7 @@ internal class Ultranium : Mod
 			val.Call(new object[2]
 			{
 				"hbFinishSingle",
-				((Mod)this).NPCType("ErebusHead")
+				((Mod)this).Find<ModNPC>("ErebusHead").Type
 			});
 		}
 		Mod val2 = ModLoader.GetMod("BossChecklist");
@@ -323,7 +303,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<WormPet>(),
 					ModContent.ItemType<MysticTentacle>()
 				},
-				"Fish in the ocean while using [i:" + ((Mod)this).ItemType("CoralBait") + "] as bait.",
+				"Fish in the ocean while using [i:" + ((Mod)this).Find<ModItem>("CoralBait").Type + "] as bait.",
 				"Despawn Info.",
 				"Ultranium/BossTextures/Squid",
 				"Ultranium/BossTextures/SquidHead"
@@ -346,7 +326,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<GlacialWand>(),
 					ModContent.ItemType<IceTalon>()
 				},
-				"Use [i:" + ((Mod)this).ItemType("IceFood") + "] in the tundra.",
+				"Use [i:" + ((Mod)this).Find<ModItem>("IceFood").Type + "] in the tundra.",
 				"Despawn Info.",
 				"Ultranium/BossTextures/IceDragon",
 				"Ultranium/BossTextures/IceDragonHead"
@@ -370,7 +350,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<DreadStaff>(),
 					ModContent.ItemType<DreadHeart>()
 				},
-				"Use a [i:" + ((Mod)this).ItemType("DreadBeacon") + "] anywhere during the night",
+				"Use a [i:" + ((Mod)this).Find<ModItem>("DreadBeacon").Type + "] anywhere during the night",
 				"Despawn Info.",
 				"Ultranium/BossTextures/Dread",
 				"Ultranium/BossTextures/DreadHead"
@@ -395,7 +375,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<EtherealDidgeridoo>(),
 					ModContent.ItemType<EtherealCore>()
 				},
-				"Use an [i:" + ((Mod)this).ItemType("EtherealLantern") + "] anywhere at night",
+				"Use an [i:" + ((Mod)this).Find<ModItem>("EtherealLantern").Type + "] anywhere at night",
 				"Despawn Info.",
 				"Ultranium/BossTextures/Xenanis",
 				"Ultranium/BossTextures/XenanisHead"
@@ -422,7 +402,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<UltraniumScepter>(),
 					ModContent.ItemType<UltrumRelic>()
 				},
-				"Use an [i:" + ((Mod)this).ItemType("UltrumSummon") + "] on the surface",
+				"Use an [i:" + ((Mod)this).Find<ModItem>("UltrumSummon").Type + "] on the surface",
 				"Despawn Info.",
 				"Ultranium/BossTextures/Ultrum",
 				"Ultranium/BossTextures/UltrumHead"
@@ -449,7 +429,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<HellScepter>(),
 					ModContent.ItemType<IgnodiumRelic>()
 				},
-				"Use a [i:" + ((Mod)this).ItemType("NetherBeacon") + "] in the underworld",
+				"Use a [i:" + ((Mod)this).Find<ModItem>("NetherBeacon").Type + "] in the underworld",
 				"Despawn Info.",
 				"Ultranium/BossTextures/Ignodium",
 				"Ultranium/BossTextures/IgnodiumHead"
@@ -475,7 +455,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<DreadTome>(),
 					ModContent.ItemType<DreadScepter>()
 				},
-				"Use a [i:" + ((Mod)this).ItemType("DreadBeacon") + "] after the guardians of nature and hell have been defeated",
+				"Use a [i:" + ((Mod)this).Find<ModItem>("DreadBeacon").Type + "] after the guardians of nature and hell have been defeated",
 				"Despawn Info.",
 				"Ultranium/BossTextures/TrueDread",
 				"Ultranium/BossTextures/DreadHead"
@@ -512,7 +492,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<EldritchGun>(),
 					ModContent.ItemType<EldritchTome>()
 				},
-				"Use the [i:" + ((Mod)this).ItemType("DarkResonator") + "] during the night",
+				"Use the [i:" + ((Mod)this).Find<ModItem>("DarkResonator").Type + "] during the night",
 				"Despawn Info.",
 				"Ultranium/BossTextures/ShadowEventEnemies",
 				"Ultranium/BossTextures/ShadowEventIcon"
@@ -542,7 +522,7 @@ internal class Ultranium : Mod
 					ModContent.ItemType<ErebusGuitar>(),
 					ModContent.ItemType<ShadowHeart>()
 				},
-				"Spawns at the end of the Abyssal Armageddon event, or, use [i:" + ((Mod)this).ItemType("ErebusFood") + "] during the Abyssal Armageddon Event",
+				"Spawns at the end of the Abyssal Armageddon event, or, use [i:" + ((Mod)this).Find<ModItem>("ErebusFood").Type + "] during the Abyssal Armageddon Event",
 				"Despawn Info.",
 				"Ultranium/BossTextures/DarkWorm",
 				"Ultranium/BossTextures/DarkWormHead"
@@ -574,31 +554,31 @@ internal class Ultranium : Mod
 
 	public override void Load()
 	{
-		GlowShroomCurrencyID = CustomCurrencyManager.RegisterCurrency(new GlowShroomData(mod.ItemType("GlowShroomItem"), 999L));
-		GameShaders.Armor.BindShader(mod.ItemType("EtherealDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.5f, 0.9f, 0.9f).UseSecondaryColor(0.6f, 0.35f, 0.9f);
-		GameShaders.Armor.BindShader(mod.ItemType("EldritchDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.1f, 0.5f, 0.42f).UseSecondaryColor(0.2f, 0.22f, 0.6f);
-		GameShaders.Armor.BindShader(mod.ItemType("IceDragonDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorLivingFlame")).UseColor(2f, 2f, 2f).UseSecondaryColor(1.2f, 1.9f, 2f);
-		GameShaders.Armor.BindShader(mod.ItemType("AuroraDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorBrightnessGradient")).UseColor(0.95f, 0.15f, 0.85f).UseSecondaryColor(0.1f, 1f, 0.62f);
-		GameShaders.Armor.BindShader(mod.ItemType("DepthsDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorTwilight")).UseImage("Images/Misc/Perlin").UseColor(0f, 1f, 0.45f);
-		GameShaders.Armor.BindShader(mod.ItemType("DreadDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorPhase")).UseImage("Images/Misc/Perlin").UseColor(0.55f, 0f, 0f);
-		GameShaders.Armor.BindShader(mod.ItemType("UltrumDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorFlow")).UseColor(0.84f, 2.21f, 0f).UseSecondaryColor(0f, 1.72f, 0.98f);
-		GameShaders.Armor.BindShader(mod.ItemType("IgnodiumDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorFlow")).UseColor(2.55f, 1.61f, 0f).UseSecondaryColor(1f, 1.3f, 1.5f);
+		GlowShroomCurrencyID = CustomCurrencyManager.RegisterCurrency(new GlowShroomData(mod.Find<ModItem>("GlowShroomItem").Type, 999L));
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("EtherealDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.5f, 0.9f, 0.9f).UseSecondaryColor(0.6f, 0.35f, 0.9f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("EldritchDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.1f, 0.5f, 0.42f).UseSecondaryColor(0.2f, 0.22f, 0.6f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("IceDragonDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorLivingFlame")).UseColor(2f, 2f, 2f).UseSecondaryColor(1.2f, 1.9f, 2f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("AuroraDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorBrightnessGradient")).UseColor(0.95f, 0.15f, 0.85f).UseSecondaryColor(0.1f, 1f, 0.62f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("DepthsDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorTwilight")).UseImage("Images/Misc/Perlin").UseColor(0f, 1f, 0.45f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("DreadDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorPhase")).UseImage("Images/Misc/Perlin").UseColor(0.55f, 0f, 0f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("UltrumDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorFlow")).UseColor(0.84f, 2.21f, 0f).UseSecondaryColor(0f, 1.72f, 0.98f);
+		GameShaders.Armor.BindShader(mod.Find<ModItem>("IgnodiumDye").Type, new ArmorShaderData(Main.PixelShaderRef, "ArmorFlow")).UseColor(2.55f, 1.61f, 0f).UseSecondaryColor(1f, 1.3f, 1.5f);
 		if (!Main.dedServ)
 		{
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowBiome"), ((Mod)this).ItemType("ShadowMusicBox"), ((Mod)this).TileType("ShadowMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/DarkDepths"), ((Mod)this).ItemType("DepthMusicBox"), ((Mod)this).TileType("DepthMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid"), ((Mod)this).ItemType("ZephyrMusicBox"), ((Mod)this).TileType("ZephyrMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/IceDragon"), ((Mod)this).ItemType("IceMusicBox"), ((Mod)this).TileType("IceMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Dread"), ((Mod)this).ItemType("DreadMusicBox"), ((Mod)this).TileType("DreadMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Xenanis"), ((Mod)this).ItemType("EtherealMusicBox"), ((Mod)this).TileType("EtherealMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase1"), ((Mod)this).ItemType("GuardianPhase1Box"), ((Mod)this).TileType("GuardianPhase1BoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase2"), ((Mod)this).ItemType("GuardianPhase2Box"), ((Mod)this).TileType("GuardianPhase2BoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave1"), ((Mod)this).ItemType("ShadowEventBox"), ((Mod)this).TileType("ShadowEventBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave2"), ((Mod)this).ItemType("ShadowEventBox2"), ((Mod)this).TileType("ShadowEventBoxTile2"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/RealDread"), ((Mod)this).ItemType("TrueDreadBox"), ((Mod)this).TileType("TrueDreadBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/MindFlayer"), ((Mod)this).ItemType("FlayerMusicBox"), ((Mod)this).TileType("FlayerMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ErebusTheme"), ((Mod)this).ItemType("ErebusMusicBox"), ((Mod)this).TileType("ErebusMusicBoxTile"), 0);
-			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Aldin"), ((Mod)this).ItemType("AldinMusicBox"), ((Mod)this).TileType("AldinMusicBoxTile"), 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowBiome"), ((Mod)this).Find<ModItem>("ShadowMusicBox").Type, ((Mod)this).Find<ModTile>("ShadowMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/DarkDepths"), ((Mod)this).Find<ModItem>("DepthMusicBox").Type, ((Mod)this).Find<ModTile>("DepthMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid"), ((Mod)this).Find<ModItem>("ZephyrMusicBox").Type, ((Mod)this).Find<ModTile>("ZephyrMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/IceDragon"), ((Mod)this).Find<ModItem>("IceMusicBox").Type, ((Mod)this).Find<ModTile>("IceMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Dread"), ((Mod)this).Find<ModItem>("DreadMusicBox").Type, ((Mod)this).Find<ModTile>("DreadMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Xenanis"), ((Mod)this).Find<ModItem>("EtherealMusicBox").Type, ((Mod)this).Find<ModTile>("EtherealMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase1"), ((Mod)this).Find<ModItem>("GuardianPhase1Box").Type, ((Mod)this).Find<ModTile>("GuardianPhase1BoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase2"), ((Mod)this).Find<ModItem>("GuardianPhase2Box").Type, ((Mod)this).Find<ModTile>("GuardianPhase2BoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave1"), ((Mod)this).Find<ModItem>("ShadowEventBox").Type, ((Mod)this).Find<ModTile>("ShadowEventBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave2"), ((Mod)this).Find<ModItem>("ShadowEventBox2").Type, ((Mod)this).Find<ModTile>("ShadowEventBoxTile2").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/RealDread"), ((Mod)this).Find<ModItem>("TrueDreadBox").Type, ((Mod)this).Find<ModTile>("TrueDreadBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/MindFlayer"), ((Mod)this).Find<ModItem>("FlayerMusicBox").Type, ((Mod)this).Find<ModTile>("FlayerMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ErebusTheme"), ((Mod)this).Find<ModItem>("ErebusMusicBox").Type, ((Mod)this).Find<ModTile>("ErebusMusicBoxTile").Type, 0);
+			((Mod)this).AddMusicBox(((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/Aldin"), ((Mod)this).Find<ModItem>("AldinMusicBox").Type, ((Mod)this).Find<ModTile>("AldinMusicBoxTile").Type, 0);
 			Filters.Scene["Ultranium:ShadowBiome"] = new Filter(new ShadowBiomeScreenShaderData("FilterMiniTower").UseColor(0f, 0.2f, 0.05f).UseOpacity(0.5f), EffectPriority.VeryHigh);
 			SkyManager.Instance["Ultranium:ShadowBiome"] = new ShadowBiomeSky();
 			Filters.Scene["Blizzard"] = new Filter(new BlizzardShaderData("FilterBlizzardForeground").UseColor(1f, 1f, 1.5f).UseSecondaryColor(0.7f, 0.7f, 1f).UseImage("Images/Misc/noise")
@@ -631,11 +611,11 @@ internal class Ultranium : Mod
 				Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(@ref, "Shockwave"), EffectPriority.VeryHigh);
 				Filters.Scene["Shockwave"].Load();
 			}
-			SpecialKey = ((Mod)this).RegisterHotKey("Special Ability", "E");
+			SpecialKey = KeybindLoader.RegisterKeybind(((Mod)this), "Special Ability", "E");
 		}
 	}
 
-	public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)
+	public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)/* tModPorter Note: Removed. Use ModSystem.ModifySunLightColor */
 	{
 		if (UltraniumWorld.ShadowTiles > 0)
 		{
@@ -656,7 +636,7 @@ internal class Ultranium : Mod
 		}
 	}
 
-	public override void ModifyTransformMatrix(ref SpriteViewMatrix Transform)
+	public override void ModifyTransformMatrix(ref SpriteViewMatrix Transform)/* tModPorter Note: Removed. Use ModSystem.ModifyTransformMatrix */
 	{
 		if (!Main.gameMenu)
 		{
@@ -678,29 +658,29 @@ internal class Ultranium : Mod
 		}
 	}
 
-	public override void UpdateMusic(ref int music, ref MusicPriority priority)
+	public override void UpdateMusic(ref int music, ref SceneEffectPriority priority)/* tModPorter Note: Removed. Use ModSceneEffect.Music and .Priority, aswell as ModSceneEffect.IsSceneEffectActive */
 	{
 		if (Main.myPlayer != -1 && !Main.gameMenu && ((Entity)Main.LocalPlayer).active)
 		{
 			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneShadow)
 			{
 				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowBiome");
-				priority = (MusicPriority)4;
+				priority = (SceneEffectPriority)4;
 			}
 			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneDepth)
 			{
 				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/DarkDepths");
-				priority = (MusicPriority)4;
+				priority = (SceneEffectPriority)4;
 			}
 			if (ShadowEventWorld.ShadowEventActive && !ShadowEventWorld.Phase2)
 			{
 				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave1");
-				priority = (MusicPriority)4;
+				priority = (SceneEffectPriority)4;
 			}
 			if (ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
 			{
 				music = ((Mod)this).GetSoundSlot((SoundType)51, "Sounds/Music/ShadowEventWave2");
-				priority = (MusicPriority)4;
+				priority = (SceneEffectPriority)4;
 			}
 		}
 	}

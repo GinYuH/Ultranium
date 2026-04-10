@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,31 +10,31 @@ public class PumpkinStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Item.staff[((ModItem)this).item.type] = true;
-		((ModItem)this).DisplayName.SetDefault("Pumpkin Staff");
-		((ModItem)this).Tooltip.SetDefault("Casts a small amount of short lived pumpkin seeds");
+		Item.staff[((ModItem)this).Item.type] = true;
+		// ((ModItem)this).DisplayName.SetDefault("Pumpkin Staff");
+		// ((ModItem)this).Tooltip.SetDefault("Casts a small amount of short lived pumpkin seeds");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 10;
-		((ModItem)this).item.magic = true;
-		((ModItem)this).item.mana = 4;
-		((Entity)(object)((ModItem)this).item).width = 80;
-		((Entity)(object)((ModItem)this).item).height = 80;
-		((ModItem)this).item.useTime = 18;
-		((ModItem)this).item.useAnimation = 18;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.knockBack = 2f;
-		((ModItem)this).item.value = Item.buyPrice(0, 0, 50);
-		((ModItem)this).item.rare = 1;
-		((ModItem)this).item.UseSound = SoundID.Item8;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("PumpkinSeed");
-		((ModItem)this).item.shootSpeed = 7f;
+		((ModItem)this).Item.damage = 10;
+		((ModItem)this).Item.DamageType = DamageClass.Magic;
+		((ModItem)this).Item.mana = 4;
+		((Entity)(object)((ModItem)this).Item).width = 80;
+		((Entity)(object)((ModItem)this).Item).height = 80;
+		((ModItem)this).Item.useTime = 18;
+		((ModItem)this).Item.useAnimation = 18;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.knockBack = 2f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 0, 50);
+		((ModItem)this).Item.rare = 1;
+		((ModItem)this).Item.UseSound = SoundID.Item8;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("PumpkinSeed").Type;
+		((ModItem)this).Item.shootSpeed = 7f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		int num = 1 + Main.rand.Next(2);
 		for (int i = 0; i < num; i++)
@@ -55,12 +56,11 @@ public class PumpkinStaff : ModItem
 		//IL_0029: Expected O, but got Unknown
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient(1725, 10);
 		val.AddIngredient(9, 20);
 		((Recipe)val).anyWood = true;
 		val.AddTile(18);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

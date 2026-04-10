@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,32 +11,32 @@ public class FeatherTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		((ModItem)this).DisplayName.SetDefault("Featherfall");
-		((ModItem)this).Tooltip.SetDefault("Casts magical feathers down from the sky");
+		// ((ModItem)this).DisplayName.SetDefault("Featherfall");
+		// ((ModItem)this).Tooltip.SetDefault("Casts magical feathers down from the sky");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModItem)this).item.damage = 14;
-		((ModItem)this).item.magic = true;
-		((ModItem)this).item.mana = 8;
-		((Entity)(object)((ModItem)this).item).width = 28;
-		((Entity)(object)((ModItem)this).item).height = 32;
-		((ModItem)this).item.useTime = 25;
-		((ModItem)this).item.useAnimation = 25;
-		((ModItem)this).item.useStyle = 5;
-		((ModItem)this).item.noMelee = true;
-		((ModItem)this).item.knockBack = 5f;
-		((ModItem)this).item.rare = 2;
-		((ModItem)this).item.UseSound = SoundID.Item9;
-		((ModItem)this).item.autoReuse = true;
-		((ModItem)this).item.scale = 0.8f;
-		((ModItem)this).item.value = Item.buyPrice(0, 2);
-		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("Feather");
-		((ModItem)this).item.shootSpeed = 10f;
+		((ModItem)this).Item.damage = 14;
+		((ModItem)this).Item.DamageType = DamageClass.Magic;
+		((ModItem)this).Item.mana = 8;
+		((Entity)(object)((ModItem)this).Item).width = 28;
+		((Entity)(object)((ModItem)this).Item).height = 32;
+		((ModItem)this).Item.useTime = 25;
+		((ModItem)this).Item.useAnimation = 25;
+		((ModItem)this).Item.useStyle = 5;
+		((ModItem)this).Item.noMelee = true;
+		((ModItem)this).Item.knockBack = 5f;
+		((ModItem)this).Item.rare = 2;
+		((ModItem)this).Item.UseSound = SoundID.Item9;
+		((ModItem)this).Item.autoReuse = true;
+		((ModItem)this).Item.scale = 0.8f;
+		((ModItem)this).Item.value = Item.buyPrice(0, 2);
+		((ModItem)this).Item.shoot = ((ModItem)this).Mod.Find<ModProjectile>("Feather").Type;
+		((ModItem)this).Item.shootSpeed = 10f;
 	}
 
-	public override bool Shoot(Player player, ref Vector2 position, ref float speedX, ref float speedY, ref int type, ref int damage, ref float knockBack)
+	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		int num = 2;
 		for (int i = 0; i < num; i++)
@@ -54,7 +55,7 @@ public class FeatherTome : ModItem
 				num3 = 20f;
 			}
 			float num4 = (float)Math.Sqrt((double)num2 * (double)num2 + (double)num3 * (double)num3);
-			float num5 = ((ModItem)this).item.shootSpeed / num4;
+			float num5 = ((ModItem)this).Item.shootSpeed / num4;
 			float num6 = num2 * num5;
 			float num7 = num3 * num5;
 			float num8 = num6 + (float)Main.rand.Next(-40, 41) * 0.02f;
@@ -71,11 +72,10 @@ public class FeatherTome : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
-		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
 		val.AddIngredient(320, 12);
 		val.AddIngredient(149, 1);
 		val.AddTile(16);
-		val.SetResult((ModItem)(object)this, 1);
-		val.AddRecipe();
+		val.Register();
 	}
 }

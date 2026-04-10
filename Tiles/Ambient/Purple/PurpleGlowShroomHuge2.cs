@@ -9,7 +9,7 @@ namespace Ultranium.Tiles.Ambient.Purple;
 
 public class PurpleGlowShroomHuge2 : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		Main.tileLighted[((ModTile)this).Type] = true;
@@ -22,7 +22,7 @@ public class PurpleGlowShroomHuge2 : ModTile
 		TileObjectData.newTile.CoordinateHeights = new int[4] { 16, 16, 16, 16 };
 		TileObjectData.addTile((int)((ModTile)this).Type);
 		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-		base.dustType = ((ModTile)this).mod.DustType("ShadowDustPurple");
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowDustPurple").Type;
 		((ModTile)this).AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 

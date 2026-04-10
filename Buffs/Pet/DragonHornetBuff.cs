@@ -5,10 +5,10 @@ namespace Ultranium.Buffs.Pet;
 
 public class DragonHornetBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Dragon Hornet");
-		((ModBuff)this).Description.SetDefault("A long last species...");
+		// ((ModBuff)this).DisplayName.SetDefault("Dragon Hornet");
+		// ((ModBuff)this).Description.SetDefault("A long last species...");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}
@@ -17,9 +17,9 @@ public class DragonHornetBuff : ModBuff
 	{
 		player.buffTime[buffIndex] = 18000;
 		player.GetModPlayer<UltraniumPlayer>().DragonHornet = true;
-		if (player.ownedProjectileCounts[((ModBuff)this).mod.ProjectileType("DragonHornet")] <= 0 && player.whoAmI == Main.myPlayer)
+		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("DragonHornet").Type] <= 0 && player.whoAmI == Main.myPlayer)
 		{
-			Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).mod.ProjectileType("DragonHornet"), 0, 0f, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).Mod.Find<ModProjectile>("DragonHornet").Type, 0, 0f, player.whoAmI, 0f, 0f);
 		}
 	}
 }

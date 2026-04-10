@@ -5,10 +5,10 @@ namespace Ultranium.Buffs.Minions;
 
 public class StarMinionBuff : ModBuff
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
-		((ModBuff)this).DisplayName.SetDefault("Spacial Star");
-		((ModBuff)this).Description.SetDefault("The Spacial Star will fight for you");
+		// ((ModBuff)this).DisplayName.SetDefault("Spacial Star");
+		// ((ModBuff)this).Description.SetDefault("The Spacial Star will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}
@@ -16,7 +16,7 @@ public class StarMinionBuff : ModBuff
 	public override void Update(Player player, ref int buffIndex)
 	{
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (player.ownedProjectileCounts[((ModBuff)this).mod.ProjectileType("StarMinion")] > 0)
+		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("StarMinion").Type] > 0)
 		{
 			modPlayer.StarMinion = true;
 		}

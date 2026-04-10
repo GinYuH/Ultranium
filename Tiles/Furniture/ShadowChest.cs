@@ -1,8 +1,10 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -11,7 +13,7 @@ namespace Ultranium.Tiles.Furniture;
 
 public class ShadowChest : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileSpelunker[((ModTile)this).Type] = true;
 		Main.tileContainer[((ModTile)this).Type] = true;
@@ -19,25 +21,25 @@ public class ShadowChest : ModTile
 		Main.tileShine[((ModTile)this).Type] = 1200;
 		Main.tileFrameImportant[((ModTile)this).Type] = true;
 		Main.tileNoAttach[((ModTile)this).Type] = true;
-		Main.tileValue[((ModTile)this).Type] = 500;
+		Main.tileOreFinderPriority[((ModTile)this).Type] = 500;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 		TileObjectData.newTile.Origin = new Point16(0, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
-		TileObjectData.newTile.HookCheck = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
+		TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
 		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook((Func<int, int, int, int, int, int>)Chest.AfterPlacement_Hook, -1, 0, false);
 		TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
 		TileObjectData.addTile((int)((ModTile)this).Type);
-		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
-		val.SetDefault("Eldritch Chest");
+		LocalizedText val = ((ModTile)this).CreateMapEntryName((string)null);
+		// val.SetDefault("Eldritch Chest");
 		((ModTile)this).AddMapEntry(new Color(119, 0, 131), val, (Func<string, int, int, string>)MapChestName);
-		base.dustType = 0;
-		base.disableSmartCursor = true;
-		base.adjTiles = new int[1] { 21 };
-		base.chestDrop = ((ModTile)this).mod.ItemType("ShadowChestItem");
-		base.chest = "Shade Chest";
+		base.DustType = 0;
+		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		base.AdjTiles = new int[1] { 21 };
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowChestItem").Type;
+		base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Shade Chest";
 	}
 
 	public string MapChestName(string name, int i, int j)
@@ -45,11 +47,11 @@ public class ShadowChest : ModTile
 		int num = i;
 		int num2 = j;
 		Tile tile = Main.tile[i, j];
-		if (tile.frameX % 36 != 0)
+		if (tile.TileFrameX % 36 != 0)
 		{
 			num--;
 		}
-		if (tile.frameY != 0)
+		if (tile.TileFrameY != 0)
 		{
 			num2--;
 		}
@@ -68,35 +70,35 @@ public class ShadowChest : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(i * 16, j * 16, 32, 32, base.chestDrop, 1, false, 0, false, false);
+		Item.NewItem(i * 16, j * 16, 32, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
 		Chest.DestroyChest(i, j);
 	}
 
-	public override bool NewRightClick(int i, int j)
+	public override bool RightClick(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;
 		Tile tile = Main.tile[i, j];
 		Main.mouseRightRelease = false;
 		int num = i;
 		int num2 = j;
-		if (tile.frameX % 36 != 0)
+		if (tile.TileFrameX % 36 != 0)
 		{
 			num--;
 		}
-		if (tile.frameY != 0)
+		if (tile.TileFrameY != 0)
 		{
 			num2--;
 		}
 		if (localPlayer.sign >= 0)
 		{
-			Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+			SoundEngine.PlaySound(SoundID.MenuClose);
 			localPlayer.sign = -1;
 			Main.editSign = false;
 			Main.npcChatText = "";
 		}
 		if (Main.editChest)
 		{
-			Main.PlaySound(12, -1, -1, 1, 1f, 0f);
+			SoundEngine.PlaySound(SoundID.MenuTick);
 			Main.editChest = false;
 			Main.npcChatText = "";
 		}
@@ -111,7 +113,7 @@ public class ShadowChest : ModTile
 			{
 				localPlayer.chest = -1;
 				Recipe.FindRecipes();
-				Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+				SoundEngine.PlaySound(SoundID.MenuClose);
 			}
 			else
 			{
@@ -128,7 +130,7 @@ public class ShadowChest : ModTile
 				if (num3 == localPlayer.chest)
 				{
 					localPlayer.chest = -1;
-					Main.PlaySound(11, -1, -1, 1, 1f, 0f);
+					SoundEngine.PlaySound(SoundID.MenuClose);
 				}
 				else
 				{
@@ -137,7 +139,7 @@ public class ShadowChest : ModTile
 					Main.recBigList = false;
 					localPlayer.chestX = num;
 					localPlayer.chestY = num2;
-					Main.PlaySound((localPlayer.chest < 0) ? 10 : 12, -1, -1, 1, 1f, 0f);
+					SoundEngine.PlaySound((localPlayer.chest < 0) ? 10 : 12, -1, -1, 1, 1f, 0f);
 				}
 				Recipe.FindRecipes();
 			}
@@ -151,41 +153,41 @@ public class ShadowChest : ModTile
 		Tile tile = Main.tile[i, j];
 		int num = i;
 		int num2 = j;
-		if (tile.frameX % 36 != 0)
+		if (tile.TileFrameX % 36 != 0)
 		{
 			num--;
 		}
-		if (tile.frameY != 0)
+		if (tile.TileFrameY != 0)
 		{
 			num2--;
 		}
 		int num3 = Chest.FindChest(num, num2);
-		localPlayer.showItemIcon2 = -1;
+		localPlayer.cursorItemIconID = -1;
 		if (num3 < 0)
 		{
-			localPlayer.showItemIconText = Language.GetTextValue("LegacyChestType.0");
+			localPlayer.cursorItemIconText = Language.GetTextValue("LegacyChestType.0");
 		}
 		else
 		{
-			localPlayer.showItemIconText = ((Main.chest[num3].name.Length > 0) ? Main.chest[num3].name : "Shade Chest");
-			if (localPlayer.showItemIconText == "Shade Chest")
+			localPlayer.cursorItemIconText = ((Main.chest[num3].name.Length > 0) ? Main.chest[num3].name : "Shade Chest");
+			if (localPlayer.cursorItemIconText == "Shade Chest")
 			{
-				localPlayer.showItemIcon2 = ((ModTile)this).mod.ItemType("ShadowChestItem");
-				localPlayer.showItemIconText = "";
+				localPlayer.cursorItemIconID = ((ModTile)this).Mod.Find<ModItem>("ShadowChestItem").Type;
+				localPlayer.cursorItemIconText = "";
 			}
 		}
 		localPlayer.noThrow = 2;
-		localPlayer.showItemIcon = true;
+		localPlayer.cursorItemIconEnabled = true;
 	}
 
 	public override void MouseOverFar(int i, int j)
 	{
 		((ModTile)this).MouseOver(i, j);
 		Player localPlayer = Main.LocalPlayer;
-		if (localPlayer.showItemIconText == "")
+		if (localPlayer.cursorItemIconText == "")
 		{
-			localPlayer.showItemIcon = false;
-			localPlayer.showItemIcon2 = 0;
+			localPlayer.cursorItemIconEnabled = false;
+			localPlayer.cursorItemIconID = 0;
 		}
 	}
 }

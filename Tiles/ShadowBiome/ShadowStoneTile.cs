@@ -9,7 +9,7 @@ namespace Ultranium.Tiles.ShadowBiome;
 
 public class ShadowStoneTile : ModTile
 {
-	public override void SetDefaults()
+	public override void SetStaticDefaults()
 	{
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<ShadowOreTile>()] = true;
 		Main.tileMerge[((ModTile)this).Type][ModContent.TileType<DarkStone>()] = true;
@@ -20,19 +20,19 @@ public class ShadowStoneTile : ModTile
 		Main.tileSolid[((ModTile)this).Type] = true;
 		Main.tileBlockLight[((ModTile)this).Type] = true;
 		((ModTile)this).AddMapEntry(new Color(37, 41, 58), (LocalizedText)null);
-		base.dustType = ((ModTile)this).mod.DustType("ShadowStoneDust");
-		base.drop = ((ModTile)this).mod.ItemType("ShadowStone");
-		base.soundType = 21;
-		base.soundStyle = 1;
-		base.mineResist = 1f;
+		base.DustType = ((ModTile)this).Mod.Find<ModDust>("ShadowStoneDust").Type;
+		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = ((ModTile)this).Mod.Find<ModItem>("ShadowStone").Type;
+		base.HitSound = 21;
+		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
+		base.MineResist = 1f;
 	}
 
 	public override void RandomUpdate(int i, int j)
 	{
-		if (Framing.GetTileSafely(i, j - 1).type == 0 && Framing.GetTileSafely(i, j - 2).type == 0 && Main.rand.Next(10) == 0 && Main.rand.Next(10) == 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0 && Main.rand.Next(10) == 0 && Main.rand.Next(10) == 0)
 		{
 			WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<GlowShroom>());
-			NetMessage.SendObjectPlacment(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);
+			NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);
 		}
 	}
 }
