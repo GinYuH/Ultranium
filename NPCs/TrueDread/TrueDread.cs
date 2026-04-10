@@ -133,7 +133,7 @@ public class TrueDread : ModNPC
 			timer++;
 			if (timer == 1)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar")?.WithVolume(1f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
 			}
 			if (timer < 180)
 			{
@@ -240,7 +240,7 @@ public class TrueDread : ModNPC
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
 					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num16 * -1.0), (float)(Math.Sin(num) * (double)num16 * -1.0), num17, num4, 0f, Main.myPlayer, 0f, 0f);
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
 				}
 			}
 			if ((timer > 1500 && timer < 1860) || (timer > 2190 && timer < 2370))
@@ -444,7 +444,7 @@ public class TrueDread : ModNPC
 		}
 		if (CircleTimer == 260)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar")?.WithVolume(1f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
 			Vector2 vector13 = new Vector2(NPC.position.X + (float)NPC.width * 0.5f, NPC.position.Y + (float)NPC.height * 0.5f);
 			num = (float)Math.Atan2(vector13.Y - (Main.player[NPC.target].position.Y + (float)Main.player[NPC.target].height * 0.5f), vector13.X - (Main.player[NPC.target].position.X + (float)Main.player[NPC.target].width * 0.5f));
 			NPC.velocity.X = (float)(Math.Cos(num) * 30.0) * -1f;

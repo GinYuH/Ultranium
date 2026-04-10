@@ -7,23 +7,23 @@ public class CosmicDjinn : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Djinn");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
-		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		// DisplayName.SetDefault("Cosmic Djinn");
+		Main.projFrames[Projectile.type] = 4;
+		Main.projPet[Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(198);
+		Projectile.CloneDefaults(198);
 		base.AIType = 198;
-		((ModProjectile)this).Projectile.timeLeft = 999999999;
-		((ModProjectile)this).Projectile.timeLeft *= 999999999;
-		((ModProjectile)this).Projectile.penetrate = -1;
+		Projectile.timeLeft = 999999999;
+		Projectile.timeLeft *= 999999999;
+		Projectile.penetrate = -1;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
+		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -31,7 +31,7 @@ public class CosmicDjinn : ModProjectile
 		}
 		if (modPlayer.CosmicDjinn)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
 	}
 }

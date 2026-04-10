@@ -212,7 +212,7 @@ public class Aldin : ModNPC
 			{
 				if (timer == 210 || timer == 240 || timer == 270 || timer == 300 || timer == 330 || timer == 360 || timer == 390)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay"));
 					float num6 = 10f;
 					float num7 = (float)Math.Atan2(NPC.Center.Y - this.player.Center.Y, NPC.Center.X - this.player.Center.X);
 					_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num7) * (double)num6 * -1.0), (float)(Math.Sin(num7) * (double)num6 * -1.0), Mod.Find<ModProjectile>("CosmicRay").Type, num + 10, 0f, 0, 0f, 0f)];
@@ -268,7 +268,7 @@ public class Aldin : ModNPC
 					float num9 = 0f;
 					if (timer == 240 || timer == 280 || timer == 320)
 					{
-						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay"));
 					}
 					if (timer == 240)
 					{
@@ -299,7 +299,7 @@ public class Aldin : ModNPC
 				{
 					if (timer == 220)
 					{
-						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+						SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay"));
 						for (int m = 0; m < 10; m++)
 						{
 							Vector2 vector5 = ((float)Math.PI / 5f * (float)m).ToRotationVector2();
@@ -385,7 +385,7 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180 || timer == 240 || timer == 300 || timer == 360 || timer == 420)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicStarAttack"));
 					Projectile.NewProjectile(null, this.player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("CosmicRitual").Type, 0, 6f, this.player.whoAmI, 0f, 0f);
 				}
 				if (timer == 190 || timer == 250 || timer == 310 || timer == 370 || timer == 430)
@@ -449,7 +449,7 @@ public class Aldin : ModNPC
 			{
 				if (timer == 180 || timer == 240 || timer == 300)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge"));
 					float num21 = 10f;
 					int num22 = Mod.Find<ModProjectile>("HomingStar").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
@@ -489,7 +489,7 @@ public class Aldin : ModNPC
 				}
 				if (timer == 200)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay"));
 					float num27 = 2f;
 					float num28 = 8f;
 					float num29 = MathHelper.ToRadians(360f);
@@ -577,7 +577,7 @@ public class Aldin : ModNPC
 				}
 				if (timer == 240 || timer == 280 || timer == 320 || timer == 360)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge"));
 					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 450)
@@ -675,7 +675,7 @@ public class Aldin : ModNPC
 						vector17 *= ((num51 < 25f) ? num51 : 25f);
 						player2.position += vector17;
 					}
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicRay"));
 					Vector2 spinningpoint2 = new Vector2(400f, 0f);
 					if (timer < 240 && timer > 180)
 					{
@@ -754,12 +754,12 @@ public class Aldin : ModNPC
 				}
 				if (timer == 240 || timer == 330 || timer == 420)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge"));
 					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y - 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer == 285 || timer == 375 || timer == 465)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge")?.WithVolume(1f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicCharge"));
 					Projectile.NewProjectile(null, this.player.Center.X, this.player.Center.Y + 900f, 0f, 0f, Mod.Find<ModProjectile>("CosmicWrathBolt2").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 510)

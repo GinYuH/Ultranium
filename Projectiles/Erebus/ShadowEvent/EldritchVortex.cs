@@ -13,19 +13,19 @@ public class EldritchVortex : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Eldritch Vortex");
+		// DisplayName.SetDefault("Eldritch Vortex");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 100;
-		((ModProjectile)this).Projectile.height = 50;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 300;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
+		Projectile.width = 100;
+		Projectile.height = 50;
+		Projectile.hostile = false;
+		Projectile.friendly = true;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 300;
+		Projectile.DamageType = DamageClass.Magic;
 	}
 
 	public override bool? CanCutTiles()
@@ -36,25 +36,25 @@ public class EldritchVortex : ModProjectile
 	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 300f;
-		float num2 = ((ModProjectile)this).Projectile.ai[0];
+		float num2 = Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
 		float num4 = 0.2f;
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y * num4;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
+		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -110,9 +110,9 @@ public class EldritchVortex : ModProjectile
 				}
 				color3.A = (byte)((float)(int)color3.A * 0.5f);
 				color3 *= num3;
-				Main.spriteBatch.Draw(texture2D, position, rectangle, color3, num5 + num11, origin, (1f + num12) * scale * 0.8f, effects, 0f);
+				Main.Main.spriteBatch.Draw(texture2D, position, rectangle, color3, num5 + num11, origin, (1f + num12) * scale * 0.8f, effects, 0f);
 			}
-			Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num5 + num11, origin, (1f + num12) * scale, effects, 0f);
+			Main.Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num5 + num11, origin, (1f + num12) * scale, effects, 0f);
 		}
 		return false;
 	}
@@ -120,20 +120,20 @@ public class EldritchVortex : ModProjectile
 	public override void AI()
 	{
 		float num = 300f;
-		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
+		if (Projectile.localAI[0] >= 16f && Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).Projectile.ai[0] = num - 15f;
+			Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= num)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
+		if (Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -154,8 +154,8 @@ public class EldritchVortex : ModProjectile
 		int num = 45;
 		for (int i = 0; i < num; i++)
 		{
-			Vector2 vector = (Vector2.One * new Vector2((float)((ModProjectile)this).Projectile.width / 7f, (float)((ModProjectile)this).Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + ((ModProjectile)this).Projectile.Center;
-			Vector2 vector2 = vector - ((ModProjectile)this).Projectile.Center;
+			Vector2 vector = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + Projectile.Center;
+			Vector2 vector2 = vector - Projectile.Center;
 			Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, 89, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 			obj.noGravity = true;
 			obj.noLight = false;

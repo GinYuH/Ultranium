@@ -9,35 +9,35 @@ public class AquaBall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Water Sphere");
+		// DisplayName.SetDefault("Water Sphere");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 26;
-		((ModProjectile)this).Projectile.height = 26;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 5;
-		((ModProjectile)this).Projectile.timeLeft = 600;
-		((ModProjectile)this).Projectile.light = 0f;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 26;
+		Projectile.height = 26;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 5;
+		Projectile.timeLeft = 600;
+		Projectile.light = 0f;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.spriteDirection = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? 1 : (-1));
-		if (((ModProjectile)this).Projectile.spriteDirection == 1)
+		Projectile.spriteDirection = ((Projectile.velocity.X > 0f) ? 1 : (-1));
+		if (Projectile.spriteDirection == 1)
 		{
-			((ModProjectile)this).Projectile.rotation += 0.7f;
+			Projectile.rotation += 0.7f;
 		}
-		if (((ModProjectile)this).Projectile.spriteDirection == -1)
+		if (Projectile.spriteDirection == -1)
 		{
-			((ModProjectile)this).Projectile.rotation += -0.7f;
+			Projectile.rotation += -0.7f;
 		}
-		((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.15f;
+		Projectile.velocity.Y = Projectile.velocity.Y + 0.15f;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
@@ -45,17 +45,17 @@ public class AquaBall : ModProjectile
 		Bounces--;
 		if (Bounces <= 0)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 		else
 		{
-			if (((ModProjectile)this).Projectile.velocity.X != oldVelocity.X)
+			if (Projectile.velocity.X != oldVelocity.X)
 			{
-				((ModProjectile)this).Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
+				Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
 			}
-			if (((ModProjectile)this).Projectile.velocity.Y != oldVelocity.Y)
+			if (Projectile.velocity.Y != oldVelocity.Y)
 			{
-				((ModProjectile)this).Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
+				Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
 			}
 		}
 		return false;

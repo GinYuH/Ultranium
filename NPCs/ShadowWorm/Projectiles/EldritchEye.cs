@@ -11,20 +11,20 @@ public class EldritchEye : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Eldritch Eye");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 8;
+		// DisplayName.SetDefault("Eldritch Eye");
+		Main.projFrames[Projectile.type] = 8;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 136;
-		((ModProjectile)this).Projectile.height = 136;
-		((ModProjectile)this).Projectile.timeLeft = 240;
-		((ModProjectile)this).Projectile.aiStyle = -1;
-		((ModProjectile)this).Projectile.alpha = 0;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
+		Projectile.width = 136;
+		Projectile.height = 136;
+		Projectile.timeLeft = 240;
+		Projectile.aiStyle = -1;
+		Projectile.alpha = 0;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.tileCollide = false;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -34,26 +34,26 @@ public class EldritchEye : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.velocity *= 0f;
-		if (++((ModProjectile)this).Projectile.frameCounter >= 5)
+		Projectile.velocity *= 0f;
+		if (++Projectile.frameCounter >= 5)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 8)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 8)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
 	}
 
 	public override void OnKill(int timeLeft)
 	{
-		SoundEngine.PlaySound(SoundID.Item14, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
+		SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 4; i++)
 		{
 			Vector2 vector = ((float)Math.PI / 2f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 7f;
-			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchBlast").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

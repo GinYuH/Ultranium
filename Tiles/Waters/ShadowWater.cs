@@ -6,15 +6,11 @@ namespace Ultranium.Tiles.Waters;
 
 public class ShadowWater : ModWaterStyle
 {
-	public override bool ChooseWaterStyle()
-	{
-		return Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneShadow;
-	}
 
 	public override int ChooseWaterfallStyle()
 	{
-		return ((ModWaterStyle)this).Mod.GetWaterfallStyleSlot("ShadowWaterfall");
-	}
+		return ModContent.GetInstance<ShadowWaterfall>().Slot;
+    }
 
 	public override int GetSplashDust()
 	{
@@ -23,7 +19,7 @@ public class ShadowWater : ModWaterStyle
 
 	public override int GetDropletGore()
 	{
-		return ((ModWaterStyle)this).Mod.GetGoreSlot("Tiles/Waters/ShadowWaterDroplet");
+		return Mod.Find<ModGore>("ShadowWaterDroplet").Type;
 	}
 
 	public override void LightColorMultiplier(ref float r, ref float g, ref float b)

@@ -12,22 +12,22 @@ public class SkyStar : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 6;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Sanctus Stella");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Sanctus Stella");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 28;
-		((ModProjectile)this).Projectile.height = 28;
-		((ModProjectile)this).Projectile.aiStyle = 18;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.timeLeft = 100;
-		((ModProjectile)this).Projectile.CloneDefaults(3);
+		Projectile.width = 28;
+		Projectile.height = 28;
+		Projectile.aiStyle = 18;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.penetrate = 1;
+		Projectile.tileCollide = true;
+		Projectile.timeLeft = 100;
+		Projectile.CloneDefaults(3);
 		base.AIType = 3;
 	}
 
@@ -35,7 +35,7 @@ public class SkyStar : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 228);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 228);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}
@@ -43,19 +43,19 @@ public class SkyStar : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void OnKill(int timeleft)
 	{
-		Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, Vector2.Zero, ((ModProjectile)this).Mod.Find<ModProjectile>("SkyStarExplosion").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, 0f, 0f);
-		SoundEngine.PlaySound(SoundID.Item74, ((ModProjectile)this).Projectile.position);
+		Projectile.NewProjectile(null, Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("SkyStarExplosion").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		SoundEngine.PlaySound(SoundID.Item74, Projectile.position);
 	}
 }

@@ -9,44 +9,44 @@ public class PumpSlime : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Pumpkin Minion");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 1;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
-		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
+		// DisplayName.SetDefault("Pumpkin Minion");
+		Main.projFrames[Projectile.type] = 1;
+		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 6;
-		((ModProjectile)this).Projectile.CloneDefaults(266);
-		((ModProjectile)this).Projectile.width = 26;
-		((ModProjectile)this).Projectile.height = 26;
-		((ModProjectile)this).Projectile.minion = true;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.netImportant = true;
+		Main.projFrames[Projectile.type] = 6;
+		Projectile.CloneDefaults(266);
+		Projectile.width = 26;
+		Projectile.height = 26;
+		Projectile.minion = true;
+		Projectile.friendly = true;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = true;
+		Projectile.netImportant = true;
 		base.AIType = 266;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 18000;
-		((ModProjectile)this).Projectile.minionSlots = 1f;
-		((ModProjectile)this).Projectile.alpha = 0;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 18000;
+		Projectile.minionSlots = 1f;
+		Projectile.alpha = 0;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{
-		if (((ModProjectile)this).Projectile.penetrate == 0)
+		if (Projectile.penetrate == 0)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 		return false;
 	}
 
 	public override void AI()
 	{
-		bool num = ((ModProjectile)this).Projectile.type == ((ModProjectile)this).Mod.Find<ModProjectile>("PumpSlime").Type;
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
+		bool num = Projectile.type == Mod.Find<ModProjectile>("PumpSlime").Type;
+		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (num)
 		{
@@ -56,7 +56,7 @@ public class PumpSlime : ModProjectile
 			}
 			if (modPlayer.PumpSlime)
 			{
-				((ModProjectile)this).Projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
 		}
 	}

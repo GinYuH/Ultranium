@@ -8,23 +8,23 @@ public class SlimePet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Slime");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 2;
+		// DisplayName.SetDefault("Slime");
+		Main.projFrames[Projectile.type] = 2;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(334);
+		Projectile.CloneDefaults(334);
 		base.AIType = 334;
-		Main.projPet[((ModProjectile)this).Projectile.type] = true;
-		((ModProjectile)this).Projectile.width = 32;
-		((ModProjectile)this).Projectile.height = 22;
-		((ModProjectile)this).Projectile.alpha = 50;
+		Main.projPet[Projectile.type] = true;
+		Projectile.width = 32;
+		Projectile.height = 22;
+		Projectile.alpha = 50;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
+		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -32,21 +32,21 @@ public class SlimePet : ModProjectile
 		}
 		if (modPlayer.SlimePet)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
 	}
 
 	public override void PostAI()
 	{
-		((ModProjectile)this).Projectile.frameCounter++;
-		if (((ModProjectile)this).Projectile.frameCounter > 200)
+		Projectile.frameCounter++;
+		if (Projectile.frameCounter > 200)
 		{
-			((ModProjectile)this).Projectile.frame++;
-			((ModProjectile)this).Projectile.frameCounter = 0;
+			Projectile.frame++;
+			Projectile.frameCounter = 0;
 		}
-		if (((ModProjectile)this).Projectile.frame >= 2)
+		if (Projectile.frame >= 2)
 		{
-			((ModProjectile)this).Projectile.frame = 0;
+			Projectile.frame = 0;
 		}
 	}
 

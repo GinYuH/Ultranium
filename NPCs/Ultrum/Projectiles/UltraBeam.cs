@@ -12,22 +12,22 @@ public class UltraBeam : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 4;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Ultranium Bolt");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Ultranium Bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 26;
-		((ModProjectile)this).Projectile.height = 38;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.alpha = 0;
-		((ModProjectile)this).Projectile.timeLeft = 600;
+		Projectile.width = 26;
+		Projectile.height = 38;
+		Projectile.penetrate = 1;
+		Projectile.hostile = true;
+		Projectile.friendly = false;
+		Projectile.tileCollide = false;
+		Projectile.ignoreWater = true;
+		Projectile.alpha = 0;
+		Projectile.timeLeft = 600;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -37,29 +37,29 @@ public class UltraBeam : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ultrum/Projectiles/UltraBeamTrail").Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ultrum/Projectiles/UltraBeamTrail").Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ultrum/Projectiles/UltraBeamTrail"), position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ultrum/Projectiles/UltraBeamTrail"), position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation = (float)Math.Atan2(((ModProjectile)this).Projectile.velocity.Y, ((ModProjectile)this).Projectile.velocity.X) + 1.57f;
-		if (((ModProjectile)this).Projectile.localAI[0] == 0f)
+		Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 1.57f;
+		if (Projectile.localAI[0] == 0f)
 		{
-			SoundEngine.PlaySound(SoundID.Item20, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
-			((ModProjectile)this).Projectile.localAI[0] = 1f;
+			SoundEngine.PlaySound(SoundID.Item20, new Vector2(Projectile.position.X, Projectile.position.Y));
+			Projectile.localAI[0] = 1f;
 		}
-		((ModProjectile)this).Projectile.localAI[1] += 1f;
-		if (((ModProjectile)this).Projectile.localAI[1] == 60f)
+		Projectile.localAI[1] += 1f;
+		if (Projectile.localAI[1] == 60f)
 		{
-			double num = Math.Atan2(Main.player[Main.myPlayer].position.Y - ((ModProjectile)this).Projectile.position.Y, Main.player[Main.myPlayer].position.X - ((ModProjectile)this).Projectile.position.X);
-			((ModProjectile)this).Projectile.velocity = new Vector2((float)Math.Cos(num), (float)Math.Sin(num)) * 20f;
+			double num = Math.Atan2(Main.player[Main.myPlayer].position.Y - Projectile.position.Y, Main.player[Main.myPlayer].position.X - Projectile.position.X);
+			Projectile.velocity = new Vector2((float)Math.Cos(num), (float)Math.Sin(num)) * 20f;
 		}
 	}
 }

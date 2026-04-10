@@ -9,42 +9,42 @@ public class ShadowApparition : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Shadowflame Apparition");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 8;
-		ProjectileID.Sets.MinionSacrificable[((ModProjectile)this).Projectile.type] = true;
-		ProjectileID.Sets.CultistIsResistantTo[((ModProjectile)this).Projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[((ModProjectile)this).Projectile.type] = true;
+		// DisplayName.SetDefault("Shadowflame Apparition");
+		Main.projFrames[Projectile.type] = 8;
+		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
+		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(317);
-		((ModProjectile)this).Projectile.width = 30;
-		((ModProjectile)this).Projectile.height = 30;
-		((ModProjectile)this).Projectile.minion = true;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.netImportant = true;
+		Projectile.CloneDefaults(317);
+		Projectile.width = 30;
+		Projectile.height = 30;
+		Projectile.minion = true;
+		Projectile.friendly = true;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = true;
+		Projectile.netImportant = true;
 		base.AIType = 317;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 18000;
-		((ModProjectile)this).Projectile.minionSlots = 1f;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 18000;
+		Projectile.minionSlots = 1f;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{
-		if (((ModProjectile)this).Projectile.penetrate == 0)
+		if (Projectile.penetrate == 0)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 		return false;
 	}
 
 	public override void AI()
 	{
-		bool num = ((ModProjectile)this).Projectile.type == ((ModProjectile)this).Mod.Find<ModProjectile>("ShadowApparition").Type;
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
+		bool num = Projectile.type == Mod.Find<ModProjectile>("ShadowApparition").Type;
+		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (num)
 		{
@@ -54,15 +54,15 @@ public class ShadowApparition : ModProjectile
 			}
 			if (modPlayer.ShadowApparition)
 			{
-				((ModProjectile)this).Projectile.timeLeft = 2;
+				Projectile.timeLeft = 2;
 			}
 		}
-		if (++((ModProjectile)this).Projectile.frameCounter >= 3)
+		if (++Projectile.frameCounter >= 3)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 8)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 8)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
 	}

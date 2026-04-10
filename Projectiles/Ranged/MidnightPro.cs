@@ -9,57 +9,57 @@ public class MidnightPro : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
-		// ((ModProjectile)this).DisplayName.SetDefault("Shadow Bolt");
+		Main.projFrames[Projectile.type] = 3;
+		// DisplayName.SetDefault("Shadow Bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 24;
-		((ModProjectile)this).Projectile.height = 26;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 120;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = false;
+		Projectile.width = 24;
+		Projectile.height = 26;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 120;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = false;
 	}
 
 	public override void AI()
 	{
-		int num = Dust.NewDust(((ModProjectile)this).Projectile.position + ((ModProjectile)this).Projectile.velocity, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 21);
+		int num = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 21);
 		Main.dust[num].noGravity = true;
 		Main.dust[num].velocity = Vector2.Zero;
 		Main.dust[num].velocity = Vector2.Zero;
-		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
-		if (++((ModProjectile)this).Projectile.frameCounter >= 16)
+		Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		Projectile.rotation += 0f * (float)Projectile.direction;
+		if (++Projectile.frameCounter >= 16)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 3)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 3)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
 	}
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 10;
+		target.immune[Projectile.owner] = 10;
 	}
 
 	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 21, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 21, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
+			if (Main.dust[num].position != Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}

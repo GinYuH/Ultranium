@@ -7,37 +7,37 @@ public class FlayerAuraBase : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Flayer Aura");
+		// DisplayName.SetDefault("Flayer Aura");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 4;
-		((ModProjectile)this).Projectile.height = 4;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.alpha = 255;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.timeLeft = 480;
+		Projectile.width = 4;
+		Projectile.height = 4;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.ignoreWater = true;
+		Projectile.alpha = 255;
+		Projectile.penetrate = -1;
+		Projectile.tileCollide = false;
+		Projectile.timeLeft = 480;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.velocity *= 0f;
-		if (((ModProjectile)this).Projectile.ai[0] != 0f)
+		Projectile.velocity *= 0f;
+		if (Projectile.ai[0] != 0f)
 		{
 			return;
 		}
 		int num = 35;
-		_ = ((ModProjectile)this).Projectile.whoAmI;
-		((ModProjectile)this).Projectile.ai[1] = ((ModProjectile)this).Projectile.whoAmI;
+		_ = Projectile.whoAmI;
+		Projectile.ai[1] = Projectile.whoAmI;
 		for (int i = 0; i < num; i++)
 		{
-			if (Main.player[((ModProjectile)this).Projectile.owner].ownedProjectileCounts[((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type] < num)
+			if (Main.player[Projectile.owner].ownedProjectileCounts[Mod.Find<ModProjectile>("FlayerAura").Type] < num)
 			{
-				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, 0f, 0f, ((ModProjectile)this).Mod.Find<ModProjectile>("FlayerAura").Type, ((ModProjectile)this).Projectile.damage, ((ModProjectile)this).Projectile.knockBack, ((ModProjectile)this).Projectile.owner, (float)i, (float)((ModProjectile)this).Projectile.whoAmI);
+				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("FlayerAura").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, (float)i, (float)Projectile.whoAmI);
 			}
 		}
 	}

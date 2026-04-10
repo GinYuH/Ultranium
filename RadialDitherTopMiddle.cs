@@ -28,8 +28,8 @@ public class RadialDitherTopMiddle : GenAction
 		float num2 = Math.Max(0f, Math.Min(1f, (num - _innerRadius) / (_outerRadius - _innerRadius)));
 		if (GenBase._random.NextDouble() > (double)num2)
 		{
-			return ((GenAction)this).UnitApply(origin, x, y, args);
+			return UnitApply(origin, x, y, args);
 		}
-		return ((GenAction)this).Fail();
+		return Fail();
 	}
 }

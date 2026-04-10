@@ -11,22 +11,22 @@ public class MiniTyphoon : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 6;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Typhoon");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Typhoon");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 26;
-		((ModProjectile)this).Projectile.height = 26;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 360;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 26;
+		Projectile.height = 26;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Melee;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 360;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -36,34 +36,34 @@ public class MiniTyphoon : ModProjectile
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 8;
+		target.immune[Projectile.owner] = 8;
 	}
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation += 0.2f;
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] > 7f)
+		Projectile.rotation += 0.2f;
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] > 7f)
 		{
-			((ModProjectile)this).Projectile.ai[0] = 7f;
+			Projectile.ai[0] = 7f;
 			int num = HomeOnTarget();
 			if (num != -1)
 			{
 				NPC nPC = Main.npc[num];
-				Vector2 value = ((ModProjectile)this).Projectile.DirectionTo(nPC.Center) * 25f;
-				((ModProjectile)this).Projectile.velocity = Vector2.Lerp(((ModProjectile)this).Projectile.velocity, value, 0.05f);
+				Vector2 value = Projectile.DirectionTo(nPC.Center) * 25f;
+				Projectile.velocity = Vector2.Lerp(Projectile.velocity, value, 0.05f);
 			}
 		}
 	}
@@ -74,11 +74,11 @@ public class MiniTyphoon : ModProjectile
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (nPC.CanBeChasedBy(((ModProjectile)this).Projectile))
+			if (nPC.CanBeChasedBy(Projectile))
 			{
 				_ = nPC.wet;
-				float num2 = ((ModProjectile)this).Projectile.Distance(nPC.Center);
-				if (num2 <= 400f && (num == -1 || ((ModProjectile)this).Projectile.Distance(Main.npc[num].Center) > num2))
+				float num2 = Projectile.Distance(nPC.Center);
+				if (num2 <= 400f && (num == -1 || Projectile.Distance(Main.npc[num].Center) > num2))
 				{
 					num = i;
 				}

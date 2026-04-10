@@ -43,7 +43,7 @@ public class Ultrum : ModNPC
 		NPC.width = 128;
 		NPC.height = 212;
 		NPC.HitSound = new SoundStyle("Ultranium/Sounds/GodHit");
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath")?.WithVolume(0.7f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath") { PitchVariance = 0.5f };
 		NPC.damage = 50;
 		NPC.defense = 50;
 		NPC.lifeMax = 220000;
@@ -125,7 +125,7 @@ public class Ultrum : ModNPC
 			if (Timer == 150)
 			{
 				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl")?.WithVolume(10f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 			}
 			if (Timer <= 800 && Timer > 150)
 			{
@@ -185,7 +185,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer == 860)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num8 = 10f;
 					float num9 = 19f;
@@ -199,7 +199,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer == 920)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num12 = 10f;
 					float num13 = 19f;
@@ -220,7 +220,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer == 840 || Timer == 880 || Timer == 920)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(25f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					float num16 = 12.5f;
 					int num17 = Mod.Find<ModProjectile>("NatureTornado").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
@@ -236,7 +236,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer == 860 || Timer == 905)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 					Vector2 vector4 = Main.player[NPC.target].Center - NPC.Center;
 					vector4.Normalize();
 					vector4.X *= 25f;
@@ -306,7 +306,7 @@ public class Ultrum : ModNPC
 				TransitionTimer++;
 				if (TransitionTimer == 120)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN")?.WithVolume(50f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 					for (int n = 0; n < 60; n++)
 					{
 						int num24 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("UltraniumDust").Type, 0f, -2f, 0, default(Color), 1.5f);
@@ -337,7 +337,7 @@ public class Ultrum : ModNPC
 				Timer2++;
 				if (Timer2 == 100 || Timer2 == 160 || Timer2 == 220 || Timer2 == 280 || Timer2 == 340 || Timer2 == 400 || Timer2 == 460 || Timer2 == 520)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 					int num25 = 36;
 					for (int num26 = 0; num26 < num25; num26++)
 					{
@@ -365,7 +365,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer2 == 590 || Timer2 == 620 || Timer2 == 650 || Timer2 == 680)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					Vector2 spinningpoint = new Vector2(6f, 0f).RotatedByRandom(Math.PI * 2.0);
 					for (int num27 = 0; num27 < 12; num27++)
 					{
@@ -430,7 +430,7 @@ public class Ultrum : ModNPC
 				}
 				if (Timer2 == 1360 || Timer2 == 1420 || Timer2 == 1480)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num34 = 9f;
 					float num35 = 21f;
@@ -487,7 +487,7 @@ public class Ultrum : ModNPC
 				}
 				if (DesperationTimer == 80)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN")?.WithVolume(50f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 					for (int num48 = 0; num48 < 60; num48++)
 					{
 						int num49 = Dust.NewDust(NPC.position, NPC.width, NPC.height, Mod.Find<ModDust>("UltraniumDust").Type, 0f, -2f, 0, default(Color), 1.5f);

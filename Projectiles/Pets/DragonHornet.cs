@@ -8,22 +8,22 @@ public class DragonHornet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Dragon Hornet");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
+		// DisplayName.SetDefault("Dragon Hornet");
+		Main.projFrames[Projectile.type] = 3;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(198);
+		Projectile.CloneDefaults(198);
 		base.AIType = 198;
-		Main.projPet[((ModProjectile)this).Projectile.type] = true;
-		((ModProjectile)this).Projectile.width = 42;
-		((ModProjectile)this).Projectile.height = 36;
+		Main.projPet[Projectile.type] = true;
+		Projectile.width = 42;
+		Projectile.height = 36;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
+		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -31,16 +31,16 @@ public class DragonHornet : ModProjectile
 		}
 		if (modPlayer.DragonHornet)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
-		((ModProjectile)this).Projectile.frameCounter++;
-		if (((ModProjectile)this).Projectile.frameCounter > 9)
+		Projectile.frameCounter++;
+		if (Projectile.frameCounter > 9)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
+			Projectile.frameCounter = 0;
 		}
-		if (((ModProjectile)this).Projectile.frame >= 3)
+		if (Projectile.frame >= 3)
 		{
-			((ModProjectile)this).Projectile.frame = 0;
+			Projectile.frame = 0;
 		}
 	}
 

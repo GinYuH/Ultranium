@@ -12,22 +12,22 @@ public class SmallHallowBeam : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 6;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Hallowed Beam");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Hallowed Beam");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 20;
-		((ModProjectile)this).Projectile.height = 28;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 120;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 20;
+		Projectile.height = 28;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Melee;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 120;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -37,23 +37,23 @@ public class SmallHallowBeam : ModProjectile
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 8;
+		target.immune[Projectile.owner] = 8;
 	}
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation = (float)Math.Atan2(((ModProjectile)this).Projectile.velocity.Y, ((ModProjectile)this).Projectile.velocity.X) + 0.8f;
+		Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 0.8f;
 	}
 }

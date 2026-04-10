@@ -8,42 +8,42 @@ public class ZombiePet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Zombie");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
-		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		// DisplayName.SetDefault("Zombie");
+		Main.projFrames[Projectile.type] = 3;
+		Main.projPet[Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(111);
+		Projectile.CloneDefaults(111);
 		base.AIType = 111;
-		((ModProjectile)this).Projectile.width = 34;
-		((ModProjectile)this).Projectile.height = 44;
-		((ModProjectile)this).Projectile.timeLeft = 999999999;
-		((ModProjectile)this).Projectile.timeLeft *= 999999999;
+		Projectile.width = 34;
+		Projectile.height = 44;
+		Projectile.timeLeft = 999999999;
+		Projectile.timeLeft *= 999999999;
 	}
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
-		((ModProjectile)this).Projectile.frameCounter++;
-		if (((ModProjectile)this).Projectile.frameCounter > 18)
+		Player player = Main.player[Projectile.owner];
+		Projectile.frameCounter++;
+		if (Projectile.frameCounter > 18)
 		{
-			((ModProjectile)this).Projectile.frame++;
-			((ModProjectile)this).Projectile.frameCounter = 0;
+			Projectile.frame++;
+			Projectile.frameCounter = 0;
 		}
-		if (((ModProjectile)this).Projectile.frame >= 3)
+		if (Projectile.frame >= 3)
 		{
-			((ModProjectile)this).Projectile.frame = 0;
+			Projectile.frame = 0;
 		}
-		if (((ModProjectile)this).Projectile.localAI[0] >= 800f)
+		if (Projectile.localAI[0] >= 800f)
 		{
-			((ModProjectile)this).Projectile.localAI[0] = 0f;
+			Projectile.localAI[0] = 0f;
 		}
-		if (Vector2.Distance(player.Center, ((ModProjectile)this).Projectile.Center) > 500f)
+		if (Vector2.Distance(player.Center, Projectile.Center) > 500f)
 		{
-			((ModProjectile)this).Projectile.position.X = player.position.X;
-			((ModProjectile)this).Projectile.position.Y = player.position.Y;
+			Projectile.position.X = player.position.X;
+			Projectile.position.Y = player.position.Y;
 		}
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (player.dead)
@@ -52,7 +52,7 @@ public class ZombiePet : ModProjectile
 		}
 		if (modPlayer.ZombiePet)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
 	}
 

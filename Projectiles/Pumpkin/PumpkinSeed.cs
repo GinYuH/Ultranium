@@ -8,26 +8,26 @@ public class PumpkinSeed : ModProjectile
 	{
 		get
 		{
-			return ((ModProjectile)this).Projectile.ai[0];
+			return Projectile.ai[0];
 		}
 		set
 		{
-			((ModProjectile)this).Projectile.ai[0] = value;
+			Projectile.ai[0] = value;
 		}
 	}
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Pumpkin Seed");
+		// DisplayName.SetDefault("Pumpkin Seed");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 20;
-		((ModProjectile)this).Projectile.aiStyle = 1;
-		((ModProjectile)this).Projectile.height = 20;
-		((ModProjectile)this).Projectile.timeLeft = 60;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
+		Projectile.width = 20;
+		Projectile.aiStyle = 1;
+		Projectile.height = 20;
+		Projectile.timeLeft = 60;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Magic;
 	}
 }

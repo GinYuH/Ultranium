@@ -15,17 +15,17 @@ public class CosmicRitual : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Ritual");
+		// DisplayName.SetDefault("Cosmic Ritual");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 120;
-		((ModProjectile)this).Projectile.height = 20;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 120;
+		Projectile.width = 120;
+		Projectile.height = 20;
+		Projectile.hostile = true;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 120;
 	}
 
 	public override bool? CanCutTiles()
@@ -36,24 +36,24 @@ public class CosmicRitual : ModProjectile
 	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 120f;
-		float num2 = ((ModProjectile)this).Projectile.ai[0];
+		float num2 = Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
+		float num4 = -(float)Math.PI / 20f * num2 * (float)((!(Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -118,19 +118,19 @@ public class CosmicRitual : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.velocity *= 0f;
+		Projectile.velocity *= 0f;
 		float num = 120f;
-		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
+		if (Projectile.localAI[0] >= 16f && Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).Projectile.ai[0] = num - 15f;
+			Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= num)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		new Vector2(0f, bottom.Y - top.Y);
 		Timer++;
@@ -148,7 +148,7 @@ public class CosmicRitual : ModProjectile
 					Main.dust[num2].noGravity = true;
 					Main.dust[num2].velocity *= 1.4f;
 				}
-				Main.npc[i].Center = ((ModProjectile)this).Projectile.Center;
+				Main.npc[i].Center = Projectile.Center;
 			}
 		}
 	}

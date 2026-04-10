@@ -13,38 +13,38 @@ public class SmolErebusBody : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Erebus");
+		// DisplayName.SetDefault("Erebus");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 28;
-		((ModProjectile)this).Projectile.height = 32;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft *= 5;
-		((ModProjectile)this).Projectile.minion = true;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.alpha = 255;
-		((ModProjectile)this).Projectile.netImportant = true;
-		((ModProjectile)this).Projectile.minionSlots = 0.25f;
-		((ModProjectile)this).Projectile.hide = true;
-		((ModProjectile)this).Projectile.scale = 1f;
-		((ModProjectile)this).Projectile.usesIDStaticNPCImmunity = true;
-		((ModProjectile)this).Projectile.idStaticNPCHitCooldown = 20;
+		Projectile.width = 28;
+		Projectile.height = 32;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft *= 5;
+		Projectile.minion = true;
+		Projectile.friendly = true;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = false;
+		Projectile.alpha = 255;
+		Projectile.netImportant = true;
+		Projectile.minionSlots = 0.25f;
+		Projectile.hide = true;
+		Projectile.scale = 1f;
+		Projectile.usesIDStaticNPCImmunity = true;
+		Projectile.idStaticNPCHitCooldown = 20;
 	}
 
 	public override void SendExtraAI(BinaryWriter writer)
 	{
-		writer.Write(((ModProjectile)this).Projectile.localAI[0]);
-		writer.Write(((ModProjectile)this).Projectile.localAI[1]);
+		writer.Write(Projectile.localAI[0]);
+		writer.Write(Projectile.localAI[1]);
 	}
 
 	public override void ReceiveExtraAI(BinaryReader reader)
 	{
-		((ModProjectile)this).Projectile.localAI[0] = reader.ReadSingle();
-		((ModProjectile)this).Projectile.localAI[1] = reader.ReadSingle();
+		Projectile.localAI[0] = reader.ReadSingle();
+		Projectile.localAI[1] = reader.ReadSingle();
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -59,25 +59,25 @@ public class SmolErebusBody : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
-		int num = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Height / Main.projFrames[((ModProjectile)this).Projectile.type];
-		Color color = Lighting.GetColor((int)(((ModProjectile)this).Projectile.Center.X / 16f), (int)(((ModProjectile)this).Projectile.Center.Y / 16f));
-		int y = num * ((ModProjectile)this).Projectile.frame;
-		Main.spriteBatch.Draw(texture2D, ((ModProjectile)this).Projectile.Center - Main.screenPosition + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY), new Rectangle(0, y, texture2D.Width, num), color, ((ModProjectile)this).Projectile.rotation, new Vector2((float)texture2D.Width / 2f, (float)num / 2f), ((ModProjectile)this).Projectile.scale, (((ModProjectile)this).Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
+		int num = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
+		Color color = Lighting.GetColor((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f));
+		int y = num * Projectile.frame;
+		Main.Main.spriteBatch.Draw(texture2D, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle(0, y, texture2D.Width, num), color, Projectile.rotation, new Vector2((float)texture2D.Width / 2f, (float)num / 2f), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
 		return false;
 	}
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
+		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if ((int)Main.time % 120 == 0)
 		{
-			((ModProjectile)this).Projectile.netUpdate = true;
+			Projectile.netUpdate = true;
 		}
 		if (!((Entity)player).active)
 		{
-			((Entity)((ModProjectile)this).Projectile).active = false;
+			((Entity)Projectile).active = false;
 			return;
 		}
 		int num = 10;
@@ -87,19 +87,19 @@ public class SmolErebusBody : ModProjectile
 		}
 		if (modPlayer.ErebusMinion)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
 		num = 30;
 		bool flag = false;
 		Vector2 vector = Vector2.Zero;
 		_ = Vector2.Zero;
 		float num2 = 0f;
-		if (((ModProjectile)this).Projectile.ai[1] == 1f)
+		if (Projectile.ai[1] == 1f)
 		{
-			((ModProjectile)this).Projectile.ai[1] = 0f;
-			((ModProjectile)this).Projectile.netUpdate = true;
+			Projectile.ai[1] = 0f;
+			Projectile.netUpdate = true;
 		}
-		int byUUID = Projectile.GetByUUID(((ModProjectile)this).Projectile.owner, (int)((ModProjectile)this).Projectile.ai[0]);
+		int byUUID = Projectile.GetByUUID(Projectile.owner, (int)Projectile.ai[0]);
 		if (byUUID >= 0 && ((Entity)Main.projectile[byUUID]).active)
 		{
 			flag = true;
@@ -108,70 +108,70 @@ public class SmolErebusBody : ModProjectile
 			num2 = Main.projectile[byUUID].rotation;
 			MathHelper.Clamp(Main.projectile[byUUID].scale, 0f, 50f);
 			_ = Main.projectile[byUUID].alpha;
-			Main.projectile[byUUID].localAI[0] = ((ModProjectile)this).Projectile.localAI[0] + 1f;
-			if (Main.projectile[byUUID].type != ((ModProjectile)this).Mod.Find<ModProjectile>("SmolErebusHead").Type)
+			Main.projectile[byUUID].localAI[0] = Projectile.localAI[0] + 1f;
+			if (Main.projectile[byUUID].type != Mod.Find<ModProjectile>("SmolErebusHead").Type)
 			{
-				Main.projectile[byUUID].localAI[1] = ((ModProjectile)this).Projectile.whoAmI;
+				Main.projectile[byUUID].localAI[1] = Projectile.whoAmI;
 			}
 		}
 		if (!flag)
 		{
 			return;
 		}
-		if (((ModProjectile)this).Projectile.alpha > 0)
+		if (Projectile.alpha > 0)
 		{
 			for (int i = 0; i < 2; i++)
 			{
-				int num3 = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 89, 0f, 0f, 100, default(Color), 2f);
+				int num3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 89, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num3].noGravity = true;
 				Main.dust[num3].noLight = true;
 			}
 		}
-		((ModProjectile)this).Projectile.alpha -= 42;
-		if (((ModProjectile)this).Projectile.alpha < 0)
+		Projectile.alpha -= 42;
+		if (Projectile.alpha < 0)
 		{
-			((ModProjectile)this).Projectile.alpha = 0;
+			Projectile.alpha = 0;
 		}
-		((ModProjectile)this).Projectile.velocity = Vector2.Zero;
-		Vector2 vector2 = vector - ((ModProjectile)this).Projectile.Center;
-		if (num2 != ((ModProjectile)this).Projectile.rotation)
+		Projectile.velocity = Vector2.Zero;
+		Vector2 vector2 = vector - Projectile.Center;
+		if (num2 != Projectile.rotation)
 		{
-			float num4 = MathHelper.WrapAngle(num2 - ((ModProjectile)this).Projectile.rotation);
+			float num4 = MathHelper.WrapAngle(num2 - Projectile.rotation);
 			vector2 = vector2.RotatedBy(num4 * 0.1f);
 		}
-		((ModProjectile)this).Projectile.rotation = vector2.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).Projectile.position = ((ModProjectile)this).Projectile.Center;
-		((ModProjectile)this).Projectile.width = (((ModProjectile)this).Projectile.height = (int)((float)num * ((ModProjectile)this).Projectile.scale));
-		((ModProjectile)this).Projectile.Center = ((ModProjectile)this).Projectile.position;
+		Projectile.rotation = vector2.ToRotation() + (float)Math.PI / 2f;
+		Projectile.position = Projectile.Center;
+		Projectile.width = (Projectile.height = (int)((float)num * Projectile.scale));
+		Projectile.Center = Projectile.position;
 		float num5 = 26f;
-		if (Main.projectile[byUUID].type == ((ModProjectile)this).Mod.Find<ModProjectile>("SmolErebusHead").Type)
+		if (Main.projectile[byUUID].type == Mod.Find<ModProjectile>("SmolErebusHead").Type)
 		{
 			num5 = 32f;
 		}
 		if (vector2 != Vector2.Zero)
 		{
-			((ModProjectile)this).Projectile.Center = vector - Vector2.Normalize(vector2) * num5;
+			Projectile.Center = vector - Vector2.Normalize(vector2) * num5;
 		}
-		((ModProjectile)this).Projectile.spriteDirection = ((vector2.X > 0f) ? 1 : (-1));
+		Projectile.spriteDirection = ((vector2.X > 0f) ? 1 : (-1));
 	}
 
 	public override void OnKill(int timeLeft)
 	{
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
-		if (!(player.slotsMinions + ((ModProjectile)this).Projectile.minionSlots > (float)player.maxMinions) || ((ModProjectile)this).Projectile.owner != Main.myPlayer)
+		Player player = Main.player[Projectile.owner];
+		if (!(player.slotsMinions + Projectile.minionSlots > (float)player.maxMinions) || Projectile.owner != Main.myPlayer)
 		{
 			return;
 		}
-		int byUUID = Projectile.GetByUUID(((ModProjectile)this).Projectile.owner, ((ModProjectile)this).Projectile.ai[0]);
+		int byUUID = Projectile.GetByUUID(Projectile.owner, Projectile.ai[0]);
 		if (byUUID != -1)
 		{
 			Projectile projectile = Main.projectile[byUUID];
-			if (projectile.type != ((ModProjectile)this).Mod.Find<ModProjectile>("SmolErebusHead").Type)
+			if (projectile.type != Mod.Find<ModProjectile>("SmolErebusHead").Type)
 			{
-				projectile.localAI[1] = ((ModProjectile)this).Projectile.localAI[1];
+				projectile.localAI[1] = Projectile.localAI[1];
 			}
-			projectile = Main.projectile[(int)((ModProjectile)this).Projectile.localAI[1]];
-			projectile.ai[0] = ((ModProjectile)this).Projectile.ai[0];
+			projectile = Main.projectile[(int)Projectile.localAI[1]];
+			projectile.ai[0] = Projectile.ai[0];
 			projectile.ai[1] = 1f;
 			projectile.netUpdate = true;
 		}

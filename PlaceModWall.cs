@@ -31,10 +31,6 @@ public class PlaceModWall : GenAction
 		{
 			return false;
 		}
-		if (GenBase._tiles[x, y] == null)
-		{
-			GenBase._tiles[x, y] = new Tile();
-		}
 		if (_canReplace == null || (_canReplace != null && _canReplace(x, y, GenBase._tiles[x, y])))
 		{
 			GenBase._tiles[x, y].WallType = _type;
@@ -47,6 +43,6 @@ public class PlaceModWall : GenAction
 				WorldGen.SquareWallFrame(x, y + 1);
 			}
 		}
-		return ((GenAction)this).UnitApply(origin, x, y, args);
+		return UnitApply(origin, x, y, args);
 	}
 }

@@ -48,116 +48,12 @@ internal class Ultranium : Mod
 
 	public static float seizureAmount;
 
-	private static int seizureTimer;
+	public static int seizureTimer;
 
 	public static ModKeybind SpecialKey;
 
 	private Mod mod => ModLoader.GetMod("Ultranium");
 
-	public override void AddRecipes()/* tModPorter Note: Removed. Use ModSystem.AddRecipes */
-	{
-		Recipe val = Recipe.Create(285, 1);
-		val.AddRecipeGroup("Ultranium:Iron/Lead", 5);
-		val.AddTile(16);
-		val.Register();
-		Recipe val2 = /* (Mod)(object)this */Recipe.Create(54, 1);
-		val2.AddRecipeGroup("Ultranium:Silver/Tungsten", 10);
-		val2.AddTile(16);
-		val2.Register();
-		Recipe val3 = /* (Mod)(object)this */Recipe.Create(212, 1);
-		val3.AddIngredient(210, 6);
-		val3.AddTile(16);
-		val3.Register();
-		Recipe val4 = /* (Mod)(object)this */Recipe.Create(53, 1);
-		val4.AddIngredient(31, 1);
-		val4.AddIngredient(751, 35);
-		val4.AddTile(16);
-		val4.Register();
-		Recipe val5 = /* (Mod)(object)this */Recipe.Create(857, 1);
-		val5.AddIngredient(53, 1);
-		val5.AddIngredient(169, 35);
-		val5.AddTile(16);
-		val5.Register();
-		Recipe val6 = /* (Mod)(object)this */Recipe.Create(987, 1);
-		val6.AddIngredient(53, 1);
-		val6.AddIngredient(593, 35);
-		val6.AddTile(16);
-		val6.Register();
-		Recipe val7 = /* (Mod)(object)this */Recipe.Create(1291, 1);
-		val7.AddIngredient(331, 5);
-		val7.AddIngredient(947, 20);
-		val7.AddTile(16);
-		val7.Register();
-		Recipe val8 = /* (Mod)(object)this */Recipe.Create(29, 1);
-		val8.AddIngredient(178, 10);
-		val8.AddIngredient((Mod)null, "BloodClot", 10);
-		val8.AddTile(16);
-		val8.Register();
-		Recipe val9 = /* (Mod)(object)this */Recipe.Create(3052, 1);
-		val9.AddIngredient((Mod)null, "ShadowFlame", 8);
-		val9.AddTile(134);
-		val9.Register();
-		Recipe val10 = /* (Mod)(object)this */Recipe.Create(3053, 1);
-		val10.AddIngredient((Mod)null, "ShadowFlame", 8);
-		val10.AddTile(134);
-		val10.Register();
-		Recipe val11 = /* (Mod)(object)this */Recipe.Create(3054, 1);
-		val11.AddIngredient((Mod)null, "ShadowFlame", 8);
-		val11.AddTile(134);
-		val11.Register();
-		Recipe val12 = /* (Mod)(object)this */Recipe.Create(3063, 1);
-		val12.AddIngredient(3467, 12);
-		val12.AddTile(412);
-		val12.Register();
-		Recipe val13 = /* (Mod)(object)this */Recipe.Create(3065, 1);
-		val13.AddIngredient(3467, 12);
-		val13.AddTile(412);
-		val13.Register();
-		Recipe val14 = /* (Mod)(object)this */Recipe.Create(3389, 1);
-		val14.AddIngredient(3467, 12);
-		val14.AddTile(412);
-		val14.Register();
-		Recipe val15 = /* (Mod)(object)this */Recipe.Create(1553, 1);
-		val15.AddIngredient(3467, 12);
-		val15.AddTile(412);
-		val15.Register();
-		Recipe val16 = /* (Mod)(object)this */Recipe.Create(3546, 1);
-		val16.AddIngredient(3467, 12);
-		val16.AddTile(412);
-		val16.Register();
-		Recipe val17 = /* (Mod)(object)this */Recipe.Create(3570, 1);
-		val17.AddIngredient(3467, 12);
-		val17.AddTile(412);
-		val17.Register();
-		Recipe val18 = /* (Mod)(object)this */Recipe.Create(3541, 1);
-		val18.AddIngredient(3467, 12);
-		val18.AddTile(412);
-		val18.Register();
-		Recipe val19 = /* (Mod)(object)this */Recipe.Create(3569, 1);
-		val19.AddIngredient(3467, 12);
-		val19.AddTile(412);
-		val19.Register();
-		Recipe val20 = /* (Mod)(object)this */Recipe.Create(3571, 1);
-		val20.AddIngredient(3467, 12);
-		val20.AddTile(412);
-		val20.Register();
-	}
-
-	public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
-	{
-		RecipeGroup recipeGroup = new RecipeGroup(() => " Iron/Lead Bar", 22, 704);
-		RecipeGroup.RegisterGroup("Ultranium:Iron/Lead", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Silver/Tungsten Bar", 21, 705);
-		RecipeGroup.RegisterGroup("Ultranium:Silver/Tungsten", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Adamantite/Titanium Bar", 391, 1198);
-		RecipeGroup.RegisterGroup("Ultranium:Adamantite/Titanium", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Shadow Scale/Tissue Samples", 86, 1329);
-		RecipeGroup.RegisterGroup("Ultranium:ShadowScale/TissueSample", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Rotten Chunk/Vetebrae", 68, 1330);
-		RecipeGroup.RegisterGroup("Ultranium:RottenChunk/Vetebrae", recipeGroup);
-		recipeGroup = new RecipeGroup(() => " Demonite Javelin/Crimtane Pike", mod.Find<ModItem>("DemoniteJavelin").Type, mod.Find<ModItem>("CrimsonJavelin").Type);
-		RecipeGroup.RegisterGroup("Ultranium:DemoniteJavelin/CrimtanePike", recipeGroup);
-	}
 
 	public override void PostSetupContent()
 	{
@@ -515,76 +411,6 @@ internal class Ultranium : Mod
 				Filters.Scene["Shockwave"].Load();
 			}
 			SpecialKey = KeybindLoader.RegisterKeybind(((Mod)this), "Special Ability", "E");
-		}
-	}
-
-	public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)/* tModPorter Note: Removed. Use ModSystem.ModifySunLightColor */
-	{
-		if (UltraniumWorld.ShadowTiles > 0)
-		{
-			float val = (float)UltraniumWorld.ShadowTiles / 200f;
-			val = Math.Min(val, 1f);
-			int r = backgroundColor.R;
-			int g = backgroundColor.G;
-			int b = backgroundColor.B;
-			r -= (int)(155f * val * ((float)(int)backgroundColor.R / 255f));
-			g -= (int)(90f * val * ((float)(int)backgroundColor.G / 255f));
-			b -= (int)(120f * val * ((float)(int)backgroundColor.B / 255f));
-			r = Utils.Clamp(r, 15, 255);
-			g = Utils.Clamp(g, 15, 255);
-			b = Utils.Clamp(b, 15, 255);
-			backgroundColor.R = (byte)r;
-			backgroundColor.G = (byte)g;
-			backgroundColor.B = (byte)b;
-		}
-	}
-
-	public override void ModifyTransformMatrix(ref SpriteViewMatrix Transform)/* tModPorter Note: Removed. Use ModSystem.ModifyTransformMatrix */
-	{
-		if (!Main.gameMenu)
-		{
-			seizureTimer++;
-			if (seizureAmount >= 0f && seizureTimer >= 5)
-			{
-				seizureAmount -= 0.1f;
-			}
-			if (seizureAmount < 0f)
-			{
-				seizureAmount = 0f;
-			}
-			Main.screenPosition += new Vector2(seizureAmount * Main.rand.NextFloat(), seizureAmount * Main.rand.NextFloat());
-		}
-		else
-		{
-			seizureAmount = 0f;
-			seizureTimer = 0;
-		}
-	}
-
-	public override void UpdateMusic(ref int music, ref SceneEffectPriority priority)/* tModPorter Note: Removed. Use ModSceneEffect.Music and .Priority, aswell as ModSceneEffect.IsSceneEffectActive */
-	{
-		if (Main.myPlayer != -1 && !Main.gameMenu && ((Entity)Main.LocalPlayer).active)
-		{
-			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneShadow)
-			{
-				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowBiome");
-                priority = (SceneEffectPriority)4;
-			}
-			if (Main.LocalPlayer.GetModPlayer<UltraniumPlayer>().ZoneDepth)
-			{
-				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/DarkDepths");
-				priority = (SceneEffectPriority)4;
-			}
-			if (ShadowEventWorld.ShadowEventActive && !ShadowEventWorld.Phase2)
-			{
-				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave1");
-				priority = (SceneEffectPriority)4;
-			}
-			if (ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
-			{
-				music = MusicLoader.GetMusicSlot(mod, "Sounds/Music/ShadowEventWave2");
-				priority = (SceneEffectPriority)4;
-			}
 		}
 	}
 }

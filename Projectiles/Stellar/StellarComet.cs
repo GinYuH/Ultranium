@@ -10,24 +10,24 @@ public class StellarComet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Stellar Comet Orbtial");
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 10;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// DisplayName.SetDefault("Stellar Comet Orbtial");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 24;
-		((ModProjectile)this).Projectile.height = 20;
-		((ModProjectile)this).Projectile.width = 22;
-		((ModProjectile)this).Projectile.height = 24;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 2;
-		((ModProjectile)this).Projectile.timeLeft = 1000;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = false;
+		Projectile.width = 24;
+		Projectile.height = 20;
+		Projectile.width = 22;
+		Projectile.height = 24;
+		Projectile.hostile = false;
+		Projectile.friendly = true;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 2;
+		Projectile.timeLeft = 1000;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = false;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -37,12 +37,12 @@ public class StellarComet : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/Projectiles/Stellar/StellarCometTrail").Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/Projectiles/Stellar/StellarCometTrail").Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(ModContent.GetTexture("Ultranium/Projectiles/Stellar/StellarCometTrail"), position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(ModContent.GetTexture("Ultranium/Projectiles/Stellar/StellarCometTrail"), position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
@@ -51,24 +51,24 @@ public class StellarComet : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, ((ModProjectile)this).Mod.Find<ModDust>("StellarDust").Type);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("StellarDust").Type);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}
-		((ModProjectile)this).Projectile.rotation += -0.3f;
+		Projectile.rotation += -0.3f;
 	}
 
 	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, ((ModProjectile)this).Mod.Find<ModDust>("StellarDust").Type, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, Mod.Find<ModDust>("StellarDust").Type, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
+			if (Main.dust[num].position != Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}

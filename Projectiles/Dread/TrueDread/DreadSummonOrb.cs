@@ -21,21 +21,21 @@ public class DreadSummonOrb : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Dread Energy Orb");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
+		// DisplayName.SetDefault("Dread Energy Orb");
+		Main.projFrames[Projectile.type] = 4;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 50;
-		((ModProjectile)this).Projectile.height = 50;
-		((ModProjectile)this).Projectile.timeLeft = 2700;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.minion = true;
-		((ModProjectile)this).Projectile.minionSlots = 1f;
+		Projectile.width = 50;
+		Projectile.height = 50;
+		Projectile.timeLeft = 2700;
+		Projectile.friendly = false;
+		Projectile.hostile = false;
+		Projectile.penetrate = -1;
+		Projectile.ignoreWater = true;
+		Projectile.minion = true;
+		Projectile.minionSlots = 1f;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
@@ -52,28 +52,28 @@ public class DreadSummonOrb : ModProjectile
 
 	public override void AI()
 	{
-		if (++((ModProjectile)this).Projectile.frameCounter >= 7)
+		if (++Projectile.frameCounter >= 7)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 4)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 4)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
-		((ModProjectile)this).Projectile.velocity *= 0f;
+		Projectile.velocity *= 0f;
 		shootTimer++;
 		float num = 700f;
-		((ModProjectile)this).Projectile.tileCollide = false;
+		Projectile.tileCollide = false;
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(((ModProjectile)this).Projectile.Center, nPC.Center) <= num))
+			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
 			{
 				continue;
 			}
 			int num2 = 1;
-			Vector2 vector = new Vector2(((ModProjectile)this).Projectile.position.X + (float)(((ModProjectile)this).Projectile.width / 2), ((ModProjectile)this).Projectile.position.Y + (float)(((ModProjectile)this).Projectile.height / 2));
-			int num3 = ((ModProjectile)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type;
+			Vector2 vector = new Vector2(Projectile.position.X + (float)(Projectile.width / 2), Projectile.position.Y + (float)(Projectile.height / 2));
+			int num3 = Mod.Find<ModProjectile>("DreadFlameBlast").Type;
 			float num4 = 8f;
 			float num5 = (float)Math.Atan2(vector.Y - (nPC.position.Y + (float)nPC.height * 0.5f), vector.X - (nPC.position.X + (float)nPC.width * 0.5f));
 			if (shootTimer >= 25)
@@ -81,7 +81,7 @@ public class DreadSummonOrb : ModProjectile
 				for (int j = 0; j < num2; j++)
 				{
 					Vector2 vector2 = new Vector2((float)(Math.Cos(num5) * (double)num4 * -1.0), (float)(Math.Sin(num5) * (double)num4 * -1.0)).RotatedByRandom(MathHelper.ToRadians(20f));
-					Projectile.NewProjectile(null, vector.X, vector.Y, vector2.X, vector2.Y, num3, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, vector.X, vector.Y, vector2.X, vector2.Y, num3, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 				}
 				shootTimer = 0;
 			}
@@ -89,15 +89,15 @@ public class DreadSummonOrb : ModProjectile
 		Timer++;
 		if (Timer >= 1680)
 		{
-			((ModProjectile)this).Projectile.scale += 0.01f;
+			Projectile.scale += 0.01f;
 		}
 		if (Timer >= 1740)
 		{
 			int num6 = 25;
 			for (int k = 0; k < num6; k++)
 			{
-				Vector2 vector3 = (Vector2.One * new Vector2((float)((ModProjectile)this).Projectile.width / 7f, (float)((ModProjectile)this).Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(k - (num6 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num6) + ((ModProjectile)this).Projectile.Center;
-				Vector2 vector4 = vector3 - ((ModProjectile)this).Projectile.Center;
+				Vector2 vector3 = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(k - (num6 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num6) + Projectile.Center;
+				Vector2 vector4 = vector3 - Projectile.Center;
 				Dust obj = Main.dust[Dust.NewDust(vector3 + vector4, 0, 0, 90, vector4.X * 2f, vector4.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
@@ -107,17 +107,17 @@ public class DreadSummonOrb : ModProjectile
 		}
 		if (Timer == 1800)
 		{
-			SoundEngine.PlaySound(SoundID.Item14, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
+			SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 			for (int l = 0; l < 100; l++)
 			{
-				int num7 = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+				int num7 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
 				Main.dust[num7].noGravity = false;
 				Main.dust[num7].scale = 3.5f;
 				Main.dust[num7].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 				Main.dust[num7].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-				if (Main.dust[num7].position != ((ModProjectile)this).Projectile.Center)
+				if (Main.dust[num7].position != Projectile.Center)
 				{
-					Main.dust[num7].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num7].position) * 10f;
+					Main.dust[num7].velocity = Projectile.DirectionTo(Main.dust[num7].position) * 10f;
 				}
 			}
 			for (int m = 0; m < 20; m++)
@@ -125,12 +125,12 @@ public class DreadSummonOrb : ModProjectile
 				Vector2 vector5 = ((float)Math.PI / 10f * (float)m).ToRotationVector2();
 				vector5.Normalize();
 				vector5 *= 6f;
-				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector5.X, vector5.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, ((ModProjectile)this).Projectile.damage * 2, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector5.X, vector5.Y, Mod.Find<ModProjectile>("DreadFlameBlast").Type, Projectile.damage * 2, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (Timer > 1800)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 	}
 }

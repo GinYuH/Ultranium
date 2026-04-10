@@ -11,43 +11,43 @@ public class WaterJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Ancient Javelin");
+		// DisplayName.SetDefault("Ancient Javelin");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 68;
-		((ModProjectile)this).Projectile.height = 68;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.tileCollide = true;
+		Projectile.width = 68;
+		Projectile.height = 68;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.penetrate = 1;
+		Projectile.extraUpdates = 1;
+		Projectile.tileCollide = true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation = (float)Math.Atan2(((ModProjectile)this).Projectile.velocity.Y, ((ModProjectile)this).Projectile.velocity.X) + 0.8f;
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] < 5f)
+		Projectile.rotation = (float)Math.Atan2(Projectile.velocity.Y, Projectile.velocity.X) + 0.8f;
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] < 5f)
 		{
-			((ModProjectile)this).Projectile.tileCollide = false;
+			Projectile.tileCollide = false;
 		}
-		if (((ModProjectile)this).Projectile.ai[0] >= 5f)
+		if (Projectile.ai[0] >= 5f)
 		{
-			((ModProjectile)this).Projectile.tileCollide = true;
+			Projectile.tileCollide = true;
 		}
-		if (((ModProjectile)this).Projectile.ai[0] >= 65f)
+		if (Projectile.ai[0] >= 65f)
 		{
-			((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.15f;
-			((ModProjectile)this).Projectile.velocity.X = ((ModProjectile)this).Projectile.velocity.X * 0.99f;
+			Projectile.velocity.Y = Projectile.velocity.Y + 0.15f;
+			Projectile.velocity.X = Projectile.velocity.X * 0.99f;
 		}
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{
-		((ModProjectile)this).Projectile.Kill();
-		SoundEngine.PlaySound(SoundID.Item10, new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y));
+		Projectile.Kill();
+		SoundEngine.PlaySound(SoundID.Item10, new Vector2(Projectile.position.X, Projectile.position.Y));
 		return false;
 	}
 }

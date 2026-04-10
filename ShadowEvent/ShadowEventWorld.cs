@@ -48,7 +48,7 @@ public class ShadowEventWorld : ModSystem
 		}
 		if (Main.netMode == 0)
 		{
-			Main.NewText(text, (byte)61, byte.MaxValue, (byte)142, false);
+			Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 		}
 		else if (Main.netMode == 2)
 		{
@@ -64,19 +64,19 @@ public class ShadowEventWorld : ModSystem
 		}
 		ShadowEvent.UpdateInvasion();
 		Main.time = 0.0;
-		if (!NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type))
+		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("MindFlayer").Type))
 		{
 			EventTimer++;
 		}
 		if (EventTimer == 6300)
 		{
 			ErebusWarnings();
-			SoundEngine.PlaySound(((ModSystem)this).new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(0.7f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
 		}
 		if (EventTimer == 18900)
 		{
 			ErebusWarnings();
-			SoundEngine.PlaySound(((ModSystem)this).new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
 		}
 		for (int i = 0; i < Main.player.Length; i++)
 		{
@@ -85,11 +85,11 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
-					NPC.SpawnOnPlayer(player.whoAmI, ((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type);
+					NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("MindFlayer").Type);
 				}
 				MindFlayer = true;
 			}
@@ -97,28 +97,28 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, ((ModSystem)this).Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
-					NPC.SpawnOnPlayer(player.whoAmI, ((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type);
+					NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("ErebusHead").Type);
 				}
 				Erebus = true;
 			}
-			if (Main.netMode == 0 && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(((ModSystem)this).Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
+			if (Main.netMode == 0 && !NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
 			{
-				Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), ((ModSystem)this).Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
 			if (((Entity)player).active)
 			{
 				if (!Phase2)
 				{
-					Lighting.brightness = 0.8f;
+					Lighting.GlobalBrightness = 0.8f;
 				}
 				if (Phase2)
 				{
-					Lighting.brightness = 0.68f;
-					player.AddBuff(80, 1, fromNetPvP: true);
+					Lighting.GlobalBrightness = 0.68f;
+					player.AddBuff(80, 1, quiet: false);
 				}
 			}
 		}

@@ -14,29 +14,29 @@ public class ShockWave : ModProjectile
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 4;
-		((ModProjectile)this).Projectile.height = 4;
-		((ModProjectile)this).Projectile.timeLeft = 400;
-		((ModProjectile)this).Projectile.alpha = 255;
+		Projectile.width = 4;
+		Projectile.height = 4;
+		Projectile.timeLeft = 400;
+		Projectile.alpha = 255;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.ai[0] += 8f;
+		Projectile.ai[0] += 8f;
 		_ = Main.player[Main.myPlayer];
-		if (((ModProjectile)this).Projectile.ai[1] == 0f)
+		if (Projectile.ai[1] == 0f)
 		{
-			((ModProjectile)this).Projectile.ai[1] = 1f;
+			Projectile.ai[1] = 1f;
 			if (!Filters.Scene["Shockwave"].IsActive())
 			{
-				Filters.Scene.Activate("Shockwave", ((ModProjectile)this).Projectile.Center).GetShader().UseColor(rippleCount, rippleSize, rippleSpeed)
-					.UseTargetPosition(((ModProjectile)this).Projectile.Center);
+				Filters.Scene.Activate("Shockwave", Projectile.Center).GetShader().UseColor(rippleCount, rippleSize, rippleSpeed)
+					.UseTargetPosition(Projectile.Center);
 			}
 		}
 		else
 		{
-			((ModProjectile)this).Projectile.ai[1] += 1f;
-			float num = ((ModProjectile)this).Projectile.ai[1] / 60f;
+			Projectile.ai[1] += 1f;
+			float num = Projectile.ai[1] / 60f;
 			float num2 = 200f;
 			Filters.Scene["Shockwave"].GetShader().UseProgress(num).UseOpacity(num2 * (1f - num / 3f));
 		}

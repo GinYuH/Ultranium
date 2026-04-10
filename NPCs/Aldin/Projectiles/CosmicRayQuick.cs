@@ -26,31 +26,31 @@ public class CosmicRayQuick : ModProjectile
 	{
 		get
 		{
-			return ((ModProjectile)this).Projectile.localAI[1];
+			return Projectile.localAI[1];
 		}
 		set
 		{
-			((ModProjectile)this).Projectile.localAI[1] = value;
+			Projectile.localAI[1] = value;
 		}
 	}
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Deathbeam");
+		// DisplayName.SetDefault("Cosmic Deathbeam");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 36;
-		((ModProjectile)this).Projectile.height = 36;
-		((ModProjectile)this).Projectile.aiStyle = -1;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.damage = 100;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.alpha = 152;
-		((ModProjectile)this).Projectile.timeLeft = 3600;
-		((ModProjectile)this).Projectile.tileCollide = false;
+		Projectile.width = 36;
+		Projectile.height = 36;
+		Projectile.aiStyle = -1;
+		Projectile.hostile = true;
+		Projectile.friendly = false;
+		Projectile.damage = 100;
+		Projectile.penetrate = -1;
+		Projectile.alpha = 152;
+		Projectile.timeLeft = 3600;
+		Projectile.tileCollide = false;
 	}
 
 	public override bool ShouldUpdatePosition()
@@ -60,21 +60,21 @@ public class CosmicRayQuick : ModProjectile
 
 	public override void AI()
 	{
-		Player player = Main.player[((ModProjectile)this).Projectile.owner];
-		((ModProjectile)this).Projectile.ai[1] += 20f * multiplier;
-		if (((ModProjectile)this).Projectile.ai[1] >= 160f && multiplier == 1f)
+		Player player = Main.player[Projectile.owner];
+		Projectile.ai[1] += 20f * multiplier;
+		if (Projectile.ai[1] >= 160f && multiplier == 1f)
 		{
 			multiplier = -0.5f;
 		}
-		if (multiplier < 0f && ((ModProjectile)this).Projectile.ai[1] <= 0f)
+		if (multiplier < 0f && Projectile.ai[1] <= 0f)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
-		((ModProjectile)this).Projectile.gfxOffY = player.gfxOffY;
-		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() - (float)Math.PI / 2f;
-		((ModProjectile)this).Projectile.velocity = Vector2.Normalize(((ModProjectile)this).Projectile.velocity);
+		Projectile.gfxOffY = player.gfxOffY;
+		Projectile.rotation = Projectile.velocity.ToRotation() - (float)Math.PI / 2f;
+		Projectile.velocity = Vector2.Normalize(Projectile.velocity);
 		float[] array = new float[2];
-		Collision.LaserScan(((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.velocity, 0f, 5000f, array);
+		Collision.LaserScan(Projectile.Center, Projectile.velocity, 0f, 5000f, array);
 		float num = 0f;
 		for (int i = 0; i < array.Length; i++)
 		{
@@ -83,13 +83,13 @@ public class CosmicRayQuick : ModProjectile
 		num /= (float)array.Length;
 		float amount = 0.75f;
 		LaserLength = MathHelper.Lerp(LaserLength, num, amount);
-		((ModProjectile)this).Projectile.ai[0] += 1f;
+		Projectile.ai[0] += 1f;
 	}
 
 	public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
 	{
 		float collisionPoint = 0f;
-		return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), ((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.Center + ((ModProjectile)this).Projectile.velocity * LaserLength, projHitbox.Width, ref collisionPoint);
+		return Collision.CheckAABBvLineCollision(targetHitbox.TopLeft(), targetHitbox.Size(), Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, projHitbox.Width, ref collisionPoint);
 	}
 
 	public override bool? CanCutTiles()
@@ -97,7 +97,7 @@ public class CosmicRayQuick : ModProjectile
 		//IL_005c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0066: Expected O, but got Unknown
 		DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-		Utils.PlotTileLine(((ModProjectile)this).Projectile.Center, ((ModProjectile)this).Projectile.Center + ((ModProjectile)this).Projectile.velocity * LaserLength, (float)((ModProjectile)this).Projectile.width * ((ModProjectile)this).Projectile.scale * 2f, new PerLinePoint(CutTilesAndBreakWalls));
+		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, new PerLinePoint(CutTilesAndBreakWalls));
 		return true;
 	}
 
@@ -112,44 +112,44 @@ public class CosmicRayQuick : ModProjectile
 
 	public override bool CanHitPlayer(Player target)
 	{
-		if (((ModProjectile)this).Projectile.ai[1] < 100f)
+		if (Projectile.ai[1] < 100f)
 		{
 			return false;
 		}
-		return ((ModProjectile)this).CanHitPlayer(target);
+		return CanHitPlayer(target);
 	}
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		if (((ModProjectile)this).Projectile.velocity == Vector2.Zero)
+		if (Projectile.velocity == Vector2.Zero)
 		{
 			return false;
 		}
-		Texture2D texture = ((ModProjectile)this).Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayBottom");
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
-		Texture2D texture2 = ((ModProjectile)this).Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayTop");
+		Texture2D texture = Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayBottom");
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
+		Texture2D texture2 = Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayTop");
 		float laserLength = LaserLength;
 		float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 		int num = (int)(Main.GameUpdateCount / 60 % 2);
 		Color color = Color.Lerp(ColorCycle[num], ColorCycle[(num + 1) % 2], amount);
-		Vector2 position = ((ModProjectile)this).Projectile.Center + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY) - Main.screenPosition;
-		spriteBatch.Draw(texture, position, null, color, ((ModProjectile)this).Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(((ModProjectile)this).Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
-		laserLength -= (float)(texture.Height / 2 + texture2.Height) * ((ModProjectile)this).Projectile.scale;
-		Vector2 vector = ((ModProjectile)this).Projectile.Center + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-		vector += ((ModProjectile)this).Projectile.velocity * ((ModProjectile)this).Projectile.scale * texture.Height / 2f;
+		Vector2 position = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) - Main.screenPosition;
+		spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+		laserLength -= (float)(texture.Height / 2 + texture2.Height) * Projectile.scale;
+		Vector2 vector = Projectile.Center + new Vector2(0f, Projectile.gfxOffY);
+		vector += Projectile.velocity * Projectile.scale * texture.Height / 2f;
 		if (laserLength > 0f)
 		{
 			float num2 = 0f;
-			Rectangle value = new Rectangle(0, 16 * (((ModProjectile)this).Projectile.timeLeft / 3 % 5), texture2D.Width, 16);
+			Rectangle value = new Rectangle(0, 16 * (Projectile.timeLeft / 3 % 5), texture2D.Width, 16);
 			while (num2 + 1f < laserLength)
 			{
 				if (laserLength - num2 < (float)value.Height)
 				{
 					value.Height = (int)(laserLength - num2);
 				}
-				Main.spriteBatch.Draw(texture2D, vector - Main.screenPosition, value, color, ((ModProjectile)this).Projectile.rotation, new Vector2(value.Width / 2, 0f), new Vector2(Math.Min(((ModProjectile)this).Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
-				num2 += (float)value.Height * ((ModProjectile)this).Projectile.scale;
-				vector += ((ModProjectile)this).Projectile.velocity * value.Height * ((ModProjectile)this).Projectile.scale;
+				Main.spriteBatch.Draw(texture2D, vector - Main.screenPosition, value, color, Projectile.rotation, new Vector2(value.Width / 2, 0f), new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+				num2 += (float)value.Height * Projectile.scale;
+				vector += Projectile.velocity * value.Height * Projectile.scale;
 				value.Y += 16;
 				if (value.Y + value.Height > texture2D.Height)
 				{
@@ -157,7 +157,7 @@ public class CosmicRayQuick : ModProjectile
 				}
 			}
 		}
-		Main.spriteBatch.Draw(texture2, vector - Main.screenPosition, null, color, ((ModProjectile)this).Projectile.rotation, Utils.Frame(texture2, 1, 1, 0, 0).Top(), new Vector2(Math.Min(((ModProjectile)this).Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture2, vector - Main.screenPosition, null, color, Projectile.rotation, Utils.Frame(texture2, 1, 1, 0, 0).Top(), new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
 		return false;
 	}
 }

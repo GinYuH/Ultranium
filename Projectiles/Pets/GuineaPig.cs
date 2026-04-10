@@ -8,24 +8,24 @@ public class GuineaPig : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Guinea Pig");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 8;
-		Main.projPet[((ModProjectile)this).Projectile.type] = true;
+		// DisplayName.SetDefault("Guinea Pig");
+		Main.projFrames[Projectile.type] = 8;
+		Main.projPet[Projectile.type] = true;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.CloneDefaults(111);
+		Projectile.CloneDefaults(111);
 		base.AIType = 111;
-		((ModProjectile)this).Projectile.height = 36;
-		((ModProjectile)this).Projectile.width = 30;
-		((ModProjectile)this).Projectile.timeLeft = 999999999;
-		((ModProjectile)this).Projectile.timeLeft *= 999999999;
+		Projectile.height = 36;
+		Projectile.width = 30;
+		Projectile.timeLeft = 999999999;
+		Projectile.timeLeft *= 999999999;
 	}
 
 	public override void AI()
 	{
-		Player obj = Main.player[((ModProjectile)this).Projectile.owner];
+		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)
 		{
@@ -33,7 +33,7 @@ public class GuineaPig : ModProjectile
 		}
 		if (modPlayer.GuineaPig)
 		{
-			((ModProjectile)this).Projectile.timeLeft = 2;
+			Projectile.timeLeft = 2;
 		}
 	}
 

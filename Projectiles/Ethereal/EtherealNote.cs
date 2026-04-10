@@ -9,24 +9,24 @@ public class EtherealNote : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Ethereal Note");
+		// DisplayName.SetDefault("Ethereal Note");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 18;
-		((ModProjectile)this).Projectile.height = 24;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 300;
+		Projectile.width = 18;
+		Projectile.height = 24;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Magic;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 300;
 	}
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 8;
+		target.immune[Projectile.owner] = 8;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -36,10 +36,10 @@ public class EtherealNote : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= 65f)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= 65f)
 		{
-			((ModProjectile)this).Projectile.velocity *= 0.98f;
+			Projectile.velocity *= 0.98f;
 		}
 	}
 
@@ -59,7 +59,7 @@ public class EtherealNote : ModProjectile
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, vector, ((ModProjectile)this).Mod.Find<ModProjectile>("EtherealTentacle").Type, ((ModProjectile)this).Projectile.damage, 0f, Main.myPlayer, num2, num);
+			Projectile.NewProjectile(null, Projectile.Center, vector, Mod.Find<ModProjectile>("EtherealTentacle").Type, Projectile.damage, 0f, Main.myPlayer, num2, num);
 		}
 	}
 }

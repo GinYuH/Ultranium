@@ -12,8 +12,8 @@ public class DepthWater : ModWaterStyle
 	}
 
 	public override int ChooseWaterfallStyle()
-	{
-		return Mod.GetWaterfallStyleSlot("DepthWaterfall");
+    {
+        return ModContent.Find<ModWaterfallStyle>("CalRemix/DepthWaterfall").Slot;
 	}
 
 	public override int GetSplashDust()

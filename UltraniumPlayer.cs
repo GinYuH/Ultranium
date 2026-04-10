@@ -148,8 +148,6 @@ public class UltraniumPlayer : ModPlayer
 
 	public override void UpdateBiomeVisuals()
 	{
-		bool zoneShadow = ZoneShadow;
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:ShadowBiome", zoneShadow, default(Vector2));
 		bool flag = NPC.AnyNPCs(ModContent.NPCType<IceDragon>()) && IceDragon.BlizzardEffect;
 		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Blizzard", flag, default(Vector2));
 		bool flag2 = NPC.AnyNPCs(ModContent.NPCType<DreadBoss>());
@@ -164,10 +162,6 @@ public class UltraniumPlayer : ModPlayer
 		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:TrueDread", flag7, default(Vector2));
 		bool flag8 = NPC.AnyNPCs(ModContent.NPCType<Ignodium>());
 		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Ignodium", flag8, default(Vector2));
-		bool flag9 = ShadowEventWorld.ShadowEventActive && !ShadowEventWorld.Phase2 && !NPC.AnyNPCs(ModContent.NPCType<ErebusHead>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:ShadowEvent", flag9, default(Vector2));
-		bool flag10 = ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2 && !NPC.AnyNPCs(ModContent.NPCType<ErebusHead>());
-		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:ShadowEvent2", flag10, default(Vector2));
 		bool flag11 = NPC.AnyNPCs(ModContent.NPCType<ErebusHead>());
 		((ModPlayer)this).Player.ManageSpecialBiomeVisuals("Ultranium:Erebus", flag11, default(Vector2));
 		bool flag12 = NPC.AnyNPCs(ModContent.NPCType<Aldin>());
@@ -372,15 +366,6 @@ public class UltraniumPlayer : ModPlayer
 		}
 	}
 
-	public override void UpdateBiomes()
-	{
-		if (ZoneDepth)
-		{
-			Lighting.brightness = 0.65f;
-		}
-		ZoneShadow = UltraniumWorld.ShadowTiles > 100 && !ZoneDepth;
-	}
-
 	public override void PreUpdate()
 	{
 		int num = (int)((ModPlayer)this).Player.Center.X / 16;
@@ -401,31 +386,6 @@ public class UltraniumPlayer : ModPlayer
 		{
 			ZoneTemple = false;
 		}
-	}
-
-	public override void CopyCustomBiomesTo(Player other)
-	{
-		UltraniumPlayer modPlayer = other.GetModPlayer<UltraniumPlayer>();
-		modPlayer.ZoneShadow = ZoneShadow;
-		modPlayer.ZoneDepth = ZoneDepth;
-		modPlayer.ZoneDepth = ZoneTemple;
-	}
-
-	public override void SendCustomBiomes(BinaryWriter writer)
-	{
-		BitsByte bitsByte = default(BitsByte);
-		bitsByte[0] = ZoneShadow;
-		bitsByte[1] = ZoneDepth;
-		bitsByte[2] = ZoneTemple;
-		writer.Write(bitsByte);
-	}
-
-	public override void ReceiveCustomBiomes(BinaryReader reader)
-	{
-		BitsByte bitsByte = reader.ReadByte();
-		ZoneShadow = bitsByte[0];
-		ZoneDepth = bitsByte[1];
-		ZoneTemple = bitsByte[2];
 	}
 
     public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath)

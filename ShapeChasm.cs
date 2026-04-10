@@ -67,7 +67,7 @@ public class ShapeChasm : GenShape
 			for (int j = num2; j < num4; j++)
 			{
 				int num5 = j;
-				if (!((GenShape)this).UnitApply(action, point, num5, num3, new object[0]) && base._quitOnFail)
+				if (!UnitApply(action, point, num5, num3, new object[0]) && base._quitOnFail)
 				{
 					return false;
 				}

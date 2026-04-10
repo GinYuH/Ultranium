@@ -11,23 +11,23 @@ public class EtherealSickle : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 11;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Ethereal Scythe");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 11;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Ethereal Scythe");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.width = 42;
-		((ModProjectile)this).Projectile.height = 38;
-		((ModProjectile)this).Projectile.aiStyle = 0;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.penetrate = 2;
-		((ModProjectile)this).Projectile.timeLeft = 180;
-		((ModProjectile)this).Projectile.light = 0f;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
+		Projectile.tileCollide = false;
+		Projectile.width = 42;
+		Projectile.height = 38;
+		Projectile.aiStyle = 0;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.penetrate = 2;
+		Projectile.timeLeft = 180;
+		Projectile.light = 0f;
+		Projectile.extraUpdates = 1;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -37,36 +37,36 @@ public class EtherealSickle : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
-		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
+		Vector2 vector = new Vector2((float)texture2D.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type] * ((ModProjectile)this).Projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[((ModProjectile)this).Projectile.type]);
-			sb.Draw(texture2D, position, value, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Rectangle value = new Rectangle(0, texture2D.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture2D.Width, texture2D.Height / Main.projFrames[Projectile.type]);
+			sb.Draw(texture2D, position, value, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation += 0.2f;
-		((ModProjectile)this).Projectile.velocity *= 1.02f;
+		Projectile.rotation += 0.2f;
+		Projectile.velocity *= 1.02f;
 	}
 
 	public override void OnKill(int timeLeft)
 	{
-		((Entity)((ModProjectile)this).Projectile).active = false;
-		((ModProjectile)this).Projectile.position.X = ((ModProjectile)this).Projectile.position.X + (float)(((ModProjectile)this).Projectile.width / 2);
-		((ModProjectile)this).Projectile.position.Y = ((ModProjectile)this).Projectile.position.Y + (float)(((ModProjectile)this).Projectile.height / 2);
-		((ModProjectile)this).Projectile.width = 30;
-		((ModProjectile)this).Projectile.height = 30;
-		((ModProjectile)this).Projectile.position.X = ((ModProjectile)this).Projectile.position.X - (float)(((ModProjectile)this).Projectile.width / 2);
-		((ModProjectile)this).Projectile.position.Y = ((ModProjectile)this).Projectile.position.Y - (float)(((ModProjectile)this).Projectile.height / 2);
+		((Entity)Projectile).active = false;
+		Projectile.position.X = Projectile.position.X + (float)(Projectile.width / 2);
+		Projectile.position.Y = Projectile.position.Y + (float)(Projectile.height / 2);
+		Projectile.width = 30;
+		Projectile.height = 30;
+		Projectile.position.X = Projectile.position.X - (float)(Projectile.width / 2);
+		Projectile.position.Y = Projectile.position.Y - (float)(Projectile.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(((ModProjectile)this).Projectile.position.X, ((ModProjectile)this).Projectile.position.Y), ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 62, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 62, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 2f;
 			if (Main.rand.Next(2) == 0)
 			{

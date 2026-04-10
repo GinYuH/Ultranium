@@ -19,23 +19,23 @@ public class GiantSwordStar : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Star");
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 7;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
+		// DisplayName.SetDefault("Cosmic Star");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 64;
-		((ModProjectile)this).Projectile.height = 64;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Melee;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.alpha = 0;
-		((ModProjectile)this).Projectile.timeLeft = 300;
+		Projectile.width = 64;
+		Projectile.height = 64;
+		Projectile.penetrate = 1;
+		Projectile.hostile = false;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Melee;
+		Projectile.tileCollide = true;
+		Projectile.ignoreWater = true;
+		Projectile.alpha = 0;
+		Projectile.timeLeft = 300;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -47,33 +47,33 @@ public class GiantSwordStar : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.rotation += 0.15f;
+		Projectile.rotation += 0.15f;
 	}
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void OnKill(int timeLeft)
 	{
-		SoundEngine.PlaySound(((ModProjectile)this).new SoundStyle("Ultranium/Sounds/CosmicStarAttack")?.WithVolume(1f), -1, -1);
+		SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/CosmicStarAttack"));
 		for (int i = 0; i < 50; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
+			if (Main.dust[num].position != Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 		for (int j = 0; j < 8; j++)
@@ -81,7 +81,7 @@ public class GiantSwordStar : ModProjectile
 			Vector2 vector = ((float)Math.PI / 4f * (float)j).ToRotationVector2();
 			vector.Normalize();
 			vector *= 10f;
-			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector.X, vector.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("CosmicSwordStar").Type, ((ModProjectile)this).Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmicSwordStar").Type, Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

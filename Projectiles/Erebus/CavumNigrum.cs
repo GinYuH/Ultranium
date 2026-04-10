@@ -11,22 +11,22 @@ public class CavumNigrum : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		ProjectileID.Sets.TrailCacheLength[((ModProjectile)this).Projectile.type] = 8;
-		ProjectileID.Sets.TrailingMode[((ModProjectile)this).Projectile.type] = 0;
-		// ((ModProjectile)this).DisplayName.SetDefault("Cavum Nigrum");
+		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
+		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
+		// DisplayName.SetDefault("Cavum Nigrum");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 48;
-		((ModProjectile)this).Projectile.height = 38;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = 3;
-		((ModProjectile)this).Projectile.timeLeft = 180;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = false;
+		Projectile.width = 48;
+		Projectile.height = 38;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = 3;
+		Projectile.timeLeft = 180;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = false;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -36,28 +36,28 @@ public class CavumNigrum : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value.Width * 0.5f, (float)((ModProjectile)this).Projectile.height * 0.5f);
-		for (int i = 0; i < ((ModProjectile)this).Projectile.oldPos.Length; i++)
+		Vector2 vector = new Vector2((float)TextureAssets.Projectile[Projectile.type].Value.Width * 0.5f, (float)Projectile.height * 0.5f);
+		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
-			Vector2 position = ((ModProjectile)this).Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, ((ModProjectile)this).Projectile.gfxOffY);
-			Color color = ((ModProjectile)this).Projectile.GetAlpha(lightColor) * ((float)(((ModProjectile)this).Projectile.oldPos.Length - i) / (float)((ModProjectile)this).Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value, position, null, color, ((ModProjectile)this).Projectile.rotation, vector, ((ModProjectile)this).Projectile.scale, SpriteEffects.None, 0f);
+			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
+			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.velocity *= 1.03f;
-		((ModProjectile)this).Projectile.rotation += 0.15f * (float)((ModProjectile)this).Projectile.direction;
+		Projectile.velocity *= 1.03f;
+		Projectile.rotation += 0.15f * (float)Projectile.direction;
 	}
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 6;
+		target.immune[Projectile.owner] = 6;
 		if (Main.rand.Next(4) == 0)
 		{
-			Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center, new Vector2(0f, 0f), ((ModProjectile)this).Mod.Find<ModProjectile>("CavumNigrumPortal").Type, ((ModProjectile)this).Projectile.damage, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(null, Projectile.Center, new Vector2(0f, 0f), Mod.Find<ModProjectile>("CavumNigrumPortal").Type, Projectile.damage, 0.4f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

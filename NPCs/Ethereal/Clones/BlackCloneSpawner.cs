@@ -15,18 +15,18 @@ public class BlackCloneSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Ethereal Rift");
+		// DisplayName.SetDefault("Ethereal Rift");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 100;
-		((ModProjectile)this).Projectile.height = 50;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 320;
+		Projectile.width = 100;
+		Projectile.height = 50;
+		Projectile.hostile = true;
+		Projectile.friendly = false;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 320;
 	}
 
 	public override bool? CanCutTiles()
@@ -37,25 +37,25 @@ public class BlackCloneSpawner : ModProjectile
 	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 320f;
-		float num2 = ((ModProjectile)this).Projectile.ai[0];
+		float num2 = Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
 		float num4 = 0.2f;
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y * num4;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
+		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -121,20 +121,20 @@ public class BlackCloneSpawner : ModProjectile
 	public override void AI()
 	{
 		float num = 320f;
-		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
+		if (Projectile.localAI[0] >= 16f && Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).Projectile.ai[0] = num - 15f;
+			Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= num)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
+		if (Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -152,11 +152,11 @@ public class BlackCloneSpawner : ModProjectile
 		if (ScaleTimer < 75)
 		{
 			scale += 0.02f;
-			((ModProjectile)this).Projectile.velocity *= 0f;
+			Projectile.velocity *= 0f;
 		}
 		if (ScaleTimer == 280)
 		{
-			NPC.NewNPC(null, (int)((ModProjectile)this).Projectile.Center.X, (int)((ModProjectile)this).Projectile.Center.Y, ((ModProjectile)this).Mod.Find<ModNPC>("XenanisClone2").Type, 0, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(null, (int)Projectile.Center.X, (int)Projectile.Center.Y, Mod.Find<ModNPC>("XenanisClone2").Type, 0, 0f, 0f, 0f, 0f, 255);
 		}
 	}
 }

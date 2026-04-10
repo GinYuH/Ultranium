@@ -8,20 +8,20 @@ public class CultFireExplosion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Flame Explosion");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 5;
+		// DisplayName.SetDefault("Flame Explosion");
+		Main.projFrames[Projectile.type] = 5;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 50;
-		((ModProjectile)this).Projectile.height = 50;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
+		Projectile.width = 50;
+		Projectile.height = 50;
+		Projectile.penetrate = -1;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = false;
+		Projectile.hostile = false;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Magic;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -31,14 +31,14 @@ public class CultFireExplosion : ModProjectile
 
 	public override bool PreAI()
 	{
-		((ModProjectile)this).Projectile.frameCounter++;
-		if (((ModProjectile)this).Projectile.frameCounter > 4)
+		Projectile.frameCounter++;
+		if (Projectile.frameCounter > 4)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			((ModProjectile)this).Projectile.frame++;
-			if (((ModProjectile)this).Projectile.frame >= Main.projFrames[((ModProjectile)this).Projectile.type])
+			Projectile.frameCounter = 0;
+			Projectile.frame++;
+			if (Projectile.frame >= Main.projFrames[Projectile.type])
 			{
-				((ModProjectile)this).Projectile.Kill();
+				Projectile.Kill();
 			}
 		}
 		return false;

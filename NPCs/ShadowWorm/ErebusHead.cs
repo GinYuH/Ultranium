@@ -306,7 +306,7 @@ public class ErebusHead : ModNPC
 			}
 			if (Timer1 == 790)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
 			}
 			if (Timer1 == 790 || Timer1 == 865 || Timer1 == 940)
 			{
@@ -359,7 +359,7 @@ public class ErebusHead : ModNPC
 			}
 			if (Timer2 == 900)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
 				Vector2 vector12 = Main.player[NPC.target].Center - NPC.Center;
 				vector12.Normalize();
 				vector12.X *= 12.5f;
@@ -484,7 +484,7 @@ public class ErebusHead : ModNPC
 			}
 			if (Timer3 == 100 || Timer3 == 160 || Timer3 == 220 || Timer3 == 280 || Timer3 == 340)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusCharge")?.WithVolume(1f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusCharge"));
 				int num16 = 24;
 				for (int num17 = 0; num17 < num16; num17++)
 				{
@@ -518,7 +518,7 @@ public class ErebusHead : ModNPC
 			TeleportVortexTimer++;
 			if (ExpandingVortex.Timer == 500)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
 				Vector2 vector23 = Main.player[NPC.target].Center - NPC.Center;
 				vector23.Normalize();
 				vector23.X *= 50f;

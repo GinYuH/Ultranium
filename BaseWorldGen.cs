@@ -49,11 +49,12 @@ public class BaseWorldGen
 			Gen(x, y, rotX, rotY, rotation);
 		}
 
+		// PORTING NOTE: Is this even used??? Fix if so, leave as is if not
 		public void Gen(int x, int y, int rotationX, int rotationY, float genRotation)
 		{
 			tiles.Clear();
-			Tile[,] tile = Main.tile;
-			Main.tile = new Tile[Main.maxTilesX, Main.maxTilesY];
+			//Tile[,] tile = Main.tile;
+			//Main.tile = new Tile[Main.maxTilesX, Main.maxTilesY];
 			generate(x, y);
 			for (int i = 0; i < Main.maxTilesX; i++)
 			{
@@ -66,7 +67,7 @@ public class BaseWorldGen
 					}
 				}
 			}
-			Main.tile = tile;
+			//Main.tile = tile;
 			Vector2 origin = new Vector2((x + rotationX) * 16, (y + rotationY) * 16);
 			List<Point> list = new List<Point>();
 			foreach (TileData tile4 in tiles)
@@ -85,7 +86,7 @@ public class BaseWorldGen
 				}
 				Point item = new Point(num, num2);
 				list.Add(item);
-				Main.tile[num, num2] = tile4.tile;
+				//Main.tile[num, num2] = tile4.tile;
 			}
 			foreach (Point item2 in list)
 			{
@@ -242,17 +243,14 @@ public class BaseWorldGen
 		switch (liquidType)
 		{
 		case 0:
-			Main.tile[x, y].lava/* tModPorter Suggestion: LiquidType = ... */(lava: false);
-			Main.tile[x, y].honey/* tModPorter Suggestion: LiquidType = ... */(honey: false);
-			break;
+			Main.tile[x, y].Get<LiquidData>().LiquidType = LiquidID.Water;
+                break;
 		case 1:
-			Main.tile[x, y].LiquidType = LiquidID.Lava;
-			Main.tile[x, y].honey/* tModPorter Suggestion: LiquidType = ... */(honey: false);
-			break;
+                Main.tile[x, y].Get<LiquidData>().LiquidType = LiquidID.Lava;
+                break;
 		case 2:
-			Main.tile[x, y].lava/* tModPorter Suggestion: LiquidType = ... */(lava: false);
-			Main.tile[x, y].LiquidType = LiquidID.Honey;
-			break;
+                Main.tile[x, y].Get<LiquidData>().LiquidType = LiquidID.Honey;
+                break;
 		}
 		if (updateFlow)
 		{
@@ -284,16 +282,12 @@ public class BaseWorldGen
 	{
 		try
 		{
-			if (Main.tile[x, y] == null)
-			{
-				Main.tile[x, y] = new Tile();
-			}
 			TileObjectData tileObjectData = ((tile <= -1) ? null : TileObjectData.GetTileData(tile, tileStyle));
 			int num = tileObjectData?.Width ?? 1;
 			int num2 = tileObjectData?.Height ?? 1;
 			int num3 = ((tile == -1 || tileObjectData == null) ? 1 : tileObjectData.Width);
 			int num4 = ((tile == -1 || tileObjectData == null) ? 1 : tileObjectData.Height);
-			byte b = Main.tile[x, y].Slope;
+			byte b = (byte)Main.tile[x, y].Slope;
 			bool flag = Main.tile[x, y].IsHalfBlock;
 			if (tile != -1)
 			{
@@ -312,7 +306,7 @@ public class BaseWorldGen
 								KillChestAndItems(num5, num6);
 							}
 							Main.tile[x, y].TileType = 0;
-							Main.tile[x, y].HasTile = false;
+							Main.tile[x, y].Get<TileWallWireStateData>().HasTile = false;
 							if (!silent)
 							{
 								WorldGen.KillTile(x, y, fail: false, effectOnly: false, noItem: true);
@@ -344,18 +338,18 @@ public class BaseWorldGen
 					if (num3 <= 1 && num4 <= 1 && !Main.tileFrameImportant[tile])
 					{
 						Main.tile[x, y].TileType = (ushort)tile;
-						Main.tile[x, y].HasTile = true;
+						Main.tile[x, y].Get<TileWallWireStateData>().HasTile = true;
 						if (slope == -2 && flag)
-						{
-							Main.tile[x, y].IsHalfBlock = true;
-						}
+                        {
+                            Main.tile[x, y].Get<TileWallWireStateData>().IsHalfBlock = true;
+                        }
 						else if (slope == -1)
 						{
-							Main.tile[x, y].IsHalfBlock = true;
+							Main.tile[x, y].Get<TileWallWireStateData>().IsHalfBlock = true;
 						}
 						else
 						{
-							Main.tile[x, y].Slope = (slope == -2) ? b : ((byte)slope);
+							Main.tile[x, y].Get<TileWallWireStateData>().Slope = (SlopeType)((slope == -2) ? b : ((byte)slope));
 						}
 						WorldGen.SquareTileFrame(x, y);
 					}
@@ -386,7 +380,7 @@ public class BaseWorldGen
 				}
 				else
 				{
-					Main.tile[x, y].HasTile = false;
+					Main.tile[x, y].Get<TileWallWireStateData>().HasTile = false;
 				}
 			}
 			if (wall != -1)
@@ -408,9 +402,10 @@ public class BaseWorldGen
 		}
 		catch (Exception ex)
 		{
-			ErrorLogger.Log("TILEGEN ERROR: " + ex.Message);
-			ErrorLogger.Log(ex.StackTrace);
-			ErrorLogger.Log("--------");
+			Mod ut = ModLoader.GetMod("Ultranium");
+			ut.Logger.Error("TILEGEN ERROR: " + ex.Message);
+            ut.Logger.Error(ex.StackTrace);
+            ut.Logger.Error("--------");
 		}
 	}
 
@@ -889,12 +884,12 @@ public class BaseWorldGen
 						WorldGen.SlopeTile(k, l, 1);
 					}
 				}
-				if (Main.tile[k, l].Slope == 1 && !WorldGen.SolidTile(k - 1, l))
+				if (Main.tile[k, l].Slope == (SlopeType)1 && !WorldGen.SolidTile(k - 1, l))
 				{
 					WorldGen.SlopeTile(k, l, 0);
 					WorldGen.PoundTile(k, l);
 				}
-				if (Main.tile[k, l].Slope == 2 && !WorldGen.SolidTile(k + 1, l))
+				if (Main.tile[k, l].Slope == (SlopeType)2 && !WorldGen.SolidTile(k + 1, l))
 				{
 					WorldGen.SlopeTile(k, l, 0);
 					WorldGen.PoundTile(k, l);

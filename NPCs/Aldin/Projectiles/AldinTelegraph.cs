@@ -16,20 +16,20 @@ public class AldinTelegraph : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Cosmic Telegraph");
+		// DisplayName.SetDefault("Cosmic Telegraph");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 48;
-		((ModProjectile)this).Projectile.height = 144;
-		((ModProjectile)this).Projectile.aiStyle = 0;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 120;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
+		Projectile.width = 48;
+		Projectile.height = 144;
+		Projectile.aiStyle = 0;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 120;
+		Projectile.extraUpdates = 1;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -41,6 +41,6 @@ public class AldinTelegraph : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.velocity *= 0f;
+		Projectile.velocity *= 0f;
 	}
 }

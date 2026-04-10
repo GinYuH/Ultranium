@@ -12,33 +12,33 @@ public class ZephyrInkBubble : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Ink Bubble");
+		// DisplayName.SetDefault("Ink Bubble");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 26;
-		((ModProjectile)this).Projectile.height = 26;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 2;
-		((ModProjectile)this).Projectile.timeLeft = 600;
-		((ModProjectile)this).Projectile.light = 0f;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 26;
+		Projectile.height = 26;
+		Projectile.friendly = true;
+		Projectile.hostile = false;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 2;
+		Projectile.timeLeft = 600;
+		Projectile.light = 0f;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.spriteDirection = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? 1 : (-1));
-		if (((ModProjectile)this).Projectile.spriteDirection == 1)
+		Projectile.spriteDirection = ((Projectile.velocity.X > 0f) ? 1 : (-1));
+		if (Projectile.spriteDirection == 1)
 		{
-			((ModProjectile)this).Projectile.rotation += 0.05f;
+			Projectile.rotation += 0.05f;
 		}
-		if (((ModProjectile)this).Projectile.spriteDirection == -1)
+		if (Projectile.spriteDirection == -1)
 		{
-			((ModProjectile)this).Projectile.rotation += -0.05f;
+			Projectile.rotation += -0.05f;
 		}
 	}
 
@@ -47,22 +47,22 @@ public class ZephyrInkBubble : ModProjectile
 		Bounces--;
 		if (Bounces <= 0)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 		else
 		{
-			if (((ModProjectile)this).Projectile.velocity.X != oldVelocity.X)
+			if (Projectile.velocity.X != oldVelocity.X)
 			{
-				((ModProjectile)this).Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
+				Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
 			}
-			if (((ModProjectile)this).Projectile.velocity.Y != oldVelocity.Y)
+			if (Projectile.velocity.Y != oldVelocity.Y)
 			{
-				((ModProjectile)this).Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
+				Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
 			}
 		}
-		if (((ModProjectile)this).Projectile.timeLeft < 100)
+		if (Projectile.timeLeft < 100)
 		{
-			((ModProjectile)this).Projectile.scale += 0.02f;
+			Projectile.scale += 0.02f;
 		}
 		return false;
 	}
@@ -74,16 +74,16 @@ public class ZephyrInkBubble : ModProjectile
 
 	public override void OnKill(int timeLeft)
 	{
-		SoundEngine.PlaySound(SoundID.Item112, ((ModProjectile)this).Projectile.position);
+		SoundEngine.PlaySound(SoundID.Item112, Projectile.position);
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 191, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 191, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
+			if (Main.dust[num].position != Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}

@@ -9,22 +9,22 @@ public class IceSpike : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 5;
-		// ((ModProjectile)this).DisplayName.SetDefault("Icicle Bolt");
+		Main.projFrames[Projectile.type] = 5;
+		// DisplayName.SetDefault("Icicle Bolt");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.scale = 1f;
-		((ModProjectile)this).Projectile.width = 14;
-		((ModProjectile)this).Projectile.height = 14;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.aiStyle = 0;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.timeLeft = 550;
-		((ModProjectile)this).Projectile.tileCollide = true;
+		Projectile.scale = 1f;
+		Projectile.width = 14;
+		Projectile.height = 14;
+		Projectile.friendly = false;
+		Projectile.hostile = true;
+		Projectile.aiStyle = 0;
+		Projectile.penetrate = 1;
+		Projectile.extraUpdates = 1;
+		Projectile.timeLeft = 550;
+		Projectile.tileCollide = true;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -34,15 +34,15 @@ public class IceSpike : ModProjectile
 
 	public override void AI()
 	{
-		if (++((ModProjectile)this).Projectile.frameCounter >= 16)
+		if (++Projectile.frameCounter >= 16)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 5)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 5)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
-		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
-		((ModProjectile)this).Projectile.rotation += 0f * (float)((ModProjectile)this).Projectile.direction;
+		Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
+		Projectile.rotation += 0f * (float)Projectile.direction;
 	}
 }

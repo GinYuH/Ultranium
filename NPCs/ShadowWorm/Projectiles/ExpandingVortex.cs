@@ -19,18 +19,18 @@ public class ExpandingVortex : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Expanding Vortex");
+		// DisplayName.SetDefault("Expanding Vortex");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 100;
-		((ModProjectile)this).Projectile.height = 50;
-		((ModProjectile)this).Projectile.hostile = true;
-		((ModProjectile)this).Projectile.friendly = false;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 620;
+		Projectile.width = 100;
+		Projectile.height = 50;
+		Projectile.hostile = true;
+		Projectile.friendly = false;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 620;
 	}
 
 	public override bool? CanCutTiles()
@@ -41,25 +41,25 @@ public class ExpandingVortex : ModProjectile
 	public override bool PreDraw(ref Color lightColor)
 	{
 		float num = 620f;
-		float num2 = ((ModProjectile)this).Projectile.ai[0];
+		float num2 = Projectile.ai[0];
 		float num3 = MathHelper.Clamp(num2 / 30f, 0f, 1f);
 		if (num2 > num - 60f)
 		{
 			num3 = MathHelper.Lerp(1f, 0f, (num2 - (num - 60f)) / 60f);
 		}
 		float num4 = 0.2f;
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector = new Vector2(0f, bottom.Y - top.Y);
 		vector.X = vector.Y * num4;
 		new Vector2(top.X - vector.X / 2f, top.Y);
-		Texture2D texture2D = TextureAssets.Projectile[((ModProjectile)this).Projectile.type].Value;
+		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
 		Rectangle rectangle = Utils.Frame(texture2D, 1, 1, 0, 0);
 		Vector2 origin = rectangle.Size() / 2f;
-		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(((ModProjectile)this).Projectile.velocity.X > 0f)) ? 1 : (-1));
-		SpriteEffects effects = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
-		bool flag = ((ModProjectile)this).Projectile.velocity.X > 0f;
+		float num5 = -(float)Math.PI / 20f * num2 * (float)((!(Projectile.velocity.X > 0f)) ? 1 : (-1));
+		SpriteEffects effects = ((Projectile.velocity.X > 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None);
+		bool flag = Projectile.velocity.X > 0f;
 		Vector2 unitY = Vector2.UnitY;
 		double radians = num2 * 0.14f;
 		Vector2 spinningpoint = unitY.RotatedBy(radians);
@@ -125,20 +125,20 @@ public class ExpandingVortex : ModProjectile
 	public override void AI()
 	{
 		float num = 620f;
-		if (((ModProjectile)this).Projectile.localAI[0] >= 16f && ((ModProjectile)this).Projectile.ai[0] < num - 15f)
+		if (Projectile.localAI[0] >= 16f && Projectile.ai[0] < num - 15f)
 		{
-			((ModProjectile)this).Projectile.ai[0] = num - 15f;
+			Projectile.ai[0] = num - 15f;
 		}
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= num)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= num)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
-		Vector2 top = ((ModProjectile)this).Projectile.Top;
-		Vector2 bottom = ((ModProjectile)this).Projectile.Bottom;
+		Vector2 top = Projectile.Top;
+		Vector2 bottom = Projectile.Bottom;
 		Vector2 vector = Vector2.Lerp(top, bottom, 0.5f);
 		Vector2 vector2 = new Vector2(0f, bottom.Y - top.Y);
-		if (((ModProjectile)this).Projectile.ai[0] < num - 30f)
+		if (Projectile.ai[0] < num - 30f)
 		{
 			for (int i = 0; i < 1; i++)
 			{
@@ -155,7 +155,7 @@ public class ExpandingVortex : ModProjectile
 		HomingDelay++;
 		if (HomingDelay >= 40)
 		{
-			if (((ModProjectile)this).Projectile.ai[0] == 0f && Main.netMode != 1)
+			if (Projectile.ai[0] == 0f && Main.netMode != 1)
 			{
 				target = -1;
 				float num2 = 2000f;
@@ -163,7 +163,7 @@ public class ExpandingVortex : ModProjectile
 				{
 					if (((Entity)Main.player[j]).active && !Main.player[j].dead)
 					{
-						float num3 = Vector2.Distance(Main.player[j].Center, ((ModProjectile)this).Projectile.Center);
+						float num3 = Vector2.Distance(Main.player[j].Center, Projectile.Center);
 						if (num3 < num2 || target == -1)
 						{
 							num2 = num3;
@@ -173,8 +173,8 @@ public class ExpandingVortex : ModProjectile
 				}
 				if (target != -1)
 				{
-					((ModProjectile)this).Projectile.ai[0] = 1f;
-					((ModProjectile)this).Projectile.netUpdate = true;
+					Projectile.ai[0] = 1f;
+					Projectile.netUpdate = true;
 				}
 			}
 			else
@@ -183,20 +183,20 @@ public class ExpandingVortex : ModProjectile
 				if (!((Entity)player).active || player.dead)
 				{
 					target = -1;
-					((ModProjectile)this).Projectile.ai[0] = 0f;
-					((ModProjectile)this).Projectile.netUpdate = true;
+					Projectile.ai[0] = 0f;
+					Projectile.netUpdate = true;
 				}
 				else
 				{
-					float num4 = ((ModProjectile)this).Projectile.velocity.ToRotation();
-					Vector2 vector5 = player.Center - ((ModProjectile)this).Projectile.Center;
+					float num4 = Projectile.velocity.ToRotation();
+					Vector2 vector5 = player.Center - Projectile.Center;
 					float targetAngle = vector5.ToRotation();
 					if (vector5 == Vector2.Zero)
 					{
 						targetAngle = num4;
 					}
 					float num5 = num4.AngleLerp(targetAngle, 0.1f);
-					((ModProjectile)this).Projectile.velocity = new Vector2(((ModProjectile)this).Projectile.velocity.Length(), 0f).RotatedBy(num5);
+					Projectile.velocity = new Vector2(Projectile.velocity.Length(), 0f).RotatedBy(num5);
 				}
 			}
 		}
@@ -214,7 +214,7 @@ public class ExpandingVortex : ModProjectile
 				Vector2 vector6 = ((float)Math.PI * 2f / (float)num7 * (float)k).ToRotationVector2();
 				vector6.Normalize();
 				vector6 *= 14f;
-				Projectile.NewProjectile(null, ((ModProjectile)this).Projectile.Center.X, ((ModProjectile)this).Projectile.Center.Y, vector6.X, vector6.Y, ((ModProjectile)this).Mod.Find<ModProjectile>("EldritchBlast").Type, num6, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector6.X, vector6.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, num6, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (Timer > 450 && Timer < 500)
@@ -222,15 +222,15 @@ public class ExpandingVortex : ModProjectile
 			int num8 = 25;
 			for (int l = 0; l < num8; l++)
 			{
-				Vector2 vector7 = (Vector2.One * new Vector2((float)((ModProjectile)this).Projectile.width / 7f, (float)((ModProjectile)this).Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(l - (num8 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num8) + ((ModProjectile)this).Projectile.Center;
-				Vector2 vector8 = vector7 - ((ModProjectile)this).Projectile.Center;
+				Vector2 vector7 = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(l - (num8 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num8) + Projectile.Center;
+				Vector2 vector8 = vector7 - Projectile.Center;
 				Dust obj = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, 89, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector8) * 35f;
 				obj.fadeIn = 5f;
 			}
-			((ModProjectile)this).Projectile.velocity *= 0f;
+			Projectile.velocity *= 0f;
 		}
 		if (Timer < 500)
 		{
@@ -238,11 +238,11 @@ public class ExpandingVortex : ModProjectile
 			{
 				if (((Entity)Main.npc[m]).active && (Main.npc[m].type == ModContent.NPCType<ErebusHead>() || Main.npc[m].type == ModContent.NPCType<ErebusBody>() || Main.npc[m].type == ModContent.NPCType<ErebusTail>()))
 				{
-					Main.npc[m].Center = ((ModProjectile)this).Projectile.Center;
+					Main.npc[m].Center = Projectile.Center;
 				}
 			}
 		}
-		if (((ModProjectile)this).Projectile.timeLeft <= 1)
+		if (Projectile.timeLeft <= 1)
 		{
 			Timer = 0;
 		}

@@ -8,19 +8,19 @@ public class MoltenGlob : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Molten Glob");
+		// DisplayName.SetDefault("Molten Glob");
 	}
 
 	public override void SetDefaults()
 	{
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 4;
-		((ModProjectile)this).Projectile.CloneDefaults(467);
+		Main.projFrames[Projectile.type] = 4;
+		Projectile.CloneDefaults(467);
 		base.AIType = 467;
 	}
 
 	public override bool PreKill(int timeLeft)
 	{
-		((ModProjectile)this).Projectile.type = 467;
+		Projectile.type = 467;
 		return true;
 	}
 

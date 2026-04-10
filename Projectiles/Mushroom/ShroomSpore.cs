@@ -7,47 +7,47 @@ public class ShroomSpore : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Shroom Spore");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 3;
+		// DisplayName.SetDefault("Shroom Spore");
+		Main.projFrames[Projectile.type] = 3;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 12;
-		((ModProjectile)this).Projectile.height = 16;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 3;
-		((ModProjectile)this).Projectile.timeLeft = 600;
-		((ModProjectile)this).Projectile.light = 0f;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 12;
+		Projectile.height = 16;
+		Projectile.friendly = true;
+		Projectile.hostile = false;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 3;
+		Projectile.timeLeft = 600;
+		Projectile.light = 0f;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override void AI()
 	{
-		if (++((ModProjectile)this).Projectile.frameCounter >= 16)
+		if (++Projectile.frameCounter >= 16)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 3)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 3)
 			{
-				((ModProjectile)this).Projectile.frame = 0;
+				Projectile.frame = 0;
 			}
 		}
-		((ModProjectile)this).Projectile.rotation = ((ModProjectile)this).Projectile.velocity.X * 0.02f;
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] < 5f)
+		Projectile.rotation = Projectile.velocity.X * 0.02f;
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] < 5f)
 		{
-			((ModProjectile)this).Projectile.tileCollide = false;
+			Projectile.tileCollide = false;
 		}
-		if (((ModProjectile)this).Projectile.ai[0] >= 5f)
+		if (Projectile.ai[0] >= 5f)
 		{
-			((ModProjectile)this).Projectile.tileCollide = true;
+			Projectile.tileCollide = true;
 		}
-		if (((ModProjectile)this).Projectile.ai[0] >= 60f)
+		if (Projectile.ai[0] >= 60f)
 		{
-			((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.05f;
+			Projectile.velocity.Y = Projectile.velocity.Y + 0.05f;
 		}
 	}
 }

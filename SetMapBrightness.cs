@@ -20,11 +20,7 @@ public class SetMapBrightness : GenAction
 		{
 			return false;
 		}
-		if (GenBase._tiles[x, y] == null)
-		{
-			GenBase._tiles[x, y] = new Tile();
-		}
 		Main.Map.UpdateLighting(x, y, Math.Max(Main.Map[x, y].Light, _brightness));
-		return ((GenAction)this).UnitApply(origin, x, y, args);
+		return UnitApply(origin, x, y, args);
 	}
 }

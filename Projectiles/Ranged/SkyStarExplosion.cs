@@ -8,41 +8,41 @@ public class SkyStarExplosion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Holy Explosion");
-		Main.projFrames[((ModProjectile)this).Projectile.type] = 6;
+		// DisplayName.SetDefault("Holy Explosion");
+		Main.projFrames[Projectile.type] = 6;
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 70;
-		((ModProjectile)this).Projectile.height = 70;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.timeLeft = 600;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Ranged;
-		((ModProjectile)this).Projectile.usesLocalNPCImmunity = true;
-		((ModProjectile)this).Projectile.localNPCHitCooldown = 60;
-		((ModProjectile)this).Projectile.alpha = 100;
+		Projectile.width = 70;
+		Projectile.height = 70;
+		Projectile.penetrate = -1;
+		Projectile.friendly = true;
+		Projectile.hostile = false;
+		Projectile.tileCollide = false;
+		Projectile.ignoreWater = true;
+		Projectile.timeLeft = 600;
+		Projectile.DamageType = DamageClass.Ranged;
+		Projectile.usesLocalNPCImmunity = true;
+		Projectile.localNPCHitCooldown = 60;
+		Projectile.alpha = 100;
 	}
 
 	public override void AI()
 	{
-		Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 228);
+		Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 228);
 		dust.noGravity = true;
 		dust.scale = 1.6f;
-		if (++((ModProjectile)this).Projectile.frameCounter >= 4)
+		if (++Projectile.frameCounter >= 4)
 		{
-			((ModProjectile)this).Projectile.frameCounter = 0;
-			if (++((ModProjectile)this).Projectile.frame >= 6)
+			Projectile.frameCounter = 0;
+			if (++Projectile.frame >= 6)
 			{
-				((ModProjectile)this).Projectile.Kill();
+				Projectile.Kill();
 			}
 		}
-		((ModProjectile)this).Projectile.velocity.X *= 0f;
-		((ModProjectile)this).Projectile.velocity.Y *= 0f;
+		Projectile.velocity.X *= 0f;
+		Projectile.velocity.Y *= 0f;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -52,6 +52,6 @@ public class SkyStarExplosion : ModProjectile
 
 	public override void OnKill(int timeLeft)
 	{
-		((ModProjectile)this).Projectile.timeLeft = 0;
+		Projectile.timeLeft = 0;
 	}
 }

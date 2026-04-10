@@ -10,42 +10,42 @@ public class EldritchPumpkinFire : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Pumpkin Fire");
+		// DisplayName.SetDefault("Pumpkin Fire");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 16;
-		((ModProjectile)this).Projectile.height = 16;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.hostile = false;
-		((ModProjectile)this).Projectile.tileCollide = true;
-		((ModProjectile)this).Projectile.penetrate = 1;
-		((ModProjectile)this).Projectile.timeLeft = 600;
-		((ModProjectile)this).Projectile.light = 0f;
-		((ModProjectile)this).Projectile.extraUpdates = 1;
-		((ModProjectile)this).Projectile.ignoreWater = true;
+		Projectile.width = 16;
+		Projectile.height = 16;
+		Projectile.friendly = true;
+		Projectile.hostile = false;
+		Projectile.tileCollide = true;
+		Projectile.penetrate = 1;
+		Projectile.timeLeft = 600;
+		Projectile.light = 0f;
+		Projectile.extraUpdates = 1;
+		Projectile.ignoreWater = true;
 	}
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.spriteDirection = ((((ModProjectile)this).Projectile.velocity.X > 0f) ? 1 : (-1));
-		if (((ModProjectile)this).Projectile.spriteDirection == 1)
+		Projectile.spriteDirection = ((Projectile.velocity.X > 0f) ? 1 : (-1));
+		if (Projectile.spriteDirection == 1)
 		{
-			((ModProjectile)this).Projectile.rotation += 0.7f;
+			Projectile.rotation += 0.7f;
 		}
-		if (((ModProjectile)this).Projectile.spriteDirection == -1)
+		if (Projectile.spriteDirection == -1)
 		{
-			((ModProjectile)this).Projectile.rotation += -0.7f;
+			Projectile.rotation += -0.7f;
 		}
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] > 60f)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] > 60f)
 		{
-			((ModProjectile)this).Projectile.velocity.Y = ((ModProjectile)this).Projectile.velocity.Y + 0.15f;
+			Projectile.velocity.Y = Projectile.velocity.Y + 0.15f;
 		}
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 6);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 6);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}
@@ -56,17 +56,17 @@ public class EldritchPumpkinFire : ModProjectile
 		Bounces--;
 		if (Bounces <= 0)
 		{
-			((ModProjectile)this).Projectile.Kill();
+			Projectile.Kill();
 		}
 		else
 		{
-			if (((ModProjectile)this).Projectile.velocity.X != oldVelocity.X)
+			if (Projectile.velocity.X != oldVelocity.X)
 			{
-				((ModProjectile)this).Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
+				Projectile.velocity.X = (0f - oldVelocity.X) * 0.8f;
 			}
-			if (((ModProjectile)this).Projectile.velocity.Y != oldVelocity.Y)
+			if (Projectile.velocity.Y != oldVelocity.Y)
 			{
-				((ModProjectile)this).Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
+				Projectile.velocity.Y = (0f - oldVelocity.Y) * 0.8f;
 			}
 		}
 		return false;

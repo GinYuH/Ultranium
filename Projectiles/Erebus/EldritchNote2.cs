@@ -8,24 +8,24 @@ public class EldritchNote2 : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModProjectile)this).DisplayName.SetDefault("Eldritch Note");
+		// DisplayName.SetDefault("Eldritch Note");
 	}
 
 	public override void SetDefaults()
 	{
-		((ModProjectile)this).Projectile.width = 18;
-		((ModProjectile)this).Projectile.height = 24;
-		((ModProjectile)this).Projectile.friendly = true;
-		((ModProjectile)this).Projectile.DamageType = DamageClass.Magic;
-		((ModProjectile)this).Projectile.ignoreWater = true;
-		((ModProjectile)this).Projectile.tileCollide = false;
-		((ModProjectile)this).Projectile.penetrate = -1;
-		((ModProjectile)this).Projectile.timeLeft = 300;
+		Projectile.width = 18;
+		Projectile.height = 24;
+		Projectile.friendly = true;
+		Projectile.DamageType = DamageClass.Magic;
+		Projectile.ignoreWater = true;
+		Projectile.tileCollide = false;
+		Projectile.penetrate = -1;
+		Projectile.timeLeft = 300;
 	}
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.immune[((ModProjectile)this).Projectile.owner] = 8;
+		target.immune[Projectile.owner] = 8;
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -35,10 +35,10 @@ public class EldritchNote2 : ModProjectile
 
 	public override void AI()
 	{
-		((ModProjectile)this).Projectile.ai[0] += 1f;
-		if (((ModProjectile)this).Projectile.ai[0] >= 65f)
+		Projectile.ai[0] += 1f;
+		if (Projectile.ai[0] >= 65f)
 		{
-			((ModProjectile)this).Projectile.velocity *= 0.98f;
+			Projectile.velocity *= 0.98f;
 		}
 	}
 
@@ -46,13 +46,13 @@ public class EldritchNote2 : ModProjectile
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(((ModProjectile)this).Projectile.position, ((ModProjectile)this).Projectile.width, ((ModProjectile)this).Projectile.height, 89, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 89, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
-			if (Main.dust[num].position != ((ModProjectile)this).Projectile.Center)
+			if (Main.dust[num].position != Projectile.Center)
 			{
-				Main.dust[num].velocity = ((ModProjectile)this).Projectile.DirectionTo(Main.dust[num].position) * 2f;
+				Main.dust[num].velocity = Projectile.DirectionTo(Main.dust[num].position) * 2f;
 			}
 		}
 	}
