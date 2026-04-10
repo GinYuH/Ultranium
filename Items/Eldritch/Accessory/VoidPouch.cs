@@ -1,0 +1,54 @@
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Ultranium.Items.Eldritch.Accessory;
+
+public class VoidPouch : ModItem
+{
+	public override void SetStaticDefaults()
+	{
+		((ModItem)this).SetStaticDefaults();
+		((ModItem)this).DisplayName.SetDefault("Dimensional Ammo Pouch");
+		((ModItem)this).Tooltip.SetDefault("15% increased ranged damage\n50% chance to not consume ammo\nRanged projectiles inflict the eldritch decay debuff");
+	}
+
+	public override void SetDefaults()
+	{
+		((Entity)(object)((ModItem)this).item).width = 38;
+		((Entity)(object)((ModItem)this).item).height = 46;
+		((ModItem)this).item.rare = 11;
+		((ModItem)this).item.value = Item.buyPrice(0, 80);
+		((ModItem)this).item.accessory = true;
+	}
+
+	public override void ModifyTooltips(List<TooltipLine> tooltips)
+	{
+		tooltips[0].overrideColor = new Color(34, 166, 118);
+	}
+
+	public override void UpdateAccessory(Player player, bool hideVisual)
+	{
+		player.GetModPlayer<UltraniumPlayer>().VoidPouch = true;
+		player.meleeDamage += 0.15f;
+		player.meleeSpeed += 0.12f;
+	}
+
+	public override void AddRecipes()
+	{
+		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
+		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
+		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
+		ModRecipe val = new ModRecipe(((ModItem)this).mod);
+		val.AddIngredient((Mod)null, "DarkMatter", 12);
+		val.AddIngredient((Mod)null, "NightmareScale", 8);
+		val.AddIngredient(1321, 1);
+		val.AddTile(412);
+		val.SetResult((ModItem)(object)this, 1);
+		val.AddRecipe();
+	}
+}

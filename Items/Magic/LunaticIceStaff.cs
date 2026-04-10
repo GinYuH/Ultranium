@@ -1,0 +1,35 @@
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace Ultranium.Items.Magic;
+
+public class LunaticIceStaff : ModItem
+{
+	public override void SetStaticDefaults()
+	{
+		((ModItem)this).DisplayName.SetDefault("Ice Mist Staff");
+		((ModItem)this).Tooltip.SetDefault("Shoots a giant ice ball that explodes into a circle of ice shards");
+		Item.staff[((ModItem)this).item.type] = true;
+	}
+
+	public override void SetDefaults()
+	{
+		((ModItem)this).item.damage = 100;
+		((ModItem)this).item.magic = true;
+		((ModItem)this).item.mana = 22;
+		((Entity)(object)((ModItem)this).item).width = 58;
+		((Entity)(object)((ModItem)this).item).height = 56;
+		((ModItem)this).item.useTime = 30;
+		((ModItem)this).item.useAnimation = 30;
+		((ModItem)this).item.useStyle = 5;
+		((ModItem)this).item.noMelee = true;
+		((ModItem)this).item.knockBack = 5f;
+		((ModItem)this).item.value = Item.buyPrice(1);
+		((ModItem)this).item.rare = 8;
+		((ModItem)this).item.UseSound = SoundID.Item120;
+		((ModItem)this).item.autoReuse = true;
+		((ModItem)this).item.shoot = ((ModItem)this).mod.ProjectileType("IceBall");
+		((ModItem)this).item.shootSpeed = 10f;
+	}
+}

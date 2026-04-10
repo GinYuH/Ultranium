@@ -1,0 +1,9 @@
+corrupt = 14
+crimson = 
+water = 29
+jungle = 74
+night javelin = 173
+hallowed = 57
+
+true corrupt = 75
+true hallow = 173

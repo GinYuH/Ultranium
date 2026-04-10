@@ -1,0 +1,71 @@
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
+
+namespace Ultranium.Tiles.Furniture;
+
+public class ShadowDoorClosed : ModTile
+{
+	public override void SetDefaults()
+	{
+		Main.tileFrameImportant[((ModTile)this).Type] = true;
+		Main.tileBlockLight[((ModTile)this).Type] = true;
+		Main.tileSolid[((ModTile)this).Type] = true;
+		Main.tileNoAttach[((ModTile)this).Type] = true;
+		Main.tileLavaDeath[((ModTile)this).Type] = true;
+		TileID.Sets.NotReallySolid[((ModTile)this).Type] = true;
+		TileID.Sets.DrawsWalls[((ModTile)this).Type] = true;
+		TileID.Sets.HasOutlines[((ModTile)this).Type] = true;
+		TileObjectData.newTile.Width = 1;
+		TileObjectData.newTile.Height = 3;
+		TileObjectData.newTile.Origin = new Point16(0, 0);
+		TileObjectData.newTile.AnchorTop = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile, TileObjectData.newTile.Width, 0);
+		TileObjectData.newTile.UsesCustomCanPlace = true;
+		TileObjectData.newTile.LavaDeath = true;
+		TileObjectData.newTile.CoordinateHeights = new int[3] { 16, 16, 16 };
+		TileObjectData.newTile.CoordinateWidth = 16;
+		TileObjectData.newTile.CoordinatePadding = 2;
+		TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+		TileObjectData.newAlternate.Origin = new Point16(0, 1);
+		TileObjectData.addAlternate(0);
+		TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+		TileObjectData.newAlternate.Origin = new Point16(0, 2);
+		TileObjectData.addAlternate(0);
+		TileObjectData.addTile((int)((ModTile)this).Type);
+		((ModTile)this).AddToArray(ref TileID.Sets.RoomNeeds.CountsAsDoor);
+		ModTranslation val = ((ModTile)this).CreateMapEntryName((string)null);
+		val.SetDefault("Door");
+		((ModTile)this).AddMapEntry(new Color(31, 34, 40), val);
+		base.disableSmartCursor = true;
+		base.adjTiles = new int[1] { 10 };
+		base.openDoorID = ((ModTile)this).mod.TileType("ShadowDoorOpen");
+	}
+
+	public override bool HasSmartInteract()
+	{
+		return true;
+	}
+
+	public override void NumDust(int i, int j, bool fail, ref int num)
+	{
+		num = 1;
+	}
+
+	public override void KillMultiTile(int i, int j, int frameX, int frameY)
+	{
+		Item.NewItem(i * 16, j * 16, 16, 48, ((ModTile)this).mod.ItemType("ShadowDoorItem"), 1, false, 0, false, false);
+	}
+
+	public override void MouseOver(int i, int j)
+	{
+		Player localPlayer = Main.LocalPlayer;
+		localPlayer.noThrow = 2;
+		localPlayer.showItemIcon = true;
+		localPlayer.showItemIcon2 = ((ModTile)this).mod.ItemType("ShadowDoorItem");
+	}
+}
