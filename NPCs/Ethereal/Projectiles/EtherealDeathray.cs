@@ -106,7 +106,7 @@ public class EtherealDeathray : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("ShadowflameDebuff").Type, 120, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("ShadowflameDebuff").Type, 120, quiet: false);
 	}
 
 	public override bool CanHitPlayer(Player target)
@@ -124,13 +124,13 @@ public class EtherealDeathray : ModProjectile
 		{
 			return false;
 		}
-		Texture2D texture = Mod.GetTexture("NPCs/Ethereal/Projectiles/EtherealDeathrayBottom");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/Ethereal/Projectiles/EtherealDeathrayBottom").Value;
 		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
-		Texture2D texture2 = Mod.GetTexture("NPCs/Ethereal/Projectiles/EtherealDeathrayTop");
+		Texture2D texture2 = ModContent.Request<Texture2D>("Ultranium/NPCs/Ethereal/Projectiles/EtherealDeathrayTop").Value;
 		float laserLength = LaserLength;
 		Color color = Color.White * 0.8f * ((Projectile.ai[1] >= 100f) ? 1f : 0.8f);
 		Vector2 position = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) - Main.screenPosition;
-		spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+        Main.spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
 		laserLength -= (float)(texture.Height / 2 + texture2.Height) * Projectile.scale;
 		Vector2 vector = Projectile.Center + new Vector2(0f, Projectile.gfxOffY);
 		vector += Projectile.velocity * Projectile.scale * texture.Height / 2f;

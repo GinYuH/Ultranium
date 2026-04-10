@@ -28,7 +28,7 @@ public class BabySquidInk : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(32, 60, fromNetPvP: true);
+		target.AddBuff(32, 60, quiet: false);
 	}
 
 	public override void AI()

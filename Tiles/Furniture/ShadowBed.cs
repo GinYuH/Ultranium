@@ -21,7 +21,7 @@ public class ShadowBed : ModTile
 		LocalizedText val = CreateMapEntryName();
 		AddMapEntry(new Color(31, 34, 40), val);
 		// val.SetDefault("Bed");
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 79 };
 		base.bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
 	}

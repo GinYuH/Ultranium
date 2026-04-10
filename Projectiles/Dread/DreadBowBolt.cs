@@ -32,7 +32,7 @@ public class DreadBowBolt : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DreadDebuff").Type, 180, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("DreadDebuff").Type, 180, quiet: false);
 	}
 
 	public override void AI()

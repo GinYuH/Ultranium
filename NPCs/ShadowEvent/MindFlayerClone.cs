@@ -34,7 +34,7 @@ public class MindFlayerClone : ModNPC
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.HitSound = SoundID.NPCHit55;
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MindFlayerRoar")?.WithVolume(1.2f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new Terraria.Audio.SoundStyle("Ultranium/Sounds/MindFlayerRoar") with { PitchVariance = 0.5f };
 		NPC.defense = 35;
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;
@@ -84,7 +84,7 @@ public class MindFlayerClone : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
 	}
 
 	public override bool PreAI()

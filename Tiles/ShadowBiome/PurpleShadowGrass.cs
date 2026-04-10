@@ -22,9 +22,7 @@ public class PurpleShadowGrass : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
-		SetModTree((ModTree)(object)new ShadowTree())/* tModPorter Note: Removed. Assign GrowsOnTileId to this tile type in ModTree.SetStaticDefaults instead */;
 		base.DustType = Mod.Find<ModDust>("ShadowSoilDust").Type;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("PurpleShadowGrassItem").Type;
 		base.MineResist = 1f;
 		base.MinPick = 1;
 	}

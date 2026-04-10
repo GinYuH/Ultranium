@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Ultranium.Tiles.Furniture.Shrine;
@@ -29,7 +30,7 @@ public class GuardianShrine
 			[new Color(28, 36, 64)] = -2,
 			[Color.Black] = -2
 		};
-		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.GetTexture("Ultranium/Generation/Shrine/GuardianShrine"), colorToTile, ModContent.GetTexture("Ultranium/Generation/Shrine/GuardianShrine"), colorToWall);
+		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("Ultranium/Generation/Shrine/GuardianShrine").Value, colorToTile, ModContent.Request<Texture2D>("Ultranium/Generation/Shrine/GuardianShrine").Value, colorToWall);
 		texGenerator.Generate(x - texGenerator.width / 2, y - texGenerator.height / 2, silent: true, sync: true);
 		WorldGen.PlaceChest(x - 1, y + 28, (ushort)ModContent.TileType<ShrineChest>());
 		WorldGen.PlaceObject(x - 6, y + 28, (ushort)ModContent.TileType<UltrumShrine>());

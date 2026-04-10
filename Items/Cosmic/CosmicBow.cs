@@ -57,11 +57,11 @@ public class CosmicBow : ModItem
 	{
 		float num = 5f;
 		float num2 = MathHelper.ToRadians(5f);
-		position += Vector2.Normalize(new Vector2(speedX, speedY)) * 10f;
+		position += Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 10f;
 		for (int i = 0; (float)i < num; i++)
 		{
-			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmicBowBolt").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmicBowBolt").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

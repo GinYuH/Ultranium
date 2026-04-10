@@ -48,12 +48,12 @@ public class Inanis : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("VoidBolt").Type, Item.damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("VoidBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		if (Main.rand.Next(5) == 0)
 		{
-			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NoctisBlast").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NoctisBlast").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return false;
@@ -72,7 +72,7 @@ public class Inanis : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0034: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);

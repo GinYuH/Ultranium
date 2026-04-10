@@ -50,7 +50,7 @@ public class UltraniumStaff : ModItem
 			int myPlayer = Main.myPlayer;
 			float shootSpeed = Item.shootSpeed;
 			int num = damage;
-			float num2 = knockBack;
+			float num2 = knockback;
 			float x = (float)Main.mouseX + Main.screenPosition.X - vector.X;
 			float y = (float)Main.mouseY + Main.screenPosition.Y - vector.Y;
 			float f = Main.rand.NextFloat() * ((float)Math.PI * 2f);
@@ -81,7 +81,7 @@ public class UltraniumStaff : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
 		val.AddTile(412);
 		val.Register();

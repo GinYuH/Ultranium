@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.NPCs.ShadowWorm.Projectiles;
@@ -76,14 +77,13 @@ public class ErebusHead : ModNPC
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
-		NPC.HitSound = SoundID.NPCHit52?.WithVolume(5f);
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f);
+		NPC.HitSound = SoundID.NPCHit52;
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/ErebusRoar");
 		NPC.behindTiles = true;
 		NPC.value = Item.buyPrice(0, 25, 50);
 		NPC.npcSlots = 1f;
 		NPC.netAlways = true;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/ErebusTheme");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("ErebusBag").Type;
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ErebusTheme");
 		players = 1;
 		for (int i = 0; i < 206; i++)
 		{
@@ -119,7 +119,7 @@ public class ErebusHead : ModNPC
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture = Mod.GetTexture("NPCs/ShadowWorm/Glow/ErebusHeadGlow");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowWorm/Glow/ErebusHeadGlow").Value;
 		Rectangle value = new Rectangle(0, NPC.frame.Y, texture.Width, texture.Height / Main.npcFrameCount[NPC.type]);
 		Vector2 origin = new Vector2((float)texture.Width * 0.5f, (float)texture.Height * 0.3f);
 		SpriteEffects effects = SpriteEffects.None;
@@ -135,30 +135,32 @@ public class ErebusHead : ModNPC
 		return false;
 	}
 
-	public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
-	{
+    public override bool? CanBeHitByItem(Player player, Item item)
+    {
+        if (noDamageTime > 0)
+			return false;
+		return null;
+    }
+
+    public override bool? CanBeHitByProjectile(Projectile projectile)
+    {
 		if (noDamageTime > 0)
-		{
-			damage = 0;
-		}
-	}
+			return false;
+		return null;
+    }
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (noDamageTime > 0)
-		{
-			damage = 0;
-		}
 		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
 		{
-			damage /= 5;
+			modifiers.SourceDamage /= 5;
 		}
 	}
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusHeadGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusHeadGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/ErebusHeadGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/ErebusHeadGore2").Type);
 		return true;
 	}
 
@@ -166,7 +168,7 @@ public class ErebusHead : ModNPC
 	{
 		if (!NPC.immortal)
 		{
-			damageDealt += (int)damage;
+			damageDealt += (int)hit.Damage;
 		}
 	}
 
@@ -923,66 +925,19 @@ public class ErebusHead : ModNPC
 		}
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("ErebusBag").Type));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusTrophyItem").Type, 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("Noctis").Type, Mod.Find<ModItem>("SolibusOrba").Type, Mod.Find<ModItem>("Crepus").Type, Mod.Find<ModItem>("Inanis").Type, Mod.Find<ModItem>("CavumNigrum").Type, Mod.Find<ModItem>("Exitium").Type, Mod.Find<ModItem>("Umbra").Type, Mod.Find<ModItem>("Nihil").Type, Mod.Find<ModItem>("Caliginus").Type)));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("NightmareScale").Type, 1, 20, 34));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DarkMatter").Type, 1, 10, 14));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("ErebusGuitar").Type, 20));
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(9);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Noctis").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("SolibusOrba").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Crepus").Type, 1, false, 0, false, false);
-			}
-			if (num == 3)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Inanis").Type, 1, false, 0, false, false);
-			}
-			if (num == 4)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CavumNigrum").Type, 1, false, 0, false, false);
-			}
-			if (num == 5)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Exitium").Type, 1, false, 0, false, false);
-			}
-			if (num == 6)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Umbra").Type, 1, false, 0, false, false);
-			}
-			if (num == 7)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Nihil").Type, 1, false, 0, false, false);
-			}
-			if (num == 8)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("Caliginus").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("NightmareScale").Type, Main.rand.Next(20, 35), false, 0, false, false);
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(10, 15), false, 0, false, false);
-			if (Main.rand.Next(20) == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ErebusGuitar").Type, 1, false, 0, false, false);
-			}
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ErebusMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ErebusTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedErebus)
 		{
 			UltraniumWorld.downedErebus = true;
@@ -1004,7 +959,7 @@ public class ErebusHead : ModNPC
 		MovementAI = 0;
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 3544;
 	}

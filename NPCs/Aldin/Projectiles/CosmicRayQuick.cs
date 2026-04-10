@@ -125,15 +125,15 @@ public class CosmicRayQuick : ModProjectile
 		{
 			return false;
 		}
-		Texture2D texture = Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayBottom");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/Projectiles/CosmicRayBottom").Value;
 		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
-		Texture2D texture2 = Mod.GetTexture("NPCs/Aldin/Projectiles/CosmicRayTop");
+		Texture2D texture2 = ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/Projectiles/CosmicRayTop").Value;
 		float laserLength = LaserLength;
 		float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 		int num = (int)(Main.GameUpdateCount / 60 % 2);
 		Color color = Color.Lerp(ColorCycle[num], ColorCycle[(num + 1) % 2], amount);
 		Vector2 position = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) - Main.screenPosition;
-		spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
 		laserLength -= (float)(texture.Height / 2 + texture2.Height) * Projectile.scale;
 		Vector2 vector = Projectile.Center + new Vector2(0f, Projectile.gfxOffY);
 		vector += Projectile.velocity * Projectile.scale * texture.Height / 2f;

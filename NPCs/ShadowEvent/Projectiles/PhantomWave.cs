@@ -34,7 +34,7 @@ public class PhantomWave : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180, quiet: false);
 	}
 
 	public override Color? GetAlpha(Color lightColor)
@@ -49,7 +49,7 @@ public class PhantomWave : ModProjectile
 		{
 			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
 			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
-			spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(TextureAssets.Projectile[Projectile.type].Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}

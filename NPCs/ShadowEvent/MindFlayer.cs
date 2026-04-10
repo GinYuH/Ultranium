@@ -3,10 +3,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Items.BossBags.Acc;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Eldritch.ShadowEvent;
+using Ultranium.Items.Vanity.BossMasks;
 using Ultranium.ShadowEvent;
+using Ultranium.Tiles.Trophy;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -49,8 +55,8 @@ public class MindFlayer : ModNPC
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.HitSound = SoundID.NPCHit55;
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MindFlayerRoar")?.WithVolume(1.2f)?.WithPitchVariance(0.5f);
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/MindFlayer");
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MindFlayerRoar") with { PitchVariance = 0.5f };
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MindFlayer");
 		NPC.defense = 60;
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;
@@ -80,13 +86,13 @@ public class MindFlayer : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/MindFlayerTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/MindFlayerTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				SpriteEffects effects = ((NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/MindFlayerTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/MindFlayerTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
 			}
 		}
 		return true;
@@ -94,16 +100,16 @@ public class MindFlayer : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MindFlayerGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MindFlayerGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MindFlayerGore3"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MindFlayerGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MindFlayerGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MindFlayerGore3").Type);
 		return true;
 	}
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(163, 60, fromNetPvP: true);
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
+		target.AddBuff(163, 60, quiet: false);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
 	}
 
 	public override void FindFrame(int frameHeight)
@@ -191,7 +197,7 @@ public class MindFlayer : ModNPC
 		RoarTimer++;
 		if (RoarTimer == 360)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/MindFlayerGrowl").WithVolume(2f).WithPitchVariance(0.5f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/MindFlayerGrowl") with { PitchVariance = 0.5f });
 			RoarTimer = 0;
 		}
 		if (TeleportTimer <= 0)
@@ -313,42 +319,25 @@ public class MindFlayer : ModNPC
 		return true;
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.IsExpert(), ModContent.ItemType<FlayerBrain>()));
+		npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<FlayerBlade>(), ModContent.ItemType<FlayerStaff>(), ModContent.ItemType<FlayerBow>()));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<MindFlayerMask>(), 7));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<FlayerTrophyItem>(), 10));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 1, 5, 11));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<EldritchBlood>(), 1, 15, 24));
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FlayerBrain").Type, 1, false, 0, false, false);
-		}
-		int num = Main.rand.Next(3);
-		if (num == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FlayerBlade").Type, 1, false, 0, false, false);
-		}
-		if (num == 1)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FlayerStaff").Type, 1, false, 0, false, false);
-		}
-		if (num == 2)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FlayerBow").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("MindFlayerMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FlayerTrophyItem").Type, 1, false, 0, false, false);
-		}
-		Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(5, 12), false, 0, false, false);
-		Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("EldritchBlood").Type, Main.rand.Next(15, 25), false, 0, false, false);
 		if (ShadowEventWorld.ShadowEventActive)
 		{
 			ShadowEventWorld.Phase2 = true;
 			string text = "The darkness thickens...";
 			if (Main.netMode == 0)
 			{
-				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142, false);
+				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 			}
 			if (Main.netMode == 2)
 			{
@@ -357,7 +346,7 @@ public class MindFlayer : ModNPC
 		}
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 3544;
 	}

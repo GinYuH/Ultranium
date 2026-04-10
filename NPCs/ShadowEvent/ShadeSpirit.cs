@@ -37,12 +37,12 @@ public class ShadeSpirit : ModNPC
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/ShadeSpiritTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+		Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/ShadeSpiritTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 		for (int i = 0; i < NPC.oldPos.Length; i++)
 		{
 			Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
-			Color color = NPC.GetAlpha(lightColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length);
-			spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/ShadeSpiritTrail"), position, null, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
+			Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length);
+			spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/ShadeSpiritTrail").Value, position, null, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}
@@ -67,7 +67,7 @@ public class ShadeSpirit : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
 	}
 
 	public override void AI()

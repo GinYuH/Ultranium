@@ -38,11 +38,11 @@ public class EldritchPumpkinBlade : ModItem
 		{
 			float num = 5f;
 			float num2 = MathHelper.ToRadians(25f);
-			position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+			position += Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 45f;
 			for (int i = 0; (float)i < num; i++)
 			{
-				Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-				Projectile.NewProjectile(null, position.X, position.Y, vector.X * 10f, vector.Y * 10f, Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, damage * 2, knockBack, player.whoAmI, 0f, 0f);
+				Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
+				Projectile.NewProjectile(null, position.X, position.Y, vector.X * 10f, vector.Y * 10f, Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, damage * 2, knockback, player.whoAmI, 0f, 0f);
 			}
 			return false;
 		}
@@ -57,7 +57,7 @@ public class EldritchPumpkinBlade : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "PumpkinBlade", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
 		val.AddIngredient(521, 10);

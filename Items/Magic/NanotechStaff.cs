@@ -39,8 +39,8 @@ public class NanotechStaff : ModItem
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NaniteBig").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NaniteBig").Type, damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;
@@ -52,7 +52,7 @@ public class NanotechStaff : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient(1346, 15);
 		val.AddTile(134);
 		val.Register();

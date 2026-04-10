@@ -207,7 +207,7 @@ public class FakeDreadHook : ModNPC
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture = ModContent.GetTexture("Ultranium/NPCs/Dread/DreadChain");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/Dread/DreadChain").Value;
 		NPC nPC = Main.npc[0];
 		for (int i = 0; i < Main.npc.Length; i++)
 		{

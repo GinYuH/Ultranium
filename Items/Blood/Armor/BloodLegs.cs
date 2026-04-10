@@ -27,7 +27,7 @@ public class BloodLegs : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 15);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 12);
 		val.AddTile(16);

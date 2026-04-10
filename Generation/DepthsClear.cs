@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Ultranium.Tiles.Ambient;
 using Ultranium.Tiles.ShadowBiome;
@@ -32,7 +33,7 @@ public class DepthsClear
 			[new Color(37, 41, 58)] = ModContent.WallType<DarkStoneWall>(),
 			[Color.Black] = -2
 		};
-		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.GetTexture("Ultranium/Generation/DepthsClear"), colorToTile, ModContent.GetTexture("Ultranium/Generation/DepthsClear"), colorToWall, ModContent.GetTexture("Ultranium/Generation/DepthsClear"));
+		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value, colorToTile, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value, colorToWall, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value);
 		texGenerator.Generate(x - texGenerator.width / 2, y - texGenerator.height / 2, silent: true, sync: true);
 	}
 }

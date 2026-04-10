@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
@@ -15,9 +16,9 @@ public class ErebusSky : CustomSky
 
 	public float Intensity;
 
-	public static Texture2D Rift;
+	public static Asset<Texture2D> Rift;
 
-	public static Texture2D SkyTexture;
+	public static Asset<Texture2D> SkyTexture;
 
 	public float Rotation;
 
@@ -35,20 +36,20 @@ public class ErebusSky : CustomSky
 
 	public override void OnLoad()
 	{
-		SkyTexture = ModContent.GetTexture("Ultranium/Backgrounds/ShadowEventSky/ErebusSky");
-		Rift = ModContent.GetTexture("Ultranium/Backgrounds/ShadowEventSky/ErebusRift");
+		SkyTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/ShadowEventSky/ErebusSky");
+		Rift = ModContent.Request<Texture2D>("Ultranium/Backgrounds/ShadowEventSky/ErebusRift");
 	}
 
 	public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
 	{
 		if (maxDepth >= float.MaxValue && minDepth < float.MaxValue && !Main.dayTime && ShadowEventWorld.ShadowEventActive && NPC.AnyNPCs(ModContent.NPCType<ErebusHead>()))
 		{
-			spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+			spriteBatch.Draw(SkyTexture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
 			Vector2 position = new Vector2(Main.screenWidth / 2, Main.screenHeight / 3);
 			Rotation -= 0.002f;
 			new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
 			_ = 0f * (new Vector2((float)Main.maxTilesX * 8f, (float)Main.worldSurface / 2f) - Main.screenPosition);
-			spriteBatch.Draw(Rift, position, null, Color.White * 0.5f * Intensity, Rotation, new Vector2(Rift.Width >> 1, Rift.Height >> 1), 1f, SpriteEffects.None, 1f);
+			spriteBatch.Draw(Rift.Value, position, null, Color.White * 0.5f * Intensity, Rotation, new Vector2(Rift.Value.Width >> 1, Rift.Value.Height >> 1), 1f, SpriteEffects.None, 1f);
 		}
 		if (Main.gameMenu || !((Entity)Main.LocalPlayer).active)
 		{

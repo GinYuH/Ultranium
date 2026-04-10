@@ -49,7 +49,7 @@ public class FlayerBow : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, Item.damage, knockBack, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		return false;
 	}
@@ -61,7 +61,7 @@ public class FlayerBow : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
 		val.AddTile(412);

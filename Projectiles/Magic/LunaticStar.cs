@@ -36,12 +36,12 @@ public class LunaticStar : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/Projectiles/Magic/LunaticStarTrail").Width * 0.5f, (float)Projectile.height * 0.5f);
+		Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/Projectiles/Magic/LunaticStarTrail").Width() * 0.5f, (float)Projectile.height * 0.5f);
 		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
 			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
 			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
-			Main.spriteBatch.Draw(ModContent.GetTexture("Ultranium/Projectiles/Magic/LunaticStarTrail"), position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/Projectiles/Magic/LunaticStarTrail").Value, position, null, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}

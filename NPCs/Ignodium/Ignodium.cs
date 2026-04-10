@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -40,7 +41,7 @@ public class Ignodium : ModNPC
 		NPC.width = 128;
 		NPC.height = 212;
 		NPC.HitSound = new SoundStyle("Ultranium/Sounds/GodHit");
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath")?.WithVolume(0.7f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath") with { PitchVariance = 0.5f };
 		NPC.damage = 50;
 		NPC.defense = 50;
 		NPC.lifeMax = 220000;
@@ -50,13 +51,12 @@ public class Ignodium : ModNPC
 		NPC.noTileCollide = true;
 		NPC.npcSlots = 1f;
 		NPC.alpha = 255;
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("IgnodiumBag").Type;
 		NPC.aiStyle = -1;
 		NPC.value = Item.buyPrice(0, 35);
 		players = 1;
 		if (!Phase2)
 		{
-			base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase1");
+			base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase1");
 		}
 		for (int i = 0; i < 206; i++)
 		{
@@ -115,7 +115,7 @@ public class Ignodium : ModNPC
 			if (Timer == 150)
 			{
 				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl")?.WithVolume(10f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 			}
 			if (Timer == 240 || Timer == 300 || Timer == 360 || Timer == 420 || Timer == 480 || Timer == 540)
 			{
@@ -140,7 +140,7 @@ public class Ignodium : ModNPC
 				}
 				if (Timer == 660 || Timer == 700 || Timer == 740 || Timer == 780 || Timer == 820)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					float num6 = 6.5f;
 					int num7 = Mod.Find<ModProjectile>("FlameGigaBlast").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
@@ -195,7 +195,7 @@ public class Ignodium : ModNPC
 				}
 				if (Timer == 660 || Timer == 720 || Timer == 780)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 					for (int j = 0; j < 7; j++)
 					{
 						Vector2 vector3 = (0.8975979f * (float)j).ToRotationVector2();
@@ -224,7 +224,7 @@ public class Ignodium : ModNPC
 				}
 				if (Timer == 720 || Timer == 750)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl")?.WithVolume(10f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 					Vector2 spinningpoint = new Vector2(6f, 0f).RotatedByRandom(Math.PI * 2.0);
 					for (int l = 0; l < 17; l++)
 					{
@@ -279,7 +279,7 @@ public class Ignodium : ModNPC
 		{
 			Phase2 = true;
 			Transition = true;
-			base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/GuardiansPhase2");
+			base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase2");
 		}
 		if (Transition)
 		{
@@ -289,7 +289,7 @@ public class Ignodium : ModNPC
 			TransitionTimer++;
 			if (TransitionTimer == 120)
 			{
-				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN")?.WithVolume(25f), -1, -1);
+				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 				for (int num16 = 0; num16 < 60; num16++)
 				{
 					int num17 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
@@ -423,7 +423,7 @@ public class Ignodium : ModNPC
 		}
 		if (DesperationTimer == 80)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN")?.WithVolume(25f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 			for (int num33 = 0; num33 < 60; num33++)
 			{
 				int num34 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
@@ -439,7 +439,7 @@ public class Ignodium : ModNPC
 		}
 		if (DesperationTimer == 180 || DesperationTimer == 220 || DesperationTimer == 260)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack")?.WithVolume(25f), -1, -1);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianAttack"));
 			float num35 = 2200f;
 			float num36 = 0f;
 			if (DesperationTimer == 180)
@@ -534,53 +534,17 @@ public class Ignodium : ModNPC
 		}
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("IgnodiumBossBag").Type));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("HellShard").Type, 1, 25, 31));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumTrophyItem").Type, 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("HellFlail").Type, Mod.Find<ModItem>("HellThrow").Type, Mod.Find<ModItem>("HellGun").Type, Mod.Find<ModItem>("HellJavelin").Type, Mod.Find<ModItem>("HellStaff").Type, Mod.Find<ModItem>("HellTome").Type, Mod.Find<ModItem>("HellScepter").Type)));
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(7);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellFlail").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellThrow").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellGun").Type, 1, false, 0, false, false);
-			}
-			if (num == 3)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellJavelin").Type, 1, false, 0, false, false);
-			}
-			if (num == 4)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellStaff").Type, 1, false, 0, false, false);
-			}
-			if (num == 5)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellTome").Type, 1, false, 0, false, false);
-			}
-			if (num == 6)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("HellScepter").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("HellShard").Type, Main.rand.Next(25, 32), false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("IgnodiumMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("IgnodiumTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedIgnodium)
 		{
 			UltraniumWorld.downedIgnodium = true;
@@ -591,7 +555,7 @@ public class Ignodium : ModNPC
 		}
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 3544;
 	}

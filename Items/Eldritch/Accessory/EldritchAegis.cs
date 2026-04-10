@@ -52,7 +52,7 @@ public class EldritchAegis : ModItem
 		player.buffImmune[22] = true;
 		if (player.statLife < (int)((float)player.statLifeMax2 * 0.25f))
 		{
-			player.AddBuff(62, 2, fromNetPvP: true);
+			player.AddBuff(62, 2, quiet: false);
 		}
 	}
 
@@ -65,7 +65,7 @@ public class EldritchAegis : ModItem
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "GuardianShield", 1);

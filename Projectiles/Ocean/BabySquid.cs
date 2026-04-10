@@ -51,10 +51,9 @@ public class BabySquid : ModProjectile
 			}
 		}
 		_ = Projectile.type;
-		Mod.Find<ModProjectile>("BabySquid").Type;
 		Player obj = Main.player[Projectile.owner];
-		UltraniumPlayer ultraniumPlayer = (UltraniumPlayer)(object)obj.GetModPlayer(Mod, "UltraniumPlayer");
-		obj.AddBuff(Mod.Find<ModBuff>("BabySquidBuff").Type, 3600, fromNetPvP: true);
+		UltraniumPlayer ultraniumPlayer = obj.GetModPlayer<UltraniumPlayer>();
+        obj.AddBuff(Mod.Find<ModBuff>("BabySquidBuff").Type, 3600, quiet: false);
 		if (obj.dead)
 		{
 			ultraniumPlayer.BabySquid = false;

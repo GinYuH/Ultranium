@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
@@ -29,9 +30,9 @@ public class AldinSky : CustomSky
 
 	public float Intensity;
 
-	public static Texture2D SkyTexture;
+	public static Asset<Texture2D> SkyTexture;
 
-	public static Texture2D MeteorTexture;
+	public static Asset<Texture2D> MeteorTexture;
 
 	private readonly UnifiedRandom _random = new UnifiedRandom();
 
@@ -65,8 +66,8 @@ public class AldinSky : CustomSky
 
 	public override void OnLoad()
 	{
-		MeteorTexture = ModContent.GetTexture("Ultranium/Backgrounds/Cosmic/AldinMeteor");
-		SkyTexture = ModContent.GetTexture("Ultranium/Backgrounds/Cosmic/CosmicSky");
+		MeteorTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/Cosmic/AldinMeteor");
+		SkyTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/Cosmic/CosmicSky");
 	}
 
 	public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
@@ -82,7 +83,7 @@ public class AldinSky : CustomSky
 			};
 			float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 			int num = (int)(Main.GameUpdateCount / 60 % 4);
-			spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lerp(array[num], array[(num + 1) % 4], amount));
+			spriteBatch.Draw(SkyTexture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Lerp(array[num], array[(num + 1) % 4], amount));
 		}
 		int num2 = -1;
 		int num3 = 0;
@@ -121,7 +122,7 @@ public class AldinSky : CustomSky
 				};
 				float amount2 = (float)(Main.GameUpdateCount % 60) / 60f;
 				int num6 = (int)(Main.GameUpdateCount / 60 % 2);
-				spriteBatch.Draw(MeteorTexture, position, new Rectangle(0, num5 * (MeteorTexture.Height / 4), MeteorTexture.Width, MeteorTexture.Height / 4), Color.Lerp(array2[num6], array2[(num6 + 1) % 2], amount2) * num4 * Intensity, 0f, Vector2.Zero, vector2.X * 5f * Meteors[j].Scale, SpriteEffects.None, 0f);
+				spriteBatch.Draw(MeteorTexture.Value, position, new Rectangle(0, num5 * (MeteorTexture.Value.Height / 4), MeteorTexture.Value.Width, MeteorTexture.Value.Height / 4), Color.Lerp(array2[num6], array2[(num6 + 1) % 2], amount2) * num4 * Intensity, 0f, Vector2.Zero, vector2.X * 5f * Meteors[j].Scale, SpriteEffects.None, 0f);
 			}
 		}
 		if (Main.gameMenu || !((Entity)Main.LocalPlayer).active)

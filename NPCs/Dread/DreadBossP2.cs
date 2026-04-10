@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -44,8 +45,7 @@ public class DreadBossP2 : ModNPC
 		NPC.DeathSound = SoundID.NPCDeath60;
 		NPC.value = Item.buyPrice(0, 15);
 		NPC.npcSlots = 1f;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Dread");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("DreadBag").Type;
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;
 	}
@@ -67,7 +67,7 @@ public class DreadBossP2 : ModNPC
 	{
 		if (projectile.type == 92 || projectile.type == 91)
 		{
-			damage /= 3;
+			modifiers.SourceDamage /= 3;
 		}
 	}
 
@@ -271,50 +271,20 @@ public class DreadBossP2 : ModNPC
 		return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("DreadBag").Type));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadTrophyItem").Type, 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSword").Type, Mod.Find<ModItem>("DreadBow").Type, Mod.Find<ModItem>("DreadStaff").Type, Mod.Find<ModItem>("DreadSummon").Type)));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadTooth").Type, 3));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadBreadItem").Type, 15));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadFlame").Type, 1, 10, 17));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadScale").Type, 1, 6, 11));
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(4);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadSword").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadBow").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadStaff").Type, 1, false, 0, false, false);
-			}
-			if (num == 3)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadSummon").Type, 1, false, 0, false, false);
-			}
-			if (Main.rand.Next(3) == 0)
-			{
-				Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadTooth").Type, 1, false, 0, false, false);
-			}
-			if (Main.rand.Next(15) == 0)
-			{
-				Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadBreadItem").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadFlame").Type, Main.rand.Next(10, 18), false, 0, false, false);
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadScale").Type, Main.rand.Next(6, 12), false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedDread)
 		{
 			UltraniumWorld.downedDread = true;
@@ -352,7 +322,7 @@ public class DreadBossP2 : ModNPC
 		return true;
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 499;
 	}

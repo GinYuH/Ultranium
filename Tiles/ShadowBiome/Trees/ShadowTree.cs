@@ -33,7 +33,7 @@ public class ShadowTree : ModTree
 
     public override void SetStaticDefaults()
     {
-        GrowsOnTileId = new int[1] { ModContent.TileType<ShadowGrass>() };
+        GrowsOnTileId = new int[] { ModContent.TileType<ShadowGrass>(), ModContent.TileType<PurpleShadowGrass>() };
     }
 
     public override Asset<Texture2D> GetTexture()

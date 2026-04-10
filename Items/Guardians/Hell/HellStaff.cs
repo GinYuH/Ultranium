@@ -38,7 +38,7 @@ public class HellStaff : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Projectile.NewProjectile(null, Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), Mod.Find<ModProjectile>("HellBeam").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(null, Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), Mod.Find<ModProjectile>("HellBeam").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 		return false;
 	}
 
@@ -53,7 +53,7 @@ public class HellStaff : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
 		val.AddTile(412);
 		val.Register();

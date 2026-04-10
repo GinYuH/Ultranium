@@ -41,21 +41,21 @@ public class DarkResonator : ModItem
 	{
 		if (ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
-			Main.NewText("Theres no stopping the darkness now...", (byte)61, byte.MaxValue, (byte)142, false);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
+			Main.NewText("Theres no stopping the darkness now...", (byte)61, byte.MaxValue, (byte)142);
 			return true;
 		}
 		if (!ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
-			Main.NewText("The Abyssal Armageddon has begun", (byte)61, byte.MaxValue, (byte)142, false);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
+            Main.NewText("The Abyssal Armageddon has begun", (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventWorld.ShadowEventActive = true;
 			return true;
 		}
 		if (Main.dayTime)
 		{
-			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening")?.WithVolume(0.6f)?.WithPitchVariance(0.1f), -1, -1);
-			Main.NewText("You can only use the artifact under the darkness of the moon", (byte)61, byte.MaxValue, (byte)142, false);
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
+            Main.NewText("You can only use the artifact under the darkness of the moon", (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventWorld.StartShadowEvent = false;
 			return true;
 		}
@@ -70,7 +70,7 @@ public class DarkResonator : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkResonatorBroken", 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 6);
 		val.AddIngredient((Mod)null, "NightmareFuel", 5);

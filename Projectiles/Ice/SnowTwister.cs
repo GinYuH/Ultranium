@@ -99,7 +99,7 @@ public class SnowTwister : ModProjectile
 			position.Y = 0f;
 			position.X = 0f;
 			position += new Vector2(bottom.X, num8) - Main.screenPosition;
-			Main.Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num4 + num10, origin, (1f + num11) * scale, effects, 0f);
+			Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num4 + num10, origin, (1f + num11) * scale, effects, 0f);
 		}
 		return false;
 	}

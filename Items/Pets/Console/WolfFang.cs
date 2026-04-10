@@ -26,7 +26,7 @@ public class WolfFang : ModItem
 	{
 		if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
 		{
-			player.AddBuff(Item.buffType, 3600, fromNetPvP: true);
+			player.AddBuff(Item.buffType, 3600, quiet: false);
 		}
 	}
 

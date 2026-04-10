@@ -23,7 +23,7 @@ public class AbyssSickleInvisible : ModProjectile
 		Projectile.height = 30;
 		Projectile.aiStyle = 0;
 		Projectile.friendly = true;
-		Projectile.melee = false/* tModPorter Suggestion: Remove. See Item.DamageType */;
+		Projectile.DamageType = DamageClass.Melee;
 		Projectile.DamageType = DamageClass.Magic;
 		Projectile.penetrate = 1;
 		Projectile.timeLeft = 1;

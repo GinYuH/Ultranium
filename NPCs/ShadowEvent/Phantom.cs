@@ -26,7 +26,7 @@ public class Phantom : ModNPC
 		NPC.defense = 60;
 		NPC.lifeMax = 2000;
 		NPC.HitSound = new SoundStyle("Ultranium/Sounds/PhantomHit");
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/PhantomDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/PhantomDeath") with { PitchVariance = 0.5f };
 		NPC.knockBackResist = 0.9f;
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
@@ -57,15 +57,15 @@ public class Phantom : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/PhantomGore3"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("PhantomGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("PhantomGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("PhantomGore3").Type);
 		return true;
 	}
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
 	}
 
 	public override void AI()
@@ -82,7 +82,7 @@ public class Phantom : ModNPC
 		}
 		if (Main.rand.Next(500) == 0)
 		{
-			SoundEngine.PlaySound(50, NPC.position, Mod.GetSoundSlot((SoundType)50, "Sounds/PhantomIdle"));
+			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/PhantomIdle"), NPC.position);
 		}
 	}
 

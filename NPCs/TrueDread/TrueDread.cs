@@ -3,8 +3,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.BossBags;
+using Ultranium.Items.Dread.Materials;
+using Ultranium.Items.Dread.TrueDread;
 
 namespace Ultranium.NPCs.TrueDread;
 
@@ -60,11 +64,10 @@ public class TrueDread : ModNPC
 		NPC.noTileCollide = true;
 		NPC.netAlways = true;
 		NPC.HitSound = SoundID.NPCHit7;
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/DreadRoar")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/DreadRoar") with { PitchVariance = 0.5f };
 		NPC.value = Item.buyPrice(0, 50);
 		NPC.npcSlots = 1f;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/RealDread");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("TrueDreadBag").Type;
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/RealDread");
 		NPC.aiStyle = -1;
 		players = 1;
 		for (int i = 0; i < 206; i++)
@@ -84,12 +87,12 @@ public class TrueDread : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/TrueDread/TrueDreadTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/TrueDread/TrueDreadTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/TrueDread/TrueDreadTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/TrueDread/TrueDreadTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 			}
 		}
 		return true;
@@ -99,7 +102,7 @@ public class TrueDread : ModNPC
 	{
 		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
 		{
-			damage /= 2;
+			modifiers.SourceDamage /= 2;
 		}
 	}
 
@@ -217,7 +220,7 @@ public class TrueDread : ModNPC
 				}
 				if (timer == 1120 || timer == 1150 || timer == 1180 || timer == 1210 || timer == 1240 || timer == 1270)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRay")?.WithVolume(70f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRay"));
 					float num14 = 10f;
 					float num15 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
 					_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num15) * (double)num14 * -1.0), (float)(Math.Sin(num15) * (double)num14 * -1.0), Mod.Find<ModProjectile>("DreadRay").Type, num4 + 10, 0f, 0, 0f, 0f)];
@@ -356,7 +359,7 @@ public class TrueDread : ModNPC
 				}
 				if (timer == 2490 || timer == 2550 || timer == 2610)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRay")?.WithVolume(70f), -1, -1);
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRay"));
 					float num27 = 2f;
 					float num28 = 0f;
 					if (timer == 2490)
@@ -487,6 +490,15 @@ public class TrueDread : ModNPC
 		return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TrueDreadBag>()));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadTrophyItem").Type, 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSpear").Type, Mod.Find<ModItem>("DreadYoyo").Type, Mod.Find<ModItem>("DreadDisc").Type, Mod.Find<ModItem>("DreadFlameBlaster").Type, Mod.Find<ModItem>("FearStaff").Type, Mod.Find<ModItem>("DreadTome").Type, Mod.Find<ModItem>("DreadScepter").Type)));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<NightmareFuel>(), 1, 20, 34));
+    }
+
 	public override void OnKill()
 	{
 		if (Main.bloodMoon)
@@ -500,55 +512,6 @@ public class TrueDread : ModNPC
 					NetMessage.SendData(7);
 				}
 			}
-		}
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(7);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadSpear").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadYoyo").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadDisc").Type, 1, false, 0, false, false);
-			}
-			if (num == 3)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadFlameBlaster").Type, 1, false, 0, false, false);
-			}
-			if (num == 4)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("FearStaff").Type, 1, false, 0, false, false);
-			}
-			if (num == 5)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadTome").Type, 1, false, 0, false, false);
-			}
-			if (num == 6)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadScepter").Type, 1, false, 0, false, false);
-			}
-			if (Main.rand.Next(8) == 0)
-			{
-				Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadBreadItem").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("NightmareFuel").Type, Main.rand.Next(20, 35), false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DreadTrophyItem").Type, 1, false, 0, false, false);
 		}
 		if (!UltraniumWorld.downedTrueDread)
 		{
@@ -620,7 +583,7 @@ public class TrueDread : ModNPC
 		return true;
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 3544;
 	}

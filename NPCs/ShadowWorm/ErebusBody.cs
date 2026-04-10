@@ -44,8 +44,8 @@ public class ErebusBody : ModNPC
 		NPC.defense = 120;
 		NPC.lifeMax = 385000;
 		NPC.knockBackResist = 0f;
-		NPC.HitSound = SoundID.NPCHit52?.WithVolume(5f);
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/ErebusRoar")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		NPC.HitSound = SoundID.NPCHit52;
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/ErebusRoar") with { PitchVariance = 0.5f };
 		NPC.behindTiles = true;
 		NPC.noTileCollide = true;
 		NPC.netAlways = true;
@@ -82,7 +82,7 @@ public class ErebusBody : ModNPC
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture = Mod.GetTexture("NPCs/ShadowWorm/Glow/ErebusBodyGlow");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowWorm/Glow/ErebusBodyGlow").Value;
 		Rectangle rectangle = new Rectangle(0, texture.Height * NPC.frame.Y, texture.Width, texture.Height);
 		Vector2 origin = rectangle.Size() * 0.5f;
 		spriteBatch.Draw(texture, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), rectangle, new Color(255, 255, 255, 0), NPC.rotation, origin, NPC.scale, SpriteEffects.None, 0f);
@@ -96,23 +96,29 @@ public class ErebusBody : ModNPC
 		return false;
 	}
 
-	public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
-	{
+    public override bool? CanBeHitByItem(Player player, Item item)
+    {
 		if (noDamageTime > 0)
 		{
-			damage = 0;
+			return false;
 		}
-	}
+		return null;
+    }
+
+    public override bool? CanBeHitByProjectile(Projectile projectile)
+    {
+        if (noDamageTime > 0)
+        {
+            return false;
+        }
+        return null;
+    }
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (noDamageTime > 0)
-		{
-			damage = 0;
-		}
 		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
 		{
-			damage /= 4;
+			modifiers.SourceDamage /= 4;
 		}
 	}
 
@@ -120,12 +126,12 @@ public class ErebusBody : ModNPC
 	{
 		if (!NPC.immortal)
 		{
-			damageDealt += (int)damage;
+			damageDealt += (int)hit.Damage;
 		}
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusBodyGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusBodyGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusBodyGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusBodyGore2").Type);
 		}
 	}
 

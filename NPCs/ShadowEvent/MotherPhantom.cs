@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -36,7 +37,7 @@ public class MotherPhantom : ModNPC
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.HitSound = new SoundStyle("Ultranium/Sounds/PhantomHit");
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MotherPhantomDeath")?.WithVolume(2f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MotherPhantomDeath") with { PitchVariance = 0.5f };
 		NPC.defense = 35;
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;
@@ -61,13 +62,13 @@ public class MotherPhantom : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/MotherPhantomTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/MotherPhantomTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				SpriteEffects effects = ((NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/MotherPhantomTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/MotherPhantomTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
 			}
 		}
 		return true;
@@ -75,11 +76,11 @@ public class MotherPhantom : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MotherPhantomGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MotherPhantomGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MotherPhantomGore3"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MotherPhantomGore4"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/MotherPhantomGore5"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore3").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore4").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore5").Type);
 		return true;
 	}
 
@@ -90,7 +91,7 @@ public class MotherPhantom : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
 	}
 
 	public override void AI()

@@ -3,8 +3,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.BossBags;
+using Ultranium.Items.Ice;
+using Ultranium.Items.Vanity.BossMasks;
+using Ultranium.Tiles.Trophy;
 
 namespace Ultranium.NPCs.IceDragon;
 
@@ -58,8 +63,7 @@ public class IceDragon : ModNPC
 		NPC.boss = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/IceDragon");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("IceDragonBag").Type;
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/IceDragon");
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -73,13 +77,13 @@ public class IceDragon : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/IceDragon/IceDragonTrail").Width * 0.45f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/IceDragon/IceDragonTrail").Width() * 0.45f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				SpriteEffects effects = ((NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/IceDragon/IceDragonTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/IceDragon/IceDragonTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
 			}
 		}
 		return true;
@@ -163,8 +167,8 @@ public class IceDragon : ModNPC
 			{
 				if (Timer1 == 280)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar")?.WithVolume(7f)?.WithPitchVariance(0.6f), -1, -1);
-				}
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
+                }
 				if (Timer1 == 300)
 				{
 					float num5 = 14f;
@@ -207,8 +211,8 @@ public class IceDragon : ModNPC
 				}
 				if (TransitionTimer == 250)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar")?.WithVolume(7f)?.WithPitchVariance(0.6f), -1, -1);
-					Ultranium.seizureAmount = 12f;
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
+                    Ultranium.seizureAmount = 12f;
 					BlizzardEffect = true;
 				}
 				if (TransitionTimer == 300)
@@ -298,8 +302,8 @@ public class IceDragon : ModNPC
 				}
 				if (AttackType2 == 2 && Timer2 == 400)
 				{
-					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar")?.WithVolume(7f)?.WithPitchVariance(0.6f), -1, -1);
-					float num14 = 4f;
+					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
+                    float num14 = 4f;
 					int num15 = Mod.Find<ModProjectile>("IceVortex").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num16 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
@@ -338,13 +342,13 @@ public class IceDragon : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore3"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore4"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore5"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore6"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/DragonGore7"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore3").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore4").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore5").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore6").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore7").Type);
 		return true;
 	}
 
@@ -366,37 +370,17 @@ public class IceDragon : ModNPC
 		}
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IceDragonBag>()));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonMask>(), 7));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonTrophyItem>()));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<GlacialFlail>(), ModContent.ItemType<GlacialGun>(), ModContent.ItemType<GlacialWand>())));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IcePelt>(), 1, 12, 17));
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(3);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlacialFlail").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlacialGun").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlacialWand").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("IcePelt").Type, Main.rand.Next(12, 18), false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("IceDragonMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("IceDragonTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedDragon)
 		{
 			UltraniumWorld.downedDragon = true;
@@ -410,7 +394,7 @@ public class IceDragon : ModNPC
 		Phase2 = false;
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 188;
 	}

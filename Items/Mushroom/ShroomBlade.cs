@@ -36,7 +36,7 @@ public class ShroomBlade : ModItem
 	{
 		if (Main.rand.Next(3) == 0)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}
@@ -47,7 +47,7 @@ public class ShroomBlade : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient(183, 10);
 		val.AddTile(16);
 		val.Register();

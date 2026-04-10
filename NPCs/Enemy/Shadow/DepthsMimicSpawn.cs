@@ -72,7 +72,7 @@ public class DepthsMimicSpawn : ModPlayer
 					{
 						if (Main.tile[j, k].TileType == 21)
 						{
-							Main.tile[j, k].HasTile = false;
+							Main.tile[j, k].Get<TileWallWireStateData>().HasTile = false;
 						}
 					}
 				}

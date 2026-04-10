@@ -45,7 +45,7 @@ public class EldritchGun : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Vector2 vector = new Vector2(speedX, speedY).SafeNormalize(-Vector2.UnitY);
+		Vector2 vector = new Vector2(velocity.X, velocity.Y).SafeNormalize(-Vector2.UnitY);
 		Vector2 vector2 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)).SafeNormalize(-Vector2.UnitY);
 		vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * Item.shootSpeed;
 		float num = (float)Main.rand.Next(10, 80) * 0.001f;
@@ -58,7 +58,7 @@ public class EldritchGun : ModItem
 		{
 			num2 *= -1f;
 		}
-		Projectile.NewProjectile(null, position, vector, type, damage, knockBack, player.whoAmI, num, num2);
+		Projectile.NewProjectile(null, position, vector, type, damage, knockback, player.whoAmI, num, num2);
 		return false;
 	}
 
@@ -69,7 +69,7 @@ public class EldritchGun : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
 		val.AddTile(412);

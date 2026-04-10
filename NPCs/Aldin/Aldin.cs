@@ -3,9 +3,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.BossBags;
+using Ultranium.Items.Cosmic;
+using Ultranium.Items.Vanity.Aldin;
 using Ultranium.NPCs.Town;
+using Ultranium.Tiles.Trophy;
 
 namespace Ultranium.NPCs.Aldin;
 
@@ -57,11 +62,10 @@ public class Aldin : ModNPC
 		NPC.noTileCollide = true;
 		NPC.netAlways = true;
 		NPC.HitSound = new SoundStyle("Ultranium/Sounds/GodHit");
-		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath")?.WithVolume(1f)?.WithPitchVariance(0.5f);
+		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/GodDeath") with { PitchVariance = 0.5f };
 		NPC.value = Item.buyPrice(0, 50);
 		NPC.npcSlots = 1000f;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Aldin");
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("AldinBag").Type;
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Aldin");
 		NPC.aiStyle = -1;
 		players = 1;
 		for (int i = 0; i < 206; i++)
@@ -95,7 +99,7 @@ public class Aldin : ModNPC
 	{
 		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
 		{
-			damage /= 10;
+			modifiers.SourceDamage /= 10;
 		}
 	}
 
@@ -103,12 +107,12 @@ public class Aldin : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/AldinTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Aldin/AldinTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/AldinTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 			}
 		}
 		return true;
@@ -116,7 +120,7 @@ public class Aldin : ModNPC
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Main.spriteBatch.Draw(Mod.GetTexture("NPCs/Aldin/AldinGlow"), NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/AldinGlow").Value, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.White, NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
 		Color[] array = new Color[5]
 		{
 			new Color(153, 255, 178),
@@ -127,7 +131,7 @@ public class Aldin : ModNPC
 		};
 		float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 		int num = (int)(Main.GameUpdateCount / 60 % 5);
-		Main.spriteBatch.Draw(Mod.GetTexture("NPCs/Aldin/AldinWingsGlow"), NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.Lerp(array[num], array[(num + 1) % 5], amount), NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/Aldin/AldinWingsGlow").Value, NPC.Center - Main.screenPosition + new Vector2(0f, NPC.gfxOffY), NPC.frame, Color.Lerp(array[num], array[(num + 1) % 5], amount), NPC.rotation, NPC.frame.Size() / 2f, NPC.scale, SpriteEffects.None, 0f);
 	}
 
 	public override void AI()
@@ -928,50 +932,22 @@ public class Aldin : ModNPC
 		return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 3544;
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AldinBag>()));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AldinTrophyItem>(), 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<CosmicBlade>(), ModContent.ItemType<CosmicBow>(), ModContent.ItemType<CosmicStaff>())));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AldinHood>(), ModContent.ItemType<AldinBody>(), ModContent.ItemType<AldinRobe>())));
+
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(3);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicBlade").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicBow").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("CosmicStaff").Type, 1, false, 0, false, false);
-			}
-			int num2 = Main.rand.Next(3);
-			if (num2 == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinHood").Type, 1, false, 0, false, false);
-			}
-			if (num2 == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinBody").Type, 1, false, 0, false, false);
-			}
-			if (num2 == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinRobe").Type, 1, false, 0, false, false);
-			}
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("AldinTrophyItem").Type, 1, false, 0, false, false);
-		}
 		Keeper.CanSpawnAldin = false;
 		NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Keeper").Type, 0, 0f, 0f, 0f, 0f, 255);
 		if (!UltraniumWorld.downedAldin)

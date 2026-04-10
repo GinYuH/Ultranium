@@ -40,7 +40,7 @@ public class UltraniumSword : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Vector2 vector = Vector2.Normalize(new Vector2(speedX, speedY)) * 100f;
+		Vector2 vector = Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 100f;
 		if (Collision.CanHit(position, 0, 0, position + vector, 0, 0))
 		{
 			position += vector;
@@ -48,7 +48,7 @@ public class UltraniumSword : ModItem
 		int num = Main.rand.Next(3, 4);
 		for (int i = 0; i < num; i++)
 		{
-			Projectile.NewProjectile(null, position, new Vector2(speedX, speedY).RotatedByRandom(0.19634954631328583), type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y).RotatedByRandom(0.19634954631328583), type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}
@@ -59,7 +59,7 @@ public class UltraniumSword : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
 		val.AddTile(412);
 		val.Register();

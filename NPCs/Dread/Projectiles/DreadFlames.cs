@@ -39,7 +39,7 @@ public class DreadFlames : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DreadDebuff").Type, 240, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("DreadDebuff").Type, 240, quiet: false);
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)

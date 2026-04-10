@@ -115,7 +115,7 @@ internal class ShadowLamp : ModTile
 		int num2 = 0;
 		int height = 16;
 		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
-		Texture2D texture = Mod.GetTexture("Tiles/Furniture/ShadowLamp_Flame");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Tiles/Furniture/ShadowLamp_Flame").Value;
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{

@@ -36,8 +36,8 @@ public class Hallow2 : ModItem
 	{
 		if (Main.rand.Next(5) == 0)
 		{
-			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("HallowBlast").Type, 160, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("HallowBlast").Type, 160, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;
@@ -53,7 +53,7 @@ public class Hallow2 : ModItem
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0049: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0054: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "Hallow", 1);
 		val.AddIngredient(549, 5);
 		val.AddIngredient(548, 5);

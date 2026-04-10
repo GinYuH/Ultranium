@@ -162,6 +162,6 @@ public class EtherealPortalSmall : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("ShadowflameDebuff").Type, 120, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("ShadowflameDebuff").Type, 120, quiet: false);
 	}
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 using Ultranium.Tiles.Ambient;
@@ -40,7 +41,7 @@ public class Depths
 			[new Color(34, 166, 162)] = ModContent.WallType<ShadowStoneWall>(),
 			[Color.Black] = -2
 		};
-		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.GetTexture("Ultranium/Generation/Depths"), colorToTile, ModContent.GetTexture("Ultranium/Generation/DepthsWalls"), colorToWall, ModContent.GetTexture("Ultranium/Generation/DepthsWater"));
+		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("Ultranium/Generation/Depths").Value, colorToTile, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsWalls").Value, colorToWall, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsWater").Value);
 		texGenerator.Generate(x - texGenerator.width / 2, y - texGenerator.height / 2, silent: true, sync: true);
 		WorldGen.PlaceChest(x - 6, y + 229, (ushort)ModContent.TileType<ShadowChest>());
 	}

@@ -17,7 +17,7 @@ public class IgnodiumTrophy : ModTile
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)Type);
 		base.DustType = 7;
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");
 		AddMapEntry(new Color(120, 85, 60), val);

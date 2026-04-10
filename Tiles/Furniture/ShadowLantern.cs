@@ -22,7 +22,7 @@ public class ShadowLantern : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Lantern");
 		AddMapEntry(new Color(31, 34, 40), val);
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
 		TileObjectData.addTile((int)Type);
 		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
@@ -53,7 +53,7 @@ public class ShadowLantern : ModTile
 		int num2 = 0;
 		int height = 8;
 		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
-		Texture2D texture = Mod.GetTexture("Tiles/Furniture/ShadowLantern_Flame");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Tiles/Furniture/ShadowLantern_Flame").Value;
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{

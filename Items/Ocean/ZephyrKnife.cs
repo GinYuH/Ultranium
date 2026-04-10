@@ -40,8 +40,8 @@ public class ZephyrKnife : ModItem
 		Use++;
 		if (Use >= 20)
 		{
-			Vector2 vector = new Vector2(speedX, speedY);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("WaterKnife").Type, Item.damage, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y);
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("WaterKnife").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 			Use = 0;
 			return false;
 		}
@@ -55,7 +55,7 @@ public class ZephyrKnife : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "OceanScale", 8);
 		val.AddIngredient(275, 5);
 		val.AddTile(16);

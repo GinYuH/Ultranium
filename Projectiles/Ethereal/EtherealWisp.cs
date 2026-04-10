@@ -42,10 +42,9 @@ public class EtherealWisp : ModProjectile
 	public override void AI()
 	{
 		_ = Projectile.type;
-		Mod.Find<ModProjectile>("Wisp").Type;
 		Player obj = Main.player[Projectile.owner];
-		UltraniumPlayer ultraniumPlayer = (UltraniumPlayer)(object)obj.GetModPlayer(Mod, "UltraniumPlayer");
-		obj.AddBuff(Mod.Find<ModBuff>("WispBuff").Type, 3600, fromNetPvP: true);
+		UltraniumPlayer ultraniumPlayer = obj.GetModPlayer<UltraniumPlayer>();
+		obj.AddBuff(Mod.Find<ModBuff>("WispBuff").Type, 3600, quiet: false);
 		if (obj.dead)
 		{
 			ultraniumPlayer.Wisp = false;

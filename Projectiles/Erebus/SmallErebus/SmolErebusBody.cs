@@ -54,7 +54,7 @@ public class SmolErebusBody : ModProjectile
 
 	public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)
 	{
-		drawCacheProjsBehindProjectiles.Add(index);
+		behindProjectiles.Add(index);
 	}
 
 	public override bool PreDraw(ref Color lightColor)
@@ -63,7 +63,7 @@ public class SmolErebusBody : ModProjectile
 		int num = TextureAssets.Projectile[Projectile.type].Value.Height / Main.projFrames[Projectile.type];
 		Color color = Lighting.GetColor((int)(Projectile.Center.X / 16f), (int)(Projectile.Center.Y / 16f));
 		int y = num * Projectile.frame;
-		Main.Main.spriteBatch.Draw(texture2D, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle(0, y, texture2D.Width, num), color, Projectile.rotation, new Vector2((float)texture2D.Width / 2f, (float)num / 2f), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture2D, Projectile.Center - Main.screenPosition + new Vector2(0f, Projectile.gfxOffY), new Rectangle(0, y, texture2D.Width, num), color, Projectile.rotation, new Vector2((float)texture2D.Width / 2f, (float)num / 2f), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
 		return false;
 	}
 

@@ -36,7 +36,7 @@ public class ShrineChest : ModTile
 		// val.SetDefault("Shrine Chest");
 		AddMapEntry(new Color(88, 72, 88), val, (Func<string, int, int, string>)MapChestName);
 		base.DustType = 0;
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
 		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShrineChestItem").Type;
 		base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Shrine Chest";

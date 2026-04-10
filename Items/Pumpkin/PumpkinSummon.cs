@@ -63,11 +63,10 @@ public class PumpkinSummon : ModItem
 		//IL_0029: Expected O, but got Unknown
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient(1725, 20);
-		val.AddIngredient(9, 20);
-		((Recipe)val).anyWood = true;
-		val.AddTile(18);
+        val.AddRecipeGroup(RecipeGroupID.Wood, 20);
+        val.AddTile(18);
 		val.Register();
 	}
 }

@@ -33,7 +33,7 @@ public class AuroraHead : ModItem
 	public override void UpdateArmorSet(Player player)
 	{
 		player.setBonus = "\n+2 max minions\nStars will fall from the sky when you are hit";
-		player.starCloak = true;
+		player.starCloakItem = Item;
 		player.maxMinions += 2;
 	}
 
@@ -53,7 +53,7 @@ public class AuroraHead : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AuroraBar", 6);
 		val.AddTile(16);
 		val.Register();

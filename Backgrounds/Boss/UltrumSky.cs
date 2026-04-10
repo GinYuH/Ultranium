@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
@@ -9,7 +10,7 @@ namespace Ultranium.Backgrounds.Boss;
 
 public class UltrumSky : CustomSky
 {
-	public static Texture2D SkyTexture;
+	public static Asset<Texture2D> SkyTexture;
 
 	public bool Active;
 
@@ -17,7 +18,7 @@ public class UltrumSky : CustomSky
 
 	public override void OnLoad()
 	{
-		SkyTexture = ModContent.GetTexture("Ultranium/Backgrounds/Boss/UltrumSky");
+		SkyTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/Boss/UltrumSky");
 	}
 
 	public override void Update(GameTime gameTime)
@@ -43,12 +44,12 @@ public class UltrumSky : CustomSky
 		{
 			return;
 		}
-		Lighting.brightness = 0.5f;
+		Lighting.GlobalBrightness = 0.5f;
 		if (!Main.dayTime || Main.dayTime)
 		{
-			spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+			spriteBatch.Draw(SkyTexture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
 			_ = (double)(0f - Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0);
-			Main.bgColor = Color.Black;
+			Main.ColorOfTheSkies = Color.Black;
 			if (!Main.gameMenu)
 			{
 				_ = Main.netMode;

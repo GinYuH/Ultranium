@@ -63,13 +63,13 @@ public class FlayerWraith : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/FlayerWraithTrail").Width * 0.5f, (float)NPC.height * 0.5f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/FlayerWraithTrail").Width() * 0.5f, (float)NPC.height * 0.5f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				SpriteEffects effects = ((NPC.direction != -1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/ShadowEvent/FlayerWraithTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/FlayerWraithTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, effects, 0f);
 			}
 		}
 		return true;
@@ -77,14 +77,14 @@ public class FlayerWraith : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/FlayerWraithGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/FlayerWraithGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("FlayerWraithGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("FlayerWraithGore2").Type);
 		return true;
 	}
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180);
 	}
 
 	public override Color? GetAlpha(Color lightColor)

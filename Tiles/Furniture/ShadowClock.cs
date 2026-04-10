@@ -21,7 +21,7 @@ public class ShadowClock : ModTile
 		TileObjectData.addTile((int)Type);
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Clock");
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		AddMapEntry(new Color(31, 34, 40), val);
 		base.AdjTiles = new int[1] { 104 };
 		base.AnimationFrameHeight = 88;

@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
@@ -10,7 +11,7 @@ namespace Ultranium.Backgrounds.ShadowBiome.Sky;
 
 public class ShadowBiomeSky : CustomSky
 {
-	public static Texture2D SkyTexture;
+	public static Asset<Texture2D> SkyTexture;
 
 	public bool Active;
 
@@ -22,7 +23,7 @@ public class ShadowBiomeSky : CustomSky
 
 	public override void OnLoad()
 	{
-		SkyTexture = ModContent.GetTexture("Ultranium/Backgrounds/ShadowBiome/Sky/ShadowBiomeSky");
+		SkyTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/ShadowBiome/Sky/ShadowBiomeSky");
 	}
 
 	public override void Update(GameTime gameTime)

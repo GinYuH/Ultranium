@@ -51,7 +51,7 @@ public class AbyssDragonHead : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AbyssRockItem", 45);
 		val.AddIngredient((Mod)null, "DepthGlowstoneItem", 35);
 		val.AddTile(134);

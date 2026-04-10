@@ -18,7 +18,7 @@ public class FlayerMusicBoxTile : ModTile
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.DrawYOffset = 2;
 		TileObjectData.addTile((int)Type);
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Music Box");
 		AddMapEntry(new Color(200, 200, 200), val);

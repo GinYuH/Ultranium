@@ -123,7 +123,7 @@ public class EldritchFlail : ModProjectile
 		Rectangle rectangle = new Rectangle(0, 0, texture2D.Width, 42);
 		Vector2 vector2 = new Vector2(0f, Main.player[Projectile.owner].gfxOffY);
 		float rotation = Projectile.rotation + (float)Math.PI;
-		Main.Main.spriteBatch.Draw(texture2D, Projectile.Center.Floor() - Main.screenPosition + vector2, rectangle, alpha, rotation, rectangle.Size() / 2f - Vector2.UnitY * 4f, Projectile.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture2D, Projectile.Center.Floor() - Main.screenPosition + vector2, rectangle, alpha, rotation, rectangle.Size() / 2f - Vector2.UnitY * 4f, Projectile.scale, SpriteEffects.None, 0f);
 		num -= 40f * Projectile.scale;
 		Vector2 vector3 = Projectile.Center.Floor();
 		vector3 += vector * Projectile.scale * 24f;
@@ -137,7 +137,7 @@ public class EldritchFlail : ModProjectile
 				{
 					rectangle.Height = (int)(num - num2);
 				}
-				Main.Main.spriteBatch.Draw(texture2D, vector3 - Main.screenPosition + vector2, rectangle, alpha, rotation, new Vector2(rectangle.Width / 2, 0f), Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(texture2D, vector3 - Main.screenPosition + vector2, rectangle, alpha, rotation, new Vector2(rectangle.Width / 2, 0f), Projectile.scale, SpriteEffects.None, 0f);
 				num2 += (float)rectangle.Height * Projectile.scale;
 				vector3 += vector * rectangle.Height * Projectile.scale;
 			}
@@ -165,13 +165,13 @@ public class EldritchFlail : ModProjectile
 				{
 					num7 *= 0.75f;
 				}
-				Main.Main.spriteBatch.Draw(texture2D, vector3 - Main.screenPosition + vector2, rectangle, alpha, rotation, new Vector2(rectangle.Width / 2, 0f), Projectile.scale, SpriteEffects.None, 0f);
+				Main.spriteBatch.Draw(texture2D, vector3 - Main.screenPosition + vector2, rectangle, alpha, rotation, new Vector2(rectangle.Width / 2, 0f), Projectile.scale, SpriteEffects.None, 0f);
 				num5 += num7;
 				vector3 += vector * num7;
 			}
 		}
 		rectangle = new Rectangle(0, 90, texture2D.Width, 48);
-		Main.Main.spriteBatch.Draw(texture2D, vector4 - Main.screenPosition + vector2, rectangle, alpha, rotation, Utils.Frame(texture2D, 1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(texture2D, vector4 - Main.screenPosition + vector2, rectangle, alpha, rotation, Utils.Frame(texture2D, 1, 1, 0, 0).Top(), Projectile.scale, SpriteEffects.None, 0f);
 		return false;
 	}
 

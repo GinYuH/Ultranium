@@ -44,18 +44,18 @@ public class XenanisSky : CustomSky
 
 	public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
 	{
-		Texture2D texture = ModContent.GetTexture("Ultranium/Backgrounds/EtherealSky/EtherealBeam");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/EtherealSky/EtherealBeam").Value;
 		Texture2D[] array = new Texture2D[3];
 		for (int i = 0; i < array.Length; i++)
 		{
-			array[i] = ModContent.GetTexture("Ultranium/Backgrounds/EtherealSky/Rock" + i);
+			array[i] = ModContent.Request<Texture2D>("Ultranium/Backgrounds/EtherealSky/Rock" + i).Value;
 		}
-		Texture2D texture2 = ModContent.GetTexture("Ultranium/Backgrounds/EtherealSky/XenanisSky");
+		Texture2D texture2 = ModContent.Request<Texture2D>("Ultranium/Backgrounds/EtherealSky/XenanisSky").Value;
 		if (maxDepth >= float.MaxValue && minDepth < float.MaxValue && !Main.dayTime)
 		{
 			spriteBatch.Draw(texture2, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
 			_ = (double)(0f - Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0);
-			Main.bgColor = Color.White;
+			Main.ColorOfTheSkies = Color.White;
 			if (!Main.gameMenu)
 			{
 				_ = Main.netMode;

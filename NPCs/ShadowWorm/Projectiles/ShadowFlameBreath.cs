@@ -38,7 +38,7 @@ public class ShadowFlameBreath : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300, fromNetPvP: true);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300, quiet: false);
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)

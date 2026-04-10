@@ -35,7 +35,7 @@ public class ErebusTail : ModNPC
 		NPC.defense = 75;
 		NPC.lifeMax = 385000;
 		NPC.knockBackResist = 0f;
-		NPC.HitSound = SoundID.NPCHit52?.WithVolume(5f);
+		NPC.HitSound = SoundID.NPCHit52;
 		NPC.behindTiles = true;
 		NPC.noTileCollide = true;
 		NPC.netAlways = true;
@@ -63,7 +63,7 @@ public class ErebusTail : ModNPC
 
 	public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
 	{
-		Texture2D texture = Mod.GetTexture("NPCs/ShadowWorm/Glow/ErebusTailGlow");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowWorm/Glow/ErebusTailGlow").Value;
 		Rectangle rectangle = new Rectangle(0, texture.Height * NPC.frame.Y, texture.Width, texture.Height);
 		Vector2 origin = rectangle.Size() * 0.5f;
 		SpriteEffects effects = SpriteEffects.None;
@@ -78,23 +78,29 @@ public class ErebusTail : ModNPC
 		return false;
 	}
 
-	public override void ModifyHitByItem(Player player, Item item, ref NPC.HitModifiers modifiers)
-	{
-		if (noDamageTime > 0)
+    public override bool? CanBeHitByItem(Player player, Item item)
+    {
+        if (noDamageTime > 0)
 		{
-			damage = 0;
-		}
-	}
+			return false;
+        }
+		return null;
+    }
+
+    public override bool? CanBeHitByProjectile(Projectile projectile)
+    {
+        if (noDamageTime > 0)
+        {
+            return false;
+        }
+        return null;
+    }
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (noDamageTime > 0)
-		{
-			damage = 0;
-		}
 		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
 		{
-			damage /= 4;
+			modifiers.SourceDamage /= 4;
 		}
 	}
 
@@ -102,11 +108,11 @@ public class ErebusTail : ModNPC
 	{
 		if (!NPC.immortal)
 		{
-			damageDealt += (int)damage;
+			damageDealt += (int)hit.Damage;
 		}
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ErebusTailGore"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusTailGore").Type);
 		}
 	}
 

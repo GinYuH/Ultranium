@@ -43,7 +43,7 @@ public class DepthsBow : ModItem
 	{
 		if (Main.rand.Next(4) == 0)
 		{
-			Vector2 vector = new Vector2(speedX, speedY).SafeNormalize(-Vector2.UnitY);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y).SafeNormalize(-Vector2.UnitY);
 			Vector2 vector2 = new Vector2(Main.rand.Next(-100, 101), Main.rand.Next(-100, 101)).SafeNormalize(-Vector2.UnitY);
 			vector = (vector * 4f + vector2).SafeNormalize(-Vector2.UnitY) * Item.shootSpeed;
 			float num = (float)Main.rand.Next(10, 80) * 0.001f;
@@ -56,7 +56,7 @@ public class DepthsBow : ModItem
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(null, position, vector, Mod.Find<ModProjectile>("ShadeTentacle").Type, Item.damage * 2, knockBack, player.whoAmI, num, num2);
+			Projectile.NewProjectile(null, position, vector, Mod.Find<ModProjectile>("ShadeTentacle").Type, Item.damage * 2, knockback, player.whoAmI, num, num2);
 			return false;
 		}
 		return true;

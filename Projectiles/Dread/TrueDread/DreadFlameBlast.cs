@@ -53,14 +53,14 @@ public class DreadFlameBlast : ModProjectile
 				Projectile.frame = 0;
 			}
 		}
-		Texture2D texture = ModContent.GetTexture("Ultranium/Projectiles/Dread/TrueDread/DreadFlameBlastTrail");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Projectiles/Dread/TrueDread/DreadFlameBlastTrail").Value;
 		Vector2 vector = new Vector2((float)texture.Width * 0.5f, (float)Projectile.height * 0.5f);
 		for (int i = 0; i < Projectile.oldPos.Length; i++)
 		{
 			Vector2 position = Projectile.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, Projectile.gfxOffY);
 			Color color = Projectile.GetAlpha(lightColor) * ((float)(Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
 			Rectangle value = new Rectangle(0, texture.Height / Main.projFrames[Projectile.type] * Projectile.frame, texture.Width, texture.Height / Main.projFrames[Projectile.type]);
-			sb.Draw(texture, position, value, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(texture, position, value, color, Projectile.rotation, vector, Projectile.scale, SpriteEffects.None, 0f);
 		}
 		return true;
 	}

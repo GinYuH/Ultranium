@@ -36,8 +36,8 @@ public class StarMinion : ModProjectile
 	public override bool PreDraw(ref Color lightColor)
 	{
 		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
-		Main.spriteBatch.Draw(ModContent.GetTexture("Ultranium/Projectiles/Minion/StarMinionBack"), Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(Color.White), Projectile.rotation, new Vector2(texture2D.Width / 2, texture2D.Height / 2), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
-		Main.spriteBatch.Draw(ModContent.GetTexture("Ultranium/Projectiles/Minion/StarMinion"), Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(Color.White), Projectile.rotation * -1f, new Vector2(texture2D.Width / 2, texture2D.Height / 2), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/Projectiles/Minion/StarMinionBack").Value, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(Color.White), Projectile.rotation, new Vector2(texture2D.Width / 2, texture2D.Height / 2), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
+		Main.spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/Projectiles/Minion/StarMinion").Value, Projectile.Center - Main.screenPosition, null, Projectile.GetAlpha(Color.White), Projectile.rotation * -1f, new Vector2(texture2D.Width / 2, texture2D.Height / 2), Projectile.scale, (Projectile.spriteDirection != 1) ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0f);
 		return false;
 	}
 

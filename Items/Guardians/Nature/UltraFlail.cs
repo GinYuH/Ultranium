@@ -41,11 +41,11 @@ public class UltraFlail : ModItem
 	{
 		float num = (Main.rand.NextFloat() - 0.75f) * ((float)Math.PI / 4f);
 		float num2 = 0.783f;
-		float num3 = (float)Math.Sqrt(speedX * speedX + speedY * speedY);
-		double num4 = Math.Atan2(speedX, speedY) - 0.1;
+		float num3 = (float)Math.Sqrt(velocity.X * velocity.X + velocity.Y * velocity.Y);
+		double num4 = Math.Atan2(velocity.X, velocity.Y) - 0.1;
 		double num5 = num2 / 6f;
 		double num6 = num4 + num5 * 1.0;
-		Projectile.NewProjectile(null, position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockBack, player.whoAmI, 0f, num);
+		Projectile.NewProjectile(null, position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockback, player.whoAmI, 0f, num);
 		return false;
 	}
 
@@ -60,7 +60,7 @@ public class UltraFlail : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
 		val.AddTile(412);
 		val.Register();

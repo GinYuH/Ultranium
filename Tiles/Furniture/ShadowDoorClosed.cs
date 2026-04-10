@@ -43,7 +43,7 @@ public class ShadowDoorClosed : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Door");
 		AddMapEntry(new Color(31, 34, 40), val);
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 10 };
 		base.openDoorID = Mod.Find<ModTile>("ShadowDoorOpen").Type;
 	}

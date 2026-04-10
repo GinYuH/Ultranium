@@ -38,7 +38,7 @@ public class FlameSky : CustomSky
 		if (!Main.dayTime || Main.dayTime)
 		{
 			_ = (double)(0f - Main.screenPosition.Y) / (Main.worldSurface * 16.0 - 600.0);
-			Main.bgColor = Color.White;
+			Main.ColorOfTheSkies = Color.White;
 			if (!Main.gameMenu)
 			{
 				_ = Main.netMode;

@@ -93,7 +93,7 @@ public class HellFlail : ModProjectile
 
 	public override bool PreDraw(ref Color lightColor)
 	{
-		Texture2D texture = ModContent.GetTexture("Ultranium/Projectiles/Guardians/Hell/HellChain");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Projectiles/Guardians/Hell/HellChain").Value;
 		Vector2 center = Projectile.Center;
 		Vector2 mountedCenter = Main.player[Projectile.owner].MountedCenter;
 		Rectangle? sourceRectangle = null;
@@ -123,7 +123,7 @@ public class HellFlail : ModProjectile
 			vector = mountedCenter - center;
 			Color color = Lighting.GetColor((int)center.X / 16, (int)((double)center.Y / 16.0));
 			color = Projectile.GetAlpha(color);
-			Main.Main.spriteBatch.Draw(texture, center - Main.screenPosition, sourceRectangle, color, rotation, origin, 1.35f, SpriteEffects.None, 0f);
+			Main.spriteBatch.Draw(texture, center - Main.screenPosition, sourceRectangle, color, rotation, origin, 1.35f, SpriteEffects.None, 0f);
 		}
 		return true;
 	}

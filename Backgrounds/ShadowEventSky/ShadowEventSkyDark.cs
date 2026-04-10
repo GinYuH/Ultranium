@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
@@ -10,9 +11,9 @@ namespace Ultranium.Backgrounds.ShadowEventSky;
 
 public class ShadowEventSkyDark : CustomSky
 {
-	public static Texture2D Rift;
+	public static Asset<Texture2D> Rift;
 
-	public static Texture2D SkyTexture;
+	public static Asset<Texture2D> SkyTexture;
 
 	public bool Active;
 
@@ -24,8 +25,8 @@ public class ShadowEventSkyDark : CustomSky
 
 	public override void OnLoad()
 	{
-		SkyTexture = ModContent.GetTexture("Ultranium/Backgrounds/ShadowEventSky/NightmareSkyDark");
-		Rift = ModContent.GetTexture("Ultranium/Backgrounds/ShadowEventSky/NightmareRiftDark");
+		SkyTexture = ModContent.Request<Texture2D>("Ultranium/Backgrounds/ShadowEventSky/NightmareSkyDark");
+		Rift = ModContent.Request<Texture2D>("Ultranium/Backgrounds/ShadowEventSky/NightmareRiftDark");
 	}
 
 	public override void Update(GameTime gameTime)
@@ -49,12 +50,12 @@ public class ShadowEventSkyDark : CustomSky
 	{
 		if (maxDepth >= float.MaxValue && minDepth < float.MaxValue && !Main.dayTime && ShadowEventWorld.ShadowEventActive && ShadowEventWorld.Phase2)
 		{
-			spriteBatch.Draw(SkyTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
+			spriteBatch.Draw(SkyTexture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
 			Vector2 position = new Vector2(Main.screenWidth / 2, Main.screenHeight / 3);
 			Rotation -= 0.002f;
 			new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
 			_ = 0f * (new Vector2((float)Main.maxTilesX * 8f, (float)Main.worldSurface / 2f) - Main.screenPosition);
-			spriteBatch.Draw(Rift, position, null, Color.White * 0.5f * Intensity, Rotation, new Vector2(Rift.Width >> 1, Rift.Height >> 1), 1f, SpriteEffects.None, 1f);
+			spriteBatch.Draw(Rift.Value, position, null, Color.White * 0.5f * Intensity, Rotation, new Vector2(Rift.Value.Width >> 1, Rift.Value.Height >> 1), 1f, SpriteEffects.None, 1f);
 		}
 		if (Main.gameMenu || !((Entity)Main.LocalPlayer).active)
 		{

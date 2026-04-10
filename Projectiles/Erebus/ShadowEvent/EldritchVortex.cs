@@ -110,9 +110,9 @@ public class EldritchVortex : ModProjectile
 				}
 				color3.A = (byte)((float)(int)color3.A * 0.5f);
 				color3 *= num3;
-				Main.Main.spriteBatch.Draw(texture2D, position, rectangle, color3, num5 + num11, origin, (1f + num12) * scale * 0.8f, effects, 0f);
+				Main.spriteBatch.Draw(texture2D, position, rectangle, color3, num5 + num11, origin, (1f + num12) * scale * 0.8f, effects, 0f);
 			}
-			Main.Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num5 + num11, origin, (1f + num12) * scale, effects, 0f);
+			Main.spriteBatch.Draw(texture2D, position, rectangle, color2, num5 + num11, origin, (1f + num12) * scale, effects, 0f);
 		}
 		return false;
 	}

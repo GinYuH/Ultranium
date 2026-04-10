@@ -58,7 +58,7 @@ public class GhostBow : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Vector2[] array = randomSpread(speedX, speedY, 8, 3);
+		Vector2[] array = randomSpread(velocity.X, velocity.Y, 8, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Projectile.NewProjectile(null, position.X, position.Y, array[i].X, array[i].Y, Mod.Find<ModProjectile>("GhostArrow").Type, 50, 1f, player.whoAmI, 0f, 0f);
@@ -72,7 +72,7 @@ public class GhostBow : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient(3261, 12);
 		val.AddTile(134);
 		val.Register();

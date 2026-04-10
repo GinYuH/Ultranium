@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Buffs;
@@ -13,8 +14,8 @@ public class EtherealCooldown : ModBuff
 		Main.pvpBuff[((ModBuff)this).Type] = false;
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;
-		base.longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = false;
-	}
+        BuffID.Sets.LongerExpertDebuff[Type] = false;
+    }
 
 	public override void Update(Player player, ref int buffIndex)
 	{

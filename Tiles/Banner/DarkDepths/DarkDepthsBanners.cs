@@ -21,7 +21,7 @@ public class DarkDepthsBanners : ModTile
 		TileObjectData.newTile.StyleWrapLimit = 111;
 		TileObjectData.addTile((int)Type);
 		base.DustType = -1;
-		base.disableSmartCursor/* tModPorter Note: Removed. Use TileID.Sets.DisableSmartCursor instead */ = true;
+		TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Banner");
 		AddMapEntry(new Color(13, 88, 130), val);
@@ -109,8 +109,8 @@ public class DarkDepthsBanners : ModTile
 				text = "AbyssEel";
 				break;
 			}
-			localPlayer.NPCBannerBuff[Mod.Find<ModNPC>(text).Type] = true;
-			localPlayer.hasBanner = true;
+			//localPlayer.NPCBannerBuff[Mod.Find<ModNPC>(text).Type] = true;
+			//localPlayer.hasBanner = true;
 		}
 	}
 

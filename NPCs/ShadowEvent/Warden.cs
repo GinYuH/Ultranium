@@ -61,7 +61,7 @@ public class Warden : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 180);
 	}
 
 	public override void AI()

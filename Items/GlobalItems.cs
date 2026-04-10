@@ -46,25 +46,25 @@ public class GlobalItems : GlobalItem
 		float speedY = velocity.Y;
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorMeleeSet && item.CountsAsClass(DamageClass.Melee) && Main.rand.Next(3) == 0)
 		{
-			int num = Projectile.NewProjectile(null, position, new Vector2(speedX, speedY), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num].hostile = false;
 			Main.projectile[num].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorRangedSet && item.CountsAsClass(DamageClass.Ranged) && Main.rand.Next(3) == 0)
 		{
-			int num2 = Projectile.NewProjectile(null, position, new Vector2(speedX, speedY), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num2 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num2].hostile = false;
 			Main.projectile[num2].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorMagicSet && item.CountsAsClass(DamageClass.Magic) && Main.rand.Next(3) == 0)
 		{
-			int num3 = Projectile.NewProjectile(null, position, new Vector2(speedX, speedY), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num3 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num3].hostile = false;
 			Main.projectile[num3].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorSummonSet && item.CountsAsClass(DamageClass.Summon) && Main.rand.Next(1) == 0)
 		{
-			int num4 = Projectile.NewProjectile(null, position, new Vector2(speedX, speedY), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num4 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num4].hostile = false;
 			Main.projectile[num4].friendly = true;
 		}

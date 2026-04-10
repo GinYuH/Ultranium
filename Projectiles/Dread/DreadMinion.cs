@@ -27,7 +27,6 @@ public class DreadMinion : ModProjectile
 	public override void AI()
 	{
 		_ = Projectile.type;
-		Mod.Find<ModProjectile>("DreadMinion").Type;
 		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
 		if (obj.dead)

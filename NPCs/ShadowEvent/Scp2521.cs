@@ -60,7 +60,7 @@ public class Scp2521 : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		player.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
+		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 120);
 	}
 
 	public override void AI()

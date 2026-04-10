@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Buffs;
@@ -12,8 +13,8 @@ public class DarkDebuff : ModBuff
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.pvpBuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;
-		base.longerExpertDebuff/* tModPorter Note: Removed. Use BuffID.Sets.LongerExpertDebuff instead */ = true;
-	}
+        BuffID.Sets.LongerExpertDebuff[Type] = true;
+    }
 
 	public override void Update(NPC npc, ref int buffIndex)
 	{

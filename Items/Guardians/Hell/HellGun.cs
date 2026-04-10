@@ -39,15 +39,15 @@ public class HellGun : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Vector2 vector = new Vector2(speedX, speedY).RotatedByRandom(MathHelper.ToRadians(4f));
-		speedX = vector.X;
-		speedY = vector.Y;
+		Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(4f));
+		velocity.X = vector.X;
+		velocity.Y = vector.Y;
 		type = Mod.Find<ModProjectile>("FlamingBulletBlast").Type;
 		Use++;
 		if (Use >= 30)
 		{
-			Vector2 vector2 = new Vector2(speedX, speedY).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, Item.damage * 2, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector2 = new Vector2(velocity.X, velocity.Y).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
+			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, Item.damage * 2, knockback, player.whoAmI, 0f, 0f);
 			Use = 0;
 			return false;
 		}
@@ -75,7 +75,7 @@ public class HellGun : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
 		val.AddTile(412);
 		val.Register();

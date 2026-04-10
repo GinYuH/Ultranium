@@ -39,11 +39,11 @@ public class EtherealTome : ModItem
 	{
 		float num = 4f;
 		float num2 = MathHelper.ToRadians(12f);
-		position += Vector2.Normalize(new Vector2(speedX, speedY)) * 45f;
+		position += Vector2.Normalize(new Vector2(velocity.X, velocity.Y)) * 45f;
 		for (int i = 0; (float)i < num; i++)
 		{
-			Vector2 vector = new Vector2(speedX, speedY).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockBack, player.whoAmI, 0f, 0f);
+			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
+			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}
@@ -55,7 +55,7 @@ public class EtherealTome : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create((ModItem)(object)this.Type, 1);
+		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
 		val.AddTile(134);

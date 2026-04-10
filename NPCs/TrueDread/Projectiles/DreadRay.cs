@@ -119,13 +119,13 @@ public class DreadRay : ModProjectile
 		{
 			return false;
 		}
-		Texture2D texture = Mod.GetTexture("NPCs/TrueDread/Projectiles/DreadRayBottom");
+		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/NPCs/TrueDread/Projectiles/DreadRayBottom").Value;
 		Texture2D texture2D = TextureAssets.Projectile[Projectile.type].Value;
-		Texture2D texture2 = Mod.GetTexture("NPCs/TrueDread/Projectiles/DreadRayTip");
+		Texture2D texture2 = ModContent.Request<Texture2D>("Ultranium/NPCs/TrueDread/Projectiles/DreadRayTip").Value;
 		float laserLength = LaserLength;
 		Color color = Color.White * 0.8f * ((Projectile.ai[1] >= 100f) ? 1f : 0.8f);
 		Vector2 position = Projectile.Center + new Vector2(0f, Projectile.gfxOffY) - Main.screenPosition;
-		spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
+        Main.spriteBatch.Draw(texture, position, null, color, Projectile.rotation, texture.Size() / 2f, new Vector2(Math.Min(Projectile.ai[1], 100f) / 100f, 1f), SpriteEffects.None, 0f);
 		laserLength -= (float)(texture.Height / 2 + texture2.Height) * Projectile.scale;
 		Vector2 vector = Projectile.Center + new Vector2(0f, Projectile.gfxOffY);
 		vector += Projectile.velocity * Projectile.scale * texture.Height / 2f;

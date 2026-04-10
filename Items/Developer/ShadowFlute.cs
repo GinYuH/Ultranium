@@ -33,7 +33,7 @@ public class ShadowFlute : ModItem
 		Item.knockBack = 1f;
 		Item.rare = 11;
 		Item.value = Item.buyPrice(2);
-		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/Flute");
+		Item.UseSound = new Terraria.Audio.SoundStyle("Ultranium/Sounds/Item/Flute");
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("PhantomClaw").Type;
 		Item.shootSpeed = 15f;

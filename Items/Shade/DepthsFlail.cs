@@ -38,7 +38,7 @@ public class DepthsFlail : ModItem
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		float num = (Main.rand.NextFloat() - 0.75f) * ((float)Math.PI / 4f);
-		Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, type, damage, knockBack, player.whoAmI, 0f, num);
+		Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, type, damage, knockback, player.whoAmI, 0f, num);
 		return false;
 	}
 }

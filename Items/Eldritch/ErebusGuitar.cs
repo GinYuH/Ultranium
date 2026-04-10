@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI.Chat;
@@ -35,8 +36,8 @@ public class ErebusGuitar : ModItem
 		Item.knockBack = 5f;
 		Item.rare = 11;
 		Item.value = Item.buyPrice(1, 50);
-		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/ErebusGuitar1");
-		Item.autoReuse = true;
+        Item.UseSound = new SoundStyle("Ultranium/Sounds/Item/ErebusGuitar1");
+        Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("ErebusGuitarPulse").Type;
 		Item.shootSpeed = 10f;
 	}
@@ -59,7 +60,7 @@ public class ErebusGuitar : ModItem
 			new Vector2(Main.hotbarScale[i], Main.hotbarScale[i]);
 			if (Main.player[Main.myPlayer].inventory[i] == Item)
 			{
-				ChatManager.DrawColorCodedStringWithShadow(spriteBatch, Main.fontItemStack, text, position + new Vector2(23f, 20f) * Main.inventoryScale, Color.Turquoise, 0f, Vector2.Zero, new Vector2(Main.inventoryScale), -1f, Main.inventoryScale);
+				ChatManager.DrawColorCodedStringWithShadow(spriteBatch, FontAssets.ItemStack.Value, text, position + new Vector2(23f, 20f) * Main.inventoryScale, Color.Turquoise, 0f, Vector2.Zero, new Vector2(Main.inventoryScale), -1f, Main.inventoryScale);
 			}
 		}
 	}
@@ -88,7 +89,7 @@ public class ErebusGuitar : ModItem
 				Item.noMelee = true;
 				Item.knockBack = 5f;
 				Item.rare = 11;
-				Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/ErebusGuitar1");
+				Item.UseSound = new SoundStyle("Ultranium/Sounds/Item/ErebusGuitar1");
 				Item.autoReuse = true;
 				Item.shoot = Mod.Find<ModProjectile>("ErebusGuitarPulse").Type;
 				Item.shootSpeed = 13f;
@@ -105,8 +106,8 @@ public class ErebusGuitar : ModItem
 				Item.noMelee = true;
 				Item.knockBack = 5f;
 				Item.rare = 11;
-				Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/ErebusGuitar2");
-				Item.autoReuse = true;
+                    Item.UseSound = new SoundStyle("Ultranium/Sounds/Item/ErebusGuitar2");
+                    Item.autoReuse = true;
 				Item.shoot = Mod.Find<ModProjectile>("ErebusGuitarPulse").Type;
 				Item.shootSpeed = 10f;
 				break;
@@ -122,8 +123,8 @@ public class ErebusGuitar : ModItem
 				Item.noMelee = true;
 				Item.knockBack = 5f;
 				Item.rare = 11;
-				Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/ErebusGuitar3");
-				Item.autoReuse = true;
+                    Item.UseSound = new SoundStyle("Ultranium/Sounds/Item/ErebusGuitar3");
+                    Item.autoReuse = true;
 				Item.shoot = Mod.Find<ModProjectile>("ErebusGuitarPulse").Type;
 				Item.shootSpeed = 10f;
 				break;
@@ -140,7 +141,7 @@ public class ErebusGuitar : ModItem
 		{
 			if (AttackMode == 1)
 			{
-				Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("ErebusGuitarPulse").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("ErebusGuitarPulse").Type, damage, knockback, player.whoAmI, 0f, 0f);
 			}
 			else if (AttackMode == 2)
 			{
@@ -157,11 +158,11 @@ public class ErebusGuitar : ModItem
 				int num = Main.rand.Next(2);
 				if (num == 0)
 				{
-					Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("EldritchNote1").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+					Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.X, Mod.Find<ModProjectile>("EldritchNote1").Type, damage, knockback, player.whoAmI, 0f, 0f);
 				}
 				if (num == 1)
 				{
-					Projectile.NewProjectile(null, position.X, position.Y, speedX, speedY, Mod.Find<ModProjectile>("EldritchNote2").Type, damage, knockBack, player.whoAmI, 0f, 0f);
+					Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("EldritchNote2").Type, damage, knockback, player.whoAmI, 0f, 0f);
 				}
 			}
 		}

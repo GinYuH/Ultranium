@@ -70,12 +70,12 @@ public class ZephyrSquid : ModNPC
 	{
 		if (NPC.velocity != Vector2.Zero)
 		{
-			Vector2 vector = new Vector2((float)ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail").Width * 0.2f, (float)NPC.height * 0.2f);
+			Vector2 vector = new Vector2((float)ModContent.Request<Texture2D>("Ultranium/NPCs/Ocean/ZephyrSquidTrail").Width() * 0.2f, (float)NPC.height * 0.2f);
 			for (int i = 0; i < NPC.oldPos.Length; i++)
 			{
 				Vector2 position = NPC.oldPos[i] - Main.screenPosition + vector + new Vector2(0f, NPC.gfxOffY);
 				Color color = NPC.GetAlpha(drawColor) * ((float)(NPC.oldPos.Length - i) / (float)NPC.oldPos.Length / 2f);
-				spriteBatch.Draw(ModContent.GetTexture("Ultranium/NPCs/Ocean/ZephyrSquidTrail"), position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
+				spriteBatch.Draw(ModContent.Request<Texture2D>("Ultranium/NPCs/Ocean/ZephyrSquidTrail").Value, position, NPC.frame, color, NPC.rotation, vector, NPC.scale, SpriteEffects.None, 0f);
 			}
 		}
 		return true;
@@ -312,7 +312,7 @@ public class ZephyrSquid : ModNPC
 		}
 	}
 
-	public override void BossLoot(ref string name, ref int potionType)
+	public override void BossLoot(ref int potionType)
 	{
 		potionType = 28;
 	}

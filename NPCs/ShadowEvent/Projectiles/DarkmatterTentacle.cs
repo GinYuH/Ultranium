@@ -269,11 +269,11 @@ public class DarkmatterTentacle : ModProjectile
 			Texture2D texture = texture2D;
 			if (i == num2)
 			{
-				texture = Mod.GetTexture("NPCs/ShadowEvent/Projectiles/DarkmatterTentacleTop");
+				texture = ModContent.Request<Texture2D>("Ultranium/NPCs/ShadowEvent/Projectiles/DarkmatterTentacleTop").Value;
 			}
 			Vector2 vector2 = Projectile.position + vector * (num3 * (float)(i - 1) + (float)num / 2f);
 			Color color = Lighting.GetColor((int)(vector2.X / 16f), (int)(vector2.Y / 16f));
-			spriteBatch.Draw(texture, vector2 - Main.screenPosition, null, Projectile.GetAlpha(color), Projectile.rotation, new Vector2(texture2D.Width / 2, texture2D.Height / 2), 1f, effects, 0f);
+            Main.spriteBatch.Draw(texture, vector2 - Main.screenPosition, null, Projectile.GetAlpha(color), Projectile.rotation, new Vector2(texture2D.Width / 2, texture2D.Height / 2), 1f, effects, 0f);
 		}
 		return false;
 	}
