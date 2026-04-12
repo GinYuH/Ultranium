@@ -6,6 +6,8 @@ using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Vanity.BossMasks;
+using Ultranium.Tiles.Trophy;
 
 namespace Ultranium.NPCs.Ethereal;
 
@@ -433,8 +435,8 @@ public class Xenanis : ModNPC
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisWings").Type, 20));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("EtherealDidgeridoo").Type, 10));
 		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type)));
-		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("EtherealMask").Type, 7));
-		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("EtherealTrophyItem").Type, 10));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisMask>(), 7));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisTrophyItem>(), 10));
 	}
 
 	public override void OnKill()

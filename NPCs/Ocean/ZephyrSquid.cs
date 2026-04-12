@@ -270,7 +270,7 @@ public class ZephyrSquid : ModNPC
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
         npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("SquidBag").Type));
-		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("OceanScale").Type, 8, 11));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("OceanScale").Type, 1, 8, 11));
 		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type)));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("WormPet").Type, 20));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidMask").Type, 7));

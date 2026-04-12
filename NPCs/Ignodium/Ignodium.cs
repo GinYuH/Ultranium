@@ -5,6 +5,7 @@ using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.BossBags;
 
 namespace Ultranium.NPCs.Ignodium;
 
@@ -536,7 +537,7 @@ public class Ignodium : ModNPC
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)
     {
-        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("IgnodiumBossBag").Type));
+        npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IgnodiumBag>()));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("HellShard").Type, 1, 25, 31));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumTrophyItem").Type, 10));

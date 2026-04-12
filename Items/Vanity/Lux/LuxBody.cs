@@ -3,12 +3,11 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Lux;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Body)]
 public class LuxBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Lux's Body");
 		Tooltip.SetDefault("~Developer item~");
 	}

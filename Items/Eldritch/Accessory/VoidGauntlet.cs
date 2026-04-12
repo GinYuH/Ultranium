@@ -9,7 +9,6 @@ public class VoidGauntlet : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Void Gauntlet");
 		Tooltip.SetDefault("15% increased melee damage and knockback\n12% increased melee speed\nMelee projectiles inflict the eldritch decay debuff");
 	}

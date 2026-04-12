@@ -9,7 +9,6 @@ public class EldritchScroll : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Scroll of the Abyss");
 		Tooltip.SetDefault("15% increased summon damage and minion knockback\n+2 max minions\nMinions inflict the eldritch decay debuff");
 	}

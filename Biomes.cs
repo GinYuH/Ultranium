@@ -75,7 +75,7 @@ namespace Ultranium
         public override void SpecialVisuals(Player player, bool isActive)
         {
             if (!NPC.AnyNPCs(ModContent.NPCType<ErebusHead>()))
-                player.ManageSpecialBiomeVisuals("Ultranium:ShadowEvent1", isActive);
+                player.ManageSpecialBiomeVisuals("Ultranium:ShadowEvent", isActive);
         }
     }
 

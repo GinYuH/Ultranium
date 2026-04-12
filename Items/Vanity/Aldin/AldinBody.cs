@@ -3,12 +3,11 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Aldin;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Body)]
 public class AldinBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Cosmic Mage's Body");
 		Tooltip.SetDefault("");
 	}

@@ -3,12 +3,11 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Futaba;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Body)]
 public class FutabaBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Futaba Body");
 		Tooltip.SetDefault("~Developer item~");
 	}

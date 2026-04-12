@@ -19,11 +19,11 @@ public class GlowShroom : ModTile
 		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
 		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
-		TileObjectData.newTile.AnchorValidTiles = new int[3]
+		TileObjectData.newTile.AnchorValidTiles = new int[]
 		{
 			Mod.Find<ModTile>("ShadowGrass").Type,
-			Mod.Find<ModTile>("ShadowSoil").Type,
-			Mod.Find<ModTile>("DepthRock").Type
+			//Mod.Find<ModTile>("ShadowSoil").Type,
+			Mod.Find<ModTile>("DarkStone").Type
 		};
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };
 		TileObjectData.addTile((int)Type);

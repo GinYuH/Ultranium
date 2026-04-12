@@ -9,7 +9,6 @@ public class VoidPouch : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		SetStaticDefaults();
 		DisplayName.SetDefault("Dimensional Ammo Pouch");
 		Tooltip.SetDefault("15% increased ranged damage\n50% chance to not consume ammo\nRanged projectiles inflict the eldritch decay debuff");
 	}
