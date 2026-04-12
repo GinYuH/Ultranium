@@ -8,7 +8,7 @@ public class SlimePet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Slime");
+		DisplayName.SetDefault("Slime");
 		Main.projFrames[Projectile.type] = 2;
 	}
 

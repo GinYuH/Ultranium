@@ -7,8 +7,8 @@ public class DepthsMimicBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depths Mimic Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Depths Mimic");
+		DisplayName.SetDefault("Depths Mimic Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Depths Mimic");
 	}
 
 	public override void SetDefaults()

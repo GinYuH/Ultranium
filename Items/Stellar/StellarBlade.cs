@@ -9,8 +9,8 @@ public class StellarBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Blade");
-		// Tooltip.SetDefault("Shoots Stellar Stars");
+		DisplayName.SetDefault("Stellar Blade");
+		Tooltip.SetDefault("Shoots Stellar Stars");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class SquidMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zephyr Squid Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Zephyr Squid Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

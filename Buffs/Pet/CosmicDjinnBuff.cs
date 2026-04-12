@@ -7,8 +7,8 @@ public class CosmicDjinnBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Cosmic Djinn");
-		// ((ModBuff)this).Description.SetDefault("The cosmic djinn follows you");
+		DisplayName.SetDefault("Cosmic Djinn");
+		Description.SetDefault("The cosmic djinn follows you");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

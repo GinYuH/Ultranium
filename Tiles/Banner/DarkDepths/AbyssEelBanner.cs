@@ -7,8 +7,8 @@ public class AbyssEelBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Eel Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Eel");
+		DisplayName.SetDefault("Abyssal Eel Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Eel");
 	}
 
 	public override void SetDefaults()

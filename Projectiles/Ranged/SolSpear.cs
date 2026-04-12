@@ -15,7 +15,7 @@ public class SolSpear : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Spear of the Sol");
+		DisplayName.SetDefault("Spear of the Sol");
 	}
 
 	public override void SetDefaults()

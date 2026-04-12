@@ -7,8 +7,8 @@ public class AbyssalWraithBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Wraith Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Wraith");
+		DisplayName.SetDefault("Abyssal Wraith Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Wraith");
 	}
 
 	public override void SetDefaults()

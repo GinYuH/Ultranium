@@ -20,7 +20,7 @@ public class DreadSpitHoming : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Dread Spit");
+		DisplayName.SetDefault("Dread Spit");
 	}
 
 	public override void SetDefaults()

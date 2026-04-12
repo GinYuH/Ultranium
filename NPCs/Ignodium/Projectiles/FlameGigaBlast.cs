@@ -16,7 +16,7 @@ public class FlameGigaBlast : ModProjectile
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 4;
-		// DisplayName.SetDefault("Giga Flame Blast");
+		DisplayName.SetDefault("Giga Flame Blast");
 	}
 
 	public override void SetDefaults()

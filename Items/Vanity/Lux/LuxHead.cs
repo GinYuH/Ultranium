@@ -9,8 +9,8 @@ public class LuxHead : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Lux's Head");
-		// Tooltip.SetDefault("~Developer item~");
+		DisplayName.SetDefault("Lux's Head");
+		Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

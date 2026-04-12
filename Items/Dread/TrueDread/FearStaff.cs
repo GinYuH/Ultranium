@@ -10,8 +10,8 @@ public class FearStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Staff of Horror");
-		// Tooltip.SetDefault("Casts dread energy bolts");
+		DisplayName.SetDefault("Staff of Horror");
+		Tooltip.SetDefault("Casts dread energy bolts");
 		Item.staff[Item.type] = true;
 	}
 

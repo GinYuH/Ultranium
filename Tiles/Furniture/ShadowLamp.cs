@@ -111,17 +111,18 @@ internal class ShadowLamp : ModTile
 			vector = Vector2.Zero;
 		}
 		Tile tile = Main.tile[i, j];
-		int num = 16;
-		int num2 = 0;
+		int xPos = 16;
+		int yPos = 0;
 		int height = 16;
-		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
+		short _ = 0;
+		TileLoader.SetDrawPositions(i, j, ref xPos, ref yPos, ref height, ref _, ref _);
 		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Tiles/Furniture/ShadowLamp_Flame").Value;
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)
 		{
 			float num3 = (float)Utils.RandomInt(ref seed, -10, 11) * 0.15f;
 			float num4 = (float)Utils.RandomInt(ref seed, -10, 1) * 0.35f;
-			Main.spriteBatch.Draw(texture, new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - ((float)num - 16f) / 2f + num3, (float)(j * 16 - (int)Main.screenPosition.Y + num2) + num4) + vector, new Rectangle(tile.TileFrameX, tile.TileFrameY, num, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, effects, 0f);
+			Main.spriteBatch.Draw(texture, new Vector2((float)(i * 16 - (int)Main.screenPosition.X) - ((float)xPos - 16f) / 2f + num3, (float)(j * 16 - (int)Main.screenPosition.Y + yPos) + num4) + vector, new Rectangle(tile.TileFrameX, tile.TileFrameY, xPos, height), new Color(100, 100, 100, 0), 0f, default(Vector2), 1f, effects, 0f);
 		}
 	}
 }

@@ -13,7 +13,7 @@ public class NatureBlast : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ultranium Bolt");
+		DisplayName.SetDefault("Ultranium Bolt");
 	}
 
 	public override void SetDefaults()

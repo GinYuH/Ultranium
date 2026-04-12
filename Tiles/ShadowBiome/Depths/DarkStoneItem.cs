@@ -7,8 +7,8 @@ public class DarkStoneItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dark Stone");
-		// Tooltip.SetDefault("'It is as dark as the night'\nCan grow various flora and glowshrooms");
+		DisplayName.SetDefault("Dark Stone");
+		Tooltip.SetDefault("'It is as dark as the night'\nCan grow various flora and glowshrooms");
 	}
 
 	public override void SetDefaults()

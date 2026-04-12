@@ -11,7 +11,7 @@ public class StellarStar : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Star");
+		DisplayName.SetDefault("Stellar Star");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

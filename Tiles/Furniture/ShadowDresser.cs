@@ -24,9 +24,9 @@ public class ShadowDresser : ModTile
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 		TileObjectData.newTile.Origin = new Point16(1, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
-		TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
-		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook((Func<int, int, int, int, int, int>)Chest.AfterPlacement_Hook, -1, 0, false);
-		TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
+        TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.FindEmptyChest), -1, 0, true);
+        TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(new Func<int, int, int, int, int, int, int>(Chest.AfterPlacement_Hook), -1, 0, false);
+        TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
@@ -35,8 +35,7 @@ public class ShadowDresser : ModTile
 		AddMapEntry(new Color(121, 14, 203), (LocalizedText)null);
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 88 };
-		base.dresser/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicDresser instead */ = "Dresser";
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShadowDresserItem").Type;
+		TileID.Sets.BasicDresser[Type] = true;
 	}
 
 	public override bool RightClick(int i, int j)
@@ -82,9 +81,10 @@ public class ShadowDresser : ModTile
 				}
 			}
 			else
-			{
-				localPlayer.flyingPigChest = -1;
-				int num3 = Chest.FindChest(num, num2);
+            {
+                localPlayer.piggyBankProjTracker.Clear();
+                localPlayer.voidLensChest.Clear();
+                int num3 = Chest.FindChest(num, num2);
 				if (num3 != -1)
 				{
 					Main.stackSplit = 600;
@@ -132,7 +132,8 @@ public class ShadowDresser : ModTile
 	{
 		Player localPlayer = Main.LocalPlayer;
 		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
-		int tileTargetX = Player.tileTargetX;
+        string chestName = TileLoader.DefaultContainerName(tile.TileType, tile.TileFrameX, tile.TileFrameY);
+        int tileTargetX = Player.tileTargetX;
 		int num = Player.tileTargetY;
 		int x = tileTargetX - tile.TileFrameX % 54 / 18;
 		if (tile.TileFrameY % 36 != 0)
@@ -153,9 +154,9 @@ public class ShadowDresser : ModTile
 			}
 			else
 			{
-				localPlayer.cursorItemIconText = base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+				localPlayer.cursorItemIconText = chestName;
 			}
-			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+			if (localPlayer.cursorItemIconText == chestName)
 			{
 				localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowDresserItem").Type;
 				localPlayer.cursorItemIconText = "";
@@ -174,7 +175,8 @@ public class ShadowDresser : ModTile
 	{
 		Player localPlayer = Main.LocalPlayer;
 		Tile tile = Main.tile[Player.tileTargetX, Player.tileTargetY];
-		int tileTargetX = Player.tileTargetX;
+        string chestName = TileLoader.DefaultContainerName(tile.TileType, tile.TileFrameX, tile.TileFrameY);
+        int tileTargetX = Player.tileTargetX;
 		int num = Player.tileTargetY;
 		int x = tileTargetX - tile.TileFrameX % 54 / 18;
 		if (tile.TileFrameY % 36 != 0)
@@ -195,9 +197,9 @@ public class ShadowDresser : ModTile
 			}
 			else
 			{
-				localPlayer.cursorItemIconText = base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */;
+				localPlayer.cursorItemIconText = chestName;
 			}
-			if (localPlayer.cursorItemIconText == base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */)
+			if (localPlayer.cursorItemIconText == chestName)
 			{
 				localPlayer.cursorItemIconID = Mod.Find<ModItem>("ShadowDresserItem").Type;
 				localPlayer.cursorItemIconText = "";
@@ -218,7 +220,6 @@ public class ShadowDresser : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 48, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
 		Chest.DestroyChest(i, j);
 	}
 }

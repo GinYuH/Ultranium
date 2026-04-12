@@ -8,8 +8,8 @@ public class EtherealDidgeridoo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Didgeridoo");
-		// Tooltip.SetDefault("Conujures lingering ethereal notes that create ethereal tentacles upon death");
+		DisplayName.SetDefault("Ethereal Didgeridoo");
+		Tooltip.SetDefault("Conujures lingering ethereal notes that create ethereal tentacles upon death");
 	}
 
 	public override void SetDefaults()
@@ -26,7 +26,7 @@ public class EtherealDidgeridoo : ModItem
 		Item.knockBack = 5f;
 		Item.rare = 9;
 		Item.value = Item.buyPrice(0, 30);
-		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/Item/Didgeridoo");
+		Item.UseSound = new Terraria.Audio.SoundStyle("Ultranium/Sounds/Item/Didgeridoo");
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EtherealNote").Type;
 		Item.shootSpeed = 10f;

@@ -14,7 +14,7 @@ public class IceBall : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ice Mist");
+		DisplayName.SetDefault("Ice Mist");
 	}
 
 	public override void SetDefaults()

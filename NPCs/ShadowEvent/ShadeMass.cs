@@ -17,7 +17,7 @@ public class ShadeMass : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Darkmatter Mass");
+		DisplayName.SetDefault("Darkmatter Mass");
 	}
 
 	public override void SetDefaults()
@@ -52,8 +52,8 @@ public class ShadeMass : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/ShadeMassGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/ShadeMassGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadeMassGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadeMassGore2").Type);
 		return true;
 	}
 

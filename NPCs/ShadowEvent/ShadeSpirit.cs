@@ -10,7 +10,7 @@ public class ShadeSpirit : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shade Spirit");
+		DisplayName.SetDefault("Shade Spirit");
 		NPCID.Sets.TrailCacheLength[NPC.type] = 7;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;
 	}
@@ -56,7 +56,7 @@ public class ShadeSpirit : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/ShadeSpiritGore"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadeSpiritGore").Type);
 		return true;
 	}
 

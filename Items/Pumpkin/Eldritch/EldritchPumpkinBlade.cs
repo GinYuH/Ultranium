@@ -10,8 +10,8 @@ public class EldritchPumpkinBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Pumpkin Buster");
-		// Tooltip.SetDefault("Fires flaming eldritch seeds\nHas a chance to shoot out a spread of eldritch bolts that deal twice the sword's damage");
+		DisplayName.SetDefault("Eldritch Pumpkin Buster");
+		Tooltip.SetDefault("Fires flaming eldritch seeds\nHas a chance to shoot out a spread of eldritch bolts that deal twice the sword's damage");
 	}
 
 	public override void SetDefaults()

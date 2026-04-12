@@ -7,8 +7,8 @@ public class DragonHornetBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Dragon Hornet");
-		// ((ModBuff)this).Description.SetDefault("A long last species...");
+		DisplayName.SetDefault("Dragon Hornet");
+		Description.SetDefault("A long last species...");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

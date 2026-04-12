@@ -8,7 +8,7 @@ public class GuineaPig : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Guinea Pig");
+		DisplayName.SetDefault("Guinea Pig");
 		Main.projFrames[Projectile.type] = 8;
 		Main.projPet[Projectile.type] = true;
 	}

@@ -13,7 +13,7 @@ public class EldritchAura1 : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Aura");
+		DisplayName.SetDefault("Eldritch Aura");
 	}
 
 	public override void SetDefaults()

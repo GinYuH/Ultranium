@@ -8,8 +8,8 @@ public class UltrumMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultrum Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Ultrum Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

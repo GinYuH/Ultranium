@@ -7,8 +7,8 @@ public class ZombieBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Pet Zombie");
-		// ((ModBuff)this).Description.SetDefault("It just aimlessly follows you...");
+		DisplayName.SetDefault("Pet Zombie");
+		Description.SetDefault("It just aimlessly follows you...");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

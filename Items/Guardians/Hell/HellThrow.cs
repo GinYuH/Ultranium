@@ -10,8 +10,8 @@ public class HellThrow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Hell Throw");
-		// Tooltip.SetDefault("Creates a damaging flame aura around the yoyo");
+		DisplayName.SetDefault("Hell Throw");
+		Tooltip.SetDefault("Creates a damaging flame aura around the yoyo");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class AuroraLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Aurora Crystal Greaves");
-		// Tooltip.SetDefault("2% increased movement speed");
+		DisplayName.SetDefault("Aurora Crystal Greaves");
+		Tooltip.SetDefault("2% increased movement speed");
 	}
 
 	public override void SetDefaults()

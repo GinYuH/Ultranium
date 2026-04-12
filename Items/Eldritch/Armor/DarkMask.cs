@@ -10,8 +10,8 @@ public class DarkMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Darkmatter Mask");
-		// Tooltip.SetDefault("8% increased summon damage\n+5 max life and mana, and +2 max minions");
+		DisplayName.SetDefault("Darkmatter Mask");
+		Tooltip.SetDefault("8% increased summon damage\n+5 max life and mana, and +2 max minions");
 	}
 
 	public override void SetDefaults()

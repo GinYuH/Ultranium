@@ -11,7 +11,7 @@ public class EldritchPumpkinSentry : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Pumpkin");
+		DisplayName.SetDefault("Eldritch Pumpkin");
 	}
 
 	public override void SetDefaults()

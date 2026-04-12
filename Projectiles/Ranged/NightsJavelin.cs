@@ -11,7 +11,7 @@ public class NightsJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Night's Javelin");
+		DisplayName.SetDefault("Night's Javelin");
 	}
 
 	public override void SetDefaults()

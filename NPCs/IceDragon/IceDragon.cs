@@ -42,7 +42,7 @@ public class IceDragon : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacieron");
+		DisplayName.SetDefault("Glacieron");
 		Main.npcFrameCount[NPC.type] = 8;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

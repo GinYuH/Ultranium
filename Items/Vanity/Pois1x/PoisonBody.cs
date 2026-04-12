@@ -9,8 +9,8 @@ public class PoisonBody : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Pois1x's Chestmail");
-		// Tooltip.SetDefault("~Developer item~");
+		DisplayName.SetDefault("Pois1x's Chestmail");
+		Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

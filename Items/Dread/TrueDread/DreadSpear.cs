@@ -14,8 +14,8 @@ public class DreadSpear : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Inquietude Impaler");
-		// Tooltip.SetDefault("Fires slightly inaccurate dread scythes");
+		DisplayName.SetDefault("Inquietude Impaler");
+		Tooltip.SetDefault("Fires slightly inaccurate dread scythes");
 	}
 
 	public override void SetDefaults()

@@ -16,7 +16,7 @@ public class ToothBall : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Tooth Ball");
+		DisplayName.SetDefault("Tooth Ball");
 	}
 
 	public override void SetDefaults()

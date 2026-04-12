@@ -7,8 +7,8 @@ public class DreadTooth : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Tooth");
-		// Tooltip.SetDefault("Increases armor penetration by 8");
+		DisplayName.SetDefault("Dread Tooth");
+		Tooltip.SetDefault("Increases armor penetration by 8");
 	}
 
 	public override void SetDefaults()

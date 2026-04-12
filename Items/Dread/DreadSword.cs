@@ -8,8 +8,8 @@ public class DreadSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Blade of Terror");
-		// Tooltip.SetDefault("Fires dread bolts on swing");
+		DisplayName.SetDefault("Blade of Terror");
+		Tooltip.SetDefault("Fires dread bolts on swing");
 	}
 
 	public override void SetDefaults()

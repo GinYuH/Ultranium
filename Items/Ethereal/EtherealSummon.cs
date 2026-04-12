@@ -10,8 +10,8 @@ public class EtherealSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Staff");
-		// Tooltip.SetDefault("Summons ethereal wisps that shoots ethereal blasts at enemies");
+		DisplayName.SetDefault("Ethereal Staff");
+		Tooltip.SetDefault("Summons ethereal wisps that shoots ethereal blasts at enemies");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class EtherealSummon : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

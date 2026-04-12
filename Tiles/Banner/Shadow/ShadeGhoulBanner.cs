@@ -7,8 +7,8 @@ public class ShadeGhoulBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shade Ghoul Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Shade Ghoul");
+		DisplayName.SetDefault("Shade Ghoul Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Shade Ghoul");
 	}
 
 	public override void SetDefaults()

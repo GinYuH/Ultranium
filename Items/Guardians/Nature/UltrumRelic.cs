@@ -7,8 +7,8 @@ public class UltrumRelic : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultrum Relic Shard");
-		// Tooltip.SetDefault("\"Perhaps if combined with the other half, it's power can be restored...\"");
+		DisplayName.SetDefault("Ultrum Relic Shard");
+		Tooltip.SetDefault("\"Perhaps if combined with the other half, it's power can be restored...\"");
 	}
 
 	public override void SetDefaults()

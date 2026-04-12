@@ -9,7 +9,7 @@ public class AquaBall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Water Sphere");
+		DisplayName.SetDefault("Water Sphere");
 	}
 
 	public override void SetDefaults()

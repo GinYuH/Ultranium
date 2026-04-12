@@ -10,7 +10,7 @@ public class Cacodemon : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cacodemon");
+		DisplayName.SetDefault("Cacodemon");
 		Main.projFrames[Projectile.type] = 4;
 		Main.projPet[Projectile.type] = true;
 	}

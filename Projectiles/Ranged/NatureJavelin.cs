@@ -11,7 +11,7 @@ public class NatureJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Jungle's Wrath");
+		DisplayName.SetDefault("Jungle's Wrath");
 	}
 
 	public override void SetDefaults()

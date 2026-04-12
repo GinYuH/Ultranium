@@ -7,8 +7,8 @@ public class MysticTentacle : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zephyr Squid's Tentacle");
-		// Tooltip.SetDefault("10% increased critical strike chance");
+		DisplayName.SetDefault("Zephyr Squid's Tentacle");
+		Tooltip.SetDefault("10% increased critical strike chance");
 	}
 
 	public override void SetDefaults()

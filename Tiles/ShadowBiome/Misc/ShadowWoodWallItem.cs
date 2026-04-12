@@ -7,8 +7,8 @@ public class ShadowWoodWallItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Wood Wall");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Eldritch Wood Wall");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

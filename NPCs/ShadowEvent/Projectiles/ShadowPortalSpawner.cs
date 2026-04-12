@@ -16,7 +16,7 @@ public class ShadowPortalSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadow Rift");
+		DisplayName.SetDefault("Shadow Rift");
 	}
 
 	public override void SetDefaults()

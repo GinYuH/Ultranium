@@ -7,8 +7,8 @@ public class AldinMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Music Box (Aldin)");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Music Box (Aldin)");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

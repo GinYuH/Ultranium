@@ -7,8 +7,8 @@ public class WispBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Ethereal Wisp");
-		// ((ModBuff)this).Description.SetDefault("The Ethereal Wisp will fight along with you");
+		DisplayName.SetDefault("Ethereal Wisp");
+		Description.SetDefault("The Ethereal Wisp will fight along with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

@@ -9,7 +9,7 @@ public class DepthSnail : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Tenebris Snail");
+		DisplayName.SetDefault("Tenebris Snail");
 	}
 
 	public override void SetDefaults()

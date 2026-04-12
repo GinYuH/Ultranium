@@ -11,8 +11,8 @@ public class GhostBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Phantom Shot");
-		// Tooltip.SetDefault("Shoots a spread of phantom arrows that can phase through walls");
+		DisplayName.SetDefault("Phantom Shot");
+		Tooltip.SetDefault("Shoots a spread of phantom arrows that can phase through walls");
 	}
 
 	public override void SetDefaults()

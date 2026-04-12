@@ -7,7 +7,7 @@ public class AuroraDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Aurora Crystal Dye");
+		DisplayName.SetDefault("Aurora Crystal Dye");
 	}
 
 	public override void SetDefaults()

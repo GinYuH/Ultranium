@@ -7,8 +7,8 @@ public class DepthCrawlerBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depth Crawler Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Depth Crawler");
+		DisplayName.SetDefault("Depth Crawler Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Depth Crawler");
 	}
 
 	public override void SetDefaults()

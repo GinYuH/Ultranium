@@ -12,8 +12,8 @@ public class UltraFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nature Power Flail");
-		// Tooltip.SetDefault("Has a chance to create lingering ultranium energy bolts upon striking an enemy");
+		DisplayName.SetDefault("Nature Power Flail");
+		Tooltip.SetDefault("Has a chance to create lingering ultranium energy bolts upon striking an enemy");
 	}
 
 	public override void SetDefaults()

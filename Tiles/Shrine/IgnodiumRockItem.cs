@@ -7,8 +7,8 @@ public class IgnodiumRockItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ignodium Rock");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Ignodium Rock");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

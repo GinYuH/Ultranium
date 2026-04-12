@@ -8,8 +8,8 @@ public class PumpkinBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pumpkin Buster");
-		// Tooltip.SetDefault("Fires pumpkin seeds on swing");
+		DisplayName.SetDefault("Pumpkin Buster");
+		Tooltip.SetDefault("Fires pumpkin seeds on swing");
 	}
 
 	public override void SetDefaults()

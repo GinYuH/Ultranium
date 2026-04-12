@@ -8,8 +8,8 @@ public class TenebrisLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Tenebris Greaves");
-		// Tooltip.SetDefault("2% increased damage\n5% increased movement speed");
+		DisplayName.SetDefault("Tenebris Greaves");
+		Tooltip.SetDefault("2% increased damage\n5% increased movement speed");
 	}
 
 	public override void SetDefaults()

@@ -53,7 +53,7 @@ internal class Ultranium : Mod
 
 	public static ModKeybind SpecialKey;
 
-	private Mod mod => ModLoader.GetMod("Ultranium");
+	public static Mod mod => ModLoader.GetMod("Ultranium");
 
 
 	public override void PostSetupContent()

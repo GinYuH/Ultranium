@@ -9,7 +9,7 @@ public class AbyssShark : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Goblin Shark");
+		DisplayName.SetDefault("Abyssal Goblin Shark");
 	}
 
 	public override void SetDefaults()
@@ -36,9 +36,9 @@ public class AbyssShark : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore3").Type);
 		}
 	}
 

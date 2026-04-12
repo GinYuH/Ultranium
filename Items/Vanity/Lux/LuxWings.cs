@@ -8,8 +8,8 @@ public class LuxWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Lux's Wings");
-		// Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
+		DisplayName.SetDefault("Lux's Wings");
+		Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
 	}
 
 	public override void SetDefaults()

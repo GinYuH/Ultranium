@@ -13,7 +13,7 @@ public class DreadFlameBall : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Dread Fire Ball");
+		DisplayName.SetDefault("Dread Fire Ball");
 	}
 
 	public override void SetDefaults()

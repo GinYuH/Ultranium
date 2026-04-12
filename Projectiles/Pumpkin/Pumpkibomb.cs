@@ -10,7 +10,7 @@ public class Pumpkibomb : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pumpkibomb");
+		DisplayName.SetDefault("Pumpkibomb");
 	}
 
 	public override void SetDefaults()

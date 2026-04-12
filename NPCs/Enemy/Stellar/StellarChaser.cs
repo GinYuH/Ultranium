@@ -18,7 +18,7 @@ public class StellarChaser : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Chaser");
+		DisplayName.SetDefault("Stellar Chaser");
 	}
 
 	public override void SetDefaults()
@@ -99,8 +99,8 @@ public class StellarChaser : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarChaserGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarChaserGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore2").Type);
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

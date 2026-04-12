@@ -12,7 +12,7 @@ public class EtherealWave : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Wave");
+		DisplayName.SetDefault("Ethereal Wave");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

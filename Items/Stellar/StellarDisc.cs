@@ -8,8 +8,8 @@ public class StellarDisc : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Throws Returning Stellar Discs");
-		// DisplayName.SetDefault("Stellar Disc");
+		Tooltip.SetDefault("Throws Returning Stellar Discs");
+		DisplayName.SetDefault("Stellar Disc");
 	}
 
 	public override void SetDefaults()

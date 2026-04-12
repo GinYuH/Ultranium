@@ -9,7 +9,7 @@ public class StellarBoltSwirl : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Bolt");
+		DisplayName.SetDefault("Stellar Bolt");
 	}
 
 	public override void SetDefaults()

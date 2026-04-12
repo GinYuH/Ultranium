@@ -7,8 +7,8 @@ public class BloodBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Bloody Dripper");
-		// ((ModBuff)this).Description.SetDefault("The Bloody Dripper will fight along with you");
+		DisplayName.SetDefault("Bloody Dripper");
+		Description.SetDefault("The Bloody Dripper will fight along with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

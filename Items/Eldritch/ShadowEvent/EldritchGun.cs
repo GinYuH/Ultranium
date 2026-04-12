@@ -11,8 +11,8 @@ public class EldritchGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Fires out eldritch tentacles\nDoes not require ammo to use");
-		// DisplayName.SetDefault("Death's Raze");
+		Tooltip.SetDefault("Fires out eldritch tentacles\nDoes not require ammo to use");
+		DisplayName.SetDefault("Death's Raze");
 	}
 
 	public override void SetDefaults()

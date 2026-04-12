@@ -8,8 +8,8 @@ public class GlacialWand : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacial Wand");
-		// Tooltip.SetDefault("Casts a slow moving ice twister");
+		DisplayName.SetDefault("Glacial Wand");
+		Tooltip.SetDefault("Casts a slow moving ice twister");
 	}
 
 	public override void SetDefaults()

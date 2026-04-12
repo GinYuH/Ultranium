@@ -7,7 +7,7 @@ public class EldritchDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Hades Dye");
+		DisplayName.SetDefault("Eldritch Hades Dye");
 	}
 
 	public override void SetDefaults()

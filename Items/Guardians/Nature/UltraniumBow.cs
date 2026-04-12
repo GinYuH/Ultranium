@@ -11,8 +11,8 @@ public class UltraniumBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultranium Pulse Bow");
-		// Tooltip.SetDefault("Fires a spread of nature arrows\n50% chance to not consume ammo");
+		DisplayName.SetDefault("Ultranium Pulse Bow");
+		Tooltip.SetDefault("Fires a spread of nature arrows\n50% chance to not consume ammo");
 	}
 
 	public override void SetDefaults()

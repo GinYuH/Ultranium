@@ -12,7 +12,7 @@ public class FlameGlob : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Flame Glob");
+		DisplayName.SetDefault("Flame Glob");
 		Main.projFrames[Projectile.type] = 4;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;

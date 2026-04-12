@@ -8,8 +8,8 @@ public class XenanisWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Wings");
-		// Tooltip.SetDefault("Allows flight and slow fall");
+		DisplayName.SetDefault("Ethereal Wings");
+		Tooltip.SetDefault("Allows flight and slow fall");
 	}
 
 	public override void SetDefaults()

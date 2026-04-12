@@ -8,7 +8,7 @@ public class ShadowStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Casts a shadow bolt");
+		Tooltip.SetDefault("Casts a shadow bolt");
 		Item.staff[Item.type] = true;
 	}
 

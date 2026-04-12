@@ -9,7 +9,7 @@ public class TempleShroomCritter : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Temple Shroom");
+		DisplayName.SetDefault("Temple Shroom");
 		Main.npcFrameCount[NPC.type] = 5;
 	}
 

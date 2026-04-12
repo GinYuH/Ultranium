@@ -11,8 +11,8 @@ public class EldritchAegis : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Erebus Bulwark");
-		// Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
+		DisplayName.SetDefault("Erebus Bulwark");
+		Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ice barrier buff when below 25% hp, which reduces damage taken by 25%\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
 	}
 
 	public override void SetDefaults()

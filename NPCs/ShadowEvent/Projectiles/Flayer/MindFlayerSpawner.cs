@@ -15,7 +15,7 @@ public class MindFlayerSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Flayer Rift");
+		DisplayName.SetDefault("Flayer Rift");
 	}
 
 	public override void SetDefaults()

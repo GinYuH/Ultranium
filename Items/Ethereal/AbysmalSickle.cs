@@ -10,8 +10,8 @@ public class AbysmalSickle : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abysmal Sickle");
-		// Tooltip.SetDefault("Fires a circle of abyssal scythes");
+		DisplayName.SetDefault("Abysmal Sickle");
+		Tooltip.SetDefault("Fires a circle of abyssal scythes");
 	}
 
 	public override void SetDefaults()

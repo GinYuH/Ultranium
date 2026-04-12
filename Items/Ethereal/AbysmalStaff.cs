@@ -8,8 +8,8 @@ public class AbysmalStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abysmal Trident");
-		// Tooltip.SetDefault("Conjures abysmal trident bolts");
+		DisplayName.SetDefault("Abysmal Trident");
+		Tooltip.SetDefault("Conjures abysmal trident bolts");
 		Item.staff[Item.type] = true;
 	}
 

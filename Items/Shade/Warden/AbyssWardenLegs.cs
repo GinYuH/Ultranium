@@ -8,8 +8,8 @@ public class AbyssWardenLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Greaves");
-		// Tooltip.SetDefault("10% increased movement speed");
+		DisplayName.SetDefault("Abyssal Greaves");
+		Tooltip.SetDefault("10% increased movement speed");
 	}
 
 	public override void SetDefaults()

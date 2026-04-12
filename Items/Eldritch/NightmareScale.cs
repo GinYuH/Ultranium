@@ -9,8 +9,8 @@ public class NightmareScale : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus Scale");
-		// Tooltip.SetDefault("'It's slimey'");
+		DisplayName.SetDefault("Erebus Scale");
+		Tooltip.SetDefault("'It's slimey'");
 	}
 
 	public override void SetDefaults()

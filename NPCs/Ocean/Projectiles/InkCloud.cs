@@ -14,7 +14,7 @@ public class InkCloud : ModProjectile
 		Main.projFrames[Projectile.type] = 3;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ink Glob");
+		DisplayName.SetDefault("Ink Glob");
 	}
 
 	public override void SetDefaults()

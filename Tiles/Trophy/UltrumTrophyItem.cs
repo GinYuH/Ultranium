@@ -9,7 +9,7 @@ public class UltrumTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultrum Trophy");
+		DisplayName.SetDefault("Ultrum Trophy");
 	}
 
 	public override void SetDefaults()

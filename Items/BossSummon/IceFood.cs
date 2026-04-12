@@ -9,8 +9,8 @@ public class IceFood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Frozen Food");
-		// Tooltip.SetDefault("Attracts the ice dragon\nCan only be used in the snow biome");
+		DisplayName.SetDefault("Frozen Food");
+		Tooltip.SetDefault("Attracts the ice dragon\nCan only be used in the snow biome");
 	}
 
 	public override void SetDefaults()

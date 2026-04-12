@@ -9,7 +9,7 @@ public class DreadTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Trophy");
+		DisplayName.SetDefault("Dread Trophy");
 	}
 
 	public override void SetDefaults()

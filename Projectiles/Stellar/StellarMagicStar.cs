@@ -13,7 +13,7 @@ public class StellarMagicStar : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Stellar Magic Star");
+		DisplayName.SetDefault("Stellar Magic Star");
 	}
 
 	public override void SetDefaults()

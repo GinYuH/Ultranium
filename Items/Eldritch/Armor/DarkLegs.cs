@@ -10,8 +10,8 @@ public class DarkLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Darkmatter Leggings");
-		// Tooltip.SetDefault("+10 max mana and +1 max minions\n8% increased melee speed and 12% increased movement speed");
+		DisplayName.SetDefault("Darkmatter Leggings");
+		Tooltip.SetDefault("+10 max mana and +1 max minions\n8% increased melee speed and 12% increased movement speed");
 	}
 
 	public override void SetDefaults()

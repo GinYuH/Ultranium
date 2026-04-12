@@ -13,7 +13,7 @@ public class IceVortex : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 11;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ice Vortex");
+		DisplayName.SetDefault("Ice Vortex");
 	}
 
 	public override void SetDefaults()

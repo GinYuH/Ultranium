@@ -9,7 +9,7 @@ public class BigDreadTooth : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Tooth");
+		DisplayName.SetDefault("Dread Tooth");
 	}
 
 	public override void SetDefaults()

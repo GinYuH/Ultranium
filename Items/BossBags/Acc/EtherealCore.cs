@@ -7,8 +7,8 @@ public class EtherealCore : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Xenanis' Core");
-		// Tooltip.SetDefault("Increases all damage and crit by 15% when below half health\nPress the special ability key to unleash a circle of homing ethereal bolts\nThis ability has a 15 second cooldown when used");
+		DisplayName.SetDefault("Xenanis' Core");
+		Tooltip.SetDefault("Increases all damage and crit by 15% when below half health\nPress the special ability key to unleash a circle of homing ethereal bolts\nThis ability has a 15 second cooldown when used");
 	}
 
 	public override void SetDefaults()

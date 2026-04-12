@@ -10,8 +10,8 @@ public class BloodGrimoire : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Bloody Grimoire");
-		// Tooltip.SetDefault("Conjures a blood dripper minion to fight with you");
+		DisplayName.SetDefault("Bloody Grimoire");
+		Tooltip.SetDefault("Conjures a blood dripper minion to fight with you");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class BloodGrimoire : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

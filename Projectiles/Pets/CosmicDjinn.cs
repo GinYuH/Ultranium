@@ -7,7 +7,7 @@ public class CosmicDjinn : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cosmic Djinn");
+		DisplayName.SetDefault("Cosmic Djinn");
 		Main.projFrames[Projectile.type] = 4;
 		Main.projPet[Projectile.type] = true;
 	}

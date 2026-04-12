@@ -9,8 +9,8 @@ public class FutabaBody : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Futaba Body");
-		// Tooltip.SetDefault("~Developer item~");
+		DisplayName.SetDefault("Futaba Body");
+		Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

@@ -7,15 +7,15 @@ public class PumpBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Pumpkin");
-		// ((ModBuff)this).Description.SetDefault("The Living Pumpkin will fight for you!");
+		DisplayName.SetDefault("Pumpkin");
+		Description.SetDefault("The Living Pumpkin will fight for you!");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}
 
 	public override void Update(Player player, ref int buffIndex)
 	{
-		UltraniumPlayer ultraniumPlayer = (UltraniumPlayer)(object)player.GetModPlayer(((ModBuff)this).Mod, "UltraniumPlayer");
+		UltraniumPlayer ultraniumPlayer = player.GetModPlayer<UltraniumPlayer>();
 		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("PumpSlime").Type] > 0)
 		{
 			ultraniumPlayer.PumpSlime = true;

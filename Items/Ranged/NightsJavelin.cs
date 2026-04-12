@@ -7,8 +7,8 @@ public class NightsJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Night's Javelin");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Night's Javelin");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

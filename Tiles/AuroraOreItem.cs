@@ -7,8 +7,8 @@ public class AuroraOreItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Aurora Crystal Shard");
-		// Tooltip.SetDefault("It glows with a neon energy");
+		DisplayName.SetDefault("Aurora Crystal Shard");
+		Tooltip.SetDefault("It glows with a neon energy");
 	}
 
 	public override void SetDefaults()

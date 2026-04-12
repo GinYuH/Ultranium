@@ -13,7 +13,7 @@ public class SnowTwister : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Snow Twister");
+		DisplayName.SetDefault("Snow Twister");
 	}
 
 	public override void SetDefaults()

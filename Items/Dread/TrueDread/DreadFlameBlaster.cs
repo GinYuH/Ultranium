@@ -12,8 +12,8 @@ public class DreadFlameBlaster : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("'Why melt enemies when you can scorch them with fear?'\nSpews out a stream of dread fire\nWill also randomly fire out dread fire balls\n80% chance to not consume gel");
-		// DisplayName.SetDefault("Foreboding Flame");
+		Tooltip.SetDefault("'Why melt enemies when you can scorch them with fear?'\nSpews out a stream of dread fire\nWill also randomly fire out dread fire balls\n80% chance to not consume gel");
+		DisplayName.SetDefault("Foreboding Flame");
 	}
 
 	public override void SetDefaults()

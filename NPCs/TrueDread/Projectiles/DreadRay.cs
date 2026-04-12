@@ -30,7 +30,7 @@ public class DreadRay : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Death Ray");
+		DisplayName.SetDefault("Dread Death Ray");
 	}
 
 	public override void SetDefaults()
@@ -91,8 +91,8 @@ public class DreadRay : ModProjectile
 		//IL_005c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0066: Expected O, but got Unknown
 		DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, new PerLinePoint(CutTilesAndBreakWalls));
-		return true;
+		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, CutTilesAndBreakWalls);
+        return true;
 	}
 
 	private bool CutTilesAndBreakWalls(int x, int y)

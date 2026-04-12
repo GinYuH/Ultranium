@@ -7,8 +7,8 @@ public class DarkResonatorBroken : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Rift Artifact");
-		// Tooltip.SetDefault("An ancient artifact of the shadows\nIt seems to be broken, but can possibly be repaired with the right materials...");
+		DisplayName.SetDefault("Rift Artifact");
+		Tooltip.SetDefault("An ancient artifact of the shadows\nIt seems to be broken, but can possibly be repaired with the right materials...");
 	}
 
 	public override void SetDefaults()

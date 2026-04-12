@@ -8,8 +8,8 @@ public class AbyssTitanHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyss Titan Helmet");
-		// Tooltip.SetDefault("10% increased ranged damage and critical strike chance");
+		DisplayName.SetDefault("Abyss Titan Helmet");
+		Tooltip.SetDefault("10% increased ranged damage and critical strike chance");
 	}
 
 	public override void SetDefaults()

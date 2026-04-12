@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -16,7 +17,7 @@ public class PurpleGlowShroomTall : ModTile
 		Main.tileNoFail[Type] = true;
 		Main.tileMergeDirt[Type] = true;
 		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		base.HitSound = 6;
+		base.HitSound = SoundID.Grass;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };

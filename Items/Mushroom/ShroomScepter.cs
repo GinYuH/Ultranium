@@ -10,8 +10,8 @@ public class ShroomScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Fungal Bulb Scepter");
-		// Tooltip.SetDefault("Summons a stationary fungus bulb that shoots spores at enemies\nOnly one bulb can be active at once");
+		DisplayName.SetDefault("Fungal Bulb Scepter");
+		Tooltip.SetDefault("Summons a stationary fungus bulb that shoots spores at enemies\nOnly one bulb can be active at once");
 	}
 
 	public override void SetDefaults()

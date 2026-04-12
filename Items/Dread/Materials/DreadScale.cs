@@ -7,8 +7,8 @@ public class DreadScale : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Scale");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Dread Scale");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

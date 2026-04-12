@@ -18,7 +18,7 @@ public class DreadMusicBoxTile : ModTile
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.DrawYOffset = 2;
 		TileObjectData.addTile((int)Type);
-		TileID.Sets.DisableSmartCursor[Type] = true;
+        Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Music Box");
 		AddMapEntry(new Color(200, 200, 200), val);

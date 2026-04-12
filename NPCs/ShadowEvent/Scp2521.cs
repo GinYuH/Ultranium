@@ -13,7 +13,7 @@ public class Scp2521 : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyss Strider");
+		DisplayName.SetDefault("Abyss Strider");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 
@@ -47,9 +47,9 @@ public class Scp2521 : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/Scp2521Gore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/Scp2521Gore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/Scp2521Gore3"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore3").Type);
 		return true;
 	}
 
@@ -90,20 +90,20 @@ public class Scp2521 : ModNPC
 		}
 		if (Main.rand.Next(500) == 0)
 		{
-			int num3 = 0;
+			SoundStyle num3 = SoundID.Zombie41;
 			switch (Main.rand.Next(2))
 			{
 			case 0:
-				num3 = 41;
+				num3 = SoundID.Zombie41;
 				break;
 			case 1:
-				num3 = 42;
+				num3 = SoundID.Zombie42;
 				break;
 			case 2:
-				num3 = 43;
+				num3 = SoundID.Zombie43;
 				break;
 			}
-			SoundEngine.PlaySound(29, (int)NPC.position.X, (int)NPC.position.Y, num3, 1f, 0f);
+			SoundEngine.PlaySound(num3, NPC.position);
 		}
 	}
 

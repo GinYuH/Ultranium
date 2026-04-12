@@ -1,5 +1,7 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.Items.Fishing;
 
@@ -7,8 +9,8 @@ public class DepthCrate : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depths Crate");
-		// Tooltip.SetDefault("Right click to open");
+		DisplayName.SetDefault("Depths Crate");
+		Tooltip.SetDefault("Right click to open");
 	}
 
 	public override void SetDefaults()
@@ -30,37 +32,10 @@ public class DepthCrate : ModItem
 		return true;
 	}
 
-	public override void RightClick(Player player)
-	{
-		int[] array = new int[3]
-		{
-			Mod.Find<ModItem>("DepthGlowstoneItem").Type,
-			Mod.Find<ModItem>("NightmareBar").Type,
-			Mod.Find<ModItem>("ShadowEssence").Type
-		};
-		int num = Main.rand.Next(array.Length);
-		player.QuickSpawnItem(array[num], Main.rand.Next(3, 5));
-		int num2 = Main.rand.Next(3);
-		if (num2 == 0)
-		{
-			player.QuickSpawnItem(2674, Main.rand.Next(3, 5));
-		}
-		if (num2 == 1)
-		{
-			player.QuickSpawnItem(2675, Main.rand.Next(2, 4));
-		}
-		if (num2 == 2)
-		{
-			player.QuickSpawnItem(2676, Main.rand.Next(1, 2));
-		}
-		int num3 = Main.rand.Next(2);
-		if (num3 == 0)
-		{
-			player.QuickSpawnItem(499, Main.rand.Next(3, 5));
-		}
-		if (num3 == 1)
-		{
-			player.QuickSpawnItem(500, Main.rand.Next(3, 5));
-		}
-	}
+    public override void ModifyItemLoot(ItemLoot itemLoot)
+    {
+		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DepthGlowstoneItem").Type, 3, 3, 4).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<NightmareBar>(), 2, 3, 4).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 1, 3, 4))));
+		itemLoot.Add(ItemDropRule.Common(2674, 3, 3, 4).OnFailedRoll(ItemDropRule.Common(2675, 2, 2, 3).OnFailedRoll(ItemDropRule.Common(2676, 1))));
+		itemLoot.Add(ItemDropRule.Common(499, 2, 3, 4).OnFailedRoll(ItemDropRule.Common(500, 1, 3, 4)));
+    }
 }

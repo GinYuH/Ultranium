@@ -6,8 +6,8 @@ public class DepthSnailItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depth Snail");
-		// Tooltip.SetDefault("'It's glow is almost hypnotic'");
+		DisplayName.SetDefault("Depth Snail");
+		Tooltip.SetDefault("'It's glow is almost hypnotic'");
 	}
 
 	public override void SetDefaults()

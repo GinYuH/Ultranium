@@ -10,8 +10,8 @@ public class DreadFlame : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Flame");
-		// Tooltip.SetDefault("'The Essence of pure, concentrated fear'");
+		DisplayName.SetDefault("Dread Flame");
+		Tooltip.SetDefault("'The Essence of pure, concentrated fear'");
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
 		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(7, 6));
 	}

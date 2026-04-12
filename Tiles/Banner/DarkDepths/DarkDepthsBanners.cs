@@ -21,7 +21,7 @@ public class DarkDepthsBanners : ModTile
 		TileObjectData.newTile.StyleWrapLimit = 111;
 		TileObjectData.addTile((int)Type);
 		base.DustType = -1;
-		TileID.Sets.DisableSmartCursor[Type] = true;
+        Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Banner");
 		AddMapEntry(new Color(13, 88, 130), val);

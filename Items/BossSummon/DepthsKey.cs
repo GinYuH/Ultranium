@@ -7,8 +7,8 @@ public class DepthsKey : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depths Key");
-		// Tooltip.SetDefault("'Charged with the power of darkness'");
+		DisplayName.SetDefault("Depths Key");
+		Tooltip.SetDefault("'Charged with the power of darkness'");
 	}
 
 	public override void SetDefaults()

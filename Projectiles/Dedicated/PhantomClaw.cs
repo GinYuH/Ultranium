@@ -15,7 +15,7 @@ public class PhantomClaw : ModProjectile
 		Main.projFrames[Projectile.type] = 4;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Despair Claw");
+		DisplayName.SetDefault("Despair Claw");
 	}
 
 	public override void SetDefaults()

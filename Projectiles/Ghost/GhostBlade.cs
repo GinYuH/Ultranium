@@ -13,7 +13,7 @@ public class GhostBlade : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ghostly Boomerang");
+		DisplayName.SetDefault("Ghostly Boomerang");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class DreadChaserBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Chaser Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Dread Chaser");
+		DisplayName.SetDefault("Dread Chaser Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Dread Chaser");
 	}
 
 	public override void SetDefaults()

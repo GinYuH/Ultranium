@@ -25,7 +25,7 @@ public class ShadowLantern : ModTile
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };
 		TileObjectData.addTile((int)Type);
-		base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 21;
+		HitSound = SoundID.Tink;
 	}
 
 	public override void SetSpriteEffects(int i, int j, ref SpriteEffects spriteEffects)
@@ -52,7 +52,8 @@ public class ShadowLantern : ModTile
 		int num = 8;
 		int num2 = 0;
 		int height = 8;
-		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height);
+		short _ = 0;
+		TileLoader.SetDrawPositions(i, j, ref num, ref num2, ref height, ref _, ref _);
 		Texture2D texture = ModContent.Request<Texture2D>("Ultranium/Tiles/Furniture/ShadowLantern_Flame").Value;
 		ulong seed = Main.TileFrameSeed ^ (ulong)(((long)j << 32) | (uint)i);
 		for (int k = 0; k < 7; k++)

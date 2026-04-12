@@ -8,7 +8,7 @@ public class BloodBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Sanguine Chestplate");
+		DisplayName.SetDefault("Sanguine Chestplate");
 	}
 
 	public override void SetDefaults()

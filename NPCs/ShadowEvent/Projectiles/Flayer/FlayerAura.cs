@@ -13,7 +13,7 @@ public class FlayerAura : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Flayer Aura");
+		DisplayName.SetDefault("Flayer Aura");
 	}
 
 	public override void SetDefaults()

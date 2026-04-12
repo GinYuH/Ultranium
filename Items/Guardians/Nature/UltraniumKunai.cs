@@ -10,8 +10,8 @@ public class UltraniumKunai : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Throws homing Ultranium kunai blades");
-		// DisplayName.SetDefault("Ultranium Kunai");
+		Tooltip.SetDefault("Throws homing Ultranium kunai blades");
+		DisplayName.SetDefault("Ultranium Kunai");
 	}
 
 	public override void SetDefaults()

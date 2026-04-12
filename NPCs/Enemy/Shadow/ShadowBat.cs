@@ -9,7 +9,7 @@ public class ShadowBat : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadow Bat");
+		DisplayName.SetDefault("Shadow Bat");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 
@@ -41,7 +41,7 @@ public class ShadowBat : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/ShadowBatGore"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadowBatGore").Type);
 		}
 	}
 

@@ -7,8 +7,8 @@ public class IcePelt : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacial Pelt");
-		// Tooltip.SetDefault("Its really soft and cold");
+		DisplayName.SetDefault("Glacial Pelt");
+		Tooltip.SetDefault("Its really soft and cold");
 	}
 
 	public override void SetDefaults()

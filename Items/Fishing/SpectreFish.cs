@@ -7,8 +7,8 @@ public class SpectreFish : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Spectre Fish");
-		// Tooltip.SetDefault("It seems to be staring at you constantly");
+		DisplayName.SetDefault("Spectre Fish");
+		Tooltip.SetDefault("It seems to be staring at you constantly");
 	}
 
 	public override void SetDefaults()

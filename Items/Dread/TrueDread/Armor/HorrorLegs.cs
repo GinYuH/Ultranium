@@ -10,8 +10,8 @@ public class HorrorLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Horror Leggings");
-		// Tooltip.SetDefault("8% increased damage, melee speed, and movement speed");
+		DisplayName.SetDefault("Horror Leggings");
+		Tooltip.SetDefault("8% increased damage, melee speed, and movement speed");
 	}
 
 	public override void SetDefaults()

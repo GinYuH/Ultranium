@@ -9,7 +9,7 @@ public class PumpSlime : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pumpkin Minion");
+		DisplayName.SetDefault("Pumpkin Minion");
 		Main.projFrames[Projectile.type] = 1;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;

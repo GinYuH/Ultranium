@@ -8,7 +8,7 @@ public class Orca : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Orca");
+		DisplayName.SetDefault("Orca");
 	}
 
 	public override void SetDefaults()

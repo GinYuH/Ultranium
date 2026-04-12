@@ -7,8 +7,8 @@ public class InfernoJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Lance of Inferno");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Lance of Inferno");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

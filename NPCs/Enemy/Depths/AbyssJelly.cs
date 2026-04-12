@@ -9,7 +9,7 @@ public class AbyssJelly : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Jelly");
+		DisplayName.SetDefault("Abyssal Jelly");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[242];
 	}
 
@@ -35,8 +35,8 @@ public class AbyssJelly : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssJellyGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssJellyGore2"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssJellyGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssJellyGore2").Type);
 		}
 	}
 

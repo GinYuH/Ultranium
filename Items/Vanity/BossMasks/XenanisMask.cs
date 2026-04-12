@@ -8,8 +8,8 @@ public class XenanisMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Xenanis Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Xenanis Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

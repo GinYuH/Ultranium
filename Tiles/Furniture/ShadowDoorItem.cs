@@ -7,7 +7,7 @@ public class ShadowDoorItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Door");
+		DisplayName.SetDefault("Eldritch Door");
 	}
 
 	public override void SetDefaults()

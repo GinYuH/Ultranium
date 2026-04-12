@@ -9,7 +9,7 @@ public class IgnodiumTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ignodium Trophy");
+		DisplayName.SetDefault("Ignodium Trophy");
 	}
 
 	public override void SetDefaults()

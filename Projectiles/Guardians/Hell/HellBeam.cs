@@ -13,7 +13,7 @@ public class HellBeam : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Hell Beam");
+		DisplayName.SetDefault("Hell Beam");
 	}
 
 	public override void SetDefaults()

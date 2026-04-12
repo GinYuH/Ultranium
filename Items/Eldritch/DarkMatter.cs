@@ -10,8 +10,8 @@ public class DarkMatter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Other-Worldy Essence");
-		// Tooltip.SetDefault("'It pulses with an eldritch energy'");
+		DisplayName.SetDefault("Other-Worldy Essence");
+		Tooltip.SetDefault("'It pulses with an eldritch energy'");
 		ItemID.Sets.ItemIconPulse[Item.type] = true;
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
 	}

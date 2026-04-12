@@ -10,7 +10,7 @@ public class UltrumTelegraph : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultrum Telegraph");
+		DisplayName.SetDefault("Ultrum Telegraph");
 	}
 
 	public override void SetDefaults()

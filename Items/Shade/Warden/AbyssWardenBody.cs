@@ -8,8 +8,8 @@ public class AbyssWardenBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Chestmail");
-		// Tooltip.SetDefault("10% increased critical strike chance and +1 max minions");
+		DisplayName.SetDefault("Abyssal Chestmail");
+		Tooltip.SetDefault("10% increased critical strike chance and +1 max minions");
 	}
 
 	public override void SetDefaults()

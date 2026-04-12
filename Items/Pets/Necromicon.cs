@@ -18,8 +18,8 @@ public class Necromicon : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Necromicon");
-		// Tooltip.SetDefault("Summons a horrifying demon\n~Dedicated Item~");
+		DisplayName.SetDefault("Necromicon");
+		Tooltip.SetDefault("Summons a horrifying demon\n~Dedicated Item~");
 	}
 
 	public override void SetDefaults()

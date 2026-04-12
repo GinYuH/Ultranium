@@ -10,8 +10,8 @@ public class Midnight : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Turns normal bullets into midnight blasts");
-		// DisplayName.SetDefault("Midnight");
+		Tooltip.SetDefault("Turns normal bullets into midnight blasts");
+		DisplayName.SetDefault("Midnight");
 	}
 
 	public override void SetDefaults()

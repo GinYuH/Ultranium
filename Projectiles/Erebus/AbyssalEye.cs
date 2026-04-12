@@ -11,7 +11,7 @@ public class AbyssalEye : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Monolith");
+		DisplayName.SetDefault("Eldritch Monolith");
 		Main.projPet[Projectile.type] = true;
 	}
 

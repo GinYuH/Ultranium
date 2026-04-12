@@ -7,7 +7,7 @@ public class IceDragonDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacial Dye");
+		DisplayName.SetDefault("Glacial Dye");
 	}
 
 	public override void SetDefaults()

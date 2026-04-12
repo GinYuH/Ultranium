@@ -10,7 +10,7 @@ public class GlacialFlail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacial Flail");
+		DisplayName.SetDefault("Glacial Flail");
 	}
 
 	public override void SetDefaults()

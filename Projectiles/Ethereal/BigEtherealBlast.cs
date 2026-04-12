@@ -14,7 +14,7 @@ public class BigEtherealBlast : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ethereal Blast");
+		DisplayName.SetDefault("Ethereal Blast");
 	}
 
 	public override void SetDefaults()

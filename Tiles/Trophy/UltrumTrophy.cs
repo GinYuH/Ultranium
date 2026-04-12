@@ -17,7 +17,7 @@ public class UltrumTrophy : ModTile
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)Type);
 		base.DustType = 7;
-		TileID.Sets.DisableSmartCursor[Type] = true;
+        Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");
 		AddMapEntry(new Color(120, 85, 60), val);

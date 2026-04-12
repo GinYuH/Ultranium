@@ -36,7 +36,7 @@ public class CosmicRayQuick : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cosmic Deathbeam");
+		DisplayName.SetDefault("Cosmic Deathbeam");
 	}
 
 	public override void SetDefaults()
@@ -97,7 +97,7 @@ public class CosmicRayQuick : ModProjectile
 		//IL_005c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0066: Expected O, but got Unknown
 		DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, new PerLinePoint(CutTilesAndBreakWalls));
+		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, CutTilesAndBreakWalls);
 		return true;
 	}
 

@@ -8,8 +8,8 @@ public class GhostBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Phantom's Razor");
-		// Tooltip.SetDefault("Throws out phantom razors");
+		DisplayName.SetDefault("Phantom's Razor");
+		Tooltip.SetDefault("Throws out phantom razors");
 	}
 
 	public override void SetDefaults()

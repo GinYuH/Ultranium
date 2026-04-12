@@ -30,7 +30,7 @@ public class EtherealDeathray : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Death Ray");
+		DisplayName.SetDefault("Ethereal Death Ray");
 	}
 
 	public override void SetDefaults()
@@ -91,7 +91,7 @@ public class EtherealDeathray : ModProjectile
 		//IL_005c: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0066: Expected O, but got Unknown
 		DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
-		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, new PerLinePoint(CutTilesAndBreakWalls));
+		Utils.PlotTileLine(Projectile.Center, Projectile.Center + Projectile.velocity * LaserLength, (float)Projectile.width * Projectile.scale * 2f, CutTilesAndBreakWalls);
 		return true;
 	}
 

@@ -9,7 +9,7 @@ public class ShadeGhoul : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shade Ghoul");
+		DisplayName.SetDefault("Shade Ghoul");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[524];
 	}
 
@@ -35,9 +35,9 @@ public class ShadeGhoul : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/GhoulGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore3").Type);
 		}
 	}
 

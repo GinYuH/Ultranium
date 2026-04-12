@@ -11,7 +11,7 @@ public class WaterJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ancient Javelin");
+		DisplayName.SetDefault("Ancient Javelin");
 	}
 
 	public override void SetDefaults()

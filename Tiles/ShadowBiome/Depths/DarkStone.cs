@@ -18,8 +18,8 @@ public class DarkStone : ModTile
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(31, 29, 49), (LocalizedText)null);
 		base.DustType = Mod.Find<ModDust>("ShadowDustBlack").Type;
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkStoneItem").Type;
-		base.HitSound = 21;
+		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkStoneItem").Type;
+		base.HitSound = SoundID.Tink;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 		base.MineResist = 7f;
 		base.MinPick = 200;

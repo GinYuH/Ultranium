@@ -8,7 +8,7 @@ public class PetBat : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Bat");
+		DisplayName.SetDefault("Bat");
 		Main.projFrames[Projectile.type] = 4;
 	}
 

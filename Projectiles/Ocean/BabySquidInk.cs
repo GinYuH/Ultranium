@@ -9,7 +9,7 @@ public class BabySquidInk : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 6;
-		// DisplayName.SetDefault("Ink Glob");
+		DisplayName.SetDefault("Ink Glob");
 	}
 
 	public override void SetDefaults()

@@ -10,7 +10,7 @@ public class MidnightPro : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 3;
-		// DisplayName.SetDefault("Shadow Bolt");
+		DisplayName.SetDefault("Shadow Bolt");
 	}
 
 	public override void SetDefaults()

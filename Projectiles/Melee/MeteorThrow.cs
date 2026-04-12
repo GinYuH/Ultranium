@@ -8,7 +8,7 @@ public class MeteorThrow : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Meteor Throw");
+		DisplayName.SetDefault("Meteor Throw");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

@@ -11,8 +11,8 @@ public class Inanis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Turns bullets into Void Bolts\nHas a 20% chance to fire out an eldritch blast\n35% chance not to consume ammo");
-		// DisplayName.SetDefault("Inanis");
+		Tooltip.SetDefault("Turns bullets into Void Bolts\nHas a 20% chance to fire out an eldritch blast\n35% chance not to consume ammo");
+		DisplayName.SetDefault("Inanis");
 	}
 
 	public override void SetDefaults()

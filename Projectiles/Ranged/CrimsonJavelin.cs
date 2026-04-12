@@ -11,7 +11,7 @@ public class CrimsonJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Crimtane Pike");
+		DisplayName.SetDefault("Crimtane Pike");
 	}
 
 	public override void SetDefaults()

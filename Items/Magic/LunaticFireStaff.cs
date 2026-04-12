@@ -8,8 +8,8 @@ public class LunaticFireStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Solar Flare Staff");
-		// Tooltip.SetDefault("Shoots solar flare bolts");
+		DisplayName.SetDefault("Solar Flare Staff");
+		Tooltip.SetDefault("Shoots solar flare bolts");
 		Item.staff[Item.type] = true;
 	}
 

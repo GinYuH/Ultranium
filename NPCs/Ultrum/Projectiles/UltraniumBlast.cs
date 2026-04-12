@@ -13,7 +13,7 @@ public class UltraniumBlast : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ultranium Blast");
+		DisplayName.SetDefault("Ultranium Blast");
 	}
 
 	public override void SetDefaults()

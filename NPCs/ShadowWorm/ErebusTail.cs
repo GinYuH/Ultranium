@@ -24,7 +24,7 @@ public class ErebusTail : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus");
+		DisplayName.SetDefault("Erebus");
 	}
 
 	public override void SetDefaults()

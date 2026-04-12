@@ -10,8 +10,8 @@ public class StaffOfCthulhu : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Staff of Cthulhu");
-		// Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
+		DisplayName.SetDefault("Staff of Cthulhu");
+		Tooltip.SetDefault("Summons a Servant of Cthulhu to fight for you");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class StaffOfCthulhu : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

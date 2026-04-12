@@ -11,8 +11,8 @@ public class HellScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Igneous Scepter");
-		// Tooltip.SetDefault("Summons a miniature ignodium to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
+		DisplayName.SetDefault("Igneous Scepter");
+		Tooltip.SetDefault("Summons a miniature ignodium to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
 	}
 
 	public override void SetDefaults()
@@ -59,7 +59,7 @@ public class HellScepter : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

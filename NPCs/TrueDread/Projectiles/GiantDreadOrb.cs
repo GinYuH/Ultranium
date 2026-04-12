@@ -21,7 +21,7 @@ public class GiantDreadOrb : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Orb");
+		DisplayName.SetDefault("Dread Orb");
 		Main.projFrames[Projectile.type] = 4;
 	}
 

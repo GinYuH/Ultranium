@@ -7,8 +7,8 @@ public class StellarDust : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Dust");
-		// Tooltip.SetDefault("'It Sparkles like the stars in the night'");
+		DisplayName.SetDefault("Stellar Dust");
+		Tooltip.SetDefault("'It Sparkles like the stars in the night'");
 	}
 
 	public override void SetDefaults()

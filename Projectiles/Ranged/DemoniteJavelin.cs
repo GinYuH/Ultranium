@@ -11,7 +11,7 @@ public class DemoniteJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Demonite Javelin");
+		DisplayName.SetDefault("Demonite Javelin");
 	}
 
 	public override void SetDefaults()

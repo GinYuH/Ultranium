@@ -10,8 +10,8 @@ public class ShroomBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glowing Mushroom Bow");
-		// Tooltip.SetDefault("Has a 50% chance to convert arrows into fast moving fungus arrows");
+		DisplayName.SetDefault("Glowing Mushroom Bow");
+		Tooltip.SetDefault("Has a 50% chance to convert arrows into fast moving fungus arrows");
 	}
 
 	public override void SetDefaults()

@@ -9,8 +9,8 @@ public class EtherealLantern : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Lantern");
-		// Tooltip.SetDefault("Calls forth the ethereal demon\nCan only be used at night");
+		DisplayName.SetDefault("Ethereal Lantern");
+		Tooltip.SetDefault("Calls forth the ethereal demon\nCan only be used at night");
 	}
 
 	public override void SetDefaults()

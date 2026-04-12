@@ -15,7 +15,7 @@ public class EldritchKnife : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Midnight Knife");
+		DisplayName.SetDefault("Midnight Knife");
 	}
 
 	public override void SetDefaults()

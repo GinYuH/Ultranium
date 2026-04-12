@@ -10,7 +10,7 @@ public class DreadApparition : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Apparition");
+		DisplayName.SetDefault("Dread Apparition");
 		Main.npcFrameCount[NPC.type] = 6;
 	}
 

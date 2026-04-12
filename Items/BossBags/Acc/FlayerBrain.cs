@@ -7,8 +7,8 @@ public class FlayerBrain : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Mind of the Mindflayer");
-		// Tooltip.SetDefault("10% increased damage and critical strike chance chance\nYou have a chance to dodge enemy attacks and gain longer invincibility when hit\nCreates an eldritch aura around the player that damages nearby enemies\nDisabling the visibility will disable the aura\nhowever the other bonuses will become buffed");
+		DisplayName.SetDefault("Mind of the Mindflayer");
+		Tooltip.SetDefault("10% increased damage and critical strike chance chance\nYou have a chance to dodge enemy attacks and gain longer invincibility when hit\nCreates an eldritch aura around the player that damages nearby enemies\nDisabling the visibility will disable the aura\nhowever the other bonuses will become buffed");
 	}
 
 	public override void SetDefaults()

@@ -12,7 +12,7 @@ public class DarkDemon : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dark Demon");
+		DisplayName.SetDefault("Dark Demon");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 
@@ -57,10 +57,10 @@ public class DarkDemon : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore3"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/DemonGore4"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DemonGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DemonGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DemonGore3").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DemonGore4").Type);
 		}
 	}
 

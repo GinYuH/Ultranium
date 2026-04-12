@@ -10,8 +10,8 @@ public class ShadeWispStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadow Wisp Staff");
-		// Tooltip.SetDefault("Summons a Shade Wisp to fight with you");
+		DisplayName.SetDefault("Shadow Wisp Staff");
+		Tooltip.SetDefault("Summons a Shade Wisp to fight with you");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class ShadeWispStaff : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

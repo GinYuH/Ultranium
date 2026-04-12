@@ -12,7 +12,7 @@ public class DepthCrawler : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depth Crawler");
+		DisplayName.SetDefault("Depth Crawler");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 
@@ -37,10 +37,10 @@ public class DepthCrawler : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore3"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore4"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore3").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CrawlerGore4").Type);
 		}
 	}
 

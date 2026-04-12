@@ -11,7 +11,7 @@ public class ErebusGuitarPulse : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Sound Pulse");
+		DisplayName.SetDefault("Eldritch Sound Pulse");
 	}
 
 	public override void SetDefaults()

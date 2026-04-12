@@ -9,8 +9,8 @@ public class EldritchBlood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Mind Flayer Blood");
-		// Tooltip.SetDefault("Eldritch and slimey");
+		DisplayName.SetDefault("Mind Flayer Blood");
+		Tooltip.SetDefault("Eldritch and slimey");
 	}
 
 	public override void SetDefaults()

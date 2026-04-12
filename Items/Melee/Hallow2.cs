@@ -10,8 +10,8 @@ public class Hallow2 : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("True Chaos Blade");
-		// Tooltip.SetDefault("Fires a Chaos star\nHas a 20% chance to fire out a large chaos blast\nThe chaos blast will home and deal double the swords base damage");
+		DisplayName.SetDefault("True Chaos Blade");
+		Tooltip.SetDefault("Fires a Chaos star\nHas a 20% chance to fire out a large chaos blast\nThe chaos blast will home and deal double the swords base damage");
 	}
 
 	public override void SetDefaults()

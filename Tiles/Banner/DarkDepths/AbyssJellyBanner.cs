@@ -7,8 +7,8 @@ public class AbyssJellyBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyss Jelly Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Jelly");
+		DisplayName.SetDefault("Abyss Jelly Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Jelly");
 	}
 
 	public override void SetDefaults()

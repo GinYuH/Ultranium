@@ -11,7 +11,7 @@ public class EldritchSpore : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 3;
-		// DisplayName.SetDefault("Eldritch Spore");
+		DisplayName.SetDefault("Eldritch Spore");
 	}
 
 	public override void SetDefaults()

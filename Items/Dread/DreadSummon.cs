@@ -10,8 +10,8 @@ public class DreadSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Staff");
-		// Tooltip.SetDefault("Summons a dread minion");
+		DisplayName.SetDefault("Dread Staff");
+		Tooltip.SetDefault("Summons a dread minion");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class DreadSummon : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

@@ -8,7 +8,7 @@ public class BloodLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Sanguine Leggings");
+		DisplayName.SetDefault("Sanguine Leggings");
 	}
 
 	public override void SetDefaults()

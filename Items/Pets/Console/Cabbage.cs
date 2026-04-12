@@ -10,8 +10,8 @@ public class Cabbage : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Mysterious Cabbage");
-		// Tooltip.SetDefault("Summons a strange guinea pig\n'Makes a great first companion!'");
+		DisplayName.SetDefault("Mysterious Cabbage");
+		Tooltip.SetDefault("Summons a strange guinea pig\n'Makes a great first companion!'");
 	}
 
 	public override void SetDefaults()

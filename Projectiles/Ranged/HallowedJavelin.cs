@@ -11,7 +11,7 @@ public class HallowedJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Holy Javelin");
+		DisplayName.SetDefault("Holy Javelin");
 	}
 
 	public override void SetDefaults()

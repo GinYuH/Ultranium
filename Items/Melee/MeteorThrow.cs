@@ -8,8 +8,8 @@ public class MeteorThrow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("The Asteroid");
-		// Tooltip.SetDefault("Set enemies ablaze on contact");
+		DisplayName.SetDefault("The Asteroid");
+		Tooltip.SetDefault("Set enemies ablaze on contact");
 	}
 
 	public override void SetDefaults()

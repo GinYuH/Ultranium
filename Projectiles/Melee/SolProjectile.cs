@@ -14,7 +14,7 @@ public class SolProjectile : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Sol Throw");
+		DisplayName.SetDefault("Sol Throw");
 	}
 
 	public override void SetDefaults()

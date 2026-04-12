@@ -11,8 +11,8 @@ public class GuardianShield : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Shield of the Deities");
-		// Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
+		DisplayName.SetDefault("Shield of the Deities");
+		Tooltip.SetDefault("Grants immunity to most debuffs and knockback\nDamage taken from lava is reduced and you can walk on fire blocks\nGrants you the ability to dash\nDisabling the visibility will disable the dash");
 	}
 
 	public override void SetDefaults()

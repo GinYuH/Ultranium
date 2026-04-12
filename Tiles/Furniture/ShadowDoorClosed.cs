@@ -45,7 +45,7 @@ public class ShadowDoorClosed : ModTile
 		AddMapEntry(new Color(31, 34, 40), val);
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 10 };
-		base.openDoorID = Mod.Find<ModTile>("ShadowDoorOpen").Type;
+		TileID.Sets.OpenDoorID[Type] = Mod.Find<ModTile>("ShadowDoorOpen").Type;
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)

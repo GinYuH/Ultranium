@@ -7,8 +7,8 @@ public class EyeBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Mini Eye");
-		// ((ModBuff)this).Description.SetDefault("The servant of Cthulhu will fight for you");
+		DisplayName.SetDefault("Mini Eye");
+		Description.SetDefault("The servant of Cthulhu will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

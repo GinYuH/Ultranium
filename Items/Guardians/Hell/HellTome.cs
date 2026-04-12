@@ -10,8 +10,8 @@ public class HellTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Shoots a molten glob that explodes into bolts when it hits enemies");
-		// DisplayName.SetDefault("Molten Purge");
+		Tooltip.SetDefault("Shoots a molten glob that explodes into bolts when it hits enemies");
+		DisplayName.SetDefault("Molten Purge");
 	}
 
 	public override void SetDefaults()

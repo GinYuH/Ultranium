@@ -7,7 +7,7 @@ public class ShadowChairItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Chair");
+		DisplayName.SetDefault("Eldritch Chair");
 	}
 
 	public override void SetDefaults()

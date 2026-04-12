@@ -19,12 +19,11 @@ public class NPCGlobal : GlobalNPC
 		players = 0;
 	}
 
-	public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
-	{
-		if (type == 453 && UltraniumWorld.StrangeUndergrowth)
+    public override void ModifyShop(NPCShop shop)
+    {
+        if (shop.NpcType == 453)
 		{
-			shop.item[nextSlot].SetDefaults(((GlobalNPC)this).Mod.Find<ModItem>("StrangeUndergrowth").Type, false);
-			nextSlot++;
+			shop.Add(Mod.Find<ModItem>("StrangeUndergrowth").Type, new Condition("In Strange Undergrwoth", () => UltraniumWorld.StrangeUndergrowth));
 		}
-	}
+    }
 }

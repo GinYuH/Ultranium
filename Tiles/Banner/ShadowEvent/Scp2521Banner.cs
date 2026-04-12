@@ -7,8 +7,8 @@ public class Scp2521Banner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyss Strider Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Abyss Strider");
+		DisplayName.SetDefault("Abyss Strider Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Abyss Strider");
 	}
 
 	public override void SetDefaults()

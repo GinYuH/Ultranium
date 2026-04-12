@@ -9,7 +9,7 @@ public class UltrumBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nature Bolt");
+		DisplayName.SetDefault("Nature Bolt");
 		Main.projFrames[Projectile.type] = 3;
 	}
 

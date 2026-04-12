@@ -10,8 +10,8 @@ public class DreadDisc : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Disc of Dismay");
-		// Tooltip.SetDefault("Throws out discs that scatter dread bolts in random directions\nOnly up to 3 discs can be active at once");
+		DisplayName.SetDefault("Disc of Dismay");
+		Tooltip.SetDefault("Throws out discs that scatter dread bolts in random directions\nOnly up to 3 discs can be active at once");
 	}
 
 	public override void SetDefaults()

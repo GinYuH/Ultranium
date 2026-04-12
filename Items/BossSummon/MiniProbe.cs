@@ -11,8 +11,8 @@ public class MiniProbe : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Miniature Martian Probe");
-		// Tooltip.SetDefault("Calls upon the martians");
+		DisplayName.SetDefault("Miniature Martian Probe");
+		Tooltip.SetDefault("Calls upon the martians");
 	}
 
 	public override void SetDefaults()

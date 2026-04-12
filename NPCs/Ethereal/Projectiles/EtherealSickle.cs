@@ -13,7 +13,7 @@ public class EtherealSickle : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 11;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ethereal Scythe");
+		DisplayName.SetDefault("Ethereal Scythe");
 	}
 
 	public override void SetDefaults()

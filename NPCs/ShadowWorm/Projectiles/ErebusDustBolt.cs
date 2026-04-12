@@ -11,7 +11,7 @@ public class ErebusDustBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Bolt");
+		DisplayName.SetDefault("Eldritch Bolt");
 	}
 
 	public override void SetDefaults()

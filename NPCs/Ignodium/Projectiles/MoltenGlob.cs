@@ -8,7 +8,7 @@ public class MoltenGlob : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Molten Glob");
+		DisplayName.SetDefault("Molten Glob");
 	}
 
 	public override void SetDefaults()

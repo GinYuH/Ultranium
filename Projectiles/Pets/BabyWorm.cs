@@ -7,7 +7,7 @@ public class BabyWorm : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zephyr Serpent");
+		DisplayName.SetDefault("Zephyr Serpent");
 		Main.projFrames[Projectile.type] = 4;
 		Main.projPet[Projectile.type] = true;
 	}

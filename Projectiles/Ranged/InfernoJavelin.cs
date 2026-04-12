@@ -11,7 +11,7 @@ public class InfernoJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Inferno Lance");
+		DisplayName.SetDefault("Inferno Lance");
 	}
 
 	public override void SetDefaults()

@@ -14,7 +14,7 @@ public class StellarHammer : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Stellar Hammer");
+		DisplayName.SetDefault("Stellar Hammer");
 	}
 
 	public override void SetDefaults()

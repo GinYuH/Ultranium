@@ -74,7 +74,7 @@ public class ShadowClock : ModTile
 		{
 			num2 = 12;
 		}
-		Main.NewText("Time: " + num2 + ":" + text2 + " " + text, byte.MaxValue, (byte)240, (byte)20, false);
+		Main.NewText("Time: " + num2 + ":" + text2 + " " + text, byte.MaxValue, (byte)240, (byte)20);
 		return true;
 	}
 

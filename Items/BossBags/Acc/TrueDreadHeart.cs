@@ -7,8 +7,8 @@ public class TrueDreadHeart : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("True Core of Fear");
-		// Tooltip.SetDefault("All projectiles will inflict dread, which deals damage over time to enemies\nYou have a chance to erupt dread blasts from your body when you are struck\nEnemies have a chance to explode into dread flame blasts when critically hit");
+		DisplayName.SetDefault("True Core of Fear");
+		Tooltip.SetDefault("All projectiles will inflict dread, which deals damage over time to enemies\nYou have a chance to erupt dread blasts from your body when you are struck\nEnemies have a chance to explode into dread flame blasts when critically hit");
 	}
 
 	public override void SetDefaults()

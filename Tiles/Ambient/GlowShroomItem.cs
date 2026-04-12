@@ -8,8 +8,8 @@ public class GlowShroomItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glow Shroom");
-		// Tooltip.SetDefault("A strange eldritch mushroom from an even stranger land\nMight have strange effects if eaten");
+		DisplayName.SetDefault("Glow Shroom");
+		Tooltip.SetDefault("A strange eldritch mushroom from an even stranger land\nMight have strange effects if eaten");
 	}
 
 	public override void SetDefaults()

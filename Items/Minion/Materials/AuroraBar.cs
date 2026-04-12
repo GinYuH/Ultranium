@@ -7,8 +7,8 @@ public class AuroraBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Aurora Crystal Bar");
-		// Tooltip.SetDefault("Its glow is almost blinding to look at");
+		DisplayName.SetDefault("Aurora Crystal Bar");
+		Tooltip.SetDefault("Its glow is almost blinding to look at");
 	}
 
 	public override void SetDefaults()

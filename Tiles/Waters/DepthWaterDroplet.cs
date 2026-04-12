@@ -113,8 +113,8 @@ public class DepthWaterDroplet : ModGore
 			{
 				gore.frame = 10;
 				gore.frameCounter = 0;
-				SoundEngine.PlaySound(39, (int)gore.position.X + 8, (int)gore.position.Y + 8, Main.rand.Next(2), 1f, 0f);
-			}
+                SoundEngine.PlaySound(SoundID.Drip, gore.position + Vector2.One * 8);
+            }
 		}
 		else if (Collision.WetCollision(gore.position + gore.velocity, 16, 14))
 		{
@@ -122,8 +122,8 @@ public class DepthWaterDroplet : ModGore
 			{
 				gore.frame = 10;
 				gore.frameCounter = 0;
-				SoundEngine.PlaySound(SoundID.Drip, new Vector2((int)gore.position.X + 8, (int)gore.position.Y + 8));
-			}
+                SoundEngine.PlaySound(SoundID.Drip, gore.position + Vector2.One * 8);
+            }
 			int num5 = (int)(gore.position.X + 8f) / 16;
 			int num6 = (int)(gore.position.Y + 14f) / 16;
 			if (Main.tile[num5, num6] != null && Main.tile[num5, num6].LiquidAmount > 0)

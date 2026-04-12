@@ -11,8 +11,8 @@ public class UltraTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultranium Grimoire");
-		// Tooltip.SetDefault("Creates a circle of nature blasts that close in on the cursor");
+		DisplayName.SetDefault("Ultranium Grimoire");
+		Tooltip.SetDefault("Creates a circle of nature blasts that close in on the cursor");
 	}
 
 	public override void SetDefaults()

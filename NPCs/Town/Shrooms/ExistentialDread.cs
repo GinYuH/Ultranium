@@ -7,8 +7,8 @@ public class ExistentialDread : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Existential Dread");
-		// Tooltip.SetDefault("Looks hungry, violent, and dangerous. Probably could eat somebody if left alone. Cool.");
+		DisplayName.SetDefault("Existential Dread");
+		Tooltip.SetDefault("Looks hungry, violent, and dangerous. Probably could eat somebody if left alone. Cool.");
 	}
 
 	public override void SetDefaults()

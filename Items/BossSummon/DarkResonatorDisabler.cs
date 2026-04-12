@@ -10,8 +10,8 @@ public class DarkResonatorDisabler : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Spawn Disabler");
-		// Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
+		DisplayName.SetDefault("Abyssal Spawn Disabler");
+		Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
 	}
 
 	public override void SetDefaults()
@@ -40,13 +40,13 @@ public class DarkResonatorDisabler : ModItem
 	{
 		if (ShadowEventWorld.ShadowEventActive && !ShadowEventSpawns.DisabledSpawns)
 		{
-			Main.NewText("Spawns have been disabled!", (byte)61, byte.MaxValue, (byte)142, false);
+			Main.NewText("Spawns have been disabled!", (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventSpawns.DisabledSpawns = true;
 			return true;
 		}
 		if (ShadowEventWorld.ShadowEventActive && ShadowEventSpawns.DisabledSpawns)
 		{
-			Main.NewText("Spawns have been enabled!", (byte)61, byte.MaxValue, (byte)142, false);
+			Main.NewText("Spawns have been enabled!", (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventSpawns.DisabledSpawns = false;
 			return true;
 		}

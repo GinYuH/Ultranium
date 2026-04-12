@@ -13,7 +13,7 @@ public class NatureTornado : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nature Tornado");
+		DisplayName.SetDefault("Nature Tornado");
 	}
 
 	public override void SetDefaults()

@@ -10,7 +10,7 @@ public class IceSpike : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 5;
-		// DisplayName.SetDefault("Icicle Bolt");
+		DisplayName.SetDefault("Icicle Bolt");
 	}
 
 	public override void SetDefaults()

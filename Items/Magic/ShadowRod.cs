@@ -8,7 +8,7 @@ public class ShadowRod : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Conjures a short lived shadow bolt that pierces through enemies");
+		Tooltip.SetDefault("Conjures a short lived shadow bolt that pierces through enemies");
 		Item.staff[Item.type] = true;
 	}
 

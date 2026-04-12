@@ -21,7 +21,7 @@ public class DreadSummonOrb : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Energy Orb");
+		DisplayName.SetDefault("Dread Energy Orb");
 		Main.projFrames[Projectile.type] = 4;
 	}
 

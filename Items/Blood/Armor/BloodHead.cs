@@ -8,7 +8,7 @@ public class BloodHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Sanguine Face Mask");
+		DisplayName.SetDefault("Sanguine Face Mask");
 	}
 
 	public override void SetDefaults()

@@ -18,7 +18,7 @@ public class CosmosBolt : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cosmos Blast");
+		DisplayName.SetDefault("Cosmos Blast");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 4;

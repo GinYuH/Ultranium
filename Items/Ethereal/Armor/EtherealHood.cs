@@ -8,8 +8,8 @@ public class EtherealHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Occultist Hood");
-		// Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
+		DisplayName.SetDefault("Occultist Hood");
+		Tooltip.SetDefault("8% increased damage\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()

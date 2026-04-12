@@ -7,8 +7,8 @@ public class NatureJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Jungle's Wrath");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Jungle's Wrath");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

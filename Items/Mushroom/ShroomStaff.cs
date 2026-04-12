@@ -8,8 +8,8 @@ public class ShroomStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Fungus Staff");
-		// Tooltip.SetDefault("Fires mushroom spores");
+		DisplayName.SetDefault("Fungus Staff");
+		Tooltip.SetDefault("Fires mushroom spores");
 	}
 
 	public override void SetDefaults()

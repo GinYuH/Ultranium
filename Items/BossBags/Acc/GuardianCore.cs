@@ -7,8 +7,8 @@ public class GuardianCore : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Guardian's Insignia");
-		// Tooltip.SetDefault("15% increased damage and 10% increased critical strike chance\nincreases max life and max mana by 40\n+3 max minions\n20% reduced mana usage");
+		DisplayName.SetDefault("Guardian's Insignia");
+		Tooltip.SetDefault("15% increased damage and 10% increased critical strike chance\nincreases max life and max mana by 40\n+3 max minions\n20% reduced mana usage");
 	}
 
 	public override void SetDefaults()

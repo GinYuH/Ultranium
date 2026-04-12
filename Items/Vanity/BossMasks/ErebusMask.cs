@@ -8,8 +8,8 @@ public class ErebusMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Erebus Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

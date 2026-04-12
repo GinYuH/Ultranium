@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -35,7 +36,7 @@ public class Xenanis : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Xenanis");
+		DisplayName.SetDefault("Xenanis");
 		Main.npcFrameCount[NPC.type] = 12;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -59,8 +60,7 @@ public class Xenanis : ModNPC
 		NPC.lavaImmune = true;
 		NPC.alpha = 0;
 		NPC.buffImmune[24] = true;
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("EtherealBag").Type;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Xenanis");
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Xenanis");
 		NPC.netAlways = true;
 		NPC.aiStyle = -1;
 		players = 1;
@@ -419,56 +419,26 @@ public class Xenanis : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/XenanisGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/XenanisGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/XenanisGore3"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/XenanisGore4"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore3").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore4").Type);
 		return true;
+	}
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("EtherealBag").Type));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisFlesh").Type, 1, 10, 17));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisWings").Type, 20));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("EtherealDidgeridoo").Type, 10));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type)));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("EtherealMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("EtherealTrophyItem").Type, 10));
 	}
 
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(4);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EtherealSword").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EtherealBow").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EtherealTome").Type, 1, false, 0, false, false);
-			}
-			if (num == 3)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("EtherealSummon").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("XenanisFlesh").Type, Main.rand.Next(10, 18), false, 0, false, false);
-			if (Main.rand.Next(20) == 0)
-			{
-				Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("XenanisWings").Type, 1, false, 0, false, false);
-			}
-			if (Main.rand.Next(10) == 0)
-			{
-				Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("EtherealDidgeridoo").Type, 1, false, 0, false, false);
-			}
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("XenanisMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("XenanisTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedXenanis)
 		{
 			UltraniumWorld.downedXenanis = true;

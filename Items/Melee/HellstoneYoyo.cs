@@ -8,8 +8,8 @@ public class HellstoneYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Fiery Throw");
-		// Tooltip.SetDefault("Shoots out fireballs");
+		DisplayName.SetDefault("Fiery Throw");
+		Tooltip.SetDefault("Shoots out fireballs");
 	}
 
 	public override void SetDefaults()

@@ -24,7 +24,7 @@ public class XenanisClone1 : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Xenanis Apparition");
+		DisplayName.SetDefault("Xenanis Apparition");
 		Main.npcFrameCount[NPC.type] = 12;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

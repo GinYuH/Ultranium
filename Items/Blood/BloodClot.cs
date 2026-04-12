@@ -7,8 +7,8 @@ public class BloodClot : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Blood Clot");
-		// Tooltip.SetDefault("\"A clot of blood obtained from a bloody monster\"");
+		DisplayName.SetDefault("Blood Clot");
+		Tooltip.SetDefault("\"A clot of blood obtained from a bloody monster\"");
 	}
 
 	public override void SetDefaults()

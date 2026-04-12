@@ -11,7 +11,7 @@ public class DreadBowBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Bolt");
+		DisplayName.SetDefault("Dread Bolt");
 		Main.projFrames[Projectile.type] = 5;
 	}
 

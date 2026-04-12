@@ -9,7 +9,7 @@ public class CasterBolt : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 6;
-		// DisplayName.SetDefault("Eldritch Glob");
+		DisplayName.SetDefault("Eldritch Glob");
 	}
 
 	public override void SetDefaults()

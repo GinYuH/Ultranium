@@ -9,7 +9,7 @@ public class ShadeBat : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shade Bat");
+		DisplayName.SetDefault("Shade Bat");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[152];
 	}
 
@@ -36,9 +36,9 @@ public class ShadeBat : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DepthsBatGore3").Type);
 		}
 	}
 

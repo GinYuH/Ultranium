@@ -10,8 +10,8 @@ public class ShadowFlame : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadowflame");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Shadowflame");
+		Tooltip.SetDefault("");
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
 		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(6, 6));
 	}

@@ -12,7 +12,7 @@ public class WardenBolt : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 5;
-		// DisplayName.SetDefault("Depth Bolt");
+		DisplayName.SetDefault("Depth Bolt");
 	}
 
 	public override void SetDefaults()

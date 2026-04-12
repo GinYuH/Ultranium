@@ -10,7 +10,7 @@ public class LingerBubble : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Water Bubble");
+		DisplayName.SetDefault("Water Bubble");
 	}
 
 	public override void SetDefaults()

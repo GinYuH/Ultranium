@@ -8,7 +8,7 @@ public class ShadowFlameBreath : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadow Flame Breath");
+		DisplayName.SetDefault("Shadow Flame Breath");
 	}
 
 	public override void SetDefaults()

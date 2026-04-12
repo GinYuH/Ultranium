@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -21,7 +22,7 @@ internal class ShadowFlora : ModTile
 		TileObjectData.addTile((int)Type);
 		base.DustType = 89;
 		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.HitSound = 6;
+		base.HitSound = SoundID.Grass;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 	}
 

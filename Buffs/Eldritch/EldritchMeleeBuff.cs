@@ -7,8 +7,8 @@ public class EldritchMeleeBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Eldritch Warrior Empowerment");
-		// ((ModBuff)this).Description.SetDefault("1.5x melee damage, however you take 1.3x damage");
+		DisplayName.SetDefault("Eldritch Warrior Empowerment");
+		Description.SetDefault("1.5x melee damage, however you take 1.3x damage");
 	}
 
 	public override void Update(Player player, ref int buffIndex)

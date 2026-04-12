@@ -25,9 +25,9 @@ public class ShrineChest : ModTile
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style2x2);
 		TileObjectData.newTile.Origin = new Point16(0, 1);
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 18 };
-		TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook((Func<int, int, int, int, int, int>)Chest.FindEmptyChest, -1, 0, true);
-		TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook((Func<int, int, int, int, int, int>)Chest.AfterPlacement_Hook, -1, 0, false);
-		TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
+        TileObjectData.newTile.HookCheckIfCanPlace = new PlacementHook(Chest.FindEmptyChest, -1, 0, true);
+        TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(Chest.AfterPlacement_Hook, -1, 0, false);
+        TileObjectData.newTile.AnchorInvalidTiles = new int[1] { 127 };
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.AnchorBottom = new AnchorData(AnchorType.SolidTile | AnchorType.SolidWithTop | AnchorType.SolidSide, TileObjectData.newTile.Width, 0);
@@ -38,8 +38,7 @@ public class ShrineChest : ModTile
 		base.DustType = 0;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
-		base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShrineChestItem").Type;
-		base.chest/* tModPorter Note: Removed. Override DefaultContainerName and use TileID.Sets.BasicChest instead */ = "Shrine Chest";
+		TileID.Sets.BasicChest[Type] = true;
 	}
 
 	public string MapChestName(string name, int i, int j)
@@ -70,8 +69,7 @@ public class ShrineChest : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 32, 32, base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */, 1, false, 0, false, false);
-		Chest.DestroyChest(i, j);
+	Chest.DestroyChest(i, j);
 	}
 
 	public override bool RightClick(int i, int j)
@@ -139,8 +137,8 @@ public class ShrineChest : ModTile
 					Main.recBigList = false;
 					localPlayer.chestX = num;
 					localPlayer.chestY = num2;
-					SoundEngine.PlaySound((localPlayer.chest < 0) ? 10 : 12, -1, -1, 1, 1f, 0f);
-				}
+                    SoundEngine.PlaySound((localPlayer.chest < 0) ? SoundID.MenuOpen : SoundID.MenuTick);
+                }
 				Recipe.FindRecipes();
 			}
 		}

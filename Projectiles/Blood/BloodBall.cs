@@ -14,7 +14,7 @@ public class BloodBall : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Blood Bolt");
+		DisplayName.SetDefault("Blood Bolt");
 	}
 
 	public override void SetDefaults()

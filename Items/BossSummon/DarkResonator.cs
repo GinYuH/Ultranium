@@ -11,8 +11,8 @@ public class DarkResonator : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dark Resonator");
-		// Tooltip.SetDefault("A long lost relic, it's said it can open the rift to the nightmare world...\nStarts the abyssal armageddon event on use\nCan only be used during the night");
+		DisplayName.SetDefault("Dark Resonator");
+		Tooltip.SetDefault("A long lost relic, it's said it can open the rift to the nightmare world...\nStarts the abyssal armageddon event on use\nCan only be used during the night");
 	}
 
 	public override void SetDefaults()

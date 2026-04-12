@@ -8,7 +8,7 @@ public class ZombiePet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zombie");
+		DisplayName.SetDefault("Zombie");
 		Main.projFrames[Projectile.type] = 3;
 		Main.projPet[Projectile.type] = true;
 	}

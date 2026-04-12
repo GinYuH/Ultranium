@@ -7,8 +7,8 @@ public class CoralBait : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Coral Bait");
-		// Tooltip.SetDefault("A strange bait made with coral shards...\nAttracts the zephyr squid, only when used as bait in the ocean\nCan be used as normal fishing bait anywhere else");
+		DisplayName.SetDefault("Coral Bait");
+		Tooltip.SetDefault("A strange bait made with coral shards...\nAttracts the zephyr squid, only when used as bait in the ocean\nCan be used as normal fishing bait anywhere else");
 	}
 
 	public override void SetDefaults()

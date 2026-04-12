@@ -8,8 +8,8 @@ public class AuroraHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Aurora Crystal Mask");
-		// Tooltip.SetDefault("5% increased summon damage");
+		DisplayName.SetDefault("Aurora Crystal Mask");
+		Tooltip.SetDefault("5% increased summon damage");
 	}
 
 	public override void SetDefaults()

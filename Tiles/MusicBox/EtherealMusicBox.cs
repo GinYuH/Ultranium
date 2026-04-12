@@ -7,8 +7,8 @@ public class EtherealMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Music Box (Xenanis)");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Music Box (Xenanis)");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

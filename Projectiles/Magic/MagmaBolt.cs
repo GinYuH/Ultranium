@@ -13,7 +13,7 @@ public class MagmaBolt : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Magma Bolt");
+		DisplayName.SetDefault("Magma Bolt");
 	}
 
 	public override void SetDefaults()

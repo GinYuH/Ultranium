@@ -11,7 +11,7 @@ public class StellarJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar javelin");
+		DisplayName.SetDefault("Stellar javelin");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

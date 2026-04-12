@@ -14,7 +14,7 @@ public class AbyssBolt : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Abysmal Bolt");
+		DisplayName.SetDefault("Abysmal Bolt");
 	}
 
 	public override void SetDefaults()

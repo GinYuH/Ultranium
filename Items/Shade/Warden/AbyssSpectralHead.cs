@@ -8,8 +8,8 @@ public class AbyssSpectralHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Spectral Abyss Hood");
-		// Tooltip.SetDefault("Increases maximum mana by 80\n10% increased magic damage and critical strike chance");
+		DisplayName.SetDefault("Spectral Abyss Hood");
+		Tooltip.SetDefault("Increases maximum mana by 80\n10% increased magic damage and critical strike chance");
 	}
 
 	public override void SetDefaults()

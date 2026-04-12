@@ -62,7 +62,7 @@ public class EldritchCaster : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Caster");
+		DisplayName.SetDefault("Eldritch Caster");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 
@@ -85,9 +85,9 @@ public class EldritchCaster : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowBiome/CasterGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore3").Type);
 		}
 	}
 

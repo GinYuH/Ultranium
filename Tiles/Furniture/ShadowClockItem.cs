@@ -7,7 +7,7 @@ public class ShadowClockItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Clock");
+		DisplayName.SetDefault("Eldritch Clock");
 	}
 
 	public override void SetDefaults()

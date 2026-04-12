@@ -9,8 +9,8 @@ public class PoisonLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pois1x's Leggings");
-		// Tooltip.SetDefault("~Developer item~");
+		DisplayName.SetDefault("Pois1x's Leggings");
+		Tooltip.SetDefault("~Developer item~");
 		ArmorIDs.Legs.Sets.HidesBottomSkin[Item.legSlot] = true;
     }
 

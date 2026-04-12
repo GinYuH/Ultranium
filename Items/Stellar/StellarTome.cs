@@ -11,8 +11,8 @@ public class StellarTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Tome");
-		// Tooltip.SetDefault("Casts Stellar Stars from the sky");
+		DisplayName.SetDefault("Stellar Tome");
+		Tooltip.SetDefault("Casts Stellar Stars from the sky");
 	}
 
 	public override void SetDefaults()

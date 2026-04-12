@@ -9,8 +9,8 @@ public class PoisonHead : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Pois1x's Hood");
-		// Tooltip.SetDefault("~Developer item~");
+		DisplayName.SetDefault("Pois1x's Hood");
+		Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

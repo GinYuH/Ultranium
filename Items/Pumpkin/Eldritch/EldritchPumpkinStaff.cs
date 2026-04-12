@@ -11,8 +11,8 @@ public class EldritchPumpkinStaff : ModItem
 	public override void SetStaticDefaults()
 	{
 		Item.staff[Item.type] = true;
-		// DisplayName.SetDefault("Eldritch Pumpkin Staff");
-		// Tooltip.SetDefault("Casts a spread of pumpkin fire");
+		DisplayName.SetDefault("Eldritch Pumpkin Staff");
+		Tooltip.SetDefault("Casts a spread of pumpkin fire");
 	}
 
 	public override void SetDefaults()

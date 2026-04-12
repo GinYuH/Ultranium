@@ -7,7 +7,7 @@ public class ShadowBedItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Bed");
+		DisplayName.SetDefault("Eldritch Bed");
 	}
 
 	public override void SetDefaults()

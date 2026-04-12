@@ -17,7 +17,7 @@ public class LunaticStar : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Ancient Light");
+		DisplayName.SetDefault("Ancient Light");
 	}
 
 	public override void SetDefaults()

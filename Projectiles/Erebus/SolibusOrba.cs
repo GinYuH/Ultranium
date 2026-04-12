@@ -15,7 +15,7 @@ public class SolibusOrba : ModProjectile
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Solibus Orba");
+		DisplayName.SetDefault("Solibus Orba");
 	}
 
 	public override void SetDefaults()

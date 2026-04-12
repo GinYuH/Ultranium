@@ -8,8 +8,8 @@ public class DreadMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Dread Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

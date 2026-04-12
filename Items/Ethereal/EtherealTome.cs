@@ -10,8 +10,8 @@ public class EtherealTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ethereal Spell");
-		// Tooltip.SetDefault("Casts a spread of ethereal blasts");
+		DisplayName.SetDefault("Ethereal Spell");
+		Tooltip.SetDefault("Casts a spread of ethereal blasts");
 	}
 
 	public override void SetDefaults()

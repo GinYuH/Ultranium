@@ -7,7 +7,7 @@ public class ShadowChestItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Chest");
+		DisplayName.SetDefault("Eldritch Chest");
 	}
 
 	public override void SetDefaults()

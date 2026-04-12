@@ -14,7 +14,7 @@ public class StellarFracture : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Stellar Fracture");
+		DisplayName.SetDefault("Stellar Fracture");
 	}
 
 	public override void SetDefaults()

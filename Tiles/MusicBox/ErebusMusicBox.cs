@@ -7,8 +7,8 @@ public class ErebusMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Music Box (Erebus)");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Music Box (Erebus)");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

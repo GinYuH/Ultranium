@@ -17,8 +17,8 @@ public class CosmicBow : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cosmic Annahilation");
-		// Tooltip.SetDefault("Fires a tight spread of homing cosmic bolts\nDoes not require ammo to use");
+		DisplayName.SetDefault("Cosmic Annahilation");
+		Tooltip.SetDefault("Fires a tight spread of homing cosmic bolts\nDoes not require ammo to use");
 	}
 
 	public override void SetDefaults()

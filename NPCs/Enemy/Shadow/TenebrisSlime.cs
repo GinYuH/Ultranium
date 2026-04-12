@@ -10,7 +10,7 @@ public class TenebrisSlime : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Tenebris Slime");
+		DisplayName.SetDefault("Tenebris Slime");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

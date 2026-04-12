@@ -9,7 +9,7 @@ public class DepthMonger : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depth Monger");
+		DisplayName.SetDefault("Depth Monger");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[461];
 	}
 
@@ -35,9 +35,9 @@ public class DepthMonger : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore3").Type);
 		}
 	}
 

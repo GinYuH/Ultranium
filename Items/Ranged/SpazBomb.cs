@@ -8,8 +8,8 @@ public class SpazBomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Spazma-Bomb");
-		// Tooltip.SetDefault("Explodes on death, and inflicts the \"Cursed Inferno\" debuff");
+		DisplayName.SetDefault("Spazma-Bomb");
+		Tooltip.SetDefault("Explodes on death, and inflicts the \"Cursed Inferno\" debuff");
 	}
 
 	public override void SetDefaults()

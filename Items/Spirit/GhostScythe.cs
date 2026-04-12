@@ -8,8 +8,8 @@ public class GhostScythe : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Phantom Slicer");
-		// Tooltip.SetDefault("Throws ectoplasmic scythes images");
+		DisplayName.SetDefault("Phantom Slicer");
+		Tooltip.SetDefault("Throws ectoplasmic scythes images");
 	}
 
 	public override void SetDefaults()

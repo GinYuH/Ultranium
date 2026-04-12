@@ -7,8 +7,8 @@ public class StellarBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Bar");
-		// Tooltip.SetDefault("It emnates cold, spacial energy");
+		DisplayName.SetDefault("Stellar Bar");
+		Tooltip.SetDefault("It emnates cold, spacial energy");
 	}
 
 	public override void SetDefaults()

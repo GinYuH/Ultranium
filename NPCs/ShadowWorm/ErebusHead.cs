@@ -61,7 +61,7 @@ public class ErebusHead : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus");
+		DisplayName.SetDefault("Erebus");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 
@@ -159,8 +159,8 @@ public class ErebusHead : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/ErebusHeadGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Gores/ErebusHeadGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore2").Type);
 		return true;
 	}
 

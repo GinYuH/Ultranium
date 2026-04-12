@@ -14,7 +14,7 @@ public class EldritchScythe : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Soul Harvester");
+		DisplayName.SetDefault("Soul Harvester");
 	}
 
 	public override void SetDefaults()

@@ -10,7 +10,7 @@ public class StellarSlime : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Slime");
+		DisplayName.SetDefault("Stellar Slime");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 
@@ -63,8 +63,8 @@ public class StellarSlime : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarSlimeGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/StellarSlimeGore2"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore2").Type);
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -7,8 +7,8 @@ public class DreadMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Music Box (Dread)");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Music Box (Dread)");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

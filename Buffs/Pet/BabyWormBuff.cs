@@ -7,8 +7,8 @@ public class BabyWormBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Zephyr Serpent");
-		// ((ModBuff)this).Description.SetDefault("It likes to float around you...");
+		DisplayName.SetDefault("Zephyr Serpent");
+		Description.SetDefault("It likes to float around you...");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

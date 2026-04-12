@@ -9,7 +9,7 @@ public class ErebusTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus Trophy");
+		DisplayName.SetDefault("Erebus Trophy");
 	}
 
 	public override void SetDefaults()

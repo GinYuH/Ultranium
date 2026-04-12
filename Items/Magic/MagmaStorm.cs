@@ -8,8 +8,8 @@ public class MagmaStorm : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// Tooltip.SetDefault("Shoots magma bolts that burn enemies");
-		// DisplayName.SetDefault("Magma Storm");
+		Tooltip.SetDefault("Shoots magma bolts that burn enemies");
+		DisplayName.SetDefault("Magma Storm");
 	}
 
 	public override void SetDefaults()

@@ -9,8 +9,8 @@ public class UltrumShard : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultrum Essence Shard");
-		// Tooltip.SetDefault("\"An ancient energy of nature resides within this fragment\"");
+		DisplayName.SetDefault("Ultrum Essence Shard");
+		Tooltip.SetDefault("\"An ancient energy of nature resides within this fragment\"");
 	}
 
 	public override void SetDefaults()

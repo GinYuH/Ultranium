@@ -10,8 +10,8 @@ public class DarkHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Darkmatter Hood");
-		// Tooltip.SetDefault("12% increased magic damage\n+5 max life and +10 max mana");
+		DisplayName.SetDefault("Darkmatter Hood");
+		Tooltip.SetDefault("12% increased magic damage\n+5 max life and +10 max mana");
 	}
 
 	public override void SetDefaults()

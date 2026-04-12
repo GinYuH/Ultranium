@@ -9,8 +9,8 @@ public class DreadBeacon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Beacon of Fear");
-		// Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
+		DisplayName.SetDefault("Beacon of Fear");
+		Tooltip.SetDefault("The flame is oddly cold...\nSummons Dread");
 	}
 
 	public override void SetDefaults()

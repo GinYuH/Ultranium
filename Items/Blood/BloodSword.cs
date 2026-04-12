@@ -10,8 +10,8 @@ public class BloodSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Bloodthorn Blade");
-		// Tooltip.SetDefault("Shoots a random spread of blood thorns");
+		DisplayName.SetDefault("Bloodthorn Blade");
+		Tooltip.SetDefault("Shoots a random spread of blood thorns");
 	}
 
 	public override void SetDefaults()

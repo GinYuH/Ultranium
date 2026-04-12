@@ -8,7 +8,7 @@ public class SpectreFish : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Spectre Fish");
+		DisplayName.SetDefault("Spectre Fish");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

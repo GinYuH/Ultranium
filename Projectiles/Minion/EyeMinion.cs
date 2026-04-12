@@ -8,7 +8,7 @@ public class EyeMinion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Mini Eye");
+		DisplayName.SetDefault("Mini Eye");
 		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;

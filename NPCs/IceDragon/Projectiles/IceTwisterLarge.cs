@@ -16,7 +16,7 @@ public class IceTwisterLarge : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ice Tornado");
+		DisplayName.SetDefault("Ice Tornado");
 	}
 
 	public override void SetDefaults()

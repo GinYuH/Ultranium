@@ -7,8 +7,8 @@ public class TenebrisSlimeBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Tenebris Slime Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Tenebris Slime");
+		DisplayName.SetDefault("Tenebris Slime Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Tenebris Slime");
 	}
 
 	public override void SetDefaults()

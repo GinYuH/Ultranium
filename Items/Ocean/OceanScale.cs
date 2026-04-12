@@ -7,8 +7,8 @@ public class OceanScale : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zephyr Chromatophores");
-		// Tooltip.SetDefault("The skin of the zephyr squid");
+		DisplayName.SetDefault("Zephyr Chromatophores");
+		Tooltip.SetDefault("The skin of the zephyr squid");
 	}
 
 	public override void SetDefaults()

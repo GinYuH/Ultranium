@@ -7,8 +7,8 @@ public class ShadowStone : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shadow Stone");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Shadow Stone");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

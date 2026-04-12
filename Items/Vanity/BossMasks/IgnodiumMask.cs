@@ -8,8 +8,8 @@ public class IgnodiumMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ignodium Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Ignodium Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

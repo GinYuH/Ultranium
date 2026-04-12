@@ -8,7 +8,7 @@ public class ErebusTentacleTip : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Erebus Tentacle");
+		DisplayName.SetDefault("Erebus Tentacle");
 	}
 
 	public override void SetDefaults()

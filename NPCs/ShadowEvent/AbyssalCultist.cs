@@ -12,7 +12,7 @@ public class AbyssalCultist : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Cultist");
+		DisplayName.SetDefault("Abyssal Cultist");
 		Main.npcFrameCount[NPC.type] = 5;
 	}
 
@@ -41,9 +41,9 @@ public class AbyssalCultist : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/AbyssalCultistGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/AbyssalCultistGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/ShadowEvent/AbyssalCultistGore3"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore3").Type);
 		return true;
 	}
 

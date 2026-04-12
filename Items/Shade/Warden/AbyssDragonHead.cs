@@ -8,8 +8,8 @@ public class AbyssDragonHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Dragon Mask");
-		// Tooltip.SetDefault("10% increased melee speed and damage\n12% increased melee critical strike chance");
+		DisplayName.SetDefault("Abyssal Dragon Mask");
+		Tooltip.SetDefault("10% increased melee speed and damage\n12% increased melee critical strike chance");
 	}
 
 	public override void SetDefaults()

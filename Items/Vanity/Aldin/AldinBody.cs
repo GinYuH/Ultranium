@@ -9,8 +9,8 @@ public class AldinBody : ModItem
 	public override void SetStaticDefaults()
 	{
 		SetStaticDefaults();
-		// DisplayName.SetDefault("Cosmic Mage's Body");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Cosmic Mage's Body");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

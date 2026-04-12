@@ -8,8 +8,8 @@ public class DarkDebuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Eldritch Decay");
-		// ((ModBuff)this).Description.SetDefault("Nullified life regeneration and decreased damage\nRapidly loosing life");
+		DisplayName.SetDefault("Eldritch Decay");
+		Description.SetDefault("Nullified life regeneration and decreased damage\nRapidly loosing life");
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.pvpBuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;

@@ -8,8 +8,8 @@ public class DreadStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Fear's Flame");
-		// Tooltip.SetDefault("Casts dread fire balls");
+		DisplayName.SetDefault("Fear's Flame");
+		Tooltip.SetDefault("Casts dread fire balls");
 		Item.staff[Item.type] = true;
 	}
 

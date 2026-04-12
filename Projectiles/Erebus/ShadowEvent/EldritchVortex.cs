@@ -13,7 +13,7 @@ public class EldritchVortex : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Vortex");
+		DisplayName.SetDefault("Eldritch Vortex");
 	}
 
 	public override void SetDefaults()

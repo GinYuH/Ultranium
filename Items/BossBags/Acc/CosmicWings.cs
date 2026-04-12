@@ -8,8 +8,8 @@ public class CosmicWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Cosmic Wings");
-		// Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
+		DisplayName.SetDefault("Cosmic Wings");
+		Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
 	}
 
 	public override void SetDefaults()

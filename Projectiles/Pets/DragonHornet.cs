@@ -8,7 +8,7 @@ public class DragonHornet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dragon Hornet");
+		DisplayName.SetDefault("Dragon Hornet");
 		Main.projFrames[Projectile.type] = 3;
 	}
 

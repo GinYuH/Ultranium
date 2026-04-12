@@ -7,7 +7,7 @@ public class UltrumDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nature Dye");
+		DisplayName.SetDefault("Nature Dye");
 	}
 
 	public override void SetDefaults()

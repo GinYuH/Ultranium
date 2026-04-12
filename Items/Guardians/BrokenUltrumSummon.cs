@@ -7,8 +7,8 @@ public class BrokenUltrumSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ancient Nature Relic");
-		// Tooltip.SetDefault("An ancient artifact of nature\nIncreases magic and summon damage by 7%\n+20 max mana and +1 max minions");
+		DisplayName.SetDefault("Ancient Nature Relic");
+		Tooltip.SetDefault("An ancient artifact of nature\nIncreases magic and summon damage by 7%\n+20 max mana and +1 max minions");
 	}
 
 	public override void SetDefaults()

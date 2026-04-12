@@ -7,7 +7,7 @@ public class ShrineChestItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Guardian Chest");
+		DisplayName.SetDefault("Guardian Chest");
 	}
 
 	public override void SetDefaults()

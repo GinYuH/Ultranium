@@ -15,7 +15,7 @@ public class FlareBlast : ModProjectile
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 3;
-		// DisplayName.SetDefault("Hell Bolt");
+		DisplayName.SetDefault("Hell Bolt");
 	}
 
 	public override void SetDefaults()

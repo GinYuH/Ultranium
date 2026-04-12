@@ -10,8 +10,8 @@ public class NightmareFuel : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nightmare Fuel");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Nightmare Fuel");
+		Tooltip.SetDefault("");
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
 	}
 

@@ -18,7 +18,7 @@ public class FlayerWraith : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Flayer Wraith");
+		DisplayName.SetDefault("Flayer Wraith");
 		Main.npcFrameCount[NPC.type] = 5;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

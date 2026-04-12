@@ -15,7 +15,7 @@ public class SoulOrbiter : ModProjectile
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 4;
-		// DisplayName.SetDefault("Soul Orbiter");
+		DisplayName.SetDefault("Soul Orbiter");
 	}
 
 	public override void SetDefaults()

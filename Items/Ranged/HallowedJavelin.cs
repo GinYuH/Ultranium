@@ -7,8 +7,8 @@ public class HallowedJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Holy Javelin");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Holy Javelin");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class StellarHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Stone Mask");
-		// Tooltip.SetDefault("5% increased damage\n+1 max minions");
+		DisplayName.SetDefault("Stellar Stone Mask");
+		Tooltip.SetDefault("5% increased damage\n+1 max minions");
 	}
 
 	public override void SetDefaults()

@@ -10,8 +10,8 @@ public class SolibusOrba : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Solibus Orba");
-		// Tooltip.SetDefault("Throws dark spears that chase down enemies");
+		DisplayName.SetDefault("Solibus Orba");
+		Tooltip.SetDefault("Throws dark spears that chase down enemies");
 	}
 
 	public override void SetDefaults()

@@ -10,8 +10,8 @@ public class DepthsTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nyarlethotep");
-		// Tooltip.SetDefault("'Unleash the power of eldritch tentacle magic'");
+		DisplayName.SetDefault("Nyarlethotep");
+		Tooltip.SetDefault("'Unleash the power of eldritch tentacle magic'");
 	}
 
 	public override void SetDefaults()

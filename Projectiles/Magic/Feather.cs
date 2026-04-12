@@ -14,7 +14,7 @@ public class Feather : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Heavenly Feather");
+		DisplayName.SetDefault("Heavenly Feather");
 	}
 
 	public override void SetDefaults()

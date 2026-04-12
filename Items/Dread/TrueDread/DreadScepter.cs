@@ -11,8 +11,8 @@ public class DreadScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Energy Scepter");
-		// Tooltip.SetDefault("Summons stationary dread orbs to shoot bolts at nearby enemies\nEach orb will last for 30 seconds, and will then explode into a giant circle of bolts upon death\nEach existing orb takes up 1 minion slot");
+		DisplayName.SetDefault("Dread Energy Scepter");
+		Tooltip.SetDefault("Summons stationary dread orbs to shoot bolts at nearby enemies\nEach orb will last for 30 seconds, and will then explode into a giant circle of bolts upon death\nEach existing orb takes up 1 minion slot");
 	}
 
 	public override void SetDefaults()

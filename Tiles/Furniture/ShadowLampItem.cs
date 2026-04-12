@@ -7,7 +7,7 @@ public class ShadowLampItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Lamp");
+		DisplayName.SetDefault("Eldritch Lamp");
 	}
 
 	public override void SetDefaults()

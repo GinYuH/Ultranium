@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -25,7 +26,7 @@ public class ZephyrSquid : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Zephyr Squid");
+		DisplayName.SetDefault("Zephyr Squid");
 		Main.npcFrameCount[NPC.type] = 5;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 3;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;
@@ -50,9 +51,8 @@ public class ZephyrSquid : ModNPC
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
-		base.bossBag/* tModPorter Note: Removed. Spawn the treasure bag alongside other loot via npcLoot.Add(ItemDropRule.BossBag(type)) */ = Mod.Find<ModItem>("SquidBag").Type;
 		NPC.buffImmune[24] = true;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/ZephyrSquid");
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ZephyrSquid");
 		NPC.netAlways = true;
 		NPC.aiStyle = -1;
 		players = 1;
@@ -260,48 +260,26 @@ public class ZephyrSquid : ModNPC
 
 	public override bool CheckDead()
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore1"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore2"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore3"));
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.GetGoreSlot("Gores/SquidGore4"));
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore1").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore2").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore3").Type);
+		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore4").Type);
 		return true;
 	}
 
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("SquidBag").Type));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("OceanScale").Type, 8, 11));
+		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type)));
+		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("WormPet").Type, 20));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidMask").Type, 7));
+		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidTrophyItem").Type, 10));
+
+    }
+
 	public override void OnKill()
 	{
-		if (Main.expertMode)
-		{
-			NPC.DropBossBags();
-		}
-		else
-		{
-			int num = Main.rand.Next(3);
-			if (num == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrBlade").Type, 1, false, 0, false, false);
-			}
-			if (num == 1)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrKnife").Type, 1, false, 0, false, false);
-			}
-			if (num == 2)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ZephyrTrident").Type, 1, false, 0, false, false);
-			}
-			if (Main.rand.Next(20) == 0)
-			{
-				Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("WormPet").Type, 1, false, 0, false, false);
-			}
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("OceanScale").Type, Main.rand.Next(8, 12), false, 0, false, false);
-		}
-		if (Main.rand.Next(7) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("SquidMask").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(10) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("SquidTrophyItem").Type, 1, false, 0, false, false);
-		}
 		if (!UltraniumWorld.downedSquid)
 		{
 			UltraniumWorld.downedSquid = true;

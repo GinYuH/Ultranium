@@ -11,7 +11,7 @@ public class FakeDreadHook : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Hook");
+		DisplayName.SetDefault("Dread Hook");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

@@ -23,7 +23,7 @@ public class ShadowBed : ModTile
 		// val.SetDefault("Bed");
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 79 };
-		base.bed/* tModPorter Note: Removed. Use TileID.Sets.CanBeSleptIn instead */ = true;
+		TileID.Sets.CanBeSleptIn[Type] = true;
 	}
 
 	public override bool HasSmartInteract(int i, int j, SmartInteractScanSettings settings)
@@ -56,12 +56,12 @@ public class ShadowBed : ModTile
 		if (localPlayer.SpawnX == num && localPlayer.SpawnY == num2)
 		{
 			localPlayer.RemoveSpawn();
-			Main.NewText("Spawn point removed!", byte.MaxValue, (byte)240, (byte)20, false);
+			Main.NewText("Spawn point removed!", byte.MaxValue, (byte)240, (byte)20);
 		}
 		else if (Player.CheckSpawn(num, num2))
 		{
 			localPlayer.ChangeSpawn(num, num2);
-			Main.NewText("Spawn point set!", byte.MaxValue, (byte)240, (byte)20, false);
+			Main.NewText("Spawn point set!", byte.MaxValue, (byte)240, (byte)20);
 		}
 		return true;
 	}

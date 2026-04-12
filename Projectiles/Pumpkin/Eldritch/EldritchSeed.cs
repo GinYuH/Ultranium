@@ -14,7 +14,7 @@ public class EldritchSeed : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 2;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Eldritch Seed");
+		DisplayName.SetDefault("Eldritch Seed");
 	}
 
 	public override void SetDefaults()

@@ -12,7 +12,7 @@ public class UltraniumEnergyBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ultra Bolt");
+		DisplayName.SetDefault("Ultra Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 3;

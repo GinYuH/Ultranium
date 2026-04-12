@@ -11,8 +11,8 @@ public class UltraniumScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Nature Scepter");
-		// Tooltip.SetDefault("Summons a miniature ultrum to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
+		DisplayName.SetDefault("Nature Scepter");
+		Tooltip.SetDefault("Summons a miniature ultrum to fight with you\nOnly one can be summoned at once\nDoes not take up any minion slots");
 	}
 
 	public override void SetDefaults()
@@ -59,7 +59,7 @@ public class UltraniumScepter : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

@@ -8,8 +8,8 @@ public class IceHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ice Walker's Helmet");
-		// Tooltip.SetDefault("3% increased damage");
+		DisplayName.SetDefault("Ice Walker's Helmet");
+		Tooltip.SetDefault("3% increased damage");
 	}
 
 	public override void SetDefaults()

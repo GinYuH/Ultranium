@@ -14,7 +14,7 @@ public class ZephyrTridentBolt : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Zephyr Bolt");
+		DisplayName.SetDefault("Zephyr Bolt");
 	}
 
 	public override void SetDefaults()

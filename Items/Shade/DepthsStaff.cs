@@ -10,8 +10,8 @@ public class DepthsStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ny-Rakath");
-		// Tooltip.SetDefault("Summons a shade demon that shoots demon scythes at nearby enemies");
+		DisplayName.SetDefault("Ny-Rakath");
+		Tooltip.SetDefault("Summons a shade demon that shoots demon scythes at nearby enemies");
 	}
 
 	public override void SetDefaults()
@@ -49,7 +49,7 @@ public class DepthsStaff : ModItem
 	{
 		if (player.altFunctionUse == 2)
 		{
-			player.MinionNPCTargetAim();
+			player.MinionNPCTargetAim(false);
 		}
 		return UseItem(player);
 	}

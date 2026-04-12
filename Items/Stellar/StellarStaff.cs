@@ -8,8 +8,8 @@ public class StellarStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Stellar Wand");
-		// Tooltip.SetDefault("Fires a Stellar swirl bolt");
+		DisplayName.SetDefault("Stellar Wand");
+		Tooltip.SetDefault("Fires a Stellar swirl bolt");
 	}
 
 	public override void SetDefaults()

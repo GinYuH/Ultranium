@@ -14,7 +14,7 @@ public class HallowBlast : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Hallowed Blast");
+		DisplayName.SetDefault("Hallowed Blast");
 	}
 
 	public override void SetDefaults()

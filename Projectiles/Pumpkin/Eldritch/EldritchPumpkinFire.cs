@@ -10,7 +10,7 @@ public class EldritchPumpkinFire : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pumpkin Fire");
+		DisplayName.SetDefault("Pumpkin Fire");
 	}
 
 	public override void SetDefaults()

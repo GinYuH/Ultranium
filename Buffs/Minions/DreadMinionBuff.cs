@@ -7,8 +7,8 @@ public class DreadMinionBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Mini Dread");
-		// ((ModBuff)this).Description.SetDefault("The small dread will fight with you");
+		DisplayName.SetDefault("Mini Dread");
+		Description.SetDefault("The small dread will fight with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

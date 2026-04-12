@@ -14,7 +14,7 @@ public class C4Pro : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Spazma C4");
+		DisplayName.SetDefault("Spazma C4");
 	}
 
 	public override void SetDefaults()

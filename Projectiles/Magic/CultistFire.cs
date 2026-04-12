@@ -13,7 +13,7 @@ public class CultistFire : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Fireblast");
+		DisplayName.SetDefault("Fireblast");
 		Main.projFrames[Projectile.type] = 4;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;

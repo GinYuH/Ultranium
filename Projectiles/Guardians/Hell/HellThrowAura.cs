@@ -10,7 +10,7 @@ public class HellThrowAura : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Saturn");
+		DisplayName.SetDefault("Saturn");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

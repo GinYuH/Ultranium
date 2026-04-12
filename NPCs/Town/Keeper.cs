@@ -27,7 +27,7 @@ public class Keeper : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Keeper");
+		DisplayName.SetDefault("Keeper");
 		Main.npcFrameCount[NPC.type] = 25;
 	}
 

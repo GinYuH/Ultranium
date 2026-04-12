@@ -7,8 +7,8 @@ public class DarkDemonBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dark Demon Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Dark Demon");
+		DisplayName.SetDefault("Dark Demon Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Dark Demon");
 	}
 
 	public override void SetDefaults()

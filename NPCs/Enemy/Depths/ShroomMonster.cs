@@ -9,7 +9,7 @@ public class ShroomMonster : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shroom Monster");
+		DisplayName.SetDefault("Shroom Monster");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[166];
 	}
 
@@ -54,9 +54,9 @@ public class ShroomMonster : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore1"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore2"));
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore3"));
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore1").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore2").Type);
+			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore3").Type);
 		}
 	}
 

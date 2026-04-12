@@ -13,7 +13,7 @@ public class MiniTyphoon : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Typhoon");
+		DisplayName.SetDefault("Typhoon");
 	}
 
 	public override void SetDefaults()

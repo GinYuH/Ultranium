@@ -7,8 +7,8 @@ public class DreadBreadBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Dread Bread");
-		// ((ModBuff)this).Description.SetDefault("Is it a loaf of bread, or a loaf of dread?");
+		DisplayName.SetDefault("Dread Bread");
+		Description.SetDefault("Is it a loaf of bread, or a loaf of dread?");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

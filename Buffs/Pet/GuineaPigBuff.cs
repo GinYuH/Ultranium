@@ -7,8 +7,8 @@ public class GuineaPigBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Strange Guinea Pig");
-		// ((ModBuff)this).Description.SetDefault("Small and cute");
+		DisplayName.SetDefault("Strange Guinea Pig");
+		Description.SetDefault("Small and cute");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

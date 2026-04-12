@@ -7,8 +7,8 @@ public class AbyssBruteBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Abyssal Brute Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Brute");
+		DisplayName.SetDefault("Abyssal Brute Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Brute");
 	}
 
 	public override void SetDefaults()

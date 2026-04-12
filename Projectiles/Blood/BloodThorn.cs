@@ -14,7 +14,7 @@ public class BloodThorn : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		// DisplayName.SetDefault("Blood Thorn");
+		DisplayName.SetDefault("Blood Thorn");
 	}
 
 	public override void SetDefaults()

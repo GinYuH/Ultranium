@@ -45,7 +45,7 @@ public class ShadowEvent
 			string text = "The darkness fades...";
 			if (Main.netMode == 0)
 			{
-				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142, false);
+				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 			}
 			else if (Main.netMode == 2)
 			{

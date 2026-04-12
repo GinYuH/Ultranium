@@ -7,8 +7,8 @@ public class EldritchSummonBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Eldritch Summon Empowerment");
-		// ((ModBuff)this).Description.SetDefault("1.5x summon damage, abyssal eye is empowered");
+		DisplayName.SetDefault("Eldritch Summon Empowerment");
+		Description.SetDefault("1.5x summon damage, abyssal eye is empowered");
 	}
 
 	public override void Update(Player player, ref int buffIndex)

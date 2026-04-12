@@ -24,7 +24,7 @@ public class DreadBoss : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread");
+		DisplayName.SetDefault("Dread");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 
@@ -43,7 +43,7 @@ public class DreadBoss : ModNPC
 		NPC.netAlways = true;
 		NPC.HitSound = SoundID.NPCHit7;
 		NPC.npcSlots = 1f;
-		base.Music = Mod.GetSoundSlot((SoundType)51, "Sounds/Music/Dread");
+		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;
 	}

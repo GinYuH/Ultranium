@@ -11,7 +11,7 @@ public class EldritchEye : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Eye");
+		DisplayName.SetDefault("Eldritch Eye");
 		Main.projFrames[Projectile.type] = 8;
 	}
 

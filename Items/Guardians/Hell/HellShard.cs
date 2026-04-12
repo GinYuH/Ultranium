@@ -9,8 +9,8 @@ public class HellShard : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ignodium Essence Shard");
-		// Tooltip.SetDefault("\"An ancient energy of hell resides within this fragment\"");
+		DisplayName.SetDefault("Ignodium Essence Shard");
+		Tooltip.SetDefault("\"An ancient energy of hell resides within this fragment\"");
 	}
 
 	public override void SetDefaults()

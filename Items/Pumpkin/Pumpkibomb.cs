@@ -8,8 +8,8 @@ public class Pumpkibomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Pumpki-Bomb");
-		// Tooltip.SetDefault("A throwable, explosive pumpkin");
+		DisplayName.SetDefault("Pumpki-Bomb");
+		Tooltip.SetDefault("A throwable, explosive pumpkin");
 	}
 
 	public override void SetDefaults()

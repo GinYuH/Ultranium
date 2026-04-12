@@ -7,8 +7,8 @@ public class IgnodiumBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		// ((ModBuff)this).DisplayName.SetDefault("Ignodium");
-		// ((ModBuff)this).Description.SetDefault("The mini ignodium will fight with you");
+		DisplayName.SetDefault("Ignodium");
+		Description.SetDefault("The mini ignodium will fight with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

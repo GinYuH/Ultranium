@@ -12,8 +12,8 @@ public class ErebusFood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Worm Food");
-		// Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
+		DisplayName.SetDefault("Eldritch Worm Food");
+		Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
 	}
 
 	public override void SetDefaults()
@@ -25,7 +25,7 @@ public class ErebusFood : ModItem
 		Item.useAnimation = 45;
 		Item.useTime = 45;
 		Item.useStyle = 4;
-		Item.UseSound = Mod.GetLegacySoundSlot((SoundType)2, "Sounds/ShadowAwakening");
+		Item.UseSound = new SoundStyle("Ultranium/Sounds/ShadowAwakening");
 		Item.consumable = false;
 	}
 

@@ -7,8 +7,8 @@ public class FlayerWraithBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Flayer Wraith Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Flayer Wraith");
+		DisplayName.SetDefault("Flayer Wraith Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Flayer Wraith");
 	}
 
 	public override void SetDefaults()

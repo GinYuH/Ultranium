@@ -8,7 +8,7 @@ public class DreadParticleBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Dread Bolt");
+		DisplayName.SetDefault("Dread Bolt");
 	}
 
 	public override void SetDefaults()

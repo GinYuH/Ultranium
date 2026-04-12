@@ -7,8 +7,8 @@ public class PurpleShadowGrassItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glowshroom Grass");
-		// Tooltip.SetDefault("Will grow various glowshroom plants and vines");
+		DisplayName.SetDefault("Glowshroom Grass");
+		Tooltip.SetDefault("Will grow various glowshroom plants and vines");
 	}
 
 	public override void SetDefaults()

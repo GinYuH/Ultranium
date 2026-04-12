@@ -11,7 +11,7 @@ public class HellJavelin : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Igneous Impaler");
+		DisplayName.SetDefault("Igneous Impaler");
 	}
 
 	public override void SetDefaults()

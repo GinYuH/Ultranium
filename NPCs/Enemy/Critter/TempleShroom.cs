@@ -7,8 +7,8 @@ public class TempleShroom : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Temple Shroom");
-		// Tooltip.SetDefault("A strange mushroom that seems to have uprooted itself and begun to walk\nVery susceptible to heat");
+		DisplayName.SetDefault("Temple Shroom");
+		Tooltip.SetDefault("A strange mushroom that seems to have uprooted itself and begun to walk\nVery susceptible to heat");
 	}
 
 	public override void SetDefaults()

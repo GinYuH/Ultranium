@@ -10,8 +10,8 @@ public class ShroomBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glowing Mushroom Sword");
-		// Tooltip.SetDefault("Has a chance to fire out a mushroom bolt");
+		DisplayName.SetDefault("Glowing Mushroom Sword");
+		Tooltip.SetDefault("Has a chance to fire out a mushroom bolt");
 	}
 
 	public override void SetDefaults()

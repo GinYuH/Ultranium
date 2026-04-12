@@ -13,7 +13,7 @@ public class EldritchFlail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Azathoth");
+		DisplayName.SetDefault("Azathoth");
 	}
 
 	public override void SetDefaults()
@@ -186,7 +186,7 @@ public class EldritchFlail : ModProjectile
 		//IL_0069: Expected O, but got Unknown
 		DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
 		Vector2 velocity = Projectile.velocity;
-		Utils.PlotTileLine(Projectile.Center, Projectile.Center + velocity * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, new PerLinePoint(DelegateMethods.CutTiles));
+		Utils.PlotTileLine(Projectile.Center, Projectile.Center + velocity * Projectile.localAI[1], (float)Projectile.width * Projectile.scale, DelegateMethods.CutTiles);
 	}
 
 	public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)

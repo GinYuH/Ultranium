@@ -7,7 +7,7 @@ internal class DepthSnailCageItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Depth Snail Cage");
+		DisplayName.SetDefault("Depth Snail Cage");
 	}
 
 	public override void SetDefaults()

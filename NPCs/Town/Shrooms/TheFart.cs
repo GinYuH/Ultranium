@@ -7,8 +7,8 @@ public class TheFart : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("The Fart");
-		// Tooltip.SetDefault("A mystical fart cloud that is constantly taking the shape of a mushroom.\nIts smell is legendary, whether that is a good thing or not is up to you.");
+		DisplayName.SetDefault("The Fart");
+		Tooltip.SetDefault("A mystical fart cloud that is constantly taking the shape of a mushroom.\nIts smell is legendary, whether that is a good thing or not is up to you.");
 	}
 
 	public override void SetDefaults()

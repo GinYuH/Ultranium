@@ -10,8 +10,8 @@ public class DarkBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Darkmatter Chestmail");
-		// Tooltip.SetDefault("12% increased critical strike chance\n+10 max life and mana, and +2 max minions\n5% increased damage reduction\nEnemies are more likely to target you");
+		DisplayName.SetDefault("Darkmatter Chestmail");
+		Tooltip.SetDefault("12% increased critical strike chance\n+10 max life and mana, and +2 max minions\n5% increased damage reduction\nEnemies are more likely to target you");
 	}
 
 	public override void SetDefaults()

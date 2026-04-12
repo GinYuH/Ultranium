@@ -10,7 +10,7 @@ public class VortexBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Vortex Bolt");
+		DisplayName.SetDefault("Vortex Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

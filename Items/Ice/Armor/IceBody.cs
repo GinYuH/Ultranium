@@ -8,8 +8,8 @@ public class IceBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Ice Walker's Chestplate");
-		// Tooltip.SetDefault("5% increased damage");
+		DisplayName.SetDefault("Ice Walker's Chestplate");
+		Tooltip.SetDefault("5% increased damage");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class ShadowGrassItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Moss");
-		// Tooltip.SetDefault("will grow various shadow floras");
+		DisplayName.SetDefault("Eldritch Moss");
+		Tooltip.SetDefault("will grow various shadow floras");
 	}
 
 	public override void SetDefaults()

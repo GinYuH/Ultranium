@@ -8,8 +8,8 @@ public class IceDragonMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Glacieron Mask");
-		// Tooltip.SetDefault("");
+		DisplayName.SetDefault("Glacieron Mask");
+		Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

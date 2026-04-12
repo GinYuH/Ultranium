@@ -7,8 +7,8 @@ public class EldritchCasterBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Caster Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Eldritch Caster");
+		DisplayName.SetDefault("Eldritch Caster Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Eldritch Caster");
 	}
 
 	public override void SetDefaults()

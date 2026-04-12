@@ -8,7 +8,7 @@ public class DreadMinion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Mini Dread");
+		DisplayName.SetDefault("Mini Dread");
 		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;

@@ -10,8 +10,8 @@ public class HellJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Igneous Impaler");
-		// Tooltip.SetDefault("Throws fast moving hell javelins\nExplodes into lingering flames upon enemy hits");
+		DisplayName.SetDefault("Igneous Impaler");
+		Tooltip.SetDefault("Throws fast moving hell javelins\nExplodes into lingering flames upon enemy hits");
 	}
 
 	public override void SetDefaults()

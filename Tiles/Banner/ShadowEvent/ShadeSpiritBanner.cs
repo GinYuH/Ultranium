@@ -7,8 +7,8 @@ public class ShadeSpiritBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Shade Spirit Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Shade Spirit");
+		DisplayName.SetDefault("Shade Spirit Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Shade Spirit");
 	}
 
 	public override void SetDefaults()

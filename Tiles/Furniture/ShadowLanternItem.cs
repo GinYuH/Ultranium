@@ -7,7 +7,7 @@ public class ShadowLanternItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Eldritch Lantern");
+		DisplayName.SetDefault("Eldritch Lantern");
 	}
 
 	public override void SetDefaults()

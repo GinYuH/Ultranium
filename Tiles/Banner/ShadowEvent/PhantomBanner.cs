@@ -7,8 +7,8 @@ public class PhantomBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		// DisplayName.SetDefault("Phantom Banner");
-		// Tooltip.SetDefault("Nearby players get a bonus against: Phantom");
+		DisplayName.SetDefault("Phantom Banner");
+		Tooltip.SetDefault("Nearby players get a bonus against: Phantom");
 	}
 
 	public override void SetDefaults()
