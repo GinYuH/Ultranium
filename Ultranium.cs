@@ -1,8 +1,8 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.GameContent.Shaders;
 using Terraria.GameContent.UI;
@@ -39,6 +39,7 @@ using Ultranium.NPCs.ShadowWorm;
 using Ultranium.NPCs.Town;
 using Ultranium.NPCs.TrueDread;
 using Ultranium.NPCs.Ultrum;
+using Ultranium.Projectiles.Guardians.Nature;
 using Ultranium.ShadowEvent;
 
 namespace Ultranium;
@@ -82,255 +83,158 @@ internal class Ultranium : Mod
 		}*/
 		Mod val2 = ModLoader.GetMod("BossChecklist");
 		if (val2 != null)
-		{
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				3.5f,
-				ModContent.NPCType<ZephyrSquid>(),
-				this,
-				"Zephyr Squid",
-				(Func<bool>)(() => UltraniumWorld.downedSquid),
-				ModContent.ItemType<CoralBait>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<OceanScale>(),
-					ModContent.ItemType<ZephyrBlade>(),
-					ModContent.ItemType<ZephyrKnife>(),
-					ModContent.ItemType<ZephyrTrident>(),
-					ModContent.ItemType<ZephyrScepter>(),
-					ModContent.ItemType<WormPet>(),
-					ModContent.ItemType<MysticTentacle>()
-				},
-				"Fish in the ocean while using [i:" + ((Mod)this).Find<ModItem>("CoralBait").Type + "] as bait.",
-				"Despawn Info.",
-				"Ultranium/BossTextures/Squid",
-				"Ultranium/BossTextures/SquidHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				5.5f,
-				ModContent.NPCType<IceDragon>(),
-				this,
-				"Glacieron",
-				(Func<bool>)(() => UltraniumWorld.downedDragon),
-				ModContent.ItemType<IceFood>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<IcePelt>(),
-					ModContent.ItemType<GlacialFlail>(),
-					ModContent.ItemType<GlacialGun>(),
-					ModContent.ItemType<GlacialWand>(),
-					ModContent.ItemType<IceTalon>()
-				},
-				"Use [i:" + ((Mod)this).Find<ModItem>("IceFood").Type + "] in the tundra.",
-				"Despawn Info.",
-				"Ultranium/BossTextures/IceDragon",
-				"Ultranium/BossTextures/IceDragonHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				6.5f,
-				ModContent.NPCType<DreadBoss>(),
-				this,
-				"Dread",
-				(Func<bool>)(() => UltraniumWorld.downedDread),
-				ModContent.ItemType<DreadBeacon>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<DreadFlame>(),
-					ModContent.ItemType<DreadScale>(),
-					ModContent.ItemType<DreadSword>(),
-					ModContent.ItemType<DreadBow>(),
-					ModContent.ItemType<DreadStaff>(),
-					ModContent.ItemType<DreadHeart>()
-				},
-				"Use a [i:" + ((Mod)this).Find<ModItem>("DreadBeacon").Type + "] anywhere during the night",
-				"Despawn Info.",
-				"Ultranium/BossTextures/Dread",
-				"Ultranium/BossTextures/DreadHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				10.5f,
-				ModContent.NPCType<Xenanis>(),
-				this,
-				"Xenanis",
-				(Func<bool>)(() => UltraniumWorld.downedXenanis),
-				ModContent.ItemType<EtherealLantern>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<XenanisFlesh>(),
-					ModContent.ItemType<EtherealSword>(),
-					ModContent.ItemType<EtherealBow>(),
-					ModContent.ItemType<EtherealTome>(),
-					ModContent.ItemType<EtherealSummon>(),
-					ModContent.ItemType<EtherealDidgeridoo>(),
-					ModContent.ItemType<EtherealCore>()
-				},
-				"Use an [i:" + ((Mod)this).Find<ModItem>("EtherealLantern").Type + "] anywhere at night",
-				"Despawn Info.",
-				"Ultranium/BossTextures/Xenanis",
-				"Ultranium/BossTextures/XenanisHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				15.1f,
-				ModContent.NPCType<Ultrum>(),
-				this,
-				"Ultrum",
-				(Func<bool>)(() => UltraniumWorld.downedUltrum),
-				ModContent.ItemType<UltrumSummon>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<UltrumShard>(),
-					ModContent.ItemType<UltraniumSword>(),
-					ModContent.ItemType<UltraFlail>(),
-					ModContent.ItemType<UltraniumBow>(),
-					ModContent.ItemType<UltraniumKunai>(),
-					ModContent.ItemType<UltraniumStaff>(),
-					ModContent.ItemType<UltraTome>(),
-					ModContent.ItemType<UltraniumScepter>(),
-					ModContent.ItemType<UltrumRelic>()
-				},
-				"Use an [i:" + ((Mod)this).Find<ModItem>("UltrumSummon").Type + "] on the surface",
-				"Despawn Info.",
-				"Ultranium/BossTextures/Ultrum",
-				"Ultranium/BossTextures/UltrumHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				15.2f,
-				ModContent.NPCType<Ignodium>(),
-				this,
-				"Ignodium",
-				(Func<bool>)(() => UltraniumWorld.downedIgnodium),
-				ModContent.ItemType<NetherBeacon>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<HellShard>(),
-					ModContent.ItemType<HellFlail>(),
-					ModContent.ItemType<HellThrow>(),
-					ModContent.ItemType<HellGun>(),
-					ModContent.ItemType<HellJavelin>(),
-					ModContent.ItemType<HellStaff>(),
-					ModContent.ItemType<HellTome>(),
-					ModContent.ItemType<HellScepter>(),
-					ModContent.ItemType<IgnodiumRelic>()
-				},
-				"Use a [i:" + ((Mod)this).Find<ModItem>("NetherBeacon").Type + "] in the underworld",
-				"Despawn Info.",
-				"Ultranium/BossTextures/Ignodium",
-				"Ultranium/BossTextures/IgnodiumHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				15.3f,
-				ModContent.NPCType<TrueDread>(),
-				this,
-				"Absolute Dread",
-				(Func<bool>)(() => UltraniumWorld.downedTrueDread),
-				ModContent.ItemType<DreadBeacon>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<NightmareFuel>(),
-					ModContent.ItemType<DreadSpear>(),
-					ModContent.ItemType<DreadYoyo>(),
-					ModContent.ItemType<DreadDisc>(),
-					ModContent.ItemType<DreadFlameBlaster>(),
-					ModContent.ItemType<FearStaff>(),
-					ModContent.ItemType<DreadTome>(),
-					ModContent.ItemType<DreadScepter>()
-				},
-				"Use a [i:" + ((Mod)this).Find<ModItem>("DreadBeacon").Type + "] after the guardians of nature and hell have been defeated",
-				"Despawn Info.",
-				"Ultranium/BossTextures/TrueDread",
-				"Ultranium/BossTextures/DreadHead"
-			});
-			val2.Call(new object[13]
-			{
-				"AddEvent",
-				15.4f,
-				new List<int>
-				{
+        {
+            val2.Call(
+                "LogBoss",
+                mod,
+                "ZephyrSquid",
+                3.5f,
+                () => UltraniumWorld.downedSquid,
+                ModContent.NPCType<ZephyrSquid>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<CoralBait>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.ZephyrSquid.SpawnInfo"),
+					["customPortrait"] = DrawBoss("Ultranium/BossTextures/Squid"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Glacieron",
+                5.5f,
+                () => UltraniumWorld.downedDragon,
+                ModContent.NPCType<IceDragon>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<IceFood>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.IceDragon.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/IceDragon"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Dread",
+                7.5f,
+                () => UltraniumWorld.downedDread,
+                ModContent.NPCType<DreadBoss>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<DreadBeacon>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.DreadBoss.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/Dread"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Xenanis",
+                12.5f,
+                () => UltraniumWorld.downedXenanis,
+                ModContent.NPCType<Xenanis>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<EtherealLantern>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.Xenanis.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/Xenanis"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Ultrum",
+                18.1f,
+                () => UltraniumWorld.downedUltrum,
+                ModContent.NPCType<NPCs.Ultrum.Ultrum>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<UltrumSummon>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.Ultrum.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/Ultrum"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Ignodium",
+                18.2f,
+                () => UltraniumWorld.downedIgnodium,
+                ModContent.NPCType<Ignodium>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<NetherBeacon>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.Ignodium.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/Ignodium"),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "TrueDread",
+                18.3f,
+                () => UltraniumWorld.downedTrueDread,
+                ModContent.NPCType<TrueDread>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<DreadBeacon>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.TrueDread.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/TrueDread", 0.8f),
+                }
+            );
+            val2.Call(
+                "LogBoss",
+                mod,
+                "Erebus",
+                18.41f,
+                () => UltraniumWorld.downedErebus,
+                ModContent.NPCType<ErebusHead>(),
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<ErebusFood>(),
+                    ["spawnInfo"] = GetLocalization("NPCs.ErebusHead.SpawnInfo"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/DarkWorm", 0.6f),
+                }
+            );
+            val2.Call(
+                "LogEvent",
+                mod,
+                "AbyssalArmageddon",
+                18.4f,
+                () => UltraniumWorld.downedShadowEvent,
+                new List<int>() { 
 					ModContent.NPCType<AbyssalWraith>(),
-					ModContent.NPCType<Scp2521>(),
-					ModContent.NPCType<ShadeSpirit>(),
-					ModContent.NPCType<Phantom>(),
-					ModContent.NPCType<ShadeMass>(),
-					ModContent.NPCType<AbyssalCultist>(),
-					ModContent.NPCType<FlayerWraith>(),
-					ModContent.NPCType<Warden>(),
-					ModContent.NPCType<MindFlayer>(),
-					ModContent.NPCType<MotherPhantom>()
-				},
-				this,
-				"Abyssal Armageddon",
-				(Func<bool>)(() => UltraniumWorld.downedShadowEvent),
-				ModContent.ItemType<DarkResonator>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<DarkMatter>(),
-					ModContent.ItemType<FlayerBlade>(),
-					ModContent.ItemType<FlayerBow>(),
-					ModContent.ItemType<FlayerStaff>(),
-					ModContent.ItemType<EldritchScythe>(),
-					ModContent.ItemType<EldritchGun>(),
-					ModContent.ItemType<EldritchTome>()
-				},
-				"Use the [i:" + ((Mod)this).Find<ModItem>("DarkResonator").Type + "] during the night",
-				"Despawn Info.",
-				"Ultranium/BossTextures/ShadowEventEnemies",
-				"Ultranium/BossTextures/ShadowEventIcon"
-			});
-			val2.Call(new object[13]
-			{
-				"AddBoss",
-				15.41f,
-				ModContent.NPCType<ErebusHead>(),
-				this,
-				"Erebus",
-				(Func<bool>)(() => UltraniumWorld.downedErebus),
-				ModContent.ItemType<ErebusFood>(),
-				new List<int>(),
-				new List<int>
-				{
-					ModContent.ItemType<NightmareScale>(),
-					ModContent.ItemType<Noctis>(),
-					ModContent.ItemType<SolibusOrba>(),
-					ModContent.ItemType<Exitium>(),
-					ModContent.ItemType<Crepus>(),
-					ModContent.ItemType<Inanis>(),
-					ModContent.ItemType<CavumNigrum>(),
-					ModContent.ItemType<Nihil>(),
-					ModContent.ItemType<Umbra>(),
-					ModContent.ItemType<Caliginus>(),
-					ModContent.ItemType<ErebusGuitar>(),
-					ModContent.ItemType<ShadowHeart>()
-				},
-				"Spawns at the end of the Abyssal Armageddon event, or, use [i:" + ((Mod)this).Find<ModItem>("ErebusFood").Type + "] during the Abyssal Armageddon Event",
-				"Despawn Info.",
-				"Ultranium/BossTextures/DarkWorm",
-				"Ultranium/BossTextures/DarkWormHead"
-			});
+                    ModContent.NPCType<Scp2521>(),
+                    ModContent.NPCType<ShadeSpirit>(),
+                    ModContent.NPCType<Phantom>(),
+                    ModContent.NPCType<ShadeMass>(),
+                    ModContent.NPCType<AbyssalCultist>(),
+                    ModContent.NPCType<FlayerWraith>(),
+                    ModContent.NPCType<Warden>(),
+                    ModContent.NPCType<MindFlayer>(),
+                    ModContent.NPCType<MotherPhantom>() },
+                new Dictionary<string, object>()
+                {
+                    ["spawnItems"] = ModContent.ItemType<DarkResonator>(),
+                    ["spawnInfo"] = GetLocalization("Event.SpawnInfo"),
+                    ["displayName"] = GetLocalization("Event.Name"),
+                    ["customPortrait"] = DrawBoss("Ultranium/BossTextures/ShadowEventEnemies", 0.6f),
+                    ["overrideHeadTextures"] = DrawBoss("Ultranium/BossTextures/ShadowEventIcon")
+                }
+            );
 		}
-	}
+    }
+    public static Action<SpriteBatch, Rectangle, Color> DrawBoss(string path, float scale = 1)
+    {
+        return (spriteBatch, rect, color) =>
+        {
+            Texture2D texture = ModContent.Request<Texture2D>(path).Value;
+            Vector2 centered = new Vector2(rect.X + (rect.Width / 2) - (texture.Width / 2) * scale, rect.Y + (rect.Height / 2) - (texture.Height / 2) * scale);
+            spriteBatch.Draw(texture, centered, null, color, 0, Vector2.Zero, scale, 0, 0);
+        };
+    }
 
-	private static bool BossDowned(object[] args)
+    private static bool BossDowned(object[] args)
 	{
 		if (args.Length < 2)
 		{

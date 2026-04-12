@@ -59,7 +59,8 @@ namespace Ultranium
 
         public override void SpecialVisuals(Player player, bool isActive)
         {
-            Lighting.GlobalBrightness = 0.65f;
+            if (isActive)
+                Lighting.GlobalBrightness = 0.65f;
         }
     }
 

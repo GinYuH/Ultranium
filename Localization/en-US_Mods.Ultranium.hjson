@@ -1,5 +1,10 @@
 "Keybinds.Special Ability.DisplayName": Special  Ability
 
+Event: {
+	Name: Abyssal Armageddon
+	SpawnInfo: Use the [i:Ultranium/DarkResonator] during the night
+}
+
 Buffs: {
 	DarkDebuff: {
 		DisplayName: Eldritch Decay
@@ -2296,7 +2301,12 @@ Items: {
 
 NPCs: {
 	Aldin.DisplayName: ???
-	DreadBoss.DisplayName: Dread
+
+	DreadBoss: {
+		DisplayName: Dread
+		SpawnInfo: Use a [i:Ultranium/DreadBeacon] anywhere during the night
+	}
+
 	DreadBossP2.DisplayName: Dread
 	DreadHook.DisplayName: Dread Hook
 	DreadOrbiter.DisplayName: Dread Orbiter
@@ -2323,12 +2333,30 @@ NPCs: {
 	TenebrisSlime.DisplayName: Tenebris Slime
 	StellarChaser.DisplayName: Stellar Chaser
 	StellarSlime.DisplayName: Stellar Slime
-	Xenanis.DisplayName: Xenanis
+
+	Xenanis: {
+		DisplayName: Xenanis
+		SpawnInfo: Use an [i:Ultranium/EtherealLantern] anywhere at night
+	}
+
 	XenanisClone1.DisplayName: Xenanis Apparition
 	XenanisClone2.DisplayName: Xenanis Apparition
-	IceDragon.DisplayName: Glacieron
-	Ignodium.DisplayName: Ignodium
-	ZephyrSquid.DisplayName: Zephyr Squid
+
+	IceDragon: {
+		DisplayName: Glacieron
+		SpawnInfo: Use [i:Ultranium/IceFood] in the tundra.
+	}
+
+	Ignodium: {
+		DisplayName: Ignodium
+		SpawnInfo: Use a [i:Ultranium/NetherBeacon] in the underworld
+	}
+
+	ZephyrSquid: {
+		DisplayName: Zephyr Squid
+		SpawnInfo: Fish in the ocean while using [i:Ultranium/CoralBait] as bait.
+	}
+
 	AbyssalCultist.DisplayName: Abyssal Cultist
 	AbyssalWraith.DisplayName: Abyssal Wraith
 	FlayerWraith.DisplayName: Flayer Wraith
@@ -2341,15 +2369,28 @@ NPCs: {
 	ShadeSpirit.DisplayName: Shade Spirit
 	Warden.DisplayName: Abyssal Brute
 	ErebusBody.DisplayName: Erebus
-	ErebusHead.DisplayName: Erebus
+
+	ErebusHead: {
+		DisplayName: Erebus
+		SpawnInfo: Spawns at the end of the Abyssal Armageddon event, or, use [i:Ultranium/ErebusFood] during the Abyssal Armageddon Event
+	}
+
 	ErebusTail.DisplayName: Erebus
 	RestlessSoul.DisplayName: Restless Soul
 	Keeper.DisplayName: Keeper
 	FakeDread.DisplayName: Dread???
 	FakeDreadHook.DisplayName: Dread Hook
 	TrueDreadOrbiter.DisplayName: Dread Orbiter
-	TrueDread.DisplayName: Absolute Dread
-	Ultrum.DisplayName: Ultrum
+
+	TrueDread: {
+		DisplayName: Absolute Dread
+		SpawnInfo: Use a [i:Ultranium/DreadBeacon] after the guardians of nature and hell have been defeated
+	}
+
+	Ultrum: {
+		DisplayName: Ultrum
+		SpawnInfo: Use an [i:Ultranium/UltrumSummon] on the surface
+	}
 }
 
 Projectiles: {
