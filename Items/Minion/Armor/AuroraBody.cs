@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Minion.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Body)]
 public class AuroraBody : ModItem
 {
 	public override void SetStaticDefaults()

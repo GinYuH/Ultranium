@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Dread.TrueDread.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Legs)]
 public class HorrorLegs : ModItem
 {
 	public override void SetStaticDefaults()

@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Mushroom.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Body)]
 public class MushroomBody : ModItem
 {
 	public override void SetStaticDefaults()

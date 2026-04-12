@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Stellar.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Legs)]
 public class StellarLegs : ModItem
 {
 	public override void SetStaticDefaults()

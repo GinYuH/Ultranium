@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.BossMasks;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Head)]
 public class MindFlayerMask : ModItem
 {
 	public override void SetStaticDefaults()

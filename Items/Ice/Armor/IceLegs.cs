@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ice.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Legs)]
 public class IceLegs : ModItem
 {
 	public override void SetStaticDefaults()

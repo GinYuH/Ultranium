@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Shade.Warden;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Head)]
 public class AbyssSpectralHead : ModItem
 {
 	public override void SetStaticDefaults()

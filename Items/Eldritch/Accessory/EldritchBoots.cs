@@ -1,18 +1,20 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Eldritch.Accessory;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Wings)]
 public class EldritchBoots : ModItem
 {
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Eldritch Tracers");
 		Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
-	}
+		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(240, 10f, 5f);
+    }
 
 	public override void SetDefaults()
 	{
@@ -36,7 +38,6 @@ public class EldritchBoots : ModItem
 		player.accRunSpeed = 8.75f;
 		player.moveSpeed += 30f;
 		player.iceSkate = true;
-		player.wingTimeMax = 240;
 	}
 
 	public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
@@ -46,12 +47,6 @@ public class EldritchBoots : ModItem
 		maxCanAscendMultiplier = 1.1f;
 		maxAscentMultiplier = 3f;
 		constantAscend = 0.095f;
-	}
-
-	public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-	{
-		speed = 9.5f;
-		acceleration *= 5f;
 	}
 
 	public override void AddRecipes()

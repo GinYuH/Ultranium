@@ -1,16 +1,18 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ethereal;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Wings)]
 public class XenanisWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Ethereal Wings");
 		Tooltip.SetDefault("Allows flight and slow fall");
-	}
+		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(165, 6.2f, 3.2f);
+    }
 
 	public override void SetDefaults()
 	{
@@ -21,11 +23,6 @@ public class XenanisWings : ModItem
 		Item.accessory = true;
 	}
 
-	public override void UpdateAccessory(Player player, bool hideVisual)
-	{
-		player.wingTimeMax = 165;
-	}
-
 	public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 	{
 		ascentWhenFalling = 0.85f;
@@ -33,12 +30,6 @@ public class XenanisWings : ModItem
 		maxCanAscendMultiplier = 1.1f;
 		maxAscentMultiplier = 3f;
 		constantAscend = 0.095f;
-	}
-
-	public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-	{
-		speed = 6.2f;
-		acceleration *= 3.2f;
 	}
 
 	public override bool WingUpdate(Player player, bool inUse)

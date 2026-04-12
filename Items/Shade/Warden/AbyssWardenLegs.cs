@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Shade.Warden;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Legs)]
 public class AbyssWardenLegs : ModItem
 {
 	public override void SetStaticDefaults()

@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Dread.TrueDread.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Head)]
 public class HorrorVisor : ModItem
 {
 	public override void SetStaticDefaults()

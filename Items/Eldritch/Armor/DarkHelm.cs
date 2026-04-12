@@ -5,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace Ultranium.Items.Eldritch.Armor;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Head)]
 public class DarkHelm : ModItem
 {
 	public override void SetStaticDefaults()

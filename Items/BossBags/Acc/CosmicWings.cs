@@ -1,16 +1,18 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossBags.Acc;
 
-[AutoloadEquip(/*Could not decode attribute arguments.*/)]
+[AutoloadEquip(EquipType.Wings)]
 public class CosmicWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
 		DisplayName.SetDefault("Cosmic Wings");
 		Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
-	}
+		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(999999, 10f, 5.5f);
+    }
 
 	public override void SetDefaults()
 	{
@@ -22,11 +24,6 @@ public class CosmicWings : ModItem
 		Item.expert = true;
 	}
 
-	public override void UpdateAccessory(Player player, bool hideVisual)
-	{
-		player.wingTimeMax = 999999;
-	}
-
 	public override void VerticalWingSpeeds(Player player, ref float ascentWhenFalling, ref float ascentWhenRising, ref float maxCanAscendMultiplier, ref float maxAscentMultiplier, ref float constantAscend)
 	{
 		ascentWhenFalling = 0.85f;
@@ -34,11 +31,5 @@ public class CosmicWings : ModItem
 		maxCanAscendMultiplier = 1.1f;
 		maxAscentMultiplier = 3f;
 		constantAscend = 0.095f;
-	}
-
-	public override void HorizontalWingSpeeds(Player player, ref float speed, ref float acceleration)
-	{
-		speed = 10f;
-		acceleration *= 5.5f;
 	}
 }
