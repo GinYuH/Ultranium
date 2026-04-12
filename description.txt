@@ -1,6 +1,6 @@
 Ultranium is a somewhat large content mod to expand upon and improve vanilla gameplay. It focuses on adding more content, such as weapons, armor, bosses, ect into the game to make playing through the game more enjoyable.
 
--=So far, the mod adds=-
+-=The mod adds=-
 
 -over 200 items, such as weapons and armor
 -A total of 8 brand new new bosses spread through out the game
@@ -12,7 +12,7 @@ Ultranium is a somewhat large content mod to expand upon and improve vanilla gam
 
 When playing with this mod, you MUST create a new world as the shadow biome and other world generation are required to progress in the mod
 
-if you find any balancing issues, bugs, or would like to give feed back, feel free to join the ultranium discord by clicking the homepage button
+Report any bugs or major balancing issues to the following Discord: https://discord.gg/rtq3jRDsrA
 
 Thanks to all of the developers, testers, and contributers for their help, it's very appreciated!
 
