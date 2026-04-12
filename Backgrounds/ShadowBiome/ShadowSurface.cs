@@ -70,7 +70,7 @@ public class ShadowSurface : ModSurfaceBackgroundStyle
 			{
 				num9 = 320;
 			}
-			Color fieldValue3 = typeof(Main).GetFieldValue<Color>("backColor", Main.instance);
+			Color fieldValue3 = typeof(Main).GetFieldValue<Color>("ColorOfSurfaceBackgroundsModified");
 			int num10 = Main.screenWidth / num7 + 2;
 			if ((double)Main.screenPosition.Y < Main.worldSurface * 16.0 + 16.0)
 			{

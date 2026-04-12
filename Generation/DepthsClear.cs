@@ -33,7 +33,7 @@ public class DepthsClear
 			[new Color(37, 41, 58)] = ModContent.WallType<DarkStoneWall>(),
 			[Color.Black] = -2
 		};
-		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value, colorToTile, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value, colorToWall, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsClear").Value);
+		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator("Generation/DepthsClear", colorToTile, "Generation/DepthsClear", colorToWall, "Generation/DepthsClear");
 		texGenerator.Generate(x - texGenerator.width / 2, y - texGenerator.height / 2, silent: true, sync: true);
 	}
 }

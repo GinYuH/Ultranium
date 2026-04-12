@@ -41,7 +41,7 @@ public class Depths
 			[new Color(34, 166, 162)] = ModContent.WallType<ShadowStoneWall>(),
 			[Color.Black] = -2
 		};
-		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator(ModContent.Request<Texture2D>("Ultranium/Generation/Depths").Value, colorToTile, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsWalls").Value, colorToWall, ModContent.Request<Texture2D>("Ultranium/Generation/DepthsWater").Value);
+		TexGen texGenerator = BaseWorldGenTex.GetTexGenerator("Generation/Depths", colorToTile, "Generation/DepthsWalls", colorToWall, "Generation/DepthsWater");
 		texGenerator.Generate(x - texGenerator.width / 2, y - texGenerator.height / 2, silent: true, sync: true);
 		WorldGen.PlaceChest(x - 6, y + 229, (ushort)ModContent.TileType<ShadowChest>());
 	}

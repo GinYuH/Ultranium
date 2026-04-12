@@ -1,6 +1,10 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using Terraria;
+using Terraria.ModLoader;
 
 namespace Ultranium;
 
@@ -10,7 +14,23 @@ public class BaseWorldGenTex
 
 	public static Dictionary<Color, int> colorToSlope;
 
-	public static TexGen GetTexGenerator(Texture2D tileTex, Dictionary<Color, int> colorToTile, Texture2D wallTex = null, Dictionary<Color, int> colorToWall = null, Texture2D liquidTex = null, Texture2D slopeTex = null, Texture2D objectTex = null, Dictionary<Color, int> colorToObject = null)
+
+    public static Color[] GetColorsFromRawImg(Mod mod, string imagePath, out int width, out int height)
+    {
+        if (!imagePath.EndsWith(".rawimg"))
+        {
+            imagePath = imagePath + ".rawimg";
+        }
+
+        var bytes = mod.GetFileBytes(imagePath).AsSpan();
+        width = BitConverter.ToInt32(bytes[4..8]);
+        height = BitConverter.ToInt32(bytes[8..12]);
+        var colors = new Color[width * height];
+        MemoryMarshal.Cast<byte, Color>(bytes[12..]).CopyTo(colors.AsSpan());
+        return colors;
+    }
+
+    public static TexGen GetTexGenerator(string tileTex, Dictionary<Color, int> colorToTile, string wallTex = null, Dictionary<Color, int> colorToWall = null, string liquidTex = null, string slopeTex = null, string objectTex = null, Dictionary<Color, int> colorToObject = null)
 	{
 		if (colorToLiquid == null)
 		{
@@ -27,31 +47,31 @@ public class BaseWorldGenTex
 			colorToSlope[new Color(255, 255, 255)] = -1;
 			colorToSlope[Color.Black] = -2;
 		}
-		Color[] array = new Color[tileTex.Width * tileTex.Height];
-		tileTex.GetData(0, tileTex.Bounds, array, 0, tileTex.Width * tileTex.Height);
-		Color[] array2 = ((wallTex != null) ? new Color[wallTex.Width * wallTex.Height] : null);
-		if (array2 != null)
+		Mod mod = Ultranium.mod;
+		Color[] array = GetColorsFromRawImg(mod, tileTex, out int widt, out int heig);
+		Color[] array2 = [Color.White];
+		if (wallTex != null)
 		{
-			wallTex.GetData(0, wallTex.Bounds, array2, 0, wallTex.Width * wallTex.Height);
+			array2 = GetColorsFromRawImg(mod, wallTex, out _, out _);
 		}
-		Color[] array3 = ((liquidTex != null) ? new Color[liquidTex.Width * liquidTex.Height] : null);
-		if (array3 != null)
-		{
-			liquidTex.GetData(0, liquidTex.Bounds, array3, 0, liquidTex.Width * liquidTex.Height);
-		}
-		Color[] array4 = ((slopeTex != null) ? new Color[slopeTex.Width * slopeTex.Height] : null);
-		if (array4 != null)
-		{
-			slopeTex.GetData(0, slopeTex.Bounds, array4, 0, slopeTex.Width * slopeTex.Height);
-		}
-		Color[] array5 = ((objectTex != null) ? new Color[objectTex.Width * objectTex.Height] : null);
-		if (array5 != null)
-		{
-			objectTex.GetData(0, objectTex.Bounds, array5, 0, objectTex.Width * objectTex.Height);
-		}
+		Color[] array3 = [Color.White];
+		if (liquidTex != null)
+        {
+            array3 = GetColorsFromRawImg(mod, liquidTex, out _, out _);
+        }
+		Color[] array4 = [Color.White];
+        if (slopeTex != null)
+        {
+            array4 = GetColorsFromRawImg(mod, slopeTex, out _, out _);
+        }
+		Color[] array5 = [Color.White];
+        if (objectTex != null)
+        {
+            array5 = GetColorsFromRawImg(mod, objectTex, out _, out _);
+        }
 		int num = 0;
 		int num2 = 0;
-		TexGen texGen = new TexGen(tileTex.Width, tileTex.Height);
+		TexGen texGen = new TexGen(widt, heig);
 		for (int i = 0; i < array.Length; i++)
 		{
 			Color key = array[i];
@@ -66,12 +86,12 @@ public class BaseWorldGenTex
 			int ob = ((colorToObject != null && colorToObject.ContainsKey(key5)) ? colorToObject[key5] : 0);
 			texGen.tileGen[num, num2] = new TileInfo(id, 0, wid, num3, (num3 != -1) ? 255 : 0, sl, ob);
 			num++;
-			if (num >= tileTex.Width)
+			if (num >= widt)
 			{
 				num = 0;
 				num2++;
 			}
-			if (num2 >= tileTex.Height)
+			if (num2 >= heig)
 			{
 				break;
 			}
