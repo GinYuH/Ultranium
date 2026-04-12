@@ -172,6 +172,6 @@ public class Caliginus : ModItem
 		{
 			player.MinionNPCTargetAim(false);
 		}
-		return UseItem(player);
+		return null;
 	}
 }

@@ -51,6 +51,6 @@ public class DepthsStaff : ModItem
 		{
 			player.MinionNPCTargetAim(false);
 		}
-		return UseItem(player);
+		return null;
 	}
 }

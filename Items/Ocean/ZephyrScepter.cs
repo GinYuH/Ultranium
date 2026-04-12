@@ -51,7 +51,7 @@ public class ZephyrScepter : ModItem
 		{
 			player.MinionNPCTargetAim(false);
 		}
-		return UseItem(player);
+		return null;
 	}
 
 	public override void AddRecipes()

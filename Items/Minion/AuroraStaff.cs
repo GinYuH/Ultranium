@@ -51,7 +51,7 @@ public class AuroraStaff : ModItem
 		{
 			player.MinionNPCTargetAim(false);
 		}
-		return UseItem(player);
+		return null;
 	}
 
 	public override void AddRecipes()

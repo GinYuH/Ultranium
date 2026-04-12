@@ -129,10 +129,10 @@ public class ErebusGuitar : ModItem
 				Item.shootSpeed = 10f;
 				break;
 			default:
-				return CanUseItem(player);
+				return true;
 			}
 		}
-		return CanUseItem(player);
+		return true;
 	}
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
