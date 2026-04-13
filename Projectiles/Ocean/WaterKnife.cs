@@ -14,7 +14,7 @@ public class WaterKnife : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Water Knife");
+		//DisplayName.SetDefault("Water Knife");
 	}
 
 	public override void SetDefaults()

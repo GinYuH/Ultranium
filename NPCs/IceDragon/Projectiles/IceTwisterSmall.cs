@@ -13,7 +13,7 @@ public class IceTwisterSmall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ice Twister");
+		//DisplayName.SetDefault("Ice Twister");
 	}
 
 	public override void SetDefaults()

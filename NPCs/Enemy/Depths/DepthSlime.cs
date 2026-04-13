@@ -13,7 +13,7 @@ public class DepthSlime : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Mass");
+		//DisplayName.SetDefault("Tenebris Mass");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

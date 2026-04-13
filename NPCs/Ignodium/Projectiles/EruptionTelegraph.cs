@@ -10,7 +10,7 @@ public class EruptionTelegraph : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eruption Telegraph");
+		//DisplayName.SetDefault("Eruption Telegraph");
 	}
 
 	public override void SetDefaults()

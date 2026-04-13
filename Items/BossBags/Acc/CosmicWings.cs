@@ -9,8 +9,8 @@ public class CosmicWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Wings");
-		Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
+		//DisplayName.SetDefault("Cosmic Wings");
+		//Tooltip.SetDefault("Gives infinite flight time and very fast flight speed");
 		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(999999, 10f, 5.5f);
     }
 

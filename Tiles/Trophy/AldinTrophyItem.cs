@@ -9,7 +9,7 @@ public class AldinTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Aldin Trophy");
+		//DisplayName.SetDefault("Aldin Trophy");
 	}
 
 	public override void SetDefaults()

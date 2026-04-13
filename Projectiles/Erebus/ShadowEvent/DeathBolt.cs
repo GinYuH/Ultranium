@@ -9,7 +9,7 @@ public class DeathBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Death Bolt");
+		//DisplayName.SetDefault("Death Bolt");
 	}
 
 	public override void SetDefaults()

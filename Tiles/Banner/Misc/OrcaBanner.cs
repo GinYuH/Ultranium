@@ -7,8 +7,8 @@ public class OrcaBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Orca Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Orca");
+		//DisplayName.SetDefault("Orca Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Orca");
 	}
 
 	public override void SetDefaults()

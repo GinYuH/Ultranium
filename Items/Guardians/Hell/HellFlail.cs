@@ -10,8 +10,8 @@ public class HellFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Hell's Fury");
-		Tooltip.SetDefault("Creates a barrage of flame blasts");
+		//DisplayName.SetDefault("Hell's Fury");
+		//Tooltip.SetDefault("Creates a barrage of flame blasts");
 	}
 
 	public override void SetDefaults()

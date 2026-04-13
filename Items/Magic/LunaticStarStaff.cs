@@ -8,8 +8,8 @@ public class LunaticStarStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ancient Light Staff");
-		Tooltip.SetDefault("Casts a fast moving ancient light");
+		//DisplayName.SetDefault("Ancient Light Staff");
+		//Tooltip.SetDefault("Casts a fast moving ancient light");
 		Item.staff[Item.type] = true;
 	}
 

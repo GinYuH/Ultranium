@@ -10,8 +10,8 @@ public class HorrorVisor : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Horror Visor");
-		Tooltip.SetDefault("12% increased ranged critical strike chance");
+		//DisplayName.SetDefault("Horror Visor");
+		//Tooltip.SetDefault("12% increased ranged critical strike chance");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class FutabaHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Futaba Head");
-		Tooltip.SetDefault("~Developer item~");
+		//DisplayName.SetDefault("Futaba Head");
+		//Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

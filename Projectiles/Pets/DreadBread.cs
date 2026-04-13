@@ -7,7 +7,7 @@ public class DreadBread : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread Bread");
+		//DisplayName.SetDefault("Dread Bread");
 		Main.projFrames[Projectile.type] = 3;
 		Main.projPet[Projectile.type] = true;
 	}

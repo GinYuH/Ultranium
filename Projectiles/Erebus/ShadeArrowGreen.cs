@@ -14,7 +14,7 @@ public class ShadeArrowGreen : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Shade Arrow");
+		//DisplayName.SetDefault("Shade Arrow");
 	}
 
 	public override void SetDefaults()

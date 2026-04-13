@@ -11,8 +11,8 @@ public class DreadTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Paranoia");
-		Tooltip.SetDefault("Casts dread scythes");
+		//DisplayName.SetDefault("Paranoia");
+		//Tooltip.SetDefault("Casts dread scythes");
 	}
 
 	public override void SetDefaults()

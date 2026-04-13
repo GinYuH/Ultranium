@@ -9,7 +9,7 @@ public class ShadowRodBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadow Bolt");
+		//DisplayName.SetDefault("Shadow Bolt");
 		Main.projFrames[Projectile.type] = 5;
 	}
 

@@ -14,7 +14,7 @@ public class SmallHallowBeam : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Hallowed Beam");
+		//DisplayName.SetDefault("Hallowed Beam");
 	}
 
 	public override void SetDefaults()

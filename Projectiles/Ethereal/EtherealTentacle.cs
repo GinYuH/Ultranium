@@ -8,7 +8,7 @@ public class EtherealTentacle : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Note Tentacle");
+		//DisplayName.SetDefault("Ethereal Note Tentacle");
 	}
 
 	public override void SetDefaults()

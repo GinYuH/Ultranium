@@ -7,7 +7,7 @@ public class ShroomSpore : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shroom Spore");
+		//DisplayName.SetDefault("Shroom Spore");
 		Main.projFrames[Projectile.type] = 3;
 	}
 

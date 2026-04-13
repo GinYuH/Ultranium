@@ -10,8 +10,8 @@ public class PetriDish : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Petri Dish");
-		Tooltip.SetDefault("Summons a pet slime");
+		//DisplayName.SetDefault("Petri Dish");
+		//Tooltip.SetDefault("Summons a pet slime");
 	}
 
 	public override void SetDefaults()

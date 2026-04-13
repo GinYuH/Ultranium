@@ -7,8 +7,8 @@ public class DepthMongerBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depth Monger Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Depth Monger");
+		//DisplayName.SetDefault("Depth Monger Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Depth Monger");
 	}
 
 	public override void SetDefaults()

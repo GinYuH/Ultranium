@@ -9,7 +9,7 @@ public class NatureBlastBase : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultranium Bolt");
+		//DisplayName.SetDefault("Ultranium Bolt");
 	}
 
 	public override void SetDefaults()

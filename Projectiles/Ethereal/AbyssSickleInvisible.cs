@@ -13,7 +13,7 @@ public class AbyssSickleInvisible : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Abyssal Sickle");
+		//DisplayName.SetDefault("Abyssal Sickle");
 	}
 
 	public override void SetDefaults()

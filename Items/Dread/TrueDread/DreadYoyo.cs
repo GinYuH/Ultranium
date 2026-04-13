@@ -10,8 +10,8 @@ public class DreadYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The Toothball");
-		Tooltip.SetDefault("Has a chance to shoot circles of dread teeth on enemy hits");
+		//DisplayName.SetDefault("The Toothball");
+		//Tooltip.SetDefault("Has a chance to shoot circles of dread teeth on enemy hits");
 	}
 
 	public override void SetDefaults()

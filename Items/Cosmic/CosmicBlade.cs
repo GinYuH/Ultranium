@@ -20,8 +20,8 @@ public class CosmicBlade : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Wrath of the Cosmos");
-		Tooltip.SetDefault("Fires down a stream of cosmic stars\nEvery 30 swings will send down a bigger cosmic star that explodes into smaller stars");
+		//DisplayName.SetDefault("Wrath of the Cosmos");
+		//Tooltip.SetDefault("Fires down a stream of cosmic stars\nEvery 30 swings will send down a bigger cosmic star that explodes into smaller stars");
 	}
 
 	public override void SetDefaults()

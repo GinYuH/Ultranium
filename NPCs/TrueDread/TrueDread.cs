@@ -44,7 +44,7 @@ public class TrueDread : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Absolute Dread");
+		//DisplayName.SetDefault("Absolute Dread");
 		Main.npcFrameCount[NPC.type] = 6;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 6;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

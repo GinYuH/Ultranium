@@ -11,7 +11,7 @@ public class EtherealLaserRift2 : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Portal 2");
+		//DisplayName.SetDefault("Ethereal Portal 2");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class EtherealBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Occultist Chestmail");
-		Tooltip.SetDefault("12% increased damage and 6% increased critical strike chance\n+5 max life and mana\n+2 max minions");
+		//DisplayName.SetDefault("Occultist Chestmail");
+		//Tooltip.SetDefault("12% increased damage and 6% increased critical strike chance\n+5 max life and mana\n+2 max minions");
 	}
 
 	public override void SetDefaults()

@@ -9,7 +9,7 @@ public class DemonScythe : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Sickle");
+		//DisplayName.SetDefault("Shade Sickle");
 	}
 
 	public override void SetDefaults()

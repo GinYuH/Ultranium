@@ -7,8 +7,8 @@ public class XenanisFlesh : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Flesh");
-		Tooltip.SetDefault("'It almost feels alive...'");
+		//DisplayName.SetDefault("Ethereal Flesh");
+		//Tooltip.SetDefault("'It almost feels alive...'");
 	}
 
 	public override void SetDefaults()

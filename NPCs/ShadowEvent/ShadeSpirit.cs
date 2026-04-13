@@ -13,7 +13,7 @@ public class ShadeSpirit : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Spirit");
+		//DisplayName.SetDefault("Shade Spirit");
 		NPCID.Sets.TrailCacheLength[NPC.type] = 7;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;
 	}

@@ -8,8 +8,8 @@ public class IceLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ice Walker's Legs");
-		Tooltip.SetDefault("3% increased movement speed");
+		//DisplayName.SetDefault("Ice Walker's Legs");
+		//Tooltip.SetDefault("3% increased movement speed");
 	}
 
 	public override void SetDefaults()

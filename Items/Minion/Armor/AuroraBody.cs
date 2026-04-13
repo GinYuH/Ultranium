@@ -8,8 +8,8 @@ public class AuroraBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Aurora Crystal Breastplate");
-		Tooltip.SetDefault("4% increased summon damage and +1 max minions");
+		//DisplayName.SetDefault("Aurora Crystal Breastplate");
+		//Tooltip.SetDefault("4% increased summon damage and +1 max minions");
 	}
 
 	public override void SetDefaults()

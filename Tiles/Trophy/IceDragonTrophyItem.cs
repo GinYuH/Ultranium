@@ -9,7 +9,7 @@ public class IceDragonTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glacieron Trophy");
+		//DisplayName.SetDefault("Glacieron Trophy");
 	}
 
 	public override void SetDefaults()

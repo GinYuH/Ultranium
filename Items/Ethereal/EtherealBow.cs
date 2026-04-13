@@ -10,8 +10,8 @@ public class EtherealBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Bow");
-		Tooltip.SetDefault("Has a 50% chance to shoot out Ethereal Bolts");
+		//DisplayName.SetDefault("Ethereal Bow");
+		//Tooltip.SetDefault("Has a 50% chance to shoot out Ethereal Bolts");
 	}
 
 	public override void SetDefaults()

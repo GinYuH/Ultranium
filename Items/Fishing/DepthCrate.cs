@@ -10,8 +10,8 @@ public class DepthCrate : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depths Crate");
-		Tooltip.SetDefault("Right click to open");
+		//DisplayName.SetDefault("Depths Crate");
+		//Tooltip.SetDefault("Right click to open");
 	}
 
 	public override void SetDefaults()

@@ -27,7 +27,7 @@ public class ZephyrSquid : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Zephyr Squid");
+		//DisplayName.SetDefault("Zephyr Squid");
 		Main.npcFrameCount[NPC.type] = 5;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 3;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

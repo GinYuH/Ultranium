@@ -19,7 +19,7 @@ public class MindFlayerClone : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mind Flayer");
+		//DisplayName.SetDefault("Mind Flayer");
 		Main.npcFrameCount[NPC.type] = 6;
 	}
 

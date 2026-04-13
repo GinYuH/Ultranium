@@ -11,8 +11,8 @@ public class FeatherTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Featherfall");
-		Tooltip.SetDefault("Casts magical feathers down from the sky");
+		//DisplayName.SetDefault("Featherfall");
+		//Tooltip.SetDefault("Casts magical feathers down from the sky");
 	}
 
 	public override void SetDefaults()

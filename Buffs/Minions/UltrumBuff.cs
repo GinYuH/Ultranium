@@ -7,8 +7,8 @@ public class UltrumBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultrum");
-		Description.SetDefault("The mini ultrum will fight with you");
+		//DisplayName.SetDefault("Ultrum");
+		//Description.SetDefault("The mini ultrum will fight with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

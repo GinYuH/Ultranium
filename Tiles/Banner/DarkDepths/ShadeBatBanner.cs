@@ -7,8 +7,8 @@ public class ShadeBatBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Bat Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Depth Bat");
+		//DisplayName.SetDefault("Shade Bat Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Depth Bat");
 	}
 
 	public override void SetDefaults()

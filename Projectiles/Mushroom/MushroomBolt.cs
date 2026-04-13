@@ -8,7 +8,7 @@ public class MushroomBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("MushroomBolt Bolt");
+		//DisplayName.SetDefault("MushroomBolt Bolt");
 	}
 
 	public override void SetDefaults()

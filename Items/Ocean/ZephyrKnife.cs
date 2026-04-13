@@ -12,8 +12,8 @@ public class ZephyrKnife : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Zephyr Knife");
-		Tooltip.SetDefault("Throws out short lived zephyr knives\nEvery 20 throws will throw a water knife\nThe water knife will leave behind lingering bubbles as it flies");
+		//DisplayName.SetDefault("Zephyr Knife");
+		//Tooltip.SetDefault("Throws out short lived zephyr knives\nEvery 20 throws will throw a water knife\nThe water knife will leave behind lingering bubbles as it flies");
 	}
 
 	public override void SetDefaults()

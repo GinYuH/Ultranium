@@ -8,8 +8,8 @@ public class RetiYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Retina Throw");
-		Tooltip.SetDefault("Fires Lasers at nearby enemies");
+		//DisplayName.SetDefault("Retina Throw");
+		//Tooltip.SetDefault("Fires Lasers at nearby enemies");
 	}
 
 	public override void SetDefaults()

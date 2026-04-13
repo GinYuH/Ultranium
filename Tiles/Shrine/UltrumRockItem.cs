@@ -7,8 +7,8 @@ public class UltrumRockItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultrum Rock");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Ultrum Rock");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

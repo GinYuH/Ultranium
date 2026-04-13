@@ -7,8 +7,8 @@ public class AbyssSharkBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Goblin Shark Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Goblin Shark");
+		//DisplayName.SetDefault("Abyssal Goblin Shark Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Goblin Shark");
 	}
 
 	public override void SetDefaults()

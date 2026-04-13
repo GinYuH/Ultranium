@@ -10,8 +10,8 @@ public class FlayerBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Flayer's Lament");
-		Tooltip.SetDefault("Creates piercing tentacles");
+		//DisplayName.SetDefault("Flayer's Lament");
+		//Tooltip.SetDefault("Creates piercing tentacles");
 	}
 
 	public override void SetDefaults()

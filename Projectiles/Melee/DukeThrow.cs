@@ -12,7 +12,7 @@ public class DukeThrow : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The Duke's Throw");
+		//DisplayName.SetDefault("The Duke's Throw");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

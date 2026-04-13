@@ -8,8 +8,8 @@ public class TenebrisVisor : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Visor");
-		Tooltip.SetDefault("2% increased ranged critical strike");
+		//DisplayName.SetDefault("Tenebris Visor");
+		//Tooltip.SetDefault("2% increased ranged critical strike");
 	}
 
 	public override void SetDefaults()

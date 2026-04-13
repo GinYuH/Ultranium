@@ -10,8 +10,8 @@ public class ZephyrScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Zephyr Scepter");
-		Tooltip.SetDefault("Summons a baby zephyr squid to fight with you");
+		//DisplayName.SetDefault("Zephyr Scepter");
+		//Tooltip.SetDefault("Summons a baby zephyr squid to fight with you");
 	}
 
 	public override void SetDefaults()

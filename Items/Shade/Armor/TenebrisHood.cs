@@ -8,8 +8,8 @@ public class TenebrisHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Hood");
-		Tooltip.SetDefault("2% increased magic critical strike chance");
+		//DisplayName.SetDefault("Tenebris Hood");
+		//Tooltip.SetDefault("2% increased magic critical strike chance");
 	}
 
 	public override void SetDefaults()

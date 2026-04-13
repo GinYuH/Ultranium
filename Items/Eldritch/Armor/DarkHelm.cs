@@ -10,8 +10,8 @@ public class DarkHelm : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Darkmatter Helmet");
-		Tooltip.SetDefault("12% increased melee damage\n+5 max life");
+		//DisplayName.SetDefault("Darkmatter Helmet");
+		//Tooltip.SetDefault("12% increased melee damage\n+5 max life");
 	}
 
 	public override void SetDefaults()

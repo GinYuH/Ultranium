@@ -10,8 +10,8 @@ public class Exitium : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Exitium");
-		Tooltip.SetDefault("Fires tentacles when enemies are nearby");
+		//DisplayName.SetDefault("Exitium");
+		//Tooltip.SetDefault("Fires tentacles when enemies are nearby");
 	}
 
 	public override void SetDefaults()

@@ -14,8 +14,8 @@ public class HellGun : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Turns bullets into flaming blasts\nShoots a giant flame blast every 30 shots\nThe giant blast will deal double the weapon's damage\n50% chance to not consume ammo");
-		DisplayName.SetDefault("Nether Blaster");
+		//Tooltip.SetDefault("Turns bullets into flaming blasts\nShoots a giant flame blast every 30 shots\nThe giant blast will deal double the weapon's damage\n50% chance to not consume ammo");
+		//DisplayName.SetDefault("Nether Blaster");
 	}
 
 	public override void SetDefaults()

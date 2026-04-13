@@ -7,8 +7,8 @@ public class EldritchMagicBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Mage Empowerment");
-		Description.SetDefault("1.3x Magic damage, magic weapons cost no mana");
+		//DisplayName.SetDefault("Eldritch Mage Empowerment");
+		//Description.SetDefault("1.3x Magic damage, magic weapons cost no mana");
 	}
 
 	public override void Update(Player player, ref int buffIndex)

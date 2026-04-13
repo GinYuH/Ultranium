@@ -22,7 +22,7 @@ public class HomingStar : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmos Star");
+		//DisplayName.SetDefault("Cosmos Star");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

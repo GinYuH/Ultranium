@@ -7,8 +7,8 @@ public class TacoBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The devil on Dylan's shoulder");
-		Description.SetDefault("...");
+		//DisplayName.SetDefault("The devil on Dylan's shoulder");
+		//Description.SetDefault("...");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

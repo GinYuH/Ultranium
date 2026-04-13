@@ -7,8 +7,8 @@ public class AbyssalCultistBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Cultist Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Cultist");
+		//DisplayName.SetDefault("Abyssal Cultist Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Cultist");
 	}
 
 	public override void SetDefaults()

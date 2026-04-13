@@ -13,7 +13,7 @@ public class DreadOrbiter : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread Orbiter");
+		//DisplayName.SetDefault("Dread Orbiter");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

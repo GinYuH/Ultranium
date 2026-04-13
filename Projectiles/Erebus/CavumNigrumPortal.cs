@@ -8,7 +8,7 @@ public class CavumNigrumPortal : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Black Hole");
+		//DisplayName.SetDefault("Black Hole");
 	}
 
 	public override void SetDefaults()

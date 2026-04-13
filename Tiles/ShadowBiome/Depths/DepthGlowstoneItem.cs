@@ -7,8 +7,8 @@ public class DepthGlowstoneItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depth Glowstone");
-		Tooltip.SetDefault("Its glow is suprisingly bright");
+		//DisplayName.SetDefault("Depth Glowstone");
+		//Tooltip.SetDefault("Its glow is suprisingly bright");
 	}
 
 	public override void SetDefaults()

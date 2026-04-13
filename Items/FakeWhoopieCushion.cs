@@ -8,8 +8,8 @@ public class FakeWhoopieCushion : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Whoopie Cushion?");
-		Tooltip.SetDefault("'May annoy others'\nLegends say that it's farts can be harvested...");
+		//DisplayName.SetDefault("Whoopie Cushion?");
+		//Tooltip.SetDefault("'May annoy others'\nLegends say that it's farts can be harvested...");
 		ItemID.Sets.ExtractinatorMode[Item.type] = Item.type;
 	}
 

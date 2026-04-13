@@ -14,7 +14,7 @@ public class StarMinion : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Spacial Star");
+		//DisplayName.SetDefault("Spacial Star");
 		Main.projPet[Projectile.type] = true;
 		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 	}

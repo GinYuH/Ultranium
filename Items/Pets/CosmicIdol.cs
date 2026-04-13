@@ -10,8 +10,8 @@ public class CosmicIdol : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Insignia");
-		Tooltip.SetDefault("Summons a pet cosmic djinn");
+		//DisplayName.SetDefault("Cosmic Insignia");
+		//Tooltip.SetDefault("Summons a pet cosmic djinn");
 	}
 
 	public override void SetDefaults()

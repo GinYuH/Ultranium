@@ -76,17 +76,17 @@ public class GlobalItems : GlobalItem
 		int arg = item.type;
 		if ((arg == 3326 || arg == 3325 || arg == 3327 || arg == 3328 || arg == 3329 || arg == 3332 || arg == ((GlobalItem)this).Mod.Find<ModItem>("DreadBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("EtherealBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("UltrumBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("IgnodiumBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("TrueDreadBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("ErebusBag").Type))
 		{
-			IItemDropRule luxRule = ItemDropRule.Common(ModContent.ItemType<LuxHead>(), 4);
+			IItemDropRule luxRule = ItemDropRule.Common(ModContent.ItemType<LuxHead>(), 34);
             luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxBody>()));
             luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxLegs>()));
             luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxWings>()));
-            IItemDropRule poisonRule = ItemDropRule.Common(ModContent.ItemType<PoisonHead>(), 3);
+            IItemDropRule poisonRule = ItemDropRule.Common(ModContent.ItemType<PoisonHead>(), 33);
 			poisonRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonBody>()));
             poisonRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonLegs>()));
-            IItemDropRule futaba = ItemDropRule.Common(ModContent.ItemType<FutabaHead>(), 2);
+            IItemDropRule futaba = ItemDropRule.Common(ModContent.ItemType<FutabaHead>(), 32);
             futaba.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaBody>()));
             futaba.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaLegs>()));
-			IItemDropRule rock = ItemDropRule.Common(ModContent.ItemType<RockMask>());
+			IItemDropRule rock = ItemDropRule.Common(ModContent.ItemType<RockMask>(), 30);
 			futaba.OnFailedRoll(rock);
             poisonRule.OnFailedRoll(futaba);
             luxRule.OnFailedRoll(poisonRule);

@@ -19,7 +19,7 @@ public class CosmicBlastSpiral : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Blast Bolt");
+		//DisplayName.SetDefault("Cosmic Blast Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

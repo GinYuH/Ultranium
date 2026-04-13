@@ -8,8 +8,8 @@ public class TenebrisMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Mask");
-		Tooltip.SetDefault("2% increased summon damage");
+		//DisplayName.SetDefault("Tenebris Mask");
+		//Tooltip.SetDefault("2% increased summon damage");
 	}
 
 	public override void SetDefaults()

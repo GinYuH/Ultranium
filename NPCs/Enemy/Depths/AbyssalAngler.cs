@@ -11,7 +11,7 @@ public class AbyssalAngler : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Angler");
+		//DisplayName.SetDefault("Abyssal Angler");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
 	}
 

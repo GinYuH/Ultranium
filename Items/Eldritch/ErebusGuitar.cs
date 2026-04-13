@@ -18,8 +18,8 @@ public class ErebusGuitar : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eld-riff");
-		Tooltip.SetDefault("'Blasting enemies with the power of eldritch music!'\nHas 3 different attack modes that can be switched by right clicking\nMode 1 will shoot green sound pulses that bounce off of tiles\nMode 2 will fire circles of fast moving purple sound pulses\nMode 3 will rapidly fire eldritch notes\nThe current mode you are in will be displayed in the corner of the item");
+		//DisplayName.SetDefault("Eld-riff");
+		//Tooltip.SetDefault("'Blasting enemies with the power of eldritch music!'\nHas 3 different attack modes that can be switched by right clicking\nMode 1 will shoot green sound pulses that bounce off of tiles\nMode 2 will fire circles of fast moving purple sound pulses\nMode 3 will rapidly fire eldritch notes\nThe current mode you are in will be displayed in the corner of the item");
 	}
 
 	public override void SetDefaults()

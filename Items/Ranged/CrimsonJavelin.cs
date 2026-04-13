@@ -7,8 +7,8 @@ public class CrimsonJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Crimtane Pike");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Crimtane Pike");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

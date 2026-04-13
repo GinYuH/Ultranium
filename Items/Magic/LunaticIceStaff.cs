@@ -8,8 +8,8 @@ public class LunaticIceStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ice Mist Staff");
-		Tooltip.SetDefault("Shoots a giant ice ball that explodes into a circle of ice shards");
+		//DisplayName.SetDefault("Ice Mist Staff");
+		//Tooltip.SetDefault("Shoots a giant ice ball that explodes into a circle of ice shards");
 		Item.staff[Item.type] = true;
 	}
 

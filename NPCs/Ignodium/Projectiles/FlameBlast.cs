@@ -11,7 +11,7 @@ public class FlameBlast : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Flame Blast");
+		//DisplayName.SetDefault("Flame Blast");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

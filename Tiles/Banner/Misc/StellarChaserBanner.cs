@@ -7,8 +7,8 @@ public class StellarChaserBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Chaser Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Stellar Chaser");
+		//DisplayName.SetDefault("Stellar Chaser Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Stellar Chaser");
 	}
 
 	public override void SetDefaults()

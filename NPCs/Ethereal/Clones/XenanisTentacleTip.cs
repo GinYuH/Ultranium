@@ -7,7 +7,7 @@ public class XenanisTentacleTip : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Tentacle");
+		//DisplayName.SetDefault("Ethereal Tentacle");
 	}
 
 	public override void SetDefaults()

@@ -10,7 +10,7 @@ public class StellarComet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Comet Orbtial");
+		//DisplayName.SetDefault("Stellar Comet Orbtial");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

@@ -15,7 +15,7 @@ public class CosmicRitual : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Ritual");
+		//DisplayName.SetDefault("Cosmic Ritual");
 	}
 
 	public override void SetDefaults()

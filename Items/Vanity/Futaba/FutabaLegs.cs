@@ -8,8 +8,8 @@ public class FutabaLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Futaba Legs");
-		Tooltip.SetDefault("~Developer item~");
+		//DisplayName.SetDefault("Futaba Legs");
+		//Tooltip.SetDefault("~Developer item~");
 	}
 
 	public override void SetDefaults()

@@ -10,8 +10,8 @@ public class DarkHeadGear : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Darkmatter Headgear");
-		Tooltip.SetDefault("12% increased ranged damage\n+5 max life");
+		//DisplayName.SetDefault("Darkmatter Headgear");
+		//Tooltip.SetDefault("12% increased ranged damage\n+5 max life");
 	}
 
 	public override void SetDefaults()

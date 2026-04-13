@@ -8,7 +8,7 @@ public class C4Boom : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("C4 Explosion");
+		//DisplayName.SetDefault("C4 Explosion");
 		Main.projFrames[Projectile.type] = 4;
 	}
 

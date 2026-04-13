@@ -11,7 +11,7 @@ public class DreadFlameBlast : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread Flame Bolt");
+		//DisplayName.SetDefault("Dread Flame Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 6;

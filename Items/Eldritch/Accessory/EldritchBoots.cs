@@ -11,8 +11,8 @@ public class EldritchBoots : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Tracers");
-		Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
+		//DisplayName.SetDefault("Eldritch Tracers");
+		//Tooltip.SetDefault("Allows flight and slow fall\nAllows super fast running and extra mobility on ice\n10% increased movement speed\nGrants the ability to walk on water and lava\nGrants immunity to fire blocks and 10 seconds of immunity to lava");
 		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(240, 10f, 5f);
     }
 

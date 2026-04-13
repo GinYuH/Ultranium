@@ -9,7 +9,7 @@ public class FlayerTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mind Flayer Trophy");
+		//DisplayName.SetDefault("Mind Flayer Trophy");
 	}
 
 	public override void SetDefaults()

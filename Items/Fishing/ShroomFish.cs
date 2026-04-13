@@ -7,8 +7,8 @@ public class ShroomFish : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shroom Fish");
-		Tooltip.SetDefault("'Is it a fish or a squid?'");
+		//DisplayName.SetDefault("Shroom Fish");
+		//Tooltip.SetDefault("'Is it a fish or a squid?'");
 	}
 
 	public override void SetDefaults()

@@ -10,7 +10,7 @@ public class SquidChargeTelegraph : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Squid Telegraph");
+		//DisplayName.SetDefault("Squid Telegraph");
 	}
 
 	public override void SetDefaults()

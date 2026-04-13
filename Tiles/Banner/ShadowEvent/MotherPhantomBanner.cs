@@ -7,8 +7,8 @@ public class MotherPhantomBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mother Phantom Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Mother Phantom");
+		//DisplayName.SetDefault("Mother Phantom Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Mother Phantom");
 	}
 
 	public override void SetDefaults()

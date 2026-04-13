@@ -12,7 +12,7 @@ public class DarkMatterArrowBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dark Matter Bolt");
+		//DisplayName.SetDefault("Dark Matter Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

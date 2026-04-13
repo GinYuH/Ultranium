@@ -8,7 +8,7 @@ public class CultFireExplosion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Flame Explosion");
+		//DisplayName.SetDefault("Flame Explosion");
 		Main.projFrames[Projectile.type] = 5;
 	}
 

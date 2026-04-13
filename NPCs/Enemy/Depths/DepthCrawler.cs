@@ -14,7 +14,7 @@ public class DepthCrawler : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depth Crawler");
+		//DisplayName.SetDefault("Depth Crawler");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

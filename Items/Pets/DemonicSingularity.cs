@@ -18,8 +18,8 @@ public class DemonicSingularity : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Demonic Singularity");
-		Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
+		//DisplayName.SetDefault("Demonic Singularity");
+		//Tooltip.SetDefault("Summons a pet cacodemon\n~Developer Item~");
 	}
 
 	public override void SetDefaults()

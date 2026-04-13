@@ -7,8 +7,8 @@ public class DepthMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Dark Depths)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Dark Depths)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

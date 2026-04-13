@@ -10,8 +10,8 @@ public class HorrorHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Horror Hood");
-		Tooltip.SetDefault("12% increased magic critical strike chance\n+50 max mana");
+		//DisplayName.SetDefault("Horror Hood");
+		//Tooltip.SetDefault("12% increased magic critical strike chance\n+50 max mana");
 	}
 
 	public override void SetDefaults()

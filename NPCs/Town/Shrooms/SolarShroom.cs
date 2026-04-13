@@ -7,8 +7,8 @@ public class SolarShroom : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Piltzintecuhtli");
-		Tooltip.SetDefault("The god of the sun that the lizhard's worshiped was a mushroom all along. how dreadful.");
+		//DisplayName.SetDefault("Piltzintecuhtli");
+		//Tooltip.SetDefault("The god of the sun that the lizhard's worshiped was a mushroom all along. how dreadful.");
 	}
 
 	public override void SetDefaults()

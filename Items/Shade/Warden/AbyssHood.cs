@@ -8,8 +8,8 @@ public class AbyssHood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyss Warden Hood");
-		Tooltip.SetDefault("5% increased summon damage");
+		//DisplayName.SetDefault("Abyss Warden Hood");
+		//Tooltip.SetDefault("5% increased summon damage");
 	}
 
 	public override void SetDefaults()

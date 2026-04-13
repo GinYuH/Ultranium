@@ -13,7 +13,7 @@ public class HellThrow : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Hell Throw");
+		//DisplayName.SetDefault("Hell Throw");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

@@ -8,8 +8,8 @@ public class StellarBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Stoneplate");
-		Tooltip.SetDefault("12% increased damage and 6% increased critical strike chance\n+5 max life and mana\n+2 max minions");
+		//DisplayName.SetDefault("Stellar Stoneplate");
+		//Tooltip.SetDefault("12% increased damage and 6% increased critical strike chance\n+5 max life and mana\n+2 max minions");
 	}
 
 	public override void SetDefaults()

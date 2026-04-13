@@ -16,7 +16,7 @@ public class AldinTelegraph : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Telegraph");
+		//DisplayName.SetDefault("Cosmic Telegraph");
 	}
 
 	public override void SetDefaults()

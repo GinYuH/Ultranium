@@ -14,7 +14,7 @@ public class MotherPhantomBolt : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 35;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Darkness Bolt");
+		//DisplayName.SetDefault("Darkness Bolt");
 	}
 
 	public override void SetDefaults()

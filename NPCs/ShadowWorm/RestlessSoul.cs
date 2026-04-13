@@ -13,7 +13,7 @@ public class RestlessSoul : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Restless Soul");
+		//DisplayName.SetDefault("Restless Soul");
 	}
 
 	public override void SetDefaults()

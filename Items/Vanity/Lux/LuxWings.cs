@@ -9,8 +9,8 @@ public class LuxWings : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Lux's Wings");
-		Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
+		//DisplayName.SetDefault("Lux's Wings");
+		//Tooltip.SetDefault("Allows flight and slow fall\n~Developer item~");
 		ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new Terraria.DataStructures.WingStats(150, 7f, 2f);
     }
 

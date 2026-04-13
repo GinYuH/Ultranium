@@ -16,7 +16,7 @@ public class Scp2521 : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyss Strider");
+		//DisplayName.SetDefault("Abyss Strider");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

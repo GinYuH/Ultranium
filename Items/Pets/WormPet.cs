@@ -10,8 +10,8 @@ public class WormPet : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mysterious Scale");
-		Tooltip.SetDefault("Summons a long lost serpent");
+		//DisplayName.SetDefault("Mysterious Scale");
+		//Tooltip.SetDefault("Summons a long lost serpent");
 	}
 
 	public override void SetDefaults()

@@ -21,7 +21,7 @@ public class StellarChaser : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Chaser");
+		//DisplayName.SetDefault("Stellar Chaser");
 	}
 
 	public override void SetDefaults()

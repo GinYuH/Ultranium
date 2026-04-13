@@ -8,8 +8,8 @@ public class StellarHammer : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Throws Stellar Hammers that fall after a while");
-		DisplayName.SetDefault("Stellar Hammer");
+		//Tooltip.SetDefault("Throws Stellar Hammers that fall after a while");
+		//DisplayName.SetDefault("Stellar Hammer");
 	}
 
 	public override void SetDefaults()

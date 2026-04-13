@@ -11,7 +11,7 @@ public class ShadeGhoul : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Ghoul");
+		//DisplayName.SetDefault("Shade Ghoul");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[524];
 	}
 

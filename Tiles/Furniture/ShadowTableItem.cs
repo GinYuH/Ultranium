@@ -7,7 +7,7 @@ public class ShadowTableItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Table");
+		//DisplayName.SetDefault("Eldritch Table");
 	}
 
 	public override void SetDefaults()

@@ -11,8 +11,8 @@ public class UltraniumSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultranium Blade");
-		Tooltip.SetDefault("Fires a spread of nature energy orbs");
+		//DisplayName.SetDefault("Ultranium Blade");
+		//Tooltip.SetDefault("Fires a spread of nature energy orbs");
 	}
 
 	public override void SetDefaults()

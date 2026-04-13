@@ -7,7 +7,7 @@ public class DepthsDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depths Fog Dye");
+		//DisplayName.SetDefault("Depths Fog Dye");
 	}
 
 	public override void SetDefaults()

@@ -14,7 +14,7 @@ public class DreadYoyo : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("The Toothball");
+		//DisplayName.SetDefault("The Toothball");
 	}
 
 	public override void SetDefaults()

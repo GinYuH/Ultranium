@@ -7,8 +7,8 @@ public class IgnodiumRelic : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ignodium Relic Shard");
-		Tooltip.SetDefault("\"Perhaps if combined with the other half, it's power can be restored...\"");
+		//DisplayName.SetDefault("Ignodium Relic Shard");
+		//Tooltip.SetDefault("\"Perhaps if combined with the other half, it's power can be restored...\"");
 	}
 
 	public override void SetDefaults()

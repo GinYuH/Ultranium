@@ -10,8 +10,8 @@ public class DepthsBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cxaxukluth");
-		Tooltip.SetDefault("Has an uncommon chance to create an eldritch tentacle\nThe eldritch tentacle will deal twice the bow's damage");
+		//DisplayName.SetDefault("Cxaxukluth");
+		//Tooltip.SetDefault("Has an uncommon chance to create an eldritch tentacle\nThe eldritch tentacle will deal twice the bow's damage");
 	}
 
 	public override void SetDefaults()

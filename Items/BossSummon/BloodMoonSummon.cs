@@ -10,8 +10,8 @@ public class BloodMoonSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Blood Moon Idol");
-		Tooltip.SetDefault("Summons the Blood moon if used at night");
+		//DisplayName.SetDefault("Blood Moon Idol");
+		//Tooltip.SetDefault("Summons the Blood moon if used at night");
 	}
 
 	public override void SetDefaults()

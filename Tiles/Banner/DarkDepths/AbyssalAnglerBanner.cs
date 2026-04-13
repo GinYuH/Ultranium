@@ -7,8 +7,8 @@ public class AbyssalAnglerBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Angler Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Angler");
+		//DisplayName.SetDefault("Abyssal Angler Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Abyssal Angler");
 	}
 
 	public override void SetDefaults()

@@ -8,7 +8,7 @@ public class MushroomHead : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glowing Mushroom Helmet");
+		//DisplayName.SetDefault("Glowing Mushroom Helmet");
 	}
 
 	public override void SetDefaults()

@@ -12,7 +12,7 @@ public class DepthsMimic : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depths Mimic");
+		//DisplayName.SetDefault("Depths Mimic");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[473];
 	}
 

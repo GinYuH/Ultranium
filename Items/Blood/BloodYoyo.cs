@@ -8,8 +8,8 @@ public class BloodYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The Gout");
-		Tooltip.SetDefault("Randomly fires out lingering blood swirls");
+		//DisplayName.SetDefault("The Gout");
+		//Tooltip.SetDefault("Randomly fires out lingering blood swirls");
 	}
 
 	public override void SetDefaults()

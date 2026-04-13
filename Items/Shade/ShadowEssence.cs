@@ -18,8 +18,8 @@ public class ShadowEssence : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadow Mana");
-		Tooltip.SetDefault("'The Essence of shadow magic'");
+		//DisplayName.SetDefault("Shadow Mana");
+		//Tooltip.SetDefault("'The Essence of shadow magic'");
 		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
 	}

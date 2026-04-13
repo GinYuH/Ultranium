@@ -9,7 +9,7 @@ public class XenanisTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Xenanis Trophy");
+		//DisplayName.SetDefault("Xenanis Trophy");
 	}
 
 	public override void SetDefaults()

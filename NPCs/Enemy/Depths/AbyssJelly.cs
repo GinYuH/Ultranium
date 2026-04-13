@@ -11,7 +11,7 @@ public class AbyssJelly : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Jelly");
+		//DisplayName.SetDefault("Abyssal Jelly");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[242];
 	}
 

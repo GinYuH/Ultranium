@@ -8,8 +8,8 @@ public class Drip : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The Dripper");
-		Tooltip.SetDefault("Shoots Water bolts in random directions");
+		//DisplayName.SetDefault("The Dripper");
+		//Tooltip.SetDefault("Shoots Water bolts in random directions");
 	}
 
 	public override void SetDefaults()

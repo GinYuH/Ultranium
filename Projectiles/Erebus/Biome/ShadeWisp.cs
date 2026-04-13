@@ -9,7 +9,7 @@ public class ShadeWisp : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Wisp");
+		//DisplayName.SetDefault("Shade Wisp");
 		Main.projFrames[Projectile.type] = 8;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;

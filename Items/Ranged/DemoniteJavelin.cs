@@ -7,8 +7,8 @@ public class DemoniteJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Demonite Javelin");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Demonite Javelin");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

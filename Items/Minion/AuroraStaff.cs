@@ -10,8 +10,8 @@ public class AuroraStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Aurora Crystal Staff");
-		Tooltip.SetDefault("Summons a spacial star to float above you\nThe star will shoot blasts at the cursor when enemies are near");
+		//DisplayName.SetDefault("Aurora Crystal Staff");
+		//Tooltip.SetDefault("Summons a spacial star to float above you\nThe star will shoot blasts at the cursor when enemies are near");
 	}
 
 	public override void SetDefaults()

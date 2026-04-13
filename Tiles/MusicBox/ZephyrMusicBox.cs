@@ -7,8 +7,8 @@ public class ZephyrMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Zephyr Squid)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Zephyr Squid)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

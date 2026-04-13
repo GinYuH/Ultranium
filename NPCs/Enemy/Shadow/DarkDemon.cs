@@ -14,7 +14,7 @@ public class DarkDemon : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dark Demon");
+		//DisplayName.SetDefault("Dark Demon");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

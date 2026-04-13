@@ -64,7 +64,7 @@ public class EldritchCaster : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Caster");
+		//DisplayName.SetDefault("Eldritch Caster");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

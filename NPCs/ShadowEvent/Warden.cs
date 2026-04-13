@@ -16,7 +16,7 @@ public class Warden : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Brute");
+		//DisplayName.SetDefault("Abyssal Brute");
 		Main.npcFrameCount[NPC.type] = 8;
 	}
 

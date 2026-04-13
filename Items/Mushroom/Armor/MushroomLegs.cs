@@ -8,7 +8,7 @@ public class MushroomLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glowing Mushroom Legs");
+		//DisplayName.SetDefault("Glowing Mushroom Legs");
 	}
 
 	public override void SetDefaults()

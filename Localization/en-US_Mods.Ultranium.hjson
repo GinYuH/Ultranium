@@ -203,9 +203,20 @@ Biomes: {
 }
 
 Items: {
-	BloodBody.DisplayName: Sanguine Chestplate
-	BloodHead.DisplayName: Sanguine Face Mask
-	BloodLegs.DisplayName: Sanguine Leggings
+	BloodBody: {
+		DisplayName: Sanguine Chestplate
+		Tooltip: ""
+	}
+
+	BloodHead: {
+		DisplayName: Sanguine Face Mask
+		Tooltip: ""
+	}
+
+	BloodLegs: {
+		DisplayName: Sanguine Leggings
+		Tooltip: ""
+	}
 
 	BloodClot: {
 		DisplayName: Blood Clot
@@ -323,47 +334,47 @@ Items: {
 	}
 
 	AldinBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Aldin)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	DreadBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Dread)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	ErebusBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Erebus)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	EtherealBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Xenanis)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	IceDragonBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Glacieron)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	IgnodiumBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Ignodium)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	SquidBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Zephyr Squid)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	TrueDreadBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Absolute Dread)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
 	UltrumBag: {
-		DisplayName: Treasure Bag
+		DisplayName: Treasure Bag (Ultrum)
 		Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
 	}
 
@@ -656,14 +667,45 @@ Items: {
 		Tooltip: ""
 	}
 
-	AuroraDye.DisplayName: Aurora Crystal Dye
-	DepthsDye.DisplayName: Depths Fog Dye
-	DreadDye.DisplayName: Horror Dye
-	EldritchDye.DisplayName: Eldritch Hades Dye
-	EtherealDye.DisplayName: Ethereal Hades Dye
-	IceDragonDye.DisplayName: Glacial Dye
-	IgnodiumDye.DisplayName: Hell Dye
-	UltrumDye.DisplayName: Nature Dye
+	AuroraDye: {
+		DisplayName: Aurora Crystal Dye
+		Tooltip: ""
+	}
+
+	DepthsDye: {
+		DisplayName: Depths Fog Dye
+		Tooltip: ""
+	}
+
+	DreadDye: {
+		DisplayName: Horror Dye
+		Tooltip: ""
+	}
+
+	EldritchDye: {
+		DisplayName: Eldritch Hades Dye
+		Tooltip: ""
+	}
+
+	EtherealDye: {
+		DisplayName: Ethereal Hades Dye
+		Tooltip: ""
+	}
+
+	IceDragonDye: {
+		DisplayName: Glacial Dye
+		Tooltip: ""
+	}
+
+	IgnodiumDye: {
+		DisplayName: Hell Dye
+		Tooltip: ""
+	}
+
+	UltrumDye: {
+		DisplayName: Nature Dye
+		Tooltip: ""
+	}
 
 	EldritchAegis: {
 		DisplayName: Erebus Bulwark
@@ -1225,12 +1267,19 @@ Items: {
 		DisplayName: Magma Storm
 	}
 
-	NanotechStaff.Tooltip:
-		'''
-		Conjures a small lingering nanite
-		Has a chance to shoot a bigger nanite that will not stop moving
-		'''
-	ShadowRod.Tooltip: Conjures a short lived shadow bolt that pierces through enemies
+	NanotechStaff: {
+		Tooltip:
+			'''
+			Conjures a small lingering nanite
+			Has a chance to shoot a bigger nanite that will not stop moving
+			'''
+		DisplayName: Nanotech Staff
+	}
+
+	ShadowRod: {
+		Tooltip: Conjures a short lived shadow bolt that pierces through enemies
+		DisplayName: Shadow Rod
+	}
 
 	Drip: {
 		DisplayName: The Dripper
@@ -1341,9 +1390,20 @@ Items: {
 		Tooltip: Summons a Servant of Cthulhu to fight for you
 	}
 
-	MushroomBody.DisplayName: Glowing Mushroom Chestplate
-	MushroomHead.DisplayName: Glowing Mushroom Helmet
-	MushroomLegs.DisplayName: Glowing Mushroom Legs
+	MushroomBody: {
+		DisplayName: Glowing Mushroom Chestplate
+		Tooltip: ""
+	}
+
+	MushroomHead: {
+		DisplayName: Glowing Mushroom Helmet
+		Tooltip: ""
+	}
+
+	MushroomLegs: {
+		DisplayName: Glowing Mushroom Legs
+		Tooltip: ""
+	}
 
 	ShroomBlade: {
 		DisplayName: Glowing Mushroom Sword
@@ -1374,11 +1434,14 @@ Items: {
 		Tooltip: The skin of the zephyr squid
 	}
 
-	ZephyrBlade.Tooltip:
-		'''
-		Fires zephyr bubbles on swing
-		Has a chance to shoot an ink bubble that inflicts slowness on enemies
-		'''
+	ZephyrBlade: {
+		Tooltip:
+			'''
+			Fires zephyr bubbles on swing
+			Has a chance to shoot an ink bubble that inflicts slowness on enemies
+			'''
+		DisplayName: Zephyr Blade
+	}
 
 	ZephyrKnife: {
 		DisplayName: Zephyr Knife
@@ -1620,7 +1683,10 @@ Items: {
 			'''
 	}
 
-	DepthsFlail.DisplayName: Azathoth
+	DepthsFlail: {
+		DisplayName: Azathoth
+		Tooltip: ""
+	}
 
 	DepthsStaff: {
 		DisplayName: Ny-Rakath
@@ -1642,15 +1708,25 @@ Items: {
 		Tooltip: Summons a Shade Wisp to fight with you
 	}
 
-	ShadowBlade.DisplayName: Tenebris Sickle
-	ShadowBow.DisplayName: Shadow Bow
+	ShadowBlade: {
+		DisplayName: Tenebris Sickle
+		Tooltip: ""
+	}
+
+	ShadowBow: {
+		DisplayName: Shadow Bow
+		Tooltip: ""
+	}
 
 	ShadowEssence: {
 		DisplayName: Shadow Mana
 		Tooltip: "'The Essence of shadow magic'"
 	}
 
-	ShadowStaff.Tooltip: Casts a shadow bolt
+	ShadowStaff: {
+		Tooltip: Casts a shadow bolt
+		DisplayName: Shadow Staff
+	}
 
 	AbyssDragonHead: {
 		DisplayName: Abyssal Dragon Mask
@@ -2138,21 +2214,80 @@ Items: {
 		Tooltip: Nearby players get a bonus against: Shade Spirit
 	}
 
-	DepthSnailCageItem.DisplayName: Depth Snail Cage
-	ShadowBedItem.DisplayName: Eldritch Bed
-	ShadowBookcaseItem.DisplayName: Eldritch Bookcase
-	ShadowChairItem.DisplayName: Eldritch Chair
-	ShadowChestItem.DisplayName: Eldritch Chest
-	ShadowClockItem.DisplayName: Eldritch Clock
-	ShadowDoorItem.DisplayName: Eldritch Door
-	ShadowDresserItem.DisplayName: Eldritch Dresser
-	ShadowLampItem.DisplayName: Eldritch Lamp
-	ShadowLanternItem.DisplayName: Eldritch Lantern
-	ShadowPlatformItem.DisplayName: Eldritch Wood Platform
-	ShadowTableItem.DisplayName: Eldritch Table
-	IgnodiumShrineItem.DisplayName: Ignodium Shrine
-	ShrineChestItem.DisplayName: Guardian Chest
-	UltrumShrineItem.DisplayName: Ultrum Shrine
+	DepthSnailCageItem: {
+		DisplayName: Depth Snail Cage
+		Tooltip: ""
+	}
+
+	ShadowBedItem: {
+		DisplayName: Eldritch Bed
+		Tooltip: ""
+	}
+
+	ShadowBookcaseItem: {
+		DisplayName: Eldritch Bookcase
+		Tooltip: ""
+	}
+
+	ShadowChairItem: {
+		DisplayName: Eldritch Chair
+		Tooltip: ""
+	}
+
+	ShadowChestItem: {
+		DisplayName: Eldritch Chest
+		Tooltip: ""
+	}
+
+	ShadowClockItem: {
+		DisplayName: Eldritch Clock
+		Tooltip: ""
+	}
+
+	ShadowDoorItem: {
+		DisplayName: Eldritch Door
+		Tooltip: ""
+	}
+
+	ShadowDresserItem: {
+		DisplayName: Eldritch Dresser
+		Tooltip: ""
+	}
+
+	ShadowLampItem: {
+		DisplayName: Eldritch Lamp
+		Tooltip: ""
+	}
+
+	ShadowLanternItem: {
+		DisplayName: Eldritch Lantern
+		Tooltip: ""
+	}
+
+	ShadowPlatformItem: {
+		DisplayName: Eldritch Wood Platform
+		Tooltip: ""
+	}
+
+	ShadowTableItem: {
+		DisplayName: Eldritch Table
+		Tooltip: ""
+	}
+
+	IgnodiumShrineItem: {
+		DisplayName: Ignodium Shrine
+		Tooltip: ""
+	}
+
+	ShrineChestItem: {
+		DisplayName: Guardian Chest
+		Tooltip: ""
+	}
+
+	UltrumShrineItem: {
+		DisplayName: Ultrum Shrine
+		Tooltip: ""
+	}
 
 	AldinMusicBox: {
 		DisplayName: Music Box (Aldin)
@@ -2288,15 +2423,55 @@ Items: {
 		Tooltip: ""
 	}
 
-	AldinTrophyItem.DisplayName: Aldin Trophy
-	DreadTrophyItem.DisplayName: Dread Trophy
-	ErebusTrophyItem.DisplayName: Erebus Trophy
-	FlayerTrophyItem.DisplayName: Mind Flayer Trophy
-	IceDragonTrophyItem.DisplayName: Glacieron Trophy
-	IgnodiumTrophyItem.DisplayName: Ignodium Trophy
-	SquidTrophyItem.DisplayName: Zephyr Squid Trophy
-	UltrumTrophyItem.DisplayName: Ultrum Trophy
-	XenanisTrophyItem.DisplayName: Xenanis Trophy
+	AldinTrophyItem: {
+		DisplayName: Aldin Trophy
+		Tooltip: ""
+	}
+
+	DreadTrophyItem: {
+		DisplayName: Dread Trophy
+		Tooltip: ""
+	}
+
+	ErebusTrophyItem: {
+		DisplayName: Erebus Trophy
+		Tooltip: ""
+	}
+
+	FlayerTrophyItem: {
+		DisplayName: Mind Flayer Trophy
+		Tooltip: ""
+	}
+
+	IceDragonTrophyItem: {
+		DisplayName: Glacieron Trophy
+		Tooltip: ""
+	}
+
+	IgnodiumTrophyItem: {
+		DisplayName: Ignodium Trophy
+		Tooltip: ""
+	}
+
+	SquidTrophyItem: {
+		DisplayName: Zephyr Squid Trophy
+		Tooltip: ""
+	}
+
+	UltrumTrophyItem: {
+		DisplayName: Ultrum Trophy
+		Tooltip: ""
+	}
+
+	XenanisTrophyItem: {
+		DisplayName: Xenanis Trophy
+		Tooltip: ""
+	}
+
+	SanctusStella: {
+		DisplayName: Sanctus Stella
+		Tooltip: ""
+	}
 }
 
 NPCs: {
@@ -2377,7 +2552,22 @@ NPCs: {
 
 	ErebusTail.DisplayName: Erebus
 	RestlessSoul.DisplayName: Restless Soul
-	Keeper.DisplayName: Keeper
+
+	Keeper: {
+		DisplayName: Keeper
+
+		TownNPCMood: {
+			Content: I am content.
+			NoHome: I hate not having a home.
+			FarFromHome: I am too far from home.
+			LoveSpace: I love having so much space.
+			DislikeCrowded: I dislike how crowded I am.
+			HateCrowded: I hate how crowded I am.
+			LikeNPC_Princess: I like {NPCName}.
+			Princess_LovesNPC: I like {NPCName}.
+		}
+	}
+
 	FakeDread.DisplayName: Dread???
 	FakeDreadHook.DisplayName: Dread Hook
 	TrueDreadOrbiter.DisplayName: Dread Orbiter
@@ -2670,6 +2860,16 @@ Projectiles: {
 	StellarJavelin.DisplayName: Stellar javelin
 	StellarMagicStar.DisplayName: Stellar Magic Star
 	StellarStar.DisplayName: Stellar Star
+	DarkmatterTentacle.DisplayName: Darkmatter Tentacle
+	FlayerTelegraph.DisplayName: Flayer Telegraph
+	EldritchEyeTelegraph.DisplayName: Eldritch Eye Telegraph
+	ShockWave.DisplayName: Shock Wave
+	TheGout.DisplayName: The Gout
+	NihilFlame.DisplayName: Nihil Flame
+	EtherealCoreBolt.DisplayName: Ethereal Core Bolt
+	UltraniumLingerBolt.DisplayName: Ultranium Linger Bolt
+	UltraniumOrb.DisplayName: Ultranium Orb
+	DripProjectile.DisplayName: Drip Projectile
 }
 
 Tiles: {

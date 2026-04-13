@@ -15,7 +15,7 @@ public class DreadChaser : ModNPC
 	public override void SetStaticDefaults()
 	{
 		Main.npcFrameCount[NPC.type] = 2;
-		DisplayName.SetDefault("Dread Chaser");
+		//DisplayName.SetDefault("Dread Chaser");
 	}
 
 	public override void SetDefaults()

@@ -15,7 +15,7 @@ public class PurpleCloneSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Rift");
+		//DisplayName.SetDefault("Ethereal Rift");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class BabySquidBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Baby Squid");
-		Description.SetDefault("The Baby Squid will fight for you");
+		//DisplayName.SetDefault("Baby Squid");
+		//Description.SetDefault("The Baby Squid will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

@@ -10,8 +10,8 @@ public class RayGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Imagine Pew pew in Terraria, HHHHHHHHHHHHHH im smart as frick.\n~Developer Item~");
-		DisplayName.SetDefault("Ray Gun");
+		//Tooltip.SetDefault("Imagine Pew pew in Terraria, HHHHHHHHHHHHHH im smart as frick.\n~Developer Item~");
+		//DisplayName.SetDefault("Ray Gun");
 	}
 
 	public override void SetDefaults()

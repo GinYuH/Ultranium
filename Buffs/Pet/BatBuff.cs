@@ -7,8 +7,8 @@ public class BatBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pet Bat");
-		Description.SetDefault("Probably wants food or blood or something");
+		//DisplayName.SetDefault("Pet Bat");
+		//Description.SetDefault("Probably wants food or blood or something");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

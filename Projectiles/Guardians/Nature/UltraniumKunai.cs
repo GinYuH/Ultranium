@@ -15,7 +15,7 @@ public class UltraniumKunai : ModProjectile
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Ultranium Kunai");
+		//DisplayName.SetDefault("Ultranium Kunai");
 	}
 
 	public override void SetDefaults()

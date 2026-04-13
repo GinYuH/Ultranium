@@ -7,8 +7,8 @@ public class PumpBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pumpkin");
-		Description.SetDefault("The Living Pumpkin will fight for you!");
+		//DisplayName.SetDefault("Pumpkin");
+		//Description.SetDefault("The Living Pumpkin will fight for you!");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

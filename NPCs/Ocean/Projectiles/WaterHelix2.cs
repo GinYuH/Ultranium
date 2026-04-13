@@ -13,7 +13,7 @@ public class WaterHelix2 : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Water Helix");
+		//DisplayName.SetDefault("Water Helix");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

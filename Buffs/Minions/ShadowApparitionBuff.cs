@@ -7,8 +7,8 @@ public class ShadowApparitionBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadowflame Apparition");
-		Description.SetDefault("The Shadowflame Apparition will fight for you");
+		//DisplayName.SetDefault("Shadowflame Apparition");
+		//Description.SetDefault("The Shadowflame Apparition will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

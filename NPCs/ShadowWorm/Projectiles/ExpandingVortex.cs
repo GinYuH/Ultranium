@@ -19,7 +19,7 @@ public class ExpandingVortex : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Expanding Vortex");
+		//DisplayName.SetDefault("Expanding Vortex");
 	}
 
 	public override void SetDefaults()

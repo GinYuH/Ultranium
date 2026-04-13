@@ -12,7 +12,7 @@ public class ZephyrInkBubble : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ink Bubble");
+		//DisplayName.SetDefault("Ink Bubble");
 	}
 
 	public override void SetDefaults()

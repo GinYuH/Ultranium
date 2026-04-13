@@ -8,8 +8,8 @@ public class StellarLegs : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Stone Leggings");
-		Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
+		//DisplayName.SetDefault("Stellar Stone Leggings");
+		//Tooltip.SetDefault("6% increased damage and 15% increased movement speed\n10% increased melee speed\n+5 max life and mana\n+1 max minions");
 	}
 
 	public override void SetDefaults()

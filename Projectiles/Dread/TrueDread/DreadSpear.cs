@@ -12,7 +12,7 @@ public class DreadSpear : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Spear of Fear");
+		//DisplayName.SetDefault("Spear of Fear");
 	}
 
 	public override void SetDefaults()

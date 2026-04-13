@@ -8,7 +8,7 @@ public class MushroomBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glowing Mushroom Chestplate");
+		//DisplayName.SetDefault("Glowing Mushroom Chestplate");
 	}
 
 	public override void SetDefaults()

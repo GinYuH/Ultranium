@@ -36,7 +36,7 @@ public class CosmicRay : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Deathbeam");
+		//DisplayName.SetDefault("Cosmic Deathbeam");
 	}
 
 	public override void SetDefaults()

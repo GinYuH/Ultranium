@@ -11,8 +11,8 @@ public class HellStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Purgatory Staff");
-		Tooltip.SetDefault("Conjures spreads of flaming bolts");
+		//DisplayName.SetDefault("Purgatory Staff");
+		//Tooltip.SetDefault("Conjures spreads of flaming bolts");
 		Item.staff[Item.type] = true;
 	}
 

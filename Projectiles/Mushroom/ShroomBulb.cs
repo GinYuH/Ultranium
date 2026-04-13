@@ -11,7 +11,7 @@ public class ShroomBulb : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Fungus Bolt");
+		//DisplayName.SetDefault("Fungus Bolt");
 		Main.projFrames[Projectile.type] = 2;
 	}
 

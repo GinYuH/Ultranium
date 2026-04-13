@@ -11,8 +11,8 @@ public class PumpkinStaff : ModItem
 	public override void SetStaticDefaults()
 	{
 		Item.staff[Item.type] = true;
-		DisplayName.SetDefault("Pumpkin Staff");
-		Tooltip.SetDefault("Casts a small amount of short lived pumpkin seeds");
+		//DisplayName.SetDefault("Pumpkin Staff");
+		//Tooltip.SetDefault("Casts a small amount of short lived pumpkin seeds");
 	}
 
 	public override void SetDefaults()

@@ -15,8 +15,8 @@ public class ShadowFlute : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Despairides");
-		Tooltip.SetDefault("When played, the flute will create a phantom claw that will home in on enemies\n~Developer Item~");
+		//DisplayName.SetDefault("Despairides");
+		//Tooltip.SetDefault("When played, the flute will create a phantom claw that will home in on enemies\n~Developer Item~");
 	}
 
 	public override void SetDefaults()

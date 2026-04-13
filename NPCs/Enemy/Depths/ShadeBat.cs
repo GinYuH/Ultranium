@@ -11,7 +11,7 @@ public class ShadeBat : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Bat");
+		//DisplayName.SetDefault("Shade Bat");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[152];
 	}
 

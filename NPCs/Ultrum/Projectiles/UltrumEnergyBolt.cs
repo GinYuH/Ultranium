@@ -20,7 +20,7 @@ public class UltrumEnergyBolt : ModProjectile
 		Main.projFrames[Projectile.type] = 5;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Nature Energy Bolt");
+		//DisplayName.SetDefault("Nature Energy Bolt");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class ShadowHeart : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Heart of Erebus");
-		Tooltip.SetDefault("+60 max life and +30 max mana\nGrants immunity to the Eldritch Decay debuff\nGives bonuses as your health gets lower\nAt 75% health, you gain 15% increased critical strike chance\nAt 50% health, you gain 15% increased damage\nAt 25% health, you gain 15 defense\nThese buffs will stack with each other");
+		//DisplayName.SetDefault("Heart of Erebus");
+		//Tooltip.SetDefault("+60 max life and +30 max mana\nGrants immunity to the Eldritch Decay debuff\nGives bonuses as your health gets lower\nAt 75% health, you gain 15% increased critical strike chance\nAt 50% health, you gain 15% increased damage\nAt 25% health, you gain 15 defense\nThese buffs will stack with each other");
 	}
 
 	public override void SetDefaults()

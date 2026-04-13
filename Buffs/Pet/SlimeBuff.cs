@@ -7,8 +7,8 @@ public class SlimeBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pet Slime");
-		Description.SetDefault("A strange friendly glob with bacteria in it");
+		//DisplayName.SetDefault("Pet Slime");
+		//Description.SetDefault("A strange friendly glob with bacteria in it");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

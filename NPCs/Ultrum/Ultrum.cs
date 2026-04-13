@@ -31,7 +31,7 @@ public class Ultrum : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultrum");
+		//DisplayName.SetDefault("Ultrum");
 		Main.npcFrameCount[NPC.type] = 6;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

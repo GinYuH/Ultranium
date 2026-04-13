@@ -8,7 +8,7 @@ public class WerewolfPet : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Werewolf");
+		//DisplayName.SetDefault("Werewolf");
 		Main.projFrames[Projectile.type] = 14;
 	}
 

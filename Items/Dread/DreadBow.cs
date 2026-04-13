@@ -11,8 +11,8 @@ public class DreadBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Bow of Distress");
-		Tooltip.SetDefault("Converts arrows into dread bolts");
+		//DisplayName.SetDefault("Bow of Distress");
+		//Tooltip.SetDefault("Converts arrows into dread bolts");
 	}
 
 	public override void SetDefaults()

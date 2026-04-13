@@ -7,8 +7,8 @@ public class StarMinionBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Spacial Star");
-		Description.SetDefault("The Spacial Star will fight for you");
+		//DisplayName.SetDefault("Spacial Star");
+		//Description.SetDefault("The Spacial Star will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

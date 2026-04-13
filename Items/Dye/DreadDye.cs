@@ -7,7 +7,7 @@ public class DreadDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Horror Dye");
+		//DisplayName.SetDefault("Horror Dye");
 	}
 
 	public override void SetDefaults()

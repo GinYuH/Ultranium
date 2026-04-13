@@ -13,7 +13,7 @@ public class UltraFlail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultranium Power Whip");
+		//DisplayName.SetDefault("Ultranium Power Whip");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class Necrosis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Necrosis");
-		Tooltip.SetDefault("Fires Skulls upon swing");
+		//DisplayName.SetDefault("Necrosis");
+		//Tooltip.SetDefault("Fires Skulls upon swing");
 	}
 
 	public override void SetDefaults()

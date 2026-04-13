@@ -12,7 +12,7 @@ public class ZephyrTrident : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Zephyr Trident");
+		//DisplayName.SetDefault("Zephyr Trident");
 	}
 
 	public override void SetDefaults()

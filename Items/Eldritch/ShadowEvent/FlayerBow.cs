@@ -11,8 +11,8 @@ public class FlayerBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Life's Diminish");
-		Tooltip.SetDefault("Converts all arrows into dark matter arrow bolts");
+		//DisplayName.SetDefault("Life's Diminish");
+		//Tooltip.SetDefault("Converts all arrows into dark matter arrow bolts");
 	}
 
 	public override void SetDefaults()

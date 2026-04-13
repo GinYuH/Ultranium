@@ -8,8 +8,8 @@ public class TenebrisHelm : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Helmet");
-		Tooltip.SetDefault("2% increased melee critical strike chance");
+		//DisplayName.SetDefault("Tenebris Helmet");
+		//Tooltip.SetDefault("2% increased melee critical strike chance");
 	}
 
 	public override void SetDefaults()

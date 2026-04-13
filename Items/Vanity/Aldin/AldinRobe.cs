@@ -8,8 +8,8 @@ public class AldinRobe : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Mage's Robe");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Cosmic Mage's Robe");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

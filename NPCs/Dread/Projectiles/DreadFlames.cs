@@ -8,7 +8,7 @@ public class DreadFlames : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Flame Breath");
+		//DisplayName.SetDefault("Flame Breath");
 	}
 
 	public override void SetDefaults()

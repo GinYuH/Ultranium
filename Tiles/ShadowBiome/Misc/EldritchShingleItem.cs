@@ -7,8 +7,8 @@ public class EldritchShingleItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Shingle");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Eldritch Shingle");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

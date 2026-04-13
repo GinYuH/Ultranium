@@ -16,8 +16,8 @@ public class CosmicStaff : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Protostar Scepter");
-		Tooltip.SetDefault("Casts protostars that explode into bolts");
+		//DisplayName.SetDefault("Protostar Scepter");
+		//Tooltip.SetDefault("Casts protostars that explode into bolts");
 		Item.staff[Item.type] = true;
 	}
 

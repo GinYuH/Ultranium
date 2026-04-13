@@ -17,7 +17,7 @@ public class FlayerVortex : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Erebus Vortex");
+		//DisplayName.SetDefault("Erebus Vortex");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class BrokenIgnodiumSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ancient Hell Relic");
-		Tooltip.SetDefault("An ancient artifact of hell\nIncreases melee and ranged damage by 7%\n+10 max life");
+		//DisplayName.SetDefault("Ancient Hell Relic");
+		//Tooltip.SetDefault("An ancient artifact of hell\nIncreases melee and ranged damage by 7%\n+10 max life");
 	}
 
 	public override void SetDefaults()

@@ -9,7 +9,7 @@ public class ShadowApparition : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadowflame Apparition");
+		//DisplayName.SetDefault("Shadowflame Apparition");
 		Main.projFrames[Projectile.type] = 8;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.CultistIsResistantTo[Projectile.type] = true;

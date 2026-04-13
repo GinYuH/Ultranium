@@ -8,7 +8,7 @@ public class ShadowBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Sickle");
+		//DisplayName.SetDefault("Tenebris Sickle");
 	}
 
 	public override void SetDefaults()

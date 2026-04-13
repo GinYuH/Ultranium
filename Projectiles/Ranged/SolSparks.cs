@@ -8,7 +8,7 @@ public class SolSparks : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Sol Sparks");
+		//DisplayName.SetDefault("Sol Sparks");
 	}
 
 	public override void SetDefaults()

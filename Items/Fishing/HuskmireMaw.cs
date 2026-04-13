@@ -7,8 +7,8 @@ public class HuskmireMaw : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Huskmire Maw");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Huskmire Maw");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

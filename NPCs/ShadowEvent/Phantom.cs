@@ -16,7 +16,7 @@ public class Phantom : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Phantom");
+		//DisplayName.SetDefault("Phantom");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[560];
 	}
 

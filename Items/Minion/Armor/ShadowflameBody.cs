@@ -8,8 +8,8 @@ public class ShadowflameBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadowflame Chestmail");
-		Tooltip.SetDefault("5% increased summon damage and +1 max minions");
+		//DisplayName.SetDefault("Shadowflame Chestmail");
+		//Tooltip.SetDefault("5% increased summon damage and +1 max minions");
 	}
 
 	public override void SetDefaults()

@@ -9,8 +9,8 @@ public class ShadowflameDebuff : ModBuff
 	public override void SetStaticDefaults()
 	{
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = false;
-		DisplayName.SetDefault("Shadowflame");
-		Description.SetDefault("Losing life");
+		//DisplayName.SetDefault("Shadowflame");
+		//Description.SetDefault("Losing life");
 		Main.pvpBuff[((ModBuff)this).Type] = false;
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;

@@ -10,8 +10,8 @@ public class Beeswax : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Beeswax");
-		Tooltip.SetDefault("Summons a pet dragon hornet");
+		//DisplayName.SetDefault("Beeswax");
+		//Tooltip.SetDefault("Summons a pet dragon hornet");
 	}
 
 	public override void SetDefaults()

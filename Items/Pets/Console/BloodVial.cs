@@ -10,8 +10,8 @@ public class BloodVial : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Vial of Blood");
-		Tooltip.SetDefault("Summons a pet bat");
+		//DisplayName.SetDefault("Vial of Blood");
+		//Tooltip.SetDefault("Summons a pet bat");
 	}
 
 	public override void SetDefaults()

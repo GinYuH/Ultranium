@@ -7,8 +7,8 @@ public class ShadowEventBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Abyssmal Armageddon Wave 1)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Abyssmal Armageddon Wave 1)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

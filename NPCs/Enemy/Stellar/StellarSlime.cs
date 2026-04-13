@@ -13,7 +13,7 @@ public class StellarSlime : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Slime");
+		//DisplayName.SetDefault("Stellar Slime");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

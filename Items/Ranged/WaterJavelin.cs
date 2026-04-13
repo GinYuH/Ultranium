@@ -7,8 +7,8 @@ public class WaterJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ancient Javelin");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Ancient Javelin");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

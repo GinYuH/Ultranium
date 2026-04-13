@@ -10,7 +10,7 @@ public class NanotechStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Conjures a small lingering nanite\nHas a chance to shoot a bigger nanite that will not stop moving");
+		//Tooltip.SetDefault("Conjures a small lingering nanite\nHas a chance to shoot a bigger nanite that will not stop moving");
 		Item.staff[Item.type] = true;
 	}
 

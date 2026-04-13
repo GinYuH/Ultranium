@@ -8,8 +8,8 @@ public class CacodemonBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cacodemon");
-		Description.SetDefault("It makes weird noises");
+		//DisplayName.SetDefault("Cacodemon");
+		//Description.SetDefault("It makes weird noises");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

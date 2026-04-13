@@ -30,7 +30,7 @@ public class DreadRay : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread Death Ray");
+		//DisplayName.SetDefault("Dread Death Ray");
 	}
 
 	public override void SetDefaults()

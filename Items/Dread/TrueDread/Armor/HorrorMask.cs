@@ -10,8 +10,8 @@ public class HorrorMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Horror Mask");
-		Tooltip.SetDefault("10% increased summon damage\n+1 max minions");
+		//DisplayName.SetDefault("Horror Mask");
+		//Tooltip.SetDefault("10% increased summon damage\n+1 max minions");
 	}
 
 	public override void SetDefaults()

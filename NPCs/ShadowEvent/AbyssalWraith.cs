@@ -19,7 +19,7 @@ public class AbyssalWraith : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Wraith");
+		//DisplayName.SetDefault("Abyssal Wraith");
 		Main.npcFrameCount[NPC.type] = 5;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

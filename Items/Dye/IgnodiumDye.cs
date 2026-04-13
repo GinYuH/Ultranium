@@ -7,7 +7,7 @@ public class IgnodiumDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Hell Dye");
+		//DisplayName.SetDefault("Hell Dye");
 	}
 
 	public override void SetDefaults()

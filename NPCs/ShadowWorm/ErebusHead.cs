@@ -61,7 +61,7 @@ public class ErebusHead : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Erebus");
+		//DisplayName.SetDefault("Erebus");
 		Main.npcFrameCount[NPC.type] = 2;
 	}
 

@@ -10,8 +10,8 @@ public class PumpkinSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pumpkin Scepter");
-		Tooltip.SetDefault("Summons a small pumpkin to fight with you");
+		//DisplayName.SetDefault("Pumpkin Scepter");
+		//Tooltip.SetDefault("Summons a small pumpkin to fight with you");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class DreadDebuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread");
-		Description.SetDefault("Pure fear pulses through your body...\nReduced defense and attack damage");
+		//DisplayName.SetDefault("Dread");
+		//Description.SetDefault("Pure fear pulses through your body...\nReduced defense and attack damage");
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.pvpBuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;

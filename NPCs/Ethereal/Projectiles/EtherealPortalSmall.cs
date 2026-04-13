@@ -15,7 +15,7 @@ public class EtherealPortalSmall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Swirl");
+		//DisplayName.SetDefault("Ethereal Swirl");
 	}
 
 	public override void SetDefaults()

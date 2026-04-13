@@ -10,8 +10,8 @@ public class CavumNigrum : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cavum Nigrum");
-		Tooltip.SetDefault("Throws out eldritch discs\nHas a chance to create lingering images of the disc on enemy hits");
+		//DisplayName.SetDefault("Cavum Nigrum");
+		//Tooltip.SetDefault("Throws out eldritch discs\nHas a chance to create lingering images of the disc on enemy hits");
 	}
 
 	public override void SetDefaults()

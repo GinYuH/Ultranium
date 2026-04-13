@@ -8,8 +8,8 @@ public class SolSpear : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Throws a fast moving sol spear\nThe spear will explode into short lived sparks when it touches an enemy or tile");
-		DisplayName.SetDefault("Spear of the Sol");
+		//Tooltip.SetDefault("Throws a fast moving sol spear\nThe spear will explode into short lived sparks when it touches an enemy or tile");
+		//DisplayName.SetDefault("Spear of the Sol");
 	}
 
 	public override void SetDefaults()

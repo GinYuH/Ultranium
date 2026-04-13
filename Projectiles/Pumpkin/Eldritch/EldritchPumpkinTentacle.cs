@@ -8,7 +8,7 @@ public class EldritchPumpkinTentacle : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Tentacle");
+		//DisplayName.SetDefault("Shade Tentacle");
 	}
 
 	public override void SetDefaults()

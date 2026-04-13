@@ -8,8 +8,8 @@ public class GlowShroomed : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glow Shroom'd");
-		Description.SetDefault("Defense lowered by 3 and you emit a stange glow");
+		//DisplayName.SetDefault("Glow Shroom'd");
+		//Description.SetDefault("Defense lowered by 3 and you emit a stange glow");
 		Main.debuff[((ModBuff)this).Type] = true;
 		Main.pvpBuff[((ModBuff)this).Type] = true;
 		Main.buffNoSave[((ModBuff)this).Type] = true;

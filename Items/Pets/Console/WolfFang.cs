@@ -10,8 +10,8 @@ public class WolfFang : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Wolf Fang");
-		Tooltip.SetDefault("Summons a pet werewolf");
+		//DisplayName.SetDefault("Wolf Fang");
+		//Tooltip.SetDefault("Summons a pet werewolf");
 	}
 
 	public override void SetDefaults()

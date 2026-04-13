@@ -16,7 +16,7 @@ public class DreadDisc : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Disc of Dismay");
+		//DisplayName.SetDefault("Disc of Dismay");
 	}
 
 	public override void SetDefaults()

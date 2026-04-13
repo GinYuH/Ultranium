@@ -10,8 +10,8 @@ public class EldritchPumpkinScepter : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Pumpkin Scepter");
-		Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
+		//DisplayName.SetDefault("Eldritch Pumpkin Scepter");
+		//Tooltip.SetDefault("Summons a stationary eldritch pumpkin that shoots flaming seeds at enemies\nOnly one pumpkin sentry can be active at once");
 	}
 
 	public override void SetDefaults()

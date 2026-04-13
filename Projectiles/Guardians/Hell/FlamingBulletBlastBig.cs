@@ -16,7 +16,7 @@ public class FlamingBulletBlastBig : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 12;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Flame Bolt");
+		//DisplayName.SetDefault("Flame Bolt");
 	}
 
 	public override void SetDefaults()

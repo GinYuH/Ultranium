@@ -7,7 +7,7 @@ public class ShadowPlatformItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Wood Platform");
+		//DisplayName.SetDefault("Eldritch Wood Platform");
 	}
 
 	public override void SetDefaults()

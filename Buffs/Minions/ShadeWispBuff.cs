@@ -7,8 +7,8 @@ public class ShadeWispBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Wisp");
-		Description.SetDefault("The Shade Wisp will fight along with you");
+		//DisplayName.SetDefault("Shade Wisp");
+		//Description.SetDefault("The Shade Wisp will fight along with you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

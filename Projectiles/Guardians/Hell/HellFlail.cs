@@ -10,7 +10,7 @@ public class HellFlail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Hell's Fury");
+		//DisplayName.SetDefault("Hell's Fury");
 	}
 
 	public override void SetDefaults()

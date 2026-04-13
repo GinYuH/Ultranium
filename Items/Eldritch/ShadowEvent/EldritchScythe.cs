@@ -10,8 +10,8 @@ public class EldritchScythe : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Soul Harvester");
-		Tooltip.SetDefault("Throws fast moving tentacle scythe blades\nThese scythe blades will create a circle of tentacles upon death");
+		//DisplayName.SetDefault("Soul Harvester");
+		//Tooltip.SetDefault("Throws fast moving tentacle scythe blades\nThese scythe blades will create a circle of tentacles upon death");
 	}
 
 	public override void SetDefaults()

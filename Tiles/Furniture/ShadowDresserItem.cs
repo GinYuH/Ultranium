@@ -7,7 +7,7 @@ public class ShadowDresserItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Dresser");
+		//DisplayName.SetDefault("Eldritch Dresser");
 	}
 
 	public override void SetDefaults()

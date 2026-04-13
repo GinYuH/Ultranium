@@ -17,7 +17,7 @@ public class CosmicStarSmall : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Star");
+		//DisplayName.SetDefault("Cosmic Star");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

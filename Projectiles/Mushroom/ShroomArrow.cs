@@ -14,7 +14,7 @@ public class ShroomArrow : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 2;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Fungus Arrow");
+		//DisplayName.SetDefault("Fungus Arrow");
 	}
 
 	public override void SetDefaults()

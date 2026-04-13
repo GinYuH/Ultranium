@@ -11,7 +11,7 @@ public class DepthsFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Azathoth");
+		//DisplayName.SetDefault("Azathoth");
 	}
 
 	public override void SetDefaults()

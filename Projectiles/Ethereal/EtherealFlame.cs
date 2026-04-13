@@ -11,7 +11,7 @@ public class EtherealFlame : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Flame");
+		//DisplayName.SetDefault("Ethereal Flame");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 		Main.projFrames[Projectile.type] = 4;

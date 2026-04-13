@@ -30,7 +30,7 @@ public class EtherealDeathray : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Death Ray");
+		//DisplayName.SetDefault("Ethereal Death Ray");
 	}
 
 	public override void SetDefaults()

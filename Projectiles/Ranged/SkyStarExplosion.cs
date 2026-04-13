@@ -8,7 +8,7 @@ public class SkyStarExplosion : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Holy Explosion");
+		//DisplayName.SetDefault("Holy Explosion");
 		Main.projFrames[Projectile.type] = 6;
 	}
 

@@ -11,7 +11,7 @@ public class AbyssShark : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Goblin Shark");
+		//DisplayName.SetDefault("Abyssal Goblin Shark");
 	}
 
 	public override void SetDefaults()

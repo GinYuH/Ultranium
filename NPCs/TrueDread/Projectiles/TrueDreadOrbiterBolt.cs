@@ -14,7 +14,7 @@ public class TrueDreadOrbiterBolt : ModProjectile
 	public override void SetStaticDefaults()
 	{
 		Main.projFrames[Projectile.type] = 4;
-		DisplayName.SetDefault("Dread Orbital");
+		//DisplayName.SetDefault("Dread Orbital");
 	}
 
 	public override void SetDefaults()

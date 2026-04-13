@@ -8,7 +8,7 @@ public class FlayerTentacleBody : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Flayer Tentacle");
+		//DisplayName.SetDefault("Flayer Tentacle");
 	}
 
 	public override void SetDefaults()

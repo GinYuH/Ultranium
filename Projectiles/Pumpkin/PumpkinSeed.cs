@@ -18,7 +18,7 @@ public class PumpkinSeed : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pumpkin Seed");
+		//DisplayName.SetDefault("Pumpkin Seed");
 	}
 
 	public override void SetDefaults()

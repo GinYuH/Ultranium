@@ -33,7 +33,7 @@ public class Ignodium : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ignodium");
+		//DisplayName.SetDefault("Ignodium");
 		Main.npcFrameCount[NPC.type] = 6;
 	}
 

@@ -9,8 +9,8 @@ public class TendrilKnife : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tendril Piercer");
-		Tooltip.SetDefault("Throws tendril blades that can pierce through enemies");
+		//DisplayName.SetDefault("Tendril Piercer");
+		//Tooltip.SetDefault("Throws tendril blades that can pierce through enemies");
 	}
 
 	public override void SetDefaults()

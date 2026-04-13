@@ -8,7 +8,7 @@ public class CosmicWrathBolt2 : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Cosmic Bolt");
+		//DisplayName.SetDefault("Cosmic Bolt");
 	}
 
 	public override void SetDefaults()

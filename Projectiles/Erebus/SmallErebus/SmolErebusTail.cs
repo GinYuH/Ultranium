@@ -11,7 +11,7 @@ public class SmolErebusTail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Erebus Minion");
+		//DisplayName.SetDefault("Erebus Minion");
 	}
 
 	public override Color? GetAlpha(Color lightColor)

@@ -8,8 +8,8 @@ public class DukeYoyo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("The Duke's Throw");
-		Tooltip.SetDefault("Fires homing typhoons in random directions");
+		//DisplayName.SetDefault("The Duke's Throw");
+		//Tooltip.SetDefault("Fires homing typhoons in random directions");
 	}
 
 	public override void SetDefaults()

@@ -11,7 +11,7 @@ public class AbyssEel : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Eel");
+		//DisplayName.SetDefault("Abyssal Eel");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
 	}
 

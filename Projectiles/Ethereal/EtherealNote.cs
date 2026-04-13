@@ -9,7 +9,7 @@ public class EtherealNote : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Note");
+		//DisplayName.SetDefault("Ethereal Note");
 	}
 
 	public override void SetDefaults()

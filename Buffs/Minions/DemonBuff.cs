@@ -7,8 +7,8 @@ public class DemonBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Demon");
-		Description.SetDefault("The Shade Demon will fight for you");
+		//DisplayName.SetDefault("Shade Demon");
+		//Description.SetDefault("The Shade Demon will fight for you");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

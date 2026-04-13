@@ -10,8 +10,8 @@ public class FlayerStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Fires A whispering death bolt");
-		DisplayName.SetDefault("Death's Whisper");
+		//Tooltip.SetDefault("Fires A whispering death bolt");
+		//DisplayName.SetDefault("Death's Whisper");
 		Item.staff[Item.type] = true;
 	}
 

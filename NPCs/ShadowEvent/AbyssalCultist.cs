@@ -15,7 +15,7 @@ public class AbyssalCultist : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Cultist");
+		//DisplayName.SetDefault("Abyssal Cultist");
 		Main.npcFrameCount[NPC.type] = 5;
 	}
 

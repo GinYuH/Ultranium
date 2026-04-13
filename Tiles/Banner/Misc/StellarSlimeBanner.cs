@@ -7,8 +7,8 @@ public class StellarSlimeBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Slime Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Stellar Slime");
+		//DisplayName.SetDefault("Stellar Slime Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Stellar Slime");
 	}
 
 	public override void SetDefaults()

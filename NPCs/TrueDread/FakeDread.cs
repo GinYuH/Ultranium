@@ -26,7 +26,7 @@ public class FakeDread : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread???");
+		//DisplayName.SetDefault("Dread???");
 		Main.npcFrameCount[NPC.type] = 4;
 	}
 

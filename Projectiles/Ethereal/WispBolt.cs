@@ -8,7 +8,7 @@ public class WispBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Wisp Bolt");
+		//DisplayName.SetDefault("Wisp Bolt");
 	}
 
 	public override void SetDefaults()

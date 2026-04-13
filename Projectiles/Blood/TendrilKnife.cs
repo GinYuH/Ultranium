@@ -10,7 +10,7 @@ public class TendrilKnife : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tendril Piercer");
+		//DisplayName.SetDefault("Tendril Piercer");
 	}
 
 	public override void SetDefaults()

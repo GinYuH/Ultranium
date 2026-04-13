@@ -12,8 +12,8 @@ public class UltraniumStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultranium Energy Scepter");
-		Tooltip.SetDefault("Fires a barrage of Ultranium blasts");
+		//DisplayName.SetDefault("Ultranium Energy Scepter");
+		//Tooltip.SetDefault("Fires a barrage of Ultranium blasts");
 	}
 
 	public override void SetDefaults()

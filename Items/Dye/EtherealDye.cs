@@ -7,7 +7,7 @@ public class EtherealDye : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Hades Dye");
+		//DisplayName.SetDefault("Ethereal Hades Dye");
 	}
 
 	public override void SetDefaults()

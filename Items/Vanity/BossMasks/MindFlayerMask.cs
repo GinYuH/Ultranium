@@ -8,8 +8,8 @@ public class MindFlayerMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mind Flayer Mask");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Mind Flayer Mask");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

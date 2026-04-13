@@ -7,8 +7,8 @@ public class EldritchPumpkibomb : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Pumpki-Bomb");
-		Tooltip.SetDefault("Throws an eldritch pumpkin bomb that explodes into lingering fire\nThe pumpkin will also explode into tentacles when it hits an enemy");
+		//DisplayName.SetDefault("Eldritch Pumpki-Bomb");
+		//Tooltip.SetDefault("Throws an eldritch pumpkin bomb that explodes into lingering fire\nThe pumpkin will also explode into tentacles when it hits an enemy");
 	}
 
 	public override void SetDefaults()

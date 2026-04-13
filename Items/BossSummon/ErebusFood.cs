@@ -12,8 +12,8 @@ public class ErebusFood : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Worm Food");
-		Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
+		//DisplayName.SetDefault("Eldritch Worm Food");
+		//Tooltip.SetDefault("Summons Erebus upon use\nCan only be used during the Abyssal Armageddon event\nNot consumable");
 	}
 
 	public override void SetDefaults()

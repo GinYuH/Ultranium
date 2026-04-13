@@ -8,7 +8,7 @@ public class ShadowBow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadow Bow");
+		//DisplayName.SetDefault("Shadow Bow");
 	}
 
 	public override void SetDefaults()

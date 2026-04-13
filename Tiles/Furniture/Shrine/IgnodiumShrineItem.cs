@@ -7,7 +7,7 @@ public class IgnodiumShrineItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ignodium Shrine");
+		//DisplayName.SetDefault("Ignodium Shrine");
 	}
 
 	public override void SetDefaults()

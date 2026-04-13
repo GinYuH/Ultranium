@@ -10,8 +10,8 @@ public class Umbra : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Umbra");
-		Tooltip.SetDefault("Casts eldritch blasts");
+		//DisplayName.SetDefault("Umbra");
+		//Tooltip.SetDefault("Casts eldritch blasts");
 	}
 
 	public override void SetDefaults()

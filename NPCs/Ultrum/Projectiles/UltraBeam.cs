@@ -14,7 +14,7 @@ public class UltraBeam : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 4;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Ultranium Bolt");
+		//DisplayName.SetDefault("Ultranium Bolt");
 	}
 
 	public override void SetDefaults()

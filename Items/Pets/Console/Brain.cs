@@ -10,8 +10,8 @@ public class Brain : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Brain");
-		Tooltip.SetDefault("Summons a pet zombie");
+		//DisplayName.SetDefault("Brain");
+		//Tooltip.SetDefault("Summons a pet zombie");
 	}
 
 	public override void SetDefaults()

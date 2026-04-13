@@ -7,8 +7,8 @@ public class ShadeMassBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shade Mass Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Shade Mass");
+		//DisplayName.SetDefault("Shade Mass Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Shade Mass");
 	}
 
 	public override void SetDefaults()

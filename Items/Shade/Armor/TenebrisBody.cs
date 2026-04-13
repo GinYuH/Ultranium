@@ -8,8 +8,8 @@ public class TenebrisBody : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Chestmail");
-		Tooltip.SetDefault("3% increased damage");
+		//DisplayName.SetDefault("Tenebris Chestmail");
+		//Tooltip.SetDefault("3% increased damage");
 	}
 
 	public override void SetDefaults()

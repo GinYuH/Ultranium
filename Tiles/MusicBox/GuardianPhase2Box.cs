@@ -7,8 +7,8 @@ public class GuardianPhase2Box : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Guardians Phase 2)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Guardians Phase 2)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

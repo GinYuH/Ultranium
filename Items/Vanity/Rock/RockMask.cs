@@ -9,8 +9,8 @@ public class RockMask : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("RockWizard5's Mask");
-		Tooltip.SetDefault("~Developer item~");
+		//DisplayName.SetDefault("RockWizard5's Mask");
+		//Tooltip.SetDefault("~Developer item~");
 		ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = false;
 	}
 

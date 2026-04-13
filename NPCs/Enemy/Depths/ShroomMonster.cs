@@ -13,7 +13,7 @@ public class ShroomMonster : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shroom Monster");
+		//DisplayName.SetDefault("Shroom Monster");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[166];
 	}
 

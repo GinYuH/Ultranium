@@ -9,8 +9,8 @@ public class EldritchFlower : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Weeping Rose");
-		Tooltip.SetDefault("15% increased magic damage\nAutomatically consumes mana potions when needed\nIncreases pick up range for mana stars\nMagic projectiles inflict the eldritch decay debuff");
+		//DisplayName.SetDefault("Weeping Rose");
+		//Tooltip.SetDefault("15% increased magic damage\nAutomatically consumes mana potions when needed\nIncreases pick up range for mana stars\nMagic projectiles inflict the eldritch decay debuff");
 	}
 
 	public override void SetDefaults()

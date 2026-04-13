@@ -8,7 +8,7 @@ public class DarkTentacleTip : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dark Tentacle");
+		//DisplayName.SetDefault("Dark Tentacle");
 	}
 
 	public override void SetDefaults()

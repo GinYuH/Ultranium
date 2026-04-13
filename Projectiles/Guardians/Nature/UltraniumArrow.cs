@@ -14,7 +14,7 @@ public class UltraniumArrow : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Ultranium Arrow");
+		//DisplayName.SetDefault("Ultranium Arrow");
 	}
 
 	public override void SetDefaults()

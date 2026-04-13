@@ -7,7 +7,7 @@ public class ShadowBookcaseItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Bookcase");
+		//DisplayName.SetDefault("Eldritch Bookcase");
 	}
 
 	public override void SetDefaults()

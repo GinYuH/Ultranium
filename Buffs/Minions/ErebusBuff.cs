@@ -7,8 +7,8 @@ public class ErebusBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Mini Erebus");
-		Description.SetDefault("It looks like its hungry... for souls");
+		//DisplayName.SetDefault("Mini Erebus");
+		//Description.SetDefault("It looks like its hungry... for souls");
 		Main.buffNoSave[((ModBuff)this).Type] = true;
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 	}

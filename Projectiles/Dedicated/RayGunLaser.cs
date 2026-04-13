@@ -9,7 +9,7 @@ public class RayGunLaser : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ray Gun Laser");
+		//DisplayName.SetDefault("Ray Gun Laser");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class ShadowOre : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Ore");
-		Tooltip.SetDefault("'Pulses with abyssal energy'");
+		//DisplayName.SetDefault("Tenebris Ore");
+		//Tooltip.SetDefault("'Pulses with abyssal energy'");
 	}
 
 	public override void SetDefaults()

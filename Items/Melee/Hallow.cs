@@ -9,8 +9,8 @@ public class Hallow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Chaos Blade");
-		Tooltip.SetDefault("Shoots out a chaos star");
+		//DisplayName.SetDefault("Chaos Blade");
+		//Tooltip.SetDefault("Shoots out a chaos star");
 	}
 
 	public override void SetDefaults()

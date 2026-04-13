@@ -7,8 +7,8 @@ public class WerewolfBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Pet Werewolf");
-		Description.SetDefault("It seems to like you");
+		//DisplayName.SetDefault("Pet Werewolf");
+		//Description.SetDefault("It seems to like you");
 		Main.buffNoTimeDisplay[((ModBuff)this).Type] = true;
 		Main.vanityPet[((ModBuff)this).Type] = true;
 	}

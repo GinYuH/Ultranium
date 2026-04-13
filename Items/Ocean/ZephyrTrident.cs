@@ -14,8 +14,8 @@ public class ZephyrTrident : ModItem
 	public override void SetStaticDefaults()
 	{
 		Item.staff[Item.type] = true;
-		DisplayName.SetDefault("Zephyr Trident");
-		Tooltip.SetDefault("A magical spear that works like a normal melee spear\nHitting an enemy with the spear itself restores small amounts of mana");
+		//DisplayName.SetDefault("Zephyr Trident");
+		//Tooltip.SetDefault("A magical spear that works like a normal melee spear\nHitting an enemy with the spear itself restores small amounts of mana");
 	}
 
 	public override void SetDefaults()

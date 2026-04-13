@@ -7,8 +7,8 @@ public class IceTalon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glacieron Talon");
-		Tooltip.SetDefault("Increases armor penetration by 5\nYour projectiles have a chance to inflict frostburn on enemies");
+		//DisplayName.SetDefault("Glacieron Talon");
+		//Tooltip.SetDefault("Increases armor penetration by 5\nYour projectiles have a chance to inflict frostburn on enemies");
 	}
 
 	public override void SetDefaults()

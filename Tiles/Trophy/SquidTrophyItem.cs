@@ -9,7 +9,7 @@ public class SquidTrophyItem : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Zephyr Squid Trophy");
+		//DisplayName.SetDefault("Zephyr Squid Trophy");
 	}
 
 	public override void SetDefaults()

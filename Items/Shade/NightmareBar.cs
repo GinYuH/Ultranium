@@ -8,8 +8,8 @@ public class NightmareBar : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Alloy");
-		Tooltip.SetDefault("'A dark metal from a nightmarish world'");
+		//DisplayName.SetDefault("Tenebris Alloy");
+		//Tooltip.SetDefault("'A dark metal from a nightmarish world'");
 		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 5));
 	}
 

@@ -11,8 +11,8 @@ public class Crepus : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Crepus");
-		Tooltip.SetDefault("Shoots a spread of green and purple shade arrows\nGreen shade arrows will accelerate quickly\nPurple arrows move slowly but deal rapid damage");
+		//DisplayName.SetDefault("Crepus");
+		//Tooltip.SetDefault("Shoots a spread of green and purple shade arrows\nGreen shade arrows will accelerate quickly\nPurple arrows move slowly but deal rapid damage");
 	}
 
 	public override void SetDefaults()

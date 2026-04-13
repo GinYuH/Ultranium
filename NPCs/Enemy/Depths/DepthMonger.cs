@@ -11,7 +11,7 @@ public class DepthMonger : ModNPC
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Depth Monger");
+		//DisplayName.SetDefault("Depth Monger");
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[461];
 	}
 

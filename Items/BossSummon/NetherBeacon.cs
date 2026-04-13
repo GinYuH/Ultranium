@@ -11,8 +11,8 @@ public class NetherBeacon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Nether Beacon");
-		Tooltip.SetDefault("Summons The guardian deity of hell\nCan only be used in the underworld\nNot Consumable");
+		//DisplayName.SetDefault("Nether Beacon");
+		//Tooltip.SetDefault("Summons The guardian deity of hell\nCan only be used in the underworld\nNot Consumable");
 	}
 
 	public override void SetDefaults()

@@ -12,7 +12,7 @@ public class ErebusToothBall : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Erebus Toothball");
+		//DisplayName.SetDefault("Erebus Toothball");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 8;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

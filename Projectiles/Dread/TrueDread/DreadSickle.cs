@@ -13,7 +13,7 @@ public class DreadSickle : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 11;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Dread Scythe");
+		//DisplayName.SetDefault("Dread Scythe");
 	}
 
 	public override void SetDefaults()

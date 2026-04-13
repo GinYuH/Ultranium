@@ -13,7 +13,7 @@ public class Nanite : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 10;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Nanite");
+		//DisplayName.SetDefault("Nanite");
 	}
 
 	public override void SetDefaults()

@@ -7,8 +7,8 @@ public class DepthSlimeBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Mass Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Tenebris Mass");
+		//DisplayName.SetDefault("Tenebris Mass Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Tenebris Mass");
 	}
 
 	public override void SetDefaults()

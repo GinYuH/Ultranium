@@ -7,8 +7,8 @@ public class StellarJavelin : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Javelin");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Stellar Javelin");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

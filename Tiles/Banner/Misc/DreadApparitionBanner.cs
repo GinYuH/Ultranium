@@ -7,8 +7,8 @@ public class DreadApparitionBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Dread Apparition Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Dread Apparition");
+		//DisplayName.SetDefault("Dread Apparition Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Dread Apparition");
 	}
 
 	public override void SetDefaults()

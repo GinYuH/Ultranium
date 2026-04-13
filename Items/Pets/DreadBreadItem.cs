@@ -10,8 +10,8 @@ public class DreadBreadItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Suspicious Looking Bread");
-		Tooltip.SetDefault("Summons... Dread?");
+		//DisplayName.SetDefault("Suspicious Looking Bread");
+		//Tooltip.SetDefault("Summons... Dread?");
 	}
 
 	public override void SetDefaults()

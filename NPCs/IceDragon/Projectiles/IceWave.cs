@@ -12,7 +12,7 @@ public class IceWave : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Forzen Wave");
+		//DisplayName.SetDefault("Forzen Wave");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

@@ -14,7 +14,7 @@ public class VoidBolt : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Void Bolt");
+		//DisplayName.SetDefault("Void Bolt");
 	}
 
 	public override void SetDefaults()

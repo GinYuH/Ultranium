@@ -7,8 +7,8 @@ public class IceMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Glacieron)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Glacieron)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

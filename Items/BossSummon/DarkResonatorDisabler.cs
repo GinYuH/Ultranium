@@ -10,8 +10,8 @@ public class DarkResonatorDisabler : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyssal Spawn Disabler");
-		Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
+		//DisplayName.SetDefault("Abyssal Spawn Disabler");
+		//Tooltip.SetDefault("Using this during the abyssal armageddon event will toggle enemy spawns on and off");
 	}
 
 	public override void SetDefaults()

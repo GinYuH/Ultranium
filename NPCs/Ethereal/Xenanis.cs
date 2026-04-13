@@ -39,7 +39,7 @@ public class Xenanis : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Xenanis");
+		//DisplayName.SetDefault("Xenanis");
 		Main.npcFrameCount[NPC.type] = 12;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;

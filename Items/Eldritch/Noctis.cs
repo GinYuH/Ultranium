@@ -11,8 +11,8 @@ public class Noctis : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Noctis");
-		Tooltip.SetDefault("Fires a spread of eldritch knives");
+		//DisplayName.SetDefault("Noctis");
+		//Tooltip.SetDefault("Fires a spread of eldritch knives");
 	}
 
 	public override void SetDefaults()

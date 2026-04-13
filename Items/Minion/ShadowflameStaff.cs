@@ -10,8 +10,8 @@ public class ShadowflameStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shadowflame Staff");
-		Tooltip.SetDefault("Summons a Shadowflame Apparition to fight for you");
+		//DisplayName.SetDefault("Shadowflame Staff");
+		//Tooltip.SetDefault("Summons a Shadowflame Apparition to fight for you");
 	}
 
 	public override void SetDefaults()

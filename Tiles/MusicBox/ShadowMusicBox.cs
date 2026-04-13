@@ -7,8 +7,8 @@ public class ShadowMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Music Box (Shadow Biome)");
-		Tooltip.SetDefault("");
+		//DisplayName.SetDefault("Music Box (Shadow Biome)");
+		//Tooltip.SetDefault("");
 	}
 
 	public override void SetDefaults()

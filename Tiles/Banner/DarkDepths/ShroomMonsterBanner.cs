@@ -7,8 +7,8 @@ public class ShroomMonsterBanner : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Shroom Monster Banner");
-		Tooltip.SetDefault("Nearby players get a bonus against: Shroom Monster");
+		//DisplayName.SetDefault("Shroom Monster Banner");
+		//Tooltip.SetDefault("Nearby players get a bonus against: Shroom Monster");
 	}
 
 	public override void SetDefaults()

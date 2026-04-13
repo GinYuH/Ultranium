@@ -7,8 +7,8 @@ public class AbyssRockItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Abyss Chunk");
-		Tooltip.SetDefault("It feels rather gooey");
+		//DisplayName.SetDefault("Abyss Chunk");
+		//Tooltip.SetDefault("It feels rather gooey");
 	}
 
 	public override void SetDefaults()

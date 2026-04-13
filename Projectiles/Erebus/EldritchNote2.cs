@@ -8,7 +8,7 @@ public class EldritchNote2 : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Note");
+		//DisplayName.SetDefault("Eldritch Note");
 	}
 
 	public override void SetDefaults()

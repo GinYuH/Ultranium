@@ -10,8 +10,8 @@ public class HorrorHelm : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Horror Helmet");
-		Tooltip.SetDefault("12% increased melee critical strike chance");
+		//DisplayName.SetDefault("Horror Helmet");
+		//Tooltip.SetDefault("12% increased melee critical strike chance");
 	}
 
 	public override void SetDefaults()

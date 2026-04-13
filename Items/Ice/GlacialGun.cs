@@ -10,8 +10,8 @@ public class GlacialGun : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Has a chance to shoot ice bolts");
-		DisplayName.SetDefault("Glacial Pistol");
+		//Tooltip.SetDefault("Has a chance to shoot ice bolts");
+		//DisplayName.SetDefault("Glacial Pistol");
 	}
 
 	public override void SetDefaults()

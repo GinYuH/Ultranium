@@ -8,8 +8,8 @@ public class BloodStaff : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Aortic Staff");
-		Tooltip.SetDefault("Casts balls of blood");
+		//DisplayName.SetDefault("Aortic Staff");
+		//Tooltip.SetDefault("Casts balls of blood");
 		Item.staff[Item.type] = true;
 	}
 

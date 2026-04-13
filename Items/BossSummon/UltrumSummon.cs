@@ -11,8 +11,8 @@ public class UltrumSummon : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultranium Sigil");
-		Tooltip.SetDefault("Summons the guardian deity of nature\nCan only be used on the surface\nNot Consumable");
+		//DisplayName.SetDefault("Ultranium Sigil");
+		//Tooltip.SetDefault("Summons the guardian deity of nature\nCan only be used on the surface\nNot Consumable");
 	}
 
 	public override void SetDefaults()

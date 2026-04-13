@@ -12,8 +12,8 @@ public class Caliginus : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Caliginus");
-		Tooltip.SetDefault("Summons a mini Erebus to fight with you");
+		//DisplayName.SetDefault("Caliginus");
+		//Tooltip.SetDefault("Summons a mini Erebus to fight with you");
 	}
 
 	public override void SetDefaults()

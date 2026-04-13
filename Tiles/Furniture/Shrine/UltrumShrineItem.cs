@@ -7,7 +7,7 @@ public class UltrumShrineItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ultrum Shrine");
+		//DisplayName.SetDefault("Ultrum Shrine");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class EtherealDidgeridoo : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Didgeridoo");
-		Tooltip.SetDefault("Conujures lingering ethereal notes that create ethereal tentacles upon death");
+		//DisplayName.SetDefault("Ethereal Didgeridoo");
+		//Tooltip.SetDefault("Conujures lingering ethereal notes that create ethereal tentacles upon death");
 	}
 
 	public override void SetDefaults()

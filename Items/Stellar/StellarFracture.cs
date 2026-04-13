@@ -11,8 +11,8 @@ public class StellarFracture : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Stellar Fracture");
-		Tooltip.SetDefault("Fires a spread of stellar beams");
+		//DisplayName.SetDefault("Stellar Fracture");
+		//Tooltip.SetDefault("Fires a spread of stellar beams");
 	}
 
 	public override void SetDefaults()

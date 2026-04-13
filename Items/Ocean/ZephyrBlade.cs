@@ -10,7 +10,7 @@ public class ZephyrBlade : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		Tooltip.SetDefault("Fires zephyr bubbles on swing\nHas a chance to shoot an ink bubble that inflicts slowness on enemies");
+		//Tooltip.SetDefault("Fires zephyr bubbles on swing\nHas a chance to shoot an ink bubble that inflicts slowness on enemies");
 	}
 
 	public override void SetDefaults()

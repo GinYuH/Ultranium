@@ -13,7 +13,7 @@ public class BloodSwirl : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("BloodSwirl");
+		//DisplayName.SetDefault("BloodSwirl");
 	}
 
 	public override void SetDefaults()

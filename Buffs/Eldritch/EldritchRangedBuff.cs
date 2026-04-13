@@ -7,8 +7,8 @@ public class EldritchRangedBuff : ModBuff
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Eldritch Ranger Empowerment");
-		Description.SetDefault("1.3x Ranged damage, 25% chance to not consume ammo");
+		//DisplayName.SetDefault("Eldritch Ranger Empowerment");
+		//Description.SetDefault("1.3x Ranged damage, 25% chance to not consume ammo");
 	}
 
 	public override void Update(Player player, ref int buffIndex)

@@ -6,8 +6,8 @@ public class SpectreFishItem : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Spectre Fish");
-		Tooltip.SetDefault("'It seems to be staring into nothing'");
+		//DisplayName.SetDefault("Spectre Fish");
+		//Tooltip.SetDefault("'It seems to be staring into nothing'");
 	}
 
 	public override void SetDefaults()

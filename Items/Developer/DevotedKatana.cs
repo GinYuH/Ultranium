@@ -17,8 +17,8 @@ public class DevotedKatana : ModItem
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Devoted Katana");
-		Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
+		//DisplayName.SetDefault("Devoted Katana");
+		//Tooltip.SetDefault("Shoots spreads of homing shadow stars\n~Dedicated Item~");
 	}
 
 	public override void SetDefaults()

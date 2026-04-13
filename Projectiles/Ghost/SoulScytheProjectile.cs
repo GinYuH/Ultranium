@@ -13,7 +13,7 @@ public class SoulScytheProjectile : ModProjectile
 	{
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-		DisplayName.SetDefault("Soul Sickle");
+		//DisplayName.SetDefault("Soul Sickle");
 	}
 
 	public override void SetDefaults()

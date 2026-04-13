@@ -14,7 +14,7 @@ public class IgnodiumBeam : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ignodium Bolt");
+		//DisplayName.SetDefault("Ignodium Bolt");
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
 	}

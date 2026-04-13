@@ -10,8 +10,8 @@ public class EtherealSword : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Ethereal Buster");
-		Tooltip.SetDefault("Fires ethereal fire blasts");
+		//DisplayName.SetDefault("Ethereal Buster");
+		//Tooltip.SetDefault("Fires ethereal fire blasts");
 	}
 
 	public override void SetDefaults()

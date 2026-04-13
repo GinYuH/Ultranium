@@ -11,8 +11,8 @@ public class Nihil : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Nihil");
-		Tooltip.SetDefault("Creates lingering abyss flames around your cursor\nThe abyss flames will slowly chase nearby enemies");
+		//DisplayName.SetDefault("Nihil");
+		//Tooltip.SetDefault("Creates lingering abyss flames around your cursor\nThe abyss flames will slowly chase nearby enemies");
 		Item.staff[Item.type] = true;
 	}
 

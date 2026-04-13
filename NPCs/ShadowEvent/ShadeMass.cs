@@ -20,7 +20,7 @@ public class ShadeMass : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Darkmatter Mass");
+		//DisplayName.SetDefault("Darkmatter Mass");
 	}
 
 	public override void SetDefaults()

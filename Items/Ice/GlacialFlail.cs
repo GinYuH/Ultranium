@@ -8,8 +8,8 @@ public class GlacialFlail : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Glacial Flail");
-		Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
+		//DisplayName.SetDefault("Glacial Flail");
+		//Tooltip.SetDefault("The flail shoots icy bolts at nearby enemies");
 	}
 
 	public override void SetDefaults()

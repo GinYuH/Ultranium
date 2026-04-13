@@ -7,7 +7,7 @@ public class ShadowBladeImage : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Tenebris Sickle");
+		//DisplayName.SetDefault("Tenebris Sickle");
 	}
 
 	public override void SetDefaults()

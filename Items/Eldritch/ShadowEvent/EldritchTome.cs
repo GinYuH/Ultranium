@@ -10,8 +10,8 @@ public class EldritchTome : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Yawning Abyss");
-		Tooltip.SetDefault("Casts abyssal vortexes");
+		//DisplayName.SetDefault("Yawning Abyss");
+		//Tooltip.SetDefault("Casts abyssal vortexes");
 	}
 
 	public override void SetDefaults()

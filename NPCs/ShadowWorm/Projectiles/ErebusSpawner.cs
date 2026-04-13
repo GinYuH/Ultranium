@@ -15,7 +15,7 @@ public class ErebusSpawner : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Erebus Rift");
+		//DisplayName.SetDefault("Erebus Rift");
 	}
 
 	public override void SetDefaults()

@@ -8,8 +8,8 @@ public class SolThrow : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("Sol Throw");
-		Tooltip.SetDefault("Fires solar laser beams at nearby enemies");
+		//DisplayName.SetDefault("Sol Throw");
+		//Tooltip.SetDefault("Fires solar laser beams at nearby enemies");
 	}
 
 	public override void SetDefaults()

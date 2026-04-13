@@ -42,7 +42,7 @@ public class Aldin : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		DisplayName.SetDefault("???");
+		//DisplayName.SetDefault("???");
 		Main.npcFrameCount[NPC.type] = 7;
 		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
 		NPCID.Sets.TrailingMode[NPC.type] = 0;
