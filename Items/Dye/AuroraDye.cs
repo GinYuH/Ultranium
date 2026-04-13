@@ -12,7 +12,7 @@ public class AuroraDye : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.rare = 3;
 	}
 

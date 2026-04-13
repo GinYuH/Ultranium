@@ -22,6 +22,7 @@ public class ShadowEssence : ModItem
 		//Tooltip.SetDefault("'The Essence of shadow magic'");
 		Main.RegisterItemAnimation(Item.type, new DrawAnimationVertical(5, 4));
 		ItemID.Sets.ItemNoGravity[Item.type] = true;
+		ItemID.Sets.AnimatesAsSoul[Item.type] = true;
 	}
 
 	public override void SetDefaults()
@@ -34,8 +35,8 @@ public class ShadowEssence : ModItem
 	}
 
 	public override Color? GetAlpha(Color lightColor)
-	{
-		float amount = (float)(Main.GameUpdateCount % 60) / 60f;
+    {
+        float amount = (float)(Main.GameUpdateCount % 60) / 60f;
 		int num = (int)(Main.GameUpdateCount / 60 % 4);
 		return Color.Lerp(itemNameCycleColors[num], itemNameCycleColors[(num + 1) % 4], amount);
 	}

@@ -18,7 +18,7 @@ public class DepthsKey : ModItem
 		Item.useTime = 19;
 		Item.useAnimation = 19;
 		Item.rare = 0;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.value = 100;
 		Item.useStyle = 4;
 		Item.noMelee = true;

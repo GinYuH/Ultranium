@@ -17,7 +17,7 @@ public class StellarBar : ModItem
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 0, 80);
 		Item.rare = 5;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 	}
 
 	public override void AddRecipes()

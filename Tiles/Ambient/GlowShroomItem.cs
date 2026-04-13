@@ -18,7 +18,7 @@ public class GlowShroomItem : ModItem
 		Item.width = 20;
 		Item.height = 30;
 		Item.rare = 0;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.useStyle = 2;
 		Item.useTime = 20;
 		Item.useAnimation = 20;

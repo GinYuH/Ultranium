@@ -19,7 +19,7 @@ public class NightmareBar : ModItem
 		Item.value = Item.buyPrice(0, 10);
 		Item.width = Item.width;
 		Item.height = Item.height;
-		Item.maxStack = 99;
+		Item.maxStack = Item.CommonMaxStack;
 		Item.value = 1000;
 		Item.rare = 1;
 	}
