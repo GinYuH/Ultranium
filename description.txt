@@ -25,6 +25,7 @@ Loops - Musician
 Luxcapacitator/Tom cruise missile - Musician
 RockWizard5- Musician
 Andreyghost - sprites
+YuH - 1.4.4 port
 
 -Beta testers-
 
