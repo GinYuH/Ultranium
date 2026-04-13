@@ -57,7 +57,7 @@ public class DarkMatterArrowBolt : ModProjectile
 
 	public override void AI()
 	{
-		int num = Dust.NewDust(Projectile.Center, 0, 0, 89, Projectile.velocity.X * 0.4f, Projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
+		int num = Dust.NewDust(Projectile.Center, 0, 0, DustID.GemEmerald, Projectile.velocity.X * 0.4f, Projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
 		Main.dust[num].velocity *= 0.3f;
 		Main.dust[num].scale *= 0.3f;
 		Main.dust[num].noGravity = false;

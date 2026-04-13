@@ -20,7 +20,7 @@ public class EyeMinion : ModProjectile
 		Projectile.minionSlots = 1f;
 		Projectile.CloneDefaults(388);
 		Projectile.minion = true;
-		base.AIType = 388;
+		base.AIType = ProjectileID.Spazmamini;
 	}
 
 	public override void AI()

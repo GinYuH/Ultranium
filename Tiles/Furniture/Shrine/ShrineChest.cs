@@ -35,7 +35,7 @@ public class ShrineChest : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Shrine Chest");
 		AddMapEntry(new Color(88, 72, 88), val, (Func<string, int, int, string>)MapChestName);
-		base.DustType = 0;
+		base.DustType = DustID.Dirt;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
 		TileID.Sets.BasicChest[Type] = true;
@@ -102,10 +102,10 @@ public class ShrineChest : ModTile
 		}
 		if (localPlayer.editedChestName)
 		{
-			NetMessage.SendData(33, -1, -1, NetworkText.FromLiteral(Main.chest[localPlayer.chest].name), localPlayer.chest, 1f);
+			NetMessage.SendData(MessageID.SyncPlayerChest, -1, -1, NetworkText.FromLiteral(Main.chest[localPlayer.chest].name), localPlayer.chest, 1f);
 			localPlayer.editedChestName = false;
 		}
-		if (Main.netMode == 1)
+		if (Main.netMode == NetmodeID.MultiplayerClient)
 		{
 			if (num == localPlayer.chestX && num2 == localPlayer.chestY && localPlayer.chest >= 0)
 			{
@@ -115,7 +115,7 @@ public class ShrineChest : ModTile
 			}
 			else
 			{
-				NetMessage.SendData(31, -1, -1, null, num, num2);
+				NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, null, num, num2);
 				Main.stackSplit = 600;
 			}
 		}
@@ -185,7 +185,7 @@ public class ShrineChest : ModTile
 		if (localPlayer.cursorItemIconText == "")
 		{
 			localPlayer.cursorItemIconEnabled = false;
-			localPlayer.cursorItemIconID = 0;
+			localPlayer.cursorItemIconID = ItemID.None;
 		}
 	}
 }

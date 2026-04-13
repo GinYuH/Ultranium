@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Erebus.ShadowEvent;
@@ -156,7 +157,7 @@ public class EldritchVortex : ModProjectile
 		{
 			Vector2 vector = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + Projectile.Center;
 			Vector2 vector2 = vector - Projectile.Center;
-			Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, 89, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
+			Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, DustID.GemEmerald, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 			obj.noGravity = true;
 			obj.noLight = false;
 			obj.velocity = Vector2.Normalize(vector2) * 3f;

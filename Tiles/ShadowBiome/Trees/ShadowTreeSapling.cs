@@ -37,7 +37,7 @@ public class ShadowTreeSapling : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Sapling");
 		AddMapEntry(new Color(200, 200, 200), val);
-		base.DustType = 1;
+		base.DustType = DustID.Stone;
 		base.AdjTiles = new int[1] { 20 };
 	}
 

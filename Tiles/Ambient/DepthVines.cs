@@ -18,7 +18,7 @@ public class DepthVines : ModTile
 		Main.tileNoAttach[Type] = true;
 		Main.tileLighted[Type] = true;
 		base.HitSound = SoundID.Grass;
-		base.DustType = 89;
+		base.DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(21, 90, 48), (LocalizedText)null);
 	}
 
@@ -83,7 +83,7 @@ public class DepthVines : ModTile
 			tileSafely.TileType = Type;
 			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}

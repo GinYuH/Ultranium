@@ -92,7 +92,7 @@ public class EldritchFlail : ModProjectile
 		{
 			for (int i = 0; i < 2; i++)
 			{
-				Dust obj = Main.dust[Dust.NewDust(Projectile.position + Projectile.velocity * 2f, Projectile.width, Projectile.height, 89, 0f, 0f, 100, default(Color), 2f)];
+				Dust obj = Main.dust[Dust.NewDust(Projectile.position + Projectile.velocity * 2f, Projectile.width, Projectile.height, DustID.GemEmerald, 0f, 0f, 100, default(Color), 2f)];
 				obj.noGravity = true;
 				obj.velocity *= 2f;
 				obj.velocity += Projectile.localAI[0].ToRotationVector2();

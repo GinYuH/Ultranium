@@ -28,9 +28,9 @@ public class UltraFlail : ModItem
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		Item.useAnimation = 10;
 		Item.useTime = 10;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 2f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.Item116;
 		Item.shoot = Mod.Find<ModProjectile>("UltraFlail").Type;
@@ -62,7 +62,7 @@ public class UltraFlail : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

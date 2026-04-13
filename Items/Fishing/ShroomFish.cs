@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Fishing;
@@ -17,6 +18,6 @@ public class ShroomFish : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.maxStack = 999;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 	}
 }

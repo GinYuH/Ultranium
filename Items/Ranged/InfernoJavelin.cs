@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ranged;
@@ -19,10 +20,10 @@ public class InfernoJavelin : ModItem
 		((Entity)(object)Item).height = 66;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 20);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("InfernoJavelin").Type;
 		Item.shootSpeed = 9f;
@@ -38,8 +39,8 @@ public class InfernoJavelin : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(175, 10);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.HellstoneBar, 10);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

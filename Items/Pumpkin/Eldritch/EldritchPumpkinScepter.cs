@@ -18,11 +18,11 @@ public class EldritchPumpkinScepter : ModItem
 	{
 		((Entity)(object)Item).width = 26;
 		((Entity)(object)Item).height = 28;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.mana = 20;
 		Item.damage = 45;
 		Item.knockBack = 1f;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.DamageType = DamageClass.Summon;
@@ -58,8 +58,8 @@ public class EldritchPumpkinScepter : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "PumpkinSummon", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
-		val.AddIngredient(521, 10);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofNight, 10);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

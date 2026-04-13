@@ -22,10 +22,10 @@ public class EldritchPumpkinBlade : ModItem
 		Item.height = 40;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 10, 50);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EldritchSeed").Type;
@@ -60,8 +60,8 @@ public class EldritchPumpkinBlade : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "PumpkinBlade", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
-		val.AddIngredient(521, 10);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofNight, 10);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

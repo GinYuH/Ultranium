@@ -23,12 +23,12 @@ public class Midnight : ModItem
 		((Entity)(object)Item).height = 26;
 		Item.useTime = 12;
 		Item.useAnimation = 12;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.UseSound = SoundID.Item40;
 		Item.autoReuse = true;
-		Item.shoot = 242;
+		Item.shoot = ProjectileID.BulletHighVelocity;
 		Item.shootSpeed = 2f;
 		Item.useAmmo = AmmoID.Bullet;
 	}
@@ -58,9 +58,9 @@ public class Midnight : ModItem
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(117, 10);
+		val.AddIngredient(ItemID.MeteoriteBar, 10);
 		val.AddIngredient((Mod)null, "ShadowEssence", 15);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -21,10 +21,10 @@ public class ZephyrBlade : ModItem
 		Item.height = 54;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 35, 45);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("ZephyrBubble").Type;
@@ -51,8 +51,8 @@ public class ZephyrBlade : ModItem
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "OceanScale", 8);
-		val.AddIngredient(275, 5);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.Coral, 5);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ranged;
@@ -19,10 +20,10 @@ public class NightsJavelin : ModItem
 		((Entity)(object)Item).height = 62;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 35);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("NightsJavelin").Type;
 		Item.shootSpeed = 10.5f;
@@ -45,7 +46,7 @@ public class NightsJavelin : ModItem
 		val.AddIngredient((Mod)null, "NatureJavelin", 1);
 		val.AddIngredient((Mod)null, "WaterJavelin", 1);
 		val.AddIngredient((Mod)null, "InfernoJavelin", 1);
-		val.AddTile(26);
+		val.AddTile(TileID.DemonAltar);
 		val.Register();
 	}
 }

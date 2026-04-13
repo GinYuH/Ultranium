@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Guardians;
@@ -19,7 +20,7 @@ public class GuardianShield : ModItem
 		Item.width = 42;
 		Item.height = 42;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.accessory = true;
 		Item.defense = 5;
 	}
@@ -61,11 +62,11 @@ public class GuardianShield : ModItem
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0048: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1613, 1);
-		val.AddIngredient(1323, 1);
+		val.AddIngredient(ItemID.AnkhShield, 1);
+		val.AddIngredient(ItemID.ObsidianRose, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 5);
 		val.AddIngredient((Mod)null, "HellShard", 5);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

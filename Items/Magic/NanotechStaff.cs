@@ -23,11 +23,11 @@ public class NanotechStaff : ModItem
 		Item.height = 40;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = 10000;
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.value = Item.buyPrice(0, 45, 50);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -53,8 +53,8 @@ public class NanotechStaff : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1346, 15);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.Nanites, 15);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -21,21 +21,21 @@ public class SkyStar : ModProjectile
 	{
 		Projectile.width = 28;
 		Projectile.height = 28;
-		Projectile.aiStyle = 18;
+		Projectile.aiStyle = ProjAIStyleID.Sickle;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.penetrate = 1;
 		Projectile.tileCollide = true;
 		Projectile.timeLeft = 100;
 		Projectile.CloneDefaults(3);
-		base.AIType = 3;
+		base.AIType = ProjectileID.Shuriken;
 	}
 
 	public override void AI()
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 228);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GoldFlame);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}

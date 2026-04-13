@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ranged;
@@ -19,10 +20,10 @@ public class HallowedJavelin : ModItem
 		((Entity)(object)Item).height = 60;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("HallowedJavelin").Type;
 		Item.shootSpeed = 11.5f;
@@ -38,8 +39,8 @@ public class HallowedJavelin : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1225, 12);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.HallowedBar, 12);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

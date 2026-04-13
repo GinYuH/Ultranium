@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Enemy.Critter;
@@ -12,7 +13,7 @@ public class DepthSnailItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.CloneDefaults(2007);
+		Item.CloneDefaults(ItemID.GlowingSnail);
 		Item.bait = 40;
 		Item.makeNPC = (short)ModContent.NPCType<DepthSnail>();
 	}

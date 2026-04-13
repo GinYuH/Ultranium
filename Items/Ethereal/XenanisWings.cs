@@ -19,7 +19,7 @@ public class XenanisWings : ModItem
 		Item.width = 34;
 		Item.height = 26;
 		Item.value = Item.buyPrice(0, 25);
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.accessory = true;
 	}
 

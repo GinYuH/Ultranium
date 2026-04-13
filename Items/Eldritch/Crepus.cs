@@ -25,12 +25,12 @@ public class Crepus : ModItem
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Ranged;
 		Item.autoReuse = true;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1, 50);
 		Item.useAmmo = AmmoID.Arrow;
-		Item.shoot = 11;
+		Item.shoot = ProjectileID.VilePowder;
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
 		Item.shootSpeed = 8f;
@@ -76,7 +76,7 @@ public class Crepus : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -21,7 +21,7 @@ public class IgnodiumBag : ModItem
 		Item.consumable = true;
 		Item.width = 24;
 		Item.height = 24;
-		Item.rare = -12;
+		Item.rare = ItemRarityID.Expert;
 		Item.expert = true;
 	}
 

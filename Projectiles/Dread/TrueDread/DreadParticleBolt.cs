@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Dread.TrueDread;
@@ -33,7 +34,7 @@ public class DreadParticleBolt : ModProjectile
 
 	public override void AI()
 	{
-		int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 90, Projectile.velocity.X * 1.2f, Projectile.velocity.Y * 1.2f, 0, default(Color), 3.75f);
+		int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GemRuby, Projectile.velocity.X * 1.2f, Projectile.velocity.Y * 1.2f, 0, default(Color), 3.75f);
 		Main.dust[num].velocity *= 0.5f;
 		Main.dust[num].scale *= 0.5f;
 		Main.dust[num].noGravity = true;

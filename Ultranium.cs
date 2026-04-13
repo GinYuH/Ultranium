@@ -9,6 +9,7 @@ using Terraria.GameContent.UI;
 using Terraria.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Backgrounds.Boss;
 using Ultranium.Backgrounds.Cosmic;
@@ -309,7 +310,7 @@ internal class Ultranium : Mod
 			SkyManager.Instance["Ultranium:Erebus"] = new ErebusSky();
 			Filters.Scene["Ultranium:Aldin"] = new Filter(new CosmicScreenShaderData("FilterMiniTower").UseColor(0.3f, 0.2f, 0.7f).UseOpacity(0.5f), EffectPriority.VeryHigh);
 			SkyManager.Instance["Ultranium:Aldin"] = new AldinSky();
-			if (Main.netMode != 2)
+			if (Main.netMode != NetmodeID.Server)
 			{
 				Asset<Effect> @ref = mod.Assets.Request<Effect>("Effects/ShockwaveEffect");
                 Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(@ref, "Shockwave"), EffectPriority.VeryHigh);

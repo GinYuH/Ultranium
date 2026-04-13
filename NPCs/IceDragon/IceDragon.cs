@@ -242,7 +242,7 @@ public class IceDragon : ModNPC
 				{
 					for (int j = 0; j < 50; j++)
 					{
-						int num8 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 45);
+						int num8 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ManaRegeneration);
 						Main.dust[num8].scale = 1.5f;
 					}
 					if (FlyDirection == 0)
@@ -257,7 +257,7 @@ public class IceDragon : ModNPC
 					}
 					for (int k = 0; k < 50; k++)
 					{
-						int num9 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 45);
+						int num9 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.ManaRegeneration);
 						Main.dust[num9].scale = 1.5f;
 					}
 				}
@@ -386,9 +386,9 @@ public class IceDragon : ModNPC
 		if (!UltraniumWorld.downedDragon)
 		{
 			UltraniumWorld.downedDragon = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 		BlizzardEffect = false;

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Guardians;
@@ -16,7 +17,7 @@ public class BrokenIgnodiumSummon : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 5);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.maxStack = 1;
 		Item.accessory = true;
 	}

@@ -66,7 +66,7 @@ public class EtherealSickle : ModProjectile
 		Projectile.position.Y = Projectile.position.Y - (float)(Projectile.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 62, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 2f;
 			if (Main.rand.Next(2) == 0)
 			{

@@ -28,6 +28,6 @@ public class ShadowFlame : ModItem
 		Item.height = Item.height;
 		Item.maxStack = 999;
 		Item.value = 1000;
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 	}
 }

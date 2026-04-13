@@ -20,14 +20,14 @@ public class SolibusOrba : ModItem
 		Item.height = 64;
 		Item.damage = 250;
 		Item.knockBack = 9f;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		Item.noMelee = true;
 		Item.autoReuse = true;
 		Item.noUseGraphic = true;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1, 50);
 		Item.shoot = Mod.Find<ModProjectile>("SolibusOrba").Type;
 		Item.shootSpeed = 15f;
@@ -51,7 +51,7 @@ public class SolibusOrba : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

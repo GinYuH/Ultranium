@@ -23,10 +23,10 @@ public class DreadDisc : ModItem
 		Item.height = 42;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.Item60;
 		Item.autoReuse = true;
@@ -54,7 +54,7 @@ public class DreadDisc : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

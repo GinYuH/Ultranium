@@ -35,7 +35,7 @@ public class AbyssalWraith : ModNPC
 		NPC.HitSound = SoundID.NPCHit54;
 		NPC.DeathSound = SoundID.NPCDeath6;
 		NPC.knockBackResist = 0f;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.buffImmune[24] = true;

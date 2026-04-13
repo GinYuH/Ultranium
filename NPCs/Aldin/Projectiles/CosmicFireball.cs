@@ -80,7 +80,7 @@ public class CosmicFireball : ModProjectile
 		{
 			for (int i = 0; i < 40; i++)
 			{
-				int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
+				int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, -2f, 0, default(Color), 1.5f);
 				Main.dust[num].noGravity = true;
 				Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 				Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -114,7 +114,7 @@ public class CosmicFireball : ModProjectile
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 62, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.PurpleTorch, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

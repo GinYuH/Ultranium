@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
 using Ultranium.Projectiles.Pets;
@@ -16,7 +17,7 @@ public class DreadBreadItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.CloneDefaults(669);
+		Item.CloneDefaults(ItemID.Fish);
 		Item.shoot = ModContent.ProjectileType<DreadBread>();
 		Item.buffType = ModContent.BuffType<DreadBreadBuff>();
 	}

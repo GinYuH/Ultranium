@@ -22,13 +22,13 @@ public class GlacialGun : ModItem
 		Item.height = 26;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.value = Item.buyPrice(0, 20);
 		Item.UseSound = SoundID.Item40;
 		Item.autoReuse = true;
-		Item.shoot = 242;
+		Item.shoot = ProjectileID.BulletHighVelocity;
 		Item.shootSpeed = 12f;
 		Item.useAmmo = AmmoID.Bullet;
 	}
@@ -58,9 +58,9 @@ public class GlacialGun : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(664, 10);
+		val.AddIngredient(ItemID.IceBlock, 10);
 		val.AddIngredient((Mod)null, "IcePelt", 7);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

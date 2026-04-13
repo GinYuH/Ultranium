@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pets;
@@ -15,7 +16,7 @@ public class CosmicDjinn : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(198);
-		base.AIType = 198;
+		base.AIType = ProjectileID.BabyHornet;
 		Projectile.timeLeft = 999999999;
 		Projectile.timeLeft *= 999999999;
 		Projectile.penetrate = -1;

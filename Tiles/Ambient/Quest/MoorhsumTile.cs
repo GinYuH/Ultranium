@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -38,9 +39,9 @@ public class MoorhsumTile : ModTile
         {
             UltraniumWorld.Moorhsum = true;
             UltraniumWorld.StrangeUndergrowth = true;
-            if (Main.netMode == 2)
+            if (Main.netMode == NetmodeID.Server)
             {
-                NetMessage.SendData(7);
+                NetMessage.SendData(MessageID.WorldData);
             }
         }
     }

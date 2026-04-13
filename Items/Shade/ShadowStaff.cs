@@ -21,11 +21,11 @@ public class ShadowStaff : ModItem
 		((Entity)(object)Item).height = 40;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(0, 2, 50);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("ShadowStaffBolt").Type;
@@ -40,7 +40,7 @@ public class ShadowStaff : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

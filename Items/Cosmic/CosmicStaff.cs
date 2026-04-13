@@ -30,11 +30,11 @@ public class CosmicStaff : ModItem
 		Item.height = 40;
 		Item.useTime = 16;
 		Item.useAnimation = 16;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(2);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("Protostar").Type;

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Stellar;
@@ -19,10 +20,10 @@ public class StellarJavelin : ModItem
 		((Entity)(object)Item).height = 20;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("StellarJavelin").Type;
 		Item.shootSpeed = 11.5f;
@@ -39,7 +40,7 @@ public class StellarJavelin : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

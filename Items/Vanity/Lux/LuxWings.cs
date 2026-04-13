@@ -19,7 +19,7 @@ public class LuxWings : ModItem
 		Item.width = 34;
 		Item.height = 26;
 		Item.value = Item.buyPrice(1, 20);
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.accessory = true;
 	}
 

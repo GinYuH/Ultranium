@@ -14,7 +14,7 @@ public class RetiYoyo : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 30;
 		Item.height = 26;
 		Item.noUseGraphic = true;
@@ -29,7 +29,7 @@ public class RetiYoyo : ModItem
 		Item.knockBack = 2.5f;
 		Item.damage = 49;
 		Item.value = Item.buyPrice(0, 30);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 	}
 
 	public override void AddRecipes()
@@ -40,9 +40,9 @@ public class RetiYoyo : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1225, 10);
-		val.AddIngredient(549, 5);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.HallowedBar, 10);
+		val.AddIngredient(ItemID.SoulofSight, 5);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

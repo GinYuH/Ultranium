@@ -22,7 +22,7 @@ public class SquidBag : ModItem
 		Item.consumable = true;
 		Item.width = 46;
 		Item.height = 36;
-		Item.rare = -12;
+		Item.rare = ItemRarityID.Expert;
 		Item.expert = true;
 	}
 

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Town.Shrooms;
@@ -15,7 +16,7 @@ public class SolarShroom : ModItem
 	{
 		Item.width = 20;
 		Item.height = 30;
-		Item.rare = -11;
+		Item.rare = ItemRarityID.Quest;
 		Item.maxStack = 1;
 	}
 
@@ -27,7 +28,7 @@ public class SolarShroom : ModItem
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "TempleShroom", 1);
-		val.AddTile(17);
+		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}
 }

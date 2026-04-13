@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Magic;
@@ -38,7 +39,7 @@ public class ShadowRodBolt : ModProjectile
 		}
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 21);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.VilePowder);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}
@@ -50,7 +51,7 @@ public class ShadowRodBolt : ModProjectile
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 21, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.VilePowder, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

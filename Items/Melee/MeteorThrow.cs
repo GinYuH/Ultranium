@@ -15,7 +15,7 @@ public class MeteorThrow : ModItem
 	public override void SetDefaults()
 	{
 		Item.damage = 24;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 30;
 		Item.height = 26;
 		Item.noUseGraphic = true;
@@ -29,7 +29,7 @@ public class MeteorThrow : ModItem
 		Item.shootSpeed = 16f;
 		Item.knockBack = 2.5f;
 		Item.value = Item.buyPrice(0, 2);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 	}
 
 	public override void AddRecipes()
@@ -39,8 +39,8 @@ public class MeteorThrow : ModItem
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(117, 8);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.MeteoriteBar, 8);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

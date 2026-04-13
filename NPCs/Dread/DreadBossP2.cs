@@ -67,7 +67,7 @@ public class DreadBossP2 : ModNPC
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (projectile.type == 92 || projectile.type == 91)
+		if (projectile.type == ProjectileID.HallowStar || projectile.type == ProjectileID.HolyArrow)
 		{
 			modifiers.SourceDamage /= 3;
 		}
@@ -122,7 +122,7 @@ public class DreadBossP2 : ModNPC
 			{
 				Vector2 vector4 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num5 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num5) + NPC.Center;
 				Vector2 vector5 = vector4 - NPC.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, 90, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, DustID.GemRuby, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector5) * 3f;
@@ -140,7 +140,7 @@ public class DreadBossP2 : ModNPC
 			{
 				Vector2 vector7 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(j - (num6 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num6) + NPC.Center;
 				Vector2 vector8 = vector7 - NPC.Center;
-				Dust obj2 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, 90, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj2 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, DustID.GemRuby, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
 				obj2.noGravity = true;
 				obj2.noLight = false;
 				obj2.velocity = Vector2.Normalize(vector8) * 3f;
@@ -292,9 +292,9 @@ public class DreadBossP2 : ModNPC
 		if (!UltraniumWorld.downedDread)
 		{
 			UltraniumWorld.downedDread = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}
@@ -303,7 +303,7 @@ public class DreadBossP2 : ModNPC
 	{
 		for (int i = 0; i < 50; i++)
 		{
-			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = false;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -314,7 +314,7 @@ public class DreadBossP2 : ModNPC
 		}
 		for (int j = 0; j < 80; j++)
 		{
-			int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 2f);
+			int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 2f);
 			Main.dust[num2].noGravity = false;
 			Main.dust[num2].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num2].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

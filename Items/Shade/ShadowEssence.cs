@@ -31,7 +31,7 @@ public class ShadowEssence : ModItem
 		((Entity)(object)Item).height = 34;
 		Item.maxStack = 999;
 		Item.value = 1000;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

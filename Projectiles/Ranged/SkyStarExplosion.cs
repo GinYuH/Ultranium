@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Ranged;
@@ -30,7 +31,7 @@ public class SkyStarExplosion : ModProjectile
 
 	public override void AI()
 	{
-		Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 228);
+		Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GoldFlame);
 		dust.noGravity = true;
 		dust.scale = 1.6f;
 		if (++Projectile.frameCounter >= 4)

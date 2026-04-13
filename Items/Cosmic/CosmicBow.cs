@@ -30,9 +30,9 @@ public class CosmicBow : ModItem
 		Item.height = 74;
 		Item.useTime = 23;
 		Item.useAnimation = 23;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 1f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(2);
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;

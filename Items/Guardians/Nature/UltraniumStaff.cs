@@ -25,11 +25,11 @@ public class UltraniumStaff : ModItem
 		Item.height = 14;
 		Item.useTime = 12;
 		Item.useAnimation = 12;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.staff[Item.type] = true;
 		Item.noMelee = true;
 		Item.knockBack = 2f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.DD2_BetsysWrathShot;
 		Item.autoReuse = true;
@@ -83,7 +83,7 @@ public class UltraniumStaff : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

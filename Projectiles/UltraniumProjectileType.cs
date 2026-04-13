@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles;
@@ -20,7 +21,7 @@ public class UltraniumProjectileType : GlobalProjectile
 
 	public override void SetDefaults(Projectile projectile)
 	{
-		if (projectile.type == 611)
+		if (projectile.type == ProjectileID.SolarWhipSword)
 		{
 			whip = true;
 			whipAliveTime = 30;

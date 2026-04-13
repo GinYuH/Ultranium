@@ -16,10 +16,10 @@ public class GlacialFlail : ModItem
 	{
 		Item.width = 30;
 		Item.height = 10;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.noMelee = true;
 		Item.UseSound = SoundID.Item1;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.useAnimation = 40;
 		Item.useTime = 40;
 		Item.knockBack = 7.5f;
@@ -40,9 +40,9 @@ public class GlacialFlail : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(664, 10);
+		val.AddIngredient(ItemID.IceBlock, 10);
 		val.AddIngredient((Mod)null, "IcePelt", 7);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

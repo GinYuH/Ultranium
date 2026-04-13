@@ -24,9 +24,9 @@ public class Noctis : ModItem
 		Item.height = 80;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1, 50);
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
@@ -66,7 +66,7 @@ public class Noctis : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -25,11 +25,11 @@ public class Caliginus : ModItem
 		Item.height = 14;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 3f;
 		Item.value = Item.buyPrice(1, 50);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("SmolErebusHead").Type;
 		Item.shootSpeed = 10f;
@@ -54,7 +54,7 @@ public class Caliginus : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 

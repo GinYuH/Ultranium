@@ -20,7 +20,7 @@ public class EldritchKnife : ModProjectile
 
 	public override void SetDefaults()
 	{
-		Projectile.aiStyle = 132;
+		Projectile.aiStyle = ProjAIStyleID.DD2GrimEnd;
 		Projectile.width = 14;
 		Projectile.height = 14;
 		Projectile.friendly = true;

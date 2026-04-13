@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Furniture;
@@ -12,7 +13,7 @@ public class ShadowBedItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.width = 28;
 		Item.height = 20;
 		Item.maxStack = Item.CommonMaxStack;
@@ -20,7 +21,7 @@ public class ShadowBedItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 2000;
 		Item.createTile = Mod.Find<ModTile>("ShadowBed").Type;
@@ -35,8 +36,8 @@ public class ShadowBedItem : ModItem
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowWood", 15);
-		val.AddIngredient(225, 5);
-		val.AddTile(18);
+		val.AddIngredient(ItemID.Silk, 5);
+		val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Eldritch.Armor;
@@ -19,7 +20,7 @@ public class DarkBody : ModItem
 		Item.width = 18;
 		Item.height = 18;
 		Item.value = Item.buyPrice(0, 80);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.defense = 42;
 	}
 
@@ -52,7 +53,7 @@ public class DarkBody : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 16);
 		val.AddIngredient((Mod)null, "NightmareBar", 15);
 		val.AddIngredient((Mod)null, "DarkMatter", 20);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

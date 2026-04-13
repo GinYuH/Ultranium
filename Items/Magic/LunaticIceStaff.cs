@@ -22,11 +22,11 @@ public class LunaticIceStaff : ModItem
 		Item.height = 56;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.UseSound = SoundID.Item120;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("IceBall").Type;

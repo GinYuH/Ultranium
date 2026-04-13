@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Guardians.Hell;
@@ -17,7 +18,7 @@ public class HellFlail : ModProjectile
 	{
 		Projectile.width = 26;
 		Projectile.height = 26;
-		Projectile.aiStyle = 69;
+		Projectile.aiStyle = ProjAIStyleID.Flairon;
 		Projectile.friendly = true;
 		Projectile.penetrate = -1;
 		Projectile.alpha = 255;

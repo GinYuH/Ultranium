@@ -98,7 +98,7 @@ public class DreadSummonOrb : ModProjectile
 			{
 				Vector2 vector3 = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(k - (num6 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num6) + Projectile.Center;
 				Vector2 vector4 = vector3 - Projectile.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector3 + vector4, 0, 0, 90, vector4.X * 2f, vector4.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj = Main.dust[Dust.NewDust(vector3 + vector4, 0, 0, DustID.GemRuby, vector4.X * 2f, vector4.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector4) * 3f;
@@ -110,7 +110,7 @@ public class DreadSummonOrb : ModProjectile
 			SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 			for (int l = 0; l < 100; l++)
 			{
-				int num7 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+				int num7 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 				Main.dust[num7].noGravity = false;
 				Main.dust[num7].scale = 3.5f;
 				Main.dust[num7].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossBags.Acc;
@@ -16,7 +17,7 @@ public class ShadowHeart : ModItem
 		Item.width = 32;
 		Item.height = 32;
 		Item.value = Item.buyPrice(1, 50);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.accessory = true;
 		Item.expert = true;
 	}

@@ -28,7 +28,7 @@ public class ShadeSpirit : ModNPC
 		NPC.HitSound = SoundID.NPCHit36;
 		NPC.DeathSound = SoundID.NPCDeath6;
 		NPC.knockBackResist = 0.9f;
-		NPC.aiStyle = 91;
+		NPC.aiStyle = NPCAIStyleID.GraniteElemental;
 		NPC.buffImmune[24] = true;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("ShadeSpiritBanner").Type;

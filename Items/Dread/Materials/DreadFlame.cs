@@ -28,6 +28,6 @@ public class DreadFlame : ModItem
 		Item.height = Item.height;
 		Item.maxStack = 999;
 		Item.value = Item.buyPrice(0, 0, 15);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 	}
 }

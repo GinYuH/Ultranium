@@ -156,7 +156,7 @@ public class ErebusVortex : ModProjectile
 		{
 			return;
 		}
-		if (Projectile.ai[0] == 0f && Main.netMode != 1)
+		if (Projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			target = -1;
 			float num2 = 2000f;

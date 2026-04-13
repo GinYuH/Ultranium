@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.ShadowEvent.Projectiles;
@@ -53,7 +54,7 @@ public class FlayerTentacleBody : ModProjectile
 					num2 = 1.4f;
 				}
 				int num3 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X + Projectile.velocity.X * num2, Projectile.Center.Y + Projectile.velocity.Y * num2, Projectile.velocity.X, Projectile.velocity.Y, num, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, Projectile.ai[1] + 1f);
-				NetMessage.SendData(27, -1, -1, null, num3);
+				NetMessage.SendData(MessageID.SyncProjectile, -1, -1, null, num3);
 				Main.projectile[num3].localAI[1] = Projectile.localAI[1];
 			}
 			return;

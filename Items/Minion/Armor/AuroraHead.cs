@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Minion.Armor;
@@ -17,7 +18,7 @@ public class AuroraHead : ModItem
 		Item.width = 24;
 		Item.height = 20;
 		Item.value = 10000;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.defense = 2;
 	}
 
@@ -55,7 +56,7 @@ public class AuroraHead : ModItem
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AuroraBar", 6);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

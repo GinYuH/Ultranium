@@ -23,11 +23,11 @@ public class EldritchTome : ModItem
 		Item.height = 40;
 		Item.useTime = 22;
 		Item.useAnimation = 22;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(1, 50);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item84;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EldritchVortex").Type;
@@ -49,7 +49,7 @@ public class EldritchTome : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -49,7 +49,7 @@ public class EldritchSeed : ModProjectile
 	{
 		Projectile.rotation = Projectile.velocity.ToRotation() + (float)Math.PI / 2f;
 		Projectile.rotation += 0f * (float)Projectile.direction;
-		int num = Dust.NewDust(Projectile.Center, 0, 0, 6, Projectile.velocity.X * 0.4f, Projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
+		int num = Dust.NewDust(Projectile.Center, 0, 0, DustID.Torch, Projectile.velocity.X * 0.4f, Projectile.velocity.Y * 0.4f, 0, default(Color), 2f);
 		Main.dust[num].velocity *= 0.3f;
 		Main.dust[num].scale *= 0.3f;
 		Main.dust[num].noGravity = false;

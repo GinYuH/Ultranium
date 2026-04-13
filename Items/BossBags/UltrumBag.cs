@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Items.Guardians.Nature;
 
@@ -20,7 +21,7 @@ public class UltrumBag : ModItem
 		Item.consumable = true;
 		Item.width = 46;
 		Item.height = 36;
-		Item.rare = -12;
+		Item.rare = ItemRarityID.Expert;
 		Item.expert = true;
 	}
 

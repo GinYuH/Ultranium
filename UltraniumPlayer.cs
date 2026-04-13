@@ -166,11 +166,11 @@ public class UltraniumPlayer : ModPlayer
 	{
 		if (ShadowflameSet && proj.minion)
 		{
-			target.AddBuff(153, 180);
+			target.AddBuff(BuffID.ShadowFlame, 180);
 		}
 		if (IceTalon && (proj.CountsAsClass(DamageClass.Melee) || proj.minion || proj.CountsAsClass(DamageClass.Magic) || proj.CountsAsClass(DamageClass.Ranged) || proj.CountsAsClass(DamageClass.Throwing)))
 		{
-			target.AddBuff(44, 180);
+			target.AddBuff(BuffID.Frostburn, 180);
 		}
 		if ((DreadHeart || TrueDreadHeart) && (proj.CountsAsClass(DamageClass.Melee) || proj.minion || proj.CountsAsClass(DamageClass.Magic) || proj.CountsAsClass(DamageClass.Ranged) || proj.CountsAsClass(DamageClass.Throwing)))
 		{
@@ -192,7 +192,7 @@ public class UltraniumPlayer : ModPlayer
 		{
 			target.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("DarkDebuff").Type, 180);
         }
-        if ((TrueDreadHeart & hit.Crit) && proj.type != 632 && Utils.NextBool(Main.rand, 5) && Main.myPlayer == ((ModPlayer)this).Player.whoAmI)
+        if ((TrueDreadHeart & hit.Crit) && proj.type != ProjectileID.LastPrismLaser && Utils.NextBool(Main.rand, 5) && Main.myPlayer == ((ModPlayer)this).Player.whoAmI)
         {
             Vector2 spinningpoint = new Vector2(5f, 0f).RotatedByRandom(Math.PI * 2.0);
             for (int i = 0; i < 3; i++)
@@ -219,7 +219,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				Vector2 vector = (Vector2.One * new Vector2((float)((ModPlayer)this).Player.width / 2f, ((ModPlayer)this).Player.height) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + ((ModPlayer)this).Player.Center;
 				Vector2 vector2 = vector - ((ModPlayer)this).Player.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, 89, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, DustID.GemEmerald, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.velocity = Vector2.Normalize(vector2) * 3f;
 			}
@@ -234,7 +234,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				Vector2 vector3 = (Vector2.One * new Vector2((float)((ModPlayer)this).Player.width / 2f, ((ModPlayer)this).Player.height) * 0.75f * 0.5f).RotatedBy((float)(j - (num2 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num2) + ((ModPlayer)this).Player.Center;
 				Vector2 vector4 = vector3 - ((ModPlayer)this).Player.Center;
-				Dust obj2 = Main.dust[Dust.NewDust(vector3 + vector4, 0, 0, 89, vector4.X * 2f, vector4.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj2 = Main.dust[Dust.NewDust(vector3 + vector4, 0, 0, DustID.GemEmerald, vector4.X * 2f, vector4.Y * 2f, 100, default(Color), 1.4f)];
 				obj2.noGravity = true;
 				obj2.velocity = Vector2.Normalize(vector4) * 3f;
 			}
@@ -249,7 +249,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				Vector2 vector5 = (Vector2.One * new Vector2((float)((ModPlayer)this).Player.width / 2f, ((ModPlayer)this).Player.height) * 0.75f * 0.5f).RotatedBy((float)(k - (num3 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num3) + ((ModPlayer)this).Player.Center;
 				Vector2 vector6 = vector5 - ((ModPlayer)this).Player.Center;
-				Dust obj3 = Main.dust[Dust.NewDust(vector5 + vector6, 0, 0, 89, vector6.X * 2f, vector6.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj3 = Main.dust[Dust.NewDust(vector5 + vector6, 0, 0, DustID.GemEmerald, vector6.X * 2f, vector6.Y * 2f, 100, default(Color), 1.4f)];
 				obj3.noGravity = true;
 				obj3.velocity = Vector2.Normalize(vector6) * 3f;
 			}
@@ -264,7 +264,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				Vector2 vector7 = (Vector2.One * new Vector2((float)((ModPlayer)this).Player.width / 2f, ((ModPlayer)this).Player.height) * 0.75f * 0.5f).RotatedBy((float)(l - (num4 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num4) + ((ModPlayer)this).Player.Center;
 				Vector2 vector8 = vector7 - ((ModPlayer)this).Player.Center;
-				Dust obj4 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, 89, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj4 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, DustID.GemEmerald, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
 				obj4.noGravity = true;
 				obj4.velocity = Vector2.Normalize(vector8) * 3f;
 			}
@@ -284,7 +284,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				Vector2 vector10 = (Vector2.One * new Vector2((float)((ModPlayer)this).Player.width / 2f, ((ModPlayer)this).Player.height) * 0.75f * 0.5f).RotatedBy((float)(n - (num5 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num5) + ((ModPlayer)this).Player.Center;
 				Vector2 vector11 = vector10 - ((ModPlayer)this).Player.Center;
-				Dust obj5 = Main.dust[Dust.NewDust(vector10 + vector11, 0, 0, 62, vector11.X * 2f, vector11.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj5 = Main.dust[Dust.NewDust(vector10 + vector11, 0, 0, DustID.PurpleTorch, vector11.X * 2f, vector11.Y * 2f, 100, default(Color), 1.4f)];
 				obj5.noGravity = true;
 				obj5.noLight = true;
 				obj5.velocity = Vector2.Normalize(vector11) * 3f;
@@ -302,9 +302,9 @@ public class UltraniumPlayer : ModPlayer
 	{
 		if (MushroomSet && Main.rand.Next(2) == 0)
 		{
-			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), ProjectileID.TruffleSpore, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), ProjectileID.TruffleSpore, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), ProjectileID.TruffleSpore, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
 		}
 		if (DreadHeart && Main.rand.Next(3) == 0)
 		{
@@ -356,7 +356,7 @@ public class UltraniumPlayer : ModPlayer
 		{
 			ZoneDepth = false;
 		}
-		if (Main.tile[num, num2].WallType == 87)
+		if (Main.tile[num, num2].WallType == WallID.LihzahrdBrickUnsafe)
 		{
 			ZoneTemple = true;
 		}
@@ -421,9 +421,9 @@ public class UltraniumPlayer : ModPlayer
 				Vector2 center = Main.projectile[num].Center;
 				attempt.rolledEnemySpawn = NPC.NewNPC(Player.GetSource_FromThis(), (int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
 				((Entity)Main.projectile[num]).active = false;
-				if (Main.netMode == 1)
+				if (Main.netMode == NetmodeID.MultiplayerClient)
 				{
-					NetMessage.SendData(23, -1, -1, null, ModContent.NPCType<ZephyrSquid>());
+					NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ModContent.NPCType<ZephyrSquid>());
 				}
 			}
 		}

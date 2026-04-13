@@ -62,7 +62,7 @@ public class DreadSpitHoming : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 90);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}
@@ -74,7 +74,7 @@ public class DreadSpitHoming : ModProjectile
 		HomingTimer++;
 		if (HomingTimer <= 120)
 		{
-			if (Projectile.ai[0] == 0f && Main.netMode != 1)
+			if (Projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				target = -1;
 				float num = 2000f;
@@ -137,7 +137,7 @@ public class DreadSpitHoming : ModProjectile
 		SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

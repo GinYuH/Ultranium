@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.ShadowWorm.Projectiles;
@@ -155,7 +156,7 @@ public class ExpandingVortex : ModProjectile
 		HomingDelay++;
 		if (HomingDelay >= 40)
 		{
-			if (Projectile.ai[0] == 0f && Main.netMode != 1)
+			if (Projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
 			{
 				target = -1;
 				float num2 = 2000f;
@@ -224,7 +225,7 @@ public class ExpandingVortex : ModProjectile
 			{
 				Vector2 vector7 = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(l - (num8 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num8) + Projectile.Center;
 				Vector2 vector8 = vector7 - Projectile.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, 89, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, DustID.GemEmerald, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector8) * 35f;

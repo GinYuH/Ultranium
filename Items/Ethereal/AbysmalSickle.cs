@@ -24,10 +24,10 @@ public class AbysmalSickle : ModItem
 		Item.height = 32;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = SoundID.Item9;
 		Item.autoReuse = true;
@@ -58,10 +58,10 @@ public class AbysmalSickle : ModItem
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(272, 1);
+		val.AddIngredient(ItemID.DemonScythe, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 5);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

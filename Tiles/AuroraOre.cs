@@ -17,7 +17,7 @@ public class AuroraOre : ModTile
 		Main.tileOreFinderPriority[Type] = 410;
 		Main.tileSolid[Type] = true;
 		AddMapEntry(new Color(240, 15, 207), (LocalizedText)null);
-		base.DustType = 86;
+		base.DustType = DustID.GemAmethyst;
 		base.MineResist = 2.5f;
 		base.MinPick = 45;
 	}

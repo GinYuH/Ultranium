@@ -22,12 +22,12 @@ public class ShadowflameStaff : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Summon;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 10);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("ShadowApparition").Type;
 		Item.shootSpeed = 10f;
@@ -62,7 +62,7 @@ public class ShadowflameStaff : ModItem
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowFlame", 8);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

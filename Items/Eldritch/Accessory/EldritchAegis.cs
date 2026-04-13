@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Eldritch.Accessory;
@@ -18,7 +19,7 @@ public class EldritchAegis : ModItem
 	{
 		Item.width = 38;
 		Item.height = 46;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(0, 80);
 		Item.accessory = true;
 		Item.defense = 7;
@@ -51,7 +52,7 @@ public class EldritchAegis : ModItem
 		player.buffImmune[22] = true;
 		if (player.statLife < (int)((float)player.statLifeMax2 * 0.25f))
 		{
-			player.AddBuff(62, 2, quiet: false);
+			player.AddBuff(BuffID.IceBarrier, 2, quiet: false);
 		}
 	}
 
@@ -68,8 +69,8 @@ public class EldritchAegis : ModItem
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "GuardianShield", 1);
-		val.AddIngredient(1253, 1);
-		val.AddTile(412);
+		val.AddIngredient(ItemID.FrozenTurtleShell, 1);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -26,13 +26,13 @@ public class HellGun : ModItem
 		Item.height = 26;
 		Item.useTime = 8;
 		Item.useAnimation = 8;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item40;
 		Item.value = Item.buyPrice(1);
 		Item.autoReuse = true;
-		Item.shoot = 242;
+		Item.shoot = ProjectileID.BulletHighVelocity;
 		Item.shootSpeed = 12f;
 		Item.useAmmo = AmmoID.Bullet;
 	}
@@ -77,7 +77,7 @@ public class HellGun : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -20,7 +20,7 @@ public class DreadSpear : ModProjectile
 		Projectile.CloneDefaults(47);
 		Projectile.height = 122;
 		Projectile.width = 122;
-		base.AIType = 47;
+		base.AIType = ProjectileID.Trident;
 		Projectile.DamageType = DamageClass.Melee;
 	}
 

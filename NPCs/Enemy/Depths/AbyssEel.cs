@@ -26,9 +26,9 @@ public class AbyssEel : ModNPC
 		NPC.width = 156;
 		NPC.height = 44;
 		NPC.noGravity = true;
-		NPC.aiStyle = 16;
-		base.AIType = 157;
-		base.AnimationType = 65;
+		NPC.aiStyle = NPCAIStyleID.Piranha;
+		base.AIType = NPCID.Arapaima;
+		base.AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("AbyssEelBanner").Type;

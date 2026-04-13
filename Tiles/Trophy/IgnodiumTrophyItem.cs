@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Trophy;
@@ -21,10 +22,10 @@ public class IgnodiumTrophyItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 0;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.createTile = Mod.Find<ModTile>("IgnodiumTrophy").Type;
 		Item.placeStyle = 0;
 	}

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.ShadowBiome.Misc;
@@ -17,9 +18,9 @@ public class ShadowWoodWallItem : ModItem
 		Item.height = 11;
 		Item.useTime = 6;
 		Item.useAnimation = 15;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.value = 50;
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.consumable = true;
@@ -35,7 +36,7 @@ public class ShadowWoodWallItem : ModItem
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 4);
 		val.AddIngredient((Mod)null, "ShadowWood", 1);
-		val.AddTile(18);
+		val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

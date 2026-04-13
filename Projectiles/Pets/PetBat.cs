@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pets;
@@ -15,7 +16,7 @@ public class PetBat : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(198);
-		base.AIType = 198;
+		base.AIType = ProjectileID.BabyHornet;
 		Main.projPet[Projectile.type] = true;
 		Projectile.width = 42;
 		Projectile.height = 36;

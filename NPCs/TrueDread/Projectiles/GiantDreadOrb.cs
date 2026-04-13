@@ -73,7 +73,7 @@ public class GiantDreadOrb : ModProjectile
 			{
 				Vector2 vector = (Vector2.One * new Vector2((float)Projectile.width / 7f, (float)Projectile.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num / 2 - 1)) * ((float)Math.PI * 2f) / (float)num) + Projectile.Center;
 				Vector2 vector2 = vector - Projectile.Center;
-				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, 90, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
+				Dust obj = Main.dust[Dust.NewDust(vector + vector2, 0, 0, DustID.GemRuby, vector2.X * 2f, vector2.Y * 2f, 100, default(Color), 1.4f)];
 				obj.noGravity = true;
 				obj.noLight = false;
 				obj.velocity = Vector2.Normalize(vector2) * 10f;
@@ -85,7 +85,7 @@ public class GiantDreadOrb : ModProjectile
 			Projectile.Kill();
 			Ultranium.seizureAmount = 20f;
 		}
-		if (Projectile.ai[0] == 0f && Main.netMode != 1)
+		if (Projectile.ai[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			target = -1;
 			float num2 = 2000f;
@@ -138,7 +138,7 @@ public class GiantDreadOrb : ModProjectile
 		SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 100; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = false;
 			Main.dust[num].scale = 3.5f;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

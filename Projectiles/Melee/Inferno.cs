@@ -21,7 +21,7 @@ public class Inferno : ModProjectile
 		Projectile.CloneDefaults(552);
 		Projectile.damage = 27;
 		Projectile.extraUpdates = 1;
-		base.AIType = 545;
+		base.AIType = ProjectileID.Cascade;
 	}
 
 	public override bool PreAI()
@@ -42,7 +42,7 @@ public class Inferno : ModProjectile
 			Projectile.frameCounter = 0;
 			float num = (float)((double)Main.rand.Next(0, 361) * (Math.PI / 180.0));
 			Vector2 vector = new Vector2((float)Math.Cos(num), (float)Math.Sin(num));
-			int num2 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 15, Projectile.damage, (float)Projectile.owner, 0, 0f, 0f);
+			int num2 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, ProjectileID.BallofFire, Projectile.damage, (float)Projectile.owner, 0, 0f, 0f);
 			Main.projectile[num2].friendly = true;
 			Main.projectile[num2].hostile = false;
 			Main.projectile[num2].velocity *= 7f;

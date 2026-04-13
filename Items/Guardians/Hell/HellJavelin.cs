@@ -22,11 +22,11 @@ public class HellJavelin : ModItem
 		Item.height = 56;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item60;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("HellJavelin").Type;
@@ -46,7 +46,7 @@ public class HellJavelin : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

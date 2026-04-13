@@ -20,13 +20,13 @@ public class Necrosis : ModItem
 		Item.height = 42;
 		Item.useTime = 50;
 		Item.useAnimation = 25;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 30);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
-		Item.shoot = 270;
+		Item.shoot = ProjectileID.Skull;
 		Item.shootSpeed = 15f;
 	}
 }

@@ -29,7 +29,7 @@ public class StellarSlime : ModNPC
 		NPC.value = 60f;
 		NPC.value = Item.buyPrice(0, 0, 5);
 		NPC.knockBackResist = 0.5f;
-		NPC.aiStyle = 1;
+		NPC.aiStyle = NPCAIStyleID.Slime;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("StellarSlimeBanner").Type;
 	}

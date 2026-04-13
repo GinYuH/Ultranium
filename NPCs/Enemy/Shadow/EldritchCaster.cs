@@ -174,7 +174,7 @@ public class EldritchCaster : ModNPC
 			NPC.netUpdate = true;
 			for (int j = 0; j < 20; j++)
 			{
-				Dust obj = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 89)];
+				Dust obj = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald)];
 				obj.noGravity = true;
 				obj.scale = 1f;
 				obj.velocity *= 0.1f;

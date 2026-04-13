@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -47,13 +48,13 @@ public class ShadowEventWorld : ModSystem
 			text = "The otherworldly roar grows louder...";
 			Ultranium.seizureAmount = 20f;
 		}
-		if (Main.netMode == 0)
+		if (Main.netMode == NetmodeID.SinglePlayer)
 		{
 			Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 		}
-		else if (Main.netMode == 2)
+		else if (Main.netMode == NetmodeID.Server)
 		{
-			NetMessage.SendData(25, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
+			NetMessage.SendData(MessageID.ChatText, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
 		}
 	}
 
@@ -84,11 +85,11 @@ public class ShadowEventWorld : ModSystem
 			Player player = Main.player[i];
 			if (EventTimer == 12600 && !MindFlayer)
 			{
-				if (Main.netMode == 0)
+				if (Main.netMode == NetmodeID.SinglePlayer)
 				{
 					Projectile.NewProjectile(new EntitySource_WorldEvent() , player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
-				if (Main.netMode == 2)
+				if (Main.netMode == NetmodeID.Server)
 				{
 					NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("MindFlayer").Type);
 				}
@@ -96,17 +97,17 @@ public class ShadowEventWorld : ModSystem
 			}
 			if (EventTimer == 24660 && !Erebus)
 			{
-				if (Main.netMode == 0)
+				if (Main.netMode == NetmodeID.SinglePlayer)
 				{
 					Projectile.NewProjectile(new EntitySource_WorldEvent(), player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
-				if (Main.netMode == 2)
+				if (Main.netMode == NetmodeID.Server)
 				{
 					NPC.SpawnOnPlayer(player.whoAmI, Mod.Find<ModNPC>("ErebusHead").Type);
 				}
 				Erebus = true;
 			}
-			if (Main.netMode == 0 && !NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer && !NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
 			{
 				Projectile.NewProjectile(new EntitySource_WorldEvent(), player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
@@ -119,7 +120,7 @@ public class ShadowEventWorld : ModSystem
 				if (Phase2)
 				{
 					Lighting.GlobalBrightness = 0.68f;
-					player.AddBuff(80, 1, quiet: false);
+					player.AddBuff(BuffID.Blackout, 1, quiet: false);
 				}
 			}
 		}

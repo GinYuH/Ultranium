@@ -23,12 +23,12 @@ public class UltraniumScepter : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Summon;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("Ultrum").Type;
 		Item.shootSpeed = 10f;
@@ -72,7 +72,7 @@ public class UltraniumScepter : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

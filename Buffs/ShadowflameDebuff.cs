@@ -26,7 +26,7 @@ public class ShadowflameDebuff : ModBuff
 		player.lifeRegen -= 12;
 		if (Utils.NextBool(Main.rand, 4))
 		{
-			Dust.NewDust(player.position, player.width, player.height, 27);
+			Dust.NewDust(player.position, player.width, player.height, DustID.Shadowflame);
 		}
 	}
 }

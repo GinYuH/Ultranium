@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pumpkin;
@@ -24,7 +25,7 @@ public class PumpkinSeed : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.width = 20;
-		Projectile.aiStyle = 1;
+		Projectile.aiStyle = ProjAIStyleID.Arrow;
 		Projectile.height = 20;
 		Projectile.timeLeft = 60;
 		Projectile.friendly = true;

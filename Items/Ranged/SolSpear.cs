@@ -20,11 +20,11 @@ public class SolSpear : ModItem
 		((Entity)(object)Item).height = 56;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
 		Item.value = Item.buyPrice(0, 50);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.UseSound = SoundID.Item60;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("SolSpear").Type;

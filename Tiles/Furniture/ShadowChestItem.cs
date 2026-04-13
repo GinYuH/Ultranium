@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Furniture;
@@ -19,7 +20,7 @@ public class ShadowChestItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 500;
 		Item.createTile = ModContent.TileType<ShadowChest>();
@@ -35,7 +36,7 @@ public class ShadowChestItem : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowWood", 8);
 		val.AddRecipeGroup("Ultranium:Iron/Lead", 2);
-		val.AddTile(18);
+		val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

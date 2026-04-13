@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.ShadowEvent;
 
@@ -19,10 +20,10 @@ public class DarkResonatorDisabler : ModItem
 		Item.width = 28;
 		Item.height = 18;
 		Item.maxStack = 1;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.consumable = false;
 	}
 
@@ -65,7 +66,7 @@ public class DarkResonatorDisabler : ModItem
 		val.AddIngredient((Mod)null, "DarkResonatorBroken", 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 6);
 		val.AddIngredient((Mod)null, "NightmareFuel", 5);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

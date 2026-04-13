@@ -20,7 +20,7 @@ public class GhostBlade : ModProjectile
 	{
 		Projectile.width = 38;
 		Projectile.height = 38;
-		Projectile.aiStyle = 3;
+		Projectile.aiStyle = ProjAIStyleID.Boomerang;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.tileCollide = false;

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pets;
@@ -16,7 +17,7 @@ public class GuineaPig : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(111);
-		base.AIType = 111;
+		base.AIType = ProjectileID.Bunny;
 		Projectile.height = 36;
 		Projectile.width = 30;
 		Projectile.timeLeft = 999999999;

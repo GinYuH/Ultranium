@@ -37,7 +37,7 @@ public class Keeper : ModNPC
 		NPC.friendly = true;
 		NPC.width = 18;
 		NPC.height = 40;
-		NPC.aiStyle = 7;
+		NPC.aiStyle = NPCAIStyleID.Passive;
 		NPC.damage = 10;
 		NPC.defense = 30;
 		NPC.lifeMax = 500;
@@ -49,12 +49,12 @@ public class Keeper : ModNPC
 		NPCID.Sets.AttackType[NPC.type] = 0;
 		NPCID.Sets.AttackTime[NPC.type] = 90;
 		NPCID.Sets.AttackAverageChance[NPC.type] = 30;
-		base.AnimationType = 17;
+		base.AnimationType = NPCID.Merchant;
 	}
 
 	public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
 	{
-		return Main.player.Any((Player x) => ((Entity)x).active && x.inventory.Any((Item y) => y.type == 73) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1);
+		return Main.player.Any((Player x) => ((Entity)x).active && x.inventory.Any((Item y) => y.type == ItemID.GoldCoin) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1);
 	}
 
 	public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */

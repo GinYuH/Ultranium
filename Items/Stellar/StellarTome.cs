@@ -24,11 +24,11 @@ public class StellarTome : ModItem
 		Item.height = 32;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(0, 35, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.UseSound = SoundID.Item9;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("StellarMagicStar").Type;
@@ -72,7 +72,7 @@ public class StellarTome : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -22,11 +22,11 @@ public class BloodStaff : ModItem
 		Item.height = 40;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(0, 1, 35);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.autoReuse = true;
 		Item.UseSound = SoundID.Item21;
 		Item.shoot = Mod.Find<ModProjectile>("BloodBall").Type;
@@ -43,7 +43,7 @@ public class BloodStaff : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

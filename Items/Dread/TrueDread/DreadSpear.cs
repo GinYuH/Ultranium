@@ -23,16 +23,16 @@ public class DreadSpear : ModItem
 		Item.damage = 200;
 		Item.width = 64;
 		Item.height = 64;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.knockBack = 9f;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		Item.noMelee = true;
 		Item.autoReuse = true;
 		Item.noUseGraphic = true;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.value = Item.buyPrice(1);
 		Item.shoot = Mod.Find<ModProjectile>("DreadSpear").Type;
 		Item.shootSpeed = 15f;
@@ -75,7 +75,7 @@ public class DreadSpear : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

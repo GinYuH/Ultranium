@@ -24,14 +24,14 @@ public class UltraniumBow : ModItem
 		Item.height = 74;
 		Item.useTime = 32;
 		Item.useAnimation = 32;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 1f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
 		Item.useAmmo = AmmoID.Arrow;
-		Item.shoot = 11;
+		Item.shoot = ProjectileID.VilePowder;
 		Item.shootSpeed = 65f;
 	}
 
@@ -71,7 +71,7 @@ public class UltraniumBow : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "UltrumShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

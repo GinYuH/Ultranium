@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Mushroom.Armor;
@@ -16,7 +17,7 @@ public class MushroomBody : ModItem
 		Item.width = 34;
 		Item.height = 22;
 		Item.value = Item.buyPrice(0, 0, 80);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.defense = 3;
 	}
 
@@ -27,8 +28,8 @@ public class MushroomBody : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(183, 16);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.GlowingMushroom, 16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -28,10 +28,10 @@ public class ZephyrTrident : ModItem
 		Item.autoReuse = true;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 2f;
 		Item.value = Item.buyPrice(0, 35, 45);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.noMelee = true;
 		Item.autoReuse = true;
 		Item.noUseGraphic = true;
@@ -70,8 +70,8 @@ public class ZephyrTrident : ModItem
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "OceanScale", 8);
-		val.AddIngredient(275, 5);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.Coral, 5);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

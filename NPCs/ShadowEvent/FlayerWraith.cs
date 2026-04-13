@@ -46,7 +46,7 @@ public class FlayerWraith : ModNPC
 		NPC.noTileCollide = true;
 		NPC.buffImmune[24] = true;
 		NPC.netAlways = true;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("FlayerWraithBanner").Type;
 		for (int i = 0; i < 206; i++)

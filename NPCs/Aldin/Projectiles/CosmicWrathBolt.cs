@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Aldin.Projectiles;
@@ -30,7 +31,7 @@ public class CosmicWrathBolt : ModProjectile
 			return;
 		}
 		Projectile.ai[0] = 0f;
-		if (Main.netMode != 1)
+		if (Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			for (int i = -1; i <= 1; i++)
 			{

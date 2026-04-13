@@ -14,7 +14,7 @@ public class SolThrow : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 30;
 		Item.height = 26;
 		Item.noUseGraphic = true;
@@ -29,6 +29,6 @@ public class SolThrow : ModItem
 		Item.knockBack = 2.5f;
 		Item.damage = 76;
 		Item.value = Item.buyPrice(0, 50);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 	}
 }

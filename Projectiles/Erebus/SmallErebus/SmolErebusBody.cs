@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Erebus.SmallErebus;
@@ -122,7 +123,7 @@ public class SmolErebusBody : ModProjectile
 		{
 			for (int i = 0; i < 2; i++)
 			{
-				int num3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 89, 0f, 0f, 100, default(Color), 2f);
+				int num3 = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemEmerald, 0f, 0f, 100, default(Color), 2f);
 				Main.dust[num3].noGravity = true;
 				Main.dust[num3].noLight = true;
 			}

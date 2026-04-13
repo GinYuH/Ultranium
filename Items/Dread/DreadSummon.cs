@@ -23,11 +23,11 @@ public class DreadSummon : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 12);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("DreadMinion").Type;
 		Item.shootSpeed = 10f;
@@ -64,7 +64,7 @@ public class DreadSummon : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

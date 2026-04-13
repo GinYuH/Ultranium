@@ -21,10 +21,10 @@ public class DreadSword : ModItem
 		Item.height = 80;
 		Item.useTime = 26;
 		Item.useAnimation = 26;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 12);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("DreadFire").Type;
@@ -41,7 +41,7 @@ public class DreadSword : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -27,11 +27,11 @@ public class Necromicon : ModItem
 		Item.width = 16;
 		Item.height = 30;
 		Item.damage = 0;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.useAnimation = 20;
 		Item.useTime = 20;
 		Item.UseSound = SoundID.Item2;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.sellPrice(2);
 		Item.noMelee = true;
 		Item.shoot = ModContent.ProjectileType<TacoDemon>();

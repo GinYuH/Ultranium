@@ -21,7 +21,7 @@ public class BloodBall : ModProjectile
 	{
 		Projectile.width = 14;
 		Projectile.height = 14;
-		Projectile.aiStyle = 18;
+		Projectile.aiStyle = ProjAIStyleID.Sickle;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Magic;
 		Projectile.penetrate = 3;
@@ -64,7 +64,7 @@ public class BloodBall : ModProjectile
 		SoundEngine.PlaySound(SoundID.Item86, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 5, 0f, -2f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Blood, 0f, -2f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 0.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 0.5f;

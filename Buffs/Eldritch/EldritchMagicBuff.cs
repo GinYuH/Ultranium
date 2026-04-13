@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Buffs.Eldritch;
@@ -15,7 +16,7 @@ public class EldritchMagicBuff : ModBuff
 	{
 		player.GetDamage(DamageClass.Magic) *= 1.3f;
 		player.manaCost += -1f;
-		int num = Dust.NewDust(player.position, player.width, player.height, 89);
+		int num = Dust.NewDust(player.position, player.width, player.height, DustID.GemEmerald);
 		Main.dust[num].scale = 1.2f;
 		Main.dust[num].velocity *= 3f;
 		Main.dust[num].noGravity = true;

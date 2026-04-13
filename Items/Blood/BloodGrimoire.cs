@@ -22,12 +22,12 @@ public class BloodGrimoire : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Summon;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 1, 35);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("BloodMinion").Type;
 		Item.shootSpeed = 10f;
@@ -64,7 +64,7 @@ public class BloodGrimoire : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

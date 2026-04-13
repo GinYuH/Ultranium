@@ -23,10 +23,10 @@ public class Umbra : ModItem
 		Item.height = 40;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1, 50);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -51,7 +51,7 @@ public class Umbra : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

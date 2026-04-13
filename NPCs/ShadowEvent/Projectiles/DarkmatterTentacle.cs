@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.ShadowEvent.Projectiles;
@@ -193,7 +194,7 @@ public class DarkmatterTentacle : ModProjectile
 		}
 		Projectile.rotation += angleSpeed;
 		length += lengthSpeed;
-		if (Main.netMode == 2)
+		if (Main.netMode == NetmodeID.Server)
 		{
 			netUpdateCounter++;
 			if (netUpdateCounter >= 300)

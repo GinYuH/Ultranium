@@ -92,7 +92,7 @@ public class BaseWorldGen
 			{
 				WorldGen.TileFrame(item2.X, item2.Y);
 				Tile tile3 = Main.tile[item2.X, item2.Y];
-				if (tile3 != null && tile3.WallType > 0)
+				if (tile3 != null && tile3.WallType > WallID.None)
 				{
 					Framing.WallFrame(item2.X, item2.Y);
 				}
@@ -120,7 +120,7 @@ public class BaseWorldGen
 			{
 				if (!Main.tile[x, y].HasTile)
 				{
-					return Main.tile[x, y].WallType == 0;
+					return Main.tile[x, y].WallType == WallID.None;
 				}
 				return false;
 			}
@@ -217,7 +217,7 @@ public class BaseWorldGen
 				}
 			}
 		}
-		if (sync && Main.netMode != 0)
+		if (sync && Main.netMode != NetmodeID.SinglePlayer)
 		{
 			NetMessage.SendTileSquare(-1, (int)(position.X / 16f), (int)(position.Y / 16f), radius * 2 + 2);
 		}
@@ -256,7 +256,7 @@ public class BaseWorldGen
 		{
 			Liquid.AddWater(x, y);
 		}
-		if (sync && Main.netMode != 0)
+		if (sync && Main.netMode != NetmodeID.SinglePlayer)
 		{
 			NetMessage.SendTileSquare(-1, x, y, 1);
 		}
@@ -272,7 +272,7 @@ public class BaseWorldGen
 			}
 		}
 		int num = ((width > height) ? width : height);
-		if (sync && Main.netMode != 0)
+		if (sync && Main.netMode != NetmodeID.SinglePlayer)
 		{
 			NetMessage.SendTileSquare(-1, x + (int)((float)width * 0.5f) - 1, y + (int)((float)height * 0.5f) - 1, num + 4);
 		}
@@ -301,11 +301,11 @@ public class BaseWorldGen
 						{
 							int num5 = (int)vector.X + i;
 							int num6 = (int)vector.Y + j;
-							if (i == 0 && j == 0 && Main.tile[num5, num6].TileType == 21)
+							if (i == 0 && j == 0 && Main.tile[num5, num6].TileType == TileID.Containers)
 							{
 								KillChestAndItems(num5, num6);
 							}
-							Main.tile[x, y].TileType = 0;
+							Main.tile[x, y].TileType = TileID.Dirt;
 							Main.tile[x, y].Get<TileWallWireStateData>().HasTile = false;
 							if (!silent)
 							{
@@ -389,10 +389,10 @@ public class BaseWorldGen
 				{
 					wall = 0;
 				}
-				Main.tile[x, y].WallType = 0;
+				Main.tile[x, y].WallType = WallID.None;
 				WorldGen.PlaceWall(x, y, wall, mute: true);
 			}
-			if (sync && Main.netMode != 0)
+			if (sync && Main.netMode != NetmodeID.SinglePlayer)
 			{
 				int num9 = num3 + Math.Max(0, num - 1);
 				int num10 = num4 + Math.Max(0, num2 - 1);
@@ -478,14 +478,14 @@ public class BaseWorldGen
 				}
 			}
 			_ = gen.slope;
-			if (sync && Main.netMode != 0)
+			if (sync && Main.netMode != NetmodeID.SinglePlayer)
 			{
 				int num10 = ((endY - y > endX - x) ? (endY - y) : (endX - x));
 				if (thickness > num10)
 				{
 					num10 = thickness;
 				}
-				NetMessage.SendData(20, -1, -1, NetworkText.FromLiteral(""), num10, x, y);
+				NetMessage.SendData(MessageID.TileSquare, -1, -1, NetworkText.FromLiteral(""), num10, x, y);
 			}
 			return;
 		}
@@ -533,10 +533,10 @@ public class BaseWorldGen
 					GenerateTile(num20, num21, gen.GetTile(num15), gen.GetWall(num16), 0, gen.GetTile(num15) != -1, removeLiquid: true, 0, silent: false, sync: false);
 				}
 			}
-			if (sync && Main.netMode != 0 && ((!flag4 && Math.Abs(num17 - point.Y) >= 5) || (flag4 && Math.Abs(num17 - point.Y) >= 5) || num12 + 1f > num11))
+			if (sync && Main.netMode != NetmodeID.SinglePlayer && ((!flag4 && Math.Abs(num17 - point.Y) >= 5) || (flag4 && Math.Abs(num17 - point.Y) >= 5) || num12 + 1f > num11))
 			{
 				int num23 = Math.Max(5, thickness);
-				NetMessage.SendData(10, -1, -1, NetworkText.FromLiteral(""), number, num17, num23, num23);
+				NetMessage.SendData(MessageID.TileSection, -1, -1, NetworkText.FromLiteral(""), number, num17, num23, num23);
 				number = point.X;
 				num17 = point.Y;
 			}
@@ -660,7 +660,7 @@ public class BaseWorldGen
 			}
 		}
 		int num = ((width > height) ? width : height);
-		if (sync && Main.netMode != 0)
+		if (sync && Main.netMode != NetmodeID.SinglePlayer)
 		{
 			NetMessage.SendTileSquare(-1, x + (int)((float)width * 0.5f) - 1, y + (int)((float)height * 0.5f) - 1, num + 4);
 		}
@@ -724,7 +724,7 @@ public class BaseWorldGen
 			}
 		}
 		WorldGen.SquareTileFrame(x + 1, y);
-		if (sync && Main.netMode != 0)
+		if (sync && Main.netMode != NetmodeID.SinglePlayer)
 		{
 			NetMessage.SendTileSquare(-1, x, y, 2);
 		}
@@ -737,7 +737,7 @@ public class BaseWorldGen
 		{
 			for (int j = topY; j < bottomY; j++)
 			{
-				if (Main.tile[i, j].TileType == 48 || Main.tile[i, j].TileType == 137 || Main.tile[i, j].TileType == 232 || Main.tile[i, j].TileType == 191 || Main.tile[i, j].TileType == 151 || Main.tile[i, j].TileType == 274)
+				if (Main.tile[i, j].TileType == TileID.Spikes || Main.tile[i, j].TileType == TileID.Traps || Main.tile[i, j].TileType == TileID.WoodenSpikes || Main.tile[i, j].TileType == TileID.LivingWood || Main.tile[i, j].TileType == TileID.SandstoneBrick || Main.tile[i, j].TileType == TileID.SandStoneSlab)
 				{
 					continue;
 				}
@@ -826,11 +826,11 @@ public class BaseWorldGen
 					}
 					else
 					{
-						if (Main.tile[i, j].HasTile || Main.tile[i, j + 1].TileType == 151 || Main.tile[i, j + 1].TileType == 274)
+						if (Main.tile[i, j].HasTile || Main.tile[i, j + 1].TileType == TileID.SandstoneBrick || Main.tile[i, j + 1].TileType == TileID.SandStoneSlab)
 						{
 							continue;
 						}
-						if (Main.tile[i + 1, j].TileType != 190 && Main.tile[i + 1, j].TileType != 48 && Main.tile[i + 1, j].TileType != 232 && WorldGen.SolidTile(i - 1, j + 1) && WorldGen.SolidTile(i + 1, j) && !Main.tile[i - 1, j].HasTile && !Main.tile[i + 1, j - 1].HasTile)
+						if (Main.tile[i + 1, j].TileType != TileID.MushroomBlock && Main.tile[i + 1, j].TileType != TileID.Spikes && Main.tile[i + 1, j].TileType != TileID.WoodenSpikes && WorldGen.SolidTile(i - 1, j + 1) && WorldGen.SolidTile(i + 1, j) && !Main.tile[i - 1, j].HasTile && !Main.tile[i + 1, j - 1].HasTile)
 						{
 							WorldGen.PlaceTile(i, j, Main.tile[i, j + 1].TileType);
 							if (WorldGen.genRand.Next(2) == 0)
@@ -842,7 +842,7 @@ public class BaseWorldGen
 								WorldGen.PoundTile(i, j);
 							}
 						}
-						if (Main.tile[i - 1, j].TileType != 190 && Main.tile[i - 1, j].TileType != 48 && Main.tile[i - 1, j].TileType != 232 && WorldGen.SolidTile(i + 1, j + 1) && WorldGen.SolidTile(i - 1, j) && !Main.tile[i + 1, j].HasTile && !Main.tile[i - 1, j - 1].HasTile)
+						if (Main.tile[i - 1, j].TileType != TileID.MushroomBlock && Main.tile[i - 1, j].TileType != TileID.Spikes && Main.tile[i - 1, j].TileType != TileID.WoodenSpikes && WorldGen.SolidTile(i + 1, j + 1) && WorldGen.SolidTile(i - 1, j) && !Main.tile[i + 1, j].HasTile && !Main.tile[i - 1, j - 1].HasTile)
 						{
 							WorldGen.PlaceTile(i, j, Main.tile[i, j + 1].TileType);
 							if (WorldGen.genRand.Next(2) == 0)
@@ -873,7 +873,7 @@ public class BaseWorldGen
 		{
 			for (int l = topY; l < bottomY; l++)
 			{
-				if (WorldGen.genRand.Next(2) == 0 && !Main.tile[k, l - 1].HasTile && Main.tile[k, l].TileType != 137 && Main.tile[k, l].TileType != 48 && Main.tile[k, l].TileType != 232 && Main.tile[k, l].TileType != 191 && Main.tile[k, l].TileType != 151 && Main.tile[k, l].TileType != 274 && Main.tile[k, l].TileType != 75 && Main.tile[k, l].TileType != 76 && WorldGen.SolidTile(k, l) && Main.tile[k - 1, l].TileType != 137 && Main.tile[k + 1, l].TileType != 137)
+				if (WorldGen.genRand.Next(2) == 0 && !Main.tile[k, l - 1].HasTile && Main.tile[k, l].TileType != TileID.Traps && Main.tile[k, l].TileType != TileID.Spikes && Main.tile[k, l].TileType != TileID.WoodenSpikes && Main.tile[k, l].TileType != TileID.LivingWood && Main.tile[k, l].TileType != TileID.SandstoneBrick && Main.tile[k, l].TileType != TileID.SandStoneSlab && Main.tile[k, l].TileType != TileID.ObsidianBrick && Main.tile[k, l].TileType != TileID.HellstoneBrick && WorldGen.SolidTile(k, l) && Main.tile[k - 1, l].TileType != TileID.Traps && Main.tile[k + 1, l].TileType != TileID.Traps)
 				{
 					if (WorldGen.SolidTile(k, l + 1) && WorldGen.SolidTile(k + 1, l) && !Main.tile[k - 1, l].HasTile)
 					{

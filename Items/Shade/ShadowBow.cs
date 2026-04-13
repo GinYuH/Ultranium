@@ -19,13 +19,13 @@ public class ShadowBow : ModItem
 		((Entity)(object)Item).height = 40;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.value = Item.buyPrice(0, 8);
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
-		Item.shoot = 10;
+		Item.shoot = ProjectileID.PurificationPowder;
 		Item.shootSpeed = 6.5f;
 		Item.useAmmo = AmmoID.Arrow;
 	}
@@ -38,7 +38,7 @@ public class ShadowBow : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

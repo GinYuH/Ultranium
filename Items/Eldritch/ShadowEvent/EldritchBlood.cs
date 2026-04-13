@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Eldritch.ShadowEvent;
@@ -18,7 +19,7 @@ public class EldritchBlood : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 10);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.maxStack = 999;
 	}
 

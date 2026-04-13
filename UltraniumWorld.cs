@@ -7,6 +7,7 @@ using Terraria.Audio;
 using Terraria.GameContent.Generation;
 using Terraria.Graphics;
 using Terraria.Graphics.Effects;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.WorldBuilding;
@@ -351,7 +352,7 @@ public class UltraniumWorld : ModSystem
 			if (!((double)i > Main.worldSurface))
 			{
 				Tile tile = Main.tile[num, i];
-				if (tile.TileType == 0 || tile.TileType == 2 || tile.TileType == 1)
+				if (tile.TileType == TileID.Dirt || tile.TileType == TileID.Grass || tile.TileType == TileID.Stone)
 				{
 					GuardianShrine.Generate(num, i - 22);
 					flag = true;
@@ -401,27 +402,27 @@ public class UltraniumWorld : ModSystem
 			{
 				if (Vector2.Distance(new Vector2(num4, num5), new Vector2(i, j)) <= (float)num3)
 				{
-					if (Main.tile[i, j].WallType == 15 || Main.tile[i, j].WallType == 59 || Main.tile[i, j].WallType == 2)
+					if (Main.tile[i, j].WallType == WallID.MudUnsafe || Main.tile[i, j].WallType == WallID.Cave6Unsafe || Main.tile[i, j].WallType == WallID.DirtUnsafe)
 					{
 						Main.tile[i, j].WallType = (ushort)Mod.Find<ModWall>("ShadowWall").Type;
 					}
-					if (Main.tile[i, j].WallType == 64 || Main.tile[i, j].WallType == 67 || Main.tile[i, j].WallType == 63 || Main.tile[i, j].WallType == 66 || Main.tile[i, j].WallType == 65 || Main.tile[i, j].WallType == 68 || Main.tile[i, j].WallType == 69 || Main.tile[i, j].WallType == 81)
+					if (Main.tile[i, j].WallType == WallID.JungleUnsafe || Main.tile[i, j].WallType == WallID.Jungle || Main.tile[i, j].WallType == WallID.GrassUnsafe || Main.tile[i, j].WallType == WallID.Grass || Main.tile[i, j].WallType == WallID.FlowerUnsafe || Main.tile[i, j].WallType == WallID.Flower || Main.tile[i, j].WallType == WallID.CorruptGrassUnsafe || Main.tile[i, j].WallType == WallID.CrimsonGrassUnsafe)
 					{
 						Main.tile[i, j].WallType = (ushort)Mod.Find<ModWall>("ShadowGrassWall").Type;
 					}
-					if (Main.tile[i, j].WallType == 83 || Main.tile[i, j].WallType == 3 || Main.tile[i, j].WallType == 40 || Main.tile[i, j].WallType == 1)
+					if (Main.tile[i, j].WallType == WallID.CrimstoneUnsafe || Main.tile[i, j].WallType == WallID.EbonstoneUnsafe || Main.tile[i, j].WallType == WallID.SnowWallUnsafe || Main.tile[i, j].WallType == WallID.Stone)
 					{
 						Main.tile[i, j].WallType = (ushort)Mod.Find<ModWall>("ShadowStoneWall").Type;
 					}
-					if (Main.tile[i, j].TileType == 60 || Main.tile[i, j].TileType == 59 || Main.tile[i, j].TileType == 147 || Main.tile[i, j].TileType == 53 || Main.tile[i, j].TileType == 112 || Main.tile[i, j].TileType == 234 || Main.tile[i, j].TileType == 199 || Main.tile[i, j].TileType == 59 || Main.tile[i, j].TileType == 23 || Main.tile[i, j].TileType == 0 || Main.tile[i, j].TileType == 2)
+					if (Main.tile[i, j].TileType == TileID.JungleGrass || Main.tile[i, j].TileType == TileID.Mud || Main.tile[i, j].TileType == TileID.SnowBlock || Main.tile[i, j].TileType == TileID.Sand || Main.tile[i, j].TileType == TileID.Ebonsand || Main.tile[i, j].TileType == TileID.Crimsand || Main.tile[i, j].TileType == TileID.CrimsonGrass || Main.tile[i, j].TileType == TileID.Mud || Main.tile[i, j].TileType == TileID.CorruptGrass || Main.tile[i, j].TileType == TileID.Dirt || Main.tile[i, j].TileType == TileID.Grass)
 					{
 						Main.tile[i, j].TileType = (ushort)Mod.Find<ModTile>("ShadowGrass").Type;
 					}
-					if (Main.tile[i, j].TileType == 1 || Main.tile[i, j].TileType == 25 || Main.tile[i, j].TileType == 203 || Main.tile[i, j].TileType == 163 || Main.tile[i, j].TileType == 200 || Main.tile[i, j].TileType == 161)
+					if (Main.tile[i, j].TileType == TileID.Stone || Main.tile[i, j].TileType == TileID.Ebonstone || Main.tile[i, j].TileType == TileID.Crimstone || Main.tile[i, j].TileType == TileID.CorruptIce || Main.tile[i, j].TileType == TileID.FleshIce || Main.tile[i, j].TileType == TileID.IceBlock)
 					{
 						Main.tile[i, j].TileType = (ushort)Mod.Find<ModTile>("ShadowStoneTile").Type;
 					}
-					if (Main.tile[i, j].TileType == 6 || Main.tile[i, j].TileType == 7 || Main.tile[i, j].TileType == 8 || Main.tile[i, j].TileType == 9 || Main.tile[i, j].TileType == 221 || Main.tile[i, j].TileType == 222 || Main.tile[i, j].TileType == 223 || Main.tile[i, j].TileType == 204 || Main.tile[i, j].TileType == 166 || Main.tile[i, j].TileType == 167 || Main.tile[i, j].TileType == 168 || Main.tile[i, j].TileType == 169 || Main.tile[i, j].TileType == 221 || Main.tile[i, j].TileType == 107 || Main.tile[i, j].TileType == 108 || Main.tile[i, j].TileType == 22 || Main.tile[i, j].TileType == 111 || Main.tile[i, j].TileType == 123 || Main.tile[i, j].TileType == 224 || Main.tile[i, j].TileType == 40 || Main.tile[i, j].TileType == 59)
+					if (Main.tile[i, j].TileType == TileID.Iron || Main.tile[i, j].TileType == TileID.Copper || Main.tile[i, j].TileType == TileID.Gold || Main.tile[i, j].TileType == TileID.Silver || Main.tile[i, j].TileType == TileID.Palladium || Main.tile[i, j].TileType == TileID.Orichalcum || Main.tile[i, j].TileType == TileID.Titanium || Main.tile[i, j].TileType == TileID.Crimtane || Main.tile[i, j].TileType == TileID.Tin || Main.tile[i, j].TileType == TileID.Lead || Main.tile[i, j].TileType == TileID.Tungsten || Main.tile[i, j].TileType == TileID.Platinum || Main.tile[i, j].TileType == TileID.Palladium || Main.tile[i, j].TileType == TileID.Cobalt || Main.tile[i, j].TileType == TileID.Mythril || Main.tile[i, j].TileType == TileID.Demonite || Main.tile[i, j].TileType == TileID.Adamantite || Main.tile[i, j].TileType == TileID.Silt || Main.tile[i, j].TileType == TileID.Slush || Main.tile[i, j].TileType == TileID.ClayBlock || Main.tile[i, j].TileType == TileID.Mud)
 					{
 						Main.tile[i, j].TileType = (ushort)Mod.Find<ModTile>("ShadowOreTile").Type;
 					}
@@ -547,7 +548,7 @@ public class UltraniumWorld : ModSystem
 		{
 			int num4 = WorldGen.genRand.Next(100, Main.maxTilesX - 100);
 			int num5 = WorldGen.genRand.Next((int)Main.rockLayer, Main.maxTilesY - 300);
-			if (Main.tile[num4, num5] != null && Main.tile[num4, num5].HasTile && Main.tile[num4, num5].TileType == 161)
+			if (Main.tile[num4, num5] != null && Main.tile[num4, num5].HasTile && Main.tile[num4, num5].TileType == TileID.IceBlock)
 			{
 				WorldGen.OreRunner(num4, num5, (double)WorldGen.genRand.Next(5, 12), WorldGen.genRand.Next(5, 12), (ushort)Mod.Find<ModTile>("AuroraOre").Type);
 			}
@@ -556,7 +557,7 @@ public class UltraniumWorld : ModSystem
 
 	private void MoonlordShake(float intensity)
 	{
-		if (Main.netMode == 0)
+		if (Main.netMode == NetmodeID.SinglePlayer)
 		{
 			Player localPlayer = Main.LocalPlayer;
 			if (!Filters.Scene["MoonLordShake"].IsActive())
@@ -581,90 +582,90 @@ public class UltraniumWorld : ModSystem
 
     public override void AddRecipes()
     {
-        Recipe val = Recipe.Create(285, 1);
+        Recipe val = Recipe.Create(ItemID.Aglet, 1);
         val.AddRecipeGroup("Ultranium:Iron/Lead", 5);
-        val.AddTile(16);
+        val.AddTile(TileID.Anvils);
         val.Register();
-        Recipe val2 = Recipe.Create(54, 1);
+        Recipe val2 = Recipe.Create(ItemID.HermesBoots, 1);
         val2.AddRecipeGroup("Ultranium:Silver/Tungsten", 10);
-        val2.AddTile(16);
+        val2.AddTile(TileID.Anvils);
         val2.Register();
-        Recipe val3 = Recipe.Create(212, 1);
-        val3.AddIngredient(210, 6);
-        val3.AddTile(16);
+        Recipe val3 = Recipe.Create(ItemID.AnkletoftheWind, 1);
+        val3.AddIngredient(ItemID.Vine, 6);
+        val3.AddTile(TileID.Anvils);
         val3.Register();
-        Recipe val4 = Recipe.Create(53, 1);
-        val4.AddIngredient(31, 1);
-        val4.AddIngredient(751, 35);
-        val4.AddTile(16);
+        Recipe val4 = Recipe.Create(ItemID.CloudinaBottle, 1);
+        val4.AddIngredient(ItemID.Bottle, 1);
+        val4.AddIngredient(ItemID.Cloud, 35);
+        val4.AddTile(TileID.Anvils);
         val4.Register();
-        Recipe val5 = Recipe.Create(857, 1);
-        val5.AddIngredient(53, 1);
-        val5.AddIngredient(169, 35);
-        val5.AddTile(16);
+        Recipe val5 = Recipe.Create(ItemID.SandstorminaBottle, 1);
+        val5.AddIngredient(ItemID.CloudinaBottle, 1);
+        val5.AddIngredient(ItemID.SandBlock, 35);
+        val5.AddTile(TileID.Anvils);
         val5.Register();
-        Recipe val6 = Recipe.Create(987, 1);
-        val6.AddIngredient(53, 1);
-        val6.AddIngredient(593, 35);
-        val6.AddTile(16);
+        Recipe val6 = Recipe.Create(ItemID.BlizzardinaBottle, 1);
+        val6.AddIngredient(ItemID.CloudinaBottle, 1);
+        val6.AddIngredient(ItemID.SnowBlock, 35);
+        val6.AddTile(TileID.Anvils);
         val6.Register();
-        Recipe val7 = Recipe.Create(1291, 1);
-        val7.AddIngredient(331, 5);
-        val7.AddIngredient(947, 20);
-        val7.AddTile(16);
+        Recipe val7 = Recipe.Create(ItemID.LifeFruit, 1);
+        val7.AddIngredient(ItemID.JungleSpores, 5);
+        val7.AddIngredient(ItemID.ChlorophyteOre, 20);
+        val7.AddTile(TileID.Anvils);
         val7.Register();
-        Recipe val8 = Recipe.Create(29, 1);
-        val8.AddIngredient(178, 10);
+        Recipe val8 = Recipe.Create(ItemID.LifeCrystal, 1);
+        val8.AddIngredient(ItemID.Ruby, 10);
         val8.AddIngredient((Mod)null, "BloodClot", 10);
-        val8.AddTile(16);
+        val8.AddTile(TileID.Anvils);
         val8.Register();
-        Recipe val9 = Recipe.Create(3052, 1);
+        Recipe val9 = Recipe.Create(ItemID.ShadowFlameBow, 1);
         val9.AddIngredient((Mod)null, "ShadowFlame", 8);
-        val9.AddTile(134);
+        val9.AddTile(TileID.MythrilAnvil);
         val9.Register();
-        Recipe val10 = Recipe.Create(3053, 1);
+        Recipe val10 = Recipe.Create(ItemID.ShadowFlameHexDoll, 1);
         val10.AddIngredient((Mod)null, "ShadowFlame", 8);
-        val10.AddTile(134);
+        val10.AddTile(TileID.MythrilAnvil);
         val10.Register();
-        Recipe val11 = Recipe.Create(3054, 1);
+        Recipe val11 = Recipe.Create(ItemID.ShadowFlameKnife, 1);
         val11.AddIngredient((Mod)null, "ShadowFlame", 8);
-        val11.AddTile(134);
+        val11.AddTile(TileID.MythrilAnvil);
         val11.Register();
-        Recipe val12 = Recipe.Create(3063, 1);
-        val12.AddIngredient(3467, 12);
-        val12.AddTile(412);
+        Recipe val12 = Recipe.Create(ItemID.Meowmere, 1);
+        val12.AddIngredient(ItemID.LunarBar, 12);
+        val12.AddTile(TileID.LunarCraftingStation);
         val12.Register();
-        Recipe val13 = Recipe.Create(3065, 1);
-        val13.AddIngredient(3467, 12);
-        val13.AddTile(412);
+        Recipe val13 = Recipe.Create(ItemID.StarWrath, 1);
+        val13.AddIngredient(ItemID.LunarBar, 12);
+        val13.AddTile(TileID.LunarCraftingStation);
         val13.Register();
-        Recipe val14 = Recipe.Create(3389, 1);
-        val14.AddIngredient(3467, 12);
-        val14.AddTile(412);
+        Recipe val14 = Recipe.Create(ItemID.Terrarian, 1);
+        val14.AddIngredient(ItemID.LunarBar, 12);
+        val14.AddTile(TileID.LunarCraftingStation);
         val14.Register();
-        Recipe val15 = Recipe.Create(1553, 1);
-        val15.AddIngredient(3467, 12);
-        val15.AddTile(412);
+        Recipe val15 = Recipe.Create(ItemID.SDMG, 1);
+        val15.AddIngredient(ItemID.LunarBar, 12);
+        val15.AddTile(TileID.LunarCraftingStation);
         val15.Register();
-        Recipe val16 = Recipe.Create(3546, 1);
-        val16.AddIngredient(3467, 12);
-        val16.AddTile(412);
+        Recipe val16 = Recipe.Create(ItemID.FireworksLauncher, 1);
+        val16.AddIngredient(ItemID.LunarBar, 12);
+        val16.AddTile(TileID.LunarCraftingStation);
         val16.Register();
-        Recipe val17 = Recipe.Create(3570, 1);
-        val17.AddIngredient(3467, 12);
-        val17.AddTile(412);
+        Recipe val17 = Recipe.Create(ItemID.LunarFlareBook, 1);
+        val17.AddIngredient(ItemID.LunarBar, 12);
+        val17.AddTile(TileID.LunarCraftingStation);
         val17.Register();
-        Recipe val18 = Recipe.Create(3541, 1);
-        val18.AddIngredient(3467, 12);
-        val18.AddTile(412);
+        Recipe val18 = Recipe.Create(ItemID.LastPrism, 1);
+        val18.AddIngredient(ItemID.LunarBar, 12);
+        val18.AddTile(TileID.LunarCraftingStation);
         val18.Register();
-        Recipe val19 = Recipe.Create(3569, 1);
-        val19.AddIngredient(3467, 12);
-        val19.AddTile(412);
+        Recipe val19 = Recipe.Create(ItemID.MoonlordTurretStaff, 1);
+        val19.AddIngredient(ItemID.LunarBar, 12);
+        val19.AddTile(TileID.LunarCraftingStation);
         val19.Register();
-        Recipe val20 = Recipe.Create(3571, 1);
-        val20.AddIngredient(3467, 12);
-        val20.AddTile(412);
+        Recipe val20 = Recipe.Create(ItemID.RainbowCrystalStaff, 1);
+        val20.AddIngredient(ItemID.LunarBar, 12);
+        val20.AddTile(TileID.LunarCraftingStation);
         val20.Register();
     }
 

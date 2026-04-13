@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pets;
@@ -15,7 +16,7 @@ public class DreadBread : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(112);
-		base.AIType = 112;
+		base.AIType = ProjectileID.Penguin;
 		Projectile.width = 24;
 		Projectile.height = 26;
 		Projectile.timeLeft = 999999999;

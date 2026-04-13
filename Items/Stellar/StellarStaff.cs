@@ -20,12 +20,12 @@ public class StellarStaff : ModItem
 		Item.height = 14;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.staff[Item.type] = true;
 		Item.noMelee = true;
 		Item.knockBack = 2f;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.mana = 12;
 		Item.UseSound = SoundID.DD2_BetsysWrathShot;
 		Item.autoReuse = true;
@@ -41,7 +41,7 @@ public class StellarStaff : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -30,7 +30,7 @@ public class ShadowStoneTile : ModTile
 
 	public override void RandomUpdate(int i, int j)
 	{
-		if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0 && Main.rand.Next(10) == 0 && Main.rand.Next(10) == 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType == TileID.Dirt && Framing.GetTileSafely(i, j - 2).TileType == TileID.Dirt && Main.rand.Next(10) == 0 && Main.rand.Next(10) == 0)
 		{
 			WorldGen.PlaceObject(i - 1, j - 1, ModContent.TileType<GlowShroom>());
 			NetMessage.SendObjectPlacement(-1, i - 1, j - 1, ModContent.TileType<GlowShroom>(), 0, 0, -1, -1);

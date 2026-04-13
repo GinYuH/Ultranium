@@ -37,12 +37,12 @@ public class PurpleShadowGrass : ModTile
 			tileSafely2.TileType = (ushort)ModContent.TileType<PurpleGlowShroomVine>();
 			tileSafely2.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}
 		}
-		if (Framing.GetTileSafely(i, j - 1).TileType == 0 && Framing.GetTileSafely(i, j - 2).TileType == 0 && Main.rand.Next(8) == 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType == TileID.Dirt && Framing.GetTileSafely(i, j - 2).TileType == TileID.Dirt && Main.rand.Next(8) == 0)
 		{
 			if (Main.rand.Next(5) == 0)
 			{

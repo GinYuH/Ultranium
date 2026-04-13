@@ -1,3 +1,4 @@
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Enemy.Critter;
@@ -12,7 +13,7 @@ public class SpectreFishItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.CloneDefaults(261);
+		Item.CloneDefaults(ItemID.Goldfish);
 		Item.makeNPC = (short)ModContent.NPCType<SpectreFish>();
 	}
 }

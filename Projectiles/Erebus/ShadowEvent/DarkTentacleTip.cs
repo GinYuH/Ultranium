@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Erebus.ShadowEvent;
@@ -15,7 +16,7 @@ public class DarkTentacleTip : ModProjectile
 	{
 		Projectile.width = 14;
 		Projectile.height = 14;
-		Projectile.aiStyle = 4;
+		Projectile.aiStyle = ProjAIStyleID.Vilethorn;
 		Projectile.friendly = true;
 		Projectile.alpha = 255;
 		Projectile.penetrate = -1;

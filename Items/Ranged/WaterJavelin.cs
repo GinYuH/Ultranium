@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ranged;
@@ -19,10 +20,10 @@ public class WaterJavelin : ModItem
 		Item.height = 56;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 20);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("WaterJavelin").Type;
 		Item.shootSpeed = 9f;

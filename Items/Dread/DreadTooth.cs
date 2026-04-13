@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Dread;
@@ -16,7 +17,7 @@ public class DreadTooth : ModItem
 		Item.width = 28;
 		Item.height = 28;
 		Item.value = Item.buyPrice(0, 10);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.accessory = true;
 	}
 

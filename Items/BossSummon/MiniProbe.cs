@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossSummon;
@@ -21,10 +22,10 @@ public class MiniProbe : ModItem
 		Item.height = 30;
 		Item.maxStack = 20;
 		Item.value = 100;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.useAnimation = 30;
 		Item.useTime = 30;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.consumable = true;
 	}
 

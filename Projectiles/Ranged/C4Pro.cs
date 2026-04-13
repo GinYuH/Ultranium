@@ -21,7 +21,7 @@ public class C4Pro : ModProjectile
 	{
 		Projectile.width = 18;
 		Projectile.height = 18;
-		Projectile.aiStyle = 18;
+		Projectile.aiStyle = ProjAIStyleID.Sickle;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.penetrate = 1;
@@ -34,7 +34,7 @@ public class C4Pro : ModProjectile
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
 		target.immune[Projectile.owner] = 10;
-		target.AddBuff(39, 120, quiet: true);
+		target.AddBuff(BuffID.CursedInferno, 120, quiet: true);
 	}
 
 	public override bool PreDraw(ref Color lightColor)

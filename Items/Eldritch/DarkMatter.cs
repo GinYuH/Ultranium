@@ -21,7 +21,7 @@ public class DarkMatter : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.maxStack = 999;
 	}
 

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Dread.TrueDread.Armor;
@@ -19,7 +20,7 @@ public class HorrorBody : ModItem
 		Item.width = 18;
 		Item.height = 18;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.defense = 38;
 	}
 
@@ -47,7 +48,7 @@ public class HorrorBody : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 16);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

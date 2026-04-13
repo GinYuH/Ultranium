@@ -97,7 +97,7 @@ public class Aldin : ModNPC
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
+		if (projectile.type == ProjectileID.NebulaBlaze1 || projectile.type == ProjectileID.NebulaArcanum || projectile.type == ProjectileID.NebulaArcanumExplosionShotShard || projectile.type == ProjectileID.LastPrismLaser || projectile.type == ProjectileID.PhantasmArrow || projectile.type == ProjectileID.MoonlordArrow || projectile.type == ProjectileID.VortexBeaterRocket || projectile.type == ProjectileID.Meowmere || projectile.type == ProjectileID.StarWrath || projectile.type == ProjectileID.Daybreak)
 		{
 			modifiers.SourceDamage /= 10;
 		}
@@ -248,7 +248,7 @@ public class Aldin : ModNPC
 					for (int k = 0; k < 3; k++)
 					{
 						Vector2 vector3 = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)k + Main.rand.NextDouble() - 0.5));
-						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector3, 465, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector3, ProjectileID.CultistBossLightningOrb, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 360)
@@ -476,7 +476,7 @@ public class Aldin : ModNPC
 						double num25 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector9.X += (float)(Math.Sin(num25) * 1200.0);
 						vector9.Y += (float)(Math.Cos(num25) * 1200.0);
-						Dust obj = Main.dust[Dust.NewDust(NPC.Center + vector9 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj = Main.dust[Dust.NewDust(NPC.Center + vector9 - new Vector2(4f, 4f), 0, 0, DustID.PurpleTorch, 0f, 0f, 100, Color.White)];
 						obj.velocity *= 0f;
 						obj.noGravity = true;
 						obj.scale = 2.5f;
@@ -665,7 +665,7 @@ public class Aldin : ModNPC
 						double num50 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector16.X += (float)(Math.Sin(num50) * 1200.0);
 						vector16.Y += (float)(Math.Cos(num50) * 1200.0);
-						Dust obj2 = Main.dust[Dust.NewDust(NPC.Center + vector16 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj2 = Main.dust[Dust.NewDust(NPC.Center + vector16 - new Vector2(4f, 4f), 0, 0, DustID.PurpleTorch, 0f, 0f, 100, Color.White)];
 						obj2.velocity *= 0f;
 						obj2.noGravity = true;
 						obj2.scale = 2.5f;
@@ -842,7 +842,7 @@ public class Aldin : ModNPC
 						double num69 = Main.rand.NextDouble() * 2.0 * Math.PI;
 						vector24.X += (float)(Math.Sin(num69) * 1200.0);
 						vector24.Y += (float)(Math.Cos(num69) * 1200.0);
-						Dust obj3 = Main.dust[Dust.NewDust(NPC.Center + vector24 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+						Dust obj3 = Main.dust[Dust.NewDust(NPC.Center + vector24 - new Vector2(4f, 4f), 0, 0, DustID.PurpleTorch, 0f, 0f, 100, Color.White)];
 						obj3.velocity *= 0f;
 						obj3.noGravity = true;
 						obj3.scale = 2.5f;
@@ -885,7 +885,7 @@ public class Aldin : ModNPC
 						{
 							NPC.ai[2] -= (float)Math.PI * 5f;
 						}
-						if (Main.netMode != 1)
+						if (Main.netMode != NetmodeID.MultiplayerClient)
 						{
 							int num76 = 3;
 							for (int num77 = 0; num77 < num76; num77++)
@@ -955,9 +955,9 @@ public class Aldin : ModNPC
 		if (!UltraniumWorld.downedAldin)
 		{
 			UltraniumWorld.downedAldin = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

@@ -22,12 +22,12 @@ public class AuroraStaff : ModItem
 		Item.height = 42;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Summon;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 0, 80);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("StarMinion").Type;
 		Item.shootSpeed = 0f;
@@ -62,7 +62,7 @@ public class AuroraStaff : ModItem
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AuroraBar", 5);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

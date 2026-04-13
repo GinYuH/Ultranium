@@ -17,10 +17,10 @@ public class Exitium : ModItem
 	public override void SetDefaults()
 	{
 		Item.damage = 260;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.width = 24;
 		Item.height = 24;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.useAnimation = 25;
 		Item.useTime = 25;
 		Item.UseSound = SoundID.Item1;
@@ -51,7 +51,7 @@ public class Exitium : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

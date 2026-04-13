@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.IceDragon.Projectiles;
@@ -138,6 +139,6 @@ public class IceTwisterSmall : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		target.AddBuff(44, 60);
+		target.AddBuff(BuffID.Frostburn, 60);
 	}
 }

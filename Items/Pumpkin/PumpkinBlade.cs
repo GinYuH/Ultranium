@@ -20,10 +20,10 @@ public class PumpkinBlade : ModItem
 		((Entity)(object)Item).height = 40;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 0, 50);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("PumpkinSeed").Type;
@@ -40,9 +40,9 @@ public class PumpkinBlade : ModItem
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1725, 10);
+		val.AddIngredient(ItemID.Pumpkin, 10);
         val.AddRecipeGroup(RecipeGroupID.Wood, 20);
-        val.AddTile(18);
+        val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

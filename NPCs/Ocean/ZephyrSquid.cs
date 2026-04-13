@@ -187,7 +187,7 @@ public class ZephyrSquid : ModNPC
 		{
 			for (int j = 0; j < 60; j++)
 			{
-				int num7 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 191);
+				int num7 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.SpookyWood);
 				Main.dust[num7].scale = 1.5f;
 			}
 			Vector2 spinningpoint = new Vector2(8f, 0f).RotatedByRandom(Math.PI * 2.0);
@@ -286,9 +286,9 @@ public class ZephyrSquid : ModNPC
 		if (!UltraniumWorld.downedSquid)
 		{
 			UltraniumWorld.downedSquid = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

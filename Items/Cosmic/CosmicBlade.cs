@@ -33,10 +33,10 @@ public class CosmicBlade : ModItem
 		Item.height = 32;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(2);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item9;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("CosmicSwordStar").Type;

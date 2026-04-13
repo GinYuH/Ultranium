@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
 using Ultranium.Projectiles.Pets;
@@ -16,7 +17,7 @@ public class WormPet : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.CloneDefaults(2420);
+		Item.CloneDefaults(ItemID.ZephyrFish);
 		Item.shoot = ModContent.ProjectileType<BabyWorm>();
 		Item.buffType = ModContent.BuffType<BabyWormBuff>();
 	}

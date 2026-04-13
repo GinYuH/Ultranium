@@ -26,7 +26,7 @@ public class ShadeWisp : ModProjectile
 		Projectile.ignoreWater = true;
 		Projectile.tileCollide = true;
 		Projectile.netImportant = true;
-		base.AIType = 317;
+		base.AIType = ProjectileID.Raven;
 		Projectile.penetrate = -1;
 		Projectile.timeLeft = 18000;
 		Projectile.minionSlots = 1f;

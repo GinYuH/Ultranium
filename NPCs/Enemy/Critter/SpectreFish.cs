@@ -24,10 +24,10 @@ public class SpectreFish : ModNPC
 		NPC.HitSound = SoundID.NPCHit1;
 		NPC.DeathSound = SoundID.NPCDeath1;
 		NPC.knockBackResist = 0.35f;
-		NPC.aiStyle = 16;
+		NPC.aiStyle = NPCAIStyleID.Piranha;
 		NPC.noGravity = true;
 		NPC.npcSlots = 0f;
-		base.AIType = 55;
+		base.AIType = NPCID.Goldfish;
 		NPC.dontCountMe = true;
 	}
 

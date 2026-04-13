@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
@@ -16,7 +17,7 @@ public class XenanisTrophy : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)Type);
-		base.DustType = 7;
+		base.DustType = DustID.WoodFurniture;
 		Terraria.ID.TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");

@@ -51,7 +51,7 @@ public class AbyssBolt : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 179);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BubbleBurst_Purple);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}

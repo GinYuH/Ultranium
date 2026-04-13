@@ -24,10 +24,10 @@ public class EldritchPumpkinStaff : ModItem
 		Item.height = 80;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 2f;
 		Item.value = Item.buyPrice(0, 10, 50);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.UseSound = SoundID.DD2_BetsysWrathShot;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EldritchPumpkinFire").Type;
@@ -58,8 +58,8 @@ public class EldritchPumpkinStaff : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "PumpkinStaff", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
-		val.AddIngredient(521, 10);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofNight, 10);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Ice;
@@ -20,7 +21,7 @@ public class GlacialFlail : ModProjectile
 		Projectile.friendly = true;
 		Projectile.penetrate = -1;
 		Projectile.DamageType = DamageClass.Melee;
-		Projectile.aiStyle = 15;
+		Projectile.aiStyle = ProjAIStyleID.Flail;
 	}
 
 	public override void AI()
@@ -52,7 +53,7 @@ public class GlacialFlail : ModProjectile
 				num5 = num4 / num5;
 			}
 			vector *= num5;
-			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 119, Projectile.damage, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
+			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, ProjectileID.FrostBoltSword, Projectile.damage, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
 			Main.projectile[num6].friendly = true;
 			Main.projectile[num6].hostile = false;
 		}

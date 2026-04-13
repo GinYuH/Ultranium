@@ -26,9 +26,9 @@ public class AbyssalAngler : ModNPC
 		NPC.width = 54;
 		NPC.height = 58;
 		NPC.noGravity = true;
-		NPC.aiStyle = 16;
-		base.AIType = 102;
-		base.AnimationType = 65;
+		NPC.aiStyle = NPCAIStyleID.Piranha;
+		base.AIType = NPCID.AnglerFish;
+		base.AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("AbyssalAnglerBanner").Type;

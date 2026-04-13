@@ -20,11 +20,11 @@ public class NetherBeacon : ModItem
 		Item.width = 42;
 		Item.height = 46;
 		Item.maxStack = 1;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.useAnimation = 45;
 		Item.value = Item.buyPrice(0, 10);
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = SoundID.Item44;
 		Item.consumable = false;
 	}
@@ -58,9 +58,9 @@ public class NetherBeacon : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(3467, 5);
+		val.AddIngredient(ItemID.LunarBar, 5);
 		val.AddIngredient((Mod)null, "BrokenIgnodiumSummon", 1);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

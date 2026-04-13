@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Developer;
@@ -29,9 +30,9 @@ public class ShadowFlute : ModItem
 		Item.height = 58;
 		Item.useTime = 21;
 		Item.useAnimation = 21;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 1f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(2);
 		Item.UseSound = new Terraria.Audio.SoundStyle("Ultranium/Sounds/Item/Flute");
 		Item.autoReuse = true;

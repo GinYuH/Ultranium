@@ -20,11 +20,11 @@ public class StellarDisc : ModItem
 		((Entity)(object)Item).height = 42;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
 		Item.value = Item.buyPrice(0, 35, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("StellarDisc").Type;
@@ -44,7 +44,7 @@ public class StellarDisc : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 10);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

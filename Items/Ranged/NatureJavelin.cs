@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ranged;
@@ -19,10 +20,10 @@ public class NatureJavelin : ModItem
 		((Entity)(object)Item).height = 56;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 20);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("NatureJavelin").Type;
 		Item.shootSpeed = 9f;
@@ -39,9 +40,9 @@ public class NatureJavelin : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(331, 12);
-		val.AddIngredient(209, 12);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.JungleSpores, 12);
+		val.AddIngredient(ItemID.Stinger, 12);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

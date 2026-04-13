@@ -23,10 +23,10 @@ public class CavumNigrum : ModItem
 		Item.height = 42;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1, 50);
 		Item.UseSound = SoundID.Item60;
 		Item.autoReuse = true;
@@ -51,7 +51,7 @@ public class CavumNigrum : ModItem
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
 		val.AddIngredient((Mod)null, "DarkMatter", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

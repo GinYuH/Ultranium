@@ -23,10 +23,10 @@ public class HellTome : ModItem
 		Item.height = 40;
 		Item.useTime = 26;
 		Item.useAnimation = 26;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -47,7 +47,7 @@ public class HellTome : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

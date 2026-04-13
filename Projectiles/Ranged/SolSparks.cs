@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Ranged;
@@ -27,8 +28,8 @@ public class SolSparks : ModProjectile
 
 	public override void AI()
 	{
-		int num = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 228);
-		int num2 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 228);
+		int num = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GoldFlame);
+		int num2 = Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.GoldFlame);
 		Main.dust[num].noGravity = true;
 		Main.dust[num2].noGravity = true;
 		Main.dust[num2].velocity = Vector2.Zero;

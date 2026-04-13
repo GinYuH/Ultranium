@@ -19,10 +19,10 @@ public class BloodMoonSummon : ModItem
 		Item.width = 20;
 		Item.height = 20;
 		Item.maxStack = 20;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = SoundID.Item44;
 		Item.consumable = true;
 	}
@@ -51,7 +51,7 @@ public class BloodMoonSummon : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 15);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

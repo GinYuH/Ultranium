@@ -66,19 +66,19 @@ public class EldritchPumpkibomb : ModProjectile
 			vector.Normalize();
 			vector.X *= 3f;
 			vector.Y *= 3f;
-			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 402, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, ProjectileID.MolotovFire3, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
 		}
 		for (int j = 0; j < 20; j++)
 		{
-			int num4 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 1.5f);
+			int num4 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
 			Main.dust[num4].velocity *= 1.4f;
 		}
 		for (int k = 0; k < 10; k++)
 		{
-			int num5 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2.5f);
+			int num5 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 2.5f);
 			Main.dust[num5].noGravity = true;
 			Main.dust[num5].velocity *= 5f;
-			num5 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
+			num5 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 1.5f);
 			Main.dust[num5].velocity *= 3f;
 		}
 		int num6 = Gore.NewGore(null, new Vector2(Projectile.position.X, Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));

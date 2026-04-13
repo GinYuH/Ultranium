@@ -27,8 +27,8 @@ public class ShadowBat : ModNPC
 		NPC.DeathSound = SoundID.NPCDeath4;
 		NPC.value = 60f;
 		NPC.knockBackResist = 0.5f;
-		NPC.aiStyle = 14;
-		base.AIType = 49;
+		NPC.aiStyle = NPCAIStyleID.Bat;
+		base.AIType = NPCID.CaveBat;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("ShadowBatBanner").Type;
 	}

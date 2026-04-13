@@ -75,21 +75,21 @@ public class FakeDread : ModNPC
 			}
 		}
 		NPC.TargetClosest();
-		if (Main.netMode != 1)
+		if (Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			int num = 6000;
 			if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > (float)num)
 			{
 				((Entity)NPC).active = false;
 				NPC.life = 0;
-				if (Main.netMode == 2)
+				if (Main.netMode == NetmodeID.Server)
 				{
-					NetMessage.SendData(23, -1, -1, null, NPC.whoAmI);
+					NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, NPC.whoAmI);
 				}
 			}
 		}
 		NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 4.71f;
-		if (NPC.localAI[0] == 0f && Main.netMode != 1)
+		if (NPC.localAI[0] == 0f && Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			NPC.localAI[0] = 1f;
 			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
@@ -235,7 +235,7 @@ public class FakeDread : ModNPC
 				int num25 = 30;
 				for (int k = 1; k <= num25; k++)
 				{
-					int num26 = Dust.NewDust(NPC.position, rectangle.Width, rectangle.Height, 90, 0f, 0f, 100, newColor, 2.5f);
+					int num26 = Dust.NewDust(NPC.position, rectangle.Width, rectangle.Height, DustID.GemRuby, 0f, 0f, 100, newColor, 2.5f);
 					Main.dust[num26].noGravity = false;
 				}
 			}
@@ -255,7 +255,7 @@ public class FakeDread : ModNPC
 				{
 					Vector2 vector4 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(l - (num27 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num27) + NPC.Center;
 					Vector2 vector5 = vector4 - NPC.Center;
-					Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, 90, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, DustID.GemRuby, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
 					obj.noGravity = true;
 					obj.noLight = false;
 					obj.velocity = Vector2.Normalize(vector5) * 3f;

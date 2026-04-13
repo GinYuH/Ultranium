@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Items.Vanity.Futaba;
 using Ultranium.Items.Vanity.Lux;
@@ -19,12 +20,12 @@ public class GlobalItems : GlobalItem
 		//IL_0023: Expected O, but got Unknown
 		//IL_0047: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004d: Expected O, but got Unknown
-		if (item.type == 579)
+		if (item.type == ItemID.Drax)
 		{
 			TooltipLine item2 = new TooltipLine(((GlobalItem)this).Mod, "DraxToolTip", "Able to mine Depthstone");
 			tooltips.Add(item2);
 		}
-		if (item.type == 990)
+		if (item.type == ItemID.PickaxeAxe)
 		{
 			TooltipLine item3 = new TooltipLine(((GlobalItem)this).Mod, "PickaxeAxeToolTip", "Able to mine Depthstone");
 			tooltips.Add(item3);
@@ -33,7 +34,7 @@ public class GlobalItems : GlobalItem
 
 	public override void UpdateAccessory(Item item, Player player, bool hideVisual)
 	{
-		if (item.type == 3090)
+		if (item.type == ItemID.RoyalGel)
 		{
 			player.npcTypeNoAggro[((GlobalItem)this).Mod.Find<ModNPC>("TenebrisSlime").Type] = true;
 			player.npcTypeNoAggro[((GlobalItem)this).Mod.Find<ModNPC>("DepthSlime").Type] = true;

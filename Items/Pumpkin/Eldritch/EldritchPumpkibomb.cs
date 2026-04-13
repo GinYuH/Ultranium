@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Pumpkin.Eldritch;
@@ -19,10 +20,10 @@ public class EldritchPumpkibomb : ModItem
 		((Entity)(object)Item).height = 20;
 		Item.useTime = 38;
 		Item.useAnimation = 38;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 10, 50);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EldritchPumpkibomb").Type;
 		Item.shootSpeed = 6.5f;
@@ -41,8 +42,8 @@ public class EldritchPumpkibomb : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "Pumpkibomb", 1);
 		val.AddIngredient((Mod)null, "ShadowEssence", 20);
-		val.AddIngredient(521, 10);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofNight, 10);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

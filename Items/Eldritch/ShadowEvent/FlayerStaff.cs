@@ -24,11 +24,11 @@ public class FlayerStaff : ModItem
 		Item.height = 40;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("DeathBolt").Type;
@@ -50,7 +50,7 @@ public class FlayerStaff : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

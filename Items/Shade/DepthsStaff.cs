@@ -23,11 +23,11 @@ public class DepthsStaff : ModItem
 		((Entity)(object)Item).height = 42;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 68);
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("DemonMinion").Type;
 		Item.shootSpeed = 10f;

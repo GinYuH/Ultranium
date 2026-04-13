@@ -22,13 +22,13 @@ public class EtherealBow : ModItem
 		Item.height = 18;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 7f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = SoundID.Item5;
-		Item.shoot = 10;
+		Item.shoot = ProjectileID.PurificationPowder;
 		Item.autoReuse = true;
 		Item.shootSpeed = 10f;
 		Item.useAmmo = AmmoID.Arrow;
@@ -55,7 +55,7 @@ public class EtherealBow : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 

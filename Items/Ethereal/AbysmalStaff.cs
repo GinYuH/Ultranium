@@ -22,11 +22,11 @@ public class AbysmalStaff : ModItem
 		Item.height = 56;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(0, 30);
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("AbyssBolt").Type;
@@ -42,10 +42,10 @@ public class AbysmalStaff : ModItem
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(683, 1);
+		val.AddIngredient(ItemID.UnholyTrident, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 5);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

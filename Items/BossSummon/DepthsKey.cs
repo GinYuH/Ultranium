@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossSummon;
@@ -17,10 +18,10 @@ public class DepthsKey : ModItem
 		Item.height = 16;
 		Item.useTime = 19;
 		Item.useAnimation = 19;
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.value = 100;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.noMelee = true;
 	}
 

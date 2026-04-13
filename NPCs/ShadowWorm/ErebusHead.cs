@@ -151,7 +151,7 @@ public class ErebusHead : ModNPC
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
+		if (projectile.type == ProjectileID.NebulaBlaze1 || projectile.type == ProjectileID.NebulaArcanum || projectile.type == ProjectileID.NebulaArcanumExplosionShotShard || projectile.type == ProjectileID.LastPrismLaser || projectile.type == ProjectileID.PhantasmArrow || projectile.type == ProjectileID.MoonlordArrow || projectile.type == ProjectileID.VortexBeaterRocket || projectile.type == ProjectileID.Meowmere || projectile.type == ProjectileID.StarWrath || projectile.type == ProjectileID.Daybreak)
 		{
 			modifiers.SourceDamage /= 5;
 		}
@@ -291,7 +291,7 @@ public class ErebusHead : ModNPC
 				{
 					Vector2 vector5 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(j - (num4 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num4) + NPC.Center;
 					Vector2 vector6 = vector5 - NPC.Center;
-					Dust obj = Main.dust[Dust.NewDust(vector5 + vector6, 0, 0, 89, vector6.X * 2f, vector6.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj = Main.dust[Dust.NewDust(vector5 + vector6, 0, 0, DustID.GemEmerald, vector6.X * 2f, vector6.Y * 2f, 100, default(Color), 1.4f)];
 					obj.noGravity = true;
 					obj.noLight = false;
 					obj.velocity = Vector2.Normalize(vector6) * 3f;
@@ -317,7 +317,7 @@ public class ErebusHead : ModNPC
 				{
 					Vector2 vector7 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(k - (num5 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num5) + NPC.Center;
 					Vector2 vector8 = vector7 - NPC.Center;
-					Dust obj2 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, 89, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj2 = Main.dust[Dust.NewDust(vector7 + vector8, 0, 0, DustID.GemEmerald, vector8.X * 2f, vector8.Y * 2f, 100, default(Color), 1.4f)];
 					obj2.noGravity = true;
 					obj2.noLight = false;
 					obj2.velocity = Vector2.Normalize(vector8) * 6f;
@@ -405,7 +405,7 @@ public class ErebusHead : ModNPC
 				{
 					Vector2 vector14 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(m - (num10 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num10) + NPC.Center;
 					Vector2 vector15 = vector14 - NPC.Center;
-					Dust obj4 = Main.dust[Dust.NewDust(vector14 + vector15, 0, 0, 89, vector15.X * 2f, vector15.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj4 = Main.dust[Dust.NewDust(vector14 + vector15, 0, 0, DustID.GemEmerald, vector15.X * 2f, vector15.Y * 2f, 100, default(Color), 1.4f)];
 					obj4.noGravity = true;
 					obj4.noLight = false;
 					obj4.velocity = Vector2.Normalize(vector15) * 3f;
@@ -416,7 +416,7 @@ public class ErebusHead : ModNPC
 			{
 				for (int n = 0; n < 100; n++)
 				{
-					int num11 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 89, 0f, -2f, 0, default(Color), 1.5f);
+					int num11 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald, 0f, -2f, 0, default(Color), 1.5f);
 					Main.dust[num11].noGravity = false;
 					Main.dust[num11].scale = 3.5f;
 					Main.dust[num11].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -477,7 +477,7 @@ public class ErebusHead : ModNPC
 				{
 					Vector2 vector18 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(num15 - (num14 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num14) + NPC.Center;
 					Vector2 vector19 = vector18 - NPC.Center;
-					Dust obj5 = Main.dust[Dust.NewDust(vector18 + vector19, 0, 0, 89, vector19.X * 2f, vector19.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj5 = Main.dust[Dust.NewDust(vector18 + vector19, 0, 0, DustID.GemEmerald, vector19.X * 2f, vector19.Y * 2f, 100, default(Color), 1.4f)];
 					obj5.noGravity = true;
 					obj5.noLight = false;
 					obj5.velocity = Vector2.Normalize(vector19) * 3f;
@@ -492,7 +492,7 @@ public class ErebusHead : ModNPC
 				{
 					Vector2 vector20 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(num17 - (num16 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num16) + NPC.Center;
 					Vector2 vector21 = vector20 - NPC.Center;
-					Dust obj6 = Main.dust[Dust.NewDust(vector20 + vector21, 0, 0, 89, vector21.X * 2f, vector21.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj6 = Main.dust[Dust.NewDust(vector20 + vector21, 0, 0, DustID.GemEmerald, vector21.X * 2f, vector21.Y * 2f, 100, default(Color), 1.4f)];
 					obj6.noGravity = true;
 					obj6.noLight = false;
 					obj6.velocity = Vector2.Normalize(vector21) * 6f;
@@ -594,7 +594,7 @@ public class ErebusHead : ModNPC
 				CircleShootTimer = 0;
 			}
 		}
-		if (Main.netMode != 1 && NPC.ai[0] == 0f)
+		if (Main.netMode != NetmodeID.MultiplayerClient && NPC.ai[0] == 0f)
 		{
 			NPC.realLife = NPC.whoAmI;
 			int num23 = NPC.whoAmI;
@@ -943,9 +943,9 @@ public class ErebusHead : ModNPC
 		if (!UltraniumWorld.downedErebus)
 		{
 			UltraniumWorld.downedErebus = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 		if (ShadowEventWorld.ShadowEventActive)

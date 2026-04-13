@@ -23,11 +23,11 @@ public class ZephyrScepter : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 35, 45);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("BabySquid").Type;
 		Item.shootSpeed = 10f;
@@ -63,8 +63,8 @@ public class ZephyrScepter : ModItem
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "OceanScale", 8);
-		val.AddIngredient(275, 5);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.Coral, 5);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

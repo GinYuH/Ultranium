@@ -24,9 +24,9 @@ public class DreadFlameBlaster : ModItem
 		Item.height = 26;
 		Item.useTime = 5;
 		Item.useAnimation = 5;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item34;
 		Item.value = Item.buyPrice(1);
 		Item.autoReuse = true;
@@ -71,7 +71,7 @@ public class DreadFlameBlaster : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

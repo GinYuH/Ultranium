@@ -16,7 +16,7 @@ public class ShadowGrassVine : ModTile
 		Main.tileNoFail[Type] = true;
 		Main.tileNoAttach[Type] = true;
 		base.HitSound = SoundID.Grass;
-		base.DustType = 89;
+		base.DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 	}
 
@@ -74,7 +74,7 @@ public class ShadowGrassVine : ModTile
 			tileSafely.TileType = Type;
 			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}

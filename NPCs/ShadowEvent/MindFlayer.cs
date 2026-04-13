@@ -62,7 +62,7 @@ public class MindFlayer : ModNPC
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
 		NPC.netAlways = true;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		NPC.alpha = 255;
 		for (int i = 0; i < 206; i++)
 		{
@@ -108,7 +108,7 @@ public class MindFlayer : ModNPC
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{
-		target.AddBuff(163, 60, quiet: false);
+		target.AddBuff(BuffID.Obstructed, 60, quiet: false);
 		target.AddBuff(Mod.Find<ModBuff>("DarkDebuff").Type, 300);
 	}
 
@@ -335,13 +335,13 @@ public class MindFlayer : ModNPC
 		{
 			ShadowEventWorld.Phase2 = true;
 			string text = "The darkness thickens...";
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 			}
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(25, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
+				NetMessage.SendData(MessageID.ChatText, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
 			}
 		}
 	}

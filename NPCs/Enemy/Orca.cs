@@ -26,10 +26,10 @@ public class Orca : ModNPC
 		NPC.scale = 1.1f;
 		NPC.noGravity = true;
 		NPC.value = Item.buyPrice(0, 0, 20);
-		NPC.aiStyle = 16;
-		base.AIType = 65;
+		NPC.aiStyle = NPCAIStyleID.Piranha;
+		base.AIType = NPCID.Shark;
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
-		base.AnimationType = 65;
+		base.AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
 	}
 

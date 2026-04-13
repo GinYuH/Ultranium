@@ -26,10 +26,10 @@ public class TempleShroomCritter : ModNPC
 		NPC.HitSound = SoundID.NPCHit1;
 		NPC.DeathSound = SoundID.NPCDeath1;
 		NPC.knockBackResist = 0.45f;
-		NPC.aiStyle = 7;
+		NPC.aiStyle = NPCAIStyleID.Passive;
 		NPC.npcSlots = 0f;
 		NPC.noGravity = false;
-		base.AIType = 46;
+		base.AIType = NPCID.Bunny;
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
@@ -74,9 +74,9 @@ public class TempleShroomCritter : ModNPC
 		if (!UltraniumWorld.SolarShroom)
 		{
 			UltraniumWorld.SolarShroom = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

@@ -24,10 +24,10 @@ public class EldritchScythe : ModItem
 		Item.height = 42;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 8f;
 		Item.noUseGraphic = true;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("EldritchScythe").Type;
@@ -49,7 +49,7 @@ public class EldritchScythe : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

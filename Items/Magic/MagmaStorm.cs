@@ -21,11 +21,11 @@ public class MagmaStorm : ModItem
 		Item.height = 40;
 		Item.useTime = 22;
 		Item.useAnimation = 22;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = Item.buyPrice(0, 10);
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
 		Item.scale = 0.8f;
@@ -41,9 +41,9 @@ public class MagmaStorm : ModItem
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(531, 1);
-		val.AddIngredient(2701, 5);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SpellTome, 1);
+		val.AddIngredient(ItemID.LivingFireBlock, 5);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

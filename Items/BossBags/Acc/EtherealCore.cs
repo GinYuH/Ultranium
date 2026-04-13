@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossBags.Acc;
@@ -15,7 +16,7 @@ public class EtherealCore : ModItem
 	{
 		Item.width = 32;
 		Item.height = 32;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.value = Item.buyPrice(0, 45);
 		Item.accessory = true;
 		Item.expert = true;

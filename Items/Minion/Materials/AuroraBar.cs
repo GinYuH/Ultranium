@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Minion.Materials;
@@ -18,7 +19,7 @@ public class AuroraBar : ModItem
 		Item.height = Item.height;
 		Item.maxStack = 999;
 		Item.value = 1000;
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 	}
 
 	public override void AddRecipes()
@@ -29,7 +30,7 @@ public class AuroraBar : ModItem
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AuroraOreItem", 4);
-		val.AddTile(17);
+		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}
 }

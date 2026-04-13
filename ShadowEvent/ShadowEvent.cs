@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -38,18 +39,18 @@ public class ShadowEvent
 			ShadowEventWorld.Erebus = false;
 			ShadowEventWorld.Phase2 = false;
 			ShadowEventWorld.EventTimer = 0;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 			string text = "The darkness fades...";
-			if (Main.netMode == 0)
+			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
 			}
-			else if (Main.netMode == 2)
+			else if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(25, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
+				NetMessage.SendData(MessageID.ChatText, -1, -1, NetworkText.FromLiteral(text), 255, 175f, 75f, 255f);
 			}
 		}
 	}

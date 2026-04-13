@@ -24,14 +24,14 @@ public class GhostBow : ModItem
 		Item.height = 58;
 		Item.useTime = 21;
 		Item.useAnimation = 21;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.knockBack = 1f;
 		Item.value = Item.buyPrice(0, 55, 50);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
 		Item.shootSpeed = 15f;
-		Item.shoot = 1;
+		Item.shoot = ProjectileID.WoodenArrowFriendly;
 		Item.useAmmo = AmmoID.Arrow;
 		Item.shootSpeed = 10f;
 		Item.alpha = 60;
@@ -73,8 +73,8 @@ public class GhostBow : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(3261, 12);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SpectreBar, 12);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

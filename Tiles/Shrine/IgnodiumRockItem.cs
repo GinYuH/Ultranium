@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Shrine;
@@ -17,9 +18,9 @@ public class IgnodiumRockItem : ModItem
 		Item.height = 12;
 		Item.useTime = 8;
 		Item.useAnimation = 15;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.value = 50;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.useTurn = true;
 		Item.autoReuse = true;
 		Item.consumable = true;

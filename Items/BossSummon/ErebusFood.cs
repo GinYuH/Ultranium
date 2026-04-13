@@ -21,10 +21,10 @@ public class ErebusFood : ModItem
 		Item.width = 44;
 		Item.height = 40;
 		Item.maxStack = 1;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = new SoundStyle("Ultranium/Sounds/ShadowAwakening");
 		Item.consumable = false;
 	}
@@ -60,7 +60,7 @@ public class ErebusFood : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 35);
 		val.AddIngredient((Mod)null, "EldritchBlood", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

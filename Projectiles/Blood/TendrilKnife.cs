@@ -24,8 +24,8 @@ public class TendrilKnife : ModProjectile
 		Projectile.timeLeft = 600;
 		Projectile.extraUpdates = 1;
 		Projectile.ignoreWater = false;
-		Projectile.aiStyle = 2;
-		base.AIType = 48;
+		Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
+		base.AIType = ProjectileID.ThrowingKnife;
 	}
 
 	public override void OnKill(int timeLeft)
@@ -33,7 +33,7 @@ public class TendrilKnife : ModProjectile
 		SoundEngine.PlaySound(SoundID.Dig, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 5, 0f, -2f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Blood, 0f, -2f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 0.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 0.5f;

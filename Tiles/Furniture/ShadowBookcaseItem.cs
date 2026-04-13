@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Furniture;
@@ -12,7 +13,7 @@ public class ShadowBookcaseItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.width = 12;
 		Item.height = 30;
 		Item.maxStack = Item.CommonMaxStack;
@@ -20,7 +21,7 @@ public class ShadowBookcaseItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 150;
 		Item.createTile = Mod.Find<ModTile>("ShadowBookcase").Type;
@@ -35,8 +36,8 @@ public class ShadowBookcaseItem : ModItem
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowWood", 20);
-		val.AddIngredient(149, 10);
-		val.AddTile(18);
+		val.AddIngredient(ItemID.Book, 10);
+		val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

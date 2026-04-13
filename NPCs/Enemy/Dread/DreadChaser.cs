@@ -91,7 +91,7 @@ public class DreadChaser : ModNPC
 		NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 90, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GemRuby, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{

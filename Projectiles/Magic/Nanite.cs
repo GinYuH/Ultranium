@@ -46,7 +46,7 @@ public class Nanite : ModProjectile
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.AddBuff(144, 30, quiet: true);
+		target.AddBuff(BuffID.Electrified, 30, quiet: true);
 	}
 
 	public override void AI()

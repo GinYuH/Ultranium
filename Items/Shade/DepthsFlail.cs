@@ -20,8 +20,8 @@ public class DepthsFlail : ModItem
 		Item.height = 11;
 		Item.damage = 70;
 		Item.knockBack = 4f;
-		Item.rare = 7;
-		Item.useStyle = 5;
+		Item.rare = ItemRarityID.Lime;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.useAnimation = 19;
 		Item.useTime = 19;
 		Item.UseSound = SoundID.Item1;

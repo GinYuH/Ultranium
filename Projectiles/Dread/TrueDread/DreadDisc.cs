@@ -23,7 +23,7 @@ public class DreadDisc : ModProjectile
 	{
 		Projectile.width = 48;
 		Projectile.height = 48;
-		Projectile.aiStyle = 3;
+		Projectile.aiStyle = ProjAIStyleID.Boomerang;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.tileCollide = false;
@@ -68,13 +68,13 @@ public class DreadDisc : ModProjectile
 			ProjectileTimer = 0;
 		}
 		Vector2 position = Projectile.Center + Vector2.Normalize(Projectile.velocity) * 10f;
-		Dust obj = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90)];
+		Dust obj = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby)];
 		obj.position = position;
 		obj.velocity = Projectile.velocity.RotatedBy(Math.PI / 2.0) * 0.33f + Projectile.velocity / 4f;
 		obj.position += Projectile.velocity.RotatedBy(Math.PI / 2.0);
 		obj.fadeIn = 0.5f;
 		obj.noGravity = true;
-		Dust obj2 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90)];
+		Dust obj2 = Main.dust[Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby)];
 		obj2.position = position;
 		obj2.velocity = Projectile.velocity.RotatedBy(-Math.PI / 2.0) * 0.33f + Projectile.velocity / 4f;
 		obj2.position += Projectile.velocity.RotatedBy(-Math.PI / 2.0);

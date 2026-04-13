@@ -23,7 +23,7 @@ public class ShadowOreTile : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Tenebris Ore");
 		AddMapEntry(new Color(77, 2, 112), val);
-		base.DustType = 65;
+		base.DustType = DustID.DemonTorch;
 		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShadowOre").Type;
 		base.HitSound = SoundID.Tink;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;

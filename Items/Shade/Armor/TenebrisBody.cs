@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Shade.Armor;
@@ -17,7 +18,7 @@ public class TenebrisBody : ModItem
 		((Entity)(object)Item).width = 34;
 		((Entity)(object)Item).height = 22;
 		Item.value = Item.buyPrice(0, 2, 50);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.defense = 7;
 	}
 
@@ -37,7 +38,7 @@ public class TenebrisBody : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

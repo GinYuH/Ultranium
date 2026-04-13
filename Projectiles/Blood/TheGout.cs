@@ -22,7 +22,7 @@ public class TheGout : ModProjectile
 		Projectile.CloneDefaults(564);
 		Projectile.damage = 24;
 		Projectile.extraUpdates = 1;
-		base.AIType = 564;
+		base.AIType = ProjectileID.Valor;
 	}
 
 	public override void PostAI()

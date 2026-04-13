@@ -19,11 +19,11 @@ public class DreadScepter : ModItem
 	{
 		Item.width = 26;
 		Item.height = 28;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.mana = 30;
 		Item.damage = 200;
 		Item.knockBack = 1f;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.DamageType = DamageClass.Summon;
@@ -55,7 +55,7 @@ public class DreadScepter : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

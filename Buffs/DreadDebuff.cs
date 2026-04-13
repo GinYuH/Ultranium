@@ -20,7 +20,7 @@ public class DreadDebuff : ModBuff
 	{
 		if (!npc.friendly)
 		{
-			Dust.NewDust(npc.position, npc.width, npc.height, 90);
+			Dust.NewDust(npc.position, npc.width, npc.height, DustID.GemRuby);
 			if (npc.lifeRegen > 0)
 			{
 				npc.lifeRegen = 0;
@@ -38,7 +38,7 @@ public class DreadDebuff : ModBuff
 		player.GetDamage(DamageClass.Ranged) *= 0.9f;
 		player.GetDamage(DamageClass.Summon) *= 0.9f;
 		player.GetDamage(DamageClass.Throwing) *= 0.9f;
-		int num = Dust.NewDust(player.position, player.width, player.height, 90);
+		int num = Dust.NewDust(player.position, player.width, player.height, DustID.GemRuby);
 		Main.dust[num].scale = 1f;
 		Main.dust[num].velocity *= 1f;
 		Main.dust[num].noGravity = true;

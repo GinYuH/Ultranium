@@ -17,7 +17,7 @@ public class DreadTrophy : ModTile
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.newTile.StyleWrapLimit = 36;
 		TileObjectData.addTile((int)Type);
-		base.DustType = 7;
+		base.DustType = DustID.WoodFurniture;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Trophy");

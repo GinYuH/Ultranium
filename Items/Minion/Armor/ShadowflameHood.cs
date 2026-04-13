@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Minion.Armor;
@@ -17,7 +18,7 @@ public class ShadowflameHood : ModItem
 		Item.width = 34;
 		Item.height = 22;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.defense = 7;
 	}
 
@@ -52,9 +53,9 @@ public class ShadowflameHood : ModItem
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowFlame", 7);
-		val.AddIngredient(521, 7);
-		val.AddIngredient(225, 12);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofNight, 7);
+		val.AddIngredient(ItemID.Silk, 12);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

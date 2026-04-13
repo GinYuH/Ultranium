@@ -18,10 +18,10 @@ public class IceFood : ModItem
 		Item.width = 20;
 		Item.height = 20;
 		Item.maxStack = 20;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = SoundID.Item44;
 		Item.consumable = true;
 	}
@@ -51,10 +51,10 @@ public class IceFood : ModItem
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(664, 50);
-		val.AddIngredient(154, 15);
+		val.AddIngredient(ItemID.IceBlock, 50);
+		val.AddIngredient(ItemID.Bone, 15);
 		val.AddRecipeGroup("Ultranium:RottenChunk/Vetebrae", 6);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

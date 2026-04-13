@@ -18,11 +18,11 @@ public class ShroomScepter : ModItem
 	{
 		Item.width = 26;
 		Item.height = 28;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.mana = 20;
 		Item.damage = 12;
 		Item.knockBack = 1f;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.DamageType = DamageClass.Summon;
@@ -54,8 +54,8 @@ public class ShroomScepter : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(183, 10);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.GlowingMushroom, 10);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -19,7 +19,7 @@ public class DepthGlowstone : ModTile
 		Main.tileMergeDirt[Type] = true;
 		Main.tileSolid[Type] = true;
 		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.DustType = 89;
+		base.DustType = DustID.GemEmerald;
 		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DepthGlowstoneItem").Type;
 		base.HitSound = SoundID.Tink;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;

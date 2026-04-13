@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pumpkin.Eldritch;
@@ -45,7 +46,7 @@ public class EldritchPumpkinFire : ModProjectile
 		}
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 6);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}

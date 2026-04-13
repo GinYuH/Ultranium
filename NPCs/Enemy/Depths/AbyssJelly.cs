@@ -26,9 +26,9 @@ public class AbyssJelly : ModNPC
 		NPC.width = 50;
 		NPC.height = 50;
 		NPC.noGravity = true;
-		NPC.aiStyle = 18;
-		base.AIType = 242;
-		base.AnimationType = 242;
+		NPC.aiStyle = NPCAIStyleID.Jellyfish;
+		base.AIType = NPCID.BloodJelly;
+		base.AnimationType = NPCID.BloodJelly;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("AbyssJellyBanner").Type;
 	}

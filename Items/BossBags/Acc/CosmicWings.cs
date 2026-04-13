@@ -19,7 +19,7 @@ public class CosmicWings : ModItem
 		Item.width = 34;
 		Item.height = 26;
 		Item.value = Item.buyPrice(1, 20);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.accessory = true;
 		Item.expert = true;
 	}

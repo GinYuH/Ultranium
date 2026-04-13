@@ -23,11 +23,11 @@ public class PumpkinSummon : ModItem
 		((Entity)(object)Item).height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 0f;
 		Item.value = Item.buyPrice(0, 0, 50);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("PumpSlime").Type;
 		Item.shootSpeed = 10f;
@@ -64,9 +64,9 @@ public class PumpkinSummon : ModItem
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1725, 20);
+		val.AddIngredient(ItemID.Pumpkin, 20);
         val.AddRecipeGroup(RecipeGroupID.Wood, 20);
-        val.AddTile(18);
+        val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}
 }

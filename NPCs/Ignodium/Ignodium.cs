@@ -103,7 +103,7 @@ public class Ignodium : ModNPC
 			{
 				for (int i = 0; i < 60; i++)
 				{
-					int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
+					int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, -2f, 0, default(Color), 1.5f);
 					Main.dust[num2].noGravity = true;
 					Main.dust[num2].scale = 2f;
 					Main.dust[num2].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -217,7 +217,7 @@ public class Ignodium : ModNPC
 					{
 						Vector2 vector4 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(k - (num14 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num14) + NPC.Center;
 						Vector2 vector5 = vector4 - NPC.Center;
-						Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, 6, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
+						Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, DustID.Torch, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
 						obj.noGravity = true;
 						obj.noLight = false;
 						obj.velocity = Vector2.Normalize(vector5) * 3f;
@@ -294,7 +294,7 @@ public class Ignodium : ModNPC
 				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 				for (int num16 = 0; num16 < 60; num16++)
 				{
-					int num17 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
+					int num17 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, -2f, 0, default(Color), 1.5f);
 					Main.dust[num17].noGravity = true;
 					Main.dust[num17].scale = 2f;
 					Main.dust[num17].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -428,7 +428,7 @@ public class Ignodium : ModNPC
 			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianUNUN"));
 			for (int num33 = 0; num33 < 60; num33++)
 			{
-				int num34 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
+				int num34 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, -2f, 0, default(Color), 1.5f);
 				Main.dust[num34].noGravity = true;
 				Main.dust[num34].scale = 2f;
 				Main.dust[num34].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -487,14 +487,14 @@ public class Ignodium : ModNPC
 			DesperationTimer = 120;
 			for (int num45 = 0; num45 < 50; num45++)
 			{
-				int num46 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+				int num46 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 				Main.dust[num46].scale = 1.5f;
 			}
 			NPC.position.X = player.position.X - 100f;
 			NPC.position.Y = player.position.Y - 400f;
 			for (int num47 = 0; num47 < 50; num47++)
 			{
-				int num48 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6);
+				int num48 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch);
 				Main.dust[num48].scale = 1.5f;
 			}
 		}
@@ -508,7 +508,7 @@ public class Ignodium : ModNPC
 		}
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, 6, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Torch, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].scale = 2f;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -526,7 +526,7 @@ public class Ignodium : ModNPC
 		NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
 		for (int j = 0; j < 20; j++)
 		{
-			int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 6, 0f, 0f, 100, default(Color), 2f);
+			int num2 = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.Torch, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num2].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{
@@ -552,9 +552,9 @@ public class Ignodium : ModNPC
 		if (!UltraniumWorld.downedIgnodium)
 		{
 			UltraniumWorld.downedIgnodium = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

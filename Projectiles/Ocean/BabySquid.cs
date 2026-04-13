@@ -32,7 +32,7 @@ public class BabySquid : ModProjectile
 		Projectile.penetrate = -1;
 		Projectile.minion = true;
 		Projectile.minionSlots = 1f;
-		Projectile.aiStyle = 62;
+		Projectile.aiStyle = ProjAIStyleID.Hornet;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

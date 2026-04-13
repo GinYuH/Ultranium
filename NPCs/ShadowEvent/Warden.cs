@@ -89,13 +89,13 @@ public class Warden : ModNPC
 		{
 			NPC.rotation += 0.5f * (float)NPC.direction;
 			Vector2 position = NPC.Center + Vector2.Normalize(NPC.velocity) * 10f;
-			Dust obj = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 89)];
+			Dust obj = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald)];
 			obj.position = position;
 			obj.velocity = NPC.velocity.RotatedBy(Math.PI / 2.0) * 0.05f + NPC.velocity / 2f;
 			obj.position += NPC.velocity.RotatedBy(Math.PI / 2.0);
 			obj.fadeIn = 0.5f;
 			obj.noGravity = true;
-			Dust obj2 = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, 89)];
+			Dust obj2 = Main.dust[Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald)];
 			obj2.position = position;
 			obj2.velocity = NPC.velocity.RotatedBy(-Math.PI / 2.0) * 0.05f + NPC.velocity / 2f;
 			obj2.position += NPC.velocity.RotatedBy(-Math.PI / 2.0);
@@ -108,8 +108,8 @@ public class Warden : ModNPC
 		}
 		if (Timer < 840)
 		{
-			NPC.aiStyle = 3;
-			base.AIType = 508;
+			NPC.aiStyle = NPCAIStyleID.Fighter;
+			base.AIType = NPCID.GiantWalkingAntlion;
 		}
 		if (Timer > 840)
 		{

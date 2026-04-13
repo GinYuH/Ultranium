@@ -29,7 +29,7 @@ public class DarkDemon : ModNPC
 		NPC.DeathSound = SoundID.NPCDeath24;
 		NPC.value = Item.buyPrice(0, 0, 1);
 		NPC.knockBackResist = 0.5f;
-		NPC.aiStyle = 14;
+		NPC.aiStyle = NPCAIStyleID.Bat;
 		NPC.noGravity = true;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("DarkDemonBanner").Type;

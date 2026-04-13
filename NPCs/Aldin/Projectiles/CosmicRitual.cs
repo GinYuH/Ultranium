@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.GameContent;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Aldin.Projectiles;
@@ -144,7 +145,7 @@ public class CosmicRitual : ModProjectile
 			{
 				for (int j = 0; j < 15; j++)
 				{
-					int num2 = Dust.NewDust(Main.npc[i].position, Main.npc[i].width, Main.npc[i].height, 89, 0f, 0f, 100);
+					int num2 = Dust.NewDust(Main.npc[i].position, Main.npc[i].width, Main.npc[i].height, DustID.GemEmerald, 0f, 0f, 100);
 					Main.dust[num2].noGravity = true;
 					Main.dust[num2].velocity *= 1.4f;
 				}

@@ -24,9 +24,9 @@ public class ShadeGhoul : ModNPC
 		NPC.defense = 15;
 		NPC.lifeMax = 60;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 3;
-		base.AIType = 524;
-		base.AnimationType = 524;
+		NPC.aiStyle = NPCAIStyleID.Fighter;
+		base.AIType = NPCID.DesertGhoul;
+		base.AnimationType = NPCID.DesertGhoul;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
 		base.Banner = NPC.type;

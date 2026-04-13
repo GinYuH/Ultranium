@@ -22,10 +22,10 @@ public class Hallow2 : ModItem
 		Item.height = 84;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.UseSound = SoundID.Item60;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("BlueStar").Type;
@@ -55,11 +55,11 @@ public class Hallow2 : ModItem
 		//IL_0054: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "Hallow", 1);
-		val.AddIngredient(549, 5);
-		val.AddIngredient(548, 5);
-		val.AddIngredient(547, 5);
-		val.AddIngredient(502, 25);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SoulofSight, 5);
+		val.AddIngredient(ItemID.SoulofMight, 5);
+		val.AddIngredient(ItemID.SoulofFright, 5);
+		val.AddIngredient(ItemID.CrystalShard, 25);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -17,7 +17,7 @@ public class Pumpkibomb : ModProjectile
 	{
 		Projectile.width = 30;
 		Projectile.height = 36;
-		Projectile.aiStyle = 18;
+		Projectile.aiStyle = ProjAIStyleID.Sickle;
 		Projectile.friendly = true;
 		Projectile.DamageType = DamageClass.Ranged;
 		Projectile.penetrate = 1;
@@ -37,15 +37,15 @@ public class Pumpkibomb : ModProjectile
 		SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 31, 0f, 0f, 100, default(Color), 1.5f);
+			int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Smoke, 0f, 0f, 100, default(Color), 1.5f);
 			Main.dust[num].velocity *= 1.4f;
 		}
 		for (int j = 0; j < 10; j++)
 		{
-			int num2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 2.5f);
+			int num2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 2.5f);
 			Main.dust[num2].noGravity = true;
 			Main.dust[num2].velocity *= 5f;
-			num2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 6, 0f, 0f, 100, default(Color), 1.5f);
+			num2 = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.Torch, 0f, 0f, 100, default(Color), 1.5f);
 			Main.dust[num2].velocity *= 3f;
 		}
 		int num3 = Gore.NewGore(null, new Vector2(Projectile.position.X, Projectile.position.Y), default(Vector2), Main.rand.Next(61, 64));

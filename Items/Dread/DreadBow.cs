@@ -23,13 +23,13 @@ public class DreadBow : ModItem
 		Item.height = 18;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 4f;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.value = Item.buyPrice(0, 12);
 		Item.UseSound = SoundID.Item5;
-		Item.shoot = 10;
+		Item.shoot = ProjectileID.PurificationPowder;
 		Item.autoReuse = true;
 		Item.shootSpeed = 9f;
 		Item.useAmmo = AmmoID.Arrow;
@@ -52,7 +52,7 @@ public class DreadBow : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 

@@ -14,7 +14,7 @@ public class DukeYoyo : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 24;
 		Item.height = 24;
 		Item.noUseGraphic = true;
@@ -29,6 +29,6 @@ public class DukeYoyo : ModItem
 		Item.knockBack = 2.5f;
 		Item.damage = 80;
 		Item.value = Item.buyPrice(0, 60);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 	}
 }

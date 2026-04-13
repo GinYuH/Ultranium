@@ -42,7 +42,7 @@ public class DarkStone : ModTile
 			tileSafely3.TileFrameY = 0;
 			tileSafely3.TileFrameX = (short)(WorldGen.genRand.Next(5) * 18);
 			WorldGen.SquareTileFrame(i, j + 2);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j - 1, 3);
 			}
@@ -52,7 +52,7 @@ public class DarkStone : ModTile
 			tileSafely2.TileType = (ushort)ModContent.TileType<DepthVines>();
 			tileSafely2.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}
@@ -62,12 +62,12 @@ public class DarkStone : ModTile
 			tileSafely2.TileType = (ushort)ModContent.TileType<GlowShroomVine>();
 			tileSafely2.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}
 		}
-		if (Framing.GetTileSafely(i, j - 1).TileType != 0 || Framing.GetTileSafely(i, j - 2).TileType != 0)
+		if (Framing.GetTileSafely(i, j - 1).TileType != TileID.Dirt || Framing.GetTileSafely(i, j - 2).TileType != TileID.Dirt)
 		{
 			return;
 		}

@@ -24,9 +24,9 @@ public class ShadeBat : ModNPC
 		NPC.defense = 60;
 		NPC.lifeMax = 150;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 14;
-		base.AIType = 152;
-		base.AnimationType = 152;
+		NPC.aiStyle = NPCAIStyleID.Bat;
+		base.AIType = NPCID.GiantFlyingFox;
+		base.AnimationType = NPCID.GiantFlyingFox;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
 		NPC.knockBackResist = 0.5f;

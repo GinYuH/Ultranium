@@ -19,10 +19,10 @@ public class ShadowBlade : ModItem
 		((Entity)(object)Item).height = 40;
 		Item.useTime = 45;
 		Item.useAnimation = 32;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 2, 50);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("ShadowBladeImage").Type;
@@ -37,7 +37,7 @@ public class ShadowBlade : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareBar", 12);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

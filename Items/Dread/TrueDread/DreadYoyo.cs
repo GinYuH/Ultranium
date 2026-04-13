@@ -17,10 +17,10 @@ public class DreadYoyo : ModItem
 	public override void SetDefaults()
 	{
 		Item.damage = 230;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.width = 24;
 		Item.height = 24;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.useAnimation = 25;
 		Item.useTime = 25;
 		Item.UseSound = SoundID.Item1;
@@ -49,7 +49,7 @@ public class DreadYoyo : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ethereal.Armor;
@@ -17,7 +18,7 @@ public class EtherealLegs : ModItem
 		Item.width = 18;
 		Item.height = 18;
 		Item.value = Item.buyPrice(0, 30);
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.defense = 14;
 	}
 
@@ -45,8 +46,8 @@ public class EtherealLegs : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 6);
 		val.AddIngredient((Mod)null, "ShadowFlame", 4);
-		val.AddIngredient(225, 8);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.Silk, 8);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

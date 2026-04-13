@@ -27,8 +27,8 @@ public class DepthCrawler : ModNPC
 		NPC.defense = 15;
 		NPC.lifeMax = 165;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 3;
-		base.AIType = 257;
+		NPC.aiStyle = NPCAIStyleID.Fighter;
+		base.AIType = NPCID.AnomuraFungus;
 		NPC.HitSound = SoundID.NPCHit29;
 		NPC.DeathSound = SoundID.NPCDeath31;
 		base.Banner = NPC.type;

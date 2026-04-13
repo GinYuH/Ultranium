@@ -27,7 +27,7 @@ public class PumpSlime : ModProjectile
 		Projectile.ignoreWater = true;
 		Projectile.tileCollide = true;
 		Projectile.netImportant = true;
-		base.AIType = 266;
+		base.AIType = ProjectileID.BabySlime;
 		Projectile.penetrate = -1;
 		Projectile.timeLeft = 18000;
 		Projectile.minionSlots = 1f;

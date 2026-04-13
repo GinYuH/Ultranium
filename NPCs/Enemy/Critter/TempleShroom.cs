@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Enemy.Critter;
@@ -15,7 +16,7 @@ public class TempleShroom : ModItem
 	{
 		Item.width = 20;
 		Item.height = 30;
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.maxStack = 1;
 	}
 }

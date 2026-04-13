@@ -21,10 +21,10 @@ public class GhostBlade : ModItem
 		((Entity)(object)Item).height = 80;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 55, 50);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.UseSound = SoundID.Item69;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("GhostBlade").Type;
@@ -44,8 +44,8 @@ public class GhostBlade : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(3261, 12);
-		val.AddTile(412);
+		val.AddIngredient(ItemID.SpectreBar, 12);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

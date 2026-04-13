@@ -26,9 +26,9 @@ public class ShroomMonster : ModNPC
 		NPC.defense = 50;
 		NPC.lifeMax = 200;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 3;
-		base.AIType = 166;
-		base.AnimationType = 166;
+		NPC.aiStyle = NPCAIStyleID.Fighter;
+		base.AIType = NPCID.SwampThing;
+		base.AnimationType = NPCID.SwampThing;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
 		base.Banner = NPC.type;

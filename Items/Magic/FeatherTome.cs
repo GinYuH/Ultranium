@@ -24,10 +24,10 @@ public class FeatherTome : ModItem
 		Item.height = 32;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item9;
 		Item.autoReuse = true;
 		Item.scale = 0.8f;
@@ -73,9 +73,9 @@ public class FeatherTome : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(320, 12);
-		val.AddIngredient(149, 1);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.Feather, 12);
+		val.AddIngredient(ItemID.Book, 1);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

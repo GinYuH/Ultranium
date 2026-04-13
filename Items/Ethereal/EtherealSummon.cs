@@ -23,10 +23,10 @@ public class EtherealSummon : ModItem
 		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.noMelee = true;
 		Item.knockBack = 0f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = SoundID.Item44;
 		Item.shoot = Mod.Find<ModProjectile>("EtherealWisp").Type;
@@ -64,7 +64,7 @@ public class EtherealSummon : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

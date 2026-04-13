@@ -21,11 +21,11 @@ public class ShadowRod : ModItem
 		Item.height = 40;
 		Item.useTime = 40;
 		Item.useAnimation = 40;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
 		Item.value = 10000;
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.value = Item.buyPrice(0, 10);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;

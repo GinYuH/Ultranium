@@ -25,9 +25,9 @@ public class DepthsMimic : ModNPC
 		NPC.defense = 34;
 		NPC.lifeMax = 3500;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 87;
-		base.AIType = 473;
-		base.AnimationType = 473;
+		NPC.aiStyle = NPCAIStyleID.BiomeMimic;
+		base.AIType = NPCID.BigMimicCorruption;
+		base.AnimationType = NPCID.BigMimicCorruption;
 		NPC.HitSound = SoundID.NPCHit4;
 		NPC.DeathSound = SoundID.NPCDeath6;
 		base.Banner = NPC.type;

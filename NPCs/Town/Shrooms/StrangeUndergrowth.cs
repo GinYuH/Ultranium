@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Town.Shrooms;
@@ -15,7 +16,7 @@ public class StrangeUndergrowth : ModItem
 	{
 		Item.width = 20;
 		Item.height = 30;
-		Item.rare = -11;
+		Item.rare = ItemRarityID.Quest;
 		Item.maxStack = 1;
 	}
 }

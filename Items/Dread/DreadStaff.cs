@@ -22,10 +22,10 @@ public class DreadStaff : ModItem
 		Item.height = 56;
 		Item.useTime = 16;
 		Item.useAnimation = 16;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.value = Item.buyPrice(0, 12);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -43,7 +43,7 @@ public class DreadStaff : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

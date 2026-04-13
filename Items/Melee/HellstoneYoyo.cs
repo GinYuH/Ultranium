@@ -14,7 +14,7 @@ public class HellstoneYoyo : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 30;
 		Item.height = 26;
 		Item.noUseGraphic = true;
@@ -29,7 +29,7 @@ public class HellstoneYoyo : ModItem
 		Item.knockBack = 2.5f;
 		Item.damage = 25;
 		Item.value = Item.buyPrice(0, 1);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 	}
 
 	public override void AddRecipes()
@@ -39,8 +39,8 @@ public class HellstoneYoyo : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(175, 10);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.HellstoneBar, 10);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

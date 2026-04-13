@@ -24,10 +24,10 @@ public class EtherealTome : ModItem
 		Item.height = 40;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -58,7 +58,7 @@ public class EtherealTome : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ice;
@@ -17,7 +18,7 @@ public class IcePelt : ModItem
 		Item.height = 18;
 		Item.value = 50;
 		Item.value = Item.buyPrice(0, 1);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.maxStack = 999;
 	}
 }

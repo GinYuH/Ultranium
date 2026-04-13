@@ -21,10 +21,10 @@ public class GlacialWand : ModItem
 		Item.height = 32;
 		Item.useTime = 45;
 		Item.useAnimation = 45;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 2f;
 		Item.value = Item.buyPrice(0, 20);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.UseSound = SoundID.Item20;
 		Item.shoot = Mod.Find<ModProjectile>("SnowTwister").Type;
 		Item.shootSpeed = 6.5f;
@@ -38,9 +38,9 @@ public class GlacialWand : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(664, 10);
+		val.AddIngredient(ItemID.IceBlock, 10);
 		val.AddIngredient((Mod)null, "IcePelt", 7);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -206,7 +206,7 @@ public class Xenanis : ModNPC
 				NPC.ai[0] = 2f;
 				for (int i = 0; i < 50; i++)
 				{
-					int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num5].scale = 1.5f;
 				}
 				int num6 = Main.rand.Next(4);
@@ -232,7 +232,7 @@ public class Xenanis : ModNPC
 				}
 				for (int j = 0; j < 50; j++)
 				{
-					int num7 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num7 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num7].scale = 1.5f;
 				}
 			}
@@ -247,14 +247,14 @@ public class Xenanis : ModNPC
 			{
 				for (int l = 0; l < 50; l++)
 				{
-					int num8 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num8 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num8].scale = 1.5f;
 				}
 				NPC.position.X = player.position.X - 50f;
 				NPC.position.Y = player.position.Y - 400f;
 				for (int m = 0; m < 50; m++)
 				{
-					int num9 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num9 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num9].scale = 1.5f;
 				}
 			}
@@ -282,14 +282,14 @@ public class Xenanis : ModNPC
 				NPC.ai[0] = 2f;
 				for (int n = 0; n < 50; n++)
 				{
-					int num13 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num13 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num13].scale = 1.5f;
 				}
 				NPC.position.X = player.position.X - 100f;
 				NPC.position.Y = player.position.Y - 500f;
 				for (int num14 = 0; num14 < 50; num14++)
 				{
-					int num15 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num15 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num15].scale = 1.5f;
 				}
 			}
@@ -346,14 +346,14 @@ public class Xenanis : ModNPC
 				NPC.ai[0] = 2f;
 				for (int num19 = 0; num19 < 50; num19++)
 				{
-					int num20 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num20 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num20].scale = 1.5f;
 				}
 				NPC.position.X = player.position.X - 50f;
 				NPC.position.Y = player.position.Y - 400f;
 				for (int num21 = 0; num21 < 50; num21++)
 				{
-					int num22 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num22 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num22].scale = 1.5f;
 				}
 			}
@@ -388,14 +388,14 @@ public class Xenanis : ModNPC
 				NPC.ai[0] = 2f;
 				for (int num27 = 0; num27 < 50; num27++)
 				{
-					int num28 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num28 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num28].scale = 1.5f;
 				}
 				NPC.position.X = player.position.X - 100f;
 				NPC.position.Y = player.position.Y - 500f;
 				for (int num29 = 0; num29 < 50; num29++)
 				{
-					int num30 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 62);
+					int num30 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.PurpleTorch);
 					Main.dust[num30].scale = 1.5f;
 				}
 			}
@@ -447,9 +447,9 @@ public class Xenanis : ModNPC
 		if (!UltraniumWorld.downedXenanis)
 		{
 			UltraniumWorld.downedXenanis = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

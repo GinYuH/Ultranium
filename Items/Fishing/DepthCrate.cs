@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Items.Shade;
 using Ultranium.Tiles.ShadowBiome.Depths;
@@ -18,8 +19,8 @@ public class DepthCrate : ModItem
 	{
 		Item.width = 20;
 		Item.height = 20;
-		Item.rare = 7;
-		Item.useStyle = 1;
+		Item.rare = ItemRarityID.Lime;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.createTile = Mod.Find<ModTile>("DepthCrateTile").Type;
 		Item.maxStack = 999;
 		Item.autoReuse = true;

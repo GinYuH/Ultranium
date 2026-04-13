@@ -53,7 +53,7 @@ public class MagmaBolt : ModProjectile
 		Projectile.rotation += 0.2f;
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 6);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Torch);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}

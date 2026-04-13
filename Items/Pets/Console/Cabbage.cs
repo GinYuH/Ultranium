@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Buffs.Pet;
 using Ultranium.Projectiles.Pets;
@@ -16,8 +17,8 @@ public class Cabbage : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.rare = 3;
-		Item.CloneDefaults(669);
+		Item.rare = ItemRarityID.Orange;
+		Item.CloneDefaults(ItemID.Fish);
 		Item.shoot = ModContent.ProjectileType<GuineaPig>();
 		Item.buffType = ModContent.BuffType<GuineaPigBuff>();
 	}

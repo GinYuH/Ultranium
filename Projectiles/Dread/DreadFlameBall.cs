@@ -58,7 +58,7 @@ public class DreadFlameBall : ModProjectile
 		Projectile.rotation += 0.35f * (float)Projectile.direction;
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 90);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby);
 			dust.noGravity = true;
 			dust.scale = 1f;
 		}

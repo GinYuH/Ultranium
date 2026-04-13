@@ -66,7 +66,7 @@ public class ShadowDresser : ModTile
 			{
 				localPlayer.editedChestName = false;
 			}
-			if (Main.netMode == 1)
+			if (Main.netMode == NetmodeID.MultiplayerClient)
 			{
 				if (num == localPlayer.chestX && num2 == localPlayer.chestY && localPlayer.chest != -1)
 				{
@@ -76,7 +76,7 @@ public class ShadowDresser : ModTile
 				}
 				else
 				{
-					NetMessage.SendData(31, -1, -1, null, num, num2);
+					NetMessage.SendData(MessageID.RequestChestOpen, -1, -1, null, num, num2);
 					Main.stackSplit = 600;
 				}
 			}
@@ -167,7 +167,7 @@ public class ShadowDresser : ModTile
 		if (localPlayer.cursorItemIconText == "")
 		{
 			localPlayer.cursorItemIconEnabled = false;
-			localPlayer.cursorItemIconID = 0;
+			localPlayer.cursorItemIconID = ItemID.None;
 		}
 	}
 
@@ -209,7 +209,7 @@ public class ShadowDresser : ModTile
 		localPlayer.cursorItemIconEnabled = true;
 		if (Main.tile[Player.tileTargetX, Player.tileTargetY].TileFrameY > 0)
 		{
-			localPlayer.cursorItemIconID = 269;
+			localPlayer.cursorItemIconID = ItemID.FamiliarShirt;
 		}
 	}
 

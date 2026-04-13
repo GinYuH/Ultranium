@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Stellar;
@@ -16,7 +17,7 @@ public class StellarBar : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 0, 80);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.maxStack = Item.CommonMaxStack;
 	}
 
@@ -28,9 +29,9 @@ public class StellarBar : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 3);
-		val.AddIngredient(117, 3);
+		val.AddIngredient(ItemID.MeteoriteBar, 3);
 		val.AddIngredient((Mod)null, "StellarDust", 6);
-		val.AddTile(17);
+		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}
 }

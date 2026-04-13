@@ -22,14 +22,14 @@ public class HellFlail : ModItem
 		Item.useAnimation = 24;
 		Item.useTime = 24;
 		Item.knockBack = 15f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(1);
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
 		Item.noMelee = true;
 		Item.noUseGraphic = true;
 		Item.UseSound = SoundID.Item10;
 		Item.autoReuse = true;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.shoot = Mod.Find<ModProjectile>("HellFlail").Type;
 		Item.shootSpeed = 14f;
 	}
@@ -47,7 +47,7 @@ public class HellFlail : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "HellShard", 10);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

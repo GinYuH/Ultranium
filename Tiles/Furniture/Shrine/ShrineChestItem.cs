@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Furniture.Shrine;
@@ -19,7 +20,7 @@ public class ShrineChestItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 500;
 		Item.createTile = ModContent.TileType<ShrineChest>();

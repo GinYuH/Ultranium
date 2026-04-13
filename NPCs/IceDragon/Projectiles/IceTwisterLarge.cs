@@ -163,6 +163,6 @@ public class IceTwisterLarge : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		target.AddBuff(44, 120);
+		target.AddBuff(BuffID.Frostburn, 120);
 	}
 }

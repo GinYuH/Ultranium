@@ -76,7 +76,7 @@ public class AbyssalCultist : ModNPC
 		{
 			for (int i = 0; i < 50; i++)
 			{
-				int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 89);
+				int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald);
 				Main.dust[num2].scale = 1.5f;
 			}
 			int num3 = Main.rand.Next(4);
@@ -102,7 +102,7 @@ public class AbyssalCultist : ModNPC
 			}
 			for (int j = 0; j < 50; j++)
 			{
-				int num4 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 89);
+				int num4 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald);
 				Main.dust[num4].scale = 1.5f;
 			}
 		}

@@ -22,10 +22,10 @@ public class ShroomBlade : ModItem
 		Item.height = 54;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 0, 80);
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.shootSpeed = 2f;
@@ -48,8 +48,8 @@ public class ShroomBlade : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(183, 10);
-		val.AddTile(16);
+		val.AddIngredient(ItemID.GlowingMushroom, 10);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -23,10 +23,10 @@ public class BloodSword : ModItem
 		Item.height = 42;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 1, 35);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item7;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("BloodThorn").Type;
@@ -37,7 +37,7 @@ public class BloodSword : ModItem
 	{
 		if (Utils.NextBool(Main.rand, 2))
 		{
-			Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 5);
+			Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Blood);
 		}
 	}
 
@@ -64,7 +64,7 @@ public class BloodSword : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

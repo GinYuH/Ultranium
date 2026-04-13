@@ -200,7 +200,7 @@ public class BaseConstants
 	{
 		get
 		{
-			if (Main.netMode != 2 && Main.player[Main.myPlayer] != null)
+			if (Main.netMode != NetmodeID.Server && Main.player[Main.myPlayer] != null)
 			{
 				return Main.player[Main.myPlayer].name;
 			}
@@ -212,7 +212,7 @@ public class BaseConstants
 	{
 		get
 		{
-			if (Main.netMode != 2)
+			if (Main.netMode != NetmodeID.Server)
 			{
 				return Main.player[Main.myPlayer];
 			}

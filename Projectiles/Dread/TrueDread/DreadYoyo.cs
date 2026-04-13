@@ -22,7 +22,7 @@ public class DreadYoyo : ModProjectile
 		Projectile.scale = 1f;
 		Projectile.width = 30;
 		Projectile.height = 24;
-		Projectile.aiStyle = 99;
+		Projectile.aiStyle = ProjAIStyleID.Yoyo;
 		Projectile.friendly = true;
 		Projectile.penetrate = -1;
 		Projectile.DamageType = DamageClass.Melee;

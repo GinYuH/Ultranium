@@ -22,7 +22,7 @@ public class Exitium : ModProjectile
 		Projectile.scale = 1f;
 		Projectile.width = 24;
 		Projectile.height = 18;
-		Projectile.aiStyle = 99;
+		Projectile.aiStyle = ProjAIStyleID.Yoyo;
 		Projectile.friendly = true;
 		Projectile.penetrate = -1;
 		Projectile.DamageType = DamageClass.Melee;

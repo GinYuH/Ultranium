@@ -33,9 +33,9 @@ public class Phantom : ModNPC
 		NPC.knockBackResist = 0.9f;
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
-		NPC.aiStyle = 108;
-		base.AnimationType = 559;
-		base.AIType = 560;
+		NPC.aiStyle = NPCAIStyleID.DD2Flying;
+		base.AnimationType = NPCID.DD2WyvernT2;
+		base.AIType = NPCID.DD2WyvernT3;
 		NPC.buffImmune[24] = true;
 		NPC.noTileCollide = true;
 		base.Banner = NPC.type;

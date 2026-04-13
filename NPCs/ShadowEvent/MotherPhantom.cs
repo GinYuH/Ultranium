@@ -45,7 +45,7 @@ public class MotherPhantom : ModNPC
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("MotherPhantomBanner").Type;
 		for (int i = 0; i < 206; i++)
@@ -110,14 +110,14 @@ public class MotherPhantom : ModNPC
 		{
 			for (int i = 0; i < 50; i++)
 			{
-				int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 89);
+				int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald);
 				Main.dust[num2].scale = 1.5f;
 			}
 			NPC.position.X = player.position.X - 100f;
 			NPC.position.Y = player.position.Y - 400f;
 			for (int j = 0; j < 50; j++)
 			{
-				int num3 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 89);
+				int num3 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemEmerald);
 				Main.dust[num3].scale = 1.5f;
 			}
 			NPC.ai[0] = 1f;

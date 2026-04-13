@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Guardians.Nature;
@@ -20,7 +21,7 @@ public class UltrumShard : ModItem
 		Item.height = 24;
 		Item.maxStack = 999;
 		Item.value = 100;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

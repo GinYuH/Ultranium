@@ -25,9 +25,9 @@ public class VortexBolt : ModProjectile
 		Projectile.timeLeft = 70;
 		Projectile.tileCollide = false;
 		Projectile.DamageType = DamageClass.Magic;
-		Projectile.aiStyle = 1;
+		Projectile.aiStyle = ProjAIStyleID.Arrow;
 		Projectile.alpha = 255;
-		base.AIType = 14;
+		base.AIType = ProjectileID.Bullet;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

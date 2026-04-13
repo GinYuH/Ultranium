@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Pets;
@@ -15,7 +16,7 @@ public class SlimePet : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(334);
-		base.AIType = 334;
+		base.AIType = ProjectileID.Puppy;
 		Main.projPet[Projectile.type] = true;
 		Projectile.width = 32;
 		Projectile.height = 22;

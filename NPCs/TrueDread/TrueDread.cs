@@ -101,7 +101,7 @@ public class TrueDread : ModNPC
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (projectile.type == 634 || projectile.type == 617 || projectile.type == 620 || projectile.type == 632 || projectile.type == 631 || projectile.type == 639 || projectile.type == 616 || projectile.type == 502 || projectile.type == 503 || projectile.type == 636)
+		if (projectile.type == ProjectileID.NebulaBlaze1 || projectile.type == ProjectileID.NebulaArcanum || projectile.type == ProjectileID.NebulaArcanumExplosionShotShard || projectile.type == ProjectileID.LastPrismLaser || projectile.type == ProjectileID.PhantasmArrow || projectile.type == ProjectileID.MoonlordArrow || projectile.type == ProjectileID.VortexBeaterRocket || projectile.type == ProjectileID.Meowmere || projectile.type == ProjectileID.StarWrath || projectile.type == ProjectileID.Daybreak)
 		{
 			modifiers.SourceDamage /= 2;
 		}
@@ -160,7 +160,7 @@ public class TrueDread : ModNPC
 				{
 					Vector2 vector4 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(i - (num5 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num5) + NPC.Center;
 					Vector2 vector5 = vector4 - NPC.Center;
-					Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, 90, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj = Main.dust[Dust.NewDust(vector4 + vector5, 0, 0, DustID.GemRuby, vector5.X * 2f, vector5.Y * 2f, 100, default(Color), 1.4f)];
 					obj.noGravity = true;
 					obj.noLight = false;
 					obj.velocity = Vector2.Normalize(vector5) * 3f;
@@ -294,7 +294,7 @@ public class TrueDread : ModNPC
 				{
 					Vector2 vector8 = (Vector2.One * new Vector2((float)NPC.width / 7f, (float)NPC.height / 7f) * 0.75f * 0.5f).RotatedBy((float)(l - (num24 / 2 - 1)) * ((float)Math.PI * 2f) / (float)num24) + NPC.Center;
 					Vector2 vector9 = vector8 - NPC.Center;
-					Dust obj2 = Main.dust[Dust.NewDust(vector8 + vector9, 0, 0, 90, vector9.X * 2f, vector9.Y * 2f, 100, default(Color), 1.4f)];
+					Dust obj2 = Main.dust[Dust.NewDust(vector8 + vector9, 0, 0, DustID.GemRuby, vector9.X * 2f, vector9.Y * 2f, 100, default(Color), 1.4f)];
 					obj2.noGravity = true;
 					obj2.noLight = false;
 					obj2.velocity = Vector2.Normalize(vector9) * 10f;
@@ -510,18 +510,18 @@ public class TrueDread : ModNPC
 			if (!UltraniumWorld.ExistentialDread)
 			{
 				UltraniumWorld.ExistentialDread = true;
-				if (Main.netMode == 2)
+				if (Main.netMode == NetmodeID.Server)
 				{
-					NetMessage.SendData(7);
+					NetMessage.SendData(MessageID.WorldData);
 				}
 			}
 		}
 		if (!UltraniumWorld.downedTrueDread)
 		{
 			UltraniumWorld.downedTrueDread = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}
@@ -530,7 +530,7 @@ public class TrueDread : ModNPC
 	{
 		for (int i = 0; i < 30; i++)
 		{
-			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = false;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -541,7 +541,7 @@ public class TrueDread : ModNPC
 		}
 		for (int j = 0; j < 60; j++)
 		{
-			int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 2f);
+			int num2 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 2f);
 			Main.dust[num2].noGravity = false;
 			Main.dust[num2].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num2].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -552,7 +552,7 @@ public class TrueDread : ModNPC
 		}
 		for (int k = 0; k < 80; k++)
 		{
-			int num3 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 2f);
+			int num3 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 2f);
 			Main.dust[num3].noGravity = false;
 			Main.dust[num3].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num3].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -563,7 +563,7 @@ public class TrueDread : ModNPC
 		}
 		for (int l = 0; l < 120; l++)
 		{
-			int num4 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 2f);
+			int num4 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 2f);
 			Main.dust[num4].noGravity = false;
 			Main.dust[num4].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num4].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
@@ -574,7 +574,7 @@ public class TrueDread : ModNPC
 		}
 		for (int m = 0; m < 150; m++)
 		{
-			int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 2f);
+			int num5 = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 2f);
 			Main.dust[num5].noGravity = false;
 			Main.dust[num5].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num5].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

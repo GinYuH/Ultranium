@@ -24,11 +24,11 @@ public class DepthsTome : ModItem
 		Item.height = 30;
 		Item.useTime = 5;
 		Item.useAnimation = 20;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 3.5f;
 		Item.value = Item.buyPrice(0, 68);
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.UseSound = SoundID.Item103;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("ShadeTentacle").Type;

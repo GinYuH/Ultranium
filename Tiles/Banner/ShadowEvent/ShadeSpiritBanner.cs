@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Banner.ShadowEvent;
@@ -20,9 +21,9 @@ public class ShadeSpiritBanner : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 		Item.value = Item.buyPrice(0, 0, 10);
 		Item.createTile = Mod.Find<ModTile>("ShadowEventBanners").Type;
 		Item.placeStyle = 1;

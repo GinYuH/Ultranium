@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Ignodium.Projectiles;
@@ -15,12 +16,12 @@ public class MoltenGlob : ModProjectile
 	{
 		Main.projFrames[Projectile.type] = 4;
 		Projectile.CloneDefaults(467);
-		base.AIType = 467;
+		base.AIType = ProjectileID.CultistBossFireBall;
 	}
 
 	public override bool PreKill(int timeLeft)
 	{
-		Projectile.type = 467;
+		Projectile.type = ProjectileID.CultistBossFireBall;
 		return true;
 	}
 

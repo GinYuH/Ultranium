@@ -19,6 +19,6 @@ public class PoisonLegs : ModItem
 		Item.width = 18;
 		Item.height = 18;
 		Item.vanity = true;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 	}
 }

@@ -26,11 +26,11 @@ public class DreadApparition : ModNPC
 		NPC.lifeMax = 200;
 		NPC.HitSound = SoundID.NPCHit1;
 		NPC.DeathSound = SoundID.NPCDeath6;
-		NPC.aiStyle = 86;
+		NPC.aiStyle = NPCAIStyleID.AncientVision;
 		NPC.noGravity = true;
 		NPC.lavaImmune = true;
-		base.AIType = 472;
-		base.AnimationType = 472;
+		base.AIType = NPCID.ShadowFlameApparition;
+		base.AnimationType = NPCID.ShadowFlameApparition;
 		base.Banner = NPC.type;
 		base.BannerItem = Mod.Find<ModItem>("DreadApparitionBanner").Type;
 	}
@@ -72,7 +72,7 @@ public class DreadApparition : ModNPC
 		NPC.position.Y = NPC.position.Y - (float)(NPC.height / 2);
 		for (int i = 0; i < 20; i++)
 		{
-			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, 90, 0f, 0f, 100, default(Color), 2f);
+			int num = Dust.NewDust(new Vector2(NPC.position.X, NPC.position.Y), NPC.width, NPC.height, DustID.GemRuby, 0f, 0f, 100, default(Color), 2f);
 			Main.dust[num].velocity *= 3f;
 			if (Main.rand.Next(2) == 0)
 			{

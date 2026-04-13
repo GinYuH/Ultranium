@@ -47,7 +47,7 @@ public class SolSpear : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 228);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GoldFlame);
 			dust.noGravity = true;
 			dust.scale = 1.6f;
 		}
@@ -66,7 +66,7 @@ public class SolSpear : ModProjectile
 		SoundEngine.PlaySound(SoundID.Item10, new Vector2(Projectile.position.X, Projectile.position.Y));
 		for (int i = 0; i < 5; i++)
 		{
-			Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, 25, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
+			Dust.NewDust(Projectile.position + Projectile.velocity, Projectile.width, Projectile.height, DustID.MeteorHead, Projectile.oldVelocity.X * 0.5f, Projectile.oldVelocity.Y * 0.5f);
 		}
 		for (int j = 0; j < 3; j++)
 		{

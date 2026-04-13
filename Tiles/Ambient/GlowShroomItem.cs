@@ -17,9 +17,9 @@ public class GlowShroomItem : ModItem
 		Item.UseSound = SoundID.Item2;
 		Item.width = 20;
 		Item.height = 30;
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.maxStack = Item.CommonMaxStack;
-		Item.useStyle = 2;
+		Item.useStyle = ItemUseStyleID.EatFood;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
 		Item.consumable = true;

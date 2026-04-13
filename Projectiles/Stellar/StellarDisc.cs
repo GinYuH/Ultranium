@@ -21,7 +21,7 @@ public class StellarDisc : ModProjectile
 		Projectile.tileCollide = false;
 		Projectile.width = 40;
 		Projectile.height = 44;
-		Projectile.aiStyle = 3;
+		Projectile.aiStyle = ProjAIStyleID.Boomerang;
 		Projectile.friendly = true;
 		Projectile.tileCollide = false;
 		Projectile.DamageType = DamageClass.Ranged;

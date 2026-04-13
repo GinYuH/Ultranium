@@ -19,10 +19,10 @@ public class GhostScythe : ModItem
 		((Entity)(object)Item).height = 62;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 55, 50);
-		Item.rare = 8;
+		Item.rare = ItemRarityID.Yellow;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
@@ -39,8 +39,8 @@ public class GhostScythe : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(3261, 12);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.SpectreBar, 12);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

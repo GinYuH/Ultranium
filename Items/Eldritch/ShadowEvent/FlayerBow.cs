@@ -23,11 +23,11 @@ public class FlayerBow : ModItem
 		Item.height = 18;
 		Item.useTime = 14;
 		Item.useAnimation = 14;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 4f;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
 		Item.shoot = Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type;
@@ -64,7 +64,7 @@ public class FlayerBow : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

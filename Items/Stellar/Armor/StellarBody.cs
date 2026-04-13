@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Stellar.Armor;
@@ -17,7 +18,7 @@ public class StellarBody : ModItem
 		((Entity)(object)Item).width = 18;
 		((Entity)(object)Item).height = 18;
 		Item.value = Item.buyPrice(1, 50);
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.defense = 19;
 	}
 
@@ -43,7 +44,7 @@ public class StellarBody : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "StellarBar", 17);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

@@ -22,10 +22,10 @@ public class FlayerBlade : ModItem
 		Item.height = 80;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(1);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.UseSound = SoundID.Item1;
 		Item.shoot = Mod.Find<ModProjectile>("DarkTentacle").Type;
 		Item.shootSpeed = 24f;
@@ -47,7 +47,7 @@ public class FlayerBlade : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 32);
 		val.AddIngredient((Mod)null, "EldritchBlood", 8);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

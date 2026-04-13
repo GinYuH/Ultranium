@@ -18,10 +18,10 @@ public class DreadBeacon : ModItem
 		Item.width = 20;
 		Item.height = 20;
 		Item.maxStack = 20;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = SoundID.Item44;
 		Item.consumable = true;
 	}
@@ -63,7 +63,7 @@ public class DreadBeacon : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DreadFlame", 15);
 		val.AddRecipeGroup("Ultranium:Adamantite/Titanium", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

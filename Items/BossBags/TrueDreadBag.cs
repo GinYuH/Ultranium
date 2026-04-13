@@ -21,7 +21,7 @@ public class TrueDreadBag : ModItem
 		Item.consumable = true;
 		Item.width = 36;
 		Item.height = 34;
-		Item.rare = -12;
+		Item.rare = ItemRarityID.Expert;
 		Item.expert = true;
 	}
 

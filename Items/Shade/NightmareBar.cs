@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.DataStructures;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Shade;
@@ -21,7 +22,7 @@ public class NightmareBar : ModItem
 		Item.height = Item.height;
 		Item.maxStack = Item.CommonMaxStack;
 		Item.value = 1000;
-		Item.rare = 1;
+		Item.rare = ItemRarityID.Blue;
 	}
 
 	public override void AddRecipes()
@@ -34,7 +35,7 @@ public class NightmareBar : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "ShadowOre", 2);
 		val.AddIngredient((Mod)null, "ShadowEssence", 1);
-		val.AddTile(17);
+		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}
 }

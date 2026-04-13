@@ -21,10 +21,10 @@ public class DepthSnail : ModNPC
 		NPC.lifeMax = 12;
 		Main.npcCatchable[NPC.type] = true;
 		NPC.catchItem = (short)ModContent.ItemType<DepthSnailItem>();
-		NPC.aiStyle = 67;
-		base.AIType = 360;
+		NPC.aiStyle = NPCAIStyleID.Snail;
+		base.AIType = NPCID.GlowingSnail;
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[360];
-		base.AnimationType = 360;
+		base.AnimationType = NPCID.GlowingSnail;
 		NPC.HitSound = SoundID.NPCHit1;
 		NPC.DeathSound = SoundID.NPCDeath1;
 		NPC.knockBackResist = 0.35f;

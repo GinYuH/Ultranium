@@ -44,7 +44,7 @@ public class ShadeArrowGreen : ModProjectile
 	{
 		if (Utils.NextBool(Main.rand))
 		{
-			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, 89);
+			Dust dust = Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.GemEmerald);
 			dust.noGravity = true;
 			dust.scale = 1.2f;
 		}

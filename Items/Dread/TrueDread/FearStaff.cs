@@ -24,10 +24,10 @@ public class FearStaff : ModItem
 		Item.height = 56;
 		Item.useTime = 13;
 		Item.useAnimation = 13;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.value = Item.buyPrice(1);
 		Item.UseSound = SoundID.Item20;
 		Item.autoReuse = true;
@@ -50,7 +50,7 @@ public class FearStaff : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "NightmareFuel", 10);
 		val.AddIngredient((Mod)null, "DreadScale", 6);
-		val.AddTile(412);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

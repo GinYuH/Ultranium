@@ -16,8 +16,8 @@ public class BloodYoyo : ModItem
 	{
 		Item.damage = 13;
 		Item.knockBack = 2.5f;
-		Item.rare = 2;
-		Item.useStyle = 5;
+		Item.rare = ItemRarityID.Green;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.width = 24;
 		Item.height = 22;
 		Item.noUseGraphic = true;
@@ -42,7 +42,7 @@ public class BloodYoyo : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

@@ -18,10 +18,10 @@ public class EtherealLantern : ModItem
 		Item.width = 20;
 		Item.height = 20;
 		Item.maxStack = 20;
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.UseSound = SoundID.Item44;
 		Item.consumable = true;
 	}
@@ -51,10 +51,10 @@ public class EtherealLantern : ModItem
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1508, 10);
+		val.AddIngredient(ItemID.Ectoplasm, 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 10);
-		val.AddIngredient(154, 30);
-		val.AddTile(134);
+		val.AddIngredient(ItemID.Bone, 30);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

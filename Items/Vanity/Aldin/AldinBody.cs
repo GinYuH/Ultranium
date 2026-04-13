@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Vanity.Aldin;
@@ -17,6 +18,6 @@ public class AldinBody : ModItem
 		((Entity)(object)Item).width = 18;
 		((Entity)(object)Item).height = 18;
 		Item.vanity = true;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 	}
 }

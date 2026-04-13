@@ -74,7 +74,7 @@ public class Ultrum : ModNPC
 
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
-		if (projectile.type == 632)
+		if (projectile.type == ProjectileID.LastPrismLaser)
 		{
 			modifiers.SourceDamage /= 3;
 		}
@@ -627,9 +627,9 @@ public class Ultrum : ModNPC
 		if (!UltraniumWorld.downedUltrum)
 		{
 			UltraniumWorld.downedUltrum = true;
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
-				NetMessage.SendData(7);
+				NetMessage.SendData(MessageID.WorldData);
 			}
 		}
 	}

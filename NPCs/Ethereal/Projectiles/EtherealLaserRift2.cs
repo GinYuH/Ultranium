@@ -56,7 +56,7 @@ public class EtherealLaserRift2 : ModProjectile
 			double num5 = Main.rand.NextDouble() * 2.0 * Math.PI;
 			vector3.X += (float)(Math.Sin(num5) * 1200.0);
 			vector3.Y += (float)(Math.Cos(num5) * 1200.0);
-			Dust obj = Main.dust[Dust.NewDust(Projectile.Center + vector3 - new Vector2(4f, 4f), 0, 0, 62, 0f, 0f, 100, Color.White)];
+			Dust obj = Main.dust[Dust.NewDust(Projectile.Center + vector3 - new Vector2(4f, 4f), 0, 0, DustID.PurpleTorch, 0f, 0f, 100, Color.White)];
 			obj.velocity *= 0f;
 			obj.noGravity = true;
 			obj.scale = 2.5f;

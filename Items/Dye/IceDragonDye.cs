@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Dye;
@@ -13,7 +14,7 @@ public class IceDragonDye : ModItem
 	public override void SetDefaults()
 	{
 		Item.maxStack = Item.CommonMaxStack;
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 	}
 
 	public override void AddRecipes()
@@ -24,9 +25,9 @@ public class IceDragonDye : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(1037, 1);
+		val.AddIngredient(ItemID.SilverDye, 1);
 		val.AddIngredient((Mod)null, "IcePelt", 1);
-		val.AddTile(228);
+		val.AddTile(TileID.DyeVat);
 		val.Register();
 	}
 }

@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Fishing;
@@ -18,6 +19,6 @@ public class HuskmireMaw : ModItem
 		Item.height = 24;
 		Item.maxStack = 999;
 		Item.value = 100;
-		Item.rare = 5;
+		Item.rare = ItemRarityID.Pink;
 	}
 }

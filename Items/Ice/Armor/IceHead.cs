@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ice.Armor;
@@ -17,7 +18,7 @@ public class IceHead : ModItem
 		Item.width = 34;
 		Item.height = 22;
 		Item.value = Item.buyPrice(0, 2, 50);
-		Item.rare = 3;
+		Item.rare = ItemRarityID.Orange;
 		Item.defense = 5;
 	}
 
@@ -60,9 +61,9 @@ public class IceHead : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient(664, 35);
+		val.AddIngredient(ItemID.IceBlock, 35);
 		val.AddIngredient((Mod)null, "IcePelt", 10);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

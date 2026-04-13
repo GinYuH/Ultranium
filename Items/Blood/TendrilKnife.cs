@@ -21,10 +21,10 @@ public class TendrilKnife : ModItem
 		Item.height = 24;
 		Item.useTime = 25;
 		Item.useAnimation = 25;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 1, 50);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item7;
 		Item.noUseGraphic = true;
 		Item.autoReuse = true;
@@ -36,7 +36,7 @@ public class TendrilKnife : ModItem
 	{
 		if (Utils.NextBool(Main.rand, 3))
 		{
-			Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 5);
+			Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.Blood);
 		}
 	}
 
@@ -50,7 +50,7 @@ public class TendrilKnife : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "BloodClot", 12);
 		val.AddRecipeGroup("Ultranium:Silver/Tungsten", 8);
-		val.AddTile(16);
+		val.AddTile(TileID.Anvils);
 		val.Register();
 	}
 }

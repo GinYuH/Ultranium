@@ -34,7 +34,7 @@ public class ShadeMass : ModNPC
 		NPC.HitSound = SoundID.NPCHit13;
 		NPC.DeathSound = SoundID.NPCDeath19;
 		NPC.knockBackResist = 0f;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.buffImmune[24] = true;

@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Erebus.Biome;
@@ -54,7 +55,7 @@ public class ShadeTentacle : ModProjectile
 		{
 			for (int i = 0; (float)i < Projectile.scale * 10f; i++)
 			{
-				int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, 89, Projectile.velocity.X, Projectile.velocity.Y, 100, default(Color), 1.1f);
+				int num = Dust.NewDust(new Vector2(Projectile.position.X, Projectile.position.Y), Projectile.width, Projectile.height, DustID.GemEmerald, Projectile.velocity.X, Projectile.velocity.Y, 100, default(Color), 1.1f);
 				Main.dust[num].position = (Main.dust[num].position + Projectile.Center) / 2f;
 				Main.dust[num].noGravity = true;
 				Main.dust[num].velocity *= 0.1f;

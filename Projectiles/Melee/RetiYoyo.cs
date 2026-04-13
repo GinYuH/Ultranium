@@ -21,7 +21,7 @@ public class RetiYoyo : ModProjectile
 		Projectile.CloneDefaults(552);
 		Projectile.damage = 68;
 		Projectile.extraUpdates = 1;
-		base.AIType = 552;
+		base.AIType = ProjectileID.Amarok;
 	}
 
 	public override bool PreAI()
@@ -68,7 +68,7 @@ public class RetiYoyo : ModProjectile
 				num5 = num4 / num5;
 			}
 			vector *= num5;
-			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 100, 40, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
+			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, ProjectileID.DeathLaser, 40, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
 			Main.projectile[num6].friendly = true;
 			Main.projectile[num6].hostile = false;
 		}

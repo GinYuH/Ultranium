@@ -22,7 +22,7 @@ public class SolProjectile : ModProjectile
 		Projectile.scale = 1f;
 		Projectile.width = 18;
 		Projectile.height = 18;
-		Projectile.aiStyle = 99;
+		Projectile.aiStyle = ProjAIStyleID.Yoyo;
 		Projectile.friendly = true;
 		Projectile.penetrate = -1;
 		Projectile.DamageType = DamageClass.Melee;
@@ -83,7 +83,7 @@ public class SolProjectile : ModProjectile
 				num5 = num4 / num5;
 			}
 			vector *= num5;
-			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 259, 70, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
+			int num6 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, ProjectileID.EyeBeam, 70, Projectile.knockBack / 2f, Projectile.owner, 0f, 0f);
 			Main.projectile[num6].friendly = true;
 			Main.projectile[num6].hostile = false;
 		}

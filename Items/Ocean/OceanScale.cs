@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ocean;
@@ -16,7 +17,7 @@ public class OceanScale : ModItem
 		Item.width = 24;
 		Item.height = 24;
 		Item.value = Item.buyPrice(0, 0, 5);
-		Item.rare = 2;
+		Item.rare = ItemRarityID.Green;
 		Item.maxStack = 999;
 	}
 }

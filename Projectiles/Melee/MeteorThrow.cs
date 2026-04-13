@@ -19,7 +19,7 @@ public class MeteorThrow : ModProjectile
 		Projectile.CloneDefaults(542);
 		Projectile.damage = 16;
 		Projectile.extraUpdates = 1;
-		base.AIType = 542;
+		base.AIType = ProjectileID.CorruptYoyo;
 	}
 
 	public override void PostAI()
@@ -29,6 +29,6 @@ public class MeteorThrow : ModProjectile
 
 	public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
 	{
-		target.AddBuff(24, 160, quiet: true);
+		target.AddBuff(BuffID.OnFire, 160, quiet: true);
 	}
 }

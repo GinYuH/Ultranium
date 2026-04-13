@@ -68,14 +68,14 @@ public class FlameBolt : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		target.AddBuff(24, 300, quiet: false);
+		target.AddBuff(BuffID.OnFire, 300, quiet: false);
 	}
 
 	public override void OnKill(int timeLeft)
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.Torch, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

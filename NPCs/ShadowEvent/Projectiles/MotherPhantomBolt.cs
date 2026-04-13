@@ -19,7 +19,7 @@ public class MotherPhantomBolt : ModProjectile
 
 	public override void SetDefaults()
 	{
-		Projectile.aiStyle = 132;
+		Projectile.aiStyle = ProjAIStyleID.DD2GrimEnd;
 		Projectile.width = 72;
 		Projectile.height = 72;
 		Projectile.friendly = false;

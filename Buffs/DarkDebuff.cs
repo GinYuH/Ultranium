@@ -25,7 +25,7 @@ public class DarkDebuff : ModBuff
 				npc.lifeRegen = 0;
 			}
 			npc.lifeRegen -= 25;
-			Dust.NewDust(npc.position, npc.width, npc.height, 89);
+			Dust.NewDust(npc.position, npc.width, npc.height, DustID.GemEmerald);
 		}
 	}
 
@@ -37,7 +37,7 @@ public class DarkDebuff : ModBuff
 		player.GetDamage(DamageClass.Ranged) *= 0.85f;
 		player.GetDamage(DamageClass.Summon) *= 0.85f;
 		player.GetModPlayer<UltraniumPlayer>().DarkDebuff = true;
-		int num = Dust.NewDust(player.position, player.width, player.height, 89);
+		int num = Dust.NewDust(player.position, player.width, player.height, DustID.GemEmerald);
 		Main.dust[num].scale = 1.2f;
 		Main.dust[num].velocity *= 3f;
 		Main.dust[num].noGravity = true;

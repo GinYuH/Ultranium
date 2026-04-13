@@ -29,9 +29,9 @@ public class DevotedKatana : ModItem
 		Item.height = 78;
 		Item.useTime = 16;
 		Item.useAnimation = 16;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.value = Item.buyPrice(2);
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;

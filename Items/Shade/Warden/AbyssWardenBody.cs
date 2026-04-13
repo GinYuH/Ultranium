@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Shade.Warden;
@@ -17,7 +18,7 @@ public class AbyssWardenBody : ModItem
 		((Entity)(object)Item).width = 34;
 		((Entity)(object)Item).height = 22;
 		Item.value = Item.buyPrice(0, 45);
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.defense = 22;
 	}
 
@@ -39,7 +40,7 @@ public class AbyssWardenBody : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "AbyssRockItem", 60);
 		val.AddIngredient((Mod)null, "DepthGlowstoneItem", 30);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

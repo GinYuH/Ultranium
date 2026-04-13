@@ -22,9 +22,9 @@ public class EtherealSword : ModItem
 		Item.height = 80;
 		Item.useTime = 22;
 		Item.useAnimation = 44;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.knockBack = 6f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
@@ -57,7 +57,7 @@ public class EtherealSword : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
 		val.AddIngredient((Mod)null, "ShadowFlame", 5);
-		val.AddTile(134);
+		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}
 }

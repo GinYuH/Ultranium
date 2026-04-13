@@ -21,7 +21,7 @@ public class EldritchBoots : ModItem
 		Item.width = 34;
 		Item.height = 26;
 		Item.value = Item.buyPrice(0, 80);
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.accessory = true;
 	}
 
@@ -62,10 +62,10 @@ public class EldritchBoots : ModItem
 		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
 		val.AddIngredient((Mod)null, "DarkMatter", 12);
 		val.AddIngredient((Mod)null, "NightmareScale", 8);
-		val.AddIngredient(1862, 1);
-		val.AddIngredient(908, 1);
-		val.AddIngredient(575, 20);
-		val.AddTile(412);
+		val.AddIngredient(ItemID.FrostsparkBoots, 1);
+		val.AddIngredient(ItemID.LavaWaders, 1);
+		val.AddIngredient(ItemID.SoulofFlight, 20);
+		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}
 }

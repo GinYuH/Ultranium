@@ -29,8 +29,8 @@ public class Scp2521 : ModNPC
 		NPC.defense = 70;
 		NPC.lifeMax = 1800;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 3;
-		base.AIType = 257;
+		NPC.aiStyle = NPCAIStyleID.Fighter;
+		base.AIType = NPCID.AnomuraFungus;
 		NPC.HitSound = SoundID.NPCHit49;
 		NPC.DeathSound = SoundID.NPCDeath55;
 		base.Banner = NPC.type;

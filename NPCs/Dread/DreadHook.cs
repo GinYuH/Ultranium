@@ -76,7 +76,7 @@ public class DreadHook : ModNPC
 		{
 			flag2 = true;
 		}
-		if (Main.netMode == 1)
+		if (Main.netMode == NetmodeID.MultiplayerClient)
 		{
 			if (NPC.ai[0] == 0f)
 			{
@@ -87,7 +87,7 @@ public class DreadHook : ModNPC
 				NPC.ai[1] = (int)(NPC.Center.X / 16f);
 			}
 		}
-		if (Main.netMode != 1)
+		if (Main.netMode != NetmodeID.MultiplayerClient)
 		{
 			if (NPC.ai[0] == 0f || NPC.ai[1] == 0f)
 			{
@@ -145,7 +145,7 @@ public class DreadHook : ModNPC
 						NPC.TargetClosest();
 						int num7 = (int)(Main.player[NPC.target].Center.X / 16f);
 						int num8 = (int)(Main.player[NPC.target].Center.Y / 16f);
-						if (Main.tile[num7, num8].WallType > 0)
+						if (Main.tile[num7, num8].WallType > WallID.None)
 						{
 							num5 = num7;
 							num6 = num8;
@@ -153,7 +153,7 @@ public class DreadHook : ModNPC
 					}
 					try
 					{
-						if (WorldGen.SolidTile(num5, num6) || Main.tileSolidTop[Main.tile[num5, num6].TileType] || (Main.tile[num5, num6].WallType > 0 && (num > 500 || nPC.life < nPC.lifeMax / 2)))
+						if (WorldGen.SolidTile(num5, num6) || Main.tileSolidTop[Main.tile[num5, num6].TileType] || (Main.tile[num5, num6].WallType > WallID.None && (num > 500 || nPC.life < nPC.lifeMax / 2)))
 						{
 							flag3 = true;
 							NPC.ai[0] = num5;
@@ -270,7 +270,7 @@ public class DreadHook : ModNPC
 		}
 		for (int i = 0; i < 80; i++)
 		{
-			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

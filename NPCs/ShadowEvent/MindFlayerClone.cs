@@ -39,7 +39,7 @@ public class MindFlayerClone : ModNPC
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
-		NPC.aiStyle = 0;
+		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;

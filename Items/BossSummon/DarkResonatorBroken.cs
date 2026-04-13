@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossSummon;
@@ -16,10 +17,10 @@ public class DarkResonatorBroken : ModItem
 		Item.width = 28;
 		Item.height = 18;
 		Item.maxStack = 1;
-		Item.rare = 11;
+		Item.rare = ItemRarityID.Purple;
 		Item.useAnimation = 45;
 		Item.useTime = 45;
-		Item.useStyle = 4;
+		Item.useStyle = ItemUseStyleID.HoldUp;
 		Item.consumable = false;
 	}
 }

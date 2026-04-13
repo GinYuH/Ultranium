@@ -1,5 +1,6 @@
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.NPCs.Ocean.Projectiles;
@@ -28,7 +29,7 @@ public class InkGlob : ModProjectile
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo info)
 	{
-		target.AddBuff(32, 60, quiet: false);
+		target.AddBuff(BuffID.Slow, 60, quiet: false);
 	}
 
 	public override void AI()

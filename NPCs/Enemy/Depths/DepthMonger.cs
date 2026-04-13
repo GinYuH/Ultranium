@@ -24,9 +24,9 @@ public class DepthMonger : ModNPC
 		NPC.defense = 50;
 		NPC.lifeMax = 200;
 		NPC.knockBackResist = 0.1f;
-		NPC.aiStyle = 3;
-		base.AIType = 461;
-		base.AnimationType = 461;
+		NPC.aiStyle = NPCAIStyleID.Fighter;
+		base.AIType = NPCID.CreatureFromTheDeep;
+		base.AnimationType = NPCID.CreatureFromTheDeep;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
 		base.Banner = NPC.type;

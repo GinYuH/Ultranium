@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.BossBags.Acc;
@@ -17,7 +18,7 @@ public class IceTalon : ModItem
 		Item.width = 28;
 		Item.height = 28;
 		Item.value = 10000;
-		Item.rare = 4;
+		Item.rare = ItemRarityID.LightRed;
 		Item.accessory = true;
 		Item.expert = true;
 	}

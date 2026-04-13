@@ -21,15 +21,15 @@ public class DepthsBow : ModItem
 		Item.height = 40;
 		Item.useTime = 18;
 		Item.useAnimation = 18;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.DamageType = DamageClass.Ranged;
 		Item.knockBack = 6f;
 		Item.value = Item.buyPrice(0, 68);
-		Item.rare = 7;
+		Item.rare = ItemRarityID.Lime;
 		Item.UseSound = SoundID.Item5;
 		Item.autoReuse = true;
-		Item.shoot = 11;
+		Item.shoot = ProjectileID.VilePowder;
 		Item.useAmmo = AmmoID.Arrow;
 		Item.shootSpeed = 18f;
 	}

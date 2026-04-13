@@ -83,7 +83,7 @@ public class PurpleGlowShroomVine : ModTile
 			tileSafely.TileType = Type;
 			tileSafely.HasTile = true;
 			WorldGen.SquareTileFrame(i, j + 1);
-			if (Main.netMode == 2)
+			if (Main.netMode == NetmodeID.Server)
 			{
 				NetMessage.SendTileSquare(-1, i, j + 1, 3);
 			}

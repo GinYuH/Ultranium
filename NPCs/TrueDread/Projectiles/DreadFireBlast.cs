@@ -79,7 +79,7 @@ public class DreadFireBlast : ModProjectile
 				Vector2 spinningpoint = Vector2.UnitX * (0f - (float)Projectile.width) / 2f;
 				spinningpoint += -Vector2.UnitY.RotatedBy((float)i * (float)Math.PI / 6f) * new Vector2(8f, 16f);
 				spinningpoint = spinningpoint.RotatedBy(Projectile.rotation - (float)Math.PI / 2f);
-				int num = Dust.NewDust(Projectile.Center, 0, 0, 90, 0f, 0f, 160);
+				int num = Dust.NewDust(Projectile.Center, 0, 0, DustID.GemRuby, 0f, 0f, 160);
 				Main.dust[num].scale = 1.5f;
 				Main.dust[num].noGravity = true;
 				Main.dust[num].position = Projectile.Center + spinningpoint;
@@ -95,7 +95,7 @@ public class DreadFireBlast : ModProjectile
 	{
 		for (int i = 0; i < 40; i++)
 		{
-			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 90, 0f, -2f, 0, default(Color), 1.5f);
+			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;
 			Main.dust[num].position.Y += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

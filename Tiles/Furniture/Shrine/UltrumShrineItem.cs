@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Tiles.Furniture.Shrine;
@@ -12,7 +13,7 @@ public class UltrumShrineItem : ModItem
 
 	public override void SetDefaults()
 	{
-		Item.rare = 0;
+		Item.rare = ItemRarityID.White;
 		Item.width = 12;
 		Item.height = 30;
 		Item.maxStack = Item.CommonMaxStack;
@@ -20,7 +21,7 @@ public class UltrumShrineItem : ModItem
 		Item.autoReuse = true;
 		Item.useAnimation = 15;
 		Item.useTime = 10;
-		Item.useStyle = 1;
+		Item.useStyle = ItemUseStyleID.Swing;
 		Item.consumable = true;
 		Item.value = 150;
 		Item.createTile = Mod.Find<ModTile>("UltrumShrine").Type;

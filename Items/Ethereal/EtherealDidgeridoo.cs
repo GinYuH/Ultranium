@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Items.Ethereal;
@@ -21,10 +22,10 @@ public class EtherealDidgeridoo : ModItem
 		Item.height = 32;
 		Item.useTime = 35;
 		Item.useAnimation = 35;
-		Item.useStyle = 5;
+		Item.useStyle = ItemUseStyleID.Shoot;
 		Item.noMelee = true;
 		Item.knockBack = 5f;
-		Item.rare = 9;
+		Item.rare = ItemRarityID.Cyan;
 		Item.value = Item.buyPrice(0, 30);
 		Item.UseSound = new Terraria.Audio.SoundStyle("Ultranium/Sounds/Item/Didgeridoo");
 		Item.autoReuse = true;
