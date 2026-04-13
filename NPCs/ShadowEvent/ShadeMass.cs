@@ -38,8 +38,8 @@ public class ShadeMass : ModNPC
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.buffImmune[24] = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("ShadeMassBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("ShadeMassBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;
@@ -84,7 +84,7 @@ public class ShadeMass : ModNPC
 				int num = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<DarkmatterTentacle>(), NPC.damage, 0f, Main.myPlayer, 0f, 0f);
 				if (num == 1000)
 				{
-					((Entity)NPC).active = false;
+					NPC.active = false;
 					return;
 				}
 				DarkmatterTentacle darkmatterTentacle = Main.projectile[num].ModProjectile as DarkmatterTentacle;

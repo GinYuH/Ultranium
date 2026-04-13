@@ -31,8 +31,8 @@ public class DreadChaser : ModNPC
 		NPC.knockBackResist = 0f;
 		Main.npcFrameCount[NPC.type] = 2;
 		NPC.lavaImmune = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DreadChaserBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DreadChaserBanner").Type;
 		NPC.noGravity = true;
 		NPC.noTileCollide = false;
 		NPC.buffImmune[189] = true;

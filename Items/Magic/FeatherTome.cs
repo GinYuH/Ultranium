@@ -72,7 +72,7 @@ public class FeatherTome : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002c: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.Feather, 12);
 		val.AddIngredient(ItemID.Book, 1);
 		val.AddTile(TileID.Anvils);

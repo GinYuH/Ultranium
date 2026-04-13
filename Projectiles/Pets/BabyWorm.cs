@@ -16,7 +16,7 @@ public class BabyWorm : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(380);
-		base.AIType = ProjectileID.ZephyrFish;
+		AIType = ProjectileID.ZephyrFish;
 		Projectile.timeLeft = 999999999;
 		Projectile.timeLeft *= 999999999;
 		Projectile.penetrate = -1;

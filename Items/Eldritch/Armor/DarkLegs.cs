@@ -45,10 +45,10 @@ public class DarkLegs : ModItem
 		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0035: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0040: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareScale", 12);
-		val.AddIngredient((Mod)null, "NightmareBar", 12);
-		val.AddIngredient((Mod)null, "DarkMatter", 15);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareScale", 12);
+		val.AddIngredient(null, "NightmareBar", 12);
+		val.AddIngredient(null, "DarkMatter", 15);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

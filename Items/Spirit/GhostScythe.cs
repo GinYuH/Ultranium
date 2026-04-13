@@ -15,8 +15,8 @@ public class GhostScythe : ModItem
 	public override void SetDefaults()
 	{
 		Item.damage = 60;
-		((Entity)(object)Item).width = 62;
-		((Entity)(object)Item).height = 62;
+		Item.width = 62;
+		Item.height = 62;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -38,7 +38,7 @@ public class GhostScythe : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.SpectreBar, 12);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

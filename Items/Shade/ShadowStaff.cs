@@ -17,8 +17,8 @@ public class ShadowStaff : ModItem
 		Item.damage = 22;
 		Item.DamageType = DamageClass.Magic;
 		Item.mana = 5;
-		((Entity)(object)Item).width = 40;
-		((Entity)(object)Item).height = 40;
+		Item.width = 40;
+		Item.height = 40;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Shoot;
@@ -38,8 +38,8 @@ public class ShadowStaff : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareBar", 12);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareBar", 12);
 		val.AddTile(TileID.Anvils);
 		val.Register();
 	}

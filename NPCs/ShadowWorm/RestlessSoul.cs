@@ -55,7 +55,7 @@ public class RestlessSoul : ModNPC
 		Player player = Main.player[NPC.target];
 		if (NPC.CountNPCS(Mod.Find<ModNPC>("ErebusHead").Type) == 0)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		ShootTimer++;
 		if (ShootTimer == 240)
@@ -74,9 +74,9 @@ public class RestlessSoul : ModNPC
 		double num5 = (double)NPC.ai[1] * (Math.PI / 180.0);
 		NPC.position.X = nPC.Center.X - (float)(int)(Math.Cos(num5) * (double)num4) - (float)(NPC.width / 2);
 		NPC.position.Y = nPC.Center.Y - (float)(int)(Math.Sin(num5) * (double)num4) - (float)(NPC.height / 2);
-		if (!((Entity)nPC).active)
+		if (!NPC.active)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 	}
 }

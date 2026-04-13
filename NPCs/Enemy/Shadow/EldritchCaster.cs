@@ -79,8 +79,8 @@ public class EldritchCaster : ModNPC
 		NPC.value = Item.buyPrice(0, 0, 1);
 		NPC.HitSound = SoundID.NPCHit2;
 		NPC.DeathSound = SoundID.NPCDeath2;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("EldritchCasterBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("EldritchCasterBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

@@ -52,9 +52,9 @@ public class DreadScepter : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareFuel", 10);
-		val.AddIngredient((Mod)null, "DreadScale", 6);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareFuel", 10);
+		val.AddIngredient(null, "DreadScale", 6);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

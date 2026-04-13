@@ -121,7 +121,7 @@ public class XenanisClone1 : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 100f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.ai[0] == 0f)

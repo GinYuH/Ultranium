@@ -15,8 +15,8 @@ public class TenebrisLegs : ModItem
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)Item).width = 22;
-		((Entity)(object)Item).height = 16;
+		Item.width = 22;
+		Item.height = 16;
 		Item.value = Item.buyPrice(0, 2, 50);
 		Item.rare = ItemRarityID.Blue;
 		Item.defense = 4;
@@ -37,8 +37,8 @@ public class TenebrisLegs : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareBar", 7);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareBar", 7);
 		val.AddTile(TileID.Anvils);
 		val.Register();
 	}

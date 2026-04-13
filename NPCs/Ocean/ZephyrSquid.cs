@@ -53,7 +53,7 @@ public class ZephyrSquid : ModNPC
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
 		NPC.buffImmune[24] = true;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ZephyrSquid");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ZephyrSquid");
 		NPC.netAlways = true;
 		NPC.aiStyle = -1;
 		players = 1;
@@ -87,7 +87,7 @@ public class ZephyrSquid : ModNPC
 		NPC.rotation = NPC.velocity.X * 0.02f;
 		Player player = Main.player[NPC.target];
 		int num = (Main.expertMode ? 14 : 20);
-		if (!((Entity)player).active || player.dead)
+		if (!player.active || player.dead)
 		{
 			NPC.TargetClosest(faceTarget: false);
 			NPC.velocity.Y = -100f;
@@ -100,7 +100,7 @@ public class ZephyrSquid : ModNPC
 			NPC.ai[0] += 1f;
 			if (NPC.ai[0] >= 120f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.ai[0] == 0f)

@@ -19,8 +19,8 @@ public class Midnight : ModItem
 		Item.value = Item.buyPrice(0, 1);
 		Item.damage = 13;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 58;
-		((Entity)(object)Item).height = 26;
+		Item.width = 58;
+		Item.height = 26;
 		Item.useTime = 12;
 		Item.useAnimation = 12;
 		Item.useStyle = ItemUseStyleID.Shoot;
@@ -57,9 +57,9 @@ public class Midnight : ModItem
 		//IL_0015: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.MeteoriteBar, 10);
-		val.AddIngredient((Mod)null, "ShadowEssence", 15);
+		val.AddIngredient(null, "ShadowEssence", 15);
 		val.AddTile(TileID.Anvils);
 		val.Register();
 	}

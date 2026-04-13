@@ -24,9 +24,9 @@ public class DepthsDye : ModItem
 		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.SilverDye, 1);
-		val.AddIngredient((Mod)null, "DepthGlowstoneItem", 2);
+		val.AddIngredient(null, "DepthGlowstoneItem", 2);
 		val.AddTile(TileID.DyeVat);
 		val.Register();
 	}

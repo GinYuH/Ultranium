@@ -28,11 +28,11 @@ public class DepthCrawler : ModNPC
 		NPC.lifeMax = 165;
 		NPC.knockBackResist = 0.1f;
 		NPC.aiStyle = NPCAIStyleID.Fighter;
-		base.AIType = NPCID.AnomuraFungus;
+		AIType = NPCID.AnomuraFungus;
 		NPC.HitSound = SoundID.NPCHit29;
 		NPC.DeathSound = SoundID.NPCDeath31;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DepthCrawlerBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DepthCrawlerBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

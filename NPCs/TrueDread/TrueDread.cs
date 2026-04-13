@@ -68,7 +68,7 @@ public class TrueDread : ModNPC
 		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/DreadRoar") with { PitchVariance = 0.5f };
 		NPC.value = Item.buyPrice(0, 50);
 		NPC.npcSlots = 1f;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/RealDread");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/RealDread");
 		NPC.aiStyle = -1;
 		players = 1;
 		for (int i = 0; i < 206; i++)
@@ -112,11 +112,11 @@ public class TrueDread : ModNPC
 		player = Main.player[NPC.target];
 		Vector2 vector = Main.player[NPC.target].Center - NPC.Center;
 		vector.Normalize();
-		if (!((Entity)player).active || player.dead || Main.dayTime)
+		if (!player.active || player.dead || Main.dayTime)
 		{
 			NPC.TargetClosest(faceTarget: false);
 			player = Main.player[NPC.target];
-			if (!((Entity)player).active || player.dead || Main.dayTime)
+			if (!player.active || player.dead || Main.dayTime)
 			{
 				NPC.velocity = new Vector2(0f, -10f);
 				if (NPC.timeLeft > 120)

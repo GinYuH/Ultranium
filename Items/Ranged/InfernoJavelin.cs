@@ -16,8 +16,8 @@ public class InfernoJavelin : ModItem
 	{
 		Item.damage = 22;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 64;
-		((Entity)(object)Item).height = 66;
+		Item.width = 64;
+		Item.height = 66;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -38,7 +38,7 @@ public class InfernoJavelin : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.HellstoneBar, 10);
 		val.AddTile(TileID.Anvils);
 		val.Register();

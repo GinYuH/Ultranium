@@ -20,7 +20,7 @@ public class ZephyrTrident : ModProjectile
 		Projectile.CloneDefaults(47);
 		Projectile.height = 122;
 		Projectile.width = 122;
-		base.AIType = ProjectileID.Trident;
+		AIType = ProjectileID.Trident;
 		Projectile.DamageType = DamageClass.Magic;
 	}
 

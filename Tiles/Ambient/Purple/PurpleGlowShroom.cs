@@ -16,7 +16,7 @@ public class PurpleGlowShroom : ModTile
 		Main.tileFrameImportant[Type] = true;
 		Main.tileCut[Type] = true;
 		Main.tileNoFail[Type] = true;
-		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
+		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
 		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 		TileObjectData.newTile.AnchorValidTiles = new int[1] { Mod.Find<ModTile>("PurpleShadowGrass").Type };

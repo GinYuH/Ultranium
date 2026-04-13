@@ -31,8 +31,8 @@ public class AbyssalCultist : ModNPC
 		NPC.knockBackResist = 0f;
 		NPC.HitSound = SoundID.NPCHit1;
 		NPC.DeathSound = SoundID.NPCDeath6;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssalCultistBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssalCultistBanner").Type;
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */

@@ -49,7 +49,7 @@ public class Keeper : ModNPC
 		NPCID.Sets.AttackType[NPC.type] = 0;
 		NPCID.Sets.AttackTime[NPC.type] = 90;
 		NPCID.Sets.AttackAverageChance[NPC.type] = 30;
-		base.AnimationType = NPCID.Merchant;
+		AnimationType = NPCID.Merchant;
 	}
 
 	public override bool CanTownNPCSpawn(int numTownNPCs)/* tModPorter Suggestion: Copy the implementation of NPC.SpawnAllowed_Merchant in vanilla if you to count money, and be sure to set a flag when unlocked, so you don't count every tick. */
@@ -123,7 +123,7 @@ public class Keeper : ModNPC
 
 	public override void AI()
 	{
-		if (!CanSpawnAldin || !ShouldSpawnAldin || !((Entity)NPC).active)
+		if (!CanSpawnAldin || !ShouldSpawnAldin || !NPC.active)
 		{
 			return;
 		}
@@ -149,7 +149,7 @@ public class Keeper : ModNPC
 			Ultranium.seizureAmount = 20f;
 			Main.NewText("Aldin's true form has been unleashed!", (byte)175, (byte)75, byte.MaxValue);
 			SpawnTimer = 0;
-			((Entity)NPC).active = false;
+			NPC.active = false;
 			ShouldSpawnAldin = false;
 			SellFinalShroom = true;
 		}

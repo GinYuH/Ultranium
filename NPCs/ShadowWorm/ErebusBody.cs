@@ -219,7 +219,7 @@ public class ErebusBody : ModNPC
 		{
 			NPC.life = 0;
 			NPC.HitEffect();
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		if ((double)NPC.ai[1] < (double)Main.npc.Length)
 		{
@@ -237,7 +237,7 @@ public class ErebusBody : ModNPC
 		}
 		if (NPC.CountNPCS(Mod.Find<ModNPC>("ErebusHead").Type) == 0)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		return false;
 	}

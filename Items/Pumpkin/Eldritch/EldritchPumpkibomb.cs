@@ -16,8 +16,8 @@ public class EldritchPumpkibomb : ModItem
 	{
 		Item.damage = 45;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 20;
-		((Entity)(object)Item).height = 20;
+		Item.width = 20;
+		Item.height = 20;
 		Item.useTime = 38;
 		Item.useAnimation = 38;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -39,9 +39,9 @@ public class EldritchPumpkibomb : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "Pumpkibomb", 1);
-		val.AddIngredient((Mod)null, "ShadowEssence", 20);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "Pumpkibomb", 1);
+		val.AddIngredient(null, "ShadowEssence", 20);
 		val.AddIngredient(ItemID.SoulofNight, 10);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

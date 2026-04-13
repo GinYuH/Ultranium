@@ -91,7 +91,7 @@ public class MindFlayerClone : ModNPC
 	{
 		if (NPC.CountNPCS(Mod.Find<ModNPC>("MindFlayer").Type) == 0)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		NPC.rotation = NPC.velocity.X * 0.02f;
 		Player player = Main.player[NPC.target];

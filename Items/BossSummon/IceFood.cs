@@ -50,7 +50,7 @@ public class IceFood : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.IceBlock, 50);
 		val.AddIngredient(ItemID.Bone, 15);
 		val.AddRecipeGroup("Ultranium:RottenChunk/Vetebrae", 6);

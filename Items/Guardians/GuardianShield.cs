@@ -61,11 +61,11 @@ public class GuardianShield : ModItem
 		//IL_0030: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0048: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.AnkhShield, 1);
 		val.AddIngredient(ItemID.ObsidianRose, 1);
-		val.AddIngredient((Mod)null, "UltrumShard", 5);
-		val.AddIngredient((Mod)null, "HellShard", 5);
+		val.AddIngredient(null, "UltrumShard", 5);
+		val.AddIngredient(null, "HellShard", 5);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

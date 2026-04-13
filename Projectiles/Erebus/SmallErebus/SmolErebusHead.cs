@@ -68,7 +68,7 @@ public class SmolErebusHead : ModProjectile
 		{
 			Projectile.netUpdate = true;
 		}
-		if (!((Entity)player).active)
+		if (!player.active)
 		{
 			((Entity)Projectile).active = false;
 			return;

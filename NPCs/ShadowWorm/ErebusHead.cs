@@ -83,7 +83,7 @@ public class ErebusHead : ModNPC
 		NPC.value = Item.buyPrice(0, 25, 50);
 		NPC.npcSlots = 1f;
 		NPC.netAlways = true;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ErebusTheme");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ErebusTheme");
 		players = 1;
 		for (int i = 0; i < 206; i++)
 		{
@@ -207,7 +207,7 @@ public class ErebusHead : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 120f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.AnyNPCs(Mod.Find<ModNPC>("RestlessSoul").Type) || player.ownedProjectileCounts[Mod.Find<ModProjectile>("ExpandingVortex").Type] > 0)
@@ -237,7 +237,7 @@ public class ErebusHead : ModNPC
 			TeleportVortex = false;
 			NPC.scale = 1f;
 		}
-		if ((double)NPC.life <= (double)NPC.lifeMax * 0.75 && Vortex == 0 && ((Entity)NPC).active)
+		if ((double)NPC.life <= (double)NPC.lifeMax * 0.75 && Vortex == 0 && NPC.active)
 		{
 			Vector2 vector = Main.player[NPC.target].Center - NPC.Center;
 			vector.Normalize();
@@ -247,7 +247,7 @@ public class ErebusHead : ModNPC
 			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			Vortex++;
 		}
-		if ((double)NPC.life <= (double)NPC.lifeMax * 0.5 && Vortex == 1 && ((Entity)NPC).active)
+		if ((double)NPC.life <= (double)NPC.lifeMax * 0.5 && Vortex == 1 && NPC.active)
 		{
 			Vector2 vector2 = Main.player[NPC.target].Center - NPC.Center;
 			vector2.Normalize();
@@ -257,7 +257,7 @@ public class ErebusHead : ModNPC
 			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			Vortex++;
 		}
-		if ((double)NPC.life <= (double)NPC.lifeMax * 0.25 && Vortex == 2 && ((Entity)NPC).active)
+		if ((double)NPC.life <= (double)NPC.lifeMax * 0.25 && Vortex == 2 && NPC.active)
 		{
 			Vector2 vector3 = Main.player[NPC.target].Center - NPC.Center;
 			vector3.Normalize();
@@ -868,7 +868,7 @@ public class ErebusHead : ModNPC
 				NPC.netUpdate = true;
 			}
 		}
-		if (!((Entity)NPC).active)
+		if (!NPC.active)
 		{
 			Timer1 = 0;
 			Timer2 = 0;

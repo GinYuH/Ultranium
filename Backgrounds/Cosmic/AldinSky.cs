@@ -52,10 +52,10 @@ public class AldinSky : CustomSky
 		{
 			Meteor[] meteors = Meteors;
 			int num = i;
-			meteors[num].Position.X = meteors[num].Position.X - this.num * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			meteors[num].Position.X = meteors[num].Position.X - num * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			Meteor[] meteors2 = Meteors;
 			int num2 = i;
-			meteors2[num2].Position.Y = meteors2[num2].Position.Y + this.num * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			meteors2[num2].Position.Y = meteors2[num2].Position.Y + num * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			if ((double)Meteors[i].Position.Y > Main.worldSurface * 16.0)
 			{
 				Meteors[i].Position.X = Meteors[i].StartX;

@@ -47,7 +47,7 @@ public class DreadBossP2 : ModNPC
 		NPC.DeathSound = SoundID.NPCDeath60;
 		NPC.value = Item.buyPrice(0, 15);
 		NPC.npcSlots = 1f;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;
 	}
@@ -79,11 +79,11 @@ public class DreadBossP2 : ModNPC
 		Vector2 vector = Main.player[NPC.target].Center - NPC.Center;
 		vector.Normalize();
 		int num = (Main.expertMode ? 25 : 45);
-		if (!((Entity)player).active || player.dead || Main.dayTime)
+		if (!player.active || player.dead || Main.dayTime)
 		{
 			NPC.TargetClosest(faceTarget: false);
 			player = Main.player[NPC.target];
-			if (!((Entity)player).active || player.dead || Main.dayTime)
+			if (!player.active || player.dead || Main.dayTime)
 			{
 				NPC.velocity = new Vector2(0f, -10f);
 				if (NPC.timeLeft > 180)

@@ -19,8 +19,8 @@ public class ShadeWispStaff : ModItem
 		Item.DamageType = DamageClass.Summon;
 		Item.mana = 20;
 		Item.damage = 20;
-		((Entity)(object)Item).width = 26;
-		((Entity)(object)Item).height = 26;
+		Item.width = 26;
+		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -60,8 +60,8 @@ public class ShadeWispStaff : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareBar", 12);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareBar", 12);
 		val.AddTile(TileID.Anvils);
 		val.Register();
 	}

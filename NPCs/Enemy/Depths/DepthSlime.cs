@@ -30,8 +30,8 @@ public class DepthSlime : ModNPC
 		NPC.value = Item.buyPrice(0, 0, 1);
 		NPC.knockBackResist = 0.5f;
 		NPC.aiStyle = NPCAIStyleID.Slime;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DepthSlimeBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DepthSlimeBanner").Type;
 	}
 
 	public override void FindFrame(int frameHeight)

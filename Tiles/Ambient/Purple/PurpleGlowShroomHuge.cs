@@ -22,7 +22,7 @@ public class PurpleGlowShroomHuge : ModTile
 		TileObjectData.newTile.CoordinateHeights = new int[4] { 16, 16, 16, 16 };
 		TileObjectData.addTile((int)Type);
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
+		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
 		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 

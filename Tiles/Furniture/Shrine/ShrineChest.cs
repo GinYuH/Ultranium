@@ -35,7 +35,7 @@ public class ShrineChest : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Shrine Chest");
 		AddMapEntry(new Color(88, 72, 88), val, (Func<string, int, int, string>)MapChestName);
-		base.DustType = DustID.Dirt;
+		DustType = DustID.Dirt;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
 		TileID.Sets.BasicChest[Type] = true;

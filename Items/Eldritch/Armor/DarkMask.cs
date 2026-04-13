@@ -66,10 +66,10 @@ public class DarkMask : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0034: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareScale", 8);
-		val.AddIngredient((Mod)null, "NightmareBar", 10);
-		val.AddIngredient((Mod)null, "DarkMatter", 12);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareScale", 8);
+		val.AddIngredient(null, "NightmareBar", 10);
+		val.AddIngredient(null, "DarkMatter", 12);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

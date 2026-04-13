@@ -28,7 +28,7 @@ public class SkyStar : ModProjectile
 		Projectile.tileCollide = true;
 		Projectile.timeLeft = 100;
 		Projectile.CloneDefaults(3);
-		base.AIType = ProjectileID.Shuriken;
+		AIType = ProjectileID.Shuriken;
 	}
 
 	public override void AI()

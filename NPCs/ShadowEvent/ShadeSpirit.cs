@@ -30,8 +30,8 @@ public class ShadeSpirit : ModNPC
 		NPC.knockBackResist = 0.9f;
 		NPC.aiStyle = NPCAIStyleID.GraniteElemental;
 		NPC.buffImmune[24] = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("ShadeSpiritBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("ShadeSpiritBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;

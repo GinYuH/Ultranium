@@ -16,7 +16,7 @@ public class StellarChaserPet : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(197);
-		base.AIType = ProjectileID.BabySkeletronHead;
+		AIType = ProjectileID.BabySkeletronHead;
 		Projectile.timeLeft = 999999999;
 		Projectile.timeLeft *= 999999999;
 		Projectile.penetrate = -1;

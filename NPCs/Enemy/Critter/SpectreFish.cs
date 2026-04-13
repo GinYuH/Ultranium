@@ -27,7 +27,7 @@ public class SpectreFish : ModNPC
 		NPC.aiStyle = NPCAIStyleID.Piranha;
 		NPC.noGravity = true;
 		NPC.npcSlots = 0f;
-		base.AIType = NPCID.Goldfish;
+		AIType = NPCID.Goldfish;
 		NPC.dontCountMe = true;
 	}
 

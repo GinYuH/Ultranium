@@ -15,8 +15,8 @@ public class SpazBomb : ModItem
 	public override void SetDefaults()
 	{
 		Item.useStyle = ItemUseStyleID.Swing;
-		((Entity)(object)Item).width = 30;
-		((Entity)(object)Item).height = 26;
+		Item.width = 30;
+		Item.height = 26;
 		Item.noUseGraphic = true;
 		Item.DamageType = DamageClass.Ranged;
 		Item.noMelee = true;
@@ -39,7 +39,7 @@ public class SpazBomb : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.HallowedBar, 10);
 		val.AddIngredient(ItemID.SoulofSight, 5);
 		val.AddTile(TileID.MythrilAnvil);

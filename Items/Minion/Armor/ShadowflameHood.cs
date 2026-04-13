@@ -51,8 +51,8 @@ public class ShadowflameHood : ModItem
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "ShadowFlame", 7);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "ShadowFlame", 7);
 		val.AddIngredient(ItemID.SoulofNight, 7);
 		val.AddIngredient(ItemID.Silk, 12);
 		val.AddTile(TileID.MythrilAnvil);

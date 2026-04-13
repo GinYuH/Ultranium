@@ -71,10 +71,10 @@ public class DarkResonator : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "DarkResonatorBroken", 1);
-		val.AddIngredient((Mod)null, "NightmareBar", 6);
-		val.AddIngredient((Mod)null, "NightmareFuel", 5);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "DarkResonatorBroken", 1);
+		val.AddIngredient(null, "NightmareBar", 6);
+		val.AddIngredient(null, "NightmareFuel", 5);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

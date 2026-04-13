@@ -63,7 +63,7 @@ public class IceDragon : ModNPC
 		NPC.boss = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/IceDragon");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/IceDragon");
 	}
 
 	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
@@ -97,7 +97,7 @@ public class IceDragon : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 120f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		NPC.rotation = NPC.velocity.X * 0.02f;
@@ -331,7 +331,7 @@ public class IceDragon : ModNPC
 				}
 			}
 		}
-		if (!((Entity)NPC).active)
+		if (!NPC.active)
 		{
 			BlizzardEffect = false;
 			Transition = false;

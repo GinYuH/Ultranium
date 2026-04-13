@@ -45,7 +45,7 @@ public class FakeDread : ModNPC
 		NPC.netAlways = true;
 		NPC.HitSound = SoundID.NPCHit7;
 		NPC.npcSlots = 1f;
-		base.Music = MusicLoader.GetMusicSlot(Mod,"Sounds/Music/Dread");
+		Music = MusicLoader.GetMusicSlot(Mod,"Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;
 	}
@@ -71,7 +71,7 @@ public class FakeDread : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 120f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		NPC.TargetClosest();
@@ -80,7 +80,7 @@ public class FakeDread : ModNPC
 			int num = 6000;
 			if (Math.Abs(NPC.Center.X - Main.player[NPC.target].Center.X) + Math.Abs(NPC.Center.Y - Main.player[NPC.target].Center.Y) > (float)num)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 				NPC.life = 0;
 				if (Main.netMode == NetmodeID.Server)
 				{
@@ -123,7 +123,7 @@ public class FakeDread : ModNPC
 		Vector2 vector = new Vector2(num2, num3);
 		float num8 = Main.player[NPC.target].Center.X - vector.X;
 		float num9 = Main.player[NPC.target].Center.Y - vector.Y;
-		if (!((Entity)player).active && Main.dayTime)
+		if (!player.active && Main.dayTime)
 		{
 			num9 *= -1f;
 			num8 *= -1f;
@@ -268,7 +268,7 @@ public class FakeDread : ModNPC
 			{
 				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("TrueDread").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 				Ultranium.seizureAmount = 20f;
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.AnyNPCs(Mod.Find<ModNPC>("FakeDreadHook").Type))

@@ -30,11 +30,11 @@ public class Scp2521 : ModNPC
 		NPC.lifeMax = 1800;
 		NPC.knockBackResist = 0.1f;
 		NPC.aiStyle = NPCAIStyleID.Fighter;
-		base.AIType = NPCID.AnomuraFungus;
+		AIType = NPCID.AnomuraFungus;
 		NPC.HitSound = SoundID.NPCHit49;
 		NPC.DeathSound = SoundID.NPCDeath55;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("Scp2521Banner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("Scp2521Banner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;

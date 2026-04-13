@@ -15,8 +15,8 @@ public class ShadowGrassVine : ModTile
 		Main.tileLavaDeath[Type] = true;
 		Main.tileNoFail[Type] = true;
 		Main.tileNoAttach[Type] = true;
-		base.HitSound = SoundID.Grass;
-		base.DustType = DustID.GemEmerald;
+		HitSound = SoundID.Grass;
+		DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 	}
 

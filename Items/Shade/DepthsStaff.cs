@@ -19,8 +19,8 @@ public class DepthsStaff : ModItem
 		Item.DamageType = DamageClass.Summon;
 		Item.mana = 20;
 		Item.damage = 65;
-		((Entity)(object)Item).width = 42;
-		((Entity)(object)Item).height = 42;
+		Item.width = 42;
+		Item.height = 42;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Swing;

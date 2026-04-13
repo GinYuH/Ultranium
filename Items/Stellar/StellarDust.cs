@@ -14,8 +14,8 @@ public class StellarDust : ModItem
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)Item).width = 24;
-		((Entity)(object)Item).height = 24;
+		Item.width = 24;
+		Item.height = 24;
 		Item.value = 50;
 		Item.rare = ItemRarityID.Pink;
 		Item.maxStack = Item.CommonMaxStack;

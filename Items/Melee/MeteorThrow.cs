@@ -38,7 +38,7 @@ public class MeteorThrow : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.MeteoriteBar, 8);
 		val.AddTile(TileID.Anvils);
 		val.Register();

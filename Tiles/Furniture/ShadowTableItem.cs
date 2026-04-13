@@ -33,8 +33,8 @@ public class ShadowTableItem : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "ShadowWood", 8);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "ShadowWood", 8);
 		val.AddTile(TileID.WorkBenches);
 		val.Register();
 	}

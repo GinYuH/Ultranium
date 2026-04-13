@@ -35,8 +35,8 @@ public class ShadowClockItem : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003a: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "ShadowWood", 10);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "ShadowWood", 10);
 		val.AddRecipeGroup("Ultranium:Iron/Lead", 3);
 		val.AddIngredient(ItemID.Glass, 10);
 		val.AddTile(TileID.WorkBenches);

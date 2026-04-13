@@ -16,7 +16,7 @@ public class SlimePet : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(334);
-		base.AIType = ProjectileID.Puppy;
+		AIType = ProjectileID.Puppy;
 		Main.projPet[Projectile.type] = true;
 		Projectile.width = 32;
 		Projectile.height = 22;

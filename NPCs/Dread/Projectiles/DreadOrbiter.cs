@@ -62,14 +62,14 @@ public class DreadOrbiter : ModNPC
 			NPC.position.X = nPC.Center.X - (float)(int)(Math.Cos(num2) * (double)num) - (float)(NPC.width / 2);
 			NPC.position.Y = nPC.Center.Y - (float)(int)(Math.Sin(num2) * (double)num) - (float)(NPC.height / 2);
 		}
-		if (!((Entity)nPC).active)
+		if (!NPC.active)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		ShootTimer++;
 		if (ShootTimer >= 60)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 			int num3 = (Main.expertMode ? 25 : 45);
 			float num4 = 10f;
 			int num5 = Mod.Find<ModProjectile>("DreadOrbiterBolt").Type;

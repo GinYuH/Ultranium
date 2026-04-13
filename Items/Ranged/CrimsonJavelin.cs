@@ -16,8 +16,8 @@ public class CrimsonJavelin : ModItem
 	{
 		Item.damage = 18;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 66;
-		((Entity)(object)Item).height = 60;
+		Item.width = 66;
+		Item.height = 60;
 		Item.useTime = 23;
 		Item.useAnimation = 23;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -38,7 +38,7 @@ public class CrimsonJavelin : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.CrimtaneBar, 10);
 		val.AddTile(TileID.Anvils);
 		val.Register();

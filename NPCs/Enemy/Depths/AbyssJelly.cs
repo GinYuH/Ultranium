@@ -27,10 +27,10 @@ public class AbyssJelly : ModNPC
 		NPC.height = 50;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.Jellyfish;
-		base.AIType = NPCID.BloodJelly;
-		base.AnimationType = NPCID.BloodJelly;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssJellyBanner").Type;
+		AIType = NPCID.BloodJelly;
+		AnimationType = NPCID.BloodJelly;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssJellyBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

@@ -27,12 +27,12 @@ public class ShroomMonster : ModNPC
 		NPC.lifeMax = 200;
 		NPC.knockBackResist = 0.1f;
 		NPC.aiStyle = NPCAIStyleID.Fighter;
-		base.AIType = NPCID.SwampThing;
-		base.AnimationType = NPCID.SwampThing;
+		AIType = NPCID.SwampThing;
+		AnimationType = NPCID.SwampThing;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("ShroomMonsterBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("ShroomMonsterBanner").Type;
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

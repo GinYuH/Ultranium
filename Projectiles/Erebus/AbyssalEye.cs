@@ -35,7 +35,7 @@ public class AbyssalEye : ModProjectile
 		Projectile.position.X = player.Center.X - 31f;
 		Projectile.position.Y = player.Center.Y - 100f;
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (!((Entity)player).active || !modPlayer.EldritchSummonSet)
+		if (!player.active || !modPlayer.EldritchSummonSet)
 		{
 			((Entity)Projectile).active = false;
 			return;
@@ -54,7 +54,7 @@ public class AbyssalEye : ModProjectile
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
+			if (!nPC.active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
 			{
 				continue;
 			}

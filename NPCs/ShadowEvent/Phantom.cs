@@ -34,12 +34,12 @@ public class Phantom : ModNPC
 		NPC.knockBackResist = 0f;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.DD2Flying;
-		base.AnimationType = NPCID.DD2WyvernT2;
-		base.AIType = NPCID.DD2WyvernT3;
+		AnimationType = NPCID.DD2WyvernT2;
+		AIType = NPCID.DD2WyvernT3;
 		NPC.buffImmune[24] = true;
 		NPC.noTileCollide = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("PhantomBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("PhantomBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;

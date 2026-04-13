@@ -46,9 +46,9 @@ public class EldritchScythe : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "DarkMatter", 32);
-		val.AddIngredient((Mod)null, "EldritchBlood", 8);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "DarkMatter", 32);
+		val.AddIngredient(null, "EldritchBlood", 8);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();
 	}

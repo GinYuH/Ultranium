@@ -40,7 +40,7 @@ public class MagmaStorm : ModItem
 		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.SpellTome, 1);
 		val.AddIngredient(ItemID.LivingFireBlock, 5);
 		val.AddTile(TileID.MythrilAnvil);

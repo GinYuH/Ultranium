@@ -71,7 +71,7 @@ public class UltraniumWorld : ModSystem
 
 	public static bool DreadMessage;
 
-	public override void OnWorldLoad()/* tModPorter Suggestion: Also override OnWorldUnload, and mirror your worldgen-sensitive data initialization in PreWorldGen */
+	public override void OnWorldLoad()
 	{
 		SavedTruffle = false;
 		Moorhsum = false;
@@ -570,7 +570,7 @@ public class UltraniumWorld : ModSystem
 			for (int i = 0; i < Main.player.Length; i++)
 			{
 				Player player = Main.player[i];
-				if (((Entity)player).active && !Filters.Scene["MoonLordShake"].IsActive())
+				if (player.active && !Filters.Scene["MoonLordShake"].IsActive())
 				{
 					Filters.Scene.Activate("MoonLordShake", player.position);
 				}
@@ -616,19 +616,19 @@ public class UltraniumWorld : ModSystem
         val7.Register();
         Recipe val8 = Recipe.Create(ItemID.LifeCrystal, 1);
         val8.AddIngredient(ItemID.Ruby, 10);
-        val8.AddIngredient((Mod)null, "BloodClot", 10);
+        val8.AddIngredient(null, "BloodClot", 10);
         val8.AddTile(TileID.Anvils);
         val8.Register();
         Recipe val9 = Recipe.Create(ItemID.ShadowFlameBow, 1);
-        val9.AddIngredient((Mod)null, "ShadowFlame", 8);
+        val9.AddIngredient(null, "ShadowFlame", 8);
         val9.AddTile(TileID.MythrilAnvil);
         val9.Register();
         Recipe val10 = Recipe.Create(ItemID.ShadowFlameHexDoll, 1);
-        val10.AddIngredient((Mod)null, "ShadowFlame", 8);
+        val10.AddIngredient(null, "ShadowFlame", 8);
         val10.AddTile(TileID.MythrilAnvil);
         val10.Register();
         Recipe val11 = Recipe.Create(ItemID.ShadowFlameKnife, 1);
-        val11.AddIngredient((Mod)null, "ShadowFlame", 8);
+        val11.AddIngredient(null, "ShadowFlame", 8);
         val11.AddTile(TileID.MythrilAnvil);
         val11.Register();
         Recipe val12 = Recipe.Create(ItemID.Meowmere, 1);

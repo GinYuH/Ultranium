@@ -125,7 +125,7 @@ public class XenanisClone2 : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 100f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		NPC.velocity *= 0.985f;

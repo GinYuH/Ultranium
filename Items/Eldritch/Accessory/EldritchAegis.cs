@@ -65,10 +65,10 @@ public class EldritchAegis : ModItem
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "DarkMatter", 12);
-		val.AddIngredient((Mod)null, "NightmareScale", 8);
-		val.AddIngredient((Mod)null, "GuardianShield", 1);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "DarkMatter", 12);
+		val.AddIngredient(null, "NightmareScale", 8);
+		val.AddIngredient(null, "GuardianShield", 1);
 		val.AddIngredient(ItemID.FrozenTurtleShell, 1);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();

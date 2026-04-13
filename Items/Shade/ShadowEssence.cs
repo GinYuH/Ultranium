@@ -27,8 +27,8 @@ public class ShadowEssence : ModItem
 
 	public override void SetDefaults()
 	{
-		((Entity)(object)Item).width = 26;
-		((Entity)(object)Item).height = 34;
+		Item.width = 26;
+		Item.height = 34;
 		Item.maxStack = 999;
 		Item.value = 1000;
 		Item.rare = ItemRarityID.Blue;

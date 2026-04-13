@@ -20,9 +20,9 @@ internal class ShadowFlora : ModTile
 		TileObjectData.newTile.LavaDeath = false;
 		TileObjectData.newTile.StyleHorizontal = true;
 		TileObjectData.addTile((int)Type);
-		base.DustType = DustID.GemEmerald;
+		DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.HitSound = SoundID.Grass;
+		HitSound = SoundID.Grass;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 	}
 

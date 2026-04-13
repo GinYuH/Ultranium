@@ -50,9 +50,9 @@ public class EtherealLantern : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.Ectoplasm, 10);
-		val.AddIngredient((Mod)null, "ShadowFlame", 10);
+		val.AddIngredient(null, "ShadowFlame", 10);
 		val.AddIngredient(ItemID.Bone, 30);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

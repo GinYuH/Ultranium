@@ -16,8 +16,8 @@ public class PumpkinBlade : ModItem
 	{
 		Item.damage = 12;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)Item).width = 40;
-		((Entity)(object)Item).height = 40;
+		Item.width = 40;
+		Item.height = 40;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -39,7 +39,7 @@ public class PumpkinBlade : ModItem
 		//IL_0029: Expected O, but got Unknown
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.Pumpkin, 10);
         val.AddRecipeGroup(RecipeGroupID.Wood, 20);
         val.AddTile(TileID.WorkBenches);

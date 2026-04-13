@@ -21,7 +21,7 @@ public class DreadMinion : ModProjectile
 		Main.projPet[Projectile.type] = true;
 		Projectile.CloneDefaults(388);
 		Projectile.minion = true;
-		base.AIType = ProjectileID.Spazmamini;
+		AIType = ProjectileID.Spazmamini;
 	}
 
 	public override void AI()

@@ -21,7 +21,7 @@ public class Inferno : ModProjectile
 		Projectile.CloneDefaults(552);
 		Projectile.damage = 27;
 		Projectile.extraUpdates = 1;
-		base.AIType = ProjectileID.Cascade;
+		AIType = ProjectileID.Cascade;
 	}
 
 	public override bool PreAI()

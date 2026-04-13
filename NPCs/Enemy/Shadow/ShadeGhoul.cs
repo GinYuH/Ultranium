@@ -25,12 +25,12 @@ public class ShadeGhoul : ModNPC
 		NPC.lifeMax = 60;
 		NPC.knockBackResist = 0.1f;
 		NPC.aiStyle = NPCAIStyleID.Fighter;
-		base.AIType = NPCID.DesertGhoul;
-		base.AnimationType = NPCID.DesertGhoul;
+		AIType = NPCID.DesertGhoul;
+		AnimationType = NPCID.DesertGhoul;
 		NPC.HitSound = SoundID.NPCHit6;
 		NPC.DeathSound = SoundID.NPCDeath8;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("ShadeGhoulBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("ShadeGhoulBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

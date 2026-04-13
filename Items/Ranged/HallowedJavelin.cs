@@ -16,8 +16,8 @@ public class HallowedJavelin : ModItem
 	{
 		Item.damage = 50;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 62;
-		((Entity)(object)Item).height = 60;
+		Item.width = 62;
+		Item.height = 60;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -38,7 +38,7 @@ public class HallowedJavelin : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.HallowedBar, 12);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

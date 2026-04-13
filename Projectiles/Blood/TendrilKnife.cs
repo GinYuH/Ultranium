@@ -25,7 +25,7 @@ public class TendrilKnife : ModProjectile
 		Projectile.extraUpdates = 1;
 		Projectile.ignoreWater = false;
 		Projectile.aiStyle = ProjAIStyleID.ThrownProjectile;
-		base.AIType = ProjectileID.ThrowingKnife;
+		AIType = ProjectileID.ThrowingKnife;
 	}
 
 	public override void OnKill(int timeLeft)

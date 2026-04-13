@@ -31,8 +31,8 @@ public class DarkDemon : ModNPC
 		NPC.knockBackResist = 0.5f;
 		NPC.aiStyle = NPCAIStyleID.Bat;
 		NPC.noGravity = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DarkDemonBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DarkDemonBanner").Type;
 	}
 
 	public override void AI()

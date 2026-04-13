@@ -31,8 +31,8 @@ public class Warden : ModNPC
 		NPC.knockBackResist = 0f;
 		NPC.HitSound = SoundID.NPCHit49;
 		NPC.DeathSound = SoundID.NPCDeath55;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssBruteBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssBruteBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;
@@ -109,7 +109,7 @@ public class Warden : ModNPC
 		if (Timer < 840)
 		{
 			NPC.aiStyle = NPCAIStyleID.Fighter;
-			base.AIType = NPCID.GiantWalkingAntlion;
+			AIType = NPCID.GiantWalkingAntlion;
 		}
 		if (Timer > 840)
 		{

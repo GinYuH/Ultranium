@@ -29,7 +29,7 @@ public class TempleShroomCritter : ModNPC
 		NPC.aiStyle = NPCAIStyleID.Passive;
 		NPC.npcSlots = 0f;
 		NPC.noGravity = false;
-		base.AIType = NPCID.Bunny;
+		AIType = NPCID.Bunny;
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

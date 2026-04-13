@@ -44,7 +44,7 @@ public class Hallow : ModItem
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.Starfury, 1);
 		val.AddIngredient(ItemID.SoulofLight, 20);
 		val.AddIngredient(ItemID.CrystalShard, 15);

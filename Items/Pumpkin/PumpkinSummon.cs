@@ -19,8 +19,8 @@ public class PumpkinSummon : ModItem
 		Item.damage = 12;
 		Item.mana = 15;
 		Item.DamageType = DamageClass.Summon;
-		((Entity)(object)Item).width = 26;
-		((Entity)(object)Item).height = 26;
+		Item.width = 26;
+		Item.height = 26;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -63,7 +63,7 @@ public class PumpkinSummon : ModItem
 		//IL_0029: Expected O, but got Unknown
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.Pumpkin, 20);
         val.AddRecipeGroup(RecipeGroupID.Wood, 20);
         val.AddTile(TileID.WorkBenches);

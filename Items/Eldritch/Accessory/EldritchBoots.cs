@@ -59,9 +59,9 @@ public class EldritchBoots : ModItem
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_004b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "DarkMatter", 12);
-		val.AddIngredient((Mod)null, "NightmareScale", 8);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "DarkMatter", 12);
+		val.AddIngredient(null, "NightmareScale", 8);
 		val.AddIngredient(ItemID.FrostsparkBoots, 1);
 		val.AddIngredient(ItemID.LavaWaders, 1);
 		val.AddIngredient(ItemID.SoulofFlight, 20);

@@ -56,7 +56,7 @@ public class MindFlayer : ModNPC
 		NPC.noTileCollide = true;
 		NPC.HitSound = SoundID.NPCHit55;
 		NPC.DeathSound = new SoundStyle("Ultranium/Sounds/MindFlayerRoar") with { PitchVariance = 0.5f };
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MindFlayer");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MindFlayer");
 		NPC.defense = 60;
 		NPC.npcSlots = 1f;
 		NPC.lavaImmune = true;

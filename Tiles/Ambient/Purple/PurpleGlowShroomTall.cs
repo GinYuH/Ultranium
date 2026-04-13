@@ -16,8 +16,8 @@ public class PurpleGlowShroomTall : ModTile
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoFail[Type] = true;
 		Main.tileMergeDirt[Type] = true;
-		base.DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		base.HitSound = SoundID.Grass;
+		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
+		HitSound = SoundID.Grass;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };

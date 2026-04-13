@@ -29,10 +29,10 @@ public class DreadApparition : ModNPC
 		NPC.aiStyle = NPCAIStyleID.AncientVision;
 		NPC.noGravity = true;
 		NPC.lavaImmune = true;
-		base.AIType = NPCID.ShadowFlameApparition;
-		base.AnimationType = NPCID.ShadowFlameApparition;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DreadApparitionBanner").Type;
+		AIType = NPCID.ShadowFlameApparition;
+		AnimationType = NPCID.ShadowFlameApparition;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DreadApparitionBanner").Type;
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

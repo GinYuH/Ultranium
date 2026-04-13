@@ -26,12 +26,12 @@ public class DepthsMimic : ModNPC
 		NPC.lifeMax = 3500;
 		NPC.knockBackResist = 0.1f;
 		NPC.aiStyle = NPCAIStyleID.BiomeMimic;
-		base.AIType = NPCID.BigMimicCorruption;
-		base.AnimationType = NPCID.BigMimicCorruption;
+		AIType = NPCID.BigMimicCorruption;
+		AnimationType = NPCID.BigMimicCorruption;
 		NPC.HitSound = SoundID.NPCHit4;
 		NPC.DeathSound = SoundID.NPCDeath6;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("DepthsMimicBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("DepthsMimicBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

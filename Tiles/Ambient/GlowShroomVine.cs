@@ -17,8 +17,8 @@ public class GlowShroomVine : ModTile
 		Main.tileNoFail[Type] = true;
 		Main.tileNoAttach[Type] = true;
 		Main.tileLighted[Type] = true;
-		base.HitSound = SoundID.Grass;
-		base.DustType = DustID.GemEmerald;
+		HitSound = SoundID.Grass;
+		DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(58, 11, 67), (LocalizedText)null);
 	}
 

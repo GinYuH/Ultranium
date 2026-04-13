@@ -17,8 +17,8 @@ public class StellarBlade : ModItem
 	{
 		Item.damage = 52;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)Item).width = 48;
-		((Entity)(object)Item).height = 48;
+		Item.width = 48;
+		Item.height = 48;
 		Item.useTime = 22;
 		Item.useAnimation = 22;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -42,8 +42,8 @@ public class StellarBlade : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "StellarBar", 10);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "StellarBar", 10);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}

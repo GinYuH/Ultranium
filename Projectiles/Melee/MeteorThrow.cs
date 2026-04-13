@@ -19,7 +19,7 @@ public class MeteorThrow : ModProjectile
 		Projectile.CloneDefaults(542);
 		Projectile.damage = 16;
 		Projectile.extraUpdates = 1;
-		base.AIType = ProjectileID.CorruptYoyo;
+		AIType = ProjectileID.CorruptYoyo;
 	}
 
 	public override void PostAI()

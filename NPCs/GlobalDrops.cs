@@ -78,7 +78,7 @@ public class GlobalDrops : GlobalNPC
 	{
 		if (npc.type == NPCID.SkeletronHead && Main.dayTime)
 		{
-			Item.NewItem(null, (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ((GlobalNPC)this).Mod.Find<ModItem>("SoulCrushingDisappointment").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Mod.Find<ModItem>("SoulCrushingDisappointment").Type, 1, false, 0, false, false);
 			if (!UltraniumWorld.SoulCrushingDisappointment)
 			{
 				UltraniumWorld.SoulCrushingDisappointment = true;
@@ -90,7 +90,7 @@ public class GlobalDrops : GlobalNPC
 		}
 		if (npc.type == NPCID.Truffle)
 		{
-			Item.NewItem(null, (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ((GlobalNPC)this).Mod.Find<ModItem>("TruffleShroom").Type, 1, false, 0, false, false);
+			Item.NewItem(null, (int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, Mod.Find<ModItem>("TruffleShroom").Type, 1, false, 0, false, false);
 			if (!UltraniumWorld.TruffleShroom)
 			{
 				UltraniumWorld.TruffleShroom = true;

@@ -16,7 +16,7 @@ public class DragonHornet : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(198);
-		base.AIType = ProjectileID.BabyHornet;
+		AIType = ProjectileID.BabyHornet;
 		Main.projPet[Projectile.type] = true;
 		Projectile.width = 42;
 		Projectile.height = 36;

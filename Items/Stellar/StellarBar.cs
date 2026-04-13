@@ -28,9 +28,9 @@ public class StellarBar : ModItem
 		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 3);
+		Recipe val = Recipe.Create(Type, 3);
 		val.AddIngredient(ItemID.MeteoriteBar, 3);
-		val.AddIngredient((Mod)null, "StellarDust", 6);
+		val.AddIngredient(null, "StellarDust", 6);
 		val.AddTile(TileID.Furnaces);
 		val.Register();
 	}

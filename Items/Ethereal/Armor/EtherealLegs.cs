@@ -43,9 +43,9 @@ public class EtherealLegs : ModItem
 		//IL_0025: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "XenanisFlesh", 6);
-		val.AddIngredient((Mod)null, "ShadowFlame", 4);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "XenanisFlesh", 6);
+		val.AddIngredient(null, "ShadowFlame", 4);
 		val.AddIngredient(ItemID.Silk, 8);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

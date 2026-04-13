@@ -13,13 +13,13 @@ public class DepthsMimicSpawn : ModPlayer
 	{
 		if (Main.netMode != NetmodeID.MultiplayerClient)
 		{
-			if (((ModPlayer)this).Player.chest == -1 && LastChest >= 0 && Main.chest[LastChest] != null)
+			if (Player.chest == -1 && LastChest >= 0 && Main.chest[LastChest] != null)
 			{
 				int x = Main.chest[LastChest].x;
 				int y = Main.chest[LastChest].y;
-				ChestItemSummonCheck(x, y, ((ModPlayer)this).Mod);
+				ChestItemSummonCheck(x, y, Mod);
 			}
-			LastChest = ((ModPlayer)this).Player.chest;
+			LastChest = Player.chest;
 		}
 	}
 

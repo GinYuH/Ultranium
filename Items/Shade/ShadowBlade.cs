@@ -15,8 +15,8 @@ public class ShadowBlade : ModItem
 	{
 		Item.damage = 20;
 		Item.DamageType = DamageClass.Melee/* tModPorter Suggestion: Consider MeleeNoSpeed for no attack speed scaling */;
-		((Entity)(object)Item).width = 40;
-		((Entity)(object)Item).height = 40;
+		Item.width = 40;
+		Item.height = 40;
 		Item.useTime = 45;
 		Item.useAnimation = 32;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -35,8 +35,8 @@ public class ShadowBlade : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "NightmareBar", 12);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "NightmareBar", 12);
 		val.AddTile(TileID.Anvils);
 		val.Register();
 	}

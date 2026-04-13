@@ -21,7 +21,7 @@ public class DukeThrow : ModProjectile
 	{
 		Projectile.CloneDefaults(555);
 		Projectile.extraUpdates = 1;
-		base.AIType = ProjectileID.TheEyeOfCthulhu;
+		AIType = ProjectileID.TheEyeOfCthulhu;
 		Projectile.width = 24;
 		Projectile.height = 24;
 		Projectile.DamageType = DamageClass.Melee;

@@ -62,14 +62,14 @@ public class TrueDreadOrbiter : ModNPC
 			NPC.position.X = nPC.Center.X - (float)(int)(Math.Cos(num2) * (double)num) - (float)(NPC.width / 2);
 			NPC.position.Y = nPC.Center.Y - (float)(int)(Math.Sin(num2) * (double)num) - (float)(NPC.height / 2);
 		}
-		if (!((Entity)nPC).active)
+		if (!NPC.active)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		ShootTimer++;
 		if (ShootTimer >= 50)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 			float num3 = 12f;
 			int num4 = Mod.Find<ModProjectile>("DreadOrbiterBolt").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));

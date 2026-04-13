@@ -91,7 +91,7 @@ public class DarkmatterTentacle : ModProjectile
 	public override void AI()
 	{
 		NPC nPC = Main.npc[ShadeMass];
-		if (!((Entity)nPC).active || nPC.type != ModContent.NPCType<ShadeMass>())
+		if (!nPC.active || nPC.type != ModContent.NPCType<ShadeMass>())
 		{
 			return;
 		}

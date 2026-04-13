@@ -46,8 +46,8 @@ public class MotherPhantom : ModNPC
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.FaceClosestPlayer;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("MotherPhantomBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("MotherPhantomBanner").Type;
 		for (int i = 0; i < 206; i++)
 		{
 			NPC.buffImmune[i] = true;

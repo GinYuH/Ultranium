@@ -66,7 +66,7 @@ public class SoulOrbiter : ModProjectile
 		double num2 = (double)Projectile.ai[0] * (Math.PI / 180.0);
 		Projectile.position.X = nPC.Center.X - (float)(int)(Math.Cos(num2) * (double)num) - (float)(Projectile.width / 2);
 		Projectile.position.Y = nPC.Center.Y - (float)(int)(Math.Sin(num2) * (double)num) - (float)(Projectile.height / 2);
-		if (!((Entity)nPC).active)
+		if (!nPC.active)
 		{
 			Projectile.Kill();
 		}

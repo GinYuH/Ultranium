@@ -16,8 +16,8 @@ public class SolSpear : ModItem
 	{
 		Item.damage = 60;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 56;
-		((Entity)(object)Item).height = 56;
+		Item.width = 56;
+		Item.height = 56;
 		Item.useTime = 30;
 		Item.useAnimation = 30;
 		Item.useStyle = ItemUseStyleID.Swing;

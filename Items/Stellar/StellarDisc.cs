@@ -16,8 +16,8 @@ public class StellarDisc : ModItem
 	{
 		Item.damage = 40;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 42;
-		((Entity)(object)Item).height = 42;
+		Item.width = 42;
+		Item.height = 42;
 		Item.useTime = 20;
 		Item.useAnimation = 20;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -42,8 +42,8 @@ public class StellarDisc : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0024: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "StellarBar", 10);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "StellarBar", 10);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}

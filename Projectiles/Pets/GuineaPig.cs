@@ -17,7 +17,7 @@ public class GuineaPig : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(111);
-		base.AIType = ProjectileID.Bunny;
+		AIType = ProjectileID.Bunny;
 		Projectile.height = 36;
 		Projectile.width = 30;
 		Projectile.timeLeft = 999999999;

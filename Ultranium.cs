@@ -68,10 +68,10 @@ internal class Ultranium : Mod
 			val.Call(new object[5]
 			{
 				"hbSetTexture",
-				((Mod)this).GetTexture("UI/ErebusBarLeft"),
-				((Mod)this).GetTexture("UI/ErebusBarMiddle"),
-				((Mod)this).GetTexture("UI/ErebusBarRight"),
-				((Mod)this).GetTexture("UI/HBFill")
+				Mod.GetTexture("UI/ErebusBarLeft"),
+				Mod.GetTexture("UI/ErebusBarMiddle"),
+				Mod.GetTexture("UI/ErebusBarRight"),
+				Mod.GetTexture("UI/HBFill")
 			});
 			val.Call(new object[3] { "hbSetMidBarOffset", -32, 12 });
 			val.Call(new object[3] { "hbSetBossHeadCentre", 80, 32 });
@@ -79,7 +79,7 @@ internal class Ultranium : Mod
 			val.Call(new object[2]
 			{
 				"hbFinishSingle",
-				((Mod)this).Find<ModNPC>("ErebusHead").Type
+				Mod.Find<ModNPC>("ErebusHead").Type
 			});
 		}*/
 		Mod val2 = ModLoader.GetMod("BossChecklist");
@@ -316,7 +316,7 @@ internal class Ultranium : Mod
                 Filters.Scene["Shockwave"] = new Filter(new ScreenShaderData(@ref, "Shockwave"), EffectPriority.VeryHigh);
 				Filters.Scene["Shockwave"].Load();
 			}
-			SpecialKey = KeybindLoader.RegisterKeybind(((Mod)this), "Special Ability", "E");
+			SpecialKey = KeybindLoader.RegisterKeybind(mod, "Special Ability", "E");
 		}
 	}
 }

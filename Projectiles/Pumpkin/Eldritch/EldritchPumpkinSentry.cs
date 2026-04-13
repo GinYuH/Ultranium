@@ -47,7 +47,7 @@ public class EldritchPumpkinSentry : ModProjectile
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (!((Entity)nPC).active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
+			if (!nPC.active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
 			{
 				continue;
 			}

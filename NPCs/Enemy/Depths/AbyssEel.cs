@@ -27,11 +27,11 @@ public class AbyssEel : ModNPC
 		NPC.height = 44;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.Piranha;
-		base.AIType = NPCID.Arapaima;
-		base.AnimationType = NPCID.Shark;
+		AIType = NPCID.Arapaima;
+		AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssEelBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssEelBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

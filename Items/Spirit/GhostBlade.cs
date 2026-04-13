@@ -17,8 +17,8 @@ public class GhostBlade : ModItem
 		Item.noUseGraphic = true;
 		Item.damage = 67;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 80;
-		((Entity)(object)Item).height = 80;
+		Item.width = 80;
+		Item.height = 80;
 		Item.useTime = 17;
 		Item.useAnimation = 17;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -43,7 +43,7 @@ public class GhostBlade : ModItem
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddIngredient(ItemID.SpectreBar, 12);
 		val.AddTile(TileID.LunarCraftingStation);
 		val.Register();

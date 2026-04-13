@@ -70,7 +70,7 @@ public class DreadHook : ModNPC
 		}
 		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("DreadBoss").Type))
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		if (Main.player[nPC.target].dead)
 		{

@@ -28,9 +28,9 @@ public class ShadowBat : ModNPC
 		NPC.value = 60f;
 		NPC.knockBackResist = 0.5f;
 		NPC.aiStyle = NPCAIStyleID.Bat;
-		base.AIType = NPCID.CaveBat;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("ShadowBatBanner").Type;
+		AIType = NPCID.CaveBat;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("ShadowBatBanner").Type;
 	}
 
 	public override void AI()

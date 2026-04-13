@@ -54,9 +54,9 @@ public class EtherealSword : ModItem
 		//IL_0019: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "XenanisFlesh", 10);
-		val.AddIngredient((Mod)null, "ShadowFlame", 5);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "XenanisFlesh", 10);
+		val.AddIngredient(null, "ShadowFlame", 5);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();
 	}

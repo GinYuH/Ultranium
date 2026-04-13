@@ -27,11 +27,11 @@ public class AbyssalAngler : ModNPC
 		NPC.height = 58;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.Piranha;
-		base.AIType = NPCID.AnglerFish;
-		base.AnimationType = NPCID.Shark;
+		AIType = NPCID.AnglerFish;
+		AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssalAnglerBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssalAnglerBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

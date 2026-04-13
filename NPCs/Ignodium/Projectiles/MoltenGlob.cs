@@ -16,7 +16,7 @@ public class MoltenGlob : ModProjectile
 	{
 		Main.projFrames[Projectile.type] = 4;
 		Projectile.CloneDefaults(467);
-		base.AIType = ProjectileID.CultistBossFireBall;
+		AIType = ProjectileID.CultistBossFireBall;
 	}
 
 	public override bool PreKill(int timeLeft)

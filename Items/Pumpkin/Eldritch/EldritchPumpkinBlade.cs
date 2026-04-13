@@ -57,9 +57,9 @@ public class EldritchPumpkinBlade : ModItem
 		//IL_0026: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "PumpkinBlade", 1);
-		val.AddIngredient((Mod)null, "ShadowEssence", 20);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "PumpkinBlade", 1);
+		val.AddIngredient(null, "ShadowEssence", 20);
 		val.AddIngredient(ItemID.SoulofNight, 10);
 		val.AddTile(TileID.MythrilAnvil);
 		val.Register();

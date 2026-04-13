@@ -22,10 +22,10 @@ public class ShadowGrass : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		base.DustType = Mod.Find<ModDust>("ShadowSoilDust").Type;
-		base.MineResist = 1f;
+		DustType = Mod.Find<ModDust>("ShadowSoilDust").Type;
+		MineResist = 1f;
 		// = Mod.Find<ModTile>("ShadowTreeSapling").Type;
-        base.MinPick = 1;
+        MinPick = 1;
 	}
 
 	public override void RandomUpdate(int i, int j)

@@ -70,7 +70,7 @@ public class FakeDreadHook : ModNPC
 		}
 		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("FakeDread").Type))
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		if (Main.player[nPC.target].dead)
 		{

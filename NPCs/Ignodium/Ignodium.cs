@@ -58,7 +58,7 @@ public class Ignodium : ModNPC
 		players = 1;
 		if (!Phase2)
 		{
-			base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase1");
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase1");
 		}
 		for (int i = 0; i < 206; i++)
 		{
@@ -86,7 +86,7 @@ public class Ignodium : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 100f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.life > NPC.lifeMax / 2)
@@ -281,7 +281,7 @@ public class Ignodium : ModNPC
 		{
 			Phase2 = true;
 			Transition = true;
-			base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase2");
+			Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/GuardiansPhase2");
 		}
 		if (Transition)
 		{

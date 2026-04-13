@@ -21,7 +21,7 @@ public class RetiYoyo : ModProjectile
 		Projectile.CloneDefaults(552);
 		Projectile.damage = 68;
 		Projectile.extraUpdates = 1;
-		base.AIType = ProjectileID.Amarok;
+		AIType = ProjectileID.Amarok;
 	}
 
 	public override bool PreAI()

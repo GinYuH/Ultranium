@@ -198,7 +198,7 @@ public class ErebusTail : ModNPC
 		}
 		if (NPC.CountNPCS(Mod.Find<ModNPC>("ErebusHead").Type) == 0)
 		{
-			((Entity)NPC).active = false;
+			NPC.active = false;
 		}
 		return false;
 	}

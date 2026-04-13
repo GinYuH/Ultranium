@@ -30,8 +30,8 @@ public class StellarSlime : ModNPC
 		NPC.value = Item.buyPrice(0, 0, 5);
 		NPC.knockBackResist = 0.5f;
 		NPC.aiStyle = NPCAIStyleID.Slime;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("StellarSlimeBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("StellarSlimeBanner").Type;
 	}
 
 	public override void FindFrame(int frameHeight)

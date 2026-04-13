@@ -37,8 +37,8 @@ public class StellarChaser : ModNPC
 		NPC.value = 360f;
 		NPC.knockBackResist = 0.16f;
 		NPC.noGravity = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("StellarChaserBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("StellarChaserBanner").Type;
 	}
 
 	public override void AI()

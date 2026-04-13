@@ -180,7 +180,7 @@ public class ErebusVortex : ModProjectile
 			return;
 		}
 		Player player = Main.player[target];
-		if (!((Entity)player).active || player.dead)
+		if (!player.active || player.dead)
 		{
 			target = -1;
 			Projectile.ai[0] = 0f;

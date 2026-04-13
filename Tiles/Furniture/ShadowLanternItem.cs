@@ -33,8 +33,8 @@ public class ShadowLanternItem : ModItem
 		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0028: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
-		val.AddIngredient((Mod)null, "ShadowWood", 6);
+		Recipe val = Recipe.Create(Type, 1);
+		val.AddIngredient(null, "ShadowWood", 6);
 		val.AddIngredient(ItemID.Torch, 1);
 		val.AddTile(TileID.WorkBenches);
 		val.Register();

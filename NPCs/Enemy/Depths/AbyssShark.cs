@@ -26,12 +26,12 @@ public class AbyssShark : ModNPC
 		NPC.height = 44;
 		NPC.noGravity = true;
 		NPC.aiStyle = NPCAIStyleID.Piranha;
-		base.AIType = NPCID.Shark;
+		AIType = NPCID.Shark;
 		Main.npcFrameCount[NPC.type] = Main.npcFrameCount[65];
-		base.AnimationType = NPCID.Shark;
+		AnimationType = NPCID.Shark;
 		NPC.buffImmune[31] = true;
-		base.Banner = NPC.type;
-		base.BannerItem = Mod.Find<ModItem>("AbyssSharkBanner").Type;
+		Banner = NPC.type;
+		BannerItem = Mod.Find<ModItem>("AbyssSharkBanner").Type;
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)

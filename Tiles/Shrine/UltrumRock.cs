@@ -14,10 +14,10 @@ public class UltrumRock : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(49, 37, 34), (LocalizedText)null);
-		base.DustType = Mod.Find<ModDust>("UltraniumDust").Type;
+		DustType = Mod.Find<ModDust>("UltraniumDust").Type;
 		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("UltrumRockItem").Type;
-		base.HitSound = SoundID.Tink;
+		HitSound = SoundID.Tink;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
-		base.MinPick = 1;
+		MinPick = 1;
 	}
 }

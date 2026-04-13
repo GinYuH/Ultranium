@@ -63,7 +63,7 @@ public class Xenanis : ModNPC
 		NPC.lavaImmune = true;
 		NPC.alpha = 0;
 		NPC.buffImmune[24] = true;
-		base.Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Xenanis");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Xenanis");
 		NPC.netAlways = true;
 		NPC.aiStyle = -1;
 		players = 1;
@@ -138,7 +138,7 @@ public class Xenanis : ModNPC
 			NPC.ai[3] += 1f;
 			if (NPC.ai[3] >= 100f)
 			{
-				((Entity)NPC).active = false;
+				NPC.active = false;
 			}
 		}
 		if (NPC.ai[0] == 0f)

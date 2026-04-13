@@ -17,7 +17,7 @@ public class ZombiePet : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(111);
-		base.AIType = ProjectileID.Bunny;
+		AIType = ProjectileID.Bunny;
 		Projectile.width = 34;
 		Projectile.height = 44;
 		Projectile.timeLeft = 999999999;

@@ -20,7 +20,7 @@ public class DripProjectile : ModProjectile
 		Projectile.CloneDefaults(564);
 		Projectile.damage = 24;
 		Projectile.extraUpdates = 1;
-		base.AIType = ProjectileID.Valor;
+		AIType = ProjectileID.Valor;
 	}
 
 	public override void PostAI()

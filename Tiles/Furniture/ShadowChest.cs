@@ -35,7 +35,7 @@ public class ShadowChest : ModTile
 		LocalizedText val = CreateMapEntryName();
 		// val.SetDefault("Eldritch Chest");
 		AddMapEntry(new Color(119, 0, 131), val, (Func<string, int, int, string>)MapChestName);
-		base.DustType = DustID.Dirt;
+		DustType = DustID.Dirt;
 		TileID.Sets.DisableSmartCursor[Type] = true;
 		base.AdjTiles = new int[1] { 21 };
 		TileID.Sets.BasicChest[Type] = true;

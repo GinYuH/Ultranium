@@ -111,7 +111,7 @@ public class ShadowEventWorld : ModSystem
 			{
 				Projectile.NewProjectile(new EntitySource_WorldEvent(), player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
-			if (((Entity)player).active)
+			if (player.active)
 			{
 				if (!Phase2)
 				{

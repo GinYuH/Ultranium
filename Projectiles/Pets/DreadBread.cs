@@ -16,7 +16,7 @@ public class DreadBread : ModProjectile
 	public override void SetDefaults()
 	{
 		Projectile.CloneDefaults(112);
-		base.AIType = ProjectileID.Penguin;
+		AIType = ProjectileID.Penguin;
 		Projectile.width = 24;
 		Projectile.height = 26;
 		Projectile.timeLeft = 999999999;

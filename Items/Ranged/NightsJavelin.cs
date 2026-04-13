@@ -16,8 +16,8 @@ public class NightsJavelin : ModItem
 	{
 		Item.damage = 30;
 		Item.DamageType = DamageClass.Ranged;
-		((Entity)(object)Item).width = 70;
-		((Entity)(object)Item).height = 62;
+		Item.width = 70;
+		Item.height = 62;
 		Item.useTime = 28;
 		Item.useAnimation = 28;
 		Item.useStyle = ItemUseStyleID.Swing;
@@ -41,11 +41,11 @@ public class NightsJavelin : ModItem
 		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
 		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0046: Unknown result type (might be due to invalid IL or missing references)
-		Recipe val = /* ((ModItem)this) */Recipe.Create(Type, 1);
+		Recipe val = Recipe.Create(Type, 1);
 		val.AddRecipeGroup("Ultranium:DemoniteJavelin/CrimtanePike", 1);
-		val.AddIngredient((Mod)null, "NatureJavelin", 1);
-		val.AddIngredient((Mod)null, "WaterJavelin", 1);
-		val.AddIngredient((Mod)null, "InfernoJavelin", 1);
+		val.AddIngredient(null, "NatureJavelin", 1);
+		val.AddIngredient(null, "WaterJavelin", 1);
+		val.AddIngredient(null, "InfernoJavelin", 1);
 		val.AddTile(TileID.DemonAltar);
 		val.Register();
 	}

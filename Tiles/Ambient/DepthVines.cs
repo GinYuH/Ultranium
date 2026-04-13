@@ -17,8 +17,8 @@ public class DepthVines : ModTile
 		Main.tileNoFail[Type] = true;
 		Main.tileNoAttach[Type] = true;
 		Main.tileLighted[Type] = true;
-		base.HitSound = SoundID.Grass;
-		base.DustType = DustID.GemEmerald;
+		HitSound = SoundID.Grass;
+		DustType = DustID.GemEmerald;
 		AddMapEntry(new Color(21, 90, 48), (LocalizedText)null);
 	}
 
