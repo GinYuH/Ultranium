@@ -80,7 +80,7 @@ public class ShadowDoorOpen : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 32, 48, Mod.Find<ModItem>("ShadowDoorItem").Type, 1, false, 0, false, false);
+		//Item.NewItem(null, i * 16, j * 16, 32, 48, Mod.Find<ModItem>("ShadowDoorItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void MouseOver(int i, int j)

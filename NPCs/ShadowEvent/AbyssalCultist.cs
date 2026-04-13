@@ -1,8 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -67,7 +70,7 @@ public class AbyssalCultist : ModNPC
 			vector.X *= 7f;
 			vector.Y *= 7f;
 			int num = (expertMode ? 40 : 50);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, num, 1f, NPC.target, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, num, 1f, NPC.target, 0f, 0f);
 		}
 		if (ShootTimer == 180f)
 		{
@@ -107,15 +110,12 @@ public class AbyssalCultist : ModNPC
 		{
 			ShootTimer = 0f;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(3) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(2, 4), false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 3, 2, 3));
+    }
 
 	public override void FindFrame(int frameHeight)
 	{

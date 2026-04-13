@@ -124,7 +124,7 @@ public class Ultrum : ModNPC
 			}
 			if (Timer == 150)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 			}
 			if (Timer <= 800 && Timer > 150)
@@ -133,7 +133,7 @@ public class Ultrum : ModNPC
 				{
 					for (int j = -2; j <= 2; j++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)j), Mod.Find<ModProjectile>("UltraBeam").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)j), Mod.Find<ModProjectile>("UltraBeam").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				float num3 = 0.13f;
@@ -194,7 +194,7 @@ public class Ultrum : ModNPC
 					for (int k = 0; (float)k < num9; k++)
 					{
 						Vector2 vector2 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num10, num10, (float)k / (num9 - 1f))) * num8;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num11, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num11, 0f);
 					}
 				}
 				if (Timer == 920)
@@ -208,7 +208,7 @@ public class Ultrum : ModNPC
 					for (int l = 0; (float)l < num13; l++)
 					{
 						Vector2 vector3 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num14, num14, (float)l / (num13 - 1f))) * num12;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num15, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num15, 0f);
 					}
 				}
 			}
@@ -225,7 +225,7 @@ public class Ultrum : ModNPC
 					int num17 = Mod.Find<ModProjectile>("NatureTornado").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num18 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num18) * (double)num16 * -1.0), (float)(Math.Sin(num18) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num18) * (double)num16 * -1.0), (float)(Math.Sin(num18) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (AttackType == 2)
@@ -254,7 +254,7 @@ public class Ultrum : ModNPC
 					int num20 = Mod.Find<ModProjectile>("UltrumEnergyBolt").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num21 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num21) * (double)num19 * -1.0), (float)(Math.Sin(num21) * (double)num19 * -1.0), num20, 30, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num21) * (double)num19 * -1.0), (float)(Math.Sin(num21) * (double)num19 * -1.0), num20, 30, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (AttackType == 3)
@@ -273,7 +273,7 @@ public class Ultrum : ModNPC
 					for (int m = 0; m < num22; m++)
 					{
 						float num23 = (float)Main.rand.Next(-300, 300) * 0.01f;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector6.X + num23, vector6.Y + num23, Mod.Find<ModProjectile>("UltrumEnergyBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector6.X + num23, vector6.Y + num23, Mod.Find<ModProjectile>("UltrumEnergyBolt").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 			}
@@ -370,7 +370,7 @@ public class Ultrum : ModNPC
 					for (int num27 = 0; num27 < 12; num27++)
 					{
 						Vector2 vector11 = spinningpoint.RotatedBy(0.8975979010256552 * ((double)num27 + Main.rand.NextDouble() - 0.5));
-						Projectile.NewProjectile(null, NPC.Center, vector11, Mod.Find<ModProjectile>("UltrumBolt").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector11, Mod.Find<ModProjectile>("UltrumBolt").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (Timer2 > 760)
@@ -379,7 +379,7 @@ public class Ultrum : ModNPC
 					{
 						for (int num28 = -2; num28 <= 2; num28++)
 						{
-							Projectile.NewProjectile(null, NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)num28), Mod.Find<ModProjectile>("UltraBeam").Type, num, 0f, Main.myPlayer, 0f, 0f);
+							Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)num28), Mod.Find<ModProjectile>("UltraBeam").Type, num, 0f, Main.myPlayer, 0f, 0f);
 						}
 					}
 					float num29 = 0.15f;
@@ -439,7 +439,7 @@ public class Ultrum : ModNPC
 					for (int num38 = 0; (float)num38 < num35; num38++)
 					{
 						Vector2 vector13 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num36, num36, (float)num38 / (num35 - 1f))) * num34;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector13.X, vector13.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num37, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector13.X, vector13.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num37, 0f);
 					}
 				}
 				if (Timer2 == 1390 || Timer2 == 1450)
@@ -452,7 +452,7 @@ public class Ultrum : ModNPC
 					for (int num43 = 0; (float)num43 < num40; num43++)
 					{
 						Vector2 vector14 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num41, num41, (float)num43 / (num40 - 1f))) * num39;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector14.X, vector14.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num42, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector14.X, vector14.Y, Mod.Find<ModProjectile>("UltraniumBlastSpiral").Type, num, 2f, Main.myPlayer, (float)num42, 0f);
 					}
 				}
 				if (Timer2 == 1600 || Timer2 == 1640)
@@ -463,7 +463,7 @@ public class Ultrum : ModNPC
 					for (int num47 = 0; (float)num47 < num45; num47++)
 					{
 						Vector2 vector15 = new Vector2(player.Center.X - num44 / 2f + num46 * (float)num47, player.Center.Y + 700f);
-						Main.projectile[Projectile.NewProjectile(null, vector15.X, vector15.Y, 0f, 0f, Mod.Find<ModProjectile>("UltrumTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 125f;
+						Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), vector15.X, vector15.Y, 0f, 0f, Mod.Find<ModProjectile>("UltrumTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 125f;
 					}
 				}
 				if (Timer2 > 1700)
@@ -509,7 +509,7 @@ public class Ultrum : ModNPC
 						Vector2 vector16 = ((float)Math.PI / 6f * (float)num50).ToRotationVector2();
 						vector16.Normalize();
 						vector16 *= 2f;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector16.X, vector16.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector16.X, vector16.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (DesperationTimer == 200)
@@ -520,14 +520,14 @@ public class Ultrum : ModNPC
 						Vector2 vector17 = ((float)Math.PI / 6f * (float)num51).ToRotationVector2();
 						vector17.Normalize();
 						vector17 *= 2f;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector17.X, vector17.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector17.X, vector17.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (DesperationTimer >= 240 && DesperationTimer <= 300)
 				{
 					float num52 = 3.5f;
 					float num53 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num53) * (double)num52 * -1.0), (float)(Math.Sin(num53) * (double)num52 * -1.0), Mod.Find<ModProjectile>("UltrumBeam").Type, num, 0f, 0, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num53) * (double)num52 * -1.0), (float)(Math.Sin(num53) * (double)num52 * -1.0), Mod.Find<ModProjectile>("UltrumBeam").Type, num, 0f, 0, 0f, 0f);
 				}
 				if (DesperationTimer == 360 || DesperationTimer == 420 || DesperationTimer == 480)
 				{
@@ -551,7 +551,7 @@ public class Ultrum : ModNPC
 						Vector2 vector19 = player.Center - vector18;
 						vector19.Normalize();
 						vector19 *= 1.2f;
-						_ = Main.projectile[Projectile.NewProjectile(null, vector18.X, vector18.Y, vector19.X, vector19.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 6f, 0, 0f, 0f)];
+						_ = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), vector18.X, vector18.Y, vector19.X, vector19.Y, Mod.Find<ModProjectile>("UltrumBeam").Type, num, 6f, 0, 0f, 0f)];
 					}
 				}
 			}
@@ -617,8 +617,9 @@ public class Ultrum : ModNPC
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("UltrumTrophyItem").Type, 10));
         npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("UltrumBag").Type));
 		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-		npcLoot.Add(notExpert.OnSuccess(ItemDropRule.Common(Mod.Find<ModItem>("UltrumShard").Type, 1, 25, 31)));
-        npcLoot.Add(notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("UltraFlail").Type, Mod.Find<ModItem>("UltraniumBow").Type, Mod.Find<ModItem>("UltraniumKunai").Type, Mod.Find<ModItem>("UltraniumStaff").Type, Mod.Find<ModItem>("UltraniumSword").Type, Mod.Find<ModItem>("UltraTome").Type, Mod.Find<ModItem>("UltraniumScepter").Type)));
+		notExpert.OnSuccess(ItemDropRule.Common(Mod.Find<ModItem>("UltrumShard").Type, 1, 25, 31));
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("UltraFlail").Type, Mod.Find<ModItem>("UltraniumBow").Type, Mod.Find<ModItem>("UltraniumKunai").Type, Mod.Find<ModItem>("UltraniumStaff").Type, Mod.Find<ModItem>("UltraniumSword").Type, Mod.Find<ModItem>("UltraTome").Type, Mod.Find<ModItem>("UltraniumScepter").Type));
+		npcLoot.Add(notExpert);
     }
 
 	public override void OnKill()

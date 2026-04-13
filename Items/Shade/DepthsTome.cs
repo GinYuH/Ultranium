@@ -50,7 +50,7 @@ public class DepthsTome : ModItem
 		{
 			num2 *= -1f;
 		}
-		Projectile.NewProjectile(null, position, vector, type, damage, knockback, player.whoAmI, num, num2);
+		Projectile.NewProjectile(source, position, vector, type, damage, knockback, player.whoAmI, num, num2);
 		return false;
 	}
 }

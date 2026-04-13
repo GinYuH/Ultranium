@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -134,7 +137,7 @@ public class FlayerWraith : ModNPC
 			vector.X *= 5.5f;
 			vector.Y *= 5.5f;
 			int num = (expertMode ? 40 : 45);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatterBoltGreen").Type, num, 1f, NPC.target, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatterBoltGreen").Type, num, 1f, NPC.target, 0f, 0f);
 			timer = 0;
 		}
 	}
@@ -147,13 +150,10 @@ public class FlayerWraith : ModNPC
 			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
 			NPC.frameCounter = 1.0;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(3) == 0)
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(1, 2), false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 3));
+    }
 }

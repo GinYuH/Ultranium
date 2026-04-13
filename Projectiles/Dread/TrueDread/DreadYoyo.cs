@@ -66,8 +66,8 @@ public class DreadYoyo : ModProjectile
 			for (int i = 0; i < num; i++)
 			{
 				double num5 = num3 + num4 * (double)(i + i * i) / 2.0 + (double)(32f * (float)i);
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(num5) * 3.0) * 2f, (float)(Math.Cos(num5) * 3.0) * 2f, Mod.Find<ModProjectile>("DreadYoyoTooth").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, (float)((0.0 - Math.Sin(num5)) * 3.0) * 2f, (float)((0.0 - Math.Cos(num5)) * 3.0) * 2f, Mod.Find<ModProjectile>("DreadYoyoTooth").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)(Math.Sin(num5) * 3.0) * 2f, (float)(Math.Cos(num5) * 3.0) * 2f, Mod.Find<ModProjectile>("DreadYoyoTooth").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, (float)((0.0 - Math.Sin(num5)) * 3.0) * 2f, (float)((0.0 - Math.Cos(num5)) * 3.0) * 2f, Mod.Find<ModProjectile>("DreadYoyoTooth").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			}
 		}
 	}

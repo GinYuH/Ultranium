@@ -49,7 +49,7 @@ public class FlayerBow : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DarkMatterArrowBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		return false;
 	}

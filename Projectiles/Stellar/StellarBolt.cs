@@ -32,7 +32,7 @@ public class StellarBolt : ModProjectile
 			for (int i = 0; i < num; i++)
 			{
 				int num2 = 12;
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("StellarBoltSwirl").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, (float)(i * num2), (float)Projectile.whoAmI);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("StellarBoltSwirl").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, (float)(i * num2), (float)Projectile.whoAmI);
 			}
 			Projectile.ai[0] = 1f;
 		}

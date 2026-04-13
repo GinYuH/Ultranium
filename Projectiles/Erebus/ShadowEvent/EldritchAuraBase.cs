@@ -37,7 +37,7 @@ public class EldritchAuraBase : ModProjectile
 		{
 			if (Main.player[Projectile.owner].ownedProjectileCounts[Mod.Find<ModProjectile>("EldritchAura1").Type] < num)
 			{
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchAura1").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, (float)i, (float)Projectile.whoAmI);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchAura1").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, (float)i, (float)Projectile.whoAmI);
 			}
 		}
 	}

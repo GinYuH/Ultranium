@@ -1,6 +1,8 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy;
 
@@ -31,13 +33,11 @@ public class Orca : ModNPC
 		NPC.buffImmune[31] = true;
 	}
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(20) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 268, 1, false, 0, false, false);
-		}
-	}
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(268, 20));
+    }
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
 	{

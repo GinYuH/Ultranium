@@ -96,7 +96,7 @@ public class Exitium : ModProjectile
 			{
 				num5 *= -1f;
 			}
-			Projectile.NewProjectile(null, Projectile.Center, vector, Mod.Find<ModProjectile>("ExitiumTentacle").Type, Projectile.damage, 0f, Main.myPlayer, num5, num4);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector, Mod.Find<ModProjectile>("ExitiumTentacle").Type, Projectile.damage, 0f, Main.myPlayer, num5, num4);
 		}
 	}
 }

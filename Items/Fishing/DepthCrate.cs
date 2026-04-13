@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ModLoader;
 using Ultranium.Items.Shade;
+using Ultranium.Tiles.ShadowBiome.Depths;
 
 namespace Ultranium.Items.Fishing;
 
@@ -34,8 +35,22 @@ public class DepthCrate : ModItem
 
     public override void ModifyItemLoot(ItemLoot itemLoot)
     {
-		itemLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DepthGlowstoneItem").Type, 3, 3, 4).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<NightmareBar>(), 2, 3, 4).OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 1, 3, 4))));
-		itemLoot.Add(ItemDropRule.Common(2674, 3, 3, 4).OnFailedRoll(ItemDropRule.Common(2675, 2, 2, 3).OnFailedRoll(ItemDropRule.Common(2676, 1))));
-		itemLoot.Add(ItemDropRule.Common(499, 2, 3, 4).OnFailedRoll(ItemDropRule.Common(500, 1, 3, 4)));
+		IItemDropRule mat = ItemDropRule.Common(ModContent.ItemType<DepthGlowstoneItem>(), 3, 3, 4);
+		IItemDropRule mat2 = ItemDropRule.Common(ModContent.ItemType<NightmareBar>(), 2, 3, 4);
+		IItemDropRule mat3 = ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 1, 3, 4);
+		mat2.OnFailedRoll(mat3);
+		mat.OnFailedRoll(mat2);
+		itemLoot.Add(mat);
+
+        IItemDropRule bait = ItemDropRule.Common(2674, 3, 3, 4);
+        IItemDropRule bait2 = ItemDropRule.Common(2675, 2, 2, 3);
+        IItemDropRule bait3 = ItemDropRule.Common(2676);
+        bait2.OnFailedRoll(bait3);
+        bait.OnFailedRoll(bait2);
+        itemLoot.Add(bait);
+
+		IItemDropRule potion = ItemDropRule.Common(499, 2, 3, 4);
+		potion.OnFailedRoll(ItemDropRule.Common(500, 2, 3, 4));
+		itemLoot.Add(potion);
     }
 }

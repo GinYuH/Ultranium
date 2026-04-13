@@ -21,11 +21,6 @@ public class DepthSnailCage : ModTile
 		AddMapEntry(new Color(122, 217, 232), val);
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(null, i * 16, j * 16, 48, 32, Mod.Find<ModItem>("DepthSnailCageItem").Type, 1, false, 0, false, false);
-	}
-
 	public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset)
 	{
 		Tile tile = Main.tile[i, j];

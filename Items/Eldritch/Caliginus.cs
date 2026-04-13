@@ -141,21 +141,21 @@ public class Caliginus : ModItem
 			num2 = 0f;
 			vector.X = (float)Main.mouseX + Main.screenPosition.X;
 			vector.Y = (float)Main.mouseY + Main.screenPosition.Y;
-			int num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusHead").Type, damage, knockback, whoAmI, 0f, 0f);
+			int num8 = Projectile.NewProjectile(source, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusHead").Type, damage, knockback, whoAmI, 0f, 0f);
 			int num9 = num8;
 			num9 = num8;
-			num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, (float)num9, 0f);
+			num8 = Projectile.NewProjectile(source, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, (float)num9, 0f);
 			Main.projectile[num9].localAI[1] = num8;
 			Main.projectile[num9].netUpdate = true;
 			num9 = num8;
-			num8 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusTail").Type, damage, knockback, whoAmI, (float)num9, 0f);
+			num8 = Projectile.NewProjectile(source, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusTail").Type, damage, knockback, whoAmI, (float)num9, 0f);
 			Main.projectile[num9].localAI[1] = num8;
 			Main.projectile[num9].netUpdate = true;
 		}
 		else if (num4 != -1 && num5 != -1)
 		{
-			int num10 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, Main.projectile[num5].ai[0], 0f);
-			int num11 = Projectile.NewProjectile(null, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, (float)num10, 0f);
+			int num10 = Projectile.NewProjectile(source, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, Main.projectile[num5].ai[0], 0f);
+			int num11 = Projectile.NewProjectile(source, vector.X, vector.Y, num, num2, Mod.Find<ModProjectile>("SmolErebusBody").Type, damage, knockback, whoAmI, (float)num10, 0f);
 			Main.projectile[num10].localAI[1] = num11;
 			Main.projectile[num10].ai[1] = 1f;
 			Main.projectile[num10].netUpdate = true;

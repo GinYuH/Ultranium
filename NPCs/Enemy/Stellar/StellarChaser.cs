@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Stellar;
 
 namespace Ultranium.NPCs.Enemy.Stellar;
 
@@ -73,7 +76,7 @@ public class StellarChaser : ModNPC
 			vector.Normalize();
 			vector.X *= 6f;
 			vector.Y *= 6f;
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 
@@ -119,13 +122,9 @@ public class StellarChaser : ModNPC
 			return 10f;
 		}
 		return 0f;
-	}
-
-	public override void OnKill()
-	{
-		if (Main.rand.Next(2) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StellarDust").Type, Main.rand.Next(1, 3), false, 0, false, false);
-		}
-	}
+    }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StellarDust>(), 2, 1, 2));
+    }
 }

@@ -64,7 +64,7 @@ public class RestlessSoul : ModNPC
 			int num2 = Mod.Find<ModProjectile>("DarkMatterBolt").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num3 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num3) * (double)num * -1.0), (float)(Math.Sin(num3) * (double)num * -1.0), num2, 30, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num3) * (double)num * -1.0), (float)(Math.Sin(num3) * (double)num * -1.0), num2, 30, 0f, Main.myPlayer, 0f, 0f);
 			ShootTimer = 0;
 		}
 		NPC nPC = Main.npc[(int)NPC.ai[0]];

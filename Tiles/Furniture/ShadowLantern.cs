@@ -66,7 +66,7 @@ public class ShadowLantern : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 16, 32, Mod.Find<ModItem>("ShadowLanternItem").Type, 1, false, 0, false, false);
+		//Item.NewItem(null, i * 16, j * 16, 16, 32, Mod.Find<ModItem>("ShadowLanternItem").Type, 1, false, 0, false, false);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

@@ -1,8 +1,10 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -122,7 +124,7 @@ public class Warden : ModNPC
 				for (int i = 0; i < num; i++)
 				{
 					float num2 = (float)Main.rand.Next(-300, 300) * 0.01f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector3.X + num2, vector3.Y + num2, Mod.Find<ModProjectile>("WardenBolt").Type, 60, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector3.X + num2, vector3.Y + num2, Mod.Find<ModProjectile>("WardenBolt").Type, 60, 1f, Main.myPlayer, 0f, 0f);
 				}
 			}
 		}
@@ -154,11 +156,9 @@ public class Warden : ModNPC
 		}
 	}
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(5) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
-		}
-	}
+
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 5));
+    }
 }

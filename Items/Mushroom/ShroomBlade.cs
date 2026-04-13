@@ -36,7 +36,7 @@ public class ShroomBlade : ModItem
 	{
 		if (Main.rand.Next(3) == 0)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("MushroomBolt").Type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

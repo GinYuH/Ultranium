@@ -49,7 +49,7 @@ public class Noctis : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.2f;
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

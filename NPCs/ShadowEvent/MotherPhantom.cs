@@ -1,10 +1,13 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -123,7 +126,7 @@ public class MotherPhantom : ModNPC
 		{
 			float num4 = 8f;
 			float num5 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num5) * (double)num4 * -1.0), (float)(Math.Sin(num5) * (double)num4 * -1.0), Mod.Find<ModProjectile>("MotherPhantomBolt").Type, 40, 0f, 0, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num5) * (double)num4 * -1.0), (float)(Math.Sin(num5) * (double)num4 * -1.0), Mod.Find<ModProjectile>("MotherPhantomBolt").Type, 40, 0f, 0, 0f, 0f);
 		}
 		if (timer >= 360 && timer <= 540)
 		{
@@ -155,7 +158,7 @@ public class MotherPhantom : ModNPC
 			for (int m = 0; m < num8; m++)
 			{
 				float num9 = (float)Main.rand.Next(-300, 300) * 0.01f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X + num9, vector.Y + num9, Mod.Find<ModProjectile>("PhantomWave").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X + num9, vector.Y + num9, Mod.Find<ModProjectile>("PhantomWave").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer == 660)
@@ -175,7 +178,7 @@ public class MotherPhantom : ModNPC
 		}
 		if ((timer == 720 || timer == 760) && NPC.CountNPCS(Mod.Find<ModNPC>("Phantom").Type) < 2)
 		{
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Phantom").Type, 0, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Phantom").Type, 0, 0f, 0f, 0f, 0f, 255);
 		}
 		if (timer == 770)
 		{
@@ -239,10 +242,10 @@ public class MotherPhantom : ModNPC
 			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
 			NPC.frameCounter = 1.0;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(3, 8), false, 0, false, false);
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 1, 3, 7));
+    }
 }

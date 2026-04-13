@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.Audio;
+using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
@@ -85,7 +86,7 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(new EntitySource_WorldEvent() , player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("MindFlayerSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
@@ -97,7 +98,7 @@ public class ShadowEventWorld : ModSystem
 			{
 				if (Main.netMode == 0)
 				{
-					Projectile.NewProjectile(null, player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(new EntitySource_WorldEvent(), player.Center.X, player.Center.Y - 200f, 0f, 0f, Mod.Find<ModProjectile>("ErebusSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (Main.netMode == 2)
 				{
@@ -107,7 +108,7 @@ public class ShadowEventWorld : ModSystem
 			}
 			if (Main.netMode == 0 && !NPC.AnyNPCs(Mod.Find<ModNPC>("ErebusHead").Type) && !NPC.AnyNPCs(Mod.Find<ModNPC>("MindFlayer").Type) && !ShadowEventSpawns.DisabledSpawns && Main.rand.Next(600) == 0)
 			{
-				Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(new EntitySource_WorldEvent(), player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("ShadowPortalSpawner").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
 			if (((Entity)player).active)
 			{

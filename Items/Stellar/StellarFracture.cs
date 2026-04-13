@@ -64,7 +64,7 @@ public class StellarFracture : ModItem
 			Vector2 vector3 = new Vector2(x, y).SafeNormalize(Vector2.UnitY) * shootSpeed;
 			v = v.SafeNormalize(vector3) * shootSpeed;
 			v = Vector2.Lerp(v, vector3, 0.25f);
-			Projectile.NewProjectile(null, vector2, v, Mod.Find<ModProjectile>("StellarFracture").Type, num, num2, myPlayer, 0f, 0f);
+			Projectile.NewProjectile(source, vector2, v, Mod.Find<ModProjectile>("StellarFracture").Type, num, num2, myPlayer, 0f, 0f);
 		}
 		return false;
 	}

@@ -92,7 +92,7 @@ public class CultistFire : ModProjectile
 		for (int i = 0; i < 40; i++)
 		{
 			SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CultFireExplosion").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CultFireExplosion").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 			int num = Dust.NewDust(Projectile.position, Projectile.width, Projectile.height, 6, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = true;
 			Main.dust[num].position.X += (float)Main.rand.Next(-50, 51) * 0.05f - 1.5f;

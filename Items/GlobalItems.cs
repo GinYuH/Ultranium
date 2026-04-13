@@ -46,25 +46,25 @@ public class GlobalItems : GlobalItem
 		float speedY = velocity.Y;
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorMeleeSet && item.CountsAsClass(DamageClass.Melee) && Main.rand.Next(3) == 0)
 		{
-			int num = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num = Projectile.NewProjectile(source, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num].hostile = false;
 			Main.projectile[num].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorRangedSet && item.CountsAsClass(DamageClass.Ranged) && Main.rand.Next(3) == 0)
 		{
-			int num2 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num2 = Projectile.NewProjectile(source, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num2].hostile = false;
 			Main.projectile[num2].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorMagicSet && item.CountsAsClass(DamageClass.Magic) && Main.rand.Next(3) == 0)
 		{
-			int num3 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num3 = Projectile.NewProjectile(source, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num3].hostile = false;
 			Main.projectile[num3].friendly = true;
 		}
 		if (Main.player[Main.myPlayer].GetModPlayer<UltraniumPlayer>().HorrorSummonSet && item.CountsAsClass(DamageClass.Summon) && Main.rand.Next(1) == 0)
 		{
-			int num4 = Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
+			int num4 = Projectile.NewProjectile(source, position, new Vector2(velocity.X, velocity.Y), ((GlobalItem)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 2f, player.whoAmI, 0f, 0f);
 			Main.projectile[num4].hostile = false;
 			Main.projectile[num4].friendly = true;
 		}
@@ -76,10 +76,22 @@ public class GlobalItems : GlobalItem
 		int arg = item.type;
 		if ((arg == 3326 || arg == 3325 || arg == 3327 || arg == 3328 || arg == 3329 || arg == 3332 || arg == ((GlobalItem)this).Mod.Find<ModItem>("DreadBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("EtherealBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("UltrumBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("IgnodiumBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("TrueDreadBag").Type || arg == ((GlobalItem)this).Mod.Find<ModItem>("ErebusBag").Type))
 		{
-			itemLoot.Add(ItemDropRule.Common(ModContent.ItemType<LuxHead>(), 4).OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxLegs>()).OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxWings>()))).
-				OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<PoisonHead>(), 3).OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonLegs>()).OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonBody>()))).
-				OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<FutabaHead>(), 2).OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaLegs>()).OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaBody>()))).
-				OnFailedRoll(ItemDropRule.Common(ModContent.ItemType<RockMask>())))));
+			IItemDropRule luxRule = ItemDropRule.Common(ModContent.ItemType<LuxHead>(), 4);
+            luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxBody>()));
+            luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxLegs>()));
+            luxRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<LuxWings>()));
+            IItemDropRule poisonRule = ItemDropRule.Common(ModContent.ItemType<PoisonHead>(), 3);
+			poisonRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonBody>()));
+            poisonRule.OnSuccess(ItemDropRule.Common(ModContent.ItemType<PoisonLegs>()));
+            IItemDropRule futaba = ItemDropRule.Common(ModContent.ItemType<FutabaHead>(), 2);
+            futaba.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaBody>()));
+            futaba.OnSuccess(ItemDropRule.Common(ModContent.ItemType<FutabaLegs>()));
+			IItemDropRule rock = ItemDropRule.Common(ModContent.ItemType<RockMask>());
+			futaba.OnFailedRoll(rock);
+            poisonRule.OnFailedRoll(futaba);
+            luxRule.OnFailedRoll(poisonRule);
+
+            itemLoot.Add(luxRule);
         }
     }
 }

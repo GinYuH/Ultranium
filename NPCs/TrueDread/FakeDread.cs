@@ -92,10 +92,10 @@ public class FakeDread : ModNPC
 		if (NPC.localAI[0] == 0f && Main.netMode != 1)
 		{
 			NPC.localAI[0] = 1f;
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("FakeDreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 		}
 		int[] array = new int[3];
 		float num2 = 0f;
@@ -200,7 +200,7 @@ public class FakeDread : ModNPC
 				int num16 = Mod.Find<ModProjectile>("DreadBolt").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num17 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num17) * (double)num15 * -1.0), (float)(Math.Sin(num17) * (double)num15 * -1.0), num16, num14, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num17) * (double)num15 * -1.0), (float)(Math.Sin(num17) * (double)num15 * -1.0), num16, num14, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer == 440 || timer == 470 || timer == 500 || timer == 530 || timer == 560)
 			{
@@ -208,7 +208,7 @@ public class FakeDread : ModNPC
 				int num19 = Mod.Find<ModProjectile>("ToothBall2").Type;
 				SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 				float num20 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num20) * (double)num18 * -1.0), (float)(Math.Sin(num20) * (double)num18 * -1.0), num19, num14, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num20) * (double)num18 * -1.0), (float)(Math.Sin(num20) * (double)num18 * -1.0), num19, num14, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer == 640 || timer == 700 || timer == 760)
 			{
@@ -217,7 +217,7 @@ public class FakeDread : ModNPC
 				{
 					float num22 = (float)Main.rand.Next(-200, 200) * 0.03f;
 					float num23 = (float)Main.rand.Next(-200, 200) * 0.03f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, num22, num23, Mod.Find<ModProjectile>("DreadSpit").Type, num14, 1f, NPC.target, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, num22, num23, Mod.Find<ModProjectile>("DreadSpit").Type, num14, 1f, NPC.target, 0f, 0f);
 				}
 			}
 			if (timer == 850 || timer == 970 || timer == 1090)
@@ -266,7 +266,7 @@ public class FakeDread : ModNPC
 			}
 			if (TransitionTimer == 300)
 			{
-				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("TrueDread").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("TrueDread").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 				Ultranium.seizureAmount = 20f;
 				((Entity)NPC).active = false;
 			}

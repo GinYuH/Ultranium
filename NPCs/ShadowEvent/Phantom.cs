@@ -1,9 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -77,20 +80,17 @@ public class Phantom : ModNPC
 		{
 			float num = 6f;
 			float num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("PhantomWave").Type, 40, 0f, 0, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("PhantomWave").Type, 40, 0f, 0, 0f, 0f);
 			ShootTimer = 0;
 		}
 		if (Main.rand.Next(500) == 0)
 		{
 			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/PhantomIdle"), NPC.position);
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(4) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 4));
+    }
 }

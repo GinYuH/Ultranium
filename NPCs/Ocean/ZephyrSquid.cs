@@ -1,11 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Ice;
 
 namespace Ultranium.NPCs.Ocean;
 
@@ -167,7 +168,7 @@ public class ZephyrSquid : ModNPC
 			for (int i = 0; i < num2; i++)
 			{
 				float num3 = (float)Main.rand.Next(-100, 100) * 0.01f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X + num3, vector.Y + num3, Mod.Find<ModProjectile>("Bubble").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X + num3, vector.Y + num3, Mod.Find<ModProjectile>("Bubble").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer == 600)
@@ -180,7 +181,7 @@ public class ZephyrSquid : ModNPC
 			float num4 = 6f;
 			int num5 = Mod.Find<ModProjectile>("InkGlob").Type;
 			float num6 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 960)
 		{
@@ -194,12 +195,12 @@ public class ZephyrSquid : ModNPC
 			for (int k = 0; k < 10; k++)
 			{
 				Vector2 vector2 = spinningpoint.RotatedBy(Math.PI * ((double)k + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(null, NPC.Center, vector2, Mod.Find<ModProjectile>("InkCloud").Type, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector2, Mod.Find<ModProjectile>("InkCloud").Type, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			for (int l = 0; l < 10; l++)
 			{
 				Vector2 vector3 = spinningpoint2.RotatedBy(Math.PI * ((double)l + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(null, NPC.Center, vector3, Mod.Find<ModProjectile>("InkBubble").Type, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector3, Mod.Find<ModProjectile>("InkBubble").Type, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			NPC.position.X = player.position.X - 100f;
 			NPC.position.Y = player.position.Y + 300f;
@@ -210,7 +211,7 @@ public class ZephyrSquid : ModNPC
 		}
 		if (timer == 980)
 		{
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("SquidChargeTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("SquidChargeTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 1000)
 		{
@@ -222,11 +223,11 @@ public class ZephyrSquid : ModNPC
 		}
 		if (timer == 1100)
 		{
-			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, -4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, -2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 0f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(null, NPC.position.X + 55f, NPC.position.Y, 4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 55f, NPC.position.Y, -4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 55f, NPC.position.Y, -2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 55f, NPC.position.Y, 0f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 55f, NPC.position.Y, 2f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.position.X + 55f, NPC.position.Y, 4f, -6f, Mod.Find<ModProjectile>("AquaBall").Type, num, 0.4f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer >= 1150)
 		{
@@ -240,8 +241,8 @@ public class ZephyrSquid : ModNPC
 			{
 				float num8 = 11f;
 				float num9 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix1").Type, num, 0f, 0, 0f, 0f);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix2").Type, num, 0f, 0, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix1").Type, num, 0f, 0, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num8 * -1.0), (float)(Math.Sin(num9) * (double)num8 * -1.0), Mod.Find<ModProjectile>("WaterHelix2").Type, num, 0f, 0, 0f, 0f);
 				BoltTimer = 0;
 			}
 		}
@@ -271,7 +272,9 @@ public class ZephyrSquid : ModNPC
     {
         npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("SquidBag").Type));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("OceanScale").Type, 1, 8, 11));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("WormPet").Type, 20));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidTrophyItem").Type, 10));

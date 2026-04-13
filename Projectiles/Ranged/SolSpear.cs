@@ -74,7 +74,7 @@ public class SolSpear : ModProjectile
 			float num = Main.rand.NextFloat() * 6.283f;
 			spinningpoint = spinningpoint.RotatedBy(num);
 			spinningpoint *= 5f;
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, spinningpoint.X, spinningpoint.Y, Mod.Find<ModProjectile>("SolSparks").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, spinningpoint.X, spinningpoint.Y, Mod.Find<ModProjectile>("SolSparks").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

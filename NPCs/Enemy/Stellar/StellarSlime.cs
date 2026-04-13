@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Stellar;
 
 namespace Ultranium.NPCs.Enemy.Stellar;
 
@@ -83,13 +86,9 @@ public class StellarSlime : ModNPC
 			return 10f;
 		}
 		return 0f;
-	}
-
-	public override void OnKill()
-	{
-		if (Main.rand.Next(2) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("StellarDust").Type, Main.rand.Next(1, 3), false, 0, false, false);
-		}
-	}
+    }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<StellarDust>(), 2, 1, 2));
+    }
 }

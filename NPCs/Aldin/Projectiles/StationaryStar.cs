@@ -85,7 +85,7 @@ public class StationaryStar : ModProjectile
 			Vector2 vector = ((float)Math.PI * 2f / 5f * (float)j).ToRotationVector2();
 			vector.Normalize();
 			vector *= 2f;
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmosBoltHome").Type, Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("CosmosBoltHome").Type, Projectile.damage, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

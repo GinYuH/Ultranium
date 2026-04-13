@@ -21,9 +21,4 @@ public class DepthCrateTile : ModTile
 		// val.SetDefault("Crate");
 		AddMapEntry(new Color(150, 150, 150), val);
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(null, i * 16, j * 16, 64, 32, Mod.Find<ModItem>("DepthCrate").Type, 1, false, 0, false, false);
-	}
 }

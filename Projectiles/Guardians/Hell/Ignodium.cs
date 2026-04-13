@@ -237,7 +237,7 @@ public class Ignodium : ModProjectile
 			}
 			vector4.Normalize();
 			vector4 *= 8.5f;
-			int num9 = Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector4.X, vector4.Y, Mod.Find<ModProjectile>("HellBeam").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
+			int num9 = Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector4.X, vector4.Y, Mod.Find<ModProjectile>("HellBeam").Type, Projectile.damage, Projectile.knockBack, Main.myPlayer, 0f, 0f);
 			Main.projectile[num9].timeLeft = 300;
 			Main.projectile[num9].penetrate = 1;
 			Main.projectile[num9].netUpdate = true;

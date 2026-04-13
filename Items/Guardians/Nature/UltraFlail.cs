@@ -45,7 +45,7 @@ public class UltraFlail : ModItem
 		double num4 = Math.Atan2(velocity.X, velocity.Y) - 0.1;
 		double num5 = num2 / 6f;
 		double num6 = num4 + num5 * 1.0;
-		Projectile.NewProjectile(null, position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockback, player.whoAmI, 0f, num);
+		Projectile.NewProjectile(source, position.X, position.Y, num3 * (float)Math.Sin(num6), num3 * (float)Math.Cos(num6), Mod.Find<ModProjectile>("UltraFlail").Type, damage, knockback, player.whoAmI, 0f, num);
 		return false;
 	}
 

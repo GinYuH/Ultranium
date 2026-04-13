@@ -164,7 +164,7 @@ public class XenanisClone1 : ModNPC
 		{
 			for (int i = -1; i <= 1; i++)
 			{
-				Projectile.NewProjectile(null, NPC.Center, 6f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)i), Mod.Find<ModProjectile>("EtherealCloneFlame").Type, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)i), Mod.Find<ModProjectile>("EtherealCloneFlame").Type, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer == 300)
@@ -185,7 +185,7 @@ public class XenanisClone1 : ModNPC
 		}
 		if (timer == 330)
 		{
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalBig").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalBig").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 440 || timer == 460 || timer == 480 || timer == 500 || timer == 520 || timer == 540 || timer == 560)
 		{
@@ -193,7 +193,7 @@ public class XenanisClone1 : ModNPC
 			int num5 = Mod.Find<ModProjectile>("EtherealFireBall").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num6 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num6) * (double)num4 * -1.0), (float)(Math.Sin(num6) * (double)num4 * -1.0), num5, num, 0f, Main.myPlayer, 0f, 0f);
 			NPC.ai[0] = 0f;
 		}
 		if (timer == 620)
@@ -207,7 +207,7 @@ public class XenanisClone1 : ModNPC
 			float num7 = 10f;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num8 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num8) * (double)num7 * -1.0), (float)(Math.Sin(num8) * (double)num7 * -1.0), Mod.Find<ModProjectile>("EtherealDeathray").Type, num + 10, 0f, 0, 0f, 0f)];
+			_ = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num8) * (double)num7 * -1.0), (float)(Math.Sin(num8) * (double)num7 * -1.0), Mod.Find<ModProjectile>("EtherealDeathray").Type, num + 10, 0f, 0, 0f, 0f)];
 		}
 		if (timer == 760)
 		{

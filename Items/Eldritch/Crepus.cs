@@ -53,13 +53,13 @@ public class Crepus : ModItem
 		for (int i = 0; (float)i < num; i++)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num2, num2, (float)i / (num - 1f))) * 0.4f;
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ShadeArrowGreen").Type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ShadeArrowGreen").Type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		float num3 = MathHelper.ToRadians(1f);
 		for (int j = 0; (float)j < num; j++)
 		{
 			Vector2 vector2 = new Vector2(velocity.X, velocity.Y).RotatedBy(MathHelper.Lerp(0f - num3, num3, (float)j / (num - 1f))) * 0.4f;
-			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ShadeArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ShadeArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

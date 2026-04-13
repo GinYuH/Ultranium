@@ -27,32 +27,6 @@ public class MiscBanners : ModTile
 		AddMapEntry(new Color(13, 88, 130), val);
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		string text;
-		switch (frameX / 18)
-		{
-		default:
-			return;
-		case 0:
-			text = "DreadApparitionBanner";
-			break;
-		case 1:
-			text = "DreadChaserBanner";
-			break;
-		case 2:
-			text = "StellarChaserBanner";
-			break;
-		case 3:
-			text = "StellarSlimeBanner";
-			break;
-		case 4:
-			text = "OrcaBanner";
-			break;
-		}
-		Item.NewItem(null, i * 16, j * 16, 16, 48, Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
-	}
-
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
 		if (closer)

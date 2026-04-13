@@ -1,8 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy.Depths;
 
@@ -72,28 +74,12 @@ public class DepthsMimic : ModNPC
 			return 1.5f;
 		}
 		return 0f;
-	}
+    }
 
-	public override void OnKill()
-	{
-		int num = Main.rand.Next(4);
-		if (num == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsFlail").Type, 1, false, 0, false, false);
-		}
-		if (num == 1)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsBow").Type, 1, false, 0, false, false);
-		}
-		if (num == 2)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsTome").Type, 1, false, 0, false, false);
-		}
-		if (num == 3)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DepthsStaff").Type, 1, false, 0, false, false);
-		}
-		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 499, Main.rand.Next(5, 10), false, 0, false, false);
-		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, 500, Main.rand.Next(5, 15), false, 0, false, false);
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.OneFromOptions(1, ModContent.ItemType<DepthsFlail>(), ModContent.ItemType<DepthsBow>(), ModContent.ItemType<DepthsTome>(), ModContent.ItemType<DepthsStaff>()));
+		npcLoot.Add(ItemDropRule.Common(499, 1, 5, 9));
+		npcLoot.Add(ItemDropRule.Common(500, 1, 5, 9));
+    }
 }

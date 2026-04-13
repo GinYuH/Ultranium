@@ -1,8 +1,10 @@
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy.Shadow;
 
@@ -48,7 +50,7 @@ public class DarkDemon : ModNPC
 		{
 			float num = 6f;
 			float num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("DarkDemonScythe").Type, 20, 0f, 0, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("DarkDemonScythe").Type, 20, 0f, 0, 0f, 0f);
 			Timer = 0;
 		}
 	}
@@ -72,15 +74,12 @@ public class DarkDemon : ModNPC
 			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
 			NPC.frameCounter = 1.0;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Utils.NextBool(Main.rand, 2))
-		{
-			Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("ShadowEssence").Type, Main.rand.Next(1, 4), false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 2, 1, 3));
+    }
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
 	{

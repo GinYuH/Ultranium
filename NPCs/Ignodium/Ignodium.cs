@@ -1,11 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Ultranium.Items.BossBags;
+using Ultranium.Items.Ice;
 
 namespace Ultranium.NPCs.Ignodium;
 
@@ -115,7 +116,7 @@ public class Ignodium : ModNPC
 			}
 			if (Timer == 150)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/GuardianGrowl"));
 			}
 			if (Timer == 240 || Timer == 300 || Timer == 360 || Timer == 420 || Timer == 480 || Timer == 540)
@@ -130,7 +131,7 @@ public class Ignodium : ModNPC
 				int num4 = Mod.Find<ModProjectile>("MoltenGlob").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num5 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num5) * (double)num3 * -1.0), (float)(Math.Sin(num5) * (double)num3 * -1.0), num4, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num5) * (double)num3 * -1.0), (float)(Math.Sin(num5) * (double)num3 * -1.0), num4, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (AttackType == 0)
 			{
@@ -146,7 +147,7 @@ public class Ignodium : ModNPC
 					int num7 = Mod.Find<ModProjectile>("FlameGigaBlast").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num8 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num8) * (double)num6 * -1.0), (float)(Math.Sin(num8) * (double)num6 * -1.0), num7, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num8) * (double)num6 * -1.0), (float)(Math.Sin(num8) * (double)num6 * -1.0), num7, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (AttackType == 1)
@@ -202,7 +203,7 @@ public class Ignodium : ModNPC
 						Vector2 vector3 = (0.8975979f * (float)j).ToRotationVector2();
 						vector3.Normalize();
 						vector3 *= 7f;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("MoltenGlob").Type, num, 1f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("MoltenGlob").Type, num, 1f, Main.myPlayer, 0f, 0f);
 					}
 				}
 			}
@@ -230,7 +231,7 @@ public class Ignodium : ModNPC
 					for (int l = 0; l < 17; l++)
 					{
 						Vector2 vector6 = spinningpoint.RotatedBy(0.8975979010256552 * ((double)l + Main.rand.NextDouble() - 0.5));
-						Projectile.NewProjectile(null, NPC.Center, vector6, Mod.Find<ModProjectile>("FlameBolt").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector6, Mod.Find<ModProjectile>("FlameBolt").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 			}
@@ -244,21 +245,21 @@ public class Ignodium : ModNPC
 				{
 					for (int m = -1; m <= 1; m++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)m), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)m), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (Timer == 720)
 				{
 					for (int n = -2; n <= 2; n++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(7f) * (float)n), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(7f) * (float)n), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (Timer == 780)
 				{
 					for (int num15 = -3; num15 <= 3; num15++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(9f) * (float)num15), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 17f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(9f) * (float)num15), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 			}
@@ -365,13 +366,13 @@ public class Ignodium : ModNPC
 					int num24 = Mod.Find<ModProjectile>("FlameGigaBlast").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num25 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num25) * (double)num23 * -1.0), (float)(Math.Sin(num25) * (double)num23 * -1.0), num24, 30, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num25) * (double)num23 * -1.0), (float)(Math.Sin(num25) * (double)num23 * -1.0), num24, 30, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (Timer2 == 540 || Timer2 == 560 || Timer2 == 580 || Timer2 == 600 || Timer2 == 620 || Timer2 == 640 || Timer2 == 660)
 			{
 				NPC.velocity *= 0f;
-				Projectile.NewProjectile(null, player.Center.X, player.Center.Y + 550f, 0f, 0f, Mod.Find<ModProjectile>("EruptionTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X, player.Center.Y + 550f, 0f, 0f, Mod.Find<ModProjectile>("EruptionTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (Timer2 == 720 || Timer2 == 780 || Timer2 == 840 || Timer2 == 900 || Timer2 == 960)
 			{
@@ -385,7 +386,7 @@ public class Ignodium : ModNPC
 				int num27 = Mod.Find<ModProjectile>("MoltenGlob").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num28 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num28) * (double)num26 * -1.0), (float)(Math.Sin(num28) * (double)num26 * -1.0), num27, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num28) * (double)num26 * -1.0), (float)(Math.Sin(num28) * (double)num26 * -1.0), num27, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (Timer2 > 1020 && Timer2 < 1080)
 			{
@@ -398,7 +399,7 @@ public class Ignodium : ModNPC
 					float num31 = 360 / num29;
 					Vector2 vector9 = NPC.Center + spinningpoint2.RotatedBy((double)Spin + (double)(num31 * (float)num30) * (Math.PI / 4.0));
 					float num32 = (float)Math.Atan2(NPC.Center.Y - vector9.Y, NPC.Center.X - vector9.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num32) * 10.0 * -1.0), (float)(Math.Sin(num32) * 10.0 * -1.0), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, (float)num30);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num32) * 10.0 * -1.0), (float)(Math.Sin(num32) * 10.0 * -1.0), Mod.Find<ModProjectile>("FlameBlast").Type, num, 0f, Main.myPlayer, 0f, (float)num30);
 				}
 			}
 			if (Timer2 >= 1140)
@@ -459,14 +460,14 @@ public class Ignodium : ModNPC
 			for (int num38 = 0; (float)num38 < num36; num38++)
 			{
 				Vector2 vector10 = new Vector2(player.Center.X - num35 / 2f + num37 * (float)num38, player.Center.Y + 700f);
-				Main.projectile[Projectile.NewProjectile(null, vector10.X, vector10.Y, 0f, 0f, Mod.Find<ModProjectile>("IgnodiumBeamTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 125f;
+				Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), vector10.X, vector10.Y, 0f, 0f, Mod.Find<ModProjectile>("IgnodiumBeamTelegraph").Type, 0, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 125f;
 			}
 		}
 		if (DesperationTimer == 300 || DesperationTimer == 310 || DesperationTimer == 320)
 		{
 			float num39 = 1.5f;
 			float num40 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num40) * (double)num39 * -1.0), (float)(Math.Sin(num40) * (double)num39 * -1.0), Mod.Find<ModProjectile>("IgnodiumBeam").Type, num, 0f, 0, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num40) * (double)num39 * -1.0), (float)(Math.Sin(num40) * (double)num39 * -1.0), Mod.Find<ModProjectile>("IgnodiumBeam").Type, num, 0f, 0, 0f, 0f);
 		}
 		if (DesperationTimer > 340 && DesperationTimer < 440)
 		{
@@ -478,7 +479,7 @@ public class Ignodium : ModNPC
 				float num43 = 360 / num41;
 				Vector2 vector11 = NPC.Center + spinningpoint3.RotatedBy((double)Spin + (double)(num43 * (float)num42) * (Math.PI / 4.0));
 				float num44 = (float)Math.Atan2(NPC.Center.Y - vector11.Y, NPC.Center.X - vector11.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num44) * 0.5 * -1.0), (float)(Math.Sin(num44) * 0.5 * -1.0), Mod.Find<ModProjectile>("IgnodiumBeam").Type, num, 0f, Main.myPlayer, 0f, (float)num42);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num44) * 0.5 * -1.0), (float)(Math.Sin(num44) * 0.5 * -1.0), Mod.Find<ModProjectile>("IgnodiumBeam").Type, num, 0f, Main.myPlayer, 0f, (float)num42);
 			}
 		}
 		if (DesperationTimer >= 500)
@@ -541,7 +542,9 @@ public class Ignodium : ModNPC
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("HellShard").Type, 1, 25, 31));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumTrophyItem").Type, 10));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("HellFlail").Type, Mod.Find<ModItem>("HellThrow").Type, Mod.Find<ModItem>("HellGun").Type, Mod.Find<ModItem>("HellJavelin").Type, Mod.Find<ModItem>("HellStaff").Type, Mod.Find<ModItem>("HellTome").Type, Mod.Find<ModItem>("HellScepter").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("HellFlail").Type, Mod.Find<ModItem>("HellThrow").Type, Mod.Find<ModItem>("HellGun").Type, Mod.Find<ModItem>("HellJavelin").Type, Mod.Find<ModItem>("HellStaff").Type, Mod.Find<ModItem>("HellTome").Type, Mod.Find<ModItem>("HellScepter").Type));
+        npcLoot.Add(notExpert);
     }
 
 	public override void OnKill()

@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -81,17 +84,14 @@ public class ShadeSpirit : ModNPC
 			{
 				int num2 = 360 / num;
 				int num3 = (expertMode ? 45 : 50);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("SoulOrbiter").Type, num3, 0f, Main.myPlayer, (float)(i * num2), (float)NPC.whoAmI);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("SoulOrbiter").Type, num3, 0f, Main.myPlayer, (float)(i * num2), (float)NPC.whoAmI);
 			}
 			NPC.localAI[1] += 1f;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(6) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 6));
+    }
 }

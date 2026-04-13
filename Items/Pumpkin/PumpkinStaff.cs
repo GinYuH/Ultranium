@@ -42,7 +42,7 @@ public class PumpkinStaff : ModItem
 			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(20f));
 			float num2 = 1f - Main.rand.NextFloat() * 0.3f;
 			vector *= num2;
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

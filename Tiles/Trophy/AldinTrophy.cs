@@ -22,17 +22,4 @@ public class AldinTrophy : ModTile
 		// val.SetDefault("Trophy");
 		AddMapEntry(new Color(120, 85, 60), val);
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		int num = 0;
-		if (frameX / 54 == 0)
-		{
-			num = Mod.Find<ModItem>("AldinTrophyItem").Type;
-		}
-		if (num > 0)
-		{
-			Item.NewItem(null, i * 16, j * 16, 48, 48, num, 1, false, 0, false, false);
-		}
-	}
 }

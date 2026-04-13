@@ -1,7 +1,11 @@
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
+using Ultranium.Tiles.Ambient;
 
 namespace Ultranium.NPCs.Enemy.Depths;
 
@@ -58,17 +62,10 @@ public class ShroomMonster : ModNPC
 			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore2").Type);
 			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShroomGore3").Type);
 		}
-	}
-
-	public override void OnKill()
-	{
-		if (Main.rand.Next(2) == 1)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("GlowShroomItem").Type, 1, false, 0, false, false);
-		}
-		if (Main.rand.Next(5) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
-		}
-	}
+    }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<GlowShroomItem>(), 2));
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 5));
+    }
 }

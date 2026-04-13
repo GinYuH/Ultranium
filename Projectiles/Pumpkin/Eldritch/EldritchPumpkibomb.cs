@@ -50,7 +50,7 @@ public class EldritchPumpkibomb : ModProjectile
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(null, Projectile.Center, vector, Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, Projectile.damage, 0f, Main.myPlayer, num2, num);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, vector, Mod.Find<ModProjectile>("EldritchPumpkinTentacle").Type, Projectile.damage, 0f, Main.myPlayer, num2, num);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class EldritchPumpkibomb : ModProjectile
 			vector.Normalize();
 			vector.X *= 3f;
 			vector.Y *= 3f;
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 402, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, 402, Projectile.damage, 2f, Projectile.owner, 0f, 0f);
 		}
 		for (int j = 0; j < 20; j++)
 		{

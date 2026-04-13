@@ -45,7 +45,7 @@ public class UltrumSummon : ModItem
 
 	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
 	{
-		NPC.NewNPC(null, (int)player.Center.X, (int)player.Center.Y - 150, Mod.Find<ModNPC>("Ultrum").Type, 0, 0f, 0f, 0f, 0f, 255);
+		NPC.NewNPC(player.GetSource_ItemUse(Item), (int)player.Center.X, (int)player.Center.Y - 150, Mod.Find<ModNPC>("Ultrum").Type, 0, 0f, 0f, 0f, 0f, 255);
 		SoundEngine.PlaySound(SoundID.Roar, player.position);
 		return true;
 	}

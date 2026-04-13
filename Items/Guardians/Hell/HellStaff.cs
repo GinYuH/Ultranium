@@ -38,7 +38,7 @@ public class HellStaff : ModItem
 
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
-		Projectile.NewProjectile(null, Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), Mod.Find<ModProjectile>("HellBeam").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(source, Main.MouseWorld.X + (float)Main.rand.Next(0, 0), player.Center.Y - -500f + (float)Main.rand.Next(-50, -50), 0f, (float)Main.rand.Next(-15, -15), Mod.Find<ModProjectile>("HellBeam").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 		return false;
 	}
 

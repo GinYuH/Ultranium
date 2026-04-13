@@ -44,7 +44,7 @@ public class AbysmalSickle : ModItem
 		for (int i = 0; (float)i < num2; i++)
 		{
 			Vector2 vector = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num3, num3, (float)i / (num2 - 1f))) * num;
-			Projectile.NewProjectile(null, player.Center.X, player.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("AbyssSickle").Type, 55, 2f, Main.myPlayer, (float)num4, 0f);
+			Projectile.NewProjectile(source, player.Center.X, player.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("AbyssSickle").Type, 55, 2f, Main.myPlayer, (float)num4, 0f);
 		}
 		return true;
 	}

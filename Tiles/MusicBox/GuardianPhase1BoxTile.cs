@@ -24,11 +24,6 @@ public class GuardianPhase1BoxTile : ModTile
 		AddMapEntry(new Color(200, 200, 200), val);
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(null, i * 16, j * 16, 16, 48, Mod.Find<ModItem>("GuardianPhase1Box").Type, 1, false, 0, false, false);
-	}
-
 	public override void MouseOver(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;

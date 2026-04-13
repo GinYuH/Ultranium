@@ -39,7 +39,7 @@ public class ShroomBow : ModItem
 		if (Main.rand.Next(2) == 0)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ShroomArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ShroomArrow").Type, damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;

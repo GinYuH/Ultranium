@@ -1,9 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.ShadowEvent;
 
@@ -78,7 +81,7 @@ public class Scp2521 : ModNPC
 			int num = Main.rand.Next(1, 1);
 			for (int i = 0; i < num; i++)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatterBolt").Type, 40, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatterBolt").Type, 40, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		JumpTimer--;
@@ -115,13 +118,10 @@ public class Scp2521 : ModNPC
 			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
 			NPC.frameCounter = 1.0;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(5) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 5));
+    }
 }

@@ -90,10 +90,10 @@ public class DreadBoss : ModNPC
 		if (NPC.localAI[0] == 0f && Main.netMode != 1)
 		{
 			NPC.localAI[0] = 1f;
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadHook").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 		}
 		int[] array = new int[3];
 		float num2 = 0f;
@@ -196,7 +196,7 @@ public class DreadBoss : ModNPC
 			int num15 = Mod.Find<ModProjectile>("DreadBolt").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num16 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num16) * (double)num14 * -1.0), (float)(Math.Sin(num16) * (double)num14 * -1.0), num15, 30, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num16) * (double)num14 * -1.0), (float)(Math.Sin(num16) * (double)num14 * -1.0), num15, 30, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 440 || timer == 500 || timer == 560)
 		{
@@ -204,7 +204,7 @@ public class DreadBoss : ModNPC
 			int num18 = Mod.Find<ModProjectile>("ToothBall").Type;
 			SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 			float num19 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num19) * (double)num17 * -1.0), (float)(Math.Sin(num19) * (double)num17 * -1.0), num18, 30, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num19) * (double)num17 * -1.0), (float)(Math.Sin(num19) * (double)num17 * -1.0), num18, 30, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 640 || timer == 700 || timer == 760)
 		{
@@ -213,7 +213,7 @@ public class DreadBoss : ModNPC
 			{
 				float num21 = (float)Main.rand.Next(-200, 200) * 0.02f;
 				float num22 = (float)Main.rand.Next(-200, 200) * 0.02f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, num21, num22, Mod.Find<ModProjectile>("DreadSpit").Type, 30, 1f, NPC.target, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, num21, num22, Mod.Find<ModProjectile>("DreadSpit").Type, 30, 1f, NPC.target, 0f, 0f);
 			}
 		}
 		if (timer == 850 || timer == 970 || timer == 1090)
@@ -241,7 +241,7 @@ public class DreadBoss : ModNPC
 		if (!NPC.AnyNPCs(Mod.Find<ModNPC>("DreadHook").Type))
 		{
 			((Entity)NPC).active = false;
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("DreadBossP2").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("DreadBossP2").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 		}
 		if (NPC.AnyNPCs(Mod.Find<ModNPC>("DreadHook").Type))
 		{
@@ -252,7 +252,7 @@ public class DreadBoss : ModNPC
 
 	public override void OnKill()
 	{
-		NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("DreadBossP2").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
+		NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 100, Mod.Find<ModNPC>("DreadBossP2").Type, NPC.whoAmI, 0f, 0f, 0f, 0f, 255);
 	}
 
 	public override bool CheckActive()

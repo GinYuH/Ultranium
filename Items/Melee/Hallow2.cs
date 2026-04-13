@@ -37,7 +37,7 @@ public class Hallow2 : ModItem
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("HallowBlast").Type, 160, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("HallowBlast").Type, 160, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;

@@ -41,7 +41,7 @@ public class ZephyrKnife : ModItem
 		if (Use >= 20)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("WaterKnife").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("WaterKnife").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 			Use = 0;
 			return false;
 		}

@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Dread.Materials;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy.Dread;
 
@@ -48,12 +51,12 @@ public class DreadApparition : ModNPC
 			return 0.06f;
 		}
 		return 0f;
-	}
+    }
 
-	public override void OnKill()
-	{
-		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DreadFlame").Type, Main.rand.Next(1, 3), false, 0, false, false);
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DreadFlame>(), 1, 1, 2));
+    }
 
 	public override void HitEffect(NPC.HitInfo hit)
 	{

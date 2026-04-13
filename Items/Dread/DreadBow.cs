@@ -38,7 +38,7 @@ public class DreadBow : ModItem
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		new Vector2(velocity.X, velocity.Y).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-		Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DreadBowBolt").Type, damage, knockback, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("DreadBowBolt").Type, damage, knockback, player.whoAmI, 0f, 0f);
 		return false;
 	}
 

@@ -52,7 +52,7 @@ public class C4Pro : ModProjectile
 	public override void OnKill(int timeLeft)
 	{
 		SoundEngine.PlaySound(SoundID.Item14, new Vector2(Projectile.position.X, Projectile.position.Y));
-		Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("C4Boom").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+		Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("C4Boom").Type, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 	}
 
 	public override void AI()

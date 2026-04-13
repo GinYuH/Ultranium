@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
 
 namespace Ultranium.NPCs.Enemy.Critter;
 
@@ -61,11 +63,14 @@ public class TempleShroomCritter : ModNPC
 			_ = NPC.frameCounter;
 			NPC.frame.Y = 0;
 		}
-	}
+    }
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<TempleShroom>()));
+    }
 
-	public override void OnKill()
+    public override void OnKill()
 	{
-		Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("TempleShroom").Type, 1, false, 0, false, false);
 		if (!UltraniumWorld.SolarShroom)
 		{
 			UltraniumWorld.SolarShroom = true;

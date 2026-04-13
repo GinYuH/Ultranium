@@ -58,7 +58,7 @@ public class WaterKnife : ModProjectile
 		Projectile.ai[0] += 1f;
 		if (Projectile.ai[0] == 60f)
 		{
-			Projectile.NewProjectile(null, Projectile.Center, Projectile.velocity, Mod.Find<ModProjectile>("LingerBubble").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Projectile.velocity, Mod.Find<ModProjectile>("LingerBubble").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 			Projectile.ai[0] = 0f;
 		}
 	}

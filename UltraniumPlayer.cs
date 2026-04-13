@@ -153,7 +153,7 @@ public class UltraniumPlayer : ModPlayer
 			((ModPlayer)this).Player.AddBuff(((ModPlayer)this).Mod.Find<ModBuff>("AbyssEyeBuff").Type, 3600, quiet: false);
 			if (((ModPlayer)this).Player.ownedProjectileCounts[((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type] <= 0)
 			{
-				Projectile.NewProjectile(null, ((ModPlayer)this).Player.position, Vector2.Zero, ((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type, 135, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.position, Vector2.Zero, ((ModPlayer)this).Mod.Find<ModProjectile>("AbyssalEye").Type, 135, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
 			}
 		}
 		if (MushroomSet)
@@ -198,7 +198,7 @@ public class UltraniumPlayer : ModPlayer
             for (int i = 0; i < 3; i++)
             {
                 Vector2 vector = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)i + Main.rand.NextDouble() - 0.5));
-                Projectile.NewProjectile(null, target.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+                Projectile.NewProjectile(Player.GetSource_FromThis(), target.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
             }
         }
     }
@@ -277,7 +277,7 @@ public class UltraniumPlayer : ModPlayer
 				Vector2 vector9 = (0.8975979f * (float)m).ToRotationVector2();
 				vector9.Normalize();
 				vector9 *= 7f;
-				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector9.X, vector9.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("EtherealCoreBolt").Type, 75, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector9.X, vector9.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("EtherealCoreBolt").Type, 75, 1f, Main.myPlayer, 0f, 0f);
 			}
 			int num5 = 35;
 			for (int n = 0; n < num5; n++)
@@ -302,9 +302,9 @@ public class UltraniumPlayer : ModPlayer
 	{
 		if (MushroomSet && Main.rand.Next(2) == 0)
 		{
-			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
-			Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center + Main.rand.NextVector2Square(-50f, 50f), Main.rand.NextVector2Square(-1f, 1f), 590, 15, 6f, ((ModPlayer)this).Player.whoAmI, 0f, 0f);
 		}
 		if (DreadHeart && Main.rand.Next(3) == 0)
 		{
@@ -312,7 +312,7 @@ public class UltraniumPlayer : ModPlayer
 			for (int i = 0; i < 3; i++)
 			{
 				Vector2 vector = spinningpoint.RotatedBy(Math.PI * 2.0 / 3.0 * ((double)i + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBall").Type, 75, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center, vector, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBall").Type, 75, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (TrueDreadHeart && Main.rand.Next(2) == 0)
@@ -321,7 +321,7 @@ public class UltraniumPlayer : ModPlayer
 			for (int j = 0; j < 5; j++)
 			{
 				Vector2 vector2 = spinningpoint2.RotatedBy(Math.PI * 2.0 / 5.0 * ((double)j + Main.rand.NextDouble() - 0.5));
-				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center, vector2, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center, vector2, ((ModPlayer)this).Mod.Find<ModProjectile>("DreadFlameBlast").Type, 200, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (StellarSet && Main.rand.Next(3) == 0)
@@ -331,7 +331,7 @@ public class UltraniumPlayer : ModPlayer
 				Vector2 vector3 = ((float)Math.PI / 4f * (float)k).ToRotationVector2();
 				vector3.Normalize();
 				vector3 *= 14f;
-				Projectile.NewProjectile(null, ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector3.X, vector3.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("StellarComet").Type, 70, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Player.GetSource_FromThis(), ((ModPlayer)this).Player.Center.X, ((ModPlayer)this).Player.Center.Y, vector3.X, vector3.Y, ((ModPlayer)this).Mod.Find<ModProjectile>("StellarComet").Type, 70, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 	}
@@ -419,7 +419,7 @@ public class UltraniumPlayer : ModPlayer
 			{
 				inventory[i].stack--;
 				Vector2 center = Main.projectile[num].Center;
-				attempt.rolledEnemySpawn = NPC.NewNPC(null, (int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
+				attempt.rolledEnemySpawn = NPC.NewNPC(Player.GetSource_FromThis(), (int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
 				((Entity)Main.projectile[num]).active = false;
 				if (Main.netMode == 1)
 				{

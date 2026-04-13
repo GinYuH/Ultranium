@@ -154,13 +154,13 @@ public class IceDragon : ModNPC
 				int num3 = 128;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num4 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (AttackType == 1 && (Timer1 == 280 || Timer1 == 320))
 			{
 				for (int i = -1; i <= 1; i++)
 				{
-					Projectile.NewProjectile(null, NPC.Center, 7f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)i), Mod.Find<ModProjectile>("IceSpike").Type, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 7f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)i), Mod.Find<ModProjectile>("IceSpike").Type, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (AttackType == 2)
@@ -175,7 +175,7 @@ public class IceDragon : ModNPC
 					int num6 = Mod.Find<ModProjectile>("IceTwisterSmall").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num7 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num7) * (double)num5 * -1.0), (float)(Math.Sin(num7) * (double)num5 * -1.0), num6, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num7) * (double)num5 * -1.0), (float)(Math.Sin(num7) * (double)num5 * -1.0), num6, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (Timer1 >= 360)
@@ -278,7 +278,7 @@ public class IceDragon : ModNPC
 						int num10 = 128;
 						SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 						Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 7f, num10, num + 10, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 7f, num10, num + 10, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (Timer2 == 320)
@@ -291,13 +291,13 @@ public class IceDragon : ModNPC
 					int num12 = Mod.Find<ModProjectile>("IceWave").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num13 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num13) * (double)num11 * -1.0), (float)(Math.Sin(num13) * (double)num11 * -1.0), num12, num + 10, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num13) * (double)num11 * -1.0), (float)(Math.Sin(num13) * (double)num11 * -1.0), num12, num + 10, 0f, Main.myPlayer, 0f, 0f);
 				}
 				if (AttackType2 == 1 && (Timer2 == 360 || Timer2 == 420 || Timer2 == 480))
 				{
 					for (int l = -2; l <= 2; l++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 6f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)l), Mod.Find<ModProjectile>("IceSpike").Type, num + 10, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 6f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(5f) * (float)l), Mod.Find<ModProjectile>("IceSpike").Type, num + 10, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (AttackType2 == 2 && Timer2 == 400)
@@ -307,7 +307,7 @@ public class IceDragon : ModNPC
 					int num15 = Mod.Find<ModProjectile>("IceVortex").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num16 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num16) * (double)num14 * -1.0), (float)(Math.Sin(num16) * (double)num14 * -1.0), num15, num + 10, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num16) * (double)num14 * -1.0), (float)(Math.Sin(num16) * (double)num14 * -1.0), num15, num + 10, 0f, Main.myPlayer, 0f, 0f);
 				}
 				if (Timer2 >= 520)
 				{
@@ -375,7 +375,9 @@ public class IceDragon : ModNPC
 		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IceDragonBag>()));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonMask>(), 7));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonTrophyItem>()));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<GlacialFlail>(), ModContent.ItemType<GlacialGun>(), ModContent.ItemType<GlacialWand>())));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<GlacialFlail>(), ModContent.ItemType<GlacialGun>(), ModContent.ItemType<GlacialWand>()));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IcePelt>(), 1, 12, 17));
     }
 

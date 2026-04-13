@@ -28,7 +28,7 @@ internal class ShadowLamp : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 16, 48, ModContent.ItemType<ShadowLampItem>(), 1, false, 0, false, false);
+		//Item.NewItem(null, i * 16, j * 16, 16, 48, ModContent.ItemType<ShadowLampItem>(), 1, false, 0, false, false);
 	}
 
 	public override void HitWire(int i, int j)

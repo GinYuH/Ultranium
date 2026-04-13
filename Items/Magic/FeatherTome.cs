@@ -60,7 +60,7 @@ public class FeatherTome : ModItem
 			float num7 = num3 * num5;
 			float num8 = num6 + (float)Main.rand.Next(-40, 41) * 0.02f;
 			float num9 = num7 + (float)Main.rand.Next(-40, 41) * 0.02f;
-			Projectile.NewProjectile(null, vector.X, vector.Y, num8, num9, type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
+			Projectile.NewProjectile(source, vector.X, vector.Y, num8, num9, type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
 		}
 		return false;
 	}

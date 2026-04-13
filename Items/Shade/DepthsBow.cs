@@ -56,7 +56,7 @@ public class DepthsBow : ModItem
 			{
 				num2 *= -1f;
 			}
-			Projectile.NewProjectile(null, position, vector, Mod.Find<ModProjectile>("ShadeTentacle").Type, Item.damage * 2, knockback, player.whoAmI, num, num2);
+			Projectile.NewProjectile(source, position, vector, Mod.Find<ModProjectile>("ShadeTentacle").Type, Item.damage * 2, knockback, player.whoAmI, num, num2);
 			return false;
 		}
 		return true;

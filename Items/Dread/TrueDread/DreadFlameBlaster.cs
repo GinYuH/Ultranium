@@ -50,7 +50,7 @@ public class DreadFlameBlaster : ModItem
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DreadFlameBall").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DreadFlameBall").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return true;

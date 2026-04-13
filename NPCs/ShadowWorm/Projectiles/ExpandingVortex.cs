@@ -214,7 +214,7 @@ public class ExpandingVortex : ModProjectile
 				Vector2 vector6 = ((float)Math.PI * 2f / (float)num7 * (float)k).ToRotationVector2();
 				vector6.Normalize();
 				vector6 *= 14f;
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector6.X, vector6.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, num6, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector6.X, vector6.Y, Mod.Find<ModProjectile>("EldritchBlast").Type, num6, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (Timer > 450 && Timer < 500)

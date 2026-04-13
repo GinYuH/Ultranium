@@ -61,7 +61,7 @@ public class GhostBow : ModItem
 		Vector2[] array = randomSpread(velocity.X, velocity.Y, 8, 3);
 		for (int i = 0; i < 3; i++)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, array[i].X, array[i].Y, Mod.Find<ModProjectile>("GhostArrow").Type, 50, 1f, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, array[i].X, array[i].Y, Mod.Find<ModProjectile>("GhostArrow").Type, 50, 1f, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

@@ -46,7 +46,7 @@ public class EldritchEyeTelegraph : ModProjectile
 		if (Timer >= 120)
 		{
 			int num2 = (expertMode ? 35 : 48);
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchEye").Type, num2, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchEye").Type, num2, 1f, Main.myPlayer, 0f, 0f);
 			((Entity)Projectile).active = false;
 		}
 	}

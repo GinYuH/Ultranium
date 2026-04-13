@@ -135,7 +135,7 @@ public class MindFlayerClone : ModNPC
 			vector.X *= 7f;
 			vector.Y *= 7f;
 			int num = (expertMode ? 40 : 45);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatter").Type, num, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("DarkMatter").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			timer = 0;
 		}
 		return true;

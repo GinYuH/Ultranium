@@ -47,7 +47,7 @@ public class HellGun : ModItem
 		if (Use >= 30)
 		{
 			Vector2 vector2 = new Vector2(velocity.X, velocity.Y).RotatedBy(Math.PI / (double)(Main.rand.Next(72, 1800) / 10));
-			Projectile.NewProjectile(null, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, Item.damage * 2, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlamingBulletBlastBig").Type, Item.damage * 2, knockback, player.whoAmI, 0f, 0f);
 			Use = 0;
 			return false;
 		}

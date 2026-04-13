@@ -244,7 +244,7 @@ public class ErebusHead : ModNPC
 			vector.X *= 10.5f;
 			vector.Y *= 10.5f;
 			SoundEngine.PlaySound(SoundID.Item84, NPC.position);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			Vortex++;
 		}
 		if ((double)NPC.life <= (double)NPC.lifeMax * 0.5 && Vortex == 1 && ((Entity)NPC).active)
@@ -254,7 +254,7 @@ public class ErebusHead : ModNPC
 			vector2.X *= 10.5f;
 			vector2.Y *= 10.5f;
 			SoundEngine.PlaySound(SoundID.Item84, NPC.position);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			Vortex++;
 		}
 		if ((double)NPC.life <= (double)NPC.lifeMax * 0.25 && Vortex == 2 && ((Entity)NPC).active)
@@ -264,7 +264,7 @@ public class ErebusHead : ModNPC
 			vector3.X *= 10.5f;
 			vector3.Y *= 10.5f;
 			SoundEngine.PlaySound(SoundID.Item84, NPC.position);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("ExpandingVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			Vortex++;
 		}
 		if (NPC.life > NPC.lifeMax / 2 && NPC.life > NPC.lifeMax / 5 && !Circling && !TeleportVortex)
@@ -280,7 +280,7 @@ public class ErebusHead : ModNPC
 				for (int i = 0; i < num2; i++)
 				{
 					float num3 = (float)Main.rand.Next(-300, 300) * 0.01f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector4.X + num3, vector4.Y + num3, Mod.Find<ModProjectile>("ErebusBlast").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector4.X + num3, vector4.Y + num3, Mod.Find<ModProjectile>("ErebusBlast").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (Timer1 < 790 && Timer1 > 670)
@@ -342,7 +342,7 @@ public class ErebusHead : ModNPC
 			Timer2++;
 			if (Timer2 >= 300 && Timer2 <= 500 && Main.rand.Next(20) == 0)
 			{
-				Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("EldritchEyeTelegraph").Type, 0, 6f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center + Main.rand.NextVector2Square(-750f, 750f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("EldritchEyeTelegraph").Type, 0, 6f, player.whoAmI, 0f, 0f);
 			}
 			if (Timer2 > 820 && Timer2 < 960)
 			{
@@ -367,7 +367,7 @@ public class ErebusHead : ModNPC
 				vector12.X *= 12.5f;
 				vector12.Y *= 12.5f;
 				SoundEngine.PlaySound(SoundID.Item84, NPC.position);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("ErebusVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector12.X, vector12.Y, Mod.Find<ModProjectile>("ErebusVortex").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (Timer2 == 1275)
 			{
@@ -384,14 +384,14 @@ public class ErebusHead : ModNPC
 				int num8 = Mod.Find<ModProjectile>("ErebusToothBall").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num9 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num7 * -1.0), (float)(Math.Sin(num9) * (double)num7 * -1.0), num8, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num9) * (double)num7 * -1.0), (float)(Math.Sin(num9) * (double)num7 * -1.0), num8, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (Vector2.Distance(NPC.Center, player.Center) <= 500f && MovementAI == 1 && Timer2 >= 1575)
 			{
 				Vector2 vector13 = new Vector2(NPC.position.X + (float)(NPC.width / 2), NPC.position.Y + (float)(NPC.height / 2));
 				if (Main.rand.Next(5) == 0)
 				{
-					Projectile.NewProjectile(null, vector13.X + NPC.velocity.X, vector13.Y + NPC.velocity.Y, NPC.velocity.X * 0.5f + Utils.NextFloat(Main.rand, -0.6f, 0.6f) * 1f, NPC.velocity.Y * 0.5f + Utils.NextFloat(Main.rand, -0.6f, 0.6f) * 1f, Mod.Find<ModProjectile>("ShadowFlameBreath").Type, num, 0f, 0, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), vector13.X + NPC.velocity.X, vector13.Y + NPC.velocity.Y, NPC.velocity.X * 0.5f + Utils.NextFloat(Main.rand, -0.6f, 0.6f) * 1f, NPC.velocity.Y * 0.5f + Utils.NextFloat(Main.rand, -0.6f, 0.6f) * 1f, Mod.Find<ModProjectile>("ShadowFlameBreath").Type, num, 0f, 0, 0f, 0f);
 					if (Main.rand.Next(3) == 0)
 					{
 						SoundEngine.PlaySound(SoundID.DD2_BetsyFlameBreath, NPC.position);
@@ -453,7 +453,7 @@ public class ErebusHead : ModNPC
 					Vector2 vector17 = new Vector2(0f, 1f).RotatedBy(NPC.rotation + MathHelper.ToRadians((num13 == 0) ? 90 : 270));
 					vector17.Normalize();
 					vector17 *= 10f;
-					_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center, vector17, Mod.Find<ModProjectile>("EldritchBlast").Type, num, 0f, Main.myPlayer, 0f, 0f)];
+					_ = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector17, Mod.Find<ModProjectile>("EldritchBlast").Type, num, 0f, Main.myPlayer, 0f, 0f)];
 				}
 			}
 			if (Timer2 == 2226)
@@ -535,7 +535,7 @@ public class ErebusHead : ModNPC
 			for (int num19 = 0; num19 < num18; num19++)
 			{
 				int num20 = 360 / num18;
-				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RestlessSoul>(), NPC.whoAmI, (float)NPC.whoAmI, (float)(num19 * num20), 0f, 0f, 255);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, ModContent.NPCType<RestlessSoul>(), NPC.whoAmI, (float)NPC.whoAmI, (float)(num19 * num20), 0f, 0f, 255);
 			}
 			NPC.localAI[1] += 1f;
 		}
@@ -575,7 +575,7 @@ public class ErebusHead : ModNPC
 				{
 					for (int num22 = -1; num22 <= 2; num22++)
 					{
-						Projectile.NewProjectile(null, NPC.Center, 15f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(8f) * (float)num22), Mod.Find<ModProjectile>("ErebusBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 15f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(8f) * (float)num22), Mod.Find<ModProjectile>("ErebusBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (CircleShootTimer == 70)
@@ -603,11 +603,11 @@ public class ErebusHead : ModNPC
 			{
 				int num26 = 0;
 				num26 = Mod.Find<ModNPC>("ErebusBody").Type;
-				num23 = NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, num26, NPC.whoAmI, 0f, (float)num23, 0f, 0f, 255);
+				num23 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, num26, NPC.whoAmI, 0f, (float)num23, 0f, 0f, 255);
 				Main.npc[num23].realLife = NPC.whoAmI;
 				Main.npc[num23].ai[3] = NPC.whoAmI;
 			}
-			num23 = NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ErebusTail").Type, NPC.whoAmI, 0f, (float)num23, 0f, 0f, 255);
+			num23 = NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("ErebusTail").Type, NPC.whoAmI, 0f, (float)num23, 0f, 0f, 255);
 			Main.npc[num23].realLife = NPC.whoAmI;
 			Main.npc[num23].ai[3] = NPC.whoAmI;
 			NPC.ai[0] = 1f;
@@ -930,7 +930,9 @@ public class ErebusHead : ModNPC
         npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("ErebusBag").Type));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusTrophyItem").Type, 10));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("Noctis").Type, Mod.Find<ModItem>("SolibusOrba").Type, Mod.Find<ModItem>("Crepus").Type, Mod.Find<ModItem>("Inanis").Type, Mod.Find<ModItem>("CavumNigrum").Type, Mod.Find<ModItem>("Exitium").Type, Mod.Find<ModItem>("Umbra").Type, Mod.Find<ModItem>("Nihil").Type, Mod.Find<ModItem>("Caliginus").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("Noctis").Type, Mod.Find<ModItem>("SolibusOrba").Type, Mod.Find<ModItem>("Crepus").Type, Mod.Find<ModItem>("Inanis").Type, Mod.Find<ModItem>("CavumNigrum").Type, Mod.Find<ModItem>("Exitium").Type, Mod.Find<ModItem>("Umbra").Type, Mod.Find<ModItem>("Nihil").Type, Mod.Find<ModItem>("Caliginus").Type));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("NightmareScale").Type, 1, 20, 34));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DarkMatter").Type, 1, 10, 14));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("ErebusGuitar").Type, 20));

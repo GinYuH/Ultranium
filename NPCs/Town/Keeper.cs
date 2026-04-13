@@ -144,8 +144,8 @@ public class Keeper : ModNPC
 		}
 		if (SpawnTimer == 180)
 		{
-			NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Aldin").Type, 0, 0f, 0f, 0f, 0f, 255);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
+			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Aldin").Type, 0, 0f, 0f, 0f, 0f, 255);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 			Ultranium.seizureAmount = 20f;
 			Main.NewText("Aldin's true form has been unleashed!", (byte)175, (byte)75, byte.MaxValue);
 			SpawnTimer = 0;

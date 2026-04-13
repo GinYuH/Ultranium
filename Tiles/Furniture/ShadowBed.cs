@@ -36,11 +36,6 @@ public class ShadowBed : ModTile
 		num = 1;
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(null, i * 16, j * 16, 64, 32, ModContent.ItemType<ShadowBedItem>(), 1, false, 0, false, false);
-	}
-
 	public override bool RightClick(int i, int j)
 	{
 		Player localPlayer = Main.LocalPlayer;

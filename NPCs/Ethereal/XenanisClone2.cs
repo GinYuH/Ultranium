@@ -171,7 +171,7 @@ public class XenanisClone2 : ModNPC
 				int num3 = Mod.Find<ModProjectile>("EtherealWave").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num4 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer >= 680 && timer < 800)
@@ -196,7 +196,7 @@ public class XenanisClone2 : ModNPC
 			{
 				Vector2 vector2 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num7, num7, (float)i / num6)) * num5;
 				SoundEngine.PlaySound(SoundID.Item78, NPC.Center);
-				Main.projectile[Projectile.NewProjectile(null, NPC.Center, vector2, Mod.Find<ModProjectile>("XenanisTentacle").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
+				Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector2, Mod.Find<ModProjectile>("XenanisTentacle").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
 			}
 		}
 		if (timer >= 820)

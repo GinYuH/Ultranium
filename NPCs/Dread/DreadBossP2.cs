@@ -1,10 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Cosmic;
+using Ultranium.Items.Vanity.Aldin;
 
 namespace Ultranium.NPCs.Dread;
 
@@ -157,7 +159,7 @@ public class DreadBossP2 : ModNPC
 			{
 				float num8 = (float)Main.rand.Next(-100, 100) * 0.01f;
 				float num9 = (float)Main.rand.Next(-100, 100) * 0.01f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector9.X + num8, vector9.Y + num9, Mod.Find<ModProjectile>("DreadFlames").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector9.X + num8, vector9.Y + num9, Mod.Find<ModProjectile>("DreadFlames").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				if (Main.rand.Next(3) == 0)
 				{
 					SoundEngine.PlaySound(SoundID.DD2_BetsyFlameBreath, NPC.position);
@@ -178,7 +180,7 @@ public class DreadBossP2 : ModNPC
 			for (int l = 0; l < num10; l++)
 			{
 				float num11 = (float)Main.rand.Next(-300, 300) * 0.01f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector10.X + num11, vector10.Y + num11, Mod.Find<ModProjectile>("DreadSpit").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector10.X + num11, vector10.Y + num11, Mod.Find<ModProjectile>("DreadSpit").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if ((timer >= 1120 && timer <= 1140) || (timer >= 1160 && timer <= 1180) || (timer >= 1200 && timer <= 1220))
@@ -187,7 +189,7 @@ public class DreadBossP2 : ModNPC
 			int num13 = Mod.Find<ModProjectile>("DreadBolt").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num12 * -1.0), (float)(Math.Sin(num2) * (double)num12 * -1.0), num13, num, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num12 * -1.0), (float)(Math.Sin(num2) * (double)num12 * -1.0), num13, num, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer == 1480 || timer == 1540 || timer == 1600 || timer == 1660 || timer == 1720)
 		{
@@ -195,7 +197,7 @@ public class DreadBossP2 : ModNPC
 			int num15 = Mod.Find<ModProjectile>("ToothBall2").Type;
 			SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 			num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num14 * -1.0), (float)(Math.Sin(num2) * (double)num14 * -1.0), num15, num, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num14 * -1.0), (float)(Math.Sin(num2) * (double)num14 * -1.0), num15, num, 0f, Main.myPlayer, 0f, 0f);
 		}
 		if (timer >= 1780 && timer < 1865)
 		{
@@ -206,7 +208,7 @@ public class DreadBossP2 : ModNPC
 				int num17 = Mod.Find<ModProjectile>("DreadBolt").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num16 * -1.0), (float)(Math.Sin(num2) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num16 * -1.0), (float)(Math.Sin(num2) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer >= 1925 && timer < 2010)
@@ -218,7 +220,7 @@ public class DreadBossP2 : ModNPC
 				int num19 = Mod.Find<ModProjectile>("DreadBolt").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num18 * -1.0), (float)(Math.Sin(num2) * (double)num18 * -1.0), num19, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num18 * -1.0), (float)(Math.Sin(num2) * (double)num18 * -1.0), num19, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer == 2070 || timer == 2130)
@@ -227,7 +229,7 @@ public class DreadBossP2 : ModNPC
 			for (int m = 0; m < num20; m++)
 			{
 				int num21 = 360 / num20;
-				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadOrbiter").Type, NPC.whoAmI, (float)(m * num21), (float)NPC.whoAmI, 0f, 0f, 255);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("DreadOrbiter").Type, NPC.whoAmI, (float)(m * num21), (float)NPC.whoAmI, 0f, 0f, 255);
 			}
 		}
 		if (timer >= 2190)
@@ -276,7 +278,9 @@ public class DreadBossP2 : ModNPC
         npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("DreadBag").Type));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadTrophyItem").Type, 10));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSword").Type, Mod.Find<ModItem>("DreadBow").Type, Mod.Find<ModItem>("DreadStaff").Type, Mod.Find<ModItem>("DreadSummon").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSword").Type, Mod.Find<ModItem>("DreadBow").Type, Mod.Find<ModItem>("DreadStaff").Type, Mod.Find<ModItem>("DreadSummon").Type));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadTooth").Type, 3));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadBreadItem").Type, 15));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DreadFlame").Type, 1, 10, 17));

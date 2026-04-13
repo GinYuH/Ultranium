@@ -219,7 +219,7 @@ public class MindFlayer : ModNPC
 			for (int i = 0; i < num2; i++)
 			{
 				float num3 = (float)Main.rand.Next(-150, 150) * 0.04f;
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector.X + num3, vector.Y + num3, Mod.Find<ModProjectile>("FlayerScythe").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X + num3, vector.Y + num3, Mod.Find<ModProjectile>("FlayerScythe").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (timer >= 430 && timer <= 730)
@@ -234,7 +234,7 @@ public class MindFlayer : ModNPC
 			float num5 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
 			Vector2 spinninpoint = new Vector2((float)(Math.Cos(num5) * (double)num4 * -1.0), (float)(Math.Sin(num5) * (double)num4 * -1.0));
 			spinninpoint = spinninpoint.RotatedByRandom(MathHelper.ToRadians(30f));
-			Main.projectile[Projectile.NewProjectile(null, NPC.Center, spinninpoint, Mod.Find<ModProjectile>("FlayerTentacleBody").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
+			Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, spinninpoint, Mod.Find<ModProjectile>("FlayerTentacleBody").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
 		}
 		if (timer == 730)
 		{
@@ -247,7 +247,7 @@ public class MindFlayer : ModNPC
 			vector2.Normalize();
 			vector2.X *= 10.5f;
 			vector2.Y *= 10.5f;
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlayerVortex").Type, num, 1f, NPC.target, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector2.X, vector2.Y, Mod.Find<ModProjectile>("FlayerVortex").Type, num, 1f, NPC.target, 0f, 0f);
 		}
 		if (timer >= 1010)
 		{
@@ -257,7 +257,7 @@ public class MindFlayer : ModNPC
 				NPC.velocity *= 0f;
 				if (TeleportTimer == 1)
 				{
-					Projectile.NewProjectile(null, player.Center + Main.rand.NextVector2Square(-600f, 600f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("FlayerTelegraph").Type, 0, 6f, player.whoAmI, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center + Main.rand.NextVector2Square(-600f, 600f), Main.rand.NextVector2Square(-1f, 1f), Mod.Find<ModProjectile>("FlayerTelegraph").Type, 0, 6f, player.whoAmI, 0f, 0f);
 				}
 				if (TeleportTimer == 100 || TeleportTimer == 110 || TeleportTimer == 120 || TeleportTimer == 130 || TeleportTimer == 140)
 				{
@@ -265,7 +265,7 @@ public class MindFlayer : ModNPC
 					vector3.Normalize();
 					vector3.X *= 8.5f;
 					vector3.Y *= 8.5f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("FlayerSpit").Type, num, 1f, NPC.target, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector3.X, vector3.Y, Mod.Find<ModProjectile>("FlayerSpit").Type, num, 1f, NPC.target, 0f, 0f);
 					HentaiFace = true;
 				}
 				if (TeleportTimer >= 160)
@@ -277,7 +277,7 @@ public class MindFlayer : ModNPC
 			}
 			if (timer == 1120)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("FlayerAuraBase").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("FlayerAuraBase").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer > 1120 && timer < 1660)
 			{
@@ -294,7 +294,7 @@ public class MindFlayer : ModNPC
 					vector4.Normalize();
 					vector4.X *= 8.5f;
 					vector4.Y *= 8.5f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector4.X, vector4.Y, Mod.Find<ModProjectile>("FlayerSpit").Type, num, 1f, NPC.target, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector4.X, vector4.Y, Mod.Find<ModProjectile>("FlayerSpit").Type, num, 1f, NPC.target, 0f, 0f);
 				}
 			}
 			else
@@ -307,8 +307,8 @@ public class MindFlayer : ModNPC
 		{
 			if (NPC.life <= NPC.lifeMax / 2 && NPC.CountNPCS(Mod.Find<ModNPC>("MindFlayerClone").Type) < 1)
 			{
-				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y + 1000, Mod.Find<ModNPC>("MindFlayerClone").Type, 0, 0f, 0f, 0f, 0f, 255);
-				NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y - 1000, Mod.Find<ModNPC>("MindFlayerClone").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y + 1000, Mod.Find<ModNPC>("MindFlayerClone").Type, 0, 0f, 0f, 0f, 0f, 255);
+				NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y - 1000, Mod.Find<ModNPC>("MindFlayerClone").Type, 0, 0f, 0f, 0f, 0f, 255);
 			}
 			timer = 100;
 			NPC.ai[0] = 0f;

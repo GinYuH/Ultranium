@@ -1,11 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Ice;
 using Ultranium.Items.Vanity.BossMasks;
 using Ultranium.Tiles.Trophy;
 
@@ -198,7 +199,7 @@ public class Xenanis : ModNPC
 				int num3 = 299;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num4 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num4) * (double)num2 * -1.0), (float)(Math.Sin(num4) * (double)num2 * -1.0), num3, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer == 360 || timer == 450 || timer == 540 || timer == 630 || timer == 720)
 			{
@@ -239,7 +240,7 @@ public class Xenanis : ModNPC
 			{
 				for (int k = -2; k <= 2; k++)
 				{
-					Projectile.NewProjectile(null, NPC.Center, 7.5f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(6f) * (float)k), Mod.Find<ModProjectile>("EtherealBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, 7.5f * NPC.DirectionTo(player.Center).RotatedBy(MathHelper.ToRadians(6f) * (float)k), Mod.Find<ModProjectile>("EtherealBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (timer == 800)
@@ -259,10 +260,10 @@ public class Xenanis : ModNPC
 			}
 			if (timer == 860)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X + 100f, NPC.Center.Y + 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
-				Projectile.NewProjectile(null, NPC.Center.X + 100f, NPC.Center.Y - 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
-				Projectile.NewProjectile(null, NPC.Center.X - 100f, NPC.Center.Y + 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
-				Projectile.NewProjectile(null, NPC.Center.X - 100f, NPC.Center.Y - 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + 100f, NPC.Center.Y + 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X + 100f, NPC.Center.Y - 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X - 100f, NPC.Center.Y + 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X - 100f, NPC.Center.Y - 100f, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalSmall").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer == 950)
 			{
@@ -274,7 +275,7 @@ public class Xenanis : ModNPC
 				int num11 = Mod.Find<ModProjectile>("EtherealFireBall").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num12 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num12) * (double)num10 * -1.0), (float)(Math.Sin(num12) * (double)num10 * -1.0), num11, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num12) * (double)num10 * -1.0), (float)(Math.Sin(num12) * (double)num10 * -1.0), num11, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer == 1340)
 			{
@@ -294,7 +295,7 @@ public class Xenanis : ModNPC
 			}
 			if (timer == 1370)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealLaserRift").Type, num, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealLaserRift").Type, num, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer >= 1900)
 			{
@@ -304,8 +305,8 @@ public class Xenanis : ModNPC
 		}
 		if (NPC.localAI[1] == 0f && NPC.life <= NPC.lifeMax / 2)
 		{
-			Projectile.NewProjectile(null, player.Center.X + 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("PurpleCloneSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
-			Projectile.NewProjectile(null, player.Center.X - 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("BlackCloneSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("PurpleCloneSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X - 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("BlackCloneSpawner").Type, 0, 1f, Main.myPlayer, 0f, 0f);
 			NPC.localAI[1] += 1f;
 		}
 		if (NPC.AnyNPCs(Mod.Find<ModNPC>("XenanisClone1").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("XenanisClone2").Type))
@@ -338,7 +339,7 @@ public class Xenanis : ModNPC
 				int num17 = Mod.Find<ModProjectile>("EtherealFireBall").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num18 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num18) * (double)num16 * -1.0), (float)(Math.Sin(num18) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num18) * (double)num16 * -1.0), (float)(Math.Sin(num18) * (double)num16 * -1.0), num17, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer2 == 240 || timer2 == 330 || timer2 == 420 || timer2 == 510)
 			{
@@ -363,12 +364,12 @@ public class Xenanis : ModNPC
 				for (int num23 = 0; num23 < 12; num23++)
 				{
 					Vector2 vector = spinningpoint.RotatedBy(Math.PI / 3.0 * ((double)num23 + Main.rand.NextDouble() - 0.5));
-					Projectile.NewProjectile(null, NPC.Center, vector, Mod.Find<ModProjectile>("EtherealBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector, Mod.Find<ModProjectile>("EtherealBlast").Type, num, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (timer2 == 540)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalBig").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealPortalBig").Type, num + 30, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer2 == 720)
 			{
@@ -380,7 +381,7 @@ public class Xenanis : ModNPC
 				int num25 = Mod.Find<ModProjectile>("EtherealPortalSmall").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				float num26 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num26) * (double)num24 * -1.0), (float)(Math.Sin(num26) * (double)num24 * -1.0), num25, num, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num26) * (double)num24 * -1.0), (float)(Math.Sin(num26) * (double)num24 * -1.0), num25, num, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer2 == 940)
 			{
@@ -400,7 +401,7 @@ public class Xenanis : ModNPC
 			}
 			if (timer2 == 980)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealLaserRift2").Type, num + 10, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("EtherealLaserRift2").Type, num + 10, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer2 == 1480)
 			{
@@ -434,7 +435,9 @@ public class Xenanis : ModNPC
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisFlesh").Type, 1, 10, 17));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisWings").Type, 20));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("EtherealDidgeridoo").Type, 10));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisMask>(), 7));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisTrophyItem>(), 10));
 	}

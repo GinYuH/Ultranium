@@ -93,6 +93,6 @@ public class ShadowClock : ModTile
 
 	public override void KillMultiTile(int i, int j, int frameX, int frameY)
 	{
-		Item.NewItem(null, i * 16, j * 16, 48, 32, Mod.Find<ModItem>("ShadowClockItem").Type, 1, false, 0, false, false);
+		//Item.NewItem(null, i * 16, j * 16, 48, 32, Mod.Find<ModItem>("ShadowClockItem").Type, 1, false, 0, false, false);
 	}
 }

@@ -141,7 +141,7 @@ public class ErebusGuitar : ModItem
 		{
 			if (AttackMode == 1)
 			{
-				Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("ErebusGuitarPulse").Type, damage, knockback, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("ErebusGuitarPulse").Type, damage, knockback, player.whoAmI, 0f, 0f);
 			}
 			else if (AttackMode == 2)
 			{
@@ -150,7 +150,7 @@ public class ErebusGuitar : ModItem
 					Vector2 vector = ((float)Math.PI / 4f * (float)i).ToRotationVector2();
 					vector.Normalize();
 					vector *= 6f;
-					Projectile.NewProjectile(null, player.Center.X, player.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ErebusGuitarPulsePurple").Type, damage, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(source, player.Center.X, player.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("ErebusGuitarPulsePurple").Type, damage, 1f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			else if (AttackMode == 3)
@@ -158,11 +158,11 @@ public class ErebusGuitar : ModItem
 				int num = Main.rand.Next(2);
 				if (num == 0)
 				{
-					Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.X, Mod.Find<ModProjectile>("EldritchNote1").Type, damage, knockback, player.whoAmI, 0f, 0f);
+					Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.X, Mod.Find<ModProjectile>("EldritchNote1").Type, damage, knockback, player.whoAmI, 0f, 0f);
 				}
 				if (num == 1)
 				{
-					Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("EldritchNote2").Type, damage, knockback, player.whoAmI, 0f, 0f);
+					Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("EldritchNote2").Type, damage, knockback, player.whoAmI, 0f, 0f);
 				}
 			}
 		}

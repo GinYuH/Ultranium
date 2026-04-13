@@ -22,9 +22,4 @@ public class UltrumShrine : ModTile
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
 		AddMapEntry(new Color(70, 57, 50), (LocalizedText)null);
 	}
-
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		Item.NewItem(null, i * 16, j * 16, 32, 16, Mod.Find<ModItem>("UltrumShrineItem").Type, 1, false, 0, false, false);
-	}
 }

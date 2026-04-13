@@ -1,8 +1,10 @@
 using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy.Depths;
 
@@ -89,13 +91,10 @@ public class DepthCrawler : ModNPC
 			return 20f;
 		}
 		return 0f;
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(5) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 5));
+    }
 }

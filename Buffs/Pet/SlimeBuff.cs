@@ -19,7 +19,7 @@ public class SlimeBuff : ModBuff
 		player.GetModPlayer<UltraniumPlayer>().SlimePet = true;
 		if (player.ownedProjectileCounts[((ModBuff)this).Mod.Find<ModProjectile>("SlimePet").Type] <= 0 && player.whoAmI == Main.myPlayer)
 		{
-			Projectile.NewProjectile(null, player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).Mod.Find<ModProjectile>("SlimePet").Type, 0, 0f, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.position.X + (float)(player.width / 2), player.position.Y + (float)(player.height / 2), 0f, 0f, ((ModBuff)this).Mod.Find<ModProjectile>("SlimePet").Type, 0, 0f, player.whoAmI, 0f, 0f);
 		}
 	}
 }

@@ -42,7 +42,7 @@ public class EtherealSword : ModItem
 		int num = Main.rand.Next(3, 4);
 		for (int i = 0; i < num; i++)
 		{
-			Projectile.NewProjectile(null, position, new Vector2(velocity.X, velocity.Y).RotatedByRandom(0.19634954631328583), type, damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position, new Vector2(velocity.X, velocity.Y).RotatedByRandom(0.19634954631328583), type, damage, knockback, player.whoAmI, 0f, 0f);
 		}
 		return false;
 	}

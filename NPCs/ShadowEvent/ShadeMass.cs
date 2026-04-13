@@ -1,8 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Items.Eldritch;
+using Ultranium.Items.Shade;
 using Ultranium.NPCs.ShadowEvent.Projectiles;
 
 namespace Ultranium.NPCs.ShadowEvent;
@@ -78,7 +81,7 @@ public class ShadeMass : ModNPC
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				int num = Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<DarkmatterTentacle>(), NPC.damage, 0f, Main.myPlayer, 0f, 0f);
+				int num = Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, ModContent.ProjectileType<DarkmatterTentacle>(), NPC.damage, 0f, Main.myPlayer, 0f, 0f);
 				if (num == 1000)
 				{
 					((Entity)NPC).active = false;
@@ -127,13 +130,10 @@ public class ShadeMass : ModNPC
 			NPC.frame.Y = (NPC.frame.Y + frameHeight) % (Main.npcFrameCount[NPC.type] * frameHeight);
 			NPC.frameCounter = 1.0;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(3) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("DarkMatter").Type, Main.rand.Next(1, 1), false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<DarkMatter>(), 3));
+    }
 }

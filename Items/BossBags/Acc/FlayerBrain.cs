@@ -36,7 +36,7 @@ public class FlayerBrain : ModItem
 			player.GetCritChance(DamageClass.Ranged) += 10;
 			if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("EldritchAuraBase").Type] < 1)
 			{
-				Projectile.NewProjectile(null, player.position.X, player.position.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchAuraBase").Type, 150, 10f, player.whoAmI, 0f, 0f);
+				Projectile.NewProjectile(player.GetSource_ItemUse(Item), player.position.X, player.position.Y, 0f, 0f, Mod.Find<ModProjectile>("EldritchAuraBase").Type, 150, 10f, player.whoAmI, 0f, 0f);
 			}
 		}
 		if (hideVisual)

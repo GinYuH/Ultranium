@@ -83,7 +83,7 @@ public class CosmicBlade : ModItem
 				float num7 = num3 * num5;
 				float num8 = num6 + (float)Main.rand.Next(-40, 41) * 0.02f;
 				float num9 = num7 + (float)Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(null, vector.X, vector.Y, num8, num9, type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
+				Projectile.NewProjectile(source, vector.X, vector.Y, num8, num9, type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
 			}
 		}
 		if (Use >= 30)
@@ -110,7 +110,7 @@ public class CosmicBlade : ModItem
 				float num16 = num12 * num14;
 				float num17 = num15 + (float)Main.rand.Next(-40, 41) * 0.02f;
 				float num18 = num16 + (float)Main.rand.Next(-40, 41) * 0.02f;
-				Projectile.NewProjectile(null, vector2.X, vector2.Y, num17, num18, Mod.Find<ModProjectile>("GiantSwordStar").Type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
+				Projectile.NewProjectile(source, vector2.X, vector2.Y, num17, num18, Mod.Find<ModProjectile>("GiantSwordStar").Type, damage, knockback, Main.myPlayer, 0f, (float)Main.rand.Next(5));
 			}
 			Use = 0;
 		}

@@ -81,7 +81,7 @@ public class DreadSummonOrb : ModProjectile
 				for (int j = 0; j < num2; j++)
 				{
 					Vector2 vector2 = new Vector2((float)(Math.Cos(num5) * (double)num4 * -1.0), (float)(Math.Sin(num5) * (double)num4 * -1.0)).RotatedByRandom(MathHelper.ToRadians(20f));
-					Projectile.NewProjectile(null, vector.X, vector.Y, vector2.X, vector2.Y, num3, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(Projectile.GetSource_FromThis(), vector.X, vector.Y, vector2.X, vector2.Y, num3, Projectile.damage, 0f, Main.myPlayer, 0f, 0f);
 				}
 				shootTimer = 0;
 			}
@@ -125,7 +125,7 @@ public class DreadSummonOrb : ModProjectile
 				Vector2 vector5 = ((float)Math.PI / 10f * (float)m).ToRotationVector2();
 				vector5.Normalize();
 				vector5 *= 6f;
-				Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector5.X, vector5.Y, Mod.Find<ModProjectile>("DreadFlameBlast").Type, Projectile.damage * 2, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector5.X, vector5.Y, Mod.Find<ModProjectile>("DreadFlameBlast").Type, Projectile.damage * 2, 1f, Main.myPlayer, 0f, 0f);
 			}
 		}
 		if (Timer > 1800)

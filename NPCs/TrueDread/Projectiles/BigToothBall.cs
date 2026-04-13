@@ -38,7 +38,7 @@ public class BigToothBall : ModProjectile
 			Vector2 vector = ((float)Math.PI * 2f / 9f * (float)i).ToRotationVector2();
 			vector.Normalize();
 			vector *= 6f;
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("BigDreadTooth").Type, 50, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("BigDreadTooth").Type, 50, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 

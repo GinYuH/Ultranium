@@ -208,7 +208,7 @@ public class UltraFlail : ModProjectile
 		_ = Main.player[Projectile.owner];
 		if (Main.rand.Next(3) == 0)
 		{
-			Projectile.NewProjectile(null, target.Center.X, target.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("UltraniumLingerBolt").Type, Projectile.damage, 10f, Projectile.owner, 0f, 0.85f + Main.rand.NextFloat() * 1.15f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), target.Center.X, target.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("UltraniumLingerBolt").Type, Projectile.damage, 10f, Projectile.owner, 0f, 0.85f + Main.rand.NextFloat() * 1.15f);
 		}
 	}
 }

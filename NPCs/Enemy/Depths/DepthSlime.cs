@@ -1,8 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Shade;
+using Ultranium.Tiles.ShadowBiome;
 
 namespace Ultranium.NPCs.Enemy.Depths;
 
@@ -63,16 +66,13 @@ public class DepthSlime : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		Item.NewItem(null, NPC.getRect(), Mod.Find<ModItem>("ShadowOre").Type, Main.rand.Next(3, 6), false, 0, false, false);
-		if (Main.rand.Next(5) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowOre>(), 1, 3, 5));
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 5));
+    }
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)
 	{

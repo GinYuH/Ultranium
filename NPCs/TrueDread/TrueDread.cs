@@ -1,6 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent.ItemDropRules;
@@ -9,6 +9,7 @@ using Terraria.ModLoader;
 using Ultranium.Items.BossBags;
 using Ultranium.Items.Dread.Materials;
 using Ultranium.Items.Dread.TrueDread;
+using Ultranium.Items.Ice;
 
 namespace Ultranium.NPCs.TrueDread;
 
@@ -168,7 +169,7 @@ public class TrueDread : ModNPC
 			}
 			if (timer == 180 || timer == 200 || timer == 220 || timer == 240 || timer == 260 || timer == 280 || timer == 300 || timer == 320 || timer == 340 || timer == 360 || timer == 380 || timer == 400 || timer == 420 || timer == 440 || timer == 460)
 			{
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 1f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 1f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer > 480 && timer < 820)
 			{
@@ -182,7 +183,7 @@ public class TrueDread : ModNPC
 				{
 					float num7 = (float)Main.rand.Next(-100, 100) * 0.01f;
 					float num8 = (float)Main.rand.Next(-100, 100) * 0.01f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector6.X + num7, vector6.Y + num8, Mod.Find<ModProjectile>("DreadFlames").Type, num4, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector6.X + num7, vector6.Y + num8, Mod.Find<ModProjectile>("DreadFlames").Type, num4, 1f, Main.myPlayer, 0f, 0f);
 					if (Main.rand.Next(3) == 0)
 					{
 						SoundEngine.PlaySound(SoundID.DD2_BetsyFlameBreath, NPC.position);
@@ -200,7 +201,7 @@ public class TrueDread : ModNPC
 				{
 					float num10 = (float)Main.rand.Next(-200, 200) * 0.03f;
 					float num11 = (float)Main.rand.Next(-200, 200) * 0.03f;
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, num10, num11, Mod.Find<ModProjectile>("DreadSpit").Type, num4, 1f, NPC.target, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, num10, num11, Mod.Find<ModProjectile>("DreadSpit").Type, num4, 1f, NPC.target, 0f, 0f);
 				}
 			}
 			if (AttackType == 0 && ((timer >= 1120 && timer <= 1180) || (timer >= 1220 && timer <= 1280) || (timer >= 1320 && timer <= 1380)))
@@ -210,7 +211,7 @@ public class TrueDread : ModNPC
 				int num13 = Mod.Find<ModProjectile>("DreadBolt").Type;
 				SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 				num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num12 * -1.0), (float)(Math.Sin(num) * (double)num12 * -1.0), num13, num4, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num12 * -1.0), (float)(Math.Sin(num) * (double)num12 * -1.0), num13, num4, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (AttackType == 1)
 			{
@@ -223,7 +224,7 @@ public class TrueDread : ModNPC
 					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRay"));
 					float num14 = 10f;
 					float num15 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					_ = Main.projectile[Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num15) * (double)num14 * -1.0), (float)(Math.Sin(num15) * (double)num14 * -1.0), Mod.Find<ModProjectile>("DreadRay").Type, num4 + 10, 0f, 0, 0f, 0f)];
+					_ = Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num15) * (double)num14 * -1.0), (float)(Math.Sin(num15) * (double)num14 * -1.0), Mod.Find<ModProjectile>("DreadRay").Type, num4 + 10, 0f, 0, 0f, 0f)];
 				}
 				if (timer == 1360)
 				{
@@ -242,7 +243,7 @@ public class TrueDread : ModNPC
 					int num17 = Mod.Find<ModProjectile>("GiantDreadOrb").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num16 * -1.0), (float)(Math.Sin(num) * (double)num16 * -1.0), num17, num4, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num16 * -1.0), (float)(Math.Sin(num) * (double)num16 * -1.0), num17, num4, 0f, Main.myPlayer, 0f, 0f);
 					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
 				}
 			}
@@ -256,7 +257,7 @@ public class TrueDread : ModNPC
 				int num19 = Mod.Find<ModProjectile>("BigToothBall").Type;
 				SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 				num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-				Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num18 * -1.0), (float)(Math.Sin(num) * (double)num18 * -1.0), num19, num4, 0f, Main.myPlayer, 0f, 0f);
+				Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num18 * -1.0), (float)(Math.Sin(num) * (double)num18 * -1.0), num19, num4, 0f, Main.myPlayer, 0f, 0f);
 			}
 			if (timer > 1860 && timer < 1960)
 			{
@@ -267,7 +268,7 @@ public class TrueDread : ModNPC
 					int num21 = Mod.Find<ModProjectile>("TrueDreadOrbiterBolt").Type;
 					SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 					num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num20 * -1.0), (float)(Math.Sin(num) * (double)num20 * -1.0), num21, num4, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num20 * -1.0), (float)(Math.Sin(num) * (double)num20 * -1.0), num21, num4, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (timer > 2025 && timer < 2125)
@@ -279,7 +280,7 @@ public class TrueDread : ModNPC
 					int num23 = Mod.Find<ModProjectile>("TrueDreadOrbiterBolt").Type;
 					SoundEngine.PlaySound(SoundID.NPCDeath13, NPC.position);
 					num = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num22 * -1.0), (float)(Math.Sin(num) * (double)num22 * -1.0), num23, num4, 0f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num) * (double)num22 * -1.0), (float)(Math.Sin(num) * (double)num22 * -1.0), num23, num4, 0f, Main.myPlayer, 0f, 0f);
 				}
 			}
 			if (timer == 1960 || timer == 2125)
@@ -306,7 +307,7 @@ public class TrueDread : ModNPC
 				for (int m = 0; m < num25; m++)
 				{
 					int num26 = 360 / num25;
-					NPC.NewNPC(null, (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("TrueDreadOrbiter").Type, NPC.whoAmI, (float)(m * num26), (float)NPC.whoAmI, 0f, 0f, 255);
+					NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("TrueDreadOrbiter").Type, NPC.whoAmI, (float)(m * num26), (float)NPC.whoAmI, 0f, 0f, 255);
 				}
 			}
 			if (timer == 2370 && NPC.life >= NPC.lifeMax / 2)
@@ -333,7 +334,7 @@ public class TrueDread : ModNPC
 					for (int n = 0; n < 10; n++)
 					{
 						Vector2 vector10 = spinningpoint.RotatedBy(Math.PI / 5.0 * ((double)n + Main.rand.NextDouble() - 0.5));
-						Projectile.NewProjectile(null, NPC.Center, vector10, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 0f, Main.myPlayer, 0f, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, vector10, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 0f, Main.myPlayer, 0f, 0f);
 					}
 				}
 				if (timer >= 2830)
@@ -379,7 +380,7 @@ public class TrueDread : ModNPC
 					for (int num31 = 0; (float)num31 < num28; num31++)
 					{
 						Vector2 vector11 = Vector2.One.RotatedBy(MathHelper.Lerp(0f - num29, num29, (float)num31 / num28)) * num27;
-						Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, vector11.X, vector11.Y, Mod.Find<ModProjectile>("DreadRay").Type, num4, 2f, Main.myPlayer, (float)num30, 0f);
+						Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector11.X, vector11.Y, Mod.Find<ModProjectile>("DreadRay").Type, num4, 2f, Main.myPlayer, (float)num30, 0f);
 					}
 				}
 				if (timer >= 2670)
@@ -431,7 +432,7 @@ public class TrueDread : ModNPC
 				CircleShootTimer++;
 				if (CircleShootTimer == 40)
 				{
-					Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("DreadScythe").Type, num4, 1f, Main.myPlayer, 0f, 0f);
 					CircleShootTimer = 0;
 				}
 			}
@@ -495,7 +496,9 @@ public class TrueDread : ModNPC
         npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TrueDreadBag>()));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadTrophyItem").Type, 10));
-		npcLoot.Add(new LeadingConditionRule(new Conditions.NotExpert()).OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSpear").Type, Mod.Find<ModItem>("DreadYoyo").Type, Mod.Find<ModItem>("DreadDisc").Type, Mod.Find<ModItem>("DreadFlameBlaster").Type, Mod.Find<ModItem>("FearStaff").Type, Mod.Find<ModItem>("DreadTome").Type, Mod.Find<ModItem>("DreadScepter").Type)));
+        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSpear").Type, Mod.Find<ModItem>("DreadYoyo").Type, Mod.Find<ModItem>("DreadDisc").Type, Mod.Find<ModItem>("DreadFlameBlaster").Type, Mod.Find<ModItem>("FearStaff").Type, Mod.Find<ModItem>("DreadTome").Type, Mod.Find<ModItem>("DreadScepter").Type));
+        npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<NightmareFuel>(), 1, 20, 34));
     }
 
@@ -503,7 +506,7 @@ public class TrueDread : ModNPC
 	{
 		if (Main.bloodMoon)
 		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ExistentialDread").Type, 1, false, 0, false, false);
+			Item.NewItem(NPC.GetSource_Death(), (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ExistentialDread").Type, 1, false, 0, false, false);
 			if (!UltraniumWorld.ExistentialDread)
 			{
 				UltraniumWorld.ExistentialDread = true;

@@ -27,47 +27,6 @@ public class DarkDepthsBanners : ModTile
 		AddMapEntry(new Color(13, 88, 130), val);
 	}
 
-	public override void KillMultiTile(int i, int j, int frameX, int frameY)
-	{
-		string text;
-		switch (frameX / 18)
-		{
-		default:
-			return;
-		case 0:
-			text = "DepthSlimeBanner";
-			break;
-		case 1:
-			text = "ShadeBatBanner";
-			break;
-		case 2:
-			text = "DepthCrawlerBanner";
-			break;
-		case 3:
-			text = "DepthMongerBanner";
-			break;
-		case 4:
-			text = "ShroomMonsterBanner";
-			break;
-		case 5:
-			text = "DepthsMimicBanner";
-			break;
-		case 6:
-			text = "AbyssJellyBanner";
-			break;
-		case 7:
-			text = "AbyssalAnglerBanner";
-			break;
-		case 8:
-			text = "AbyssSharkBanner";
-			break;
-		case 9:
-			text = "AbyssEelBanner";
-			break;
-		}
-		Item.NewItem(null, i * 16, j * 16, 16, 48, Mod.Find<ModItem>(text).Type, 1, false, 0, false, false);
-	}
-
 	public override void NearbyEffects(int i, int j, bool closer)
 	{
 		if (closer)

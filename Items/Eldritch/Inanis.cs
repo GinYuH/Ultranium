@@ -48,12 +48,12 @@ public class Inanis : ModItem
 	{
 		for (int i = 0; i < 1; i++)
 		{
-			Projectile.NewProjectile(null, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("VoidBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, velocity.X, velocity.Y, Mod.Find<ModProjectile>("VoidBolt").Type, Item.damage, knockback, Item.playerIndexTheItemIsReservedFor, 0f, 0f);
 		}
 		if (Main.rand.Next(5) == 0)
 		{
 			Vector2 vector = new Vector2(velocity.X, velocity.Y);
-			Projectile.NewProjectile(null, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NoctisBlast").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
+			Projectile.NewProjectile(source, position.X, position.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("NoctisBlast").Type, Item.damage, knockback, player.whoAmI, 0f, 0f);
 			return false;
 		}
 		return false;

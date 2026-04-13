@@ -104,7 +104,7 @@ public class UltrumEnergyBolt : ModProjectile
 			Vector2 vector = ((float)Math.PI * 2f / 5f * (float)j).ToRotationVector2();
 			vector.Normalize();
 			vector *= 6f;
-			Projectile.NewProjectile(null, Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("UltrumBolt").Type, 30, 1f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center.X, Projectile.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("UltrumBolt").Type, 30, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

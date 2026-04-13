@@ -203,7 +203,7 @@ public class ErebusBody : ModNPC
 				float num3 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
 				Vector2 spinninpoint = new Vector2((float)(Math.Cos(num3) * (double)num2 * -1.0), (float)(Math.Sin(num3) * (double)num2 * -1.0));
 				spinninpoint = spinninpoint.RotatedByRandom(MathHelper.ToRadians(30f));
-				Main.projectile[Projectile.NewProjectile(null, NPC.Center, spinninpoint, Mod.Find<ModProjectile>("ErebusTentacle").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
+				Main.projectile[Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, spinninpoint, Mod.Find<ModProjectile>("ErebusTentacle").Type, num, 0f, Main.myPlayer, 0f, 0f)].localAI[1] = 200f;
 			}
 		}
 		if (ErebusHead.CircleTimer < 580 && ErebusHead.Circling)

@@ -55,7 +55,7 @@ public class SkyStar : ModProjectile
 
 	public override void OnKill(int timeleft)
 	{
-		Projectile.NewProjectile(null, Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("SkyStarExplosion").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
+		Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center, Vector2.Zero, Mod.Find<ModProjectile>("SkyStarExplosion").Type, Projectile.damage, Projectile.knockBack, Projectile.owner, 0f, 0f);
 		SoundEngine.PlaySound(SoundID.Item74, Projectile.position);
 	}
 }

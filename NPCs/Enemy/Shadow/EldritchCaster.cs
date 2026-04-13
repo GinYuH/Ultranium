@@ -1,10 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.Utilities;
+using Ultranium.Items.Shade;
 
 namespace Ultranium.NPCs.Enemy.Shadow;
 
@@ -126,7 +128,7 @@ public class EldritchCaster : ModNPC
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 			float num = 3f;
 			float num2 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(null, NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("CasterBolt").Type, 20, 0f, 0, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num2) * (double)num * -1.0), (float)(Math.Sin(num2) * (double)num * -1.0), Mod.Find<ModProjectile>("CasterBolt").Type, 20, 0f, 0, 0f, 0f);
 			Timer = 120f;
 		}
 		TeleportTimer--;
@@ -194,13 +196,10 @@ public class EldritchCaster : ModNPC
 		{
 			NPC.frame.Y = frameHeight;
 		}
-	}
+    }
 
-	public override void OnKill()
-	{
-		if (Main.rand.Next(3) == 0)
-		{
-			Item.NewItem(null, (int)NPC.position.X, (int)NPC.position.Y, NPC.width, NPC.height, Mod.Find<ModItem>("ShadowEssence").Type, 1, false, 0, false, false);
-		}
-	}
+    public override void ModifyNPCLoot(NPCLoot npcLoot)
+    {
+        npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<ShadowEssence>(), 3));
+    }
 }

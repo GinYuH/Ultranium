@@ -45,7 +45,7 @@ public class UltraTome : ModItem
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		Vector2 vector = new Vector2(Main.mouseX, Main.mouseY) + Main.screenPosition;
-		Projectile.NewProjectile(null, vector.X, vector.Y, 0f, 0f, type, damage, knockback, player.whoAmI, 0f, 0f);
+		Projectile.NewProjectile(source, vector.X, vector.Y, 0f, 0f, type, damage, knockback, player.whoAmI, 0f, 0f);
 		return false;
 	}
 
