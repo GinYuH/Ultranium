@@ -235,25 +235,33 @@ internal class Ultranium : Mod
         };
     }
 
-    private static bool BossDowned(object[] args)
+    // These only require the boss' name, so a simple .Call("erebus") works
+    // No "BossDowned" or any such things required
+    public override object Call(params object[] args)
 	{
-		if (args.Length < 2)
+		if (args.Length < 1)
 		{
 			throw new ArgumentException("No boss name specified");
 		}
-		string text = args[1] as string;
+		string text = args[0] as string;
+        text = text.ToLower();
 		return text switch
 		{
-			"Squid" => UltraniumWorld.downedSquid, 
-			"Dread" => UltraniumWorld.downedDread, 
-			"Xenanis" => UltraniumWorld.downedXenanis, 
-			"Ultrum" => UltraniumWorld.downedUltrum, 
-			"Ignodium" => UltraniumWorld.downedIgnodium, 
-			"TrueDread" => UltraniumWorld.downedTrueDread, 
-			"ShadowEvent" => UltraniumWorld.downedShadowEvent, 
-			"Erebus" => UltraniumWorld.downedErebus, 
-			"Aldin" => UltraniumWorld.downedAldin, 
-			_ => throw new ArgumentException("Invalid boss name:" + text), 
+			"squid" => UltraniumWorld.downedSquid,
+            "zephyr" => UltraniumWorld.downedSquid,
+            "zephyrsquid" => UltraniumWorld.downedSquid,
+            "dread" => UltraniumWorld.downedDread, 
+			"xenanis" => UltraniumWorld.downedXenanis, 
+			"ultrum" => UltraniumWorld.downedUltrum, 
+			"ignodium" => UltraniumWorld.downedIgnodium, 
+			"truedread" => UltraniumWorld.downedTrueDread,
+            "absolutedread" => UltraniumWorld.downedTrueDread,
+            "shadowevent" => UltraniumWorld.downedShadowEvent, 
+			"erebus" => UltraniumWorld.downedErebus, 
+			"aldin" => UltraniumWorld.downedAldin,
+            "glacieron" => UltraniumWorld.downedDragon,
+            "dragon" => UltraniumWorld.downedDragon,
+            _ => throw new ArgumentException("Invalid boss name:" + text), 
 		};
 	}
 
