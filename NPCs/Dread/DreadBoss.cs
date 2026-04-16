@@ -53,11 +53,9 @@ public class DreadBoss : ModNPC
 		rotation = NPC.rotation;
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		players = numPlayers;
-		NPC.lifeMax = 17500 + numPlayers * 1750;
-		NPC.damage = 68;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override void AI()

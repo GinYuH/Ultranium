@@ -51,14 +51,6 @@ public class ErebusHead : ModNPC
 
 	public int Spin;
 
-	private int dpsCap = 250;
-
-	private int damageDealt;
-
-	private int dpsTime;
-
-	private int noDamageTime;
-
 	public override void SetStaticDefaults()
 	{
 		//DisplayName.SetDefault("Erebus");
@@ -67,7 +59,7 @@ public class ErebusHead : ModNPC
 
 	public override void SetDefaults()
 	{
-		NPC.lifeMax = 385000;
+		NPC.lifeMax = 400000;
 		NPC.damage = 120;
 		NPC.defense = 85;
 		NPC.knockBackResist = 0f;
@@ -91,12 +83,9 @@ public class ErebusHead : ModNPC
 		}
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		players = numPlayers;
-		NPC.lifeMax = 450000 + numPlayers * 45000;
-		NPC.damage = 200;
-		NPC.defense = 90;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override void BossHeadRotation(ref float rotation)
@@ -135,20 +124,6 @@ public class ErebusHead : ModNPC
 		return false;
 	}
 
-    public override bool? CanBeHitByItem(Player player, Item item)
-    {
-        if (noDamageTime > 0)
-			return false;
-		return null;
-    }
-
-    public override bool? CanBeHitByProjectile(Projectile projectile)
-    {
-		if (noDamageTime > 0)
-			return false;
-		return null;
-    }
-
 	public override void ModifyHitByProjectile(Projectile projectile, ref NPC.HitModifiers modifiers)
 	{
 		if (projectile.type == ProjectileID.NebulaBlaze1 || projectile.type == ProjectileID.NebulaArcanum || projectile.type == ProjectileID.NebulaArcanumExplosionShotShard || projectile.type == ProjectileID.LastPrismLaser || projectile.type == ProjectileID.PhantasmArrow || projectile.type == ProjectileID.MoonlordArrow || projectile.type == ProjectileID.VortexBeaterRocket || projectile.type == ProjectileID.Meowmere || projectile.type == ProjectileID.StarWrath || projectile.type == ProjectileID.Daybreak)
@@ -164,40 +139,8 @@ public class ErebusHead : ModNPC
 		return true;
 	}
 
-	public override void HitEffect(NPC.HitInfo hit)
-	{
-		if (!NPC.immortal)
-		{
-			damageDealt += (int)hit.Damage;
-		}
-	}
-
 	public override bool PreAI()
 	{
-		dpsTime++;
-		if (noDamageTime >= 1)
-		{
-			noDamageTime--;
-		}
-		if (dpsTime >= 60)
-		{
-			dpsTime = 0;
-			damageDealt = 0;
-		}
-		if (damageDealt >= dpsCap)
-		{
-			dpsTime = 0;
-			damageDealt = 0;
-			noDamageTime = 60;
-		}
-		if (noDamageTime != 0)
-		{
-			NPC.defense = 100000;
-		}
-		else
-		{
-			NPC.defense = 90;
-		}
 		Player player = Main.player[NPC.target];
 		int num = (Main.expertMode ? 48 : 65);
 		NPC.rotation = (float)Math.Atan2(NPC.velocity.Y, NPC.velocity.X) + 1.57f;

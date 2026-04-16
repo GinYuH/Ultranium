@@ -66,11 +66,9 @@ public class IceDragon : ModNPC
 		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/IceDragon");
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		NPC.lifeMax = 6300;
-		NPC.damage = 42;
-		NPC.defense = 35;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

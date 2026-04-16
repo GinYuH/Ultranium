@@ -71,11 +71,9 @@ public class MindFlayer : ModNPC
 		}
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		NPC.lifeMax = 200000;
-		NPC.damage = 120;
-		NPC.defense = 75;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.8f * balance * bossAdjustment);
 	}
 
 	public override Color? GetAlpha(Color lightColor)

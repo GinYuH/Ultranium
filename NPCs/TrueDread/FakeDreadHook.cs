@@ -36,11 +36,9 @@ public class FakeDreadHook : ModNPC
 		NPC.dontTakeDamage = false;
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		NPC.lifeMax = 30000;
-		NPC.damage = 65;
-		NPC.defense = 45;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override void FindFrame(int frameHeight)

@@ -52,12 +52,9 @@ public class XenanisClone1 : ModNPC
 		players = 1;
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		players = numPlayers;
-		NPC.lifeMax = 32000 + numPlayers * 3200;
-		NPC.damage = 65;
-		NPC.defense = 65;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)

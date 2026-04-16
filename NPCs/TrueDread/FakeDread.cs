@@ -55,11 +55,9 @@ public class FakeDread : ModNPC
 		rotation = NPC.rotation;
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		players = numPlayers;
-		NPC.lifeMax = 220000 + numPlayers * 22000;
-		NPC.damage = 120;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override void AI()

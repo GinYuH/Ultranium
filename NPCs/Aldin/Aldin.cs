@@ -74,11 +74,9 @@ public class Aldin : ModNPC
 		}
 	}
 
-	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)/* tModPorter Note: bossLifeScale -> balance (bossAdjustment is different, see the docs for details) */
+	public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
 	{
-		players = numPlayers;
-		NPC.lifeMax = 600000 + numPlayers * 60000;
-		NPC.damage = 0;
+		NPC.lifeMax = (int)(NPC.lifeMax * 0.75f * balance * bossAdjustment);
 	}
 
 	public override void FindFrame(int frameHeight)
