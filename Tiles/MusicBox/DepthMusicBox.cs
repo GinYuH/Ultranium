@@ -8,8 +8,8 @@ public class DepthMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Music Box (Dark Depths)");
-		//Tooltip.SetDefault("");
+		ItemID.Sets.CanGetPrefixes[Type] = false;
+		ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
 	}
 
 	public override void SetDefaults()

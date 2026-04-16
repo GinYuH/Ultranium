@@ -8,8 +8,8 @@ public class FlayerMusicBox : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Music Box (Mindflayer)");
-		//Tooltip.SetDefault("");
+		ItemID.Sets.CanGetPrefixes[Type] = false;
+		ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
 	}
 
 	public override void SetDefaults()

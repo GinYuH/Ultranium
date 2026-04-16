@@ -8,8 +8,8 @@ public class ShadowEventBox2 : ModItem
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Music Box (Abyssal Armageddon Wave 2)");
-		//Tooltip.SetDefault("");
+		ItemID.Sets.CanGetPrefixes[Type] = false;
+		ItemID.Sets.ShimmerTransformToItem[Type] = ItemID.MusicBox;
 	}
 
 	public override void SetDefaults()
