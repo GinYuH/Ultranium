@@ -59,6 +59,7 @@ public class MindFlayer : ModNPC
 		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/MindFlayer");
 		NPC.defense = 60;
 		NPC.npcSlots = 1f;
+		NPC.boss = true;
 		NPC.lavaImmune = true;
 		NPC.noGravity = true;
 		NPC.netAlways = true;

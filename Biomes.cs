@@ -66,7 +66,7 @@ namespace Ultranium
 
     public class ShadowEventOne : ModSceneEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
+        public override SceneEffectPriority Priority => SceneEffectPriority.Event;
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ShadowEventWave1");
         public override bool IsSceneEffectActive(Player player)
         {
@@ -82,7 +82,7 @@ namespace Ultranium
 
     public class ShadowEventTwo : ModSceneEffect
     {
-        public override SceneEffectPriority Priority => SceneEffectPriority.Environment;
+        public override SceneEffectPriority Priority => SceneEffectPriority.Event;
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ShadowEventWave2");
         public override bool IsSceneEffectActive(Player player)
         {
