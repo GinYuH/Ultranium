@@ -16,8 +16,8 @@ public class GuardianCore : ModItem
 	{
 		Item.width = 32;
 		Item.height = 32;
-		Item.rare = 12;
-		Item.value = Item.buyPrice(1);
+        Item.rare = ItemRarityID.LightRed;
+        Item.value = Item.buyPrice(1);
 		Item.accessory = true;
 		Item.expert = true;
 	}
