@@ -115,7 +115,7 @@ public class EtherealDeathray : ModProjectile
 		{
 			return false;
 		}
-		return CanHitPlayer(target);
+		return true;
 	}
 
 	public override bool PreDraw(ref Color lightColor)
