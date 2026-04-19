@@ -82,8 +82,7 @@ internal class Ultranium : Mod
 				Mod.Find<ModNPC>("ErebusHead").Type
 			});
 		}*/
-		Mod val2 = ModLoader.GetMod("BossChecklist");
-		if (val2 != null)
+		if (ModLoader.TryGetMod("BossChecklist", out Mod val2))
         {
             val2.Call(
                 "LogBoss",
