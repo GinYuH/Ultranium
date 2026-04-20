@@ -11,8 +11,9 @@ public class SmolErebusTail : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Erebus Minion");
-	}
+        //DisplayName.SetDefault("Erebus Minion");
+        ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
+    }
 
 	public override Color? GetAlpha(Color lightColor)
 	{
@@ -29,11 +30,11 @@ public class SmolErebusTail : ModProjectile
 		Projectile.alpha = 255;
 		Projectile.netImportant = true;
 		Projectile.timeLeft = 18000;
-		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		Projectile.penetrate = -1;
 		Projectile.tileCollide = false;
 		Projectile.timeLeft *= 5;
 		Projectile.minion = true;
+		Projectile.DamageType = DamageClass.Summon;
 	}
 
 	public override void DrawBehind(int index, List<int> behindNPCsAndTiles, List<int> behindNPCs, List<int> behindProjectiles, List<int> overPlayers, List<int> overWiresUI)

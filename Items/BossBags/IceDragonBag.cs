@@ -14,6 +14,7 @@ public class IceDragonBag : ModItem
 		//DisplayName.SetDefault("Treasure Bag");
 		//Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
 		ItemID.Sets.BossBag[Type] = true;
+		ItemID.Sets.PreHardmodeLikeBossBag[Type] = true;
     }
 
 	public override void SetDefaults()

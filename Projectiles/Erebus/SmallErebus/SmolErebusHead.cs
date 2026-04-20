@@ -13,8 +13,9 @@ public class SmolErebusHead : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Erebus");
-	}
+        //DisplayName.SetDefault("Erebus");
+        ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
+    }
 
 	public override void SetDefaults()
 	{
@@ -28,10 +29,10 @@ public class SmolErebusHead : ModProjectile
 		Projectile.tileCollide = false;
 		Projectile.alpha = 255;
 		Projectile.netImportant = true;
-		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		Projectile.usesIDStaticNPCImmunity = true;
 		Projectile.idStaticNPCHitCooldown = 20;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override void SendExtraAI(BinaryWriter writer)
 	{

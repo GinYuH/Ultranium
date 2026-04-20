@@ -28,7 +28,7 @@ public class TenebrisLegs : ModItem
 		player.GetDamage(DamageClass.Ranged) += 0.02f;
 		player.GetDamage(DamageClass.Summon) += 0.02f;
 		player.GetDamage(DamageClass.Magic) += 0.02f;
-		player.moveSpeed += 0.5f;
+		player.moveSpeed += 0.05f;
 	}
 
 	public override void AddRecipes()

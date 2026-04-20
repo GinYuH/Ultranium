@@ -41,11 +41,6 @@ public class UltraniumScepter : ModItem
 		tooltips[0].OverrideColor = new Color(241, 166, 0);
 	}
 
-	public override bool AltFunctionUse(Player player)
-	{
-		return true;
-	}
-
 	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
 	{
 		if (player.ownedProjectileCounts[Mod.Find<ModProjectile>("Ultrum").Type] > 0)
@@ -53,15 +48,6 @@ public class UltraniumScepter : ModItem
 			return false;
 		}
 		return true;
-	}
-
-	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-	{
-		if (player.altFunctionUse == 2)
-		{
-			player.MinionNPCTargetAim(false);
-		}
-		return null;
 	}
 
 	public override void AddRecipes()

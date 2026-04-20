@@ -50,7 +50,7 @@ public class IceHead : ModItem
 		player.GetDamage(DamageClass.Summon) += 0.03f;
 		player.GetDamage(DamageClass.Magic) += 0.03f;
 		player.GetAttackSpeed(DamageClass.Melee) += 0.03f;
-		player.moveSpeed += 3f;
+		player.moveSpeed += 0.03f;
 	}
 
 	public override void AddRecipes()

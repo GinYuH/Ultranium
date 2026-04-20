@@ -24,7 +24,7 @@ public class AbyssWardenLegs : ModItem
 
 	public override void UpdateEquip(Player player)
 	{
-		player.moveSpeed += 10f;
+		player.moveSpeed += 0.1f;
 	}
 
 	public override void AddRecipes()

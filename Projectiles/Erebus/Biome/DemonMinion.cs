@@ -16,7 +16,10 @@ public class DemonMinion : ModProjectile
 		Main.projFrames[Projectile.type] = 4;
 		ProjectileID.Sets.TrailCacheLength[Projectile.type] = 7;
 		ProjectileID.Sets.TrailingMode[Projectile.type] = 0;
-	}
+        Main.projPet[Type] = true;
+        ProjectileID.Sets.MinionSacrificable[Type] = true;
+        ProjectileID.Sets.MinionTargettingFeature[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
@@ -27,13 +30,12 @@ public class DemonMinion : ModProjectile
 		Projectile.ignoreWater = true;
 		Projectile.tileCollide = false;
 		Projectile.timeLeft = 18000;
-		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
-		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 		Projectile.penetrate = -1;
 		Projectile.minion = true;
 		Projectile.minionSlots = 1f;
 		Projectile.aiStyle = ProjAIStyleID.Hornet;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override Color? GetAlpha(Color lightColor)
 	{

@@ -34,7 +34,8 @@ public class SmolErebusBody : ModProjectile
 		Projectile.scale = 1f;
 		Projectile.usesIDStaticNPCImmunity = true;
 		Projectile.idStaticNPCHitCooldown = 20;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override void SendExtraAI(BinaryWriter writer)
 	{

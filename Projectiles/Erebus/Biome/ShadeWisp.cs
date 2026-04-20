@@ -30,7 +30,8 @@ public class ShadeWisp : ModProjectile
 		Projectile.penetrate = -1;
 		Projectile.timeLeft = 18000;
 		Projectile.minionSlots = 1f;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{

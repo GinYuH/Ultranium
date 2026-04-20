@@ -36,7 +36,7 @@ public class EldritchBoots : ModItem
 		player.fireWalk = true;
 		player.lavaMax += 600;
 		player.accRunSpeed = 8.75f;
-		player.moveSpeed += 30f;
+		player.moveSpeed += 0.1f;
 		player.iceSkate = true;
 	}
 

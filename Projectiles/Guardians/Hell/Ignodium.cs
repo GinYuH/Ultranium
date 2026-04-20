@@ -34,7 +34,8 @@ public class Ignodium : ModProjectile
 		Projectile.tileCollide = false;
 		Projectile.ignoreWater = true;
 		Projectile.netImportant = true;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override bool PreDraw(ref Color lightColor)
 	{

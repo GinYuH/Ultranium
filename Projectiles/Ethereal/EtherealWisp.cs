@@ -15,6 +15,7 @@ public class EtherealWisp : ModProjectile
 	{
 		//DisplayName.SetDefault("Ethereal Wisp");
 		Main.projFrames[Projectile.type] = 4;
+		Main.projPet[Type] = true;
 		ProjectileID.Sets.MinionSacrificable[Projectile.type] = true;
 		ProjectileID.Sets.MinionTargettingFeature[Projectile.type] = true;
 	}
@@ -31,7 +32,8 @@ public class EtherealWisp : ModProjectile
 		Projectile.penetrate = -1;
 		Projectile.minion = true;
 		Projectile.minionSlots = 1f;
-		Projectile.aiStyle = ProjAIStyleID.Hornet;
+        Projectile.DamageType = DamageClass.Summon;
+        Projectile.aiStyle = ProjAIStyleID.Hornet;
 	}
 
 	public override Color? GetAlpha(Color lightColor)

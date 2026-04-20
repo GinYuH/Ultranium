@@ -26,7 +26,8 @@ public class BloodMinion : ModProjectile
 		Projectile.width = 32;
 		Projectile.height = 32;
 		Main.projPet[Projectile.type] = true;
-		Projectile.friendly = true;
+        Projectile.DamageType = DamageClass.Summon;
+        Projectile.friendly = true;
 		Projectile.minion = true;
 		Projectile.minionSlots = 1f;
 		Projectile.penetrate = -1;

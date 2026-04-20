@@ -24,7 +24,7 @@ public class AuroraLegs : ModItem
 
 	public override void UpdateEquip(Player player)
 	{
-		player.moveSpeed += 2f;
+		player.moveSpeed += 0.02f;
 	}
 
 	public override void AddRecipes()

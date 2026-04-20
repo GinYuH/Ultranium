@@ -1,6 +1,7 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace Ultranium.Projectiles.Erebus;
@@ -11,9 +12,11 @@ public class AbyssalEye : ModProjectile
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Eldritch Monolith");
-		Main.projPet[Projectile.type] = true;
-	}
+        //DisplayName.SetDefault("Eldritch Monolith");
+        Main.projPet[Type] = true;
+        ProjectileID.Sets.MinionSacrificable[Type] = true;
+        ProjectileID.Sets.MinionTargettingFeature[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
@@ -26,7 +29,8 @@ public class AbyssalEye : ModProjectile
 		Projectile.tileCollide = false;
 		Projectile.ignoreWater = true;
 		Projectile.alpha = 0;
-		Projectile.timeLeft = 10000;
+        Projectile.DamageType = DamageClass.Summon;
+        Projectile.timeLeft = 10000;
 	}
 
 	public override void AI()

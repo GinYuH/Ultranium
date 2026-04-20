@@ -34,23 +34,4 @@ public class DepthsStaff : ModItem
 		Item.buffType = Mod.Find<ModBuff>("DemonBuff").Type;
 		Item.buffTime = 3600;
 	}
-
-	public override bool AltFunctionUse(Player player)
-	{
-		return true;
-	}
-
-	public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
-	{
-		return player.altFunctionUse != 2;
-	}
-
-	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-	{
-		if (player.altFunctionUse == 2)
-		{
-			player.MinionNPCTargetAim(false);
-		}
-		return null;
-	}
 }

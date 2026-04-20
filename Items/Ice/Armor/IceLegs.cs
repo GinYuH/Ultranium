@@ -24,7 +24,7 @@ public class IceLegs : ModItem
 
 	public override void UpdateEquip(Player player)
 	{
-		player.moveSpeed += 3f;
+		player.moveSpeed += 0.03f;
 	}
 
 	public override void AddRecipes()

@@ -9,8 +9,9 @@ public class WispBolt : ModProjectile
 {
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Wisp Bolt");
-	}
+        //DisplayName.SetDefault("Wisp Bolt");
+		ProjectileID.Sets.MinionShot[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
@@ -20,7 +21,7 @@ public class WispBolt : ModProjectile
 		Projectile.hostile = false;
 		Projectile.friendly = true;
 		Projectile.ignoreWater = true;
-		Projectile.minion = true;
+		Projectile.DamageType = DamageClass.Summon;
 		Projectile.penetrate = 1;
 		Projectile.timeLeft = 120;
 		Projectile.extraUpdates = 3;

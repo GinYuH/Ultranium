@@ -28,6 +28,7 @@ public class Ultrum : ModProjectile
 		Main.projPet[Projectile.type] = true;
 		Projectile.friendly = true;
 		Projectile.minion = true;
+		Projectile.DamageType = DamageClass.Summon;
 		Projectile.penetrate = -1;
 		Projectile.aiStyle = -1;
 		Projectile.timeLeft = 18000;

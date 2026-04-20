@@ -23,7 +23,10 @@ public class DreadSummonOrb : ModProjectile
 	{
 		//DisplayName.SetDefault("Dread Energy Orb");
 		Main.projFrames[Projectile.type] = 4;
-	}
+        Main.projPet[Type] = true;
+        ProjectileID.Sets.MinionSacrificable[Type] = true;
+        ProjectileID.Sets.MinionTargettingFeature[Type] = true;
+    }
 
 	public override void SetDefaults()
 	{
@@ -36,7 +39,8 @@ public class DreadSummonOrb : ModProjectile
 		Projectile.ignoreWater = true;
 		Projectile.minion = true;
 		Projectile.minionSlots = 1f;
-	}
+        Projectile.DamageType = DamageClass.Summon;
+    }
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
 	{

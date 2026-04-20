@@ -34,7 +34,7 @@ public class DarkLegs : ModItem
 		player.statManaMax2 += 10;
 		player.maxMinions++;
 		player.GetAttackSpeed(DamageClass.Melee) += 0.08f;
-		player.moveSpeed += 12f;
+		player.moveSpeed += 0.12f;
 	}
 
 	public override void AddRecipes()

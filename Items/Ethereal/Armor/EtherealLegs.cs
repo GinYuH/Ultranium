@@ -31,7 +31,7 @@ public class EtherealLegs : ModItem
 		player.GetDamage(DamageClass.Ranged) += 0.06f;
 		player.GetDamage(DamageClass.Magic) += 0.06f;
 		player.GetDamage(DamageClass.Summon) += 0.06f;
-		player.moveSpeed += 15f;
+		player.moveSpeed += 0.15f;
 		player.GetAttackSpeed(DamageClass.Melee) *= 1.1f;
 	}
 

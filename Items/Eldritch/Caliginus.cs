@@ -165,13 +165,4 @@ public class Caliginus : ModItem
 		}
 		return false;
 	}
-
-	public override bool? UseItem(Player player)/* tModPorter Suggestion: Return null instead of false */
-	{
-		if (player.altFunctionUse == 2)
-		{
-			player.MinionNPCTargetAim(false);
-		}
-		return null;
-	}
 }

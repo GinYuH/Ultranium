@@ -18,14 +18,12 @@ public class EldritchPumpkinSentry : ModProjectile
 	{
 		Projectile.width = 74;
 		Projectile.height = 62;
-		Projectile.timeLeft = 7200;
 		Projectile.friendly = false;
 		Projectile.hostile = false;
 		Projectile.penetrate = -1;
 		Projectile.ignoreWater = true;
-		Projectile.minion = true;
-		Projectile.minionSlots = 1f;
-		Projectile.sentry = true;
+        Projectile.timeLeft = Projectile.SentryLifeTime;
+        Projectile.sentry = true;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)

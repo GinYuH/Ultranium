@@ -31,7 +31,8 @@ public class BabySquid : ModProjectile
 		Projectile.timeLeft = 18000;
 		Projectile.penetrate = -1;
 		Projectile.minion = true;
-		Projectile.minionSlots = 1f;
+        Projectile.DamageType = DamageClass.Summon;
+        Projectile.minionSlots = 1f;
 		Projectile.aiStyle = ProjAIStyleID.Hornet;
 	}
 

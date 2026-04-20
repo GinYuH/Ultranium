@@ -19,14 +19,12 @@ public class ShroomBulb : ModProjectile
 	{
 		Projectile.width = 38;
 		Projectile.height = 32;
-		Projectile.timeLeft = 3600;
 		Projectile.friendly = false;
 		Projectile.hostile = false;
 		Projectile.penetrate = -1;
 		Projectile.ignoreWater = true;
-		Projectile.minion = true;
-		Projectile.minionSlots = 1f;
-		Projectile.sentry = true;
+        Projectile.timeLeft = Projectile.SentryLifeTime;
+        Projectile.sentry = true;
 	}
 
 	public override bool OnTileCollide(Vector2 oldVelocity)
