@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Ultranium.Dusts;
 
 namespace Ultranium.Tiles.Ambient;
 
@@ -16,8 +17,8 @@ public class GlowShroomTall : ModTile
 		Main.tileFrameImportant[Type] = true;
 		Main.tileNoFail[Type] = true;
 		Main.tileMergeDirt[Type] = true;
-		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		HitSound = SoundID.Grass;
+        DustType = ModContent.DustType<ShadowDustPurple>();
+        HitSound = SoundID.Grass;
 		TileObjectData.newTile.CopyFrom(TileObjectData.Style1xX);
 		TileObjectData.newTile.Height = 2;
 		TileObjectData.newTile.CoordinateHeights = new int[2] { 16, 16 };

@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Dusts;
 using Ultranium.Tiles.Ambient;
 using Ultranium.Tiles.ShadowBiome.Depths;
 using Ultranium.Tiles.ShadowBiome.Trees;
@@ -22,8 +23,8 @@ public class ShadowGrass : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(19, 121, 95), (LocalizedText)null);
-		DustType = Mod.Find<ModDust>("ShadowSoilDust").Type;
-		MineResist = 1f;
+        DustType = ModContent.DustType<ShadowSoilDust>();
+        MineResist = 1f;
 		// = Mod.Find<ModTile>("ShadowTreeSapling").Type;
         MinPick = 1;
 	}

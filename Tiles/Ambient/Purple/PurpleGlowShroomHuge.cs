@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Ultranium.Dusts;
 
 namespace Ultranium.Tiles.Ambient.Purple;
 
@@ -22,8 +23,8 @@ public class PurpleGlowShroomHuge : ModTile
 		TileObjectData.newTile.CoordinateHeights = new int[4] { 16, 16, 16, 16 };
 		TileObjectData.addTile((int)Type);
 		AddToArray(ref TileID.Sets.RoomNeeds.CountsAsTable);
-		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+        DustType = ModContent.DustType<ShadowDustPurple>();
+        AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

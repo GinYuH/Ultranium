@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Dusts;
 using Ultranium.Tiles.Ambient;
 
 namespace Ultranium.Tiles.ShadowBiome.Depths;
@@ -17,9 +18,9 @@ public class DarkStone : ModTile
 		Main.tileSolid[Type] = true;
 		Main.tileBlockLight[Type] = true;
 		AddMapEntry(new Color(31, 29, 49), (LocalizedText)null);
-		DustType = Mod.Find<ModDust>("ShadowDustBlack").Type;
-		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkStoneItem").Type;
-		HitSound = SoundID.Tink;
+        DustType = ModContent.DustType<ShadowDustBlack>();
+        //base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("DarkStoneItem").Type;
+        HitSound = SoundID.Tink;
 		//base.soundStyle/* tModPorter Note: Removed. Integrate into HitSound */ = 1;
 		MineResist = 7f;
 		MinPick = 200;

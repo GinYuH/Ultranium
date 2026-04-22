@@ -4,6 +4,7 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Ultranium.Dusts;
 
 namespace Ultranium.Tiles.Ambient.Purple;
 
@@ -16,8 +17,8 @@ public class PurpleGlowShroom : ModTile
 		Main.tileFrameImportant[Type] = true;
 		Main.tileCut[Type] = true;
 		Main.tileNoFail[Type] = true;
-		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+        DustType = ModContent.DustType<ShadowDustPurple>();
+        AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 		TileObjectData.newTile.CopyFrom(TileObjectData.StyleAlch);
 		TileObjectData.newTile.AnchorValidTiles = new int[1] { Mod.Find<ModTile>("PurpleShadowGrass").Type };
 		TileObjectData.newTile.AnchorAlternateTiles = new int[2] { 78, 380 };

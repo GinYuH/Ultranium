@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Dusts;
 using Ultranium.Tiles.ShadowBiome;
 
 namespace Ultranium.Tiles.Ambient.Purple;
@@ -18,8 +19,8 @@ public class PurpleGlowShroomVine : ModTile
 		Main.tileNoAttach[Type] = true;
 		Main.tileLighted[Type] = true;
 		HitSound = SoundID.Grass;
-		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-		AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
+        DustType = ModContent.DustType<ShadowDustPurple>();
+        AddMapEntry(new Color(52, 6, 40), (LocalizedText)null);
 	}
 
 	public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

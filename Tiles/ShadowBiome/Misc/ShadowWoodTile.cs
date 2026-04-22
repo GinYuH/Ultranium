@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Dusts;
 
 namespace Ultranium.Tiles.ShadowBiome.Misc;
 
@@ -15,9 +16,8 @@ public class ShadowWoodTile : ModTile
 		Main.tileBlockLight[Type] = true;
 		Main.tileLighted[Type] = true;
 		AddMapEntry(new Color(19, 17, 24), (LocalizedText)null);
-		//base.ItemDrop/* tModPorter Note: Removed. Tiles and walls will drop the item which places them automatically. Use RegisterItemDrop to alter the automatic drop if necessary. */ = Mod.Find<ModItem>("ShadowWood").Type;
-		DustType = Mod.Find<ModDust>("ShadowDustPurple").Type;
-	}
+        DustType = ModContent.DustType<ShadowDustPurple>();
+    }
 
 	public override bool CanExplode(int i, int j)
 	{
