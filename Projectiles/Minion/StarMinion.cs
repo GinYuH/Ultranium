@@ -32,6 +32,7 @@ public class StarMinion : ModProjectile
 		Projectile.ignoreWater = true;
 		Projectile.alpha = 0;
 		Projectile.timeLeft = 10000;
+		Projectile.minionSlots = 1;
 	}
 
 	public override bool PreDraw(ref Color lightColor)
@@ -63,7 +64,7 @@ public class StarMinion : ModProjectile
 		for (int i = 0; i < 200; i++)
 		{
 			NPC nPC = Main.npc[i];
-			if (!nPC.active || nPC.friendly || nPC.damage <= 0 || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
+			if (!nPC.active || nPC.friendly  || nPC.dontTakeDamage || !(Vector2.Distance(Projectile.Center, nPC.Center) <= num))
 			{
 				continue;
 			}

@@ -1,4 +1,6 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,7 +28,7 @@ public class Necrosis : ModItem
 		Item.rare = ItemRarityID.Green;
 		Item.UseSound = SoundID.Item1;
 		Item.autoReuse = true;
-		Item.shoot = ProjectileID.Skull;
+		Item.shoot = ProjectileID.BookOfSkullsSkull;
 		Item.shootSpeed = 15f;
 	}
 }

@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -43,4 +44,9 @@ public class EyeMinion : ModProjectile
 	{
 		return true;
 	}
+
+    public override bool OnTileCollide(Vector2 oldVelocity)
+    {
+		return false;
+    }
 }

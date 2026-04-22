@@ -44,7 +44,7 @@ public class EldritchPumpkinScepter : ModItem
 		}
 		Vector2 vector = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
         Projectile.NewProjectile(source, vector, velocity, type, damage, knockback, player.whoAmI);
-        return true;
+        return false;
 	}
 
 	public override void AddRecipes()

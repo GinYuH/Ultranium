@@ -55,8 +55,9 @@ public class TrueDreadOrbiter : ModNPC
 		Player player = Main.player[NPC.target];
 		NPC nPC = Main.npc[(int)NPC.ai[1]];
 		if (nPC != Main.npc[0])
-		{
-			NPC.ai[0] += 2f;
+        {
+            player = Main.player[nPC.target];
+            NPC.ai[0] += 2f;
 			int num = 240;
 			double num2 = (double)NPC.ai[0] * (Math.PI / 180.0);
 			NPC.position.X = nPC.Center.X - (float)(int)(Math.Cos(num2) * (double)num) - (float)(NPC.width / 2);
@@ -70,11 +71,10 @@ public class TrueDreadOrbiter : ModNPC
 		if (ShootTimer >= 50)
 		{
 			NPC.active = false;
-			float num3 = 12f;
+			float speed = 12f;
 			int num4 = Mod.Find<ModProjectile>("DreadOrbiterBolt").Type;
 			SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
-			float num5 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
-			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, (float)(Math.Cos(num5) * (double)num3 * -1.0), (float)(Math.Sin(num5) * (double)num3 * -1.0), num4, 30, 0f, Main.myPlayer, 0f, 0f);
+			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center, NPC.DirectionTo(player.Center) * speed, num4, 30, 0f, Main.myPlayer, 0f, 0f);
 		}
 	}
 }

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Achievements;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using Ultranium.Achievements;
 using Ultranium.Items.BossSummon;
 using Ultranium.NPCs.Town.Shrooms;
 
@@ -94,6 +96,7 @@ public class Keeper : ModNPC
 		}
 		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
+			ModContent.GetInstance<MushroomAchievement>().Achievement.GetCondition("KeeperMushroom").Complete();
 			Main.npcChatText = "djswfsdegerdshtr what?? How did you even find these? I literally had to search across multiple dimensions to find them and you find all of them. phenomenal.";
 			int num = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("StrangeUndergrowth").Type);
 			int num2 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type);
@@ -158,7 +161,7 @@ public class Keeper : ModNPC
     public override void AddShops()
     {
 		NPCShop shop = new NPCShop(Type);
-		shop.Add(new Item(500) { shopCustomPrice = 6, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID });
+		shop.Add(new Item(560) { shopCustomPrice = 6, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedKingSlime);
 		shop.Add(new Item(43) { shopCustomPrice = 8, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEyeOfCthulhu);
 		shop.Add(new Item(ModContent.ItemType<BloodMoonSummon>()) { shopCustomPrice = 8, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEyeOfCthulhu);
 		shop.Add(new Item(70) { shopCustomPrice = 10, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEowOrBoc);
@@ -167,10 +170,12 @@ public class Keeper : ModNPC
 		shop.Add(new Item(ModContent.ItemType<CoralBait>()) { shopCustomPrice = 11, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Zephyr", () => UltraniumWorld.downedSquid));
 		shop.Add(new Item(1133) { shopCustomPrice = 12, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedQueenBee);
 		shop.Add(new Item(1307) { shopCustomPrice = 13, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedSkeletron);
-		shop.Add(new Item(ModContent.ItemType<IceFood>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dragon", () => UltraniumWorld.downedDragon));
+        shop.Add(new Item(ItemID.DeerThing) { shopCustomPrice = 13, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDeerclops);
+        shop.Add(new Item(ModContent.ItemType<IceFood>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dragon", () => UltraniumWorld.downedDragon));
         shop.Add(new Item(267) { shopCustomPrice = 14, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.Hardmode);
 		shop.Add(new Item(1315) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.Hardmode);
-		shop.Add(new Item(ModContent.ItemType<DreadBeacon>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dread", () => UltraniumWorld.downedDread));
+        shop.Add(new Item(ItemID.QueenSlimeCrystal) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedQueenSlime);
+        shop.Add(new Item(ModContent.ItemType<DreadBeacon>() ) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Dread", () => UltraniumWorld.downedDread));
         shop.Add(new Item(602) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDestroyer);
 		shop.Add(new Item(544) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMechBossAll);
 		shop.Add(new Item(556) { shopCustomPrice = 15, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMechBossAll);
@@ -181,7 +186,8 @@ public class Keeper : ModNPC
 		shop.Add(new Item(ModContent.ItemType<EtherealLantern>() ) { shopCustomPrice = 22, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Xenanis", () => UltraniumWorld.downedXenanis));
         shop.Add(new Item(1293) { shopCustomPrice = 25, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedGolem);
 		shop.Add(new Item(ModContent.ItemType<MiniProbe>() ) { shopCustomPrice = 25, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedGolem);
-		shop.Add(new Item(2673) { shopCustomPrice = 30, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDukeFishron);
+        shop.Add(new Item(ItemID.EmpressButterfly) { shopCustomPrice = 27, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedEmpressOfLight);
+        shop.Add(new Item(2673) { shopCustomPrice = 30, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedDukeFishron);
 		shop.Add(new Item(3601) { shopCustomPrice = 45, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, Condition.DownedMoonLord);
 		shop.Add(new Item(ModContent.ItemType<RealityBendingShroom>() ) { shopCustomPrice = 99, shopSpecialCurrency = Ultranium.GlowShroomCurrencyID }, new Condition("Sell Final Shroom", () => SellFinalShroom));
 		shop.Register();
