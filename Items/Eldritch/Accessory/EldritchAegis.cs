@@ -34,8 +34,9 @@ public class EldritchAegis : ModItem
 	{
 		if (!hideVisual)
 		{
-			player.dash = 1;
-		}
+			player.dash = DashID.TabiAndMasterNinjaGear;
+            player.dashType = DashID.TabiAndMasterNinjaGear;
+        }
 		player.noKnockback = true;
 		player.lavaRose = true;
 		player.fireWalk = true;
