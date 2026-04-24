@@ -2556,6 +2556,30 @@ NPCs: {
 	Keeper: {
 		DisplayName: Keeper
 
+		Dialogue: {
+			Talk1: I'm not that short shut up
+			Talk2: Now this do indeed be a bruh moment.
+			Talk3: Yes, i'll have two number nines, a number eight large, and 2 number sevens with a 2 liter coke.
+			Talk4: you ever slap someone so hard that YOU explode?
+			Talk5: yo this ugly ass dog once told me this story about mcdonalds and thought it was neat. It's too long for any mortal to handle though.
+			Talk6: I have indeed been in a number of cults, both as a leader and a follower. You should see some of the stuff people worship.
+			Talk7: I still owe the flying spaghetti monster 21 million.
+			Talk8: I tried telling Glacieron a joke once. All he did was roar and try to eat me, how rude.
+			Talk9: Don't tell Ultrum this but I like Ignodium better lowkey.
+			Talk10: Got dam they done squinch bop dirty
+			Talk11: I can sell you boss summons, but your money is worthless, I want the funny glowing mushrooms. Eating them makes me feel happy and tingly.
+			Winner: djswfsdegerdshtr what?? How did you even find these? I literally had to search across multiple dimensions to find them and you find all of them. phenomenal.
+			Hype: Y E S
+		}
+
+		Currency: Glow Shrooms
+		Aldin: Aldin
+
+		Buttons: {
+			Mushrooms: Mushrooms
+			Prompt: ???
+		}
+
 		TownNPCMood: {
 			Content: I am content.
 			NoHome: I hate not having a home.
@@ -2912,6 +2936,25 @@ Tiles: {
 	SquidTrophy.MapEntry: Squid Trophy
 	UltrumTrophy.MapEntry: Ultrum Trophy
 	XenanisTrophy.MapEntry: Xenanis Trophy
+}
+
+Status: {
+	AldinSummon: Aldin's true form has been unleashed!
+	HardmodeDread: Something dreadful wanders through out the lands...
+	HardmodeStellar: Spacial creatures wander in the sky
+	AbsoluteDreadNotif: Fear flows through your veins...
+	ErebusNotif: An otherworldy roar echoes through out the world...
+	ShadowRoar1: A strange roar echos in the distance...
+	ShadowRoar2: The otherworldly roar grows louder...
+	ShadowEventEnd: The darkness fades...
+	ShadowEventPhase2: The darkness thickens...
+	ErebusSpawn: The Eldritch Beast has been awoken!
+	SpawnsDisabled: Spawns have been disabled!
+	SpawnsEnabled: Spawns have been enabled!
+	ShadowEventActive: Theres no stopping the darkness now...
+	ShadowEventStart: The Abyssal Armageddon has begun
+	ShadowEventBlock: You can only use the artifact under the darkness of the moon
+	Xenanis: An ethereal aura draws near...
 }
 
 Achievements: {

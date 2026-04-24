@@ -293,13 +293,13 @@ public class UltraniumWorld : ModSystem
 		}
 		if (Main.hardMode && !HardmodeMessage)
 		{
-			Main.NewText("Something dreadful wanders through out the lands...", (byte)160, (byte)0, (byte)0);
-			Main.NewText("Spacial creatures wander in the sky", (byte)66, (byte)197, byte.MaxValue);
+			Main.NewText(Ultranium.GetTextValue("Status.HardmodeDread"), (byte)160, (byte)0, (byte)0);
+			Main.NewText(Ultranium.GetTextValue("Status.HardmodeStellar"), (byte)66, (byte)197, byte.MaxValue);
 			HardmodeMessage = true;
 		}
 		if (NPC.downedPlantBoss && !EtherealMessage)
 		{
-			Main.NewText("An ethereal aura draws near...", (byte)137, (byte)131, byte.MaxValue);
+			Main.NewText(Ultranium.GetTextValue("Status.Xenanis"), (byte)137, (byte)131, byte.MaxValue);
 			EtherealMessage = true;
 		}
 		if (downedUltrum && downedIgnodium && !downedTrueDread && !DreadMessage)
@@ -308,7 +308,7 @@ public class UltraniumWorld : ModSystem
 			if (MessageTimer == 600)
 			{
 				SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DreadRoar"));
-				Main.NewText("Fear flows through your veins...", (byte)200, (byte)0, (byte)0);
+				Main.NewText(Ultranium.GetTextValue("Status.AbsoluteDreadNotif"), (byte)200, (byte)0, (byte)0);
 				DreadMessage = true;
 			}
 		}
@@ -318,7 +318,7 @@ public class UltraniumWorld : ModSystem
 			if (MessageTimer2 == 600)
             {
                 SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ErebusRoar"));
-				Main.NewText("An otherworldy roar echoes through out the world...", (byte)90, (byte)72, (byte)169);
+				Main.NewText(Ultranium.GetTextValue("Status.ErebusNotif"), (byte)90, (byte)72, (byte)169);
 				ErebusMessage = true;
 			}
 		}

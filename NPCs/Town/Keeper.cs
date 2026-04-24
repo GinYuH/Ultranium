@@ -59,19 +59,15 @@ public class Keeper : ModNPC
 		return Main.player.Any((Player x) => ((Entity)x).active && x.inventory.Any((Item y) => y.type == ItemID.GoldCoin) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1);
 	}
 
-	public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
-	{
-		string[] array = new string[1] { "Aldin" };
-		return new List<string>(array);
-    }
+	public override List<string> SetNPCNameList() => new() { this.GetLocalizedValue("Aldin") };
 
 	public override string GetChat()
 	{
-		List<string> list = new List<string>
+		List<string> list = new();
+		for (int i = 1; i <= 11; i++)
 		{
-			"I'm not that short shut up.", "Now this do indeed be a bruh moment.", "Yes, i'll have two number nines, a number eight large, and 2 number sevens with a 2 liter coke.", "you ever slap someone so hard that YOU explode?", "yo this ugly ass dog once told me this story about mcdonalds and thought it was neat. It's too long for any mortal to handle though.", "I have indeed been in a number of cults, both as a leader and a follower. You should see some of the stuff people worship.", "I still owe the flying spaghetti monster 21 million.", "I tried telling Glacieron a joke once. All he did was roar and try to eat me, how rude.", "Don't tell Ultrum this but I like Ignodium better lowkey.", "Got dam they done squinch bop dirty",
-			"I can sell you boss summons, but your money is worthless, I want the funny glowing mushrooms. Eating them makes me feel happy and tingly."
-		};
+			list.Add(Ultranium.GetTextValue("NPCs.Keeper.Dialogue.Talk" + i));
+		}
 		return Utils.Next<string>(Main.rand, (IList<string>)list);
 	}
 
@@ -80,12 +76,13 @@ public class Keeper : ModNPC
 		button = Language.GetTextValue("LegacyInterface.28");
 		if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
-			button2 = "Mushrooms";
-		}
+			button2 = Ultranium.GetTextValue("NPCs.Keeper.Buttons.Mushrooms");
+
+        }
 		if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("RealityBendingShroom").Type) && UltraniumWorld.downedErebus && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
-		{
-			button2 = "???";
-		}
+        {
+            button2 = Ultranium.GetTextValue("NPCs.Keeper.Buttons.Prompt");
+        }
 	}
 
 	public override void OnChatButtonClicked(bool firstButton, ref string shopName)
@@ -97,7 +94,7 @@ public class Keeper : ModNPC
 		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("StrangeUndergrowth").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TruffleShroom").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("ExistentialDread").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("TheFart").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("Moorhsum").Type) && Main.LocalPlayer.HasItem(Mod.Find<ModItem>("SolarShroom").Type) && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
 			ModContent.GetInstance<MushroomAchievement>().Achievement.GetCondition("KeeperMushroom").Complete();
-			Main.npcChatText = "djswfsdegerdshtr what?? How did you even find these? I literally had to search across multiple dimensions to find them and you find all of them. phenomenal.";
+            Main.npcChatText = Language.GetTextValue("Mods.Ultranium.NPCs.Keeper.Dialogue.Winner");
 			int num = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("StrangeUndergrowth").Type);
 			int num2 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("SoulCrushingDisappointment").Type);
 			int num3 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("TruffleShroom").Type);
@@ -116,7 +113,7 @@ public class Keeper : ModNPC
 		}
 		else if (Main.LocalPlayer.HasItem(Mod.Find<ModItem>("RealityBendingShroom").Type) && NPC.CountNPCS(Mod.Find<ModNPC>("Aldin").Type) < 1 && UltraniumWorld.Moorhsum && UltraniumWorld.StrangeUndergrowth && UltraniumWorld.SoulCrushingDisappointment && UltraniumWorld.TheFart && UltraniumWorld.TruffleShroom && UltraniumWorld.SolarShroom && UltraniumWorld.ExistentialDread)
 		{
-			Main.npcChatText = "Y E S";
+			Main.npcChatText = Ultranium.GetTextValue("NPCs.Keeper.Dialogue.Hype");
 			int num8 = Main.LocalPlayer.FindItem(Mod.Find<ModItem>("RealityBendingShroom").Type);
 			Main.LocalPlayer.inventory[num8].TurnToAir();
 			CanSpawnAldin = true;
@@ -150,7 +147,7 @@ public class Keeper : ModNPC
 			NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Center.X, (int)NPC.Center.Y, Mod.Find<ModNPC>("Aldin").Type, 0, 0f, 0f, 0f, 0f, 255);
 			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("ShockWave").Type, 0, 0f, 255, 0f, 0f);
 			Ultranium.seizureAmount = 20f;
-			Main.NewText("Aldin's true form has been unleashed!", (byte)175, (byte)75, byte.MaxValue);
+			Main.NewText(Ultranium.GetTextValue("Status.AldinSummon"), (byte)175, (byte)75, byte.MaxValue);
 			SpawnTimer = 0;
 			NPC.active = false;
 			ShouldSpawnAldin = false;

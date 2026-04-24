@@ -43,20 +43,20 @@ public class DarkResonator : ModItem
 		if (ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
 			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
-			Main.NewText("Theres no stopping the darkness now...", (byte)61, byte.MaxValue, (byte)142);
+			Main.NewText(Ultranium.GetTextValue("Status.ShadowEventActive"), (byte)61, byte.MaxValue, (byte)142);
 			return true;
 		}
 		if (!ShadowEventWorld.ShadowEventActive && !Main.dayTime)
 		{
 			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
-            Main.NewText("The Abyssal Armageddon has begun", (byte)61, byte.MaxValue, (byte)142);
+            Main.NewText(Ultranium.GetTextValue("Status.ShadowEventStart"), (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventWorld.ShadowEventActive = true;
 			return true;
 		}
 		if (Main.dayTime)
 		{
 			SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/ShadowAwakening") with { PitchVariance = 0.1f });
-            Main.NewText("You can only use the artifact under the darkness of the moon", (byte)61, byte.MaxValue, (byte)142);
+            Main.NewText(Ultranium.GetTextValue("Status.ShadowEventBlock"), (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventWorld.StartShadowEvent = false;
 			return true;
 		}

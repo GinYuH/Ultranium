@@ -41,13 +41,13 @@ public class DarkResonatorDisabler : ModItem
 	{
 		if (ShadowEventWorld.ShadowEventActive && !ShadowEventSpawns.DisabledSpawns)
 		{
-			Main.NewText("Spawns have been disabled!", (byte)61, byte.MaxValue, (byte)142);
+			Main.NewText(Ultranium.GetTextValue("Status.SpawnsDisabled"), (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventSpawns.DisabledSpawns = true;
 			return true;
 		}
 		if (ShadowEventWorld.ShadowEventActive && ShadowEventSpawns.DisabledSpawns)
 		{
-			Main.NewText("Spawns have been enabled!", (byte)61, byte.MaxValue, (byte)142);
+			Main.NewText(Ultranium.GetTextValue("Status.SpawnsEnabled"), (byte)61, byte.MaxValue, (byte)142);
 			ShadowEventSpawns.DisabledSpawns = false;
 			return true;
 		}

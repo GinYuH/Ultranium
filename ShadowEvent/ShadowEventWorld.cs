@@ -40,13 +40,13 @@ public class ShadowEventWorld : ModSystem
 		string text = "";
 		if (EventTimer == 6300)
 		{
-			text = "A strange roar echos in the distance...";
+			text = Ultranium.GetTextValue("Status.ShadowRoar1");
 			Ultranium.seizureAmount = 10f;
 		}
 		if (EventTimer == 18900)
-		{
-			text = "The otherworldly roar grows louder...";
-			Ultranium.seizureAmount = 20f;
+        {
+            text = Ultranium.GetTextValue("Status.ShadowRoar2");
+            Ultranium.seizureAmount = 20f;
 		}
 		if (Main.netMode == NetmodeID.SinglePlayer)
 		{

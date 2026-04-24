@@ -51,13 +51,13 @@ public class ShadowBed : ModTile
 		if (localPlayer.SpawnX == num && localPlayer.SpawnY == num2)
 		{
 			localPlayer.RemoveSpawn();
-			Main.NewText("Spawn point removed!", byte.MaxValue, (byte)240, (byte)20);
-		}
+            Main.NewText(Language.GetTextValue("Game.SpawnPointRemoved"), byte.MaxValue, 240, 20);
+        }
 		else if (Player.CheckSpawn(num, num2))
 		{
 			localPlayer.ChangeSpawn(num, num2);
-			Main.NewText("Spawn point set!", byte.MaxValue, (byte)240, (byte)20);
-		}
+            Main.NewText(Language.GetTextValue("Game.SpawnPointSet"), byte.MaxValue, 240, 20);
+        }
 		return true;
 	}
 

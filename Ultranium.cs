@@ -10,6 +10,7 @@ using Terraria.Graphics;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Ultranium.Backgrounds.Boss;
 using Ultranium.Backgrounds.Cosmic;
@@ -57,8 +58,17 @@ internal class Ultranium : Mod
 
 	public static Mod mod => ModLoader.GetMod("Ultranium");
 
+    public static LocalizedText GetText(string key)
+    {
+        return Language.GetText("Mods.Ultranium." + key);
+    }
+    public static string GetTextValue(string key)
+    {
+        return Language.GetText("Mods.Ultranium." + key).Value;
+    }
 
-	public override void PostSetupContent()
+
+    public override void PostSetupContent()
 	{
 		// PORTING NOTE: Boss Bar is no longer real
 		/*Mod val = ModLoader.GetMod("FKBossHealthBar");

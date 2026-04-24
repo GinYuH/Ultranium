@@ -43,7 +43,7 @@ public class ShadowEvent
 			{
 				NetMessage.SendData(MessageID.WorldData);
 			}
-			string text = "The darkness fades...";
+			string text = Ultranium.GetTextValue("Status.ShadowEventEnd");
 			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);

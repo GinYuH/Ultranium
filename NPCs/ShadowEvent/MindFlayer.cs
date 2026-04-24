@@ -333,7 +333,7 @@ public class MindFlayer : ModNPC
 		if (ShadowEventWorld.ShadowEventActive)
 		{
 			ShadowEventWorld.Phase2 = true;
-			string text = "The darkness thickens...";
+			string text = Ultranium.GetTextValue("Status.ShadowEventPhase2");
 			if (Main.netMode == NetmodeID.SinglePlayer)
 			{
 				Main.NewText(text, (byte)61, byte.MaxValue, (byte)142);
