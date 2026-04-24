@@ -43,6 +43,7 @@ public class DreadBoss : ModNPC
 		NPC.netAlways = true;
 		NPC.HitSound = SoundID.NPCHit7;
 		NPC.npcSlots = 1f;
+		NPC.boss = true;
 		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;

@@ -229,8 +229,8 @@ public class Aldin : ModNPC
 			{
 				if (timer > 180 && timer < 360 && Main.rand.Next(20) == 0)
 				{
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
-					Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X - 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, 0, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X + 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, num, 1f, Main.myPlayer, 0f, 0f);
+					Projectile.NewProjectile(NPC.GetSource_FromThis(), player.Center.X - 500f, player.Center.Y, 0f, 0f, Mod.Find<ModProjectile>("CosmicFireball").Type, num, 1f, Main.myPlayer, 0f, 0f);
 				}
 				if (timer >= 360)
 				{

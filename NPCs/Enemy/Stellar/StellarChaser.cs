@@ -43,6 +43,7 @@ public class StellarChaser : ModNPC
 
 	public override void AI()
 	{
+		NPC.TargetClosest();
 		NPC.spriteDirection = NPC.direction;
 		Player player = Main.player[NPC.target];
 		if (NPC.Center.X >= player.Center.X && moveSpeed >= -45)
@@ -76,7 +77,8 @@ public class StellarChaser : ModNPC
 			vector.Normalize();
 			vector.X *= 6f;
 			vector.Y *= 6f;
-			Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
+			// Porting note: What is this projectile???
+			//Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Center.X, NPC.Center.Y, vector.X, vector.Y, Mod.Find<ModProjectile>("EyeBolt").Type, 18, 1f, Main.myPlayer, 0f, 0f);
 		}
 	}
 

@@ -27,8 +27,8 @@ namespace Ultranium
 
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/ShadowBiome");
         public override string BestiaryIcon => "Ultranium/Icon";
-        public override string BackgroundPath => "Ultranium/Icon";
-        public override string MapBackground => "Ultranium/Icon";
+        public override string BackgroundPath => "Ultranium/Backgrounds/ShadowBiome/DepthsMapBG";
+        public override string MapBackground => "Ultranium/Backgrounds/ShadowBiome/DepthsMapBG";
 
         public override bool IsBiomeActive(Player player)
         {
@@ -49,8 +49,8 @@ namespace Ultranium
 
         public override int Music => MusicLoader.GetMusicSlot(Mod, "Sounds/Music/DarkDepths");
         public override string BestiaryIcon => "Ultranium/Icon";
-        public override string BackgroundPath => "Ultranium/Icon";
-        public override string MapBackground => "Ultranium/Icon";
+        public override string BackgroundPath => "Ultranium/Backgrounds/ShadowBiome/DepthsMapBG";
+        public override string MapBackground => "Ultranium/Backgrounds/ShadowBiome/DepthsMapBG";
 
         public override bool IsBiomeActive(Player player)
         {

@@ -46,7 +46,7 @@ public class EtherealLaserRift : ModProjectile
 			Vector2 vector2 = new Vector2((float)(Math.Cos(num4) * (double)num3 * -1.0), (float)(Math.Sin(num4) * (double)num3 * -1.0));
 			Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.Center + vector2 * 30f, vector2, Mod.Find<ModProjectile>("EtherealDeathray").Type, 55, 0f, Main.myPlayer, 0f, 0f);
 		}
-		if (NPC.AnyNPCs(Mod.Find<ModNPC>("XenanisClone").Type) || !NPC.AnyNPCs(Mod.Find<ModNPC>("Xenanis").Type))
+		if (NPC.AnyNPCs(Mod.Find<ModNPC>("XenanisClone1").Type) || NPC.AnyNPCs(Mod.Find<ModNPC>("XenanisClone2").Type) || !NPC.AnyNPCs(Mod.Find<ModNPC>("Xenanis").Type))
 		{
 			Projectile.Kill();
 		}

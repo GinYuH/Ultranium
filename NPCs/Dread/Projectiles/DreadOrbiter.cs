@@ -56,6 +56,7 @@ public class DreadOrbiter : ModNPC
 		NPC nPC = Main.npc[(int)NPC.ai[1]];
 		if (nPC != Main.npc[0])
 		{
+			player = Main.player[nPC.target];
 			NPC.ai[0] += 2f;
 			int num = 165;
 			double num2 = (double)NPC.ai[0] * (Math.PI / 180.0);
