@@ -70,13 +70,14 @@ public class AbyssalWraith : ModNPC
 		return true;
 	}
 
-	public override bool CheckDead()
+	public override void HitEffect(NPC.HitInfo hit)
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore3").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore4").Type);
-		return true;
+		if (NPC.life > 0 || Main.dedServ)
+			return;
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore3").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalWraithGore4").Type);
 	}
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)

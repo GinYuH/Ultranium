@@ -37,9 +37,9 @@ public class ShadeGhoul : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore1").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore2").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore3").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore1").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore2").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("GhoulGore3").Type);
 		}
 	}
 

@@ -104,8 +104,8 @@ public class StellarChaser : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarChaserGore2").Type);
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

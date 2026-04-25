@@ -386,46 +386,24 @@ public class UltraniumPlayer : ModPlayer
         UltraniumPlayer modPlayer = Player.GetModPlayer<UltraniumPlayer>();
 		if (modPlayer.ZoneShadow && Utils.NextBool(Main.rand, 5))
 		{
-            attempt.rolledEnemySpawn = ModContent.ItemType<SpectreFishItem>();
+            attempt.rolledItemDrop = ModContent.ItemType<SpectreFishItem>();
 		}
 		if (modPlayer.ZoneDepth && Utils.NextBool(Main.rand, 10))
 		{
-            attempt.rolledEnemySpawn = ModContent.ItemType<DepthCrate>();
+            attempt.rolledItemDrop = ModContent.ItemType<DepthCrate>();
 		}
 		if (modPlayer.ZoneDepth && Utils.NextBool(Main.rand, 10))
 		{
-            attempt.rolledEnemySpawn = ModContent.ItemType<ShroomFish>();
+            attempt.rolledItemDrop = ModContent.ItemType<ShroomFish>();
 		}
 		if (!Player.HasItem(ModContent.ItemType<CoralBait>()))
 		{
 			return;
 		}
-		Item[] inventory = Player.inventory;
-		for (int i = 0; i < inventory.Length; i++)
+		if (!NPC.AnyNPCs(ModContent.NPCType<ZephyrSquid>()) && Player.ZoneBeach && !attempt.inLava && !attempt.inHoney)
 		{
-			int num = -1;
-			if (inventory[i].type != ModContent.ItemType<CoralBait>() || NPC.AnyNPCs(ModContent.NPCType<ZephyrSquid>()) || !Player.ZoneBeach || attempt.inLava || attempt.inHoney)
-			{
-				continue;
-			}
-			for (int j = 0; j < 1000; j++)
-			{
-				if (((Entity)Main.projectile[j]).active && Main.projectile[j].owner == Player.whoAmI && Main.projectile[j].bobber)
-				{
-					num = j;
-				}
-			}
-			if (num != -1)
-			{
-				inventory[i].stack--;
-				Vector2 center = Main.projectile[num].Center;
-				attempt.rolledEnemySpawn = NPC.NewNPC(Player.GetSource_FromThis(), (int)center.X, (int)center.Y, ModContent.NPCType<ZephyrSquid>(), 0, 0f, 0f, 0f, 0f, Main.myPlayer);
-				((Entity)Main.projectile[num]).active = false;
-				if (Main.netMode == NetmodeID.MultiplayerClient)
-				{
-					NetMessage.SendData(MessageID.SyncNPC, -1, -1, null, ModContent.NPCType<ZephyrSquid>());
-				}
-			}
+			npcSpawn = ModContent.NPCType<ZephyrSquid>();
+			attempt.rolledEnemySpawn = ModContent.NPCType<ZephyrSquid>();
 		}
 	}
 

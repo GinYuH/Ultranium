@@ -38,9 +38,9 @@ public class AbyssShark : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore1").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore2").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore3").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore1").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore2").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SharkGore3").Type);
 		}
 	}
 

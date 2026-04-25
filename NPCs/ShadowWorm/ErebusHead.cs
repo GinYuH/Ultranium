@@ -130,14 +130,18 @@ public class ErebusHead : ModNPC
 		{
 			modifiers.SourceDamage /= 5;
 		}
-	}
-
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore2").Type);
-		return true;
-	}
+    }
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
+        {
+            if (!Main.dedServ)
+            {
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore1").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore2").Type);
+            }
+        }
+    }
 
 	public override bool PreAI()
 	{

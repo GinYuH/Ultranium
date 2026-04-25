@@ -156,8 +156,8 @@ public class MindFlayerClone : ModNPC
 		return false;
 	}
 
-	public override bool CheckDead()
-	{
+    public override bool CheckDead()
+    {
 		return true;
 	}
 }

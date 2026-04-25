@@ -48,12 +48,13 @@ public class Scp2521 : ModNPC
 		NPC.defense = 70;
 	}
 
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore3").Type);
-		return true;
+	public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life > 0 || Main.dedServ)
+            return;
+        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("Scp2521Gore3").Type);
 	}
 
 	public override Color? GetAlpha(Color lightColor)

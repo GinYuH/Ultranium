@@ -57,10 +57,11 @@ public class ShadeSpirit : ModNPC
 		NPC.defense = 70;
 	}
 
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadeSpiritGore").Type);
-		return true;
+	public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life > 0 || Main.dedServ)
+            return;
+        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadeSpiritGore").Type);
 	}
 
 	public override Color? GetAlpha(Color lightColor)

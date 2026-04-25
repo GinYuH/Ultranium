@@ -40,15 +40,19 @@ public class AbyssalCultist : ModNPC
 		NPC.lifeMax = 3200;
 		NPC.damage = 55;
 		NPC.defense = 60;
-	}
-
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore3").Type);
-		return true;
-	}
+    }
+    public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life <= 0)
+        {
+            if (!Main.dedServ)
+            {
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore1").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore2").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("AbyssalCultistGore3").Type);
+            }
+        }
+    }
 
 	public override void OnHitPlayer(Player target, Player.HurtInfo hurtInfo)
 	{

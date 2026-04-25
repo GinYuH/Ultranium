@@ -256,13 +256,14 @@ public class ZephyrSquid : ModNPC
 		}
 	}
 
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore3").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore4").Type);
-		return true;
+	public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life > 0 || Main.dedServ)
+            return;
+        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore3").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore4").Type);
 	}
 
     public override void ModifyNPCLoot(NPCLoot npcLoot)

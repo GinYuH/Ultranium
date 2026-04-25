@@ -87,9 +87,9 @@ public class EldritchCaster : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore1").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore2").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore3").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore1").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore2").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("CasterGore3").Type);
 		}
 	}
 

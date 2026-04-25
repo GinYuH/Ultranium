@@ -66,8 +66,8 @@ public class StellarSlime : ModNPC
 				Main.dust[num].fadeIn = 1f + (float)Main.rand.Next(10) * 0.1f;
 			}
 		}
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("StellarSlimeGore2").Type);
 	}
 
 	public override float SpawnChance(NPCSpawnInfo spawnInfo)

@@ -43,7 +43,7 @@ public class ShadowBat : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadowBatGore").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ShadowBatGore").Type);
 		}
     }
 

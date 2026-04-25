@@ -37,9 +37,9 @@ public class DepthMonger : ModNPC
 	{
 		if (NPC.life <= 0)
 		{
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore1").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore2").Type);
-			Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore3").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore1").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore2").Type);
+			Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MongerGore3").Type);
 		}
 	}
 

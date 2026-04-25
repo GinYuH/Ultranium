@@ -524,9 +524,11 @@ public class TrueDread : ModNPC
 		}
 	}
 
-	public override bool CheckDead()
-	{
-		for (int i = 0; i < 30; i++)
+	public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life > 0)
+            return;
+        for (int i = 0; i < 30; i++)
 		{
 			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = false;
@@ -581,7 +583,6 @@ public class TrueDread : ModNPC
 				Main.dust[num5].velocity = NPC.DirectionTo(Main.dust[num5].position) * 15f;
 			}
 		}
-		return true;
 	}
 
 	public override void BossLoot(ref int potionType)

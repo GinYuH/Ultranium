@@ -77,14 +77,15 @@ public class MotherPhantom : ModNPC
 		return true;
 	}
 
-	public override bool CheckDead()
-	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore3").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore4").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore5").Type);
-		return true;
+	public override void HitEffect(NPC.HitInfo hit)
+    {
+        if (NPC.life > 0 || Main.dedServ)
+            return;
+        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore1").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore2").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore3").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore4").Type);
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("MotherPhantomGore5").Type);
 	}
 
 	public override Color? GetAlpha(Color lightColor)

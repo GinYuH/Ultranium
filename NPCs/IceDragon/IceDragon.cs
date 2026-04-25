@@ -338,16 +338,21 @@ public class IceDragon : ModNPC
 		return true;
 	}
 
-	public override bool CheckDead()
+	public override void HitEffect(NPC.HitInfo hit)
 	{
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore1").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore2").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore3").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore4").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore5").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore6").Type);
-		Gore.NewGore(null, NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore7").Type);
-		return true;
+		if (NPC.life <= 0)
+		{
+			if (!Main.dedServ)
+            {
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore1").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore2").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore3").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore4").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore5").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore6").Type);
+                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore7").Type);
+            }
+		}
 	}
 
 	public override void FindFrame(int frameHeight)
