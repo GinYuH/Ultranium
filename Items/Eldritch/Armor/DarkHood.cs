@@ -40,8 +40,8 @@ public class DarkHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n10% increased magic damage and 20% reduced mana usage\n+10 max health and mana\nPressing the Special Ability hotkey will grant you the eldritch magic empowerment buff\nThis buff will cause all magic weapons to deal 1.3x damage,\nand makes magic weapons cost no mana\nThis ability has a 40 second cool down";
-		player.GetModPlayer<UltraniumPlayer>().EldritchMagicSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().EldritchMagicSet = true;
 		player.GetDamage(DamageClass.Magic) += 0.1f;
 		player.statLifeMax2 += 10;
 		player.statManaMax2 += 10;

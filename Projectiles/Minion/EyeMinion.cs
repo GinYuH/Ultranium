@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Minion;
 
@@ -30,7 +31,8 @@ public class EyeMinion : ModProjectile
 		_ = Projectile.type;
 		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
-		if (obj.dead)
+        obj.AddBuff(ModContent.BuffType<EyeBuff>(), 3600, quiet: false);
+        if (obj.dead)
 		{
 			modPlayer.EyeMinion = false;
 		}

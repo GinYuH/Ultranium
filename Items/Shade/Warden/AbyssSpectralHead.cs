@@ -40,8 +40,8 @@ public class AbyssSpectralHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n20% reduced mana usage";
-		player.manaCost -= 0.2f;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.manaCost -= 0.2f;
 	}
 
 	public override void AddRecipes()

@@ -32,7 +32,6 @@ public class ShadeWispStaff : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("ShadeWisp").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("ShadeWispBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void AddRecipes()

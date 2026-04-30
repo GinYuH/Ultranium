@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Dread;
 
@@ -30,7 +31,8 @@ public class DreadMinion : ModProjectile
 		_ = Projectile.type;
 		Player obj = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = obj.GetModPlayer<UltraniumPlayer>();
-		if (obj.dead)
+        obj.AddBuff(ModContent.BuffType<DreadMinionBuff>(), 3600, quiet: false);
+        if (obj.dead)
 		{
 			modPlayer.DreadMinion = false;
 		}

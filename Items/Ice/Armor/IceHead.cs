@@ -41,8 +41,8 @@ public class IceHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nImmunity to all ice related debuffs\n3% increased damage, melee speed, and movement speed";
-		player.buffImmune[44] = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.buffImmune[44] = true;
 		player.buffImmune[46] = true;
 		player.buffImmune[47] = true;
 		player.GetDamage(DamageClass.Melee) += 0.03f;

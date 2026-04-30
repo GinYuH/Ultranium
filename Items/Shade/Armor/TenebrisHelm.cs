@@ -33,8 +33,8 @@ public class TenebrisHelm : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "6% increased melee damage and speed";
-		player.GetDamage(DamageClass.Melee) += 0.06f;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetDamage(DamageClass.Melee) += 0.06f;
 		player.GetAttackSpeed(DamageClass.Melee) *= 1.02f;
 	}
 

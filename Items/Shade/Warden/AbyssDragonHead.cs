@@ -40,7 +40,7 @@ public class AbyssDragonHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n20% increased melee and movement speed";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.GetAttackSpeed(DamageClass.Melee) += 0.2f;
 		player.moveSpeed += 0.2f;
 	}

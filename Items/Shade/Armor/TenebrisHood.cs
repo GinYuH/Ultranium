@@ -33,7 +33,7 @@ public class TenebrisHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "6% increased magic damage";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.GetDamage(DamageClass.Magic) += 0.06f;
 	}
 

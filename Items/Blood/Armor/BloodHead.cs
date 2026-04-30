@@ -32,7 +32,7 @@ public class BloodHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n7% increased damage, +20 max mana, and +1 max minions";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.GetDamage(DamageClass.Melee) += 0.07f;
 		player.GetDamage(DamageClass.Ranged) += 0.07f;
 		player.GetDamage(DamageClass.Magic) += 0.07f;

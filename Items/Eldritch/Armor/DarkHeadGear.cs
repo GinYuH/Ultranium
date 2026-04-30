@@ -40,8 +40,8 @@ public class DarkHeadGear : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n10% increased ranged damage and 20% chance to not consume ammo\n+10 max health\nPressing the Special Ability hotkey will grant you the eldritch ranger empowerment buff\nThis buff will cause all ranged weapons to deal 1.3x damage,\nand a 25% chance to not consume ammo\nThis ability has a 40 second cool down";
-		player.GetModPlayer<UltraniumPlayer>().EldritchRangedSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().EldritchRangedSet = true;
 		player.GetDamage(DamageClass.Ranged) += 0.1f;
 		player.statLifeMax2 += 10;
 		player.ammoCost80 = true;

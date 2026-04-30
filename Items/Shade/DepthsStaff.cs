@@ -32,6 +32,5 @@ public class DepthsStaff : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("DemonMinion").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("DemonBuff").Type;
-		Item.buffTime = 3600;
 	}
 }

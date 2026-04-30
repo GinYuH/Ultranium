@@ -38,8 +38,8 @@ public class AbyssHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nWhile you are below 75%, 50%, and 25% life, you will gain an extra minion slot\nYou will also gain a 15% increase to your summon damage when you are below 50% life\nThe minion slot bonuses will stack with each other";
-		if (player.statLife < (int)((float)player.statLifeMax2 * 0.75f))
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        if (player.statLife < (int)((float)player.statLifeMax2 * 0.75f))
 		{
 			player.maxMinions++;
 		}

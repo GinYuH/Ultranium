@@ -211,6 +211,11 @@ Items: {
 	BloodHead: {
 		DisplayName: Sanguine Face Mask
 		Tooltip: ""
+		SetBonus:
+			'''
+
+			7% increased damage, +20 max mana, and +1 max minions
+			'''
 	}
 
 	BloodLegs: {
@@ -582,6 +587,12 @@ Items: {
 	HorrorHelm: {
 		DisplayName: Horror Helmet
 		Tooltip: 12% increased melee critical strike chance
+		SetBonus:
+			'''
+
+			Melee weapons have a chance to shoot out dread flame bolts
+			10% increased melee damage
+			'''
 	}
 
 	HorrorHood: {
@@ -590,6 +601,12 @@ Items: {
 			'''
 			12% increased magic critical strike chance
 			+50 max mana
+			'''
+		SetBonus:
+			'''
+
+			Magic weapons have a chance to shoot out dread flame bolts
+			20% reduced mana cost
 			'''
 	}
 
@@ -605,11 +622,24 @@ Items: {
 			10% increased summon damage
 			+1 max minions
 			'''
+		SetBonus:
+			'''
+
+			Summon weapons will shoot dread flame bolts when used
+			(This effect will still apply if you have maximum minions active)
+			+3 max minions
+			'''
 	}
 
 	HorrorVisor: {
 		DisplayName: Horror Visor
 		Tooltip: 12% increased ranged critical strike chance
+		SetBonus:
+			'''
+
+			Ranged weapons have a chance to shoot out dread flame bolts
+			20% chance to not consume ammo
+			'''
 	}
 
 	DreadDisc: {
@@ -790,6 +820,16 @@ Items: {
 			12% increased ranged damage
 			+5 max life
 			'''
+		SetBonus:
+			'''
+
+			10% increased ranged damage and 20% chance to not consume ammo
+			+10 max health
+			Pressing the Special Ability hotkey will grant you the eldritch ranger empowerment buff
+			This buff will cause all ranged weapons to deal 1.3x damage,
+			and a 25% chance to not consume ammo
+			This ability has a 40 second cool down
+			'''
 	}
 
 	DarkHelm: {
@@ -799,6 +839,16 @@ Items: {
 			12% increased melee damage
 			+5 max life
 			'''
+		SetBonus:
+			'''
+
+			10% increased melee damage and melee speed
+			+10 max health
+			Pressing the Special Ability hotkey will grant you the eldritch melee empowerment buff
+			This buff will cause all melee weapons to deal 1.5x damage
+			However, you will also take 1.3x damage
+			This ability has a 40 second cool down
+			'''
 	}
 
 	DarkHood: {
@@ -807,6 +857,16 @@ Items: {
 			'''
 			12% increased magic damage
 			+5 max life and +10 max mana
+			'''
+		SetBonus:
+			'''
+
+			10% increased magic damage and 20% reduced mana usage
+			+10 max health and mana
+			Pressing the Special Ability hotkey will grant you the eldritch magic empowerment buff
+			This buff will cause all magic weapons to deal 1.3x damage,
+			and makes magic weapons cost no mana
+			This ability has a 40 second cool down
 			'''
 	}
 
@@ -825,6 +885,15 @@ Items: {
 			'''
 			8% increased summon damage
 			+5 max life and mana, and +2 max minions
+			'''
+		SetBonus:
+			'''
+
+			Summons an eldritch monolith to fight for you (The monolith does not take up minion slots)
+			Pressing the Special Ability hotkey will grant you the eldritch summon empowerment buff
+			This buff will cause all summons to deal 1.5x damage,
+			as well as causing your monolith to become stronger and shoot faster
+			This ability has a 40 second cool down";
 			'''
 	}
 
@@ -984,6 +1053,13 @@ Items: {
 			8% increased damage
 			+5 max life and mana
 			+1 max minions
+			'''
+		SetBonus:
+			'''
+
+			Grants increased immune time after being hit
+			Grants the ability to dash
+			Enemies are much less likely to target you
 			'''
 	}
 
@@ -1215,6 +1291,12 @@ Items: {
 	IceHead: {
 		DisplayName: Ice Walker's Helmet
 		Tooltip: 3% increased damage
+		SetBonus:
+			'''
+
+			Immunity to all ice related debuffs
+			3% increased damage, melee speed, and movement speed
+			'''
 	}
 
 	IceLegs: {
@@ -1339,6 +1421,12 @@ Items: {
 	AuroraHead: {
 		DisplayName: Aurora Crystal Mask
 		Tooltip: 5% increased summon damage
+		SetBonus:
+			'''
+
+			+2 max minions
+			Stars will fall from the sky when you are hit
+			'''
 	}
 
 	AuroraLegs: {
@@ -1354,6 +1442,11 @@ Items: {
 	ShadowflameHood: {
 		DisplayName: Shadowflame Cowl
 		Tooltip: 5% increased summon damage and +1 max minions
+		SetBonus:
+			'''
+
+			Your minions will inflict shadow flame on enemies
+			'''
 	}
 
 	ShadowflameLegs: {
@@ -1398,6 +1491,12 @@ Items: {
 	MushroomHead: {
 		DisplayName: Glowing Mushroom Helmet
 		Tooltip: ""
+		SetBonus:
+			'''
+
+			You constantly emit a faint blue glow
+			You have a chance to spawn lingering mushroom spores around you when hit
+			'''
 	}
 
 	MushroomLegs: {
@@ -1648,11 +1747,21 @@ Items: {
 	TenebrisHelm: {
 		DisplayName: Tenebris Helmet
 		Tooltip: 2% increased melee critical strike chance
+		SetBonus:
+			'''
+
+			6% increased melee damage and speed
+			'''
 	}
 
 	TenebrisHood: {
 		DisplayName: Tenebris Hood
 		Tooltip: 2% increased magic critical strike chance
+		SetBonus:
+			'''
+
+			6% increased magic damage
+			'''
 	}
 
 	TenebrisLegs: {
@@ -1667,11 +1776,21 @@ Items: {
 	TenebrisMask: {
 		DisplayName: Tenebris Mask
 		Tooltip: 2% increased summon damage
+		SetBonus:
+			'''
+
+			+2 max minions and 4% increased summon damage
+			'''
 	}
 
 	TenebrisVisor: {
 		DisplayName: Tenebris Visor
 		Tooltip: 2% increased ranged critical strike
+		SetBonus:
+			'''
+
+			6% increased ranged damage
+			'''
 	}
 
 	DepthsBow: {
@@ -1735,11 +1854,23 @@ Items: {
 			10% increased melee speed and damage
 			12% increased melee critical strike chance
 			'''
+		SetBonus:
+			'''
+
+			20% increased melee and movement speed
+			'''
 	}
 
 	AbyssHood: {
 		DisplayName: Abyss Warden Hood
 		Tooltip: 5% increased summon damage
+		SetBonus:
+			'''
+
+			While you are below 75%, 50%, and 25% life, you will gain an extra minion slot
+			You will also gain a 15% increase to your summon damage when you are below 50% life
+			The minion slot bonuses will stack with each other
+			'''
 	}
 
 	AbyssSpectralHead: {
@@ -1749,11 +1880,21 @@ Items: {
 			Increases maximum mana by 80
 			10% increased magic damage and critical strike chance
 			'''
+		SetBonus:
+			'''
+
+			20% reduced mana usage
+			'''
 	}
 
 	AbyssTitanHead: {
 		DisplayName: Abyss Titan Helmet
 		Tooltip: 10% increased ranged damage and critical strike chance
+		SetBonus:
+			'''
+
+			25% chance to not consume ammo
+			'''
 	}
 
 	AbyssWardenBody: {
@@ -1797,6 +1938,11 @@ Items: {
 			'''
 			5% increased damage
 			+1 max minions
+			'''
+		SetBonus:
+			'''
+
+			You have a chance to unleash a circle of comets when you are hit
 			'''
 	}
 

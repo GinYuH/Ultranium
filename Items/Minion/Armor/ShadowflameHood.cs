@@ -33,8 +33,8 @@ public class ShadowflameHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nYour minions will inflict shadow flame on enemies";
-		player.GetModPlayer<UltraniumPlayer>().ShadowflameSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().ShadowflameSet = true;
 	}
 
 	public override void UpdateEquip(Player player)

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Minion;
 
@@ -47,7 +48,8 @@ public class ShadowApparition : ModProjectile
 		bool num = Projectile.type == Mod.Find<ModProjectile>("ShadowApparition").Type;
 		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (num)
+        player.AddBuff(ModContent.BuffType<ShadowApparitionBuff>(), 3600, quiet: false);
+        if (num)
 		{
 			if (player.dead)
 			{

@@ -40,8 +40,8 @@ public class DarkHelm : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n10% increased melee damage and melee speed\n+10 max health\nPressing the Special Ability hotkey will grant you the eldritch melee empowerment buff\nThis buff will cause all melee weapons to deal 1.5x damage\nHowever, you will also take 1.3x damage\nThis ability has a 40 second cool down";
-		player.GetModPlayer<UltraniumPlayer>().EldritchMeleeSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().EldritchMeleeSet = true;
 		player.GetDamage(DamageClass.Melee) += 0.05f;
 		player.statLifeMax2 += 10;
 		player.GetAttackSpeed(DamageClass.Melee) *= 1.1f;

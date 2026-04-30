@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Erebus.Biome;
 
@@ -47,7 +48,8 @@ public class ShadeWisp : ModProjectile
 		bool num = Projectile.type == Mod.Find<ModProjectile>("ShadeWisp").Type;
 		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (num)
+        player.AddBuff(ModContent.BuffType<ShadeWispBuff>(), 3600, quiet: false);
+        if (num)
 		{
 			if (player.dead)
 			{

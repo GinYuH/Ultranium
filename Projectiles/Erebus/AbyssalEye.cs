@@ -3,6 +3,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Erebus;
 
@@ -39,7 +40,8 @@ public class AbyssalEye : ModProjectile
 		Projectile.position.X = player.Center.X - 31f;
 		Projectile.position.Y = player.Center.Y - 100f;
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (!player.active || !modPlayer.EldritchSummonSet)
+        player.AddBuff(ModContent.BuffType<AbyssEyeBuff>(), 3600, quiet: false);
+        if (!player.active || !modPlayer.EldritchSummonSet)
 		{
 			((Entity)Projectile).active = false;
 			return;

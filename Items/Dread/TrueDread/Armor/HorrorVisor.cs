@@ -40,7 +40,7 @@ public class HorrorVisor : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nRanged weapons have a chance to shoot out dread flame bolts\n20% chance to not consume ammo";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.GetModPlayer<UltraniumPlayer>().HorrorRangedSet = true;
 		player.ammoCost80 = true;
 	}

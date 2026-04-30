@@ -1,10 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Guardians.Nature;
 
@@ -67,7 +68,8 @@ public class Ultrum : ModProjectile
 		bool num = Projectile.type == Mod.Find<ModProjectile>("Ultrum").Type;
 		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (num)
+        player.AddBuff(ModContent.BuffType<UltrumBuff>(), 3600, quiet: false);
+        if (num)
 		{
 			if (player.dead)
 			{

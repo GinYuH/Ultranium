@@ -33,7 +33,6 @@ public class UltraniumScepter : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("Ultrum").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("UltrumBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

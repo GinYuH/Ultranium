@@ -40,8 +40,8 @@ public class HorrorMask : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nSummon weapons will shoot dread flame bolts when used\n(This effect will still apply if you have maximum minions active)\n+3 max minions";
-		player.GetModPlayer<UltraniumPlayer>().HorrorSummonSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().HorrorSummonSet = true;
 		player.maxMinions += 3;
 	}
 

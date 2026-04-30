@@ -40,8 +40,8 @@ public class HorrorHelm : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nMelee weapons have a chance to shoot out dread flame bolts\n10% increased melee damage";
-		player.GetModPlayer<UltraniumPlayer>().HorrorMeleeSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().HorrorMeleeSet = true;
 		player.GetDamage(DamageClass.Melee) += 0.1f;
 	}
 

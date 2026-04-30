@@ -40,8 +40,8 @@ public class DarkMask : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nSummons an eldritch monolith to fight for you (The monolith does not take up minion slots)\nPressing the Special Ability hotkey will grant you the eldritch summon empowerment buff\nThis buff will cause all summons to deal 1.5x damage,\nas well as causing your monolith to become stronger and shoot faster\nThis ability has a 40 second cool down";
-		player.GetModPlayer<UltraniumPlayer>().EldritchSummonSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().EldritchSummonSet = true;
 		player.GetModPlayer<UltraniumPlayer>().EldritchSummonEye = true;
 	}
 

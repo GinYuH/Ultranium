@@ -33,7 +33,7 @@ public class TenebrisMask : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "+2 max minions and 4% increased summon damage";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.maxMinions += 2;
 		player.GetDamage(DamageClass.Summon) += 0.04f;
 	}

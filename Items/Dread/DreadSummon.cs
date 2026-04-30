@@ -32,7 +32,6 @@ public class DreadSummon : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("DreadMinion").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("DreadMinionBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void AddRecipes()

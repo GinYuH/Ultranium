@@ -32,6 +32,5 @@ public class StaffOfCthulhu : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("EyeMinion").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("EyeBuff").Type;
-		Item.buffTime = 3600;
 	}
 }

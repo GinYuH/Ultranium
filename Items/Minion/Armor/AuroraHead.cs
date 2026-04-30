@@ -33,8 +33,8 @@ public class AuroraHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n+2 max minions\nStars will fall from the sky when you are hit";
-		player.starCloakItem = Item;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.starCloakItem = Item;
 		player.maxMinions += 2;
 	}
 

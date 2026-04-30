@@ -33,7 +33,6 @@ public class HellScepter : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("Ignodium").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("IgnodiumBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

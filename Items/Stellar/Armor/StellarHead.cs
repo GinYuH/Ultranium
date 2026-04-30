@@ -33,8 +33,8 @@ public class StellarHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nYou have a chance to unleash a circle of comets when you are hit";
-		player.GetModPlayer<UltraniumPlayer>().StellarSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().StellarSet = true;
 	}
 
 	public override void ArmorSetShadows(Player player)

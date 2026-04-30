@@ -32,8 +32,8 @@ public class MushroomHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nYou constantly emit a feint blue glow\nYou have a chance to spawn lingering mushroom spores around you when hit";
-		player.GetModPlayer<UltraniumPlayer>().MushroomSet = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.GetModPlayer<UltraniumPlayer>().MushroomSet = true;
 	}
 
 	public override void AddRecipes()

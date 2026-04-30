@@ -6,6 +6,7 @@ using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Erebus.SmallErebus;
 
@@ -75,7 +76,8 @@ public class SmolErebusHead : ModProjectile
 			return;
 		}
 		int num = 10;
-		if (player.dead)
+        player.AddBuff(ModContent.BuffType<ErebusBuff>(), 3600, quiet: false);
+        if (player.dead)
 		{
 			modPlayer.ErebusMinion = false;
 		}

@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Pumpkin;
 
@@ -49,7 +50,8 @@ public class PumpSlime : ModProjectile
 		bool num = Projectile.type == Mod.Find<ModProjectile>("PumpSlime").Type;
 		Player player = Main.player[Projectile.owner];
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (num)
+        player.AddBuff(ModContent.BuffType<PumpBuff>(), 3600, quiet: false);
+        if (num)
 		{
 			if (player.dead)
 			{

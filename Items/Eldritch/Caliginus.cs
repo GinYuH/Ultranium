@@ -34,7 +34,6 @@ public class Caliginus : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("SmolErebusHead").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("ErebusBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void ModifyTooltips(List<TooltipLine> tooltips)

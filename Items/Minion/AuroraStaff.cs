@@ -32,7 +32,6 @@ public class AuroraStaff : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("StarMinion").Type;
 		Item.shootSpeed = 0f;
 		Item.buffType = Mod.Find<ModBuff>("StarMinionBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void AddRecipes()

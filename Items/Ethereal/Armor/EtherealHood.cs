@@ -33,8 +33,8 @@ public class EtherealHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nGrants increased immune time after being hit\nGrants the ability to dash\nEnemies are much less likely to target you";
-		player.longInvince = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.longInvince = true;
 		player.dash = 1;
 		player.aggro -= 400;
 	}

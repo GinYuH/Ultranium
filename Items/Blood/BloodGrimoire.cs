@@ -32,7 +32,6 @@ public class BloodGrimoire : ModItem
 		Item.shoot = Mod.Find<ModProjectile>("BloodMinion").Type;
 		Item.shootSpeed = 10f;
 		Item.buffType = Mod.Find<ModBuff>("BloodBuff").Type;
-		Item.buffTime = 3600;
 	}
 
 	public override void AddRecipes()

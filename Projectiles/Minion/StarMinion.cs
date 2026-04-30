@@ -1,10 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Ultranium.Buffs.Minions;
 
 namespace Ultranium.Projectiles.Minion;
 
@@ -50,7 +51,8 @@ public class StarMinion : ModProjectile
 		Projectile.position.X = player.Center.X - 15f;
 		Projectile.position.Y = player.Center.Y - 100f;
 		UltraniumPlayer modPlayer = player.GetModPlayer<UltraniumPlayer>();
-		if (player.dead)
+        player.AddBuff(ModContent.BuffType<StarMinionBuff>(), 3600, quiet: false);
+        if (player.dead)
 		{
 			modPlayer.StarMinion = false;
 		}

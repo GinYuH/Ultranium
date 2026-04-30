@@ -40,7 +40,7 @@ public class HorrorHood : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\nMagic weapons have a chance to shoot out dread flame bolts\n20% reduced mana cost";
+		player.setBonus = this.GetLocalizedValue("SetBonus");
 		player.GetModPlayer<UltraniumPlayer>().HorrorMagicSet = true;
 		player.manaCost -= 0.2f;
 	}

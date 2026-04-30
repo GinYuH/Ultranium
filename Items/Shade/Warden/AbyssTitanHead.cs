@@ -39,8 +39,8 @@ public class AbyssTitanHead : ModItem
 
 	public override void UpdateArmorSet(Player player)
 	{
-		player.setBonus = "\n25% chance to not consume ammo";
-		player.ammoCost75 = true;
+		player.setBonus = this.GetLocalizedValue("SetBonus");
+        player.ammoCost75 = true;
 	}
 
 	public override void AddRecipes()
