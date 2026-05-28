@@ -27,10 +27,10 @@ public class ZephyrSquid : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Zephyr Squid");
-		Main.npcFrameCount[NPC.type] = 5;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 3;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 5;
+		NPCID.Sets.TrailCacheLength[Type] = 3;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -257,27 +257,27 @@ public class ZephyrSquid : ModNPC
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
-    {
-        if (NPC.life > 0 || Main.dedServ)
-            return;
-        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore1").Type);
+	{
+		if (NPC.life > 0 || Main.dedServ)
+			return;
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore1").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore2").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore3").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("SquidGore4").Type);
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
-        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("SquidBag").Type));
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
+		npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("SquidBag").Type));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("OceanScale").Type, 1, 8, 11));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type));
-        npcLoot.Add(notExpert);
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("ZephyrBlade").Type, Mod.Find<ModItem>("ZephyrKnife").Type, Mod.Find<ModItem>("ZephyrTrident").Type));
+		npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("WormPet").Type, 20));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("SquidTrophyItem").Type, 10));
 
-    }
+	}
 
 	public override void OnKill()
 	{

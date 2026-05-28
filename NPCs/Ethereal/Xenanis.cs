@@ -39,10 +39,10 @@ public class Xenanis : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Xenanis");
-		Main.npcFrameCount[NPC.type] = 12;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 12;
+		NPCID.Sets.TrailCacheLength[Type] = 10;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -418,24 +418,24 @@ public class Xenanis : ModNPC
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
-    {
-        if (NPC.life > 0 || Main.dedServ)
-            return;
-        Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore1").Type);
+	{
+		if (NPC.life > 0 || Main.dedServ)
+			return;
+		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore1").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore2").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore3").Type);
 		Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("XenanisGore4").Type);
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
-        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("EtherealBag").Type));
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
+		npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("EtherealBag").Type));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisFlesh").Type, 1, 10, 17));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("XenanisWings").Type, 20));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("EtherealDidgeridoo").Type, 10));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type));
-        npcLoot.Add(notExpert);
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("EtherealSword").Type, Mod.Find<ModItem>("EtherealBow").Type, Mod.Find<ModItem>("EtherealTome").Type, Mod.Find<ModItem>("EtherealSummon").Type));
+		npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisMask>(), 7));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<XenanisTrophyItem>(), 10));
 	}

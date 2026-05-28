@@ -53,8 +53,8 @@ public class ErebusHead : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Erebus");
-		Main.npcFrameCount[NPC.type] = 2;
+		Main.npcFrameCount[Type] = 2;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -130,18 +130,18 @@ public class ErebusHead : ModNPC
 		{
 			modifiers.SourceDamage /= 5;
 		}
-    }
-    public override void HitEffect(NPC.HitInfo hit)
-    {
-        if (NPC.life <= 0)
-        {
-            if (!Main.dedServ)
-            {
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore1").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore2").Type);
-            }
-        }
-    }
+	}
+	public override void HitEffect(NPC.HitInfo hit)
+	{
+		if (NPC.life <= 0)
+		{
+			if (!Main.dedServ)
+			{
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore1").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("ErebusHeadGore2").Type);
+			}
+		}
+	}
 
 	public override bool PreAI()
 	{
@@ -872,18 +872,18 @@ public class ErebusHead : ModNPC
 		}
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
-        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("ErebusBag").Type));
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
+		npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("ErebusBag").Type));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("ErebusTrophyItem").Type, 10));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("Noctis").Type, Mod.Find<ModItem>("SolibusOrba").Type, Mod.Find<ModItem>("Crepus").Type, Mod.Find<ModItem>("Inanis").Type, Mod.Find<ModItem>("CavumNigrum").Type, Mod.Find<ModItem>("Exitium").Type, Mod.Find<ModItem>("Umbra").Type, Mod.Find<ModItem>("Nihil").Type, Mod.Find<ModItem>("Caliginus").Type));
-        npcLoot.Add(notExpert);
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("Noctis").Type, Mod.Find<ModItem>("SolibusOrba").Type, Mod.Find<ModItem>("Crepus").Type, Mod.Find<ModItem>("Inanis").Type, Mod.Find<ModItem>("CavumNigrum").Type, Mod.Find<ModItem>("Exitium").Type, Mod.Find<ModItem>("Umbra").Type, Mod.Find<ModItem>("Nihil").Type, Mod.Find<ModItem>("Caliginus").Type));
+		npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("NightmareScale").Type, 1, 20, 34));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("DarkMatter").Type, 1, 10, 14));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("ErebusGuitar").Type, 20));
-    }
+	}
 
 	public override void OnKill()
 	{

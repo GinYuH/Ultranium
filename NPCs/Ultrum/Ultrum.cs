@@ -31,10 +31,10 @@ public class Ultrum : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Ultrum");
-		Main.npcFrameCount[NPC.type] = 6;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 6;
+		NPCID.Sets.TrailCacheLength[Type] = 10;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -53,6 +53,7 @@ public class Ultrum : ModNPC
 		NPC.noTileCollide = true;
 		NPC.npcSlots = 1f;
 		NPC.alpha = 255;
+		NPC.netAlways = true;
 		NPC.aiStyle = -1;
 		NPC.value = Item.buyPrice(0, 35);
 		players = 1;
@@ -610,16 +611,16 @@ public class Ultrum : ModNPC
 		}
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("UltrumMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("UltrumTrophyItem").Type, 10));
-        npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("UltrumBag").Type));
+		npcLoot.Add(ItemDropRule.BossBag(Mod.Find<ModItem>("UltrumBag").Type));
 		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
 		notExpert.OnSuccess(ItemDropRule.Common(Mod.Find<ModItem>("UltrumShard").Type, 1, 25, 31));
 		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("UltraFlail").Type, Mod.Find<ModItem>("UltraniumBow").Type, Mod.Find<ModItem>("UltraniumKunai").Type, Mod.Find<ModItem>("UltraniumStaff").Type, Mod.Find<ModItem>("UltraniumSword").Type, Mod.Find<ModItem>("UltraTome").Type, Mod.Find<ModItem>("UltraniumScepter").Type));
 		npcLoot.Add(notExpert);
-    }
+	}
 
 	public override void OnKill()
 	{

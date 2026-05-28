@@ -42,10 +42,10 @@ public class IceDragon : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Glacieron");
-		Main.npcFrameCount[NPC.type] = 8;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 8;
+		NPCID.Sets.TrailCacheLength[Type] = 10;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -63,6 +63,7 @@ public class IceDragon : ModNPC
 		NPC.boss = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
+		NPC.netAlways = true;
 		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/IceDragon");
 	}
 
@@ -166,7 +167,7 @@ public class IceDragon : ModNPC
 				if (Timer1 == 280)
 				{
 					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
-                }
+				}
 				if (Timer1 == 300)
 				{
 					float num5 = 14f;
@@ -210,7 +211,7 @@ public class IceDragon : ModNPC
 				if (TransitionTimer == 250)
 				{
 					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
-                    Ultranium.seizureAmount = 12f;
+					Ultranium.seizureAmount = 12f;
 					BlizzardEffect = true;
 				}
 				if (TransitionTimer == 300)
@@ -301,7 +302,7 @@ public class IceDragon : ModNPC
 				if (AttackType2 == 2 && Timer2 == 400)
 				{
 					SoundEngine.PlaySound(new SoundStyle("Ultranium/Sounds/DragonRoar") with { PitchVariance = 0.6f });
-                    float num14 = 4f;
+					float num14 = 4f;
 					int num15 = Mod.Find<ModProjectile>("IceVortex").Type;
 					SoundEngine.PlaySound(SoundID.Item20, new Vector2(NPC.position.X, NPC.position.Y));
 					float num16 = (float)Math.Atan2(NPC.Center.Y - player.Center.Y, NPC.Center.X - player.Center.X);
@@ -343,15 +344,15 @@ public class IceDragon : ModNPC
 		if (NPC.life <= 0)
 		{
 			if (!Main.dedServ)
-            {
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore1").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore2").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore3").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore4").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore5").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore6").Type);
-                Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore7").Type);
-            }
+			{
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore1").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore2").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore3").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore4").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore5").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore6").Type);
+				Gore.NewGore(NPC.GetSource_FromThis(), NPC.position, NPC.velocity, Mod.Find<ModGore>("DragonGore7").Type);
+			}
 		}
 	}
 
@@ -373,16 +374,16 @@ public class IceDragon : ModNPC
 		}
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
 		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IceDragonBag>()));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonMask>(), 7));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<IceDragonTrophyItem>()));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<GlacialFlail>(), ModContent.ItemType<GlacialGun>(), ModContent.ItemType<GlacialWand>()));
-        npcLoot.Add(notExpert);
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<GlacialFlail>(), ModContent.ItemType<GlacialGun>(), ModContent.ItemType<GlacialWand>()));
+		npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<IcePelt>(), 1, 12, 17));
-    }
+	}
 
 	public override void OnKill()
 	{

@@ -33,8 +33,8 @@ public class Ignodium : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Ignodium");
-		Main.npcFrameCount[NPC.type] = 6;
+		Main.npcFrameCount[Type] = 6;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -51,6 +51,7 @@ public class Ignodium : ModNPC
 		NPC.boss = true;
 		NPC.noGravity = true;
 		NPC.noTileCollide = true;
+		NPC.netAlways = true;
 		NPC.npcSlots = 1f;
 		NPC.alpha = 255;
 		NPC.aiStyle = -1;
@@ -535,16 +536,16 @@ public class Ignodium : ModNPC
 		}
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
-        npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IgnodiumBag>()));
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
+		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<IgnodiumBag>()));
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), Mod.Find<ModItem>("HellShard").Type, 1, 25, 31));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("IgnodiumTrophyItem").Type, 10));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("HellFlail").Type, Mod.Find<ModItem>("HellThrow").Type, Mod.Find<ModItem>("HellGun").Type, Mod.Find<ModItem>("HellJavelin").Type, Mod.Find<ModItem>("HellStaff").Type, Mod.Find<ModItem>("HellTome").Type, Mod.Find<ModItem>("HellScepter").Type));
-        npcLoot.Add(notExpert);
-    }
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("HellFlail").Type, Mod.Find<ModItem>("HellThrow").Type, Mod.Find<ModItem>("HellGun").Type, Mod.Find<ModItem>("HellJavelin").Type, Mod.Find<ModItem>("HellStaff").Type, Mod.Find<ModItem>("HellTome").Type, Mod.Find<ModItem>("HellScepter").Type));
+		npcLoot.Add(notExpert);
+	}
 
 	public override void OnKill()
 	{
