@@ -44,10 +44,10 @@ public class TrueDread : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("Absolute Dread");
-		Main.npcFrameCount[NPC.type] = 6;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 6;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 6;
+		NPCID.Sets.TrailCacheLength[Type] = 6;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -489,16 +489,16 @@ public class TrueDread : ModNPC
 		return (float)Math.Sqrt(mag.X * mag.X + mag.Y * mag.Y);
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
-        npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TrueDreadBag>()));
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
+		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<TrueDreadBag>()));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadMask").Type, 7));
 		npcLoot.Add(ItemDropRule.Common(Mod.Find<ModItem>("DreadTrophyItem").Type, 10));
-        LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSpear").Type, Mod.Find<ModItem>("DreadYoyo").Type, Mod.Find<ModItem>("DreadDisc").Type, Mod.Find<ModItem>("DreadFlameBlaster").Type, Mod.Find<ModItem>("FearStaff").Type, Mod.Find<ModItem>("DreadTome").Type, Mod.Find<ModItem>("DreadScepter").Type));
-        npcLoot.Add(notExpert);
+		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, Mod.Find<ModItem>("DreadSpear").Type, Mod.Find<ModItem>("DreadYoyo").Type, Mod.Find<ModItem>("DreadDisc").Type, Mod.Find<ModItem>("DreadFlameBlaster").Type, Mod.Find<ModItem>("FearStaff").Type, Mod.Find<ModItem>("DreadTome").Type, Mod.Find<ModItem>("DreadScepter").Type));
+		npcLoot.Add(notExpert);
 		npcLoot.Add(ItemDropRule.ByCondition(new Conditions.NotExpert(), ModContent.ItemType<NightmareFuel>(), 1, 20, 34));
-    }
+	}
 
 	public override void OnKill()
 	{
@@ -525,10 +525,10 @@ public class TrueDread : ModNPC
 	}
 
 	public override void HitEffect(NPC.HitInfo hit)
-    {
-        if (NPC.life > 0)
-            return;
-        for (int i = 0; i < 30; i++)
+	{
+		if (NPC.life > 0)
+			return;
+		for (int i = 0; i < 30; i++)
 		{
 			int num = Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.GemRuby, 0f, -2f, 0, default(Color), 1.5f);
 			Main.dust[num].noGravity = false;

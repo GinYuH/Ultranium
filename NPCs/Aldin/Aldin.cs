@@ -42,10 +42,10 @@ public class Aldin : ModNPC
 
 	public override void SetStaticDefaults()
 	{
-		//DisplayName.SetDefault("???");
-		Main.npcFrameCount[NPC.type] = 7;
-		NPCID.Sets.TrailCacheLength[NPC.type] = 10;
-		NPCID.Sets.TrailingMode[NPC.type] = 0;
+		Main.npcFrameCount[Type] = 7;
+		NPCID.Sets.TrailCacheLength[Type] = 10;
+		NPCID.Sets.TrailingMode[Type] = 0;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -935,16 +935,16 @@ public class Aldin : ModNPC
 		potionType = 3544;
 	}
 
-    public override void ModifyNPCLoot(NPCLoot npcLoot)
-    {
+	public override void ModifyNPCLoot(NPCLoot npcLoot)
+	{
 		npcLoot.Add(ItemDropRule.BossBag(ModContent.ItemType<AldinBag>()));
 		npcLoot.Add(ItemDropRule.Common(ModContent.ItemType<AldinTrophyItem>(), 10));
 		LeadingConditionRule notExpert = new LeadingConditionRule(new Conditions.NotExpert());
 		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<CosmicBlade>(), ModContent.ItemType<CosmicBow>(), ModContent.ItemType<CosmicStaff>()));
-        notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AldinHood>(), ModContent.ItemType<AldinBody>(), ModContent.ItemType<AldinRobe>()));
-        npcLoot.Add(notExpert);
+		notExpert.OnSuccess(ItemDropRule.OneFromOptions(1, ModContent.ItemType<AldinHood>(), ModContent.ItemType<AldinBody>(), ModContent.ItemType<AldinRobe>()));
+		npcLoot.Add(notExpert);
 
-    }
+	}
 
 	public override void OnKill()
 	{

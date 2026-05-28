@@ -27,7 +27,8 @@ public class FakeDread : ModNPC
 	public override void SetStaticDefaults()
 	{
 		//DisplayName.SetDefault("Dread???");
-		Main.npcFrameCount[NPC.type] = 4;
+		Main.npcFrameCount[Type] = 4;
+		NPCID.Sets.MPAllowedEnemies[Type] = true;
 	}
 
 	public override void SetDefaults()
@@ -45,7 +46,7 @@ public class FakeDread : ModNPC
 		NPC.netAlways = true;
 		NPC.HitSound = SoundID.NPCHit7;
 		NPC.npcSlots = 1f;
-		Music = MusicLoader.GetMusicSlot(Mod,"Sounds/Music/Dread");
+		Music = MusicLoader.GetMusicSlot(Mod, "Sounds/Music/Dread");
 		NPC.aiStyle = -1;
 		players = 1;
 	}
